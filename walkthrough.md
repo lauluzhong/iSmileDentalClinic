@@ -1,0 +1,46 @@
+# iSmile Dental Clinic Website - Walkthrough
+
+## Overview
+We have successfully built the complete **iSmile Dental Clinic** website with a premium "Liquid Glass" aesthetic. The site is built with **React + Vite** and utilizes a custom CSS design system to ensure a unique, brand-aligned look without heavy framework dependencies.
+
+## Key Features Implemented
+- **Liquid Glass Theme**: Custom CSS variables and glassmorphism utilities (`.glass-panel`, `.glass-header`, liquid background shapes).
+- **Global Navigation**:
+  - Sticky glass header with hover dropdowns.
+  - Fully responsive mobile menu.
+- **Comprehensive Pages**:
+  - **Home**: Hero section, Service pillars, Social proof slider.
+  - **About Us**: Founder story, detailed Team Grid with doctor bios.
+  - **Services**: Dynamic "Hub" structure supporting 5 drill-down service categories.
+  - **New Patients**: Concierge-style flow, amenities showcase, and FAQ.
+  - **Reviews**: Grid of curated patient testimonials.
+  - **Learning Centre**: Blog layout with search and featured posts.
+  - **Contact**: Map embed, working appointment form, and contact info.
+
+## How to Run the Project
+Since this is a fresh React project, you will need to install dependencies first.
+
+1.  **Open your terminal** in the project directory.
+2.  **Install Dependencies**:
+    ```bash
+    npm install
+    ```
+3.  **Run the Development Server**:
+    ```bash
+    npm run dev
+    ```
+4.  **Open Localhost**: Click the link provided in the terminal (usually `http://localhost:5173`) to view the site.
+
+## Verification Steps
+- **Responsiveness**: Resize your browser window to mobile width to see the hamburger menu and stacked layouts.
+- **Interactivity**:
+    - Hover over "About Us" and "Our Services" in the header to see the dropdowns.
+    - Hover over service cards to see the "Arrow" animation.
+    - Click "Book Appointment" to navigate to the Contact page.
+- **Navigation**: Click through all the links in the footer and header to ensure routing works correctly.
+
+## Project Structure
+- `src/components`: Reusable UI components (Header, Footer, Button, Layout).
+- `src/pages`: Individual page components (Home, About, Services, etc.).
+- `src/index.css`: The core of the design system (Colors, Typography, Glass effects).
+- `public`: Contains `logo.png` and `palette.jpg`.

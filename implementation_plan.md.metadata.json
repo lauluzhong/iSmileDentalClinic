@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Implementation plan for iSmile Dental Clinic website.\nIncludes Vite+React setup, Liquid Glass design system with vanilla CSS, and component structure.\nHighlighting the need for user input on specific color hex codes.",
+  "updatedAt": "2025-12-15T03:17:15.751195Z"
+}
