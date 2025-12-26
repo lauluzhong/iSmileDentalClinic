@@ -1,8 +1,10 @@
+import { useBooking } from '../../context/BookingContext';
 import React, { useEffect } from 'react';
 import { Shield, CheckCircle, HelpCircle, Star } from 'lucide-react';
 import Button from '../../components/Button';
 
 const TeethWhitening = () => {
+    const { openBooking } = useBooking();
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -90,7 +92,7 @@ const TeethWhitening = () => {
                 <div className="container">
                     <h2>Consult with our specialists today</h2>
                     <p className="mb-4">Get a professional assessment based on your unique dental structure.</p>
-                    <Button onClick={() => window.open('https://wa.me/6013222135', '_blank')}>Book Consultation</Button>
+                    <Button onClick={() => openBooking('Interested in Teeth Whitening')}>Book Consultation</Button>
                 </div>
             </section>
 

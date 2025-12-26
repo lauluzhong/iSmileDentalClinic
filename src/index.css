@@ -1,12 +1,12 @@
 :root {
-  /* Brand Colors - Verified Hex Codes */
+  /* Brand Colors */
   --color-primary-teal: #4FA3C2;
   --color-sky-blue: #79C1DD;
   --color-pastel-blue: #A9D9E9;
   --color-tint-blue: #D8EEF5;
 
   /* Backgrounds */
-  --color-bg-cream: #F6F4EF;
+  --color-bg-cream: #f8fafc;
   --color-bg-soft: #f8fafc;
   --color-bg-white: #FFFFFF;
 
@@ -30,7 +30,7 @@
   /* Glassmorphism */
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(255, 255, 255, 0.5);
-  --glass-shadow: 0 8px 32px 0 rgba(79, 163, 194, 0.15); /* Tinted shadow */
+  --glass-shadow: 0 8px 32px 0 rgba(79, 163, 194, 0.15);
   --glass-blur: blur(12px);
 }
 
@@ -38,10 +38,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-body);
-  background-color: var(--color-background);
+  background-color: var(--color-background); /* Revert to soft white */
   color: var(--color-text-main);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -73,9 +74,9 @@ a {
 }
 
 .glass-header {
-  background: rgba(248, 250, 252, 0.85); /* Soft background tint glass */
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(248, 250, 252, 0.2); 
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -140,4 +141,37 @@ a {
 
 .section-padding {
   padding: 80px 0;
+}
+
+/* Page Transition Grid Overlap */
+.main-content {
+  display: grid;
+  grid-template-areas: "content";
+  min-height: 100vh;
+  position: relative;
+  /* Ensure footer is pushed down? 
+     With grid, the main-content height will be max(child).
+     So duplicate children might make it taller?
+     No, they overlap.
+  */
+  width: 100%;
+}
+
+/* Specific Page Backgrounds to Ensure Opaque Layers */
+.service-hub, .home-page, .about-page, .reviews-page, .blog-page, .contact-page, .page-container, .specialty-page {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--color-background); /* Default to soft white */
+}
+
+/* IMPORTANT: Ensure PageTransition Wrapper has a background so it covers the one below */
+.page-transition-wrapper {
+    background-color: var(--color-background);
+}
+/* Override for Service Pages embedded in Transition */
+/* We can't easily target the wrapper from inside effectively with just CSS unless we pass props.
+   But we can make the children opaque.
+*/
+.page-transition-wrapper > div {
+    background-color: inherit;
 }

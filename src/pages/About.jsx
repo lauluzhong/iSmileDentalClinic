@@ -1,5 +1,6 @@
 import React from 'react';
 import { Award } from 'lucide-react';
+import { Reveal, FadeIn } from '../components/Reveal';
 
 const doctors = [
     {
@@ -87,36 +88,36 @@ const About = () => {
                 <div className="about-hero">
                     <div className="container">
                         <div className="hero-content-left">
-                            <h1 className="hero-title">Where Competency and Compassion Meet</h1>
-                            <p className="hero-description">
+                            <Reveal><h1 className="hero-title">Where Competency and Compassion Meet</h1></Reveal>
+                            <Reveal delay={0.2}><p className="hero-description">
                                 A place where clinical excellence joins genuine heart. We believe in partnering with our patients to ensure they feel safe, heard, and valued at every step of their journey.
-                            </p>
+                            </p></Reveal>
                         </div>
                     </div>
                 </div>
 
                 <section id="journey" className="journey-section">
                     <div className="container">
-                        <h2 className="section-title">Our Journey So Far</h2>
+                        <Reveal><h2 className="section-title">Our Journey So Far</h2></Reveal>
                         <div className="journey-grid">
-                            <div className="journey-card">
+                            <FadeIn className="journey-card">
                                 <div className="journey-year">2006</div>
                                 <h3>Where We Began</h3>
                                 <div className="journey-divider"></div>
                                 <p>Founded in 2006 by Dr. Jean in Damansara Uptown, iSmile began with a simple belief: dentistry should feel personal, honest, and compassionate. Our early commitment to family care and trust continues to guide everything we do today.</p>
-                            </div>
-                            <div className="journey-card">
+                            </FadeIn>
+                            <FadeIn className="journey-card">
                                 <div className="journey-year">2022</div>
                                 <h3>Where We Are Now</h3>
                                 <div className="journey-divider"></div>
                                 <p>In 2022, we moved to Damansara Jaya into a purpose-built clinic designed to enhance comfort and clinical quality. Today, we welcome families with expanded services, stronger facilities, and a growing patient community.</p>
-                            </div>
-                            <div className="journey-card">
+                            </FadeIn>
+                            <FadeIn className="journey-card">
                                 <div className="journey-year">Today</div>
                                 <h3>Where We’re Going</h3>
                                 <div className="journey-divider"></div>
                                 <p>We are evolving into a modern, digitally-driven clinic for families — combining advanced technology, personalised care, and a continued commitment to delivering dentistry with excellence, accuracy, and heart.</p>
-                            </div>
+                            </FadeIn>
                         </div>
                     </div>
                 </section>
@@ -126,11 +127,11 @@ const About = () => {
                 <div className="container">
                     <div className="founder-card-dark" style={{ minHeight: 'auto', background: 'transparent' }}>
                         <div className="founder-content">
-                            <span className="founder-eyebrow">Meet Our Founder</span>
-                            <h2>Dr. Jean Ong</h2>
-                            <h4 className="founder-role">Founder & Dental Surgeon</h4>
+                            <Reveal><span className="founder-eyebrow">Meet Our Founder</span></Reveal>
+                            <Reveal><h2>Dr. Jean Ong</h2></Reveal>
+                            <Reveal><h4 className="founder-role">Founder & Dental Surgeon</h4></Reveal>
 
-                            <div className="founder-bio">
+                            <Reveal delay={0.2}><div className="founder-bio">
                                 <h3>A Vision for Better Care</h3>
                                 <p>
                                     Dr. Jean Ong founded iSmile with a goal to make every visit feel a little more like home.
@@ -139,7 +140,7 @@ const About = () => {
                                 <p>
                                     With over 33 years of experience, she combines deep clinical expertise with a gentle touch, aiming to partner with parents in raising children who grow up with healthy, sustainable dental habits.
                                 </p>
-                            </div>
+                            </div></Reveal>
                         </div>
                         <div className="founder-image-container">
                             <img src="/images/doctors/dr_Jean Ong.jpg" alt="Dr Jean Ong" className="founder-img" style={{ borderRadius: '20px' }} />
@@ -150,7 +151,7 @@ const About = () => {
 
             <section id="team" className="section-padding team-section">
                 <div className="container">
-                    <h2 className="text-center mb-5">The Team Behind <span className="text-gradient">Your Smile</span></h2>
+                    <Reveal width="100%"><h2 className="text-center mb-5">The Team Behind <span className="text-gradient">Your Smile</span></h2></Reveal>
 
                     <div className="team-grid">
                         {doctors.map((doc, index) => (

@@ -1,3 +1,4 @@
+import { useBooking } from '../context/BookingContext';
 import React from 'react';
 import { Routes, Route, Link, useParams, Navigate } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Shield, Sparkles, Smile, Star, Users } from 'lucide-react';
@@ -25,18 +26,14 @@ const servicesData = {
             path: "/services/maintain/wisdom-tooth"
         },
         experience: {
-            title: "A Judgment-Free Zone",
-            desc: "We understand dental anxiety. Our team is trained to provide a calm, non-judgmental environment for all check-ups.",
-            visualTitle: "What to expect?",
-            visualContent: (
-                <>
-                    <p>
-                        At iSmile, you can expect a professional and gentle experience. Our doctors handle every patient with extreme care,
-                        ensuring your comfort at all times. We provide honest advice tailored to your well-being, skipping the judgment
-                        so you can focus on getting a healthy smile.
-                    </p>
-                </>
-            )
+            title: "Preventive Dentistry & Long-Term Care",
+            desc: "Our philosophy is simple: prevention is better than cure. We prioritize early detection to preserve your natural tooth structure, using minimally invasive techniques that save you time, money, and discomfort in the long run.",
+            benefits: [
+                "Digital Diagnostic Imaging for Early Detection",
+                "Minimally Invasive Restorative Techniques",
+                "Comprehensive Gum Health Management",
+                "Anxiety-Free, Judgment-Free Environment"
+            ]
         },
         blogs: [
             { title: "Understanding Gum Health", path: "/blog/gum-health", image: "Gum Health" },
@@ -74,7 +71,7 @@ const servicesData = {
         ]
     },
     replace: {
-        title: "Replace Missing Teeth\n (Prosthetics & Implants)",
+        title: "Replace Teeth\n (Prosthetics & Implants)",
         hero: "Eat, Speak, and Smile Again.",
         description: "Restoring function and aesthetics for a complete, confident smile.",
         icon: <Smile size={32} />, 
@@ -86,16 +83,14 @@ const servicesData = {
             path: "/services/replace/dental-implants"
         },
         experience: {
-            title: "Restoring Dignity & Function",
-            desc: "Missing teeth can affect more than just your smile. We help you regain the confidence to eat and speak freely.",
-            visualTitle: "Why This Matters",
-            visualContent: (
-                <p>
-                    Losing teeth can be daunting, but iSmile is here to help you restore your dignity and function.
-                    We believe everyone deserves to eat the foods they love and smile without hesitation.
-                    Our goal is to give you back the confidence to live your life fully.
-                </p>
-            )
+            title: "Function, Comfort, & Confidence",
+            desc: "Missing teeth affect more than just your smile—they impact your ability to eat, speak, and live fully. We specialize in functional restoration using biocompatible materials that look and feel like your natural teeth.",
+            benefits: [
+                "Biocompatible Dental Implants (Titanium/Zirconia)",
+                "Bone Preservation to Maintain Facial Structure",
+                "High-Esthetic Ceramics for Natural Looks",
+                "Full Bite Force Restoration"
+            ]
         },
         blogs: [
             { title: "Understanding Bone Loss", path: "/blog/bone-loss", image: "Bone Loss" },
@@ -115,16 +110,14 @@ const servicesData = {
             path: "/services/enhance/teeth-whitening"
         },
         experience: {
-            title: "The 'Trial Smile'",
-            desc: "See your new smile before you commit. We create digital mock-ups so you know exactly what to expect.",
-            visualTitle: "Why This Matters",
-            visualContent: (
-                <p>
-                    At iSmile, we believe in clarity before commitment. We provide digital mock-ups and trial smiles
-                    so you can see your potential results before investing in treatment. This ensures you have
-                    realistic expectations and attain the smile you truly desire.
-                </p>
-            )
+            title: "Designed for Your Unique Face",
+            desc: "True cosmetic dentistry goes beyond just 'white teeth'. We analyze your unique facial features to design a smile that is harmoniously balanced, using principles of the Golden Ratio and natural tooth morphology.",
+            benefits: [
+                "Digital Smile Design (DSD) Analysis",
+                "Custom 'Trial Smile' Mock-ups",
+                "Minimally Invasive Veneer Protocols",
+                "Natural Light Reflection & Texture"
+            ]
         },
         blogs: [
             { title: "Types of Veneers", path: "/blog/veneer-types", image: "Veneers" },
@@ -144,16 +137,14 @@ const servicesData = {
             path: "/services/children/myobrace"
         },
         experience: {
-            title: "Red Flag Checklist",
-            desc: "We screen for snoring, mouth breathing, and teeth grinding to catch developmental issues early.",
-            visualTitle: "Why This Matters",
-            visualContent: (
-                <p>
-                    Identifying red flags early in a child's development is crucial. Catching issues like mouth breathing
-                    or improper swallowing early can prevent long-term orthodontic and health problems,
-                    ensuring your child grows up with a healthy airway and a beautiful smile.
-                </p>
-            )
+            title: "Growing Healthy Airways & Smiles",
+            desc: "Modern paediatric dentistry is about more than cavities. We rigorously screen for developmental issues like mouth breathing and tongue ties, intervening early to ensure your child develops a healthy airway and a broad, beautiful smile.",
+            benefits: [
+                "Airway-Centric Growth Assessment",
+                "Myofunctional Therapy for Oral Habits",
+                "Trauma-Free, Child-Friendly Approach",
+                "Early Orthodontic Intervention"
+            ]
         },
         blogs: [
             { title: "Mouth Breathing vs Nasal Breathing", path: "/blog/mouth-breathing", image: "Mouth Breathing" },
@@ -163,6 +154,7 @@ const servicesData = {
 };
 
 const ServiceHub = () => {
+    const { openBooking } = useBooking();
     const { category } = useParams();
     const data = servicesData[category];
 
@@ -244,18 +236,32 @@ const ServiceHub = () => {
                     </div>
                 </div>
             ) : (
-                <div className="experience-section section-padding" style={{ background: 'var(--color-tint-blue)' }}>
+                <div className="experience-section section-padding">
                     <div className="container">
-                        <div className="split-layout">
-                            <div className="exp-content">
-                                <h2>{data.experience.title}</h2>
-                                <p className="lead-text">{data.experience.desc}</p>
+                        <div className="apple-grid">
+                            <div className="apple-content">
+                                <h2 className="apple-title">{data.experience.title}</h2>
+                                <p className="apple-desc">{data.experience.desc}</p>
                             </div>
-                            <div className="exp-visual">
-                                <div className="glass-panel info-visual">
-                                    <h3>{data.experience.visualTitle || "Why This Matters"}</h3>
-                                    {data.experience.visualContent}
-                                </div>
+                            <div className="apple-visual">
+                                {data.experience.benefits ? (
+                                    <div className="benefits-card">
+                                        <h3 className="benefits-header">Key Benefits</h3>
+                                        <ul className="benefit-list">
+                                            {data.experience.benefits.map((feat, i) => (
+                                                <li key={i} className="benefit-item">
+                                                    <CheckCircle size={24} className="benefit-icon" />
+                                                    <span>{feat}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                ) : (
+                                    <div className="glass-panel info-visual">
+                                        <h3>{data.experience.visualTitle || "Why This Matters"}</h3>
+                                        {data.experience.visualContent}
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -284,7 +290,7 @@ const ServiceHub = () => {
                 )}
 
                 <br />
-                <Button onClick={() => window.open('https://wa.me/6013222135', '_blank')}>Book Consultation</Button>
+                <Button onClick={() => openBooking(`Interested in ${data.title.split("\n")[0]}`)}>Book Consultation</Button>
             </div>
 
             <style>{`
@@ -422,6 +428,7 @@ const ServiceHub = () => {
                     align-items: center;
                     margin-bottom: 15px;
                     font-size: 1.1rem;
+                    color: var(--color-text-main); /* Ensure visibility */
                 }
 
                 .tier1-card {
@@ -429,6 +436,7 @@ const ServiceHub = () => {
                     background: white;
                     display: flex;
                     align-items: center;
+                    border: 1px solid rgba(0,0,0,0.05); /* Make it subtle */
                 }
 
                 .badge {
@@ -466,6 +474,69 @@ const ServiceHub = () => {
                     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
                 }
 
+                .apple-grid {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 60px;
+                    align-items: center;
+                }
+
+                .apple-title {
+                    font-size: 3rem;
+                    font-weight: 700;
+                    margin-bottom: 24px;
+                    line-height: 1.1;
+                    letter-spacing: -0.02em;
+                    color: #1d1d1f;
+                }
+
+                .apple-desc {
+                    font-size: 1.25rem;
+                    line-height: 1.5;
+                    font-weight: 400;
+                    color: #424245; /* Apple gray */
+                    max-width: 90%;
+                }
+
+                .benefits-card {
+                    background: #fbfbfd; /* Very subtle off-white */
+                    border-radius: 24px;
+                    padding: 40px;
+                    border: 1px solid rgba(0,0,0,0.04);
+                    box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+                }
+                
+                .benefits-header {
+                    font-size: 1.2rem;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    color: #86868b;
+                    margin-bottom: 25px;
+                    font-weight: 600;
+                }
+
+                .benefit-list {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                }
+
+                .benefit-item {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 16px;
+                    margin-bottom: 20px;
+                    font-size: 1.1rem;
+                    color: #1d1d1f;
+                    font-weight: 500;
+                }
+
+                .benefit-icon {
+                    color: var(--color-primary-teal);
+                    flex-shrink: 0;
+                    margin-top: 4px;
+                }
+
                 @media (max-width: 768px) {
                     .sub-grid { grid-template-columns: 1fr; }
                     .hero-main-title { font-size: 2.5rem; }
@@ -473,6 +544,11 @@ const ServiceHub = () => {
                     .hero-overlay { background: rgba(0,0,0,0.7); }
                     .scanning-title { font-size: 2rem; }
                     .hub-hero .container { padding-left: 20px; }
+                    
+                    /* Apple Style Mobile */
+                    .apple-grid { grid-template-columns: 1fr; gap: 40px; }
+                    .apple-title { font-size: 2.2rem; }
+                    .apple-desc { max-width: 100%; }
                 }
             `}</style>
         </div>

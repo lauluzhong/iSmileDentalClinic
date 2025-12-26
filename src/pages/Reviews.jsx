@@ -1,6 +1,7 @@
 import React from 'react';
 import { Star, Quote } from 'lucide-react';
 import Button from '../components/Button';
+import { Reveal, FadeIn } from '../components/Reveal';
 
 const reviewsList = [
     {
@@ -51,13 +52,13 @@ const Reviews = () => {
     return (
         <div className="reviews-page">
             <div className="section-padding" style={{ textAlign: 'center', paddingTop: '180px', paddingBottom: '20px' }}>
-                <h1 className="hero-title">Stories From <span className="text-gradient">Our Community</span></h1>
+                <Reveal width="100%"><h1 className="hero-title" style={{ fontSize: "3rem", fontWeight: 700 }}>Stories From <span className="text-gradient">Our Community</span></h1></Reveal>
             </div>
 
             <div className="container section-padding pt-0">
                 <div className="reviews-grid">
                     {reviewsList.map((review, index) => (
-                        <div key={index} className="glass-panel review-card-large">
+                        <FadeIn key={index} className="glass-panel review-card-large">
                             <div className="quote-icon"><Quote size={40} color="var(--color-tint-blue)" /></div>
                             <div className="stars">
                                 {[...Array(review.rating)].map((_, i) => <Star key={i} size={16} fill="#FFD700" color="#FFD700" />)}
@@ -70,14 +71,14 @@ const Reviews = () => {
                                     <span className="review-type">{review.type}</span>
                                 </div>
                             </div>
-                        </div>
+                        </FadeIn>
                     ))}
                 </div>
 
                 <div className="text-center" style={{ marginTop: '100px', textAlign: 'center' }}>
-                    <h3>Have a story to share?</h3>
+                    <Reveal width="100%"><h3>Have a story to share?</h3></Reveal>
                     <p className="mb-4">We'd love to hear from you.</p>
-                    <Button>Share Your Experience</Button>
+                    <a href="https://g.page/r/CQU1Takv7hs4EAE/review" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}><Button>Share Your Experience</Button></a>
                 </div>
             </div>
 
