@@ -1,14 +1,18 @@
+import { useBooking } from '../context/BookingContext';
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, X, Phone } from 'lucide-react';
 import Button from './Button';
 const logo = '/logo.png';
 
 const Header = () => {
+    const { openBooking } = useBooking();
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
     const navigate = useNavigate();
+    const location = useLocation();
+    const isDarkPage = location.pathname.startsWith('/services') && !isScrolled;
 
     // Handle scroll effect for glass header
     useEffect(() => {
@@ -31,11 +35,11 @@ const Header = () => {
         },
         {
             name: 'Our Services',
-            path: '/services',
+            path: null,
             dropdown: [
                 { name: 'Maintain & Repair', path: '/services/maintain' },
                 { name: 'Straighten Teeth', path: '/services/straighten' },
-                { name: 'Replace Missing Teeth', path: '/services/replace' },
+                { name: 'Replace Teeth', path: '/services/replace' },
                 { name: 'Enhance Smile', path: '/services/enhance' },
                 { name: 'Children & Growth', path: '/services/children' },
             ]
@@ -64,7 +68,7 @@ const Header = () => {
     };
 
     return (
-        <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+        <header className={`header ${isScrolled ? 'scrolled' : ''} ${isDarkPage ? 'header-dark' : ''}`}>
             <div className="container header-container">
                 <div className="header-left">
                     <Link to="/" className="logo-link">
@@ -81,10 +85,17 @@ const Header = () => {
                                     onMouseEnter={() => setActiveDropdown(link.name)}
                                     onMouseLeave={() => setActiveDropdown(null)}
                                 >
-                                    <Link to={link.path} className="nav-link">
-                                        {link.name}
-                                        {link.dropdown && <ChevronDown size={14} className="dropdown-icon" />}
-                                    </Link>
+                                    {link.path ? (
+                                        <Link to={link.path} className="nav-link">
+                                            {link.name}
+                                            {link.dropdown && <ChevronDown size={14} className="dropdown-icon" />}
+                                        </Link>
+                                    ) : (
+                                        <div className="nav-link" style={{ cursor: 'default' }}>
+                                            {link.name}
+                                            {link.dropdown && <ChevronDown size={14} className="dropdown-icon" />}
+                                        </div>
+                                    )}
 
                                     {/* Dropdown Menu */}
                                     {link.dropdown && (
@@ -108,7 +119,7 @@ const Header = () => {
 
                 {/* Action Button */}
                 <div className="header-actions">
-                    <Button onClick={() => window.open('https://wa.me/6013222135', '_blank')}>Book Appointment</Button>
+                    <Button onClick={() => openBooking()}>Book Appointment</Button>
                 </div>
 
                 {/* Mobile Menu Toggle */}
@@ -123,11 +134,15 @@ const Header = () => {
                     <ul className="mobile-nav-list">
                         {navLinks.map((link) => (
                             <li key={link.name}>
-                                <Link to={link.path} onClick={() => setMobileMenuOpen(false)}>{link.name}</Link>
+                                {link.path ? (
+                                    <Link to={link.path} onClick={() => setMobileMenuOpen(false)}>{link.name}</Link>
+                                ) : (
+                                    <span style={{ fontWeight: '500', color: 'var(--color-primary)', display: 'block', padding: '10px 0' }}>{link.name}</span>
+                                )}
                             </li>
                         ))}
                         <li>
-                            <Button onClick={() => { window.open('https://wa.me/6013222135', '_blank'); setMobileMenuOpen(false); }} style={{ width: '100%' }}>Book Appointment</Button>
+                            <Button onClick={() => { openBooking(); setMobileMenuOpen(false); }} style={{ width: '100%' }}>Book Appointment</Button>
                         </li>
                     </ul>
                 </div>
@@ -142,15 +157,29 @@ const Header = () => {
             z-index: 1000;
             transition: all 0.3s ease;
             padding: 20px 0;
-            background: rgba(246, 244, 239, 0.5); /* Semi-transparent base */
-            backdrop-filter: blur(8px);
+            background: rgba(248, 250, 252, 0.2); /* Semi-transparent base */
+            backdrop-filter: blur(20px);
+        }
+
+        .header.header-dark {
+            background: rgba(0, 0, 0, 0.25); /* Darker glass for hero images */
+        }
+
+        .header-dark .nav-link,
+        .header-dark .mobile-toggle,
+        .header-dark .dropdown-icon {
+            color: white !important;
+        }
+
+        .header-dark .nav-link:hover {
+            color: var(--color-secondary) !important;
         }
 
         .header.scrolled {
             padding: 15px 0;
-            background: rgba(246, 244, 239, 0.9);
+            background: rgba(248, 250, 252, 0.7);
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(20px);
         }
 
         .header-container {
@@ -206,7 +235,7 @@ const Header = () => {
             top: 100%;
             left: 50%;
             transform: translateX(-50%) translateY(10px);
-            background: white;
+            background: rgba(248, 250, 252, 0.95);
             min-width: 200px;
             padding: 10px;
             border-radius: 12px;
@@ -251,7 +280,7 @@ const Header = () => {
             top: 80px;
             left: 20px;
             right: 20px;
-            background: white;
+            background: rgba(248, 250, 252, 0.95);
             padding: 20px;
             border-radius: 16px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);

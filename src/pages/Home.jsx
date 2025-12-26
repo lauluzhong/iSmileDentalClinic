@@ -1,7 +1,10 @@
+import { useBooking } from '../context/BookingContext';
 import React, { useRef, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, Star, Heart, Shield, Sparkles, Smile, Users } from 'lucide-react';
 import Button from '../components/Button';
+import { Reveal, FadeIn } from '../components/Reveal';
+import { motion } from 'framer-motion';
 
 // Updated Image Paths
 const FAMILY_HERO = "/images/family_hero_1765825154068.png";
@@ -12,7 +15,10 @@ const BONE_IMG = "/images/bone_loss_hero_1765825236985.png";
 const VENEER_IMG = "/images/veneers_hero_1765825257935.png";
 const AIRWAY_IMG = "/images/child_airway_hero_1765825276038.png";
 
+const MotionLink = motion(Link);
+
 const Home = () => {
+    const { openBooking } = useBooking();
     const navigate = useNavigate();
 
     // Scroll Animation Logic
@@ -42,7 +48,7 @@ const Home = () => {
     }, []);
 
     return (
-        <>
+        <div className="home-page" style={{background: 'linear-gradient(180deg, #FFFFFF 0%, #eff6ff 100%)', minHeight: '100vh'}}>
             {/* 1. Hero Section */}
             <section className="hero-section">
                 <div className="liquid-shape" style={{ top: '20%', left: '10%', width: '300px', height: '300px', background: 'var(--color-secondary)' }}></div>
@@ -51,22 +57,23 @@ const Home = () => {
 
                 <div className="container hero-container">
                     <div className="hero-content">
-                        <h1 className="hero-title">
+                        <Reveal><h1 className="hero-title">
                             Dental Care for <br />
                             <span className="text-gradient">Every Generation</span>
-                        </h1>
-                        <p className="hero-subtitle">
+                        </h1></Reveal>
+                        <Reveal delay={0.2}><p className="hero-subtitle">
                             At iSmile, we deliver high-quality dental care for every stage of life, ensuring that individuals and families maintain radiant, healthy smiles.
-                        </p>
-                        <div className="hero-actions">
-                            <Button onClick={() => window.open('https://wa.me/6013222135', '_blank')}>Book an Appointment</Button>
-                        </div>
+                        </p></Reveal>
+                        <Reveal delay={0.4}><div className="hero-actions">
+                            <Button onClick={() => openBooking()}>Book an Appointment</Button>
+                        </div></Reveal>
                     </div>
 
                     <div className="hero-visual">
+<FadeIn delay={0.2}>
                         <div className="glass-panel hero-card" style={{ padding: 0, overflow: 'hidden' }}>
                             <img src={FAMILY_HERO} alt="Happy Family" style={{ width: '100%', height: 'auto', display: 'block' }} />
-                        </div>
+                        </div></FadeIn>
                     </div>
                 </div>
             </section>
@@ -75,12 +82,12 @@ const Home = () => {
             <section className="section-padding services-bento-section">
                 <div className="container">
                     <div className="section-header text-center" style={{ marginBottom: '4rem' }}>
-                        <h2 style={{ fontSize: '3rem', fontWeight: 700 }}>Comprehensive Care for <span className="text-gradient">Every Stage of Life</span></h2>
+                        <Reveal width="100%"><h2 style={{ fontSize: '3rem', fontWeight: 700 }}>Comprehensive Care for <span className="text-gradient">Every Stage of Life</span></h2></Reveal>
                     </div>
 
                     <div className="bento-grid">
                         {/* Card 1: Maintain & Repair */}
-                        <Link to="/services/maintain" className="bento-card">
+                        <MotionLink to="/services/maintain" className="bento-card" initial={{opacity:0, y:30}} whileInView={{opacity:1, y:0}} viewport={{once:true}} transition={{duration:0.5}}>
                             <div className="card-top">
                                 <Shield size={32} className="card-icon" />
                             </div>
@@ -89,10 +96,10 @@ const Home = () => {
                                 <h3 className="card-headline">Healthy Teeth. For Life</h3>
                                 <p className="card-body">Comprehensive diagnostics, gentle scaling, and expert care to keep your smile healthy.</p>
                             </div>
-                        </Link>
+                        </MotionLink>
 
                         {/* Card 2: Straighten Teeth */}
-                        <Link to="/services/straighten" className="bento-card">
+                        <MotionLink to="/services/straighten" className="bento-card" initial={{opacity:0, y:30}} whileInView={{opacity:1, y:0}} viewport={{once:true}} transition={{duration:0.5}}>
                             <div className="card-top">
                                 <Sparkles size={32} className="card-icon" />
                             </div>
@@ -101,10 +108,10 @@ const Home = () => {
                                 <h3 className="card-headline">Confidence in Every Smile</h3>
                                 <p className="card-body">Precision orthodontics with both metal damon braces and clear aligners for your every need.</p>
                             </div>
-                        </Link>
+                        </MotionLink>
 
                         {/* Card 3: Replace Teeth */}
-                        <Link to="/services/replace" className="bento-card">
+                        <MotionLink to="/services/replace" className="bento-card" initial={{opacity:0, y:30}} whileInView={{opacity:1, y:0}} viewport={{once:true}} transition={{duration:0.5}}>
                             <div className="card-top">
                                 <Smile size={32} className="card-icon" />
                             </div>
@@ -113,10 +120,10 @@ const Home = () => {
                                 <h3 className="card-headline">Eat, Speak and Smile Confidently Again</h3>
                                 <p className="card-body">Restoring function with premium implants, bridges, and custom dentures.</p>
                             </div>
-                        </Link>
+                        </MotionLink>
 
                         {/* Card 4: Enhance Smile */}
-                        <Link to="/services/enhance" className="bento-card">
+                        <MotionLink to="/services/enhance" className="bento-card" initial={{opacity:0, y:30}} whileInView={{opacity:1, y:0}} viewport={{once:true}} transition={{duration:0.5}}>
                             <div className="card-top">
                                 <Star size={32} className="card-icon" />
                             </div>
@@ -125,10 +132,10 @@ const Home = () => {
                                 <h3 className="card-headline">Design Your Dream Smile.</h3>
                                 <p className="card-body">Aesthetic transformation using ceramic veneers, composite bonding, and professional whitening.</p>
                             </div>
-                        </Link>
+                        </MotionLink>
 
                         {/* Card 5: Children & Growth */}
-                        <Link to="/services/children" className="bento-card">
+                        <MotionLink to="/services/children" className="bento-card" initial={{opacity:0, y:30}} whileInView={{opacity:1, y:0}} viewport={{once:true}} transition={{duration:0.5}}>
                             <div className="card-top">
                                 <Users size={32} className="card-icon" />
                             </div>
@@ -137,7 +144,7 @@ const Home = () => {
                                 <h3 className="card-headline">Developing Healthy Smiles</h3>
                                 <p className="card-body">Early intervention and gentle dental paediatric care to keep your child's smile on track.</p>
                             </div>
-                        </Link>
+                        </MotionLink>
                     </div>
                 </div>
             </section>
@@ -145,7 +152,7 @@ const Home = () => {
             {/* 3. Social Proof */}
             <section className="section-padding reviews-section">
                 <div className="container">
-                    <h2 className="text-center" style={{ marginBottom: '3rem', fontSize: '3rem', fontWeight: 700 }}>Trusted by <span className="text-gradient">Families</span></h2>
+                    <Reveal width="100%"><h2 className="text-center" style={{ marginBottom: '3rem', fontSize: '3rem', fontWeight: 700 }}>Trusted by <span className="text-gradient">Families</span></h2></Reveal>
                     <div className="reviews-slider">
                         {[
                             { text: "My regular dental clinic of over a decade, with trustworthy dentists, assistants and receptionists who work diligently with so much care and love for every single one of their patients. I've referred multiple family members here since I first came, because I know they will always be in good hands here at iSmile. The environment is also inviting, clean and calming. Highly recommended.", author: "Kah Mun Hew", type: "Satisfied Patient", avatar: "https://i.pravatar.cc/150?u=sarah" },
@@ -154,7 +161,7 @@ const Home = () => {
                         ].map((review, i) => (
                             <div key={i} className="glass-panel review-card">
                                 <div className="review-stars">★★★★★</div>
-                                <p className="review-text">\"{review.text}\"</p>
+                                <p className="review-text">"{review.text}"</p>
                                 <div className="review-author" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                                     <img src={review.avatar} alt={review.author} style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }} />
                                     <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -273,6 +280,7 @@ const Home = () => {
             flex: 1.5; 
             position: relative; 
             overflow: hidden; 
+            
         }
         .welcome-image-split img, .about-image-split img { 
             width: 100%; 
@@ -451,7 +459,7 @@ const Home = () => {
             .card-headline { font-size: 1.5rem; }
         }
       `}</style>
-        </>
+        </div>
     );
 };
 
