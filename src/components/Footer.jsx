@@ -248,12 +248,24 @@ const Footer = () => {
         }
 
         @media (max-width: 768px) {
+            .footer {
+                padding: 50px 0;
+            }
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 50px;
             }
             .branding-col {
                 grid-column: span 1;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-col {
+                 align-items: center;
+                 text-align: center;
+            }
+            .footer-links a:hover {
+                padding-left: 0;
             }
         }
       `}</style>

@@ -22,7 +22,7 @@ const ClearAligners = () => {
                 "q": "Can I eat with them?",
                 "a": "No, aligners must be removed during meals to prevent staining, damage, and ensuring proper oral hygiene."
         }
-];
+    ];
 
     return (
         <div className="specialty-page">
@@ -62,7 +62,7 @@ const ClearAligners = () => {
                         <div className="tech-meta glass-panel">
                             <h3>Clinical Workflow</h3>
                             <ul className="step-list">
-                                                                <li><span>01</span> 3D Intraoral Scanning & Digital Impressions</li>
+                                <li><span>01</span> 3D Intraoral Scanning & Digital Impressions</li>
                                 <li><span>02</span> ClinCheck® Software Treatment Planning</li>
                                 <li><span>03</span> Custom Aligner Fabrication & Delivery</li>
                                 <li><span>04</span> SmartForce® Attachment Placement</li>
@@ -106,19 +106,31 @@ const ClearAligners = () => {
                 .tech-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; align-items: start; }
                 .tech-feature-list { margin-top: 40px; }
                 .tech-feature { display: flex; gap: 20px; margin-bottom: 30px; }
-                .feature-icon { color: var(--color-primary); margin-top: 4px; }
+                .feature-icon { color: var(--color-primary); margin-top: 4px; flex-shrink: 0; }
                 .feature-text h4 { font-size: 1.25rem; margin-bottom: 8px; font-weight: 700; }
                 .tech-meta { padding: 40px; background: white; border: 1px solid rgba(0,0,0,0.05); }
                 .step-list { list-style: none; padding: 0; margin-top: 30px; }
                 .step-list li { display: flex; align-items: center; gap: 20px; padding: 15px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
-                .step-list li span { font-family: 'Space Grotesk', sans-serif; font-weight: 800; color: var(--color-primary); font-size: 1.2rem; opacity: 0.3; }
+                .step-list li span { font-family: 'Space Grotesk', sans-serif; font-weight: 800; color: var(--color-primary); font-size: 1.2rem; opacity: 0.3; flex-shrink: 0; }
                 .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
                 .faq-item { padding: 30px; background: white; }
                 .faq-item h4 { margin-bottom: 15px; color: var(--color-primary); }
+                
                 @media (max-width: 768px) {
-                    .tech-grid { grid-template-columns: 1fr; }
-                    .tech-hero h1 { font-size: 2.5rem; }
-                    .tech-hero h1 span { font-size: 1.5rem; }
+                    .tech-grid { grid-template-columns: 1fr; gap: 40px; }
+                    .tech-hero { padding: 60px 0; text-align: left; }
+                    .tech-hero h1 { font-size: 2.2rem; }
+                    .tech-hero h1 span { font-size: 1.3rem; margin-top: 5px; }
+                    .tech-hero .lead { font-size: 1.1rem; }
+                    
+                    .tech-meta { padding: 24px; }
+                    .feature-text h4 { font-size: 1.1rem; }
+                    .tech-feature { gap: 15px; }
+                    
+                    .step-list li { gap: 15px; font-size: 0.95rem; }
+                    .step-list li span { font-size: 1rem; }
+                    
+                    .section-padding { padding: 60px 0; }
                 }
             `}</style>
         </div>

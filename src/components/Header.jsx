@@ -277,16 +277,24 @@ const Header = () => {
         
         .mobile-nav-overlay {
             position: fixed;
-            top: 80px;
-            left: 20px;
-            right: 20px;
-            background: rgba(248, 250, 252, 0.95);
-            padding: 20px;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            top: 70px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
+            overflow-y: auto;
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .mobile-nav-list {
@@ -295,7 +303,23 @@ const Header = () => {
             margin: 0;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
+            text-align: center;
+        }
+        
+        .mobile-nav-list a, .mobile-nav-list span {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--color-text-main);
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+        
+        .mobile-nav-list a:active {
+            color: var(--color-primary);
+            background: rgba(0,0,0,0.05);
+            border-radius: 8px;
         }
 
         @media (max-width: 900px) {
@@ -304,6 +328,23 @@ const Header = () => {
             }
             .mobile-toggle {
                 display: block;
+            }
+            
+            .header-container {
+                padding: 0 10px;
+            }
+            
+            .branding-col {
+                 margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-link img {
+                height: 45px !important;
+            }
+            .header {
+                padding: 15px 0;
             }
         }
       `}</style>

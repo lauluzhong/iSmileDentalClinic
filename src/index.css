@@ -175,3 +175,21 @@ a {
 .page-transition-wrapper > div {
     background-color: inherit;
 }
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 60px 0;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  .container {
+    padding: 0 16px;
+  }
+}
