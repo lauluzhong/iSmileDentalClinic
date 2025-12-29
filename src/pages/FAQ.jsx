@@ -10,15 +10,11 @@ const FAQ = () => {
             questions: [
                 {
                     q: "Where can I park?",
-                    a: "Ample street parking is available around the clinic. For your convenience, there is also covered parking at Atria Shopping Gallery just a short 1 minute walk from our clinic."
+                    a: "There is street parking is available around the clinic. For your convenience, there is also covered parking at Atria Shopping Gallery just a short 1 minute walk from our clinic."
                 },
                 {
-                    q: "Can I use insurance to claim?",
-                    a: "Yes, we are panel providers for several major insurance companies. Please bring your insurance documentation during your visit, and our team will assist you with the claim process and verification."
-                },
-                {
-                    q: "Do you allow split payments?",
-                    a: "We offer flexible payment plans for more extensive treatments. Please speak with our reception team to discuss the various installment options available to suit your budget."
+                    q: "How do I book an appointment?",
+                    a: "We operate strictly by appointment to ensure every patient receives dedicated care. Please call or WhatsApp us at +60 16 322 2135 to schedule your visit."
                 },
                 {
                     q: "Do you accept credit cards?",
@@ -36,7 +32,7 @@ const FAQ = () => {
                 },
                 {
                     q: "What should I do in a dental emergency?",
-                    a: "If you experience severe pain, swelling, or a dental injury, please call us immediately at +60 16 322 2135. We prioritize emergency cases and will do our best to provide same-day care."
+                    a: "If you experience severe pain, swelling, or a dental injury, please reach out to us at +60 16 322 2135. We prioritize emergency cases and will do our best to provide same-day care."
                 }
             ]
         },
@@ -55,10 +51,6 @@ const FAQ = () => {
                 {
                     q: "What kind of dental services do you offer for children?",
                     a: "We provide comprehensive paediatric dental care including routine check-ups, fluoride treatments, and pit & fissure sealants to prevent decay. We also specialize in early interceptive orthodontics and myofunctional therapy to support healthy jaw growth and airway development."
-                },
-                {
-                    q: "My child is very nervous about the dentist. How do you handle that?",
-                    a: "We take a 'Tell-Show-Do' approach, explaining everything in child-friendly language. We never rush our young patients and use positive reinforcement to build their confidence and trust at their own pace."
                 }
             ]
         }

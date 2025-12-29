@@ -11,7 +11,7 @@ const doctors = [
         bio: "Passionate about caring for people and families, building genuine long-term relationships that last,",
         languages: "English, Chinese, Malay, Foo Chow, Cantonese, Hokkien",
         img: "/images/doctors/dr_Jean Ong.jpg",
-        keyCompetency: "Endodontics / root canal treatment, Occlusion & smile, Functional occlusion & rehabilitation"
+        keyCompetency: "General Dentistry, Endodontics / root canal treatment, Occlusion & smile, Functional occlusion & rehabilitation"
     },
     {
         name: "Dr. Amy Chin Mei Kuen",
@@ -20,7 +20,8 @@ const doctors = [
         qualifications: "BDS, University of Malaya",
         bio: "Passionate about educating patients and helping them achieve good oral health with confidence.",
         languages: "English, Malay, Cantonese",
-        img: "/images/doctors/dr_Amy Chin Mei Kuen.jpg"
+        img: "/images/doctors/dr_Amy Chin Mei Kuen.jpg",
+        keyCompetency: "General Dentistry, Geriatric Dental Care"
     },
     {
         name: "Dr. Ling Yoke Li",
@@ -49,7 +50,8 @@ const doctors = [
         qualifications: "BDS, Nizhny Novgorod State Medical Academy",
         bio: "Passionate about making dental visits a pleasant experience for patients of all ages.",
         languages: "English, Malay",
-        img: "/images/doctors/dr_Azelia Lau Yiling.jpg"
+        img: "/images/doctors/dr_Azelia Lau Yiling.jpg",
+        keyCompetency: "General Dentistry, Pediatric Dental Care"
     },
     {
         name: "Dr. Priscilla Chan Mei Shen",
@@ -58,11 +60,12 @@ const doctors = [
         qualifications: "BDS, University of Malaya",
         bio: "Passionate about helping children and families overcome their fear of dental treatment.",
         languages: "English, Chinese, Bahasa Malaysia, Hokkien, Cantonese",
-        img: "/images/doctors/dr_Priscilla.jpg"
+        img: "/images/doctors/dr_Priscilla.jpg",
+        keyCompetency: "General Dentistry, Pediatric Dental Care"
     },
     {
         name: "Dr Lim Zhi Yin Joan",
-        role: "Specialist",
+        role: "Specialist, BDS (Malaya), Cert. Advanced Restorative & Aesthetic Dentistry (UCLA)",
         years: "18 years",
         qualifications: "Cert. Advanced Restorative (UCLA), MFDS (RCS Edinburgh), BDS (UM)",
         specialties: "Esthetic dentistry, Fixed prosthodontics, Implantology, Smile design, Full-mouth rehabilitation",
@@ -72,7 +75,7 @@ const doctors = [
     },
     {
         name: "Dr Yeoh Oon Take",
-        role: "Specialist",
+        role: "Specialist, BDS (Malaya), D.Clin.Dent Prosthodontics (Melbourne)",
         years: "13 years",
         qualifications: "BDS (Malaya), D.Clin.Dent Prosthodontics (Melbourne)",
         specialties: "Dental implants, Oral function, Crown and bridge",

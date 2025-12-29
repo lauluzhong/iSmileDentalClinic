@@ -7,7 +7,7 @@ import { Reveal, FadeIn } from '../components/Reveal';
 import { motion } from 'framer-motion';
 
 // Updated Image Paths
-const FAMILY_HERO = "/images/family_hero_1765825154068.png";
+const FAMILY_HERO = "/images/family_hero_three_generations.jpg";
 const GUM_IMG = "/images/gum_hero_1765825178470.png";
 const SENSITIVITY_IMG = "/images/sensitivity_hero_1765825197668.png";
 const ORTHO_IMG = "/images/adult_ortho_hero_1765825218135.png";
@@ -86,8 +86,8 @@ const Home = () => {
 
                     <div className="hero-visual">
                         <FadeIn delay={0.2}>
-                            <div className="glass-panel hero-card" style={{ padding: 0, overflow: 'hidden' }}>
-                                <img src={FAMILY_HERO} alt="Happy Family" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                            <div className="glass-panel hero-card" style={{ padding: 0, overflow: 'hidden', aspectRatio: '4/5' }}>
+                                <img src={FAMILY_HERO} alt="Happy Family" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
                             </div></FadeIn>
                     </div>
                 </div>
@@ -109,7 +109,7 @@ const Home = () => {
                             <div className="card-content">
                                 <span className="eyebrow">PROTECT & REPAIR</span>
                                 <h3 className="card-headline">Healthy Teeth. For Life</h3>
-                                <p className="card-body">Comprehensive diagnostics, gentle scaling, and expert care to keep your smile healthy.</p>
+                                <p className="card-body">Comprehensive examination & diagnosis, gentle scaling & polishing to help you maintain a healthy smile.</p>
                             </div>
                         </MotionLink>
 
@@ -121,7 +121,7 @@ const Home = () => {
                             <div className="card-content">
                                 <span className="eyebrow">STRAIGHTEN TEETH</span>
                                 <h3 className="card-headline">Confidence in Every Smile</h3>
-                                <p className="card-body">Precision orthodontics with both metal damon braces and clear aligners for your every need.</p>
+                                <p className="card-body">Precision orthodontic treatment with metal or clear brackets and clear aligners for your every need.</p>
                             </div>
                         </MotionLink>
 
