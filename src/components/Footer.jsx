@@ -1,10 +1,18 @@
 import { useBooking } from '../context/BookingContext';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Button from './Button';
 
 const Footer = () => {
     const { openBooking } = useBooking();
+    const location = useLocation();
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
     return (
         <footer className="footer">
             <div className="container">
@@ -12,7 +20,18 @@ const Footer = () => {
 
                     {/* Column 1: Brand & Intro */}
                     <div className="footer-col branding-col">
-                        <Link to="/" className="footer-logo"><img src="/logo.png" alt="iSmile" style={{ height: "110px", width: "auto" }} /></Link>
+                        <Link
+                            to="/"
+                            className="footer-logo"
+                            onClick={(e) => {
+                                if (location.pathname === '/') {
+                                    e.preventDefault();
+                                    scrollToTop();
+                                }
+                            }}
+                        >
+                            <img src="/logo.png" alt="iSmile" style={{ height: "110px", width: "auto" }} />
+                        </Link>
                         <p className="footer-desc">
                             We are ready to help you smile with confidence. At iSmile Dental, we are dedicated to providing comprehensive dental care for the entire family.
                         </p>
@@ -22,12 +41,84 @@ const Footer = () => {
                     <div className="footer-col links-col">
                         <h4 className="footer-heading">Quick Links</h4>
                         <ul className="footer-links">
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/about">About Us</Link></li>
-                            <li><Link to="/services">Services</Link></li>
-                            <li><Link to="/reviews">Reviews</Link></li>
-                            <li><Link to="/blog">Learning Centre</Link></li>
-                            <li><Link to="/faq">FAQs</Link></li>
+                            <li>
+                                <Link
+                                    to="/"
+                                    onClick={(e) => {
+                                        if (location.pathname === '/') {
+                                            e.preventDefault();
+                                            scrollToTop();
+                                        }
+                                    }}
+                                >
+                                    Home
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/about"
+                                    onClick={(e) => {
+                                        if (location.pathname === '/about') {
+                                            e.preventDefault();
+                                            scrollToTop();
+                                        }
+                                    }}
+                                >
+                                    About Us
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/services"
+                                    onClick={(e) => {
+                                        if (location.pathname === '/services') {
+                                            e.preventDefault();
+                                            scrollToTop();
+                                        }
+                                    }}
+                                >
+                                    Services
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/reviews"
+                                    onClick={(e) => {
+                                        if (location.pathname === '/reviews') {
+                                            e.preventDefault();
+                                            scrollToTop();
+                                        }
+                                    }}
+                                >
+                                    Reviews
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/blog"
+                                    onClick={(e) => {
+                                        if (location.pathname === '/blog') {
+                                            e.preventDefault();
+                                            scrollToTop();
+                                        }
+                                    }}
+                                >
+                                    Learning Centre
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/faq"
+                                    onClick={(e) => {
+                                        if (location.pathname === '/faq') {
+                                            e.preventDefault();
+                                            scrollToTop();
+                                        }
+                                    }}
+                                >
+                                    FAQs
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 
@@ -35,31 +126,27 @@ const Footer = () => {
                     <div className="footer-col">
                         <h4 className="footer-heading">Visit Us</h4>
                         <div className="address-block">
-                             <p>
+                            <p>
                                 75 & 75A , Jalan SS 22/23,<br />
                                 Damansara Jaya, Petaling Jaya,<br />
                                 Malaysia
                             </p>
                         </div>
                         <div className="direction-buttons">
-                             <Button 
+                            <Button
                                 className="direction-btn google-btn"
                                 onClick={() => window.open('https://maps.app.goo.gl/yt8MxXDpDxXgXqre6', '_blank')}
-                             >
-                                <svg className="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#EA4335"/>
-                                </svg>
+                            >
+                                <img src="/images/google-maps.png" alt="Google Maps" className="btn-icon" />
                                 Google Maps
-                             </Button>
-                             <Button 
+                            </Button>
+                            <Button
                                 className="direction-btn waze-btn"
                                 onClick={() => window.open('https://ul.waze.com/ul?place=ChIJMyz-_jZJzDERBTVNqS_uGzg&ll=3.12583430%2C101.61623380&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location', '_blank')}
-                             >
-                                <svg className="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M18.8 11.5c-1.5-1.5-3.5-2.3-5.6-2.3-1.8 0-3.5.6-4.9 1.7L6.4 9.1c.3-.6.5-1.2.5-1.9 0-2.2-1.8-4-4-4S-1 5-1 7.2c0 2.2 1.8 4 4 4 .7 0 1.3-.2 1.9-.5l1.8 1.9c-1.1 1.4-1.7 3.1-1.7 4.9 0 4.4 3.6 8 8 8 2.1 0 4.1-.8 5.6-2.3 1.5-1.5 2.3-3.5 2.3-5.6 0-2.2-.8-4.2-2.1-5.6zm-14.8-1c-1.3 0-2.3-1-2.3-2.3s1-2.3 2.3-2.3 2.3 1 2.3 2.3-1 2.3-2.3 2.3z" fill="#33CCFF"/>
-                                </svg>
+                            >
+                                <img src="/images/waze.png" alt="Waze" className="btn-icon" />
                                 Waze
-                             </Button>
+                            </Button>
                         </div>
                     </div>
 
@@ -212,7 +299,8 @@ const Footer = () => {
             border-radius: 50px !important;
             transition: all 0.3s ease !important;
             width: 160px !important;
-            justify-content: center !important;
+            justify-content: flex-start !important;
+            padding-left: 20px !important;
         }
 
         .direction-btn:hover {

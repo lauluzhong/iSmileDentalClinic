@@ -12,6 +12,13 @@ const Header = () => {
     const [activeDropdown, setActiveDropdown] = useState(null);
     const navigate = useNavigate();
     const location = useLocation();
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
     const isDarkPage = location.pathname.startsWith('/services') && !isScrolled;
 
     // Handle scroll effect for glass header
@@ -37,7 +44,7 @@ const Header = () => {
             name: 'Our Services',
             path: null,
             dropdown: [
-                { name: 'Maintain & Repair', path: '/services/maintain' },
+                { name: 'Protect & Repair', path: '/services/maintain' },
                 { name: 'Straighten Teeth', path: '/services/straighten' },
                 { name: 'Replace Teeth', path: '/services/replace' },
                 { name: 'Enhance Smile', path: '/services/enhance' },
@@ -50,19 +57,34 @@ const Header = () => {
     ];
 
     const handleDropdownClick = (path, hashOrPath) => {
+        const isCurrentPath = (hashOrPath === location.pathname) || (path === location.pathname && !hashOrPath);
+
         if (hashOrPath && hashOrPath.startsWith('#')) {
             // It's a hash anchor on the parent page
-            navigate(path);
-            setTimeout(() => {
+            if (location.pathname === path) {
                 const element = document.getElementById(hashOrPath.replace('#', ''));
                 if (element) element.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
+            } else {
+                navigate(path);
+                setTimeout(() => {
+                    const element = document.getElementById(hashOrPath.replace('#', ''));
+                    if (element) element.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
         } else if (hashOrPath) {
             // It's a full path (e.g., /services/straighten)
-            navigate(hashOrPath);
+            if (location.pathname === hashOrPath) {
+                scrollToTop();
+            } else {
+                navigate(hashOrPath);
+            }
         } else {
             // Just the parent path
-            navigate(path);
+            if (location.pathname === path) {
+                scrollToTop();
+            } else {
+                navigate(path);
+            }
         }
         setMobileMenuOpen(false);
     };
@@ -71,7 +93,16 @@ const Header = () => {
         <header className={`header ${isScrolled ? 'scrolled' : ''} ${isDarkPage ? 'header-dark' : ''}`}>
             <div className="container header-container">
                 <div className="header-left">
-                    <Link to="/" className="logo-link">
+                    <Link
+                        to="/"
+                        className="logo-link"
+                        onClick={(e) => {
+                            if (location.pathname === '/') {
+                                e.preventDefault();
+                                scrollToTop();
+                            }
+                        }}
+                    >
                         <img src={logo} alt="iSmile Dental Clinic" style={{ height: '65px', width: 'auto', transition: 'height 0.3s ease' }} />
                     </Link>
 
@@ -86,7 +117,16 @@ const Header = () => {
                                     onMouseLeave={() => setActiveDropdown(null)}
                                 >
                                     {link.path ? (
-                                        <Link to={link.path} className="nav-link">
+                                        <Link
+                                            to={link.path}
+                                            className="nav-link"
+                                            onClick={(e) => {
+                                                if (location.pathname === link.path) {
+                                                    e.preventDefault();
+                                                    scrollToTop();
+                                                }
+                                            }}
+                                        >
                                             {link.name}
                                             {link.dropdown && <ChevronDown size={14} className="dropdown-icon" />}
                                         </Link>
@@ -135,7 +175,18 @@ const Header = () => {
                         {navLinks.map((link) => (
                             <li key={link.name}>
                                 {link.path ? (
-                                    <Link to={link.path} onClick={() => setMobileMenuOpen(false)}>{link.name}</Link>
+                                    <Link
+                                        to={link.path}
+                                        onClick={(e) => {
+                                            if (location.pathname === link.path) {
+                                                e.preventDefault();
+                                                scrollToTop();
+                                            }
+                                            setMobileMenuOpen(false);
+                                        }}
+                                    >
+                                        {link.name}
+                                    </Link>
                                 ) : (
                                     <div style={{ padding: '10px 0' }}>
                                         <span style={{ fontWeight: '600', color: 'var(--color-primary)', display: 'block', marginBottom: '8px' }}>{link.name}</span>

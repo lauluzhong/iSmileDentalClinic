@@ -1,9 +1,9 @@
 import { useBooking } from '../../context/BookingContext';
 import React, { useEffect } from 'react';
-import { Shield, CheckCircle, HelpCircle, Sparkles } from 'lucide-react';
+import { Shield, CheckCircle, HelpCircle } from 'lucide-react';
 import Button from '../../components/Button';
 
-const ClearAligners = () => {
+const RootCanalTreatment = () => {
     const { openBooking } = useBooking();
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -11,24 +11,24 @@ const ClearAligners = () => {
 
     const faqs = [
         {
-            "q": "How many hours a day must I wear them?",
-            "a": "For clinical success, 20\u201322 hours per day is required. They should only be removed for eating, drinking (except water), and oral hygiene."
+            q: "Is root canal treatment painful?",
+            a: "This is a common myth. With modern anesthesia and techniques, a root canal is typically no more uncomfortable than a routine filling. In fact, the procedure is designed to eliminate the pain caused by infection."
         },
         {
-            "q": "Does it affect speech?",
-            "a": "A minor lisp may occur for the first 48 hours as the tongue adapts to the aligner thickness, but this typically resolves quickly."
+            q: "Why do I need a crown afterwards?",
+            a: "After a root canal, the tooth loses its blood supply and can become brittle over time. A crown (cap) is placed to reinforce the tooth structure, preventing fractures and restoring full function."
         },
         {
-            "q": "Can I eat with them?",
-            "a": "No, aligners must be removed during meals to prevent staining, damage, and ensuring proper oral hygiene."
+            q: "How many visits does it take?",
+            a: "Most treatments are completed in 1 to 2 visits, depending on the complexity of the canal system and the severity of the infection. We prioritize thorough cleaning to ensure long-term success."
         },
         {
-            "q": "Are aligners suitable for all cases?",
-            "a": "While aligners can treat most orthodontic issues, some complex bone-level corrections may still require traditional braces. Our doctors will provide a detailed assessment using 3D scanning."
+            q: "What happens if I don't get a root canal?",
+            a: "An untreated infection will continue to spread, potentially leading to a painful abscess, bone loss around the root, and eventually the need for extraction."
         },
         {
-            "q": "How do I clean my aligners?",
-            "a": "Rinse them with lukewarm water and brush them gently with a soft toothbrush. Avoid hot water as it can warp the plastic."
+            q: "Will the tooth look different afterwards?",
+            a: "Typically, the tooth is restored with a crown that matches your natural teeth perfectly, so it will look and feel natural."
         }
     ];
 
@@ -37,8 +37,8 @@ const ClearAligners = () => {
             <div className="tech-hero">
                 <div className="container">
                     <div className="tech-badge"><Shield size={16} /> Technical Deep-Dive</div>
-                    <h1>Clear Aligners <span>(Invisalign / Clearsmile)</span></h1>
-                    <p className="lead">A modern orthodontic solution using a series of custom-made, transparent plastic trays to gradually shift teeth into alignment without the need for traditional braces.</p>
+                    <h1>Root Canal Treatment <span>(Endodontics)</span></h1>
+                    <p className="lead">A precise procedure to save severely infected teeth by removing damaged pulp, disinfecting the canals, and sealing them for long-term preservation.</p>
                 </div>
             </div>
 
@@ -47,22 +47,21 @@ const ClearAligners = () => {
                     <div className="tech-grid">
                         <div className="tech-info">
                             <h2>The Science & Tech</h2>
-                            <p>We leverage advanced clinical protocols and digital technology to provide predictable, high-quality outcomes for our patients.</p>
+                            <p>Successful endodontic therapy relies on advanced visualization and instrument flexibility. At iSmile, we use modern rotary technologies to ensure deep cleaning with minimal structural loss.</p>
 
                             <div className="tech-feature-list">
-
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
-                                        <h4>SmartTrack Material</h4>
-                                        <p>Utilizes a patented multi-layer medical-grade polymer designed for constant, gentle force and superior control of tooth movements.</p>
+                                        <h4>Digital Diagnostics</h4>
+                                        <p>High-resolution digital X-rays allow us to measure the exact length and curvature of your root canals, ensuring no area is left untreated.</p>
                                     </div>
                                 </div>
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
-                                        <h4>Digital Workflow</h4>
-                                        <p>High-precision 3D intraoral scanning eliminates the need for messy impressions and allows for precise treatment planning.</p>
+                                        <h4>Rotary Endodontics</h4>
+                                        <p>We use flexible nickel-titanium (NiTi) rotary files that navigate curved canals efficiently, removing infection faster and more thoroughly than traditional hand files.</p>
                                     </div>
                                 </div>
                             </div>
@@ -70,12 +69,12 @@ const ClearAligners = () => {
                         <div className="tech-meta glass-panel">
                             <h3>Clinical Workflow</h3>
                             <ul className="step-list">
-                                <li><span>01</span> 3D Intraoral Scanning & Digital Impressions</li>
-                                <li><span>02</span> ClinCheck® Software Treatment Planning</li>
-                                <li><span>03</span> Custom Aligner Fabrication & Delivery</li>
-                                <li><span>04</span> SmartForce® Attachment Placement</li>
-                                <li><span>05</span> Monitoring & Periodic Progress Tracking</li>
-
+                                <li><span>01</span> Diagnosis & Imaging</li>
+                                <li><span>02</span> Anesthesia & Isolation (Rubber Dam)</li>
+                                <li><span>03</span> Access Opening & Pulp Removal</li>
+                                <li><span>04</span> Cleaning & Shaping (Instrumentation)</li>
+                                <li><span>05</span> Obturation (Sealing)</li>
+                                <li><span>06</span> Final Restoration (Crown/Filling)</li>
                             </ul>
                         </div>
                     </div>
@@ -98,9 +97,9 @@ const ClearAligners = () => {
 
             <section className="section-padding text-center">
                 <div className="container">
-                    <h2>Consult with our specialists today</h2>
-                    <p className="mb-4">Get a professional assessment based on your unique dental structure.</p>
-                    <Button onClick={() => openBooking('Interested in Clear Aligners')}>Book Consultation</Button>
+                    <h2>Save your natural tooth today</h2>
+                    <p className="mb-4">Don't wait for the pain to worsen. Consult with us early.</p>
+                    <Button onClick={() => openBooking('Interested in Root Canal Treatment')}>Book Consultation</Button>
                 </div>
             </section>
 
@@ -133,4 +132,4 @@ const ClearAligners = () => {
     );
 };
 
-export default ClearAligners;
+export default RootCanalTreatment;

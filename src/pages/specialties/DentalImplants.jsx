@@ -11,18 +11,26 @@ const DentalImplants = () => {
 
     const faqs = [
         {
-                "q": "How long does the process take?",
-                "a": "Typically 3-6 months to allow for full osseointegration before the final crown is placed, ensuring a lifelong foundation."
+            "q": "How long does the process take?",
+            "a": "Typically 3-6 months to allow for full osseointegration before the final crown is placed, ensuring a lifelong foundation."
         },
         {
-                "q": "Is the procedure painful?",
-                "a": "The jawbone has very few pain receptors; most patients report that the procedure is less uncomfortable than a standard tooth extraction."
+            "q": "Is the procedure painful?",
+            "a": "The jawbone has very few pain receptors; most patients report that the procedure is less uncomfortable than a standard tooth extraction."
         },
         {
-                "q": "What is the success rate?",
-                "a": "Clinical studies show a success rate of over 95-98% when performed by experienced clinicians and supported by proper oral hygiene."
+            "q": "What is the success rate?",
+            "a": "Clinical studies show a success rate of over 95-98% when performed by experienced clinicians and supported by proper oral hygiene."
+        },
+        {
+            "q": "Am I too old for dental implants?",
+            "a": "Age is rarely a factor. As long as you have good oral health and sufficient bone density (or are suitable for bone grafting), implants are a viable option for most adults."
+        },
+        {
+            "q": "How do I care for my dental implant?",
+            "a": "Treat it just like a natural tooth—brush and floss regularly. Regular check-ups are essential to monitor the health of the surrounding gum and bone."
         }
-];
+    ];
 
     return (
         <div className="specialty-page">
@@ -40,9 +48,9 @@ const DentalImplants = () => {
                         <div className="tech-info">
                             <h2>The Science & Tech</h2>
                             <p>We leverage advanced clinical protocols and digital technology to provide predictable, high-quality outcomes for our patients.</p>
-                            
+
                             <div className="tech-feature-list">
-                                
+
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
@@ -62,7 +70,7 @@ const DentalImplants = () => {
                         <div className="tech-meta glass-panel">
                             <h3>Clinical Workflow</h3>
                             <ul className="step-list">
-                                                                <li><span>01</span> CBCT 3D Bone Density Analysis</li>
+                                <li><span>01</span> CBCT 3D Bone Density Analysis</li>
                                 <li><span>02</span> Surgical Implant Placement (Fixtures)</li>
                                 <li><span>03</span> Osseointegration Healing Phase (3-6 Months)</li>
                                 <li><span>04</span> Abutment Attachment & Soft Tissue Shaping</li>

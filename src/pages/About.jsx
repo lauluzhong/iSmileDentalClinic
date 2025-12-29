@@ -4,17 +4,18 @@ import { Reveal, FadeIn } from '../components/Reveal';
 
 const doctors = [
     {
-        name: "Dr Jean Ong",
-        role: "Founder & Dental Surgeon",
+        name: "Dr. Ong Nguk Jean",
+        role: "Founder & Dental Surgeon, BDS (Malaya)",
         years: "33 years",
         qualifications: "BDS, University of Malaya",
         bio: "Passionate about caring for people and families, building genuine long-term relationships that last,",
         languages: "English, Chinese, Malay, Foo Chow, Cantonese, Hokkien",
-        img: "/images/doctors/dr_Jean Ong.jpg"
+        img: "/images/doctors/dr_Jean Ong.jpg",
+        keyCompetency: "Endodontics / root canal treatment, Occlusion & smile, Functional occlusion & rehabilitation"
     },
     {
-        name: "Dr Amy Chin Mei Kuen",
-        role: "Dental Surgeon",
+        name: "Dr. Amy Chin Mei Kuen",
+        role: "Dental Surgeon, BDS (Malaya)",
         years: "23 years",
         qualifications: "BDS, University of Malaya",
         bio: "Passionate about educating patients and helping them achieve good oral health with confidence.",
@@ -22,39 +23,39 @@ const doctors = [
         img: "/images/doctors/dr_Amy Chin Mei Kuen.jpg"
     },
     {
-        name: "Dr Mah Haw Yeng",
-        role: "Dental Surgeon",
+        name: "Dr. Ling Yoke Li",
+        role: "Dental Surgeon, DDS (USM)",
+        years: "19 years",
+        qualifications: "DDS, University of Science Malaysia",
+        bio: "Warm and thoughtful, with a strong focus on early intervention and long-term airway wellness in children.",
+        languages: "English, Chinese, Malay",
+        img: "/images/doctors/dr_Ling.jpg",
+        keyCompetency: "Extensive post graduate training, covering Pediatric interceptive orthodontics (including myofunctional therapy), functional orthodontics, airway-focused dentistry"
+    },
+    {
+        name: "Dr. Mah Haw Yeng",
+        role: "Dental Surgeon, BDS (Malaya)",
         years: "23 years",
         qualifications: "BDS, University of Malaya",
-        specialties: "Orthodontics, Wisdom Teeth Removal, Dentures",
         bio: "Passionate about families, committed to serving patients wholeheartedly with warmth.",
         languages: "Mandarin, Cantonese, English, Bahasa Malaysia",
-        img: "/images/doctors/dr_Mah Haw Yeng.jpg"
+        img: "/images/doctors/dr_Mah Haw Yeng.jpg",
+        keyCompetency: "Orthodontics (children & adults), Myofunctional orthodontics"
     },
     {
-        name: "Dr Ling Yoke Li",
-        role: "Dental Surgeon",
-        years: "19 years",
-        qualifications: "BDS, University of Malaya",
-        bio: "Warm and thoughtful, with a strong focus on early intervention and long-term airway wellness in children.",
-        specialties: "Pediatric interceptive orthodontics (including myofunctional therapy), functional orthodontics, airway-focused dentistry",
-        languages: "English, Chinese, Malay",
-        img: "/images/doctors/dr_Ling.jpg"
-    },
-    {
-        name: "Dr Azelia Lau Yiling",
-        role: "Dental Surgeon",
+        name: "Dr. Azelia Lau Yiling",
+        role: "Dental Surgeon, BDS (NIZ, RUSSIA)",
         years: "16 years",
-        qualifications: "Nizhny Novgorod State Medical Academy",
+        qualifications: "BDS, Nizhny Novgorod State Medical Academy",
         bio: "Passionate about making dental visits a pleasant experience for patients of all ages.",
         languages: "English, Malay",
         img: "/images/doctors/dr_Azelia Lau Yiling.jpg"
     },
     {
-        name: "Dr Priscilla",
-        role: "Dental Surgeon",
+        name: "Dr. Priscilla Chan Mei Shen",
+        role: "Dental Surgeon, BDS (Malaya)",
         years: "23 years",
-        qualifications: "BDS, University of Malaya (2003)",
+        qualifications: "BDS, University of Malaya",
         bio: "Passionate about helping children and families overcome their fear of dental treatment.",
         languages: "English, Chinese, Bahasa Malaysia, Hokkien, Cantonese",
         img: "/images/doctors/dr_Priscilla.jpg"
@@ -64,7 +65,7 @@ const doctors = [
         role: "Specialist",
         years: "18 years",
         qualifications: "Cert. Advanced Restorative (UCLA), MFDS (RCS Edinburgh), BDS (UM)",
-        specialties: "Esthetic dentistry, Fixed prosthodontics, Implantology",
+        specialties: "Esthetic dentistry, Fixed prosthodontics, Implantology, Smile design, Full-mouth rehabilitation",
         bio: "Passionate about advancing restorative and aesthetic dentistry, delivering the highest quality to patients.",
         languages: "English, Mandarin, Malay",
         img: "/images/doctors/dr_Lim Zhi Yin Joan.jpg"
@@ -138,7 +139,10 @@ const About = () => {
                                     As a mother of five, she is passionate about creating a safe, welcoming space where families feel seen, supported, and cared for.
                                 </p>
                                 <p>
-                                    With over 33 years of experience, she combines deep clinical expertise with a gentle touch, aiming to partner with parents in raising children who grow up with healthy, sustainable dental habits.
+                                    With over 33 years of experience, She combines comprehensive clinical expertise and experience with a gentle touch, aiming to partner with parents in raising children who grow up with healthy, sustainable dental habits.
+                                </p>
+                                <p>
+                                    She firmly believes in practicing evidence-based dentistry and continues to upskill herself regularly with the latest advancements in the dental profession to deliver the highest quality work from herself and her team.
                                 </p>
                             </div></Reveal>
                         </div>
@@ -151,7 +155,7 @@ const About = () => {
 
             <section id="team" className="section-padding team-section">
                 <div className="container">
-                    <Reveal width="100%"><h2 className="text-center mb-5">The Team Behind <span className="text-gradient">Your Smile</span></h2></Reveal>
+                    <Reveal width="100%"><h2 className="section-title text-center">The Team Behind <span className="text-gradient">Your Smile</span></h2></Reveal>
 
                     <div className="team-grid">
                         {doctors.map((doc, index) => (
@@ -175,6 +179,13 @@ const About = () => {
                                         <div className="team-specialties">
                                             <strong>Specialties:</strong><br />
                                             {doc.specialties}
+                                        </div>
+                                    )}
+
+                                    {doc.keyCompetency && (
+                                        <div className="team-specialties">
+                                            <strong>Key Competency / Expertise:</strong><br />
+                                            {doc.keyCompetency}
                                         </div>
                                     )}
 
@@ -232,7 +243,6 @@ const About = () => {
                     font-weight: 700;
                     color: var(--color-primary);
                     margin-bottom: 60px;
-                    text-align: left;
                 }
 
                 .journey-grid {
