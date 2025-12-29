@@ -21,6 +21,14 @@ const WisdomToothSurgery = () => {
         {
             q: "What is 'Dry Socket'?",
             a: "Dry socket is a condition where the protective blood clot dislodges before healing. At iSmile, we use advanced suturing techniques and 'A-PRF' (Platelet-Rich Fibrin) from your own blood to significantly minimize this risk."
+        },
+        {
+            q: "Can I have multiple wisdom teeth removed at once?",
+            a: "Yes, it is common to remove all four wisdom teeth in a single session, especially under sedation, to minimize the overall recovery period."
+        },
+        {
+            q: "When can I eat normally again?",
+            a: "You can start with soft foods after 24 hours. Most patients return to their regular diet within 7-10 days as the extraction sites heal."
         }
     ];
 
@@ -40,7 +48,7 @@ const WisdomToothSurgery = () => {
                         <div className="tech-info">
                             <h2>The Science & Tech</h2>
                             <p>Successful wisdom tooth removal relies on advanced diagnostics and surgical precision. At iSmile, we prioritize minimally invasive techniques to ensure the fastest possible recovery.</p>
-                            
+
                             <div className="tech-feature-list">
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>

@@ -11,18 +11,26 @@ const MyofunctionalOrthodontics = () => {
 
     const faqs = [
         {
-                "q": "Is it better than braces?",
-                "a": "It addresses the root cause (muscles), whereas braces only treat the symptoms (teeth). Often, it reduces or eliminates the need for future braces."
+            "q": "Is it better than braces?",
+            "a": "It addresses the root cause (muscles), whereas braces only treat the symptoms (teeth). Often, it reduces or eliminates the need for future braces."
         },
         {
-                "q": "What age is best to start?",
-                "a": "Ideally between ages 5 and 10, while the jaw is still actively growing and habits are easier to retrain."
+            "q": "What age is best to start?",
+            "a": "Ideally between ages 5 and 10, while the jaw is still actively growing and habits are easier to retrain."
         },
         {
-                "q": "What does the patient have to do?",
-                "a": "Wear the appliance for 1-2 hours during the day and overnight, plus perform daily 5-minute muscle exercises."
+            "q": "What does the patient have to do?",
+            "a": "Wear the appliance for 1-2 hours during the day and overnight, plus perform daily 5-minute muscle exercises."
+        },
+        {
+            "q": "How soon can we see results?",
+            "a": "Visible changes in oral habits (like lip seal and nasal breathing) can often be seen within 6 months, while structural changes in the jaw guide evolve over 1-2 years."
+        },
+        {
+            "q": "Does my child need to wear it at school?",
+            "a": "No, the appliance is typically worn for only 1-2 hours during the day (at home) and overnight while sleeping."
         }
-];
+    ];
 
     return (
         <div className="specialty-page">
@@ -40,9 +48,9 @@ const MyofunctionalOrthodontics = () => {
                         <div className="tech-info">
                             <h2>The Science & Tech</h2>
                             <p>We leverage advanced clinical protocols and digital technology to provide predictable, high-quality outcomes for our patients.</p>
-                            
+
                             <div className="tech-feature-list">
-                                
+
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
@@ -62,7 +70,7 @@ const MyofunctionalOrthodontics = () => {
                         <div className="tech-meta glass-panel">
                             <h3>Clinical Workflow</h3>
                             <ul className="step-list">
-                                                                <li><span>01</span> Oral Myofunctional Assessment</li>
+                                <li><span>01</span> Oral Myofunctional Assessment</li>
                                 <li><span>02</span> Airway & Sleep Screening</li>
                                 <li><span>03</span> Customized Appliance Selection (e.g. Myobrace)</li>
                                 <li><span>04</span> Monthly Muscle Exercise Programs</li>

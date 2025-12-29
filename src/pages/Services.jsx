@@ -10,27 +10,28 @@ import WisdomToothSurgery from './specialties/WisdomToothSurgery';
 import ClearAligners from './specialties/ClearAligners';
 import DentalImplants from './specialties/DentalImplants';
 import TeethWhitening from './specialties/TeethWhitening';
+import RootCanalTreatment from './specialties/RootCanalTreatment';
 import MyofunctionalOrthodontics from './specialties/MyofunctionalOrthodontics';
 
 
 const servicesData = {
     maintain: {
-        title: "Maintain & Repair\n (Preventive & Restoration)",
+        title: "Protect & Repair\n (Preventive & Restorative)",
         hero: "Healthy Teeth. For Life.",
-        description: "Preventive care to detect issues early and restorative treatments to bring back functionality.",
+        description: "Competent and committed services to help you maintain a healthy smile.",
         icon: <Shield size={32} />,
         color: "var(--color-primary)",
         services: [
-            { name: "General Consultation", desc: "Comprehensive oral health assessment and treatment planning." },
+            { name: "Comprehensive Examination and Diagnosis", desc: "Detailed evaluation covering your oral health for accurate diagnosis and treatment planning." },
             { name: "Scaling & Polishing", desc: "Professional cleaning to remove plaque, tartar, and surface stains." },
-            { name: "Tooth Fillings", desc: "Restoring decayed teeth with tooth-colored composite materials." },
+            { name: "Tooth Fillings", desc: "Restoring decayed teeth with high-quality composite materials." },
             { name: "Root Canal Treatment", desc: "Saving infected teeth by removing damaged pulp and sealing the root." },
             { name: "Wisdom Tooth Surgery", desc: "Safe removal of impacted wisdom teeth to prevent pain and crowding." }
         ],
         tier1: {
-            title: "Wisdom Tooth Surgery",
-            desc: "Expert removal of impacted or problematic wisdom teeth with minimal discomfort.",
-            path: "/services/maintain/wisdom-tooth"
+            title: "Root Canal Treatment",
+            desc: "Save your natural tooth. Advanced endodontic therapy to relieve pain and restore function.",
+            path: "/services/maintain/root-canal"
         },
         experience: {
             title: "Preventive Dentistry & Long-Term Care",
@@ -55,10 +56,9 @@ const servicesData = {
         color: "var(--color-secondary)",
         services: [
             { name: "Clear Aligners", desc: "Invisible, removable trays (Invisalign/Clearsmile) for discreet straightening." },
-            { name: "Metal Braces", desc: "Traditional reliable brackets (Damon) for complex orthodontic corrections." },
-            { name: "Retainers", desc: "Custom devices (Hawley/Essix) to maintain your new smile after treatment." },
+            { name: "Fixed Appliances (Metal & Clear Brackets)", desc: "Powered by the latest Damon Ultima, Q2, and Clear 2 technology." },
             { name: "Removable Appliances", desc: "Early intervention devices for minor tooth movements and growth." },
-            { name: "Fixed Appliances", desc: "Specialized expanders and correctors for structural alignment." }
+            { name: "Retainers", desc: "Custom devices (Hawley/Essix) to maintain your new smile after treatment." }
         ],
         tier1: {
             title: "Clear Aligners (Invisalign / Clearsmile)",
@@ -98,14 +98,14 @@ const servicesData = {
         ],
         tier1: {
             title: "Dental Implants",
-            desc: "The gold standard for tooth replacement. Look and feel just like natural teeth.",
+            desc: "The gold standard for tooth replacement. Look and function just like natural teeth.",
             path: "/services/replace/dental-implants"
         },
         experience: {
             title: "Function, Comfort, & Confidence",
             desc: "Missing teeth affect more than just your smile—they impact your ability to eat, speak, and live fully. We specialize in functional restoration using biocompatible materials that look and feel like your natural teeth.",
             benefits: [
-                "Biocompatible Dental Implants (Titanium/Zirconia)",
+                "Biocompatible Dental Implants (Titanium)",
                 "Bone Preservation to Maintain Facial Structure",
                 "High-Esthetic Ceramics for Natural Looks",
                 "Full Bite Force Restoration"
@@ -119,26 +119,26 @@ const servicesData = {
     enhance: {
         title: "Enhance Smile\n (Cosmetic Dentistry)",
         hero: "Design Your Dream Smile.",
-        description: "Cosmetic treatments tailored to your unique facial features.",
+        description: "Cosmetic dental treatments tailored to your unique facial features.",
         icon: <Star size={32} />,
         color: "var(--color-accent)",
         services: [
             { name: "Composite Veneers", desc: "Direct bonding to reshape teeth and improve aesthetics in one visit." },
             { name: "Ceramic Veneers", desc: "Durable, high-quality porcelain shells for a flawless, lasting smile." },
-            { name: "In-House Whitening", desc: "Immediate, powerful whitening results in a single clinic session." },
-            { name: "Take-Home Whitening", desc: "Professional kits to brighten your smile conveniently at home." },
+            { name: "Take-Home Whitening (Gold Standard)", desc: "Customized trays and professional gels for the most stable, long-lasting results." },
+            { name: "In-House Whitening", desc: "Rapid clinical whitening for immediate results when time is of the essence." },
             { name: "All-Ceramic Crowns", desc: "Strength and beauty combined for badly damaged or aesthetic teeth." }
         ],
         tier1: {
-            title: "Teeth Whitening (In-House / Take-Home)",
+            title: "Professional Take-Home Whitening",
             desc: "Transform your smile with professional whitening treatments tailored to you.",
             path: "/services/enhance/teeth-whitening"
         },
         experience: {
             title: "Designed for Your Unique Face",
-            desc: "True cosmetic dentistry goes beyond just 'white teeth'. We analyze your unique facial features to design a smile that is harmoniously balanced, using principles of the Golden Ratio and natural tooth morphology.",
+            desc: "True cosmetic dentistry goes beyond just 'white teeth'. We analyze and design a smile with function in mind that is pleasing and harmonious.",
             benefits: [
-                "Digital Smile Design (DSD) Analysis",
+                "Detailed Smile Analysis",
                 "Custom 'Trial Smile' Mock-ups",
                 "Minimally Invasive Veneer Protocols",
                 "Natural Light Reflection & Texture"
@@ -150,9 +150,9 @@ const servicesData = {
         ]
     },
     children: {
-        title: "Children & Growth\n (Paediatrics)",
+        title: "Children & Growth\n (Paediatric Dentistry)",
         hero: "Growing Healthy Smiles & Airways.",
-        description: "Specialized care for infants and children, focusing on growth and development.",
+        description: "Intentional care from young children to adolescence, focusing on growth and development.",
         icon: <Users size={32} />,
         color: "var(--color-secondary)",
         services: [
@@ -256,7 +256,7 @@ const ServiceHub = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
                         <div className="tier1-content">
-                            <span className="badge">Our Speciality</span>
+                            <span className="badge">Highlight</span>
                             <h3>{data.tier1.title}</h3>
                             <p>{data.tier1.desc}</p>
                             <Link to={data.tier1.path}>
@@ -698,6 +698,7 @@ const Services = () => {
 
             {/* Specialty Sub-Pages */}
             <Route path="maintain/wisdom-tooth" element={<WisdomToothSurgery />} />
+            <Route path="maintain/root-canal" element={<RootCanalTreatment />} />
             <Route path="straighten/clear-aligners" element={<ClearAligners />} />
             <Route path="replace/dental-implants" element={<DentalImplants />} />
             <Route path="enhance/teeth-whitening" element={<TeethWhitening />} />

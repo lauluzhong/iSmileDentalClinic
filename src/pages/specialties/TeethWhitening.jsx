@@ -11,26 +11,34 @@ const TeethWhitening = () => {
 
     const faqs = [
         {
-                "q": "Does it damage the enamel?",
-                "a": "No. Professional whitening temporarily opens the 'pores' of the enamel but does not remove or 'strip' the actual tooth structure."
+            "q": "Why is Take-Home Whitening considered the 'Gold Standard'?",
+            "a": "Take-home whitening allows for a gradual, deeper oxidation process. By using custom-fitted trays over 10-14 days, the oxygen molecules penetrate deeper into the tooth structure, leading to more stable protocols and significantly less rebound (yellowing coming back) compared to single-session chair-side whitening."
         },
         {
-                "q": "Why do my teeth feel sensitive after?",
-                "a": "The temporary dehydration of the tooth can stimulate the nerves; this is normal and usually subsides within 24 hours."
+            "q": "How long do I need to wear the trays each day?",
+            "a": "Depending on the concentration prescribed by our doctors, you'll wear the trays for either 30-60 minutes during the day or overnight while you sleep. Most patients achieve their target shade within 2 weeks."
         },
         {
-                "q": "How long do results last?",
-                "a": "Typically 1-3 years, depending on dietary habits (coffee, tea, smoking) and adherence to maintenance protocols."
+            "q": "Is the whitening gel safe for my gums?",
+            "a": "Yes, because our trays are custom-made from 3D scans of your mouth, they are trimmed precisely to your gum line. This prevents the whitening gel from leaking onto the soft tissues, minimizing irritation and ensuring the gel stays exactly where it's needed."
+        },
+        {
+            "q": "What happens if my teeth feel sensitive?",
+            "a": "Our prescribed gels contain built-in desensitizers and high water content to prevent dehydration. However, if sensitivity occurs, you can simply skip a night or use a desensitizing gel in your trays. The process is entirely under your control."
+        },
+        {
+            "q": "Will it damage my enamel?",
+            "a": "Professional whitening gels are formulated to be pH-neutral and contain minerals that protect the enamel. When used as prescribed, it does not thin or damage the tooth structure."
         }
-];
+    ];
 
     return (
         <div className="specialty-page">
             <div className="tech-hero">
                 <div className="container">
-                    <div className="tech-badge"><Shield size={16} /> Technical Deep-Dive</div>
-                    <h1>Teeth Whitening <span>(Professional Bleaching)</span></h1>
-                    <p className="lead">The use of medical-grade oxidizing agents to break down internal and external stains within the tooth structure, restoring your smile's natural brilliance.</p>
+                    <div className="tech-badge"><Star size={16} /> Professional Gold Standard</div>
+                    <h1>Take-Home Teeth Whitening <span>(Customized Precision)</span></h1>
+                    <p className="lead">The most effective, stable, and predictable way to brighten your smile. Using laboratory-grade custom trays and prescribed whitening gels for a professional transformation in the comfort of your home.</p>
                 </div>
             </div>
 
@@ -38,36 +46,42 @@ const TeethWhitening = () => {
                 <div className="container">
                     <div className="tech-grid">
                         <div className="tech-info">
-                            <h2>The Science & Tech</h2>
-                            <p>We leverage advanced clinical protocols and digital technology to provide predictable, high-quality outcomes for our patients.</p>
-                            
+                            <h2>The Science of Gradual Whitening</h2>
+                            <p>While instant results are popular, true long-term whitening occurs through a sustained oxidation process. Our protocol ensures the deepest stains are removed with minimal sensitivity.</p>
+
                             <div className="tech-feature-list">
-                                
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
-                                        <h4>Oxidation Process</h4>
-                                        <p>Oxygen molecules from the gel penetrate the porous enamel and dentin to break the double bonds of stain-causing chromogens.</p>
+                                        <h4>3D-Printed Custom Trays</h4>
+                                        <p>We use high-precision digital scanners to map your teeth. This ensures a reservoir-perfect fit that holds the gel in place and prevents saliva from diluting the whitening agent.</p>
                                     </div>
                                 </div>
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
-                                        <h4>Regulated Concentration</h4>
-                                        <p>We use professional-grade concentrations (Hydrogen/Carbamide Peroxide) tailored to your sensitivity threshold for safe, effective results.</p>
+                                        <h4>Prescribed Whitening Chemistry</h4>
+                                        <p>We provide medical-grade Carbamide or Hydrogen Peroxide gels with stabilized pH and desensitizers (like Potassium Nitrate and Fluoride) to protect your enamel.</p>
+                                    </div>
+                                </div>
+                                <div className="tech-feature">
+                                    <div className="feature-icon"><CheckCircle size={20} /></div>
+                                    <div className="feature-text">
+                                        <h4>Long-Term Shade Stability</h4>
+                                        <p>The gradual process allows for 'enamel re-hydration' between sessions, resulting in a brightness that lasts significantly longer than rapid chair-side treatments.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="tech-meta glass-panel">
-                            <h3>Clinical Workflow</h3>
+                            <h3>Prescription Workflow</h3>
                             <ul className="step-list">
-                                                                <li><span>01</span> Comprehensive Oral Examination</li>
-                                <li><span>02</span> Pre-treatment Scaling & Polishing</li>
-                                <li><span>03</span> Gum Protection & Barrier Application</li>
-                                <li><span>04</span> Whitening Gel Application (Multiple Cycles)</li>
-                                <li><span>05</span> Post-treatment Remineralization & Care</li>
-
+                                <li><span>01</span> Comprehensive Oral Health Screening</li>
+                                <li><span>02</span> High-Definition 3D Digital Scanning</li>
+                                <li><span>03</span> Laboratory Fabrication of Custom Trays</li>
+                                <li><span>04</span> Personalized Gel Prescription & Briefing</li>
+                                <li><span>05</span> Structured At-Home Whitening (10-14 days)</li>
+                                <li><span>06</span> Final Shade Assessment & Maintenance</li>
                             </ul>
                         </div>
                     </div>
@@ -90,9 +104,9 @@ const TeethWhitening = () => {
 
             <section className="section-padding text-center">
                 <div className="container">
-                    <h2>Consult with our specialists today</h2>
-                    <p className="mb-4">Get a professional assessment based on your unique dental structure.</p>
-                    <Button onClick={() => openBooking('Interested in Teeth Whitening')}>Book Consultation</Button>
+                    <h2>Ready for a lasting transformation?</h2>
+                    <p className="mb-4">Consult with our doctors to receive your customized professional whitening kit.</p>
+                    <Button onClick={() => openBooking('Interested in Take-Home Whitening')}>Get Your Custom Kit</Button>
                 </div>
             </section>
 

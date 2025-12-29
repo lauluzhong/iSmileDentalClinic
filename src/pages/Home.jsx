@@ -17,9 +17,24 @@ const AIRWAY_IMG = "/images/child_airway_hero_1765825276038.png";
 
 const MotionLink = motion(Link);
 
+import { blogPosts } from '../data/blogPosts';
+
 const Home = () => {
     const { openBooking } = useBooking();
     const navigate = useNavigate();
+
+    // Get the specific blog posts in the requested order
+    const orderedBlogIds = [
+        'invisalign-vs-braces-lifestyle',
+        'root-canal-vs-extraction',
+        'your-childs-first-dental-visit',
+        'mouth-breathing-in-children',
+        'government-vs-private-braces'
+    ];
+
+    const featuredBlogs = orderedBlogIds
+        .map(id => blogPosts.find(post => post.id === id))
+        .filter(Boolean);
 
     // Scroll Animation Logic
     const scrollSectionRef = useRef(null);
@@ -64,9 +79,9 @@ const Home = () => {
                         <Reveal delay={0.2}><p className="hero-subtitle">
                             At iSmile, we deliver high-quality dental care for every stage of life, ensuring that individuals and families maintain radiant, healthy smiles.
                         </p></Reveal>
-                        <Reveal delay={0.4}><div className="hero-actions">
+                        <FadeIn delay={0.4} className="hero-actions">
                             <Button onClick={() => openBooking()}>Book an Appointment</Button>
-                        </div></Reveal>
+                        </FadeIn>
                     </div>
 
                     <div className="hero-visual">
@@ -81,8 +96,8 @@ const Home = () => {
             {/* 2. Service Bento Grid */}
             <section className="section-padding services-bento-section">
                 <div className="container">
-                    <div className="section-header text-center" style={{ marginBottom: '4rem' }}>
-                        <Reveal width="100%"><h2 style={{ fontSize: '3rem', fontWeight: 700 }}>Comprehensive Care for <span className="text-gradient">Every Stage of Life</span></h2></Reveal>
+                    <div className="section-header text-center">
+                        <Reveal width="100%"><h2 style={{ marginBottom: '3rem', marginTop: 0, fontSize: '3rem', fontWeight: 700 }}>Comprehensive Care for <span className="text-gradient">Every Stage of Life</span></h2></Reveal>
                     </div>
 
                     <div className="bento-grid">
@@ -92,7 +107,7 @@ const Home = () => {
                                 <Shield size={32} className="card-icon" />
                             </div>
                             <div className="card-content">
-                                <span className="eyebrow">MAINTAIN & REPAIR</span>
+                                <span className="eyebrow">PROTECT & REPAIR</span>
                                 <h3 className="card-headline">Healthy Teeth. For Life</h3>
                                 <p className="card-body">Comprehensive diagnostics, gentle scaling, and expert care to keep your smile healthy.</p>
                             </div>
@@ -209,23 +224,16 @@ const Home = () => {
 
                     <div className="horizontal-scroll-mask">
                         <div className="horizontal-track-simple">
-                            {[
-                                { title: "Understanding Gum Health", img: GUM_IMG },
-                                { title: "Managing Tooth Sensitivity", img: SENSITIVITY_IMG },
-                                { title: "Adult Orthodontics", img: ORTHO_IMG },
-                                { title: "Understanding Bone Loss", img: BONE_IMG },
-                                { title: "Types of Veneers", img: VENEER_IMG },
-                                { title: "Mouth Breathing (Kids)", img: AIRWAY_IMG }
-                            ].map((item, i) => (
-                                <div key={i} className="glass-panel insight-card-large">
+                            {featuredBlogs.map((post, i) => (
+                                <Link to={`/blog/${post.id}`} key={i} className="glass-panel insight-card-large" style={{ textDecoration: 'none', color: 'inherit' }}>
                                     <div className="insight-image-large">
-                                        <img src={item.img} alt={item.title} />
+                                        <img src={post.img} alt={post.title} />
                                     </div>
                                     <div className="insight-content">
-                                        <h4>{item.title}</h4>
-                                        <Link to="/blog" className="read-more-link">Read More</Link>
+                                        <h4>{post.title}</h4>
+                                        <span className="read-more-link">Read More</span>
                                     </div>
-                                </div>
+                                </Link>
                             ))}
                         </div>
                     </div>
