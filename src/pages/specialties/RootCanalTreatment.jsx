@@ -54,7 +54,7 @@ const RootCanalTreatment = () => {
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
                                         <h4>Digital Diagnostics</h4>
-                                        <p>High-resolution digital X-rays allow us to measure the exact length and curvature of your root canals, ensuring no area is left untreated.</p>
+                                        <p>High-resolution digital X-rays allow us to measure the exact length and curvature of your root canals, ensuring no area is left untreated. For complexed root canals and retreatments, we use Cone Beam CT scans which is a fast & low radiation 3D X-ray to achieve an even more detailed and accurate pre-treatment diagnosis.</p>
                                     </div>
                                 </div>
                                 <div className="tech-feature">
@@ -62,6 +62,13 @@ const RootCanalTreatment = () => {
                                     <div className="feature-text">
                                         <h4>Rotary Endodontics</h4>
                                         <p>We use flexible nickel-titanium (NiTi) rotary files that navigate curved canals efficiently, removing infection faster and more thoroughly than traditional hand files.</p>
+                                    </div>
+                                </div>
+                                <div className="tech-feature">
+                                    <div className="feature-icon"><CheckCircle size={20} /></div>
+                                    <div className="feature-text">
+                                        <h4>Bioceramic Sealer</h4>
+                                        <p>We use the latest biocompatible materials, such as bioceramics, to seal the root canals. These advanced sealers are highly compatible with surrounding tissues, actively promoting healing while ensuring a durable, long-term seal.</p>
                                     </div>
                                 </div>
                             </div>
