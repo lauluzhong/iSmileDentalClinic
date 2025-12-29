@@ -48,7 +48,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="home-page" style={{background: 'linear-gradient(180deg, #FFFFFF 0%, #eff6ff 100%)', minHeight: '100vh'}}>
+        <div className="home-page" style={{ background: 'linear-gradient(180deg, #FFFFFF 0%, #eff6ff 100%)', minHeight: '100vh' }}>
             {/* 1. Hero Section */}
             <section className="hero-section">
                 <div className="liquid-shape" style={{ top: '20%', left: '10%', width: '300px', height: '300px', background: 'var(--color-secondary)' }}></div>
@@ -70,10 +70,10 @@ const Home = () => {
                     </div>
 
                     <div className="hero-visual">
-<FadeIn delay={0.2}>
-                        <div className="glass-panel hero-card" style={{ padding: 0, overflow: 'hidden' }}>
-                            <img src={FAMILY_HERO} alt="Happy Family" style={{ width: '100%', height: 'auto', display: 'block' }} />
-                        </div></FadeIn>
+                        <FadeIn delay={0.2}>
+                            <div className="glass-panel hero-card" style={{ padding: 0, overflow: 'hidden' }}>
+                                <img src={FAMILY_HERO} alt="Happy Family" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                            </div></FadeIn>
                     </div>
                 </div>
             </section>
@@ -87,7 +87,7 @@ const Home = () => {
 
                     <div className="bento-grid">
                         {/* Card 1: Maintain & Repair */}
-                        <MotionLink to="/services/maintain" className="bento-card" initial={{opacity:0, y:30}} whileInView={{opacity:1, y:0}} viewport={{once:true}} transition={{duration:0.5}}>
+                        <MotionLink to="/services/maintain" className="bento-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
                             <div className="card-top">
                                 <Shield size={32} className="card-icon" />
                             </div>
@@ -99,7 +99,7 @@ const Home = () => {
                         </MotionLink>
 
                         {/* Card 2: Straighten Teeth */}
-                        <MotionLink to="/services/straighten" className="bento-card" initial={{opacity:0, y:30}} whileInView={{opacity:1, y:0}} viewport={{once:true}} transition={{duration:0.5}}>
+                        <MotionLink to="/services/straighten" className="bento-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
                             <div className="card-top">
                                 <Sparkles size={32} className="card-icon" />
                             </div>
@@ -111,7 +111,7 @@ const Home = () => {
                         </MotionLink>
 
                         {/* Card 3: Replace Teeth */}
-                        <MotionLink to="/services/replace" className="bento-card" initial={{opacity:0, y:30}} whileInView={{opacity:1, y:0}} viewport={{once:true}} transition={{duration:0.5}}>
+                        <MotionLink to="/services/replace" className="bento-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
                             <div className="card-top">
                                 <Smile size={32} className="card-icon" />
                             </div>
@@ -123,7 +123,7 @@ const Home = () => {
                         </MotionLink>
 
                         {/* Card 4: Enhance Smile */}
-                        <MotionLink to="/services/enhance" className="bento-card" initial={{opacity:0, y:30}} whileInView={{opacity:1, y:0}} viewport={{once:true}} transition={{duration:0.5}}>
+                        <MotionLink to="/services/enhance" className="bento-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
                             <div className="card-top">
                                 <Star size={32} className="card-icon" />
                             </div>
@@ -135,7 +135,7 @@ const Home = () => {
                         </MotionLink>
 
                         {/* Card 5: Children & Growth */}
-                        <MotionLink to="/services/children" className="bento-card" initial={{opacity:0, y:30}} whileInView={{opacity:1, y:0}} viewport={{once:true}} transition={{duration:0.5}}>
+                        <MotionLink to="/services/children" className="bento-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
                             <div className="card-top">
                                 <Users size={32} className="card-icon" />
                             </div>
@@ -236,9 +236,9 @@ const Home = () => {
         /* General Hero & Section Styles */
         .hero-section { min-height: 90vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 80px; }
         .hero-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; position: relative; z-index: 2; }
-        .hero-title { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; font-weight: 700; }
-        .hero-subtitle { font-size: 1.25rem; color: var(--color-text-muted); margin-bottom: 30px; max-width: 500px; }
-        .hero-card { padding: 20px; position: relative; transform: rotate(-2deg); transition: transform 0.5s ease; }
+        .hero-title { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 20px; font-weight: 700; word-break: break-word; }
+        .hero-subtitle { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 30px; max-width: 500px; line-height: 1.5; }
+        .hero-card { padding: 10px; position: relative; transform: rotate(-2deg); transition: transform 0.5s ease; width: 100%; max-width: 400px; margin: 0 auto; box-sizing: border-box; }
         .hero-card:hover { transform: rotate(0deg) scale(1.02); }
         .floating-badge { position: absolute; bottom: 40px; right: -20px; background: rgba(255, 255, 255, 0.9); padding: 10px 20px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); backdrop-filter: blur(10px); }
         
@@ -433,27 +433,36 @@ const Home = () => {
             .bento-card {
                 min-height: 200px;
             }
+            .card-large, .card-wide, .card-vertical, .card-medium, .card-small {
+                grid-column: span 1;
+                grid-row: span 1;
+                min-height: 350px;
+                flex-direction: column;
+                max-width: 100%;
+            }
+            .card-large .card-content, .card-wide .card-content {
+                max-width: 100%;
+            }
+            .side-float { width: 100%; height: 50%; left: 0; }
         }
 
         @media (max-width: 768px) {
-            .hero-container, .split-layout { grid-template-columns: 1fr; text-align: center; }
-            .hero-section { min-height: auto; padding-top: 100px; padding-bottom: 50px; }
-            
-            .bento-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .welcome-container, .about-card-container { flex-direction: column-reverse; min-height: auto; border-radius: 20px; }
-            .welcome-content-split, .about-content-split { padding: 40px 24px; text-align: center; align-items: center; }
+            .hero-container, .split-layout { grid-template-columns: 1fr; text-align: center; gap: 30px; }
+            .hero-section { padding-top: 100px; min-height: auto; padding-bottom: 60px; }
+            .welcome-container, .about-card-container { flex-direction: column; min-height: auto; width: 100%; }
+            .welcome-content-split, .about-content-split { padding: 40px 20px; text-align: center; align-items: center; }
             .welcome-headline, .about-headline { font-size: 2.2rem; }
-            .welcome-description, .about-description { margin-left: auto; margin-right: auto; font-size: 1.1rem; }
-            .welcome-image-split, .about-image-split { height: 280px; }
-            .hero-title { font-size: 2.5rem; }
-            .hero-visual { order: -1; margin-bottom: 30px; }
+            .welcome-description, .about-description { margin-left: auto; margin-right: auto; font-size: 1rem; }
+            .welcome-image-split, .about-image-split { height: 250px; width: 100%; }
+            .hero-title { font-size: 2.2rem; }
+            .hero-visual { order: -1; margin-bottom: 20px; }
             .insight-card-large { width: 85vw; }
-            .card-headline { font-size: 1.5rem; }
-            
-            .liquid-shape { opacity: 0.3; }
+            .card-headline { font-size: 1.25rem; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .bento-card { min-height: auto; padding: 20px; }
+            .card-top { margin-bottom: 15px; }
+            .section-header h2 { font-size: 2rem !important; }
+            .text-center .btn-link { justify-content: center; }
         }
       `}</style>
         </div>

@@ -2,6 +2,7 @@ import { useBooking } from '../context/BookingContext';
 import React from 'react';
 import { Routes, Route, Link, useParams, Navigate } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Shield, Sparkles, Smile, Star, Users } from 'lucide-react';
+import { motion } from 'framer-motion';
 import Button from '../components/Button';
 
 // Specialty Pages
@@ -17,9 +18,15 @@ const servicesData = {
         title: "Maintain & Repair\n (Preventive & Restoration)",
         hero: "Healthy Teeth. For Life.",
         description: "Preventive care to detect issues early and restorative treatments to bring back functionality.",
-        icon: <Shield size={32} />, 
+        icon: <Shield size={32} />,
         color: "var(--color-primary)",
-        services: ["General Consultation", "Scaling & Polishing", "Tooth Fillings", "Root Canal Treatment", "Wisdom Tooth Surgery"],
+        services: [
+            { name: "General Consultation", desc: "Comprehensive oral health assessment and treatment planning." },
+            { name: "Scaling & Polishing", desc: "Professional cleaning to remove plaque, tartar, and surface stains." },
+            { name: "Tooth Fillings", desc: "Restoring decayed teeth with tooth-colored composite materials." },
+            { name: "Root Canal Treatment", desc: "Saving infected teeth by removing damaged pulp and sealing the root." },
+            { name: "Wisdom Tooth Surgery", desc: "Safe removal of impacted wisdom teeth to prevent pain and crowding." }
+        ],
         tier1: {
             title: "Wisdom Tooth Surgery",
             desc: "Expert removal of impacted or problematic wisdom teeth with minimal discomfort.",
@@ -44,9 +51,15 @@ const servicesData = {
         title: "Straighten Teeth\n (Orthodontics)",
         hero: "Confidence in Every Smile.",
         description: "Modern orthodontic solutions for children, teens, and adults.",
-        icon: <Sparkles size={32} />, 
+        icon: <Sparkles size={32} />,
         color: "var(--color-secondary)",
-        services: ["Clear Aligners (Invisalign/Clearsmile)", "Metal Braces (Damon)", "Retainers (Hawley/Essix)", "Removable Appliances", "Fixed Appliances"],
+        services: [
+            { name: "Clear Aligners", desc: "Invisible, removable trays (Invisalign/Clearsmile) for discreet straightening." },
+            { name: "Metal Braces", desc: "Traditional reliable brackets (Damon) for complex orthodontic corrections." },
+            { name: "Retainers", desc: "Custom devices (Hawley/Essix) to maintain your new smile after treatment." },
+            { name: "Removable Appliances", desc: "Early intervention devices for minor tooth movements and growth." },
+            { name: "Fixed Appliances", desc: "Specialized expanders and correctors for structural alignment." }
+        ],
         tier1: {
             title: "Clear Aligners (Invisalign / Clearsmile)",
             desc: "The clear alternative to braces. Straighten your teeth without anyone knowing.",
@@ -74,9 +87,15 @@ const servicesData = {
         title: "Replace Teeth\n (Prosthetics & Implants)",
         hero: "Eat, Speak, and Smile Again.",
         description: "Restoring function and aesthetics for a complete, confident smile.",
-        icon: <Smile size={32} />, 
+        icon: <Smile size={32} />,
         color: "var(--color-primary)",
-        services: ["Dental Implants", "Dental Bridges", "Complete Dentures", "Partial Dentures", "Denture Repairs & Relines"],
+        services: [
+            { name: "Dental Implants", desc: "Permanent, natural-looking replacements for missing tooth roots." },
+            { name: "Dental Bridges", desc: "Fixed restoration to bridge the gap created by one or more missing teeth." },
+            { name: "Complete Dentures", desc: "Full replacements for missing teeth, restoring function and appearance." },
+            { name: "Partial Dentures", desc: "Removable option to replace several missing teeth in a row." },
+            { name: "Denture Repairs & Relines", desc: "Maintenance to ensure your dentures fit comfortably and last longer." }
+        ],
         tier1: {
             title: "Dental Implants",
             desc: "The gold standard for tooth replacement. Look and feel just like natural teeth.",
@@ -101,9 +120,15 @@ const servicesData = {
         title: "Enhance Smile\n (Cosmetic Dentistry)",
         hero: "Design Your Dream Smile.",
         description: "Cosmetic treatments tailored to your unique facial features.",
-        icon: <Star size={32} />, 
+        icon: <Star size={32} />,
         color: "var(--color-accent)",
-        services: ["Composite Veneers", "Ceramic Veneers", "In-House Whitening", "Take-Home Whitening", "All-Ceramic Crowns"],
+        services: [
+            { name: "Composite Veneers", desc: "Direct bonding to reshape teeth and improve aesthetics in one visit." },
+            { name: "Ceramic Veneers", desc: "Durable, high-quality porcelain shells for a flawless, lasting smile." },
+            { name: "In-House Whitening", desc: "Immediate, powerful whitening results in a single clinic session." },
+            { name: "Take-Home Whitening", desc: "Professional kits to brighten your smile conveniently at home." },
+            { name: "All-Ceramic Crowns", desc: "Strength and beauty combined for badly damaged or aesthetic teeth." }
+        ],
         tier1: {
             title: "Teeth Whitening (In-House / Take-Home)",
             desc: "Transform your smile with professional whitening treatments tailored to you.",
@@ -128,9 +153,15 @@ const servicesData = {
         title: "Children & Growth\n (Paediatrics)",
         hero: "Growing Healthy Smiles & Airways.",
         description: "Specialized care for infants and children, focusing on growth and development.",
-        icon: <Users size={32} />, 
+        icon: <Users size={32} />,
         color: "var(--color-secondary)",
-        services: ["Myofunctional Orthodontics", "Fissure Sealants", "Topical Fluoride", "Paediatric Fillings", "Baby Tooth Extraction"],
+        services: [
+            { name: "Myofunctional Orthodontics", desc: "Correcting oral habits to guide proper jaw and face growth." },
+            { name: "Fissure Sealants", desc: "Protective coatings on back teeth to prevent decay in grooves." },
+            { name: "Topical Fluoride", desc: "Strengthening enamel to make teeth more resistant to cavities." },
+            { name: "Paediatric Fillings", desc: "Gentle restoration for baby teeth to maintain space and health." },
+            { name: "Baby Tooth Extraction", desc: "Careful removal of retained baby teeth to allow adult teeth to erupt." }
+        ],
         tier1: {
             title: "Myofunctional Orthodontics",
             desc: "Addressing mouth breathing and oral habits for better sleep and healthy facial development.",
@@ -174,7 +205,7 @@ const ServiceHub = () => {
     return (
         <div className="service-hub">
             {/* Hero */}
-            <div className="hub-hero" style={{ 
+            <div className="hub-hero" style={{
                 backgroundImage: `url(/images/service_${category}.png)`,
                 backgroundPosition: getBgPosition(category)
             }}>
@@ -195,17 +226,35 @@ const ServiceHub = () => {
             <div className="container section-padding">
                 <div className="sub-grid">
                     {/* Key Services List */}
-                    <div className="glass-panel service-list-card">
+                    <motion.div
+                        className="glass-panel service-list-card"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.1 }}
+                        transition={{ duration: 0.6 }}
+                    >
                         <h3>Key Services</h3>
                         <ul className="custom-list">
                             {data.services.map((item, i) => (
-                                <li key={i}><CheckCircle size={18} color="var(--color-primary)" /> {item}</li>
+                                <li key={i}>
+                                    <div className="service-item-header">
+                                        <CheckCircle size={18} color="var(--color-primary)" className="service-icon" />
+                                        <span className="service-name">{item.name}</span>
+                                    </div>
+                                    <p className="service-desc">{item.desc}</p>
+                                </li>
                             ))}
                         </ul>
-                    </div>
+                    </motion.div>
 
                     {/* Tier 1 Highlight */}
-                    <div className="glass-panel tier1-card">
+                    <motion.div
+                        className="glass-panel tier1-card"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.1 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                    >
                         <div className="tier1-content">
                             <span className="badge">Our Speciality</span>
                             <h3>{data.tier1.title}</h3>
@@ -214,54 +263,74 @@ const ServiceHub = () => {
                                 <Button variant="outline">Learn More</Button>
                             </Link>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
 
             {/* Experience Section */}
             {category === 'straighten' ? (
                 <div className="experience-section scanning-hero-section section-padding">
-                    <div className="container text-center">
+                    <motion.div
+                        className="container text-center"
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true, amount: 0.1 }}
+                        transition={{ duration: 0.8 }}
+                    >
                         <div className="scanning-content-header mb-5">
                             <h2 className="scanning-title">{data.experience.title}</h2>
                             <p className="lead-text scanning-lead mx-auto">{data.experience.desc}</p>
                         </div>
                         <div className="scanning-visual-container">
-                            <img 
-                                src="/images/teeth_3d_scan.png" 
-                                alt="3D Digital Scan" 
+                            <img
+                                src="/images/teeth_3d_scan.png"
+                                alt="3D Digital Scan"
                                 className="scanning-image"
                             />
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             ) : (
                 <div className="experience-section section-padding">
                     <div className="container">
                         <div className="apple-grid">
                             <div className="apple-content">
-                                <h2 className="apple-title">{data.experience.title}</h2>
-                                <p className="apple-desc">{data.experience.desc}</p>
+                                <motion.div
+                                    initial={{ opacity: 0, x: -30 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true, amount: 0.1 }}
+                                    transition={{ duration: 0.6 }}
+                                >
+                                    <h2 className="apple-title">{data.experience.title}</h2>
+                                    <p className="apple-desc">{data.experience.desc}</p>
+                                </motion.div>
                             </div>
                             <div className="apple-visual">
-                                {data.experience.benefits ? (
-                                    <div className="benefits-card">
-                                        <h3 className="benefits-header">Key Benefits</h3>
-                                        <ul className="benefit-list">
-                                            {data.experience.benefits.map((feat, i) => (
-                                                <li key={i} className="benefit-item">
-                                                    <CheckCircle size={24} className="benefit-icon" />
-                                                    <span>{feat}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                ) : (
-                                    <div className="glass-panel info-visual">
-                                        <h3>{data.experience.visualTitle || "Why This Matters"}</h3>
-                                        {data.experience.visualContent}
-                                    </div>
-                                )}
+                                <motion.div
+                                    initial={{ opacity: 0, x: 30 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true, amount: 0.1 }}
+                                    transition={{ duration: 0.6 }}
+                                >
+                                    {data.experience.benefits ? (
+                                        <div className="benefits-card">
+                                            <h3 className="benefits-header">Key Benefits</h3>
+                                            <ul className="benefit-list">
+                                                {data.experience.benefits.map((feat, i) => (
+                                                    <li key={i} className="benefit-item">
+                                                        <CheckCircle size={24} className="benefit-icon" />
+                                                        <span>{feat}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    ) : (
+                                        <div className="glass-panel info-visual">
+                                            <h3>{data.experience.visualTitle || "Why This Matters"}</h3>
+                                            {data.experience.visualContent}
+                                        </div>
+                                    )}
+                                </motion.div>
                             </div>
                         </div>
                     </div>
@@ -270,27 +339,19 @@ const ServiceHub = () => {
 
             {/* CTA & Blogs */}
             <div className="container section-padding text-center">
-                <h2>Ready for a healthier smile?</h2>
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.1 }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <h2>Ready for a healthier smile?</h2>
 
-                {data.blogs && data.blogs.length > 0 && (
-                    <div className="blog-section mt-4 mb-4">
-                        <p className="text-muted section-label">Learn more about:</p>
-                        <div className="blogs-grid">
-                            {data.blogs.map((blog, i) => (
-                                <Link key={i} to={blog.path} className="glass-panel blog-card">
-                                    <div className="blog-image-placeholder">{blog.image}</div>
-                                    <div className="blog-card-content">
-                                        <h4>{blog.title}</h4>
-                                        <span className="read-more">Read More <ArrowRight size={14} /></span>
-                                    </div>
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
-                )}
 
-                <br />
-                <Button onClick={() => openBooking(`Interested in ${data.title.split("\n")[0]}`)}>Book Consultation</Button>
+
+                    <br />
+                    <Button onClick={() => openBooking(`Interested in ${data.title.split("\n")[0]}`)}>Book Consultation</Button>
+                </motion.div>
             </div>
 
             <style>{`
@@ -424,11 +485,33 @@ const ServiceHub = () => {
                 
                 .custom-list li {
                     display: flex;
-                    gap: 10px;
+                    flex-direction: column;
+                    gap: 5px;
+                    margin-bottom: 20px;
+                    color: var(--color-text-main);
+                }
+
+                .service-item-header {
+                    display: flex;
                     align-items: center;
-                    margin-bottom: 15px;
+                    gap: 10px;
+                }
+
+                .service-name {
                     font-size: 1.1rem;
-                    color: var(--color-text-main); /* Ensure visibility */
+                    font-weight: 500;
+                }
+
+                .service-icon {
+                    flex-shrink: 0;
+                    margin-top: 2px;
+                }
+
+                .service-desc {
+                    margin: 0 0 0 28px; /* Indent to align with text start */
+                    font-size: 0.95rem;
+                    color: #555; /* Darker for better visibility */
+                    line-height: 1.4;
                 }
 
                 .tier1-card {
@@ -472,6 +555,40 @@ const ServiceHub = () => {
                     border-radius: 15px;
                     overflow: hidden;
                     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+
+                .blog-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+                }
+
+                .blog-card-content {
+                    padding: 24px;
+                    text-align: left;
+                }
+
+                .blog-card-content h4 {
+                    margin-bottom: 12px;
+                    font-size: 1.1rem;
+                    line-height: 1.4;
+                }
+
+                .read-more {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+                    color: var(--color-primary);
+                    font-weight: 600;
+                    font-size: 0.95rem;
+                    margin-top: 8px;
+                }
+
+                .blog-image-placeholder {
+                    padding: 24px 24px 0 24px;
+                    color: #666;
+                    font-size: 0.9rem;
+                    text-align: left;
                 }
 
                 .apple-grid {
@@ -538,21 +655,32 @@ const ServiceHub = () => {
                 }
 
                 @media (max-width: 768px) {
-                    .sub-grid { grid-template-columns: 1fr; }
-                    .hero-main-title { font-size: 2.5rem; }
+                    .sub-grid { grid-template-columns: 1fr; gap: 30px; }
+                    .hero-main-title { font-size: 2.5rem; word-wrap: break-word; } /* Ensure text wraps */
                     .hub-hero { padding: 120px 0 60px 0; min-height: 400px; }
-                    .hero-overlay { background: rgba(0,0,0,0.7); }
+                    .hero-overlay { background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 100%); } /* Darker overlay for mobile */
                     .scanning-title { font-size: 2rem; }
-                    .hub-hero .container { padding-left: 20px; }
+                    .hub-hero .container { padding-left: 20px; padding-right: 20px; }
                     
                     /* Apple Style Mobile */
                     .apple-grid { grid-template-columns: 1fr; gap: 40px; }
                     .apple-title { font-size: 2.2rem; }
-                    .apple-desc { max-width: 100%; }
+                    .apple-desc { max-width: 100%; font-size: 1.1rem; }
                     
-                    /* Mobile card padding */
-                    .benefits-card, .service-list-card, .tier1-card, .info-visual {
+                    .service-list-card, .tier1-card, .benefits-card, .info-visual {
                         padding: 24px;
+                    }
+                    
+                    .blog-section .glass-panel {
+                        margin-bottom: 0;
+                    }
+
+                    .blogs-grid {
+                        grid-template-columns: 1fr;
+                    }
+                    
+                    .hero-content-left {
+                        width: 100%;
                     }
                 }
             `}</style>
@@ -560,19 +688,20 @@ const ServiceHub = () => {
     );
 };
 
-
 const Services = () => {
     return (
         <Routes>
             <Route path="/" element={<Navigate to="/services/maintain" replace />} />
+
+            {/* Main Category Pages */}
             <Route path=":category" element={<ServiceHub />} />
-            
-            {/* Specialty Routes */}
+
+            {/* Specialty Sub-Pages */}
             <Route path="maintain/wisdom-tooth" element={<WisdomToothSurgery />} />
             <Route path="straighten/clear-aligners" element={<ClearAligners />} />
-            <Route path="replace/implants" element={<DentalImplants />} />
-            <Route path="enhance/whitening" element={<TeethWhitening />} />
-            <Route path="children/myofunctional" element={<MyofunctionalOrthodontics />} />
+            <Route path="replace/dental-implants" element={<DentalImplants />} />
+            <Route path="enhance/teeth-whitening" element={<TeethWhitening />} />
+            <Route path="children/myobrace" element={<MyofunctionalOrthodontics />} />
         </Routes>
     );
 };

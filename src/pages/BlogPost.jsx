@@ -27,21 +27,31 @@ const BlogPost = () => {
         <div className="blog-post-page">
             {/* Hero Section */}
             <div className="post-hero" style={{ 
-                backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${post.img})`,
+                backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(\${post.img})`,
                 backgroundSize: 'cover',
-                backgroundPosition: 'center 35%',
+                backgroundPosition: 'center 35%', // Shifted down slightly to show faces better
+                height: '60vh',
+                minHeight: '500px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                position: 'relative',
+                marginTop: '0',
+                paddingTop: '120px'
             }}>
-                <div className="container hero-content-container">
+                <div className="container" style={{ position: 'relative', zIndex: 2, textAlign: 'center', color: 'white' }}>
                     <Reveal>
-                        <span className="post-category badge">
+                        <span className="post-category badge" style={{ color: 'white', marginBottom: '20px', display: 'inline-block', fontSize: '1rem', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase' }}>
                             {post.category}
                         </span>
                     </Reveal>
                     <Reveal delay={0.1}>
-                        <h1>{post.title}</h1>
+                        <h1 style={{ fontSize: '3rem', fontWeight: 700, margin: '10px 0', textShadow: '0 2px 10px rgba(0,0,0,0.3)', color: 'white' }}>
+                            {post.title}
+                        </h1>
                     </Reveal>
                     <Reveal delay={0.2}>
-                        <p>{post.date}</p>
+                        <p style={{ fontSize: '1.2rem', opacity: 0.9 }}>{post.date}</p>
                     </Reveal>
                 </div>
             </div>
@@ -51,17 +61,27 @@ const BlogPost = () => {
                 <FadeIn>
                     <button 
                         onClick={() => navigate('/blog')}
-                        className="back-button"
+                        style={{ 
+                            display: 'flex', 
+                            alignItems: 'center', 
+                            gap: '8px', 
+                            background: 'none', 
+                            border: 'none', 
+                            color: 'var(--color-text-muted)',
+                            cursor: 'pointer',
+                            marginBottom: '40px',
+                            fontSize: '1rem'
+                        }}
                     >
                         <ArrowLeft size={20} /> Back to Blog
                     </button>
                     
                     <div className="blog-content" dangerouslySetInnerHTML={{ __html: post.content }} />
                     
-                    <div className="post-footer">
-                        <h3>Ready to prioritize your smile?</h3>
-                        <p>Schedule a consultation for a personalized assessment.</p>
-                        <div className="footer-cta">
+                    <div className="post-footer" style={{ marginTop: '60px', paddingTop: '40px', borderTop: '1px solid #eee', textAlign: 'center' }}>
+                        <h3 style={{ fontSize: '2rem', marginBottom: '10px' }}>Ready to prioritize your smile?</h3>
+                        <p style={{ color: 'var(--color-text-muted)', marginBottom: '30px' }}>Schedule a consultation for a personalized assessment.</p>
+                        <div style={{ marginTop: '20px' }}>
                              <Button 
                                 variant="primary" 
                                 onClick={() => {
@@ -85,58 +105,6 @@ const BlogPost = () => {
             </div>
 
             <style>{`
-                .post-hero {
-                    height: 60vh;
-                    min-height: 500px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    position: relative;
-                    margin-top: 0;
-                    padding-top: 120px;
-                    color: white;
-                }
-                
-                .hero-content-container {
-                     position: relative; 
-                     z-index: 2; 
-                     text-align: center; 
-                }
-                
-                .post-category {
-                    color: white; 
-                    margin-bottom: 20px; 
-                    display: inline-block; 
-                    font-size: 1rem; 
-                    font-weight: 600; 
-                    letter-spacing: 1px; 
-                    text-transform: uppercase;
-                }
-                
-                .post-hero h1 {
-                    font-size: 3rem; 
-                    font-weight: 700; 
-                    margin: 10px 0; 
-                    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-                }
-                
-                .post-hero p {
-                    font-size: 1.2rem; 
-                    opacity: 0.9;
-                }
-
-                .back-button {
-                    display: flex; 
-                    align-items: center; 
-                    gap: 8px; 
-                    background: none; 
-                    border: none; 
-                    color: var(--color-text-muted);
-                    cursor: pointer;
-                    margin-bottom: 40px;
-                    font-size: 1rem;
-                }
-
                 .blog-content h3 {
                     font-size: 1.8rem;
                     color: var(--color-text);
@@ -183,44 +151,6 @@ const BlogPost = () => {
                 }
                 .blog-content strong {
                     color: var(--color-text);
-                }
-                
-                .post-footer {
-                    margin-top: 60px; 
-                    padding-top: 40px; 
-                    border-top: 1px solid #eee; 
-                    text-align: center;
-                }
-                
-                .post-footer h3 {
-                    font-size: 2rem; 
-                    margin-bottom: 10px;
-                }
-                
-                .post-footer p {
-                    color: var(--color-text-muted); 
-                    margin-bottom: 30px;
-                }
-                
-                .footer-cta {
-                    margin-top: 20px;
-                }
-
-                @media (max-width: 768px) {
-                    .post-hero {
-                        height: 50vh;
-                        min-height: 400px;
-                        padding-top: 80px;
-                    }
-                    .post-hero h1 {
-                        font-size: 2.2rem;
-                    }
-                    .blog-content p, .blog-content li {
-                        font-size: 1.05rem;
-                    }
-                    .post-footer h3 {
-                        font-size: 1.6rem;
-                    }
                 }
             `}</style>
         </div>

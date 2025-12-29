@@ -13,16 +13,16 @@ const Blog = () => {
 
     return (
         <div className="blog-page">
-            <div className="blog-hero section-padding">
+            <div className="section-padding" style={{ textAlign: 'center', paddingTop: '180px', paddingBottom: '20px' }}>
                 <div className="container">
-                    <Reveal width="100%"><h1 className="hero-title">Learning <span className="text-gradient">Centre</span></h1></Reveal>
-                    <Reveal delay={0.2} width="100%"><p className="hero-subtitle">
+                    <Reveal width="100%"><h1 className="hero-title" style={{ fontSize: "3rem", fontWeight: 700 }}>Learning <span className="text-gradient">Centre</span></h1></Reveal>
+                    <Reveal delay={0.2} width="100%"><p className="hero-subtitle mb-4" style={{ fontSize: '1.2rem', color: 'var(--color-text-muted)', maxWidth: '800px', margin: '20px auto 0', lineHeight: '1.6' }}>
                         Welcome to our learning space—where we share our heart for dental education and empower you with the knowledge to care for your lifelong smile.
                     </p></Reveal>
                 </div>
             </div>
 
-            <div className="container section-padding pt-0">
+            <div className="container section-padding">
                 {/* Featured */}
                 {featuredPost && (
                     <FadeIn className="glass-panel featured-post">
@@ -35,18 +35,18 @@ const Blog = () => {
                             </Link>
                         </div>
                         <div className="featured-image">
-                            <img src={featuredPost.img} alt={featuredPost.title} />
+                            <img src={featuredPost.img} alt={featuredPost.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         </div>
                     </FadeIn>
                 )}
 
                 {/* Grid */}
-                <div className="posts-grid">
+                <div className="posts-grid" style={{ marginTop: '80px' }}>
                     {otherPosts.map((post, index) => (
                         <Link to={`/blog/${post.id}`} key={index} style={{ textDecoration: 'none', color: 'inherit' }}>
                             <FadeIn className="glass-panel post-card">
                                 <div className="post-image">
-                                    <img src={post.img} alt={post.title} />
+                                    <img src={post.img} alt={post.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                 </div>
                                 <div className="post-content">
                                     <span className="post-cat">{post.category}</span>
@@ -60,23 +60,15 @@ const Blog = () => {
             </div>
 
             <style>{`
-          .blog-hero {
-              text-align: center;
-              padding-top: 180px;
-              padding-bottom: 20px;
-          }
-          
-          .hero-title {
-              font-size: 3rem;
-              font-weight: 700;
-          }
-          
-          .hero-subtitle {
-              font-size: 1.2rem;
-              color: var(--color-text-muted);
-              max-width: 800px;
-              margin: 20px auto 0;
-              line-height: 1.6;
+          .search-bar {
+              display: flex;
+              align-items: center;
+              gap: 15px;
+              max-width: 500px;
+              margin: 0 auto;
+              padding: 10px 15px;
+              border-radius: 50px;
+              background: rgba(255,255,255,0.8);
           }
 
           .featured-post {
@@ -85,6 +77,7 @@ const Blog = () => {
               overflow: hidden;
               padding: 0;
               min-height: 350px;
+              border-radius: 24px; /* Match Home page bento cards */
           }
 
           .featured-content {
@@ -98,18 +91,11 @@ const Blog = () => {
           .featured-image {
               height: 100%;
           }
-          
-          .featured-image img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-          }
 
           .posts-grid {
               display: grid;
               grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
               gap: 30px;
-              margin-top: 80px;
           }
 
           .post-card {
@@ -117,9 +103,8 @@ const Blog = () => {
               overflow: hidden;
               transition: transform 0.3s;
               cursor: pointer;
-              height: 100%;
-              display: flex;
-              flex-direction: column;
+              height: 100%; 
+              border-radius: 24px; /* Match Home page bento cards */
           }
           
           .post-card:hover {
@@ -128,20 +113,10 @@ const Blog = () => {
 
           .post-image {
               height: 200px;
-              flex-shrink: 0;
-          }
-          
-          .post-image img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
           }
 
           .post-content {
-              padding: 20px;
-              display: flex;
-              flex-direction: column;
-              flex-grow: 1;
+              padding: 24px;
           }
 
           .post-cat {
@@ -155,7 +130,6 @@ const Blog = () => {
              margin: 10px 0;
              font-size: 1.25rem;
              line-height: 1.4;
-             flex-grow: 1;
           }
 
           .post-meta {
@@ -165,32 +139,13 @@ const Blog = () => {
           }
           
           @media (max-width: 768px) {
-              .blog-hero {
-                  padding-top: 140px;
-                  padding-bottom: 20px;
-              }
-              .hero-title {
-                  font-size: 2.5rem;
-              }
-              .hero-subtitle {
-                  font-size: 1.1rem;
-              }
-              
               .featured-post {
                   grid-template-columns: 1fr;
+                  border-radius: 24px;
               }
               .featured-image {
                   height: 200px;
                   order: -1;
-              }
-              .featured-content {
-                  padding: 24px;
-              }
-              
-              .posts-grid {
-                  margin-top: 40px;
-                  grid-template-columns: 1fr;
-                  gap: 30px;
               }
           }
        `}</style>

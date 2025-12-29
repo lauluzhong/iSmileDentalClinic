@@ -45,3 +45,4 @@ build_log_*.txt
 uploaded_image_*.png
 uploaded_image_*.jpg
 test.txt
+.vite/

@@ -361,7 +361,7 @@ const About = () => {
 
                 .team-grid {
                     display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
                     gap: 40px;
                 }
 
@@ -469,15 +469,6 @@ const About = () => {
                     }
                     .journey-grid {
                         grid-template-columns: 1fr;
-                    }
-                    .journey-card {
-                        padding: 24px;
-                    }
-                    .founder-section-dark {
-                        padding: 80px 0;
-                    }
-                    .about-hero-container {
-                        padding-top: 100px;
                     }
                 }
             `}</style>
