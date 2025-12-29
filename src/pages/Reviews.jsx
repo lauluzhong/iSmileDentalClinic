@@ -51,8 +51,8 @@ const reviewsList = [
 const Reviews = () => {
     return (
         <div className="reviews-page">
-            <div className="reviews-hero section-padding">
-                <Reveal width="100%"><h1 className="hero-title">Stories From <span className="text-gradient">Our Community</span></h1></Reveal>
+            <div className="section-padding" style={{ textAlign: 'center', paddingTop: '180px', paddingBottom: '20px' }}>
+                <Reveal width="100%"><h1 className="hero-title" style={{ fontSize: "3rem", fontWeight: 700 }}>Stories From <span className="text-gradient">Our Community</span></h1></Reveal>
             </div>
 
             <div className="container section-padding pt-0">
@@ -64,9 +64,9 @@ const Reviews = () => {
                                 {[...Array(review.rating)].map((_, i) => <Star key={i} size={16} fill="#FFD700" color="#FFD700" />)}
                             </div>
                             <p className="review-body">"{review.text}"</p>
-                            <div className="review-footer">
-                                <img src={review.avatar} alt={review.author} className="reviewer-avatar" />
-                                <div className="reviewer-info">
+                            <div className="review-footer" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                                <img src={review.avatar} alt={review.author} style={{ width: '50px', height: '50px', borderRadius: '50%', objectFit: 'cover' }} />
+                                <div style={{ display: 'flex', flexDirection: 'column' }}>
                                     <strong>{review.author}</strong>
                                     <span className="review-type">{review.type}</span>
                                 </div>
@@ -75,7 +75,7 @@ const Reviews = () => {
                     ))}
                 </div>
 
-                <div className="text-center share-story-section">
+                <div className="text-center" style={{ marginTop: '100px', textAlign: 'center' }}>
                     <Reveal width="100%"><h3>Have a story to share?</h3></Reveal>
                     <p className="mb-4">We'd love to hear from you.</p>
                     <a href="https://g.page/r/CQU1Takv7hs4EAE/review" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}><Button>Share Your Experience</Button></a>
@@ -83,17 +83,6 @@ const Reviews = () => {
             </div>
 
             <style>{`
-        .reviews-hero {
-            text-align: center;
-            padding-top: 180px;
-            padding-bottom: 20px;
-        }
-
-        .hero-title {
-            font-size: 3rem;
-            font-weight: 700;
-        }
-
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -103,8 +92,6 @@ const Reviews = () => {
         .review-card-large {
             padding: 30px;
             position: relative;
-            display: flex;
-            flex-direction: column;
         }
 
         .quote-icon {
@@ -126,29 +113,13 @@ const Reviews = () => {
             margin-bottom: 25px;
             color: var(--color-text-main);
             min-height: 80px;
-            flex-grow: 1;
         }
         
         .review-footer {
             display: flex;
-            align-items: center;
-            gap: 15px;
+            flex-direction: column;
             border-top: 1px solid rgba(0,0,0,0.05);
             padding-top: 15px;
-            margin-top: auto;
-        }
-
-        .reviewer-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .reviewer-info {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
         }
 
         .review-type {
@@ -156,35 +127,6 @@ const Reviews = () => {
             color: var(--color-secondary);
             text-transform: uppercase;
             letter-spacing: 0.5px;
-        }
-
-        .share-story-section {
-            margin-top: 100px;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .reviews-hero {
-                padding-top: 140px;
-                padding-bottom: 10px;
-            }
-            .hero-title {
-                font-size: 2.2rem;
-            }
-            .reviews-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            .review-card-large {
-                padding: 24px;
-            }
-            .review-body {
-                font-size: 1rem;
-                min-height: auto;
-            }
-            .share-story-section {
-                margin-top: 60px;
-            }
         }
       `}</style>
         </div>
