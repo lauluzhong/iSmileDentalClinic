@@ -549,26 +549,30 @@ const ServiceHub = () => {
                     .apple-grid { grid-template-columns: 1fr; gap: 40px; }
                     .apple-title { font-size: 2.2rem; }
                     .apple-desc { max-width: 100%; }
+                    
+                    /* Mobile card padding */
+                    .benefits-card, .service-list-card, .tier1-card, .info-visual {
+                        padding: 24px;
+                    }
                 }
             `}</style>
         </div>
     );
 };
 
+
 const Services = () => {
     return (
         <Routes>
             <Route path="/" element={<Navigate to="/services/maintain" replace />} />
-            
-            {/* Main Category Pages */}
             <Route path=":category" element={<ServiceHub />} />
-
-            {/* Specialty Sub-Pages */}
+            
+            {/* Specialty Routes */}
             <Route path="maintain/wisdom-tooth" element={<WisdomToothSurgery />} />
             <Route path="straighten/clear-aligners" element={<ClearAligners />} />
-            <Route path="replace/dental-implants" element={<DentalImplants />} />
-            <Route path="enhance/teeth-whitening" element={<TeethWhitening />} />
-            <Route path="children/myobrace" element={<MyofunctionalOrthodontics />} />
+            <Route path="replace/implants" element={<DentalImplants />} />
+            <Route path="enhance/whitening" element={<TeethWhitening />} />
+            <Route path="children/myofunctional" element={<MyofunctionalOrthodontics />} />
         </Routes>
     );
 };

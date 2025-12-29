@@ -433,30 +433,27 @@ const Home = () => {
             .bento-card {
                 min-height: 200px;
             }
-            .card-large, .card-wide, .card-vertical, .card-medium, .card-small {
-                grid-column: span 1;
-                grid-row: span 1;
-                min-height: 350px;
-                flex-direction: column;
-                max-width: 100%;
-            }
-            .card-large .card-content, .card-wide .card-content {
-                max-width: 100%;
-            }
-            .side-float { width: 100%; height: 50%; left: 0; }
         }
 
         @media (max-width: 768px) {
             .hero-container, .split-layout { grid-template-columns: 1fr; text-align: center; }
-            .welcome-container, .about-card-container { flex-direction: column; min-height: auto; }
-            .welcome-content-split, .about-content-split { padding: 40px 20px; text-align: center; align-items: center; }
-            .welcome-headline, .about-headline { font-size: 3rem; }
-            .welcome-description, .about-description { margin-left: auto; margin-right: auto; }
-            .welcome-image-split, .about-image-split { height: 350px; }
+            .hero-section { min-height: auto; padding-top: 100px; padding-bottom: 50px; }
+            
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .welcome-container, .about-card-container { flex-direction: column-reverse; min-height: auto; border-radius: 20px; }
+            .welcome-content-split, .about-content-split { padding: 40px 24px; text-align: center; align-items: center; }
+            .welcome-headline, .about-headline { font-size: 2.2rem; }
+            .welcome-description, .about-description { margin-left: auto; margin-right: auto; font-size: 1.1rem; }
+            .welcome-image-split, .about-image-split { height: 280px; }
             .hero-title { font-size: 2.5rem; }
-            .hero-visual { order: -1; }
+            .hero-visual { order: -1; margin-bottom: 30px; }
             .insight-card-large { width: 85vw; }
             .card-headline { font-size: 1.5rem; }
+            
+            .liquid-shape { opacity: 0.3; }
         }
       `}</style>
         </div>
