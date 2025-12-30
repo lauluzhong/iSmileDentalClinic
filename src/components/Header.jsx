@@ -1,7 +1,8 @@
 import { useBooking } from '../context/BookingContext';
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { ChevronDown, Menu, X, Phone } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Button from './Button';
 const logo = '/logo.png';
 
@@ -174,71 +175,80 @@ const Header = () => {
             </div>
 
             {/* Mobile Navigation Overlay */}
-            {mobileMenuOpen && (
-                <div className="mobile-nav-overlay glass-panel">
-                    <ul className="mobile-nav-list">
-                        {navLinks.map((link) => (
-                            <li key={link.name} className="mobile-nav-item">
-                                {link.dropdown ? (
-                                    // Accordion Item
-                                    <div className="mobile-accordion-group">
-                                        <div
-                                            className="mobile-nav-link-header"
-                                            onClick={() => toggleMobileDropdown(link.name)}
-                                            style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}
-                                        >
-                                            <span style={{ fontWeight: '600', fontSize: '0.95rem', color: '#1e293b' }}>{link.name}</span>
-                                            <ChevronDown
-                                                size={16}
-                                                style={{
-                                                    transform: activeMobileDropdown === link.name ? 'rotate(180deg)' : 'rotate(0deg)',
-                                                    transition: 'transform 0.3s ease',
-                                                    color: '#94a3b8'
-                                                }}
-                                            />
-                                        </div>
+            {/* Mobile Navigation Overlay */}
+            <AnimatePresence>
+                {mobileMenuOpen && (
+                    <motion.div
+                        className="mobile-nav-overlay glass-panel"
+                        initial={{ opacity: 0, y: -20, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                        transition={{ duration: 0.2 }}
+                    >
+                        <ul className="mobile-nav-list">
+                            {navLinks.map((link) => (
+                                <li key={link.name} className="mobile-nav-item">
+                                    {link.dropdown ? (
+                                        // Accordion Item
+                                        <div className="mobile-accordion-group">
+                                            <div
+                                                className="mobile-nav-link-header"
+                                                onClick={() => toggleMobileDropdown(link.name)}
+                                                style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}
+                                            >
+                                                <span style={{ fontWeight: '600', fontSize: '0.95rem', color: '#1e293b' }}>{link.name}</span>
+                                                <ChevronDown
+                                                    size={16}
+                                                    style={{
+                                                        transform: activeMobileDropdown === link.name ? 'rotate(180deg)' : 'rotate(0deg)',
+                                                        transition: 'transform 0.3s ease',
+                                                        color: '#94a3b8'
+                                                    }}
+                                                />
+                                            </div>
 
-                                        {/* Submenu */}
-                                        <div className={`mobile-submenu-container ${activeMobileDropdown === link.name ? 'open' : ''}`}>
-                                            <ul className="mobile-dropdown-grid">
-                                                {link.dropdown.map(subItem => (
-                                                    <li key={subItem.name} className="mobile-dropdown-card">
-                                                        <span
-                                                            onClick={() => handleDropdownClick(link.path, subItem.hash || subItem.path)}
-                                                            className="mobile-dropdown-link"
-                                                        >
-                                                            {subItem.name}
-                                                        </span>
-                                                    </li>
-                                                ))}
-                                            </ul>
+                                            {/* Submenu */}
+                                            <div className={`mobile-submenu-container ${activeMobileDropdown === link.name ? 'open' : ''}`}>
+                                                <ul className="mobile-dropdown-grid">
+                                                    {link.dropdown.map(subItem => (
+                                                        <li key={subItem.name} className="mobile-dropdown-card">
+                                                            <span
+                                                                onClick={() => handleDropdownClick(link.path, subItem.hash || subItem.path)}
+                                                                className="mobile-dropdown-link"
+                                                            >
+                                                                {subItem.name}
+                                                            </span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
-                                ) : (
-                                    // Regular Link
-                                    <Link
-                                        to={link.path}
-                                        className="mobile-nav-link-header"
-                                        onClick={(e) => {
-                                            if (location.pathname === link.path) {
-                                                e.preventDefault();
-                                                scrollToTop();
-                                            }
-                                            setMobileMenuOpen(false);
-                                        }}
-                                        style={{ display: 'block', fontWeight: '600', fontSize: '0.95rem', color: '#1e293b' }}
-                                    >
-                                        {link.name}
-                                    </Link>
-                                )}
+                                    ) : (
+                                        // Regular Link
+                                        <Link
+                                            to={link.path}
+                                            className="mobile-nav-link-header"
+                                            onClick={(e) => {
+                                                if (location.pathname === link.path) {
+                                                    e.preventDefault();
+                                                    scrollToTop();
+                                                }
+                                                setMobileMenuOpen(false);
+                                            }}
+                                            style={{ display: 'block', fontWeight: '600', fontSize: '0.95rem', color: '#1e293b' }}
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    )}
+                                </li>
+                            ))}
+                            <li style={{ marginTop: '10px' }}>
+                                <Button onClick={() => { openBooking(); setMobileMenuOpen(false); }} style={{ width: '100%', fontSize: '0.9rem', padding: '10px' }}>Book Appointment</Button>
                             </li>
-                        ))}
-                        <li style={{ marginTop: '10px' }}>
-                            <Button onClick={() => { openBooking(); setMobileMenuOpen(false); }} style={{ width: '100%', fontSize: '0.9rem', padding: '10px' }}>Book Appointment</Button>
-                        </li>
-                    </ul>
-                </div>
-            )}
+                        </ul>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             <style>{`
         .header {

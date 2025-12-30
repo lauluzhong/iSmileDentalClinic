@@ -22,9 +22,9 @@ const servicesData = {
         icon: <Shield size={32} />,
         color: "var(--color-primary)",
         services: [
-            { name: "Comprehensive Examination and Diagnosis", desc: "Detailed evaluation covering your oral health for accurate diagnosis and treatment planning." },
+            { name: "Comprehensive Examination and Diagnosis", desc: "Detailed evaluation to cover your oral health for accurate diagnosis and treatment planning." },
             { name: "Scaling & Polishing", desc: "Professional cleaning to remove plaque, tartar, and surface stains." },
-            { name: "Tooth Fillings", desc: "Restoring decayed teeth with high-quality composite materials." },
+            { name: "Tooth Fillings", desc: "Restoring decayed teeth with high-quality tooth-coloured materials." },
             { name: "Root Canal Treatment", desc: "Saving infected teeth by removing damaged pulp and sealing the root." },
             { name: "Wisdom Tooth Surgery", desc: "Safe removal of impacted wisdom teeth to prevent pain and crowding." }
         ],
@@ -127,7 +127,8 @@ const servicesData = {
             { name: "Ceramic Veneers", desc: "Durable, high-quality porcelain shells for a flawless, lasting smile." },
             { name: "Take-Home Whitening (Gold Standard)", desc: "Customized trays and professional gels for the most stable, long-lasting results." },
             { name: "In-House Whitening", desc: "Rapid clinical whitening for immediate results when time is of the essence." },
-            { name: "All-Ceramic Crowns", desc: "Strength and beauty combined for badly damaged or aesthetic teeth." }
+            { name: "All-Ceramic Crowns", desc: "Strength and beauty combined for badly damaged or aesthetic teeth. Option for single-visit crown by appointment." },
+            { name: "Full Mouth Rehabilitation", desc: "Comprehensive restoration of worn down teeth to improve function, health, and appearance." }
         ],
         tier1: {
             title: "Professional Take-Home Whitening",
