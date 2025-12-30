@@ -579,13 +579,13 @@ const Home = () => {
             .bento-grid {
                 display: flex;
                 overflow-x: auto;
+                overflow-y: hidden;
                 scroll-snap-type: x mandatory;
                 scrollbar-width: none;
                 -ms-overflow-style: none;
                 gap: 12px;
-                padding-bottom: 10px;
                 margin: 0 -16px;
-                padding: 0 16px;
+                padding: 0 16px 20px 16px;
                 width: calc(100% + 32px);
             }
             .bento-grid::-webkit-scrollbar { display: none; }
@@ -615,7 +615,7 @@ const Home = () => {
                 scroll-snap-type: x mandatory;
                 gap: 12px;
                 margin: 0 -16px;
-                padding: 0 16px;
+                padding: 20px 16px 40px 16px;
                 scrollbar-width: none;
             }
             .reviews-slider::-webkit-scrollbar { display: none; }

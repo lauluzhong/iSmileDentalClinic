@@ -19,6 +19,10 @@ const FAQ = () => {
                 {
                     q: "Do you accept credit cards?",
                     a: "Yes, we accept all major credit cards, including Visa and Mastercard. We also support various E-wallets and DuitNow QR transfers for a contactless payment experience."
+                },
+                {
+                    q: "How can I obtain information regarding the pricing of treatments?",
+                    a: "Treatment costs vary based on individual needs. During your consultation, we will provide a personalized treatment plan and a clear breakdown of costs before you proceed."
                 }
             ]
         },
@@ -33,6 +37,10 @@ const FAQ = () => {
                 {
                     q: "What should I do in a dental emergency?",
                     a: "If you experience severe pain, swelling, or a dental injury, please reach out to us at +60 16 322 2135. We prioritize emergency cases and will do our best to provide same-day care."
+                },
+                {
+                    q: "Are dental X-rays (radiographs) safe?",
+                    a: "Your safety is our top priority. We use advanced digital 2D and 3D imaging technology, which offers high-definition clarity with minimal radiation exposure. These radiographs are vital for safe and accurate treatment. Rest assured, we strictly adhere to the highest safety standards to protect our patients."
                 }
             ]
         },

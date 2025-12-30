@@ -64,10 +64,20 @@ const reviewsList = [
         avatar: "/images/reviews/benny_kong.png"
     },
     {
-        text: "The best dental experience I've ever had. No pain, great results.",
-        author: "Jenny W.",
+        text: (
+            <>
+                <p>
+                    "Happy with the service and helpful that there is one reserved parking in front of the clinic.
+                    Good location near Atria DJ and the clinic is clean and calm vibes.
+                </p>
+                <p>
+                    Thank you <strong>Dr Jean</strong> and all the friendly staff too! 🙂"
+                </p>
+            </>
+        ),
+        author: "Ashley Chin",
         rating: 5,
-        avatar: "https://i.pravatar.cc/150?u=jenny"
+        avatar: "/images/reviews/ashley_chin.png"
     },
     {
         text: "Dr. Amy explained everything so clearly. I felt very empowered.",
