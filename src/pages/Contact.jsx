@@ -141,8 +141,27 @@ const Contact = () => {
               height: 20px;
           }
 
+
           .mt-4 {
               margin-top: 1rem;
+          }
+
+          @media (max-width: 768px) {
+              .contact-content { padding: 0 20px; }
+              .info-grid { flex-direction: column; gap: 20px; }
+              .info-item { 
+                  width: 100%; 
+                  max-width: 100%; 
+                  min-width: auto; 
+                  padding: 30px; 
+                  margin: 0;
+              }
+              .section-padding { padding-top: 100px !important; }
+              .hero-title { font-size: 2.5rem !important; margin-bottom: 20px !important; }
+              .lead-text { font-size: 1rem !important; margin-bottom: 30px !important; }
+              
+              .direction-buttons { width: 100%; }
+              .direction-btn { width: 100% !important; justify-content: center !important; }
           }
        `}</style>
         </div>

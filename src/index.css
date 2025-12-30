@@ -34,6 +34,16 @@
   --glass-blur: blur(12px);
 }
 
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 40px;
+    --fs-h1: 32px;
+    --fs-h2: 24px;
+    --fs-body: 14px;
+    --lh-tight: 1.05;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -176,6 +186,23 @@ a {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Text Utilities - Standard Property Inclusion */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 

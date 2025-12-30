@@ -27,7 +27,7 @@ function App() {
           <Route path="/about" element={<PageTransition><About /></PageTransition>} />
           {/* Apply Page Transition to Service Hub but NOT sub-routes? 
               The problem is /services/* renders <Services/> which renders <ServiceHub/>
-              So when switching from /services/maintain to /services/straighten, 
+              So when switching from /services/protect to /services/straighten, 
               App.jsx sees a KEY change (location.pathname), so it remounts <Services/>.
               Thus <PageTransition> triggers.
           */}

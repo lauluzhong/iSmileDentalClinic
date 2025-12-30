@@ -171,26 +171,31 @@ const About = () => {
                                     />}
                                 </div>
                                 <div className="team-info">
-                                    <h3>{doc.name}</h3>
-                                    <div className="team-role">{doc.role}</div>
-                                    <div className="team-meta">
-                                        <div><Award size={14} /> {doc.years}</div>
+                                    <div className="team-header-top">
+                                        <h3>{doc.name}</h3>
+                                        <div className="team-role">{doc.role}</div>
+                                        <div className="team-meta">
+                                            <div><Award size={14} /> {doc.years}</div>
+                                        </div>
                                     </div>
-                                    <p className="team-bio">{doc.bio}</p>
 
-                                    {doc.specialties && (
-                                        <div className="team-specialties">
-                                            <strong>Specialties:</strong><br />
-                                            {doc.specialties}
-                                        </div>
-                                    )}
+                                    <div className="team-body-content">
+                                        <p className="team-bio">{doc.bio}</p>
 
-                                    {doc.keyCompetency && (
-                                        <div className="team-specialties">
-                                            <strong>Key Competency / Expertise:</strong><br />
-                                            {doc.keyCompetency}
-                                        </div>
-                                    )}
+                                        {doc.specialties && (
+                                            <div className="team-specialties">
+                                                <strong>Specialties:</strong><br />
+                                                {doc.specialties}
+                                            </div>
+                                        )}
+
+                                        {doc.keyCompetency && (
+                                            <div className="team-specialties">
+                                                <strong>Key Competency / Expertise:</strong><br />
+                                                {doc.keyCompetency}
+                                            </div>
+                                        )}
+                                    </div>
 
                                     <div className="team-languages">
                                         <small>Languages Spoken: {doc.languages}</small>
@@ -407,6 +412,12 @@ const About = () => {
                 .team-info {
                     padding: 30px;
                     flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .team-header-top {
+                    min-height: 120px;
                 }
 
                 .team-info h3 {
@@ -427,7 +438,13 @@ const About = () => {
                 .team-meta {
                     color: #718096;
                     font-size: 0.9rem;
-                    margin-bottom: 20px;
+                    margin-bottom: 8px;
+                }
+
+                .team-body-content {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
                 }
 
                 .team-bio {
@@ -453,6 +470,9 @@ const About = () => {
                     border-top: 1px solid #edf2f7;
                     color: #64748b;
                     font-weight: 500;
+                    min-height: 85px;
+                    display: flex;
+                    align-items: flex-start;
                 }
 
                 @media (max-width: 1024px) {
@@ -477,12 +497,47 @@ const About = () => {
                 }
 
                 @media (max-width: 640px) {
+                    .about-hero-container { padding-top: 100px; }
+                    .about-hero { padding: 40px 0; }
                     .hero-title {
-                        font-size: 2.2rem;
+                        font-size: 2rem;
+                        line-height: 1.1;
+                        margin-bottom: 20px;
                     }
+                    .hero-description {
+                        font-size: 1rem;
+                        line-height: 1.5;
+                    }
+                    .journey-section { padding-bottom: 60px; }
                     .journey-grid {
                         grid-template-columns: 1fr;
+                        gap: 20px;
                     }
+                    .journey-card { padding: 24px; border-radius: 20px; }
+                    .journey-year { font-size: 1rem; }
+                    .journey-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+                    .journey-card p { font-size: 0.95rem; line-height: 1.6; }
+
+                    /* Founder Mobile */
+                    .founder-section-dark { padding: 60px 0; }
+                    .founder-content h2 { font-size: 2rem; }
+                    .founder-role { font-size: 0.9rem; margin-bottom: 24px; }
+                    .founder-bio h3 { font-size: 1.3rem; }
+                    .founder-bio p { font-size: 1rem; }
+                    .founder-img { border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+
+                    /* Team Mobile */
+                    .team-grid {
+                         grid-template-columns: 1fr;
+                         gap: 24px;
+                    }
+                    .team-card { border-radius: 20px; }
+                    .team-photo { height: 280px; } /* Reduced height */
+                    .team-info { padding: 20px; }
+                    .team-info h3 { font-size: 1.3rem; }
+                    .team-role { font-size: 0.75rem; }
+                    .team-bio { font-size: 0.9rem; }
+                    .team-specialties { padding: 12px; font-size: 0.8rem; }
                 }
             `}</style>
         </div>

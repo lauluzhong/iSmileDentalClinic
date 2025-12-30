@@ -15,7 +15,7 @@ import MyofunctionalOrthodontics from './specialties/MyofunctionalOrthodontics';
 
 
 const servicesData = {
-    maintain: {
+    protect: {
         title: "Protect & Repair\n (Preventive & Restorative)",
         hero: "Healthy Teeth. For Life.",
         description: "Competent and committed services to help you maintain a healthy smile.",
@@ -31,7 +31,7 @@ const servicesData = {
         tier1: {
             title: "Root Canal Treatment",
             desc: "Save your natural tooth. Advanced endodontic therapy to relieve pain and restore function.",
-            path: "/services/maintain/root-canal"
+            path: "/services/protect/root-canal"
         },
         experience: {
             title: "Preventive Dentistry & Long-Term Care",
@@ -193,7 +193,7 @@ const ServiceHub = () => {
 
     const getBgPosition = (cat) => {
         const positions = {
-            maintain: '60% 30%',
+            protect: '60% 30%',
             straighten: 'center 25%',
             children: 'center 30%',
             enhance: 'center 30%',
@@ -655,20 +655,23 @@ const ServiceHub = () => {
                 }
 
                 @media (max-width: 768px) {
-                    .sub-grid { grid-template-columns: 1fr; gap: 30px; }
-                    .hero-main-title { font-size: 2.5rem; word-wrap: break-word; } /* Ensure text wraps */
-                    .hub-hero { padding: 120px 0 60px 0; min-height: 400px; }
-                    .hero-overlay { background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 100%); } /* Darker overlay for mobile */
-                    .scanning-title { font-size: 2rem; }
+                    .sub-grid { grid-template-columns: 1fr; gap: 24px; }
+                    .hero-main-title { font-size: 2.2rem; word-wrap: break-word; line-height: 1.1; margin-bottom: 16px; } 
+                    .hub-hero { padding: 100px 0 50px 0; min-height: auto; }
+                    .hero-overlay { background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 100%); } 
+                    .scanning-title { font-size: 1.8rem; }
                     .hub-hero .container { padding-left: 20px; padding-right: 20px; }
+                    .hero-subtitle { font-size: 1rem; line-height: 1.5; }
+                    .pill-title { font-size: 1rem; }
                     
                     /* Apple Style Mobile */
-                    .apple-grid { grid-template-columns: 1fr; gap: 40px; }
-                    .apple-title { font-size: 2.2rem; }
-                    .apple-desc { max-width: 100%; font-size: 1.1rem; }
+                    .apple-grid { grid-template-columns: 1fr; gap: 30px; }
+                    .apple-title { font-size: 2rem; margin-bottom: 16px; }
+                    .apple-desc { max-width: 100%; font-size: 1rem; line-height: 1.5; }
                     
                     .service-list-card, .tier1-card, .benefits-card, .info-visual {
                         padding: 24px;
+                        border-radius: 20px;
                     }
                     
                     .blog-section .glass-panel {
@@ -677,11 +680,16 @@ const ServiceHub = () => {
 
                     .blogs-grid {
                         grid-template-columns: 1fr;
+                        gap: 20px;
                     }
                     
                     .hero-content-left {
                         width: 100%;
                     }
+
+                    .scanning-hero-section { padding: 60px 0; }
+                    .scanning-visual-container { margin-top: 40px; }
+                    .section-padding { padding: 40px 0; }
                 }
             `}</style>
         </div>
@@ -691,14 +699,14 @@ const ServiceHub = () => {
 const Services = () => {
     return (
         <Routes>
-            <Route path="/" element={<Navigate to="/services/maintain" replace />} />
+            <Route path="/" element={<Navigate to="/services/protect" replace />} />
 
             {/* Main Category Pages */}
             <Route path=":category" element={<ServiceHub />} />
 
             {/* Specialty Sub-Pages */}
-            <Route path="maintain/wisdom-tooth" element={<WisdomToothSurgery />} />
-            <Route path="maintain/root-canal" element={<RootCanalTreatment />} />
+            <Route path="protect/wisdom-tooth" element={<WisdomToothSurgery />} />
+            <Route path="protect/root-canal" element={<RootCanalTreatment />} />
             <Route path="straighten/clear-aligners" element={<ClearAligners />} />
             <Route path="replace/dental-implants" element={<DentalImplants />} />
             <Route path="enhance/teeth-whitening" element={<TeethWhitening />} />

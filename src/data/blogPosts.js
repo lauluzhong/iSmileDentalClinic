@@ -4,15 +4,15 @@ export const blogPosts = [
         title: "Why Do My Gums Bleed Even If I Brush Every Day?",
         category: "Oral Health",
         date: "Jan 12, 2025",
-        img: "/images/gum_hero_1765825178470.png",
+        img: "/images/blog/concerned_person_brushing.png",
         excerpt: "Bleeding gums are a common concern, but they are often a sign that your oral care routine needs a tweak.",
         content: `
             <h3>Healthy Gums: The Foundation of Your Smile</h3>
             <p>It’s a common sight: you spit into the sink after brushing, and there is a pinkish tint. For many, this is dismissed as “brushing too hard,” but healthy gums actually shouldn’t bleed—even with firm brushing. Bleeding is the body’s way of signaling inflammation, often the early stage of gum disease known as gingivitis.</p>
             <p>The good news is that this is usually reversible. By understanding why it happens, you can take simple steps at home and with your dentist to stop the bleeding and protect your smile for the long term.</p>
             <div class="blog-image-wrapper">
-                <img src="/images/blog/gum_comparison.png" alt="Healthy vs Inflamed Gums Comparison" />
-                <p class="image-caption">Healthy pink gums (left) vs inflamed red gums (right).</p>
+                <img src="/images/blog/concerned_person_brushing.png" alt="Person concerned while brushing teeth" />
+                <p class="image-caption">Healthy habits start with paying attention to small signals.</p>
             </div>
 
             <h3>The Plaque Trap</h3>
@@ -41,7 +41,7 @@ export const blogPosts = [
         title: "Root Canal vs Tooth Extraction: Which Is the Better Long-Term Choice?",
         category: "Restorative",
         date: "Jan 08, 2025",
-        img: "/images/service_maintain.png",
+        img: "/images/blog/root_canal_vs_extraction_hero.png",
         excerpt: "Facing a decision between saving a tooth or pulling it? We break down the long-term impact of each choice.",
         content: `
             <h3>Choosing the Best Path for Your Smile</h3>
@@ -97,34 +97,35 @@ export const blogPosts = [
             <p>It’s often a balance between cost and convenience. For many working parents, the flexibility and immediate start of private care provide peace of mind that outweighs the savings of the government option.</p>
 
             <h3>When to Start the Conversation</h3>
-            <p>The Orthodontic Society recommends an initial assessment by age 7. This helps you plan ahead and understand your child's developmental needs, regardless of which route you eventually choose.</p>
+            <p>It is generally recommended to have an initial assessment by age 7. This helps you plan ahead and understand your child's developmental needs, regardless of which route you eventually choose.</p>
 
             <p><strong>Considering braces for your child?</strong> Schedule a relaxed consultation with us to explore your private orthodontic options and create a plan that fits your life.</p>
         `
     },
     {
-        id: "invisalign-vs-braces-lifestyle",
-        title: "Invisalign vs Braces: Which Fits a Busy Adult or Teen Lifestyle Better?",
+        id: "clear-aligners-vs-braces",
+        title: "Clear Aligners vs Braces: Which Fits a Busy Adult or Teen Lifestyle Better?",
         category: "Orthodontics",
         date: "Jan 10, 2025",
         img: "/images/invisalign_hand.png",
         excerpt: "Choosing between clear aligners and traditional braces isn't just about looks—it's about your daily habits and lifestyle.",
         content: `
             <h3>Choosing the Right Fit for Your Life</h3>
-            <p>A straighter smile is often on the wish list for both teens and adults, but the path to get there varies. The choice between Invisalign and traditional braces isn’t just about aesthetics; it’s about how the treatment fits into your daily routine and lifestyle.</p>
+            <p>A straighter smile is often on the wish list for both teens and adults, but the path to get there varies. The choice between clear aligners and traditional braces isn’t just about aesthetics; it’s about how the treatment fits into your daily routine and lifestyle.</p>
+            <p>While we carry industry-leading clear aligner brands like Invisalign and ClearSmile, understanding whether clear aligners or traditional braces are right for you is the first step in your journey.</p>
             <p>Whether you are a busy professional or a parent of an active teen, understanding the daily impact of each option is key to a successful and stress-free journey.</p>
 
             <h3>Visibility and Personal Confidence</h3>
-            <p>Invisalign offers a "barely there" look, making it a favorite for adults in client-facing roles or self-conscious teens. While modern ceramic braces are much more discreet than the metal tracks of the past, they are still a visible part of your smile during treatment.</p>
+            <p>Clear aligners offer a "barely there" look, making them a favorite for adults in client-facing roles or self-conscious teens. While modern ceramic braces are much more discreet than the metal tracks of the past, they are still a visible part of your smile during treatment.</p>
 
             <h3>Diet and Hygiene without Restrictions</h3>
-            <p>Invisalign is removable, meaning you can continue to enjoy the foods you love—like popcorn, nuts, or apples—without fear of breaking a bracket. Hygiene is also much simpler since you can brush and floss normally. Braces require more careful diligence to clean around wires and brackets.</p>
+            <p>Clear aligners are removable, meaning you can continue to enjoy the foods you love—like popcorn, nuts, or apples—without fear of breaking a bracket. Hygiene is also much simpler since you can brush and floss normally. Braces require more careful diligence to clean around wires and brackets.</p>
 
             <h3>The Importance of Consistency</h3>
-            <p>Here is the catch: Invisalign only works if you wear the aligners consistently. For a disciplined teen or adult, it’s a fantastic choice. For those who might find it hard to maintain the 22-hour-a-day rule, fixed braces provide the "always-on" treatment that ensures progress happens automatically.</p>
+            <p>Here is the catch: clear aligners only work if you wear the trays consistently. For a disciplined teen or adult, it’s a fantastic choice. For those who might find it hard to maintain the 22-hour-a-day rule, fixed braces provide the "always-on" treatment that ensures progress happens automatically.</p>
 
             <h3>What Works Best for Your Family?</h3>
-            <p>Consider your child's personality and schedule. If they are responsible and active, Invisalign is a comfortable, flexible choice. If life is a bit more chaotic, traditional braces might be the more predictable option for parents.</p>
+            <p>Consider your child's personality and schedule. If they are responsible and active, clear aligners are a comfortable, flexible choice. If life is a bit more chaotic, traditional braces might be the more predictable option for parents.</p>
 
             <h3>The First Step to a New Smile</h3>
             <p>If you have crowded teeth, spacing issues, or bite problems, a consultation is the best way to see which system suits your specific case and goals.</p>
@@ -133,16 +134,16 @@ export const blogPosts = [
         `
     },
     {
-        id: "invisalign-treatment-complexity",
-        title: "What Determines Invisalign Treatment Complexity?",
+        id: "clear-aligner-treatment-complexity",
+        title: "What Determines Clear Aligner Treatment Complexity?",
         category: "Orthodontics",
         date: "Dec 30, 2024",
         img: "/images/blog/invisalign_hero.png",
-        excerpt: "Not all smiles are the same. Learn what factors influence the length and complexity of your Invisalign journey.",
+        excerpt: "Not all smiles are the same. Learn what factors influence the length and complexity of your clear aligner journey.",
         content: `
             <h3>Your Unique Journey to a Straight Smile</h3>
-            <p>“How long will it take?” is often the first question we hear. With Invisalign, the answer depends entirely on the unique starting point of your smile. While some cases are simple fixes, others require more complex movements that take time and precision to achieve the perfect result.</p>
-            <p>Understanding what goes into your personalized treatment plan can help manage expectations and ensure a successful outcome.</p>
+            <p>“How long will it take?” is often the first question we hear. With clear aligners, the answer depends entirely on the unique starting point of your smile. While some cases are simple fixes, others require more complex movements that take time and precision to achieve the perfect result.</p>
+            <p>While we carry industry-leading clear aligner brands like Invisalign and ClearSmile, understanding what goes into your personalized treatment plan can help manage expectations and ensure a successful outcome.</p>
 
             <h3>Crowding vs. Spacing: Different Challenges</h3>
             <p>Closing gaps is often faster than resolving severe crowding. Addressing crowded teeth may require expanding the dental arch or carefully reshaping teeth to create the space needed for a healthy, straight alignment.</p>
@@ -151,7 +152,7 @@ export const blogPosts = [
             <p>Fixing the alignment of your bite (overbite, underbite, or crossbite) is more complex than just straightening the front teeth. It involves moving the roots and carefully changing how your jaws meet for long-term function and health.</p>
 
             <h3>The Key to Success: Your Partnership</h3>
-            <p>The biggest variable in your treatment time is consistency! Invisalign works best when the trays are worn for 20-22 hours a day as recommended. Staying on track with your aligners ensures your treatment moves forward as planned without unnecessary delays.</p>
+            <p>The biggest variable in your treatment time is consistency! Clear aligners work best when the trays are worn for 20-22 hours a day as recommended. Staying on track with your aligners ensures your treatment moves forward as planned without unnecessary delays.</p>
 
             <h3>Setting Realistic Expectations</h3>
             <p>Be realistic about the timeline. A complex case might take 18-24 months, while a simple touch-up could be done in much less time. Trusting the process and your clinical team is essential for reaching your goal.</p>
@@ -159,7 +160,7 @@ export const blogPosts = [
             <h3>Taking the First Step</h3>
             <p>The best way to know what to expect is to come in for a digital scan. Our 3D technology allows us to visualize the complexity and the potential outcome before you even begin your journey.</p>
 
-            <p><strong>Want to know how Invisalign can transform your smile?</strong> Let’s move towards your goal with a comprehensive assessment and personalized plan.</p>
+            <p><strong>Want to know how clear aligners can transform your smile?</strong> Let’s move towards your goal with a comprehensive assessment and personalized plan.</p>
         `
     },
     {
@@ -167,7 +168,7 @@ export const blogPosts = [
         title: "Wisdom Tooth Surgery: What to Expect Before, During, and After",
         category: "Oral Surgery",
         date: "Dec 20, 2024",
-        img: "/images/bone_loss_hero_1765825236985.png",
+        img: "/images/blog/asian_couple_40s.png",
         excerpt: "Wisdom tooth removal is a rite of passage for many. Here is a guide to help you prepare and recover smoothly.",
         content: `
             <h3>A Healthier Smile: Understanding Wisdom Tooth Care</h3>
@@ -178,7 +179,7 @@ export const blogPosts = [
             <p>Wisdom teeth often become impacted (stuck) because there isn't enough room in the jaw. This can lead to persistent infection or even pushing other teeth out of alignment, potentially affecting years of orthodontic work.</p>
 
             <h3>A Comfortable Procedure</h3>
-            <p>Modern anesthesia and techniques mean the procedure itself is designed to be painless. You might feel some pressure, but we prioritize your comfort throughout. For those who feel extra anxious, several sedation options are available to help you relax.</p>
+            <p>Modern anesthesia and techniques mean the procedure itself is designed to be painless. You might feel some pressure, but we prioritize your comfort throughout. We understand that dental visits can feel daunting for some, and we are committed to providing a gentle experience tailored to your comfort and peace of mind.</p>
 
             <h3>Your Path to a Smooth Recovery</h3>
             <p>Most swelling peaks around day 3 and then begins to subside. Sticking to a soft, nutritious diet and keeping the area clean as instructed is the secret to a quick and trouble-free recovery.</p>

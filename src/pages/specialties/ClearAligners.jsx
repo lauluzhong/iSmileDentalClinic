@@ -124,9 +124,30 @@ const ClearAligners = () => {
                 .faq-item { padding: 30px; background: white; }
                 .faq-item h4 { margin-bottom: 15px; color: var(--color-primary); }
                 @media (max-width: 768px) {
-                    .tech-grid { grid-template-columns: 1fr; }
-                    .tech-hero h1 { font-size: 2.5rem; }
-                    .tech-hero h1 span { font-size: 1.5rem; }
+                    .specialty-page { padding-top: 80px; }
+                    .tech-hero { padding: 60px 0; }
+                    .tech-hero h1 { font-size: 2.2rem; line-height: 1.1; margin-bottom: 16px; }
+                    .tech-hero h1 span { font-size: 1.25rem; margin-top: 4px; }
+                    .tech-hero .lead { font-size: 1rem; line-height: 1.5; }
+                    
+                    .tech-grid { grid-template-columns: 1fr; gap: 40px; }
+                    .tech-info h2 { font-size: 1.8rem; margin-bottom: 16px; }
+                    .tech-feature-list { margin-top: 30px; }
+                    .tech-feature { gap: 16px; margin-bottom: 24px; }
+                    .feature-text h4 { font-size: 1.1rem; margin-bottom: 4px; }
+                    .feature-text p { font-size: 0.95rem; line-height: 1.5; }
+                    
+                    .tech-meta { padding: 24px; border-radius: 20px; }
+                    .tech-meta h3 { font-size: 1.3rem; }
+                    .step-list li { padding: 12px 0; gap: 16px; font-size: 0.95rem; }
+                    .step-list li span { font-size: 1rem; }
+                    
+                    .faq-grid { gap: 20px; margin-top: 30px; }
+                    .faq-item { padding: 24px; border-radius: 20px; }
+                    .faq-item h4 { font-size: 1.05rem; line-height: 1.4; }
+                    .faq-item p { font-size: 0.95rem; line-height: 1.5; }
+                    
+                    .section-padding { padding: 40px 0; }
                 }
             `}</style>
         </div>

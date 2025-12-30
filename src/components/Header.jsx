@@ -10,8 +10,13 @@ const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
+    const [activeMobileDropdown, setActiveMobileDropdown] = useState(null);
     const navigate = useNavigate();
     const location = useLocation();
+
+    const toggleMobileDropdown = (name) => {
+        setActiveMobileDropdown(activeMobileDropdown === name ? null : name);
+    };
 
     const scrollToTop = () => {
         window.scrollTo({
@@ -44,7 +49,7 @@ const Header = () => {
             name: 'Our Services',
             path: null,
             dropdown: [
-                { name: 'Protect & Repair', path: '/services/maintain' },
+                { name: 'Protect & Repair', path: '/services/protect' },
                 { name: 'Straighten Teeth', path: '/services/straighten' },
                 { name: 'Replace Teeth', path: '/services/replace' },
                 { name: 'Enhance Smile', path: '/services/enhance' },
@@ -173,10 +178,47 @@ const Header = () => {
                 <div className="mobile-nav-overlay glass-panel">
                     <ul className="mobile-nav-list">
                         {navLinks.map((link) => (
-                            <li key={link.name}>
-                                {link.path ? (
+                            <li key={link.name} className="mobile-nav-item">
+                                {link.dropdown ? (
+                                    // Accordion Item
+                                    <div className="mobile-accordion-group">
+                                        <div
+                                            className="mobile-nav-link-header"
+                                            onClick={() => toggleMobileDropdown(link.name)}
+                                            style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}
+                                        >
+                                            <span style={{ fontWeight: '600', fontSize: '0.95rem', color: '#1e293b' }}>{link.name}</span>
+                                            <ChevronDown
+                                                size={16}
+                                                style={{
+                                                    transform: activeMobileDropdown === link.name ? 'rotate(180deg)' : 'rotate(0deg)',
+                                                    transition: 'transform 0.3s ease',
+                                                    color: '#94a3b8'
+                                                }}
+                                            />
+                                        </div>
+
+                                        {/* Submenu */}
+                                        <div className={`mobile-submenu-container ${activeMobileDropdown === link.name ? 'open' : ''}`}>
+                                            <ul className="mobile-dropdown-grid">
+                                                {link.dropdown.map(subItem => (
+                                                    <li key={subItem.name} className="mobile-dropdown-card">
+                                                        <span
+                                                            onClick={() => handleDropdownClick(link.path, subItem.hash || subItem.path)}
+                                                            className="mobile-dropdown-link"
+                                                        >
+                                                            {subItem.name}
+                                                        </span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    // Regular Link
                                     <Link
                                         to={link.path}
+                                        className="mobile-nav-link-header"
                                         onClick={(e) => {
                                             if (location.pathname === link.path) {
                                                 e.preventDefault();
@@ -184,32 +226,15 @@ const Header = () => {
                                             }
                                             setMobileMenuOpen(false);
                                         }}
+                                        style={{ display: 'block', fontWeight: '600', fontSize: '0.95rem', color: '#1e293b' }}
                                     >
                                         {link.name}
                                     </Link>
-                                ) : (
-                                    <div style={{ padding: '10px 0' }}>
-                                        <span style={{ fontWeight: '600', color: 'var(--color-primary)', display: 'block', marginBottom: '8px' }}>{link.name}</span>
-                                        {link.dropdown && (
-                                            <ul style={{ paddingLeft: '15px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                                                {link.dropdown.map(subItem => (
-                                                    <li key={subItem.name}>
-                                                        <span
-                                                            onClick={() => handleDropdownClick(link.path, subItem.hash || subItem.path)}
-                                                            style={{ fontSize: '0.9rem', color: '#555', cursor: 'pointer' }}
-                                                        >
-                                                            {subItem.name}
-                                                        </span>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        )}
-                                    </div>
                                 )}
                             </li>
                         ))}
-                        <li>
-                            <Button onClick={() => { openBooking(); setMobileMenuOpen(false); }} style={{ width: '100%' }}>Book Appointment</Button>
+                        <li style={{ marginTop: '10px' }}>
+                            <Button onClick={() => { openBooking(); setMobileMenuOpen(false); }} style={{ width: '100%', fontSize: '0.9rem', padding: '10px' }}>Book Appointment</Button>
                         </li>
                     </ul>
                 </div>
@@ -353,7 +378,7 @@ const Header = () => {
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 4px; /* Tighter gap for main items */
         }
         
         .mobile-nav-list {
@@ -362,7 +387,61 @@ const Header = () => {
             margin: 0;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 4px; /* Tighter gap for main items */
+        }
+        
+        .mobile-nav-item {
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding-bottom: 4px;
+        }
+        .mobile-nav-item:last-child { border-bottom: none; }
+
+        .mobile-nav-link-header {
+            padding: 12px 4px; /* Smaller tap target but still accessible */
+            cursor: pointer;
+        }
+
+        .mobile-submenu-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+        }
+        
+        .mobile-submenu-container.open {
+            max-height: 500px; /* Arbitrary large number */
+            opacity: 1;
+            margin-bottom: 10px;
+        }
+
+        /* Mobile Dropdown Styling */
+        .mobile-dropdown-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 6px; /* Tight gap */
+            padding: 5px 0 0 10px; /* Indent */
+            margin: 0;
+            list-style: none;
+        }
+        
+        .mobile-dropdown-card {
+            background: transparent;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .mobile-dropdown-card:hover {
+            background: rgba(0,0,0,0.03);
+        }
+
+        .mobile-dropdown-link {
+            display: block;
+            padding: 8px 12px; /* Smaller padding */
+            font-size: 0.85rem; /* Reduced font size */
+            color: #475569; 
+            font-weight: 500;
+            cursor: pointer;
+            width: 100%;
         }
 
         @media (max-width: 900px) {
@@ -371,6 +450,62 @@ const Header = () => {
             }
             .mobile-toggle {
                 display: block;
+            }
+        }
+
+        /* Redefined Mobile UI/UX - Strict Scoping */
+        @media (max-width: 768px) {
+            .header {
+                padding: 10px 0;
+                background: transparent !important;
+                backdrop-filter: none !important;
+            }
+            .header-container {
+                background: var(--glass-bg);
+                backdrop-filter: var(--glass-blur);
+                -webkit-backdrop-filter: var(--glass-blur);
+                border: 1px solid var(--glass-border);
+                box-shadow: var(--glass-shadow);
+                border-radius: 50px;
+                margin: 0 16px;
+                padding: 0 20px;
+                height: 54px;
+                position: relative;
+                justify-content: space-between !important; /* Force space between */
+            }
+            .header.scrolled .header-container {
+                margin: 0 16px;
+                height: 50px;
+            }
+            
+            /* Logo Positioning - Left Aligned */
+            .logo-link {
+                position: static !important; /* Reset absolute positioning */
+                transform: none !important;
+            }
+            .logo-link img {
+                height: 32px !important; /* Slightly smaller for mobile bar */
+                display: block;
+            }
+            
+            .mobile-toggle {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                margin-left: 0 !important; /* Reset margin auto */
+                background: rgba(255,255,255,0.1);
+                border-radius: 12px;
+                padding: 8px;
+            }
+            .mobile-nav-overlay {
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(30px);
+                -webkit-backdrop-filter: blur(30px);
+                border-radius: 32px;
+                border: 1px solid rgba(255,255,255,1);
+                top: 80px;
+                box-shadow: 0 20px 60px -10px rgba(0,0,0,0.15);
+                padding: 24px; /* More breathing room outside */
             }
         }
       `}</style>
