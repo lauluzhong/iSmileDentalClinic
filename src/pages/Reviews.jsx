@@ -5,44 +5,79 @@ import { Reveal, FadeIn } from '../components/Reveal';
 
 const reviewsList = [
     {
-        text: "My kids actually look forward to going to the dentist now. Dr. Jean is simply amazing!",
-        author: "Sarah L.",
-        type: "Parent",
+        text: (
+            <>
+                <p>
+                    "I have been a patient of iSmile for <strong>over a decade</strong>.
+                    The dental professionals there are <strong>truly professional and caring</strong>.
+                </p>
+                <p>
+                    My <strong>fear of being in the dentist chair has been completely removed</strong> by the
+                    <strong>gentle care</strong> I received. I also appreciate their cooperation with my
+                    orthodontist, from the time iSmile was still in Uptown.
+                </p>
+                <p>
+                    My family’s dental health is <strong>securely in the hands of iSmile</strong>."
+                </p>
+            </>
+        ),
+        author: "Mike Ngui",
         rating: 5,
-        avatar: "https://i.pravatar.cc/150?u=sarah"
+        avatar: "/images/reviews/mike_ngui.png"
     },
     {
-        text: "I was terrified of dentists, but the iSmile team made me feel so safe and heard.",
-        author: "Michael T.",
-        type: "Nervous Patient",
+        text: (
+            <>
+                <p>
+                    "My regular dental clinic of <strong>over a decade</strong>, with <strong>trustworthy dentists</strong>,
+                    assistants and receptionists who work diligently with so much <strong>care and love</strong> for
+                    every single one of their patients.
+                </p>
+                <p>
+                    I've referred multiple family members here since I first came, because I know they
+                    will <strong>always be in good hands</strong> here at iSmile. The environment is also
+                    inviting, clean and calming. <strong>Highly recommended.</strong>"
+                </p>
+            </>
+        ),
+        author: "Kah Mun Hew",
         rating: 5,
-        avatar: "https://i.pravatar.cc/150?u=michael"
+        avatar: "/images/reviews/kah_mun_hew.png"
     },
     {
-        text: "Professional, clean, and incredibly detailed in their work. Highly recommended.",
-        author: "David K.",
-        type: "Professional",
+        text: (
+            <>
+                <p>
+                    "Have been to my fair share of dentists. Above all, I appreciate iSmile's <strong>professional care</strong>{" "}
+                    and <strong>'customer first' attitude</strong>. They would prescribe but also would listen to
+                    concerns and also <strong>see the situation holistically</strong>.
+                </p>
+                <p>
+                    It's good they <strong>track records and my dental history</strong> in their system so that
+                    whoever attends to you will have a clear picture. Appreciated <strong>Dr Jean and Dr Mah</strong>
+                    very much for their <strong>gentle and thorough care</strong>."
+                </p>
+            </>
+        ),
+        author: "Benny Kong",
         rating: 5,
-        avatar: "https://i.pravatar.cc/150?u=david"
+        avatar: "/images/reviews/benny_kong.png"
     },
     {
         text: "The best dental experience I've ever had. No pain, great results.",
         author: "Jenny W.",
-        type: "Cosmetic Patient",
         rating: 5,
         avatar: "https://i.pravatar.cc/150?u=jenny"
     },
     {
         text: "Dr. Amy explained everything so clearly. I felt very empowered.",
         author: "Ahmad R.",
-        type: "General Checkup",
         rating: 5,
         avatar: "https://i.pravatar.cc/150?u=ahmad"
     },
     {
         text: "Finally found a clinic that treats my whole family with care.",
         author: "Michelle Tan",
-        type: "Parent",
         rating: 5,
         avatar: "https://i.pravatar.cc/150?u=michelle"
     }
@@ -51,8 +86,38 @@ const reviewsList = [
 const Reviews = () => {
     return (
         <div className="reviews-page">
-            <div className="section-padding" style={{ textAlign: 'center', paddingTop: '180px', paddingBottom: '20px' }}>
-                <Reveal width="100%"><h1 className="hero-title" style={{ fontSize: "3rem", fontWeight: 700 }}>Stories From <span className="text-gradient">Our Community</span></h1></Reveal>
+            <div className="reviews-hero-gradient" style={{
+                background: 'linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 50%, #dcfce7 100%)',
+                paddingTop: '180px',
+                paddingBottom: '80px',
+                textAlign: 'center'
+            }}>
+                <div className="container">
+                    <Reveal width="100%">
+                        <h1 className="hero-title" style={{
+                            fontSize: "clamp(2.5rem, 5vw, 4rem)",
+                            fontWeight: 800,
+                            color: '#2d3748',
+                            letterSpacing: '-0.02em',
+                            marginBottom: '20px'
+                        }}>
+                            Stories From <span className="text-gradient">Our Community</span>
+                        </h1>
+                    </Reveal>
+
+                    <Reveal delay={0.2} width="100%">
+                        <p className="hero-subtitle" style={{
+                            fontSize: '1.2rem',
+                            color: '#4a5568',
+                            maxWidth: '800px',
+                            margin: '0 auto',
+                            lineHeight: '1.6',
+                            fontWeight: 500
+                        }}>
+                            Real People. Real Stories. Real Transformation.
+                        </p>
+                    </Reveal>
+                </div>
             </div>
 
             <div className="container section-padding pt-0">
@@ -63,7 +128,7 @@ const Reviews = () => {
                             <div className="stars">
                                 {[...Array(review.rating)].map((_, i) => <Star key={i} size={16} fill="#FFD700" color="#FFD700" />)}
                             </div>
-                            <p className="review-body">"{review.text}"</p>
+                            <div className="review-body">{review.text}</div>
                             <div className="review-footer" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                                 <img src={review.avatar} alt={review.author} style={{ width: '50px', height: '50px', borderRadius: '50%', objectFit: 'cover' }} />
                                 <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -92,6 +157,8 @@ const Reviews = () => {
         .review-card-large {
             padding: 30px;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .quote-icon {
@@ -108,11 +175,20 @@ const Reviews = () => {
         }
 
         .review-body {
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             font-style: italic;
             margin-bottom: 25px;
             color: var(--color-text-main);
-            min-height: 80px;
+            flex: 1;
+            line-height: 1.5;
+        }
+
+        .review-body p {
+            margin-bottom: 12px;
+        }
+
+        .review-body p:last-child {
+            margin-bottom: 0;
         }
         
         .review-footer {
@@ -123,10 +199,17 @@ const Reviews = () => {
         }
 
         .review-type {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--color-secondary);
             text-transform: uppercase;
             letter-spacing: 0.5px;
+        }
+        @media (max-width: 768px) {
+            .reviews-grid { grid-template-columns: 1fr; gap: 20px; }
+            .review-card-large { padding: 24px; border-radius: 20px; }
+            .hero-title { font-size: 2.5rem !important; }
+            .hero-subtitle { font-size: 1rem !important; margin-top: 15px !important; }
+            /* Adjust inline styles via class overrides if possible, or assume parent handles some */
         }
       `}</style>
         </div>

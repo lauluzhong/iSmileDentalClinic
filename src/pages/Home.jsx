@@ -1,17 +1,16 @@
 import { useBooking } from '../context/BookingContext';
 import React, { useRef, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowRight, Star, Heart, Shield, Sparkles, Smile, Users } from 'lucide-react';
+import { ArrowRight, Star, Heart, Shield, Sparkles, Smile, Users, Quote } from 'lucide-react';
 import Button from '../components/Button';
 import { Reveal, FadeIn } from '../components/Reveal';
 import { motion } from 'framer-motion';
 
 // Updated Image Paths
 const FAMILY_HERO = "/images/family_hero_three_generations.jpg";
-const GUM_IMG = "/images/gum_hero_1765825178470.png";
+const GUM_IMG = "/images/blog/concerned_person_brushing.png";
 const SENSITIVITY_IMG = "/images/sensitivity_hero_1765825197668.png";
 const ORTHO_IMG = "/images/adult_ortho_hero_1765825218135.png";
-const BONE_IMG = "/images/bone_loss_hero_1765825236985.png";
 const VENEER_IMG = "/images/veneers_hero_1765825257935.png";
 const AIRWAY_IMG = "/images/child_airway_hero_1765825276038.png";
 
@@ -25,7 +24,7 @@ const Home = () => {
 
     // Get the specific blog posts in the requested order
     const orderedBlogIds = [
-        'invisalign-vs-braces-lifestyle',
+        'clear-aligners-vs-braces',
         'root-canal-vs-extraction',
         'your-childs-first-dental-visit',
         'mouth-breathing-in-children',
@@ -97,18 +96,18 @@ const Home = () => {
             <section className="section-padding services-bento-section">
                 <div className="container">
                     <div className="section-header text-center">
-                        <Reveal width="100%"><h2 style={{ marginBottom: '3rem', marginTop: 0, fontSize: '3rem', fontWeight: 700 }}>Comprehensive Care for <span className="text-gradient">Every Stage of Life</span></h2></Reveal>
+                        <Reveal width="100%"><h2 className="section-title services-title">Comprehensive Care for <span className="text-gradient">Every Stage of Life</span></h2></Reveal>
                     </div>
 
                     <div className="bento-grid">
                         {/* Card 1: Maintain & Repair */}
-                        <MotionLink to="/services/maintain" className="bento-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+                        <MotionLink to="/services/protect" className="bento-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
                             <div className="card-top">
                                 <Shield size={32} className="card-icon" />
                             </div>
                             <div className="card-content">
                                 <span className="eyebrow">PROTECT & REPAIR</span>
-                                <h3 className="card-headline">Healthy Teeth. For Life</h3>
+                                <h3 className="card-headline">Healthy Teeth <br /> For Life</h3>
                                 <p className="card-body">Comprehensive examination & diagnosis, gentle scaling & polishing to help you maintain a healthy smile.</p>
                             </div>
                         </MotionLink>
@@ -132,7 +131,7 @@ const Home = () => {
                             </div>
                             <div className="card-content">
                                 <span className="eyebrow">REPLACE TEETH</span>
-                                <h3 className="card-headline">Eat, Speak and Smile Confidently Again</h3>
+                                <h3 className="card-headline">Speak and Smile Confidently Again</h3>
                                 <p className="card-body">Restoring function with premium implants, bridges, and custom dentures.</p>
                             </div>
                         </MotionLink>
@@ -144,7 +143,7 @@ const Home = () => {
                             </div>
                             <div className="card-content">
                                 <span className="eyebrow">ENHANCE SMILE</span>
-                                <h3 className="card-headline">Design Your Dream Smile.</h3>
+                                <h3 className="card-headline">Design Your Dream Smile</h3>
                                 <p className="card-body">Aesthetic transformation using ceramic veneers, composite bonding, and professional whitening.</p>
                             </div>
                         </MotionLink>
@@ -167,21 +166,83 @@ const Home = () => {
             {/* 3. Social Proof */}
             <section className="section-padding reviews-section">
                 <div className="container">
-                    <Reveal width="100%"><h2 className="text-center" style={{ marginBottom: '3rem', fontSize: '3rem', fontWeight: 700 }}>Trusted by <span className="text-gradient">Families</span></h2></Reveal>
+                    <Reveal width="100%"><h2 className="section-title reviews-title text-center">Trusted by <span className="text-gradient">Families</span></h2></Reveal>
                     <div className="reviews-slider">
                         {[
-                            { text: "My regular dental clinic of over a decade, with trustworthy dentists, assistants and receptionists who work diligently with so much care and love for every single one of their patients. I've referred multiple family members here since I first came, because I know they will always be in good hands here at iSmile. The environment is also inviting, clean and calming. Highly recommended.", author: "Kah Mun Hew", type: "Satisfied Patient", avatar: "https://i.pravatar.cc/150?u=sarah" },
-                            { text: "I was terrified of dentists, but the iSmile team made me feel so safe and heard.", author: "Michael T.", type: "Nervous Patient", avatar: "https://i.pravatar.cc/150?u=michael" },
-                            { text: "Professional, clean, and incredibly detailed in their work. Highly recommended.", author: "David K.", type: "Professional", avatar: "https://i.pravatar.cc/150?u=david" }
+                            {
+                                text: (
+                                    <>
+                                        <p>
+                                            "I have been a patient of iSmile for <strong>over a decade</strong>.
+                                            The dental professionals there are <strong>truly professional and caring</strong>.
+                                        </p>
+                                        <p>
+                                            My <strong>fear of being in the dentist chair has been completely removed</strong> by the
+                                            <strong>gentle care</strong> I received. I also appreciate their cooperation with my
+                                            orthodontist, from the time iSmile was still in Uptown.
+                                        </p>
+                                        <p>
+                                            My family’s dental health is <strong>securely in the hands of iSmile</strong>."
+                                        </p>
+                                    </>
+                                ),
+                                author: "Mike Ngui",
+                                type: "Patient",
+                                avatar: "/images/reviews/mike_ngui.png",
+                                rating: 5
+                            },
+                            {
+                                text: (
+                                    <>
+                                        <p>
+                                            "My regular dental clinic of <strong>over a decade</strong>, with <strong>trustworthy dentists</strong>,
+                                            assistants and receptionists who work diligently with so much <strong>care and love</strong> for
+                                            every single one of their patients.
+                                        </p>
+                                        <p>
+                                            I've referred multiple family members here since I first came, because I know they
+                                            will <strong>always be in good hands</strong> here at iSmile. The environment is also
+                                            inviting, clean and calming. <strong>Highly recommended.</strong>"
+                                        </p>
+                                    </>
+                                ),
+                                author: "Kah Mun Hew",
+                                type: "Patient",
+                                avatar: "/images/reviews/kah_mun_hew.png",
+                                rating: 5
+                            },
+                            {
+                                text: (
+                                    <>
+                                        <p>
+                                            "Have been to my fair share of dentists. Above all, I appreciate iSmile's <strong>professional care</strong>
+                                            and <strong>'customer first' attitude</strong>. They would prescribe but also would listen to
+                                            concerns and also <strong>see the situation holistically</strong>.
+                                        </p>
+                                        <p>
+                                            It's good they <strong>track records and my dental history</strong> in their system so that
+                                            whoever attends to you will have a clear picture. Appreciated <strong>Dr Jean and Dr Mah</strong>
+                                            very much for their <strong>gentle and thorough care</strong>."
+                                        </p>
+                                    </>
+                                ),
+                                author: "Benny Kong",
+                                type: "Patient",
+                                avatar: "/images/reviews/benny_kong.png",
+                                rating: 5
+                            }
                         ].map((review, i) => (
                             <div key={i} className="glass-panel review-card">
-                                <div className="review-stars">★★★★★</div>
-                                <p className="review-text">"{review.text}"</p>
-                                <div className="review-author" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                                <div className="quote-icon"><Quote size={40} color="var(--color-tint-blue)" /></div>
+                                <div className="review-stars">
+                                    {[...Array(review.rating)].map((_, i) => <Star key={i} size={16} fill="#FFD700" color="#FFD700" />)}
+                                </div>
+                                <div className="review-text">{review.text}</div>
+                                <div className="review-author">
                                     <img src={review.avatar} alt={review.author} style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }} />
                                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                                         <strong>{review.author}</strong>
-                                        <span>{review.type}</span>
+                                        <span className="review-type">{review.type}</span>
                                     </div>
                                 </div>
                             </div>
@@ -198,7 +259,7 @@ const Home = () => {
                 <div className="container">
                     <div className="welcome-container">
                         <div className="welcome-content-split">
-                            <h2 className="welcome-headline">Built on <br /><span className="text-blue">Competency & <br />Compassion</span></h2>
+                            <h2 className="welcome-headline">Built on <br /><span className="text-blue">Competency & <br className="desktop-only" />Compassion</span></h2>
                             <p className="welcome-description">
                                 At iSmile, we combine <strong>family-run warmth</strong> with <strong>advanced, high-quality dentistry</strong> to deliver care that is both personal and precise.
                                 With over 20 years of experience, we strive to make every patient feel comfortable, supported, and genuinely cared for.
@@ -217,8 +278,8 @@ const Home = () => {
             {/* 5. Dental Education - Horizontal Scroll */}
             <section className="section-padding dental-education-section">
                 <div className="container">
-                    <div className="section-header flex-between w-full" style={{ marginBottom: '30px' }}>
-                        <h2 style={{ fontSize: '3rem', fontWeight: 700 }}>Dental Education</h2>
+                    <div className="section-header flex-between w-full dental-edu-header">
+                        <h2 className="section-title dental-edu-title">Dental Education</h2>
                         <Link to="/blog" className="btn-link">Visit Learning Centre <ArrowRight size={16} /></Link>
                     </div>
 
@@ -270,7 +331,7 @@ const Home = () => {
             justify-content: center;
         }
         .welcome-headline, .about-headline { 
-            font-size: 3.5rem; 
+            font-size: 2.5rem; 
             font-weight: 700; 
             line-height: 1.05; 
             margin-bottom: 24px; 
@@ -278,7 +339,7 @@ const Home = () => {
             letter-spacing: -0.02em;
         }
         .welcome-description, .about-description { 
-            font-size: 1.25rem; 
+            font-size: 1.1rem; 
             color: #424245; 
             margin-bottom: 40px; 
             max-width: 500px; 
@@ -296,7 +357,9 @@ const Home = () => {
             object-fit: cover;
             object-position: center 20%;
         }
-        .welcome-actions, .about-actions { display: flex; gap: 15px; }
+        .section-title { margin-bottom: 60px; margin-top: 0; font-size: 2.5rem; font-weight: 700; line-height: 1.1; }
+        .dental-edu-header { margin-bottom: 30px; }
+
 
         /* Bento Grid Services */
         .services-bento-section {
@@ -369,8 +432,54 @@ const Home = () => {
 
         /* Reviews */
         .reviews-slider { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .review-card { padding: 30px; }
-        .review-stars { color: #FFD700; margin-bottom: 15px; font-size: 1.2rem; }
+        .review-card { 
+            padding: 30px; 
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .quote-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            opacity: 0.5;
+        }
+        .review-text {
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: var(--color-text-main);
+            flex: 1;
+            line-height: 1.5;
+        }
+
+        .review-text p {
+            margin-bottom: 12px;
+        }
+
+        .review-text p:last-child {
+            margin-bottom: 0;
+        }
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 15px;
+        }
+        .review-type {
+            font-size: 0.8rem;
+            color: var(--color-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .review-stars { 
+            color: #FFD700; 
+            margin-bottom: 15px; 
+            font-size: 1.2rem;
+            display: flex;
+            gap: 4px;
+        }
         .btn-link { color: var(--color-primary); font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
 
         /* About */
@@ -455,22 +564,78 @@ const Home = () => {
         }
 
         @media (max-width: 768px) {
-            .hero-container, .split-layout { grid-template-columns: 1fr; text-align: center; gap: 30px; }
-            .hero-section { padding-top: 100px; min-height: auto; padding-bottom: 60px; }
-            .welcome-container, .about-card-container { flex-direction: column; min-height: auto; width: 100%; }
-            .welcome-content-split, .about-content-split { padding: 40px 20px; text-align: center; align-items: center; }
-            .welcome-headline, .about-headline { font-size: 2.2rem; }
-            .welcome-description, .about-description { margin-left: auto; margin-right: auto; font-size: 1rem; }
-            .welcome-image-split, .about-image-split { height: 250px; width: 100%; }
-            .hero-title { font-size: 2.2rem; }
-            .hero-visual { order: -1; margin-bottom: 20px; }
-            .insight-card-large { width: 85vw; }
-            .card-headline { font-size: 1.25rem; }
-            .bento-grid { grid-template-columns: 1fr; }
-            .bento-card { min-height: auto; padding: 20px; }
-            .card-top { margin-bottom: 15px; }
-            .section-header h2 { font-size: 2rem !important; }
-            .text-center .btn-link { justify-content: center; }
+            .section-padding { padding: 24px 0; }
+            .hero-section { padding-top: 90px; text-align: center; min-height: auto; padding-bottom: 40px; }
+            .hero-container { grid-template-columns: 1fr; gap: 24px; padding: 0 16px; }
+            .hero-content { display: flex; flex-direction: column; align-items: center; order: 2; }
+            .hero-title { font-size: 2rem; line-height: 1.1; margin-bottom: 12px; }
+            .hero-subtitle { font-size: 0.95rem; margin-bottom: 24px; margin-top: 0; max-width: 300px; line-height: 1.4; }
+            .hero-visual { order: 1; width: 100%; max-width: 260px; margin: 0 auto; }
+            .hero-card { transform: rotate(0); border-radius: 20px; aspect-ratio: 1/1 !important; height: auto !important; }
+            
+            .section-title { font-size: 1.75rem !important; margin-bottom: 1rem !important; line-height: 1.1 !important; }
+            
+            /* Services Carousel */
+            .bento-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                gap: 12px;
+                padding-bottom: 10px;
+                margin: 0 -16px;
+                padding: 0 16px;
+                width: calc(100% + 32px);
+            }
+            .bento-grid::-webkit-scrollbar { display: none; }
+            .bento-card {
+                flex: 0 0 calc(85% - 16px);
+                scroll-snap-align: center;
+                min-height: 180px; /* Reduced further */
+                aspect-ratio: auto; 
+                padding: 20px;
+                border-radius: 20px;
+            }
+            .card-headline { font-size: 1.1rem; line-height: 1.2; margin-bottom: 6px; }
+            .card-body { font-size: 0.85rem; line-height: 1.35; opacity: 0.85; }
+            .eyebrow { margin-bottom: 6px; font-size: 0.7rem; }
+            .card-top { margin-bottom: 16px; }
+            .card-icon { width: 28px; height: 28px; }
+
+            .welcome-container, .about-card-container { flex-direction: column; border-radius: 24px; }
+            .welcome-content-split, .about-content-split { padding: 32px 20px; text-align: center; align-items: center; }
+            .welcome-headline, .about-headline { font-size: 1.75rem; margin-bottom: 16px; }
+            .welcome-description, .about-description { font-size: 0.9rem; margin-bottom: 24px; line-height: 1.5; }
+            .welcome-image-split, .about-image-split { height: 180px; border-radius: 0 0 24px 24px; }
+            
+            .reviews-slider { 
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 12px;
+                margin: 0 -16px;
+                padding: 0 16px;
+                scrollbar-width: none;
+            }
+            .reviews-slider::-webkit-scrollbar { display: none; }
+            .review-card { 
+                flex: 0 0 85%;
+                scroll-snap-align: center;
+                padding: 20px; 
+                border-radius: 20px; 
+            }
+            .review-text { font-size: 0.85rem; margin-bottom: 16px; }
+            
+            .dental-edu-header { margin-bottom: 16px; align-items: flex-end; }
+
+            .desktop-only { display: none; }
+            .horizontal-track-simple { gap: 12px; padding: 0 16px; }
+            .insight-card-large { width: 240px; border-radius: 20px; }
+            .insight-image-large { height: 140px; }
+            .insight-content { padding: 16px; }
+            .insight-content h4 { font-size: 0.95rem; line-height: 1.3; margin-bottom: 4px; }
+            .read-more-link { font-size: 0.85rem; }
         }
       `}</style>
         </div>

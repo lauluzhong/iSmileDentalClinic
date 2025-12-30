@@ -198,9 +198,31 @@ const FAQ = () => {
                 @media (max-width: 768px) {
                     .faq-grid {
                         grid-template-columns: 1fr;
+                        gap: 20px;
                     }
                     .p-5 {
                         padding: 1.5rem;
+                    }
+                    .faq-card {
+                        padding: 24px;
+                        border-radius: 20px;
+                    }
+                    .section-padding {
+                        padding-top: 100px !important; /* Override inline style */
+                        padding-bottom: 60px;
+                    }
+                    .hero-title {
+                        font-size: 2.5rem;
+                    }
+                    .lead-text {
+                        font-size: 1rem !important;
+                    }
+                    .category-icon {
+                        width: 40px;
+                        height: 40px;
+                    }
+                    .section-header h2 {
+                        font-size: 1.5rem;
                     }
                 }
             `}</style>

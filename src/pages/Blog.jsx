@@ -7,16 +7,33 @@ import { blogPosts as posts } from '../data/blogPosts';
 
 const Blog = () => {
     // Determine Featured Post
-    const featuredPost = posts.find(post => post.title.startsWith("Invisalign vs Braces"));
+    const featuredPost = posts.find(post => post.title.startsWith("Clear Aligners vs Braces"));
     // Filter out the featured post for the grid
     const otherPosts = posts.filter(post => post !== featuredPost);
 
     return (
         <div className="blog-page">
-            <div className="section-padding" style={{ textAlign: 'center', paddingTop: '180px', paddingBottom: '20px' }}>
+            <div className="blog-hero-gradient" style={{
+                background: 'linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 50%, #dcfce7 100%)',
+                paddingTop: '180px',
+                paddingBottom: '80px',
+                textAlign: 'center'
+            }}>
                 <div className="container">
-                    <Reveal width="100%"><h1 className="hero-title" style={{ fontSize: "3rem", fontWeight: 700 }}>Learning <span className="text-gradient">Centre</span></h1></Reveal>
-                    <Reveal delay={0.2} width="100%"><p className="hero-subtitle mb-4" style={{ fontSize: '1.2rem', color: 'var(--color-text-muted)', maxWidth: '800px', margin: '20px auto 0', lineHeight: '1.6' }}>
+                    <Reveal width="100%"><h1 className="hero-title" style={{
+                        fontSize: "clamp(2.5rem, 5vw, 4rem)",
+                        fontWeight: 800,
+                        color: '#2d3748',
+                        letterSpacing: '-0.02em'
+                    }}>Learning <span className="text-gradient">Centre</span></h1></Reveal>
+                    <Reveal delay={0.2} width="100%"><p className="hero-subtitle" style={{
+                        fontSize: '1.2rem',
+                        color: '#4a5568',
+                        maxWidth: '800px',
+                        margin: '25px auto 0',
+                        lineHeight: '1.6',
+                        fontWeight: 500
+                    }}>
                         Welcome to our learning space—where we share our heart for dental education and empower you with the knowledge to care for your lifelong smile.
                     </p></Reveal>
                 </div>
@@ -141,12 +158,26 @@ const Blog = () => {
           @media (max-width: 768px) {
               .featured-post {
                   grid-template-columns: 1fr;
-                  border-radius: 24px;
+                  border-radius: 20px;
+                  min-height: auto;
               }
               .featured-image {
                   height: 200px;
                   order: -1;
               }
+              .featured-content { padding: 24px; }
+              .featured-content h2 { font-size: 1.5rem; }
+              
+              .posts-grid { 
+                  grid-template-columns: 1fr; 
+                  gap: 20px; 
+                  margin-top: 40px !important; 
+              }
+              .post-card { border-radius: 20px; }
+              
+              .blog-hero-gradient { padding-top: 120px !important; padding-bottom: 60px !important; }
+              .hero-title { font-size: 2.5rem !important; }
+              .hero-subtitle { font-size: 1rem !important; margin-top: 15px !important; }
           }
        `}</style>
         </div>

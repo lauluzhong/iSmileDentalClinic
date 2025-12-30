@@ -24,7 +24,7 @@ const WisdomToothSurgery = () => {
         },
         {
             q: "Can I have multiple wisdom teeth removed at once?",
-            a: "Yes, it is common to remove all four wisdom teeth in a single session, especially under sedation, to minimize the overall recovery period."
+            a: "Yes, it is common to remove all four wisdom teeth in a single session to minimize the overall recovery period. Factors like position and complexity are considered to ensure your procedure is as smooth and comfortable as possible."
         },
         {
             q: "When can I eat normally again?",
@@ -70,7 +70,7 @@ const WisdomToothSurgery = () => {
                             <h3>Clinical Workflow</h3>
                             <ul className="step-list">
                                 <li><span>01</span> Pre-op 3D Imaging (OPG/CBCT)</li>
-                                <li><span>02</span> Anesthesia Injection (Local/Sedation)</li>
+                                <li><span>02</span> Patient Comfort & Anesthesia</li>
                                 <li><span>03</span> Surgical Access & Sectioning</li>
                                 <li><span>04</span> Socket Debridement & Irrigation</li>
                                 <li><span>05</span> A-PRF Placement & Final Suturing</li>
@@ -122,9 +122,30 @@ const WisdomToothSurgery = () => {
                 .faq-item { padding: 30px; background: white; }
                 .faq-item h4 { margin-bottom: 15px; color: var(--color-primary); }
                 @media (max-width: 768px) {
-                    .tech-grid { grid-template-columns: 1fr; }
-                    .tech-hero h1 { font-size: 2.5rem; }
-                    .tech-hero h1 span { font-size: 1.5rem; }
+                    .specialty-page { padding-top: 80px; }
+                    .tech-hero { padding: 60px 0; }
+                    .tech-hero h1 { font-size: 2.2rem; line-height: 1.1; margin-bottom: 16px; }
+                    .tech-hero h1 span { font-size: 1.25rem; margin-top: 4px; }
+                    .tech-hero .lead { font-size: 1rem; line-height: 1.5; }
+                    
+                    .tech-grid { grid-template-columns: 1fr; gap: 40px; }
+                    .tech-info h2 { font-size: 1.8rem; margin-bottom: 16px; }
+                    .tech-feature-list { margin-top: 30px; }
+                    .tech-feature { gap: 16px; margin-bottom: 24px; }
+                    .feature-text h4 { font-size: 1.1rem; margin-bottom: 4px; }
+                    .feature-text p { font-size: 0.95rem; line-height: 1.5; }
+                    
+                    .tech-meta { padding: 24px; border-radius: 20px; }
+                    .tech-meta h3 { font-size: 1.3rem; }
+                    .step-list li { padding: 12px 0; gap: 16px; font-size: 0.95rem; }
+                    .step-list li span { font-size: 1rem; }
+                    
+                    .faq-grid { gap: 20px; margin-top: 30px; }
+                    .faq-item { padding: 24px; border-radius: 20px; }
+                    .faq-item h4 { font-size: 1.05rem; line-height: 1.4; }
+                    .faq-item p { font-size: 0.95rem; line-height: 1.5; }
+                    
+                    .section-padding { padding: 40px 0; }
                 }
             `}</style>
         </div>
