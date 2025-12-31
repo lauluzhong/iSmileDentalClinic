@@ -488,15 +488,15 @@ const About = () => {
                         font-size: 2.5rem;
                     }
                     .hero-content-left {
-                        text-align: center;
-                        margin: 0 auto;
+                        text-align: left;
+                        margin: 0;
                     }
                     .section-title {
                         text-align: center;
                     }
                 }
 
-                @media (max-width: 640px) {
+                @media (max-width: 1024px) {
                     .about-hero-container { padding-top: 100px; }
                     .about-hero { padding: 40px 0; }
                     .hero-title {
