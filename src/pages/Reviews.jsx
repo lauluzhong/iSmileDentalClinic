@@ -80,16 +80,16 @@ const reviewsList = [
         avatar: "/images/reviews/ashley_chin.png"
     },
     {
-        text: "Dr. Amy explained everything so clearly. I felt very empowered.",
-        author: "Ahmad R.",
+        text: "Dr Jean is thorough, professional, gentle yet strong. Have been seeing for over 20 years and will continue to do so.",
+        author: "Karen Lam",
         rating: 5,
-        avatar: "https://i.pravatar.cc/150?u=ahmad"
+        avatar: "/images/reviews/karen_lam.png"
     },
     {
-        text: "Finally found a clinic that treats my whole family with care.",
-        author: "Michelle Tan",
+        text: "Appreciate reminder of appointments, nice and clean and bright reception area and of course excellent dental services.",
+        author: "Wee Min Lee",
         rating: 5,
-        avatar: "https://i.pravatar.cc/150?u=michelle"
+        avatar: "/images/reviews/wee_min_lee.png"
     }
 ];
 
@@ -216,7 +216,13 @@ const Reviews = () => {
         }
         @media (max-width: 768px) {
             .reviews-grid { grid-template-columns: 1fr; gap: 20px; }
-            .review-card-large { padding: 24px; border-radius: 20px; }
+            .review-card-large { 
+                padding: 24px; 
+                border-radius: 20px;
+                margin-left: 8px;
+                margin-right: 8px;
+                width: auto;
+            }
             .hero-title { font-size: 2.5rem !important; }
             .hero-subtitle { font-size: 1rem !important; margin-top: 15px !important; }
             /* Adjust inline styles via class overrides if possible, or assume parent handles some */
