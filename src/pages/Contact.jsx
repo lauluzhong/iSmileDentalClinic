@@ -148,7 +148,7 @@ const Contact = () => {
               margin-top: 1rem;
           }
 
-          @media (max-width: 768px) {
+          @media (max-width: 1024px) {
               .contact-content { padding: 0 20px; }
               .info-grid { flex-direction: column; gap: 20px; }
               .info-item { 
@@ -165,14 +165,14 @@ const Contact = () => {
               .contact-direction-buttons { 
                   width: 100%; 
                   flex-direction: row;
-                  justify-content: center;
+                  justify-content: space-between; /* Use space-between or center with gap */
                   gap: 15px; 
               }
               .contact-direction-btn { 
-                  width: 155px !important; 
+                  flex: 1; /* Allow buttons to grow and fill space equally */
+                  width: auto !important; /* Override the desktop fixed width */
                   justify-content: center !important; 
                   padding: 10px 10px !important;
-                  padding-left: 10px !important;
                   text-align: center;
               }
           }

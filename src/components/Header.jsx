@@ -207,9 +207,9 @@ const Header = () => {
                                 {!activeSubmenu ? (
                                     <motion.div
                                         key="main-menu"
-                                        initial={{ x: '-50%', opacity: 0 }}
+                                        initial={{ x: '-110%', opacity: 0 }}
                                         animate={{ x: 0, opacity: 1 }}
-                                        exit={{ x: '-50%', opacity: 0 }}
+                                        exit={{ x: '-110%', opacity: 0 }}
                                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
                                         className="mobile-menu-slide"
                                     >
@@ -507,7 +507,7 @@ const Header = () => {
             line-height: 1.1;
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 1024px) {
             .desktop-nav, .header-actions {
                 display: none;
             }
@@ -516,7 +516,7 @@ const Header = () => {
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .header {
                 padding: 10px 0;
                 background: transparent !important;

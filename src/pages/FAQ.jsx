@@ -23,6 +23,10 @@ const FAQ = () => {
                 {
                     q: "How can I obtain information regarding the pricing of treatments?",
                     a: "Treatment costs vary based on individual needs. During your consultation, we will provide a personalized treatment plan and a clear breakdown of costs before you proceed."
+                },
+                {
+                    q: "Is the clinic wheelchair accessible?",
+                    a: "Yes, we are located on the ground floor with full wheelchair access. We also have allocated parking right in front of the clinic for those who may need easier access, such as wheelchair users or our elderly patients."
                 }
             ]
         },
@@ -203,7 +207,7 @@ const FAQ = () => {
                 .w-12 { width: 48px; }
                 .h-12 { height: 48px; }
 
-                @media (max-width: 768px) {
+                @media (max-width: 1024px) {
                     .faq-grid {
                         grid-template-columns: 1fr;
                         gap: 20px;

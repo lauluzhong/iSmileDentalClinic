@@ -214,7 +214,7 @@ const Reviews = () => {
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .reviews-grid { grid-template-columns: 1fr; gap: 20px; }
             .review-card-large { 
                 padding: 24px; 

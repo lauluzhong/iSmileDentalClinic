@@ -564,7 +564,7 @@ const Home = () => {
             .side-float { width: 100%; height: 50%; left: 0; }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .section-padding { padding: 24px 0; }
             .hero-section { padding-top: 90px; text-align: center; min-height: auto; padding-bottom: 40px; }
             .hero-container { grid-template-columns: 1fr; gap: 24px; padding: 0 16px; }

@@ -194,7 +194,7 @@ const Footer = () => {
             .cta-col { grid-column: span 3; text-align: center; margin-top: 20px; }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .footer { padding: 40px 0; }
             .footer-grid { 
                 grid-template-columns: 1fr; 

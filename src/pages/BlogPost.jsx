@@ -209,7 +209,7 @@ const BlogPost = () => {
                     color: #1a202c;
                 }
                 
-                @media (max-width: 768px) {
+                @media (max-width: 1024px) {
                     .post-header-gradient { padding: 100px 0 60px !important; }
                     .post-title-gradient { font-size: 2.2rem !important; margin: 10px 0 !important; }
                     .container { padding-left: 20px; padding-right: 20px; }
