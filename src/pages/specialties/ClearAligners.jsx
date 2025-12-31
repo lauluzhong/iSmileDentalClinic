@@ -37,7 +37,7 @@ const ClearAligners = () => {
             <div className="tech-hero">
                 <div className="container">
                     <div className="tech-badge"><Shield size={16} /> Technical Deep-Dive</div>
-                    <h1>Clear Aligners <span>(Invisalign / Clearsmile)</span></h1>
+                    <h1>Clear Aligners <span>(Invisalign / Angel / ClearSmile)</span></h1>
                     <p className="lead">A modern orthodontic solution using a series of custom-made, transparent plastic trays to gradually shift teeth into alignment without the need for traditional braces.</p>
                 </div>
             </div>
@@ -54,8 +54,8 @@ const ClearAligners = () => {
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
-                                        <h4>SmartTrack Material</h4>
-                                        <p>Utilizes a patented multi-layer medical-grade polymer designed for constant, gentle force and superior control of tooth movements.</p>
+                                        <h4>Advanced Aligner Material</h4>
+                                        <p>Utilizes specialized multi-layer medical-grade materials designed for constant, gentle force and superior control of tooth movements.</p>
                                     </div>
                                 </div>
                                 <div className="tech-feature">
@@ -71,9 +71,9 @@ const ClearAligners = () => {
                             <h3>Clinical Workflow</h3>
                             <ul className="step-list">
                                 <li><span>01</span> 3D Intraoral Scanning & Digital Impressions</li>
-                                <li><span>02</span> ClinCheck® Software Treatment Planning</li>
+                                <li><span>02</span> Advanced Digital Treatment Planning</li>
                                 <li><span>03</span> Custom Aligner Fabrication & Delivery</li>
-                                <li><span>04</span> SmartForce® Attachment Placement</li>
+                                <li><span>04</span> Precision Attachment Placement</li>
                                 <li><span>05</span> Monitoring & Periodic Progress Tracking</li>
 
                             </ul>

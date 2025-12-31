@@ -1,7 +1,7 @@
 import { useBooking } from '../context/BookingContext';
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
-import { ChevronDown, Menu, X, Phone } from 'lucide-react';
+import { ChevronDown, ChevronRight, ChevronLeft, Menu, X, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from './Button';
 const logo = '/logo.png';
@@ -11,13 +11,9 @@ const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
-    const [activeMobileDropdown, setActiveMobileDropdown] = useState(null);
+    const [activeSubmenu, setActiveSubmenu] = useState(null);
     const navigate = useNavigate();
     const location = useLocation();
-
-    const toggleMobileDropdown = (name) => {
-        setActiveMobileDropdown(activeMobileDropdown === name ? null : name);
-    };
 
     const scrollToTop = () => {
         window.scrollTo({
@@ -93,7 +89,29 @@ const Header = () => {
             }
         }
         setMobileMenuOpen(false);
+        setActiveSubmenu(null);
     };
+
+    const handleMobileMenuClose = () => {
+        setMobileMenuOpen(false);
+        // Delay resetting active submenu slightly so user doesn't see it jump back while closing
+        setTimeout(() => setActiveSubmenu(null), 300);
+    };
+
+    const menuVariants = {
+        hidden: { x: '-100%', opacity: 0 },
+        visible: { x: 0, opacity: 1 },
+        exit: { x: '-100%', opacity: 0 }
+    };
+
+    const submenuVariants = {
+        hidden: { x: '100%', opacity: 0 },
+        visible: { x: 0, opacity: 1 },
+        exit: { x: '100%', opacity: 0 }
+    };
+
+    // Find the current active submenu object
+    const activeSubmenuData = navLinks.find(link => link.name === activeSubmenu);
 
     return (
         <header className={`header ${isScrolled ? 'scrolled' : ''} ${isDarkPage ? 'header-dark' : ''}`}>
@@ -169,12 +187,11 @@ const Header = () => {
                 </div>
 
                 {/* Mobile Menu Toggle */}
-                <div className="mobile-toggle" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                <div className="mobile-toggle" onClick={() => mobileMenuOpen ? handleMobileMenuClose() : setMobileMenuOpen(true)}>
                     {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </div>
             </div>
 
-            {/* Mobile Navigation Overlay */}
             {/* Mobile Navigation Overlay */}
             <AnimatePresence>
                 {mobileMenuOpen && (
@@ -185,67 +202,101 @@ const Header = () => {
                         exit={{ opacity: 0, y: -20, scale: 0.95 }}
                         transition={{ duration: 0.2 }}
                     >
-                        <ul className="mobile-nav-list">
-                            {navLinks.map((link) => (
-                                <li key={link.name} className="mobile-nav-item">
-                                    {link.dropdown ? (
-                                        // Accordion Item
-                                        <div className="mobile-accordion-group">
-                                            <div
-                                                className="mobile-nav-link-header"
-                                                onClick={() => toggleMobileDropdown(link.name)}
-                                                style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}
-                                            >
-                                                <span style={{ fontWeight: '600', fontSize: '0.95rem', color: '#1e293b' }}>{link.name}</span>
-                                                <ChevronDown
-                                                    size={16}
-                                                    style={{
-                                                        transform: activeMobileDropdown === link.name ? 'rotate(180deg)' : 'rotate(0deg)',
-                                                        transition: 'transform 0.3s ease',
-                                                        color: '#94a3b8'
-                                                    }}
-                                                />
-                                            </div>
-
-                                            {/* Submenu */}
-                                            <div className={`mobile-submenu-container ${activeMobileDropdown === link.name ? 'open' : ''}`}>
-                                                <ul className="mobile-dropdown-grid">
-                                                    {link.dropdown.map(subItem => (
-                                                        <li key={subItem.name} className="mobile-dropdown-card">
-                                                            <span
-                                                                onClick={() => handleDropdownClick(link.path, subItem.hash || subItem.path)}
-                                                                className="mobile-dropdown-link"
-                                                            >
-                                                                {subItem.name}
-                                                            </span>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </div>
+                        <div className="mobile-nav-viewport">
+                            <AnimatePresence mode="popLayout" initial={false}>
+                                {!activeSubmenu ? (
+                                    <motion.div
+                                        key="main-menu"
+                                        initial={{ x: '-50%', opacity: 0 }}
+                                        animate={{ x: 0, opacity: 1 }}
+                                        exit={{ x: '-50%', opacity: 0 }}
+                                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                        className="mobile-menu-slide"
+                                    >
+                                        <ul className="mobile-nav-list">
+                                            {navLinks.map((link) => (
+                                                <li key={link.name} className="mobile-nav-item">
+                                                    {link.dropdown ? (
+                                                        <div
+                                                            className="mobile-nav-link-header"
+                                                            onClick={() => setActiveSubmenu(link.name)}
+                                                            style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}
+                                                        >
+                                                            <span style={{ fontWeight: '600', fontSize: '1.2rem', color: '#1e293b' }}>{link.name}</span>
+                                                            <ChevronRight size={20} color="#94a3b8" />
+                                                        </div>
+                                                    ) : (
+                                                        <Link
+                                                            to={link.path}
+                                                            className="mobile-nav-link-header"
+                                                            onClick={(e) => {
+                                                                if (location.pathname === link.path) {
+                                                                    e.preventDefault();
+                                                                    scrollToTop();
+                                                                }
+                                                                handleMobileMenuClose();
+                                                            }}
+                                                            style={{ display: 'block', fontWeight: '600', fontSize: '1.2rem', color: '#1e293b' }}
+                                                        >
+                                                            {link.name}
+                                                        </Link>
+                                                    )}
+                                                </li>
+                                            ))}
+                                            <li style={{ marginTop: '20px' }}>
+                                                <Button onClick={() => { openBooking(); handleMobileMenuClose(); }} style={{ width: '100%', fontSize: '1rem', padding: '12px' }}>Book Appointment</Button>
+                                            </li>
+                                        </ul>
+                                    </motion.div>
+                                ) : (
+                                    <motion.div
+                                        key="submenu"
+                                        initial={{ x: '100%', opacity: 0 }}
+                                        animate={{ x: 0, opacity: 1 }}
+                                        exit={{ x: '100%', opacity: 0 }}
+                                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                        className="mobile-menu-slide"
+                                    >
+                                        <div className="mobile-submenu-header" onClick={() => setActiveSubmenu(null)}>
+                                            <ChevronLeft size={20} />
+                                            <span>Back</span>
                                         </div>
-                                    ) : (
-                                        // Regular Link
-                                        <Link
-                                            to={link.path}
-                                            className="mobile-nav-link-header"
-                                            onClick={(e) => {
-                                                if (location.pathname === link.path) {
-                                                    e.preventDefault();
+
+                                        {activeSubmenuData?.path ? (
+                                            <Link
+                                                to={activeSubmenuData.path}
+                                                className="mobile-submenu-title"
+                                                onClick={() => {
+                                                    handleMobileMenuClose();
                                                     scrollToTop();
-                                                }
-                                                setMobileMenuOpen(false);
-                                            }}
-                                            style={{ display: 'block', fontWeight: '600', fontSize: '0.95rem', color: '#1e293b' }}
-                                        >
-                                            {link.name}
-                                        </Link>
-                                    )}
-                                </li>
-                            ))}
-                            <li style={{ marginTop: '10px' }}>
-                                <Button onClick={() => { openBooking(); setMobileMenuOpen(false); }} style={{ width: '100%', fontSize: '0.9rem', padding: '10px' }}>Book Appointment</Button>
-                            </li>
-                        </ul>
+                                                }}
+                                                style={{ display: 'block', textDecoration: 'none' }}
+                                            >
+                                                {activeSubmenu}
+                                            </Link>
+                                        ) : (
+                                            <div className="mobile-submenu-title">
+                                                {activeSubmenu}
+                                            </div>
+                                        )}
+
+                                        <ul className="mobile-nav-list">
+                                            {activeSubmenuData?.dropdown?.map((subItem) => (
+                                                <li key={subItem.name} className="mobile-nav-item">
+                                                    <span
+                                                        onClick={() => handleDropdownClick(activeSubmenuData.path, subItem.hash || subItem.path)}
+                                                        className="mobile-nav-link-header"
+                                                        style={{ fontWeight: '500', color: '#475569', fontSize: '1.1rem' }}
+                                                    >
+                                                        {subItem.name}
+                                                    </span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -259,12 +310,12 @@ const Header = () => {
             z-index: 1000;
             transition: all 0.3s ease;
             padding: 20px 0;
-            background: rgba(248, 250, 252, 0.2); /* Semi-transparent base */
+            background: rgba(248, 250, 252, 0.2);
             backdrop-filter: blur(20px);
         }
 
         .header.header-dark {
-            background: rgba(0, 0, 0, 0.25); /* Darker glass for hero images */
+            background: rgba(0, 0, 0, 0.25);
         }
 
         .header-dark .nav-link,
@@ -377,18 +428,40 @@ const Header = () => {
             display: block;
         }
         
+        /* Mobile Overlay & Slide Styles */
         .mobile-nav-overlay {
             position: fixed;
             top: 80px;
             left: 20px;
             right: 20px;
+            bottom: 20px; /* Take up more vertical space */
             background: rgba(248, 250, 252, 0.95);
-            padding: 20px;
+            padding: 24px;
             border-radius: 16px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             display: flex;
             flex-direction: column;
-            gap: 4px; /* Tighter gap for main items */
+            overflow: hidden; /* Hide sliding content */
+        }
+        
+        .mobile-nav-viewport {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow-y: auto; /* Scrollable if needed */
+            overflow-x: hidden;
+        }
+        
+        /* The slide requires absolute positioning to overlap during transition */
+        .mobile-menu-slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            background: rgba(248, 250, 252, 0); /* Transparent */
         }
         
         .mobile-nav-list {
@@ -397,61 +470,41 @@ const Header = () => {
             margin: 0;
             display: flex;
             flex-direction: column;
-            gap: 4px; /* Tighter gap for main items */
+            gap: 12px;
         }
         
         .mobile-nav-item {
             border-bottom: 1px solid rgba(0,0,0,0.05);
-            padding-bottom: 4px;
+            padding-bottom: 12px;
         }
         .mobile-nav-item:last-child { border-bottom: none; }
 
         .mobile-nav-link-header {
-            padding: 12px 4px; /* Smaller tap target but still accessible */
-            cursor: pointer;
-        }
-
-        .mobile-submenu-container {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 0;
-        }
-        
-        .mobile-submenu-container.open {
-            max-height: 500px; /* Arbitrary large number */
-            opacity: 1;
-            margin-bottom: 10px;
-        }
-
-        /* Mobile Dropdown Styling */
-        .mobile-dropdown-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 6px; /* Tight gap */
-            padding: 5px 0 0 10px; /* Indent */
-            margin: 0;
-            list-style: none;
-        }
-        
-        .mobile-dropdown-card {
-            background: transparent;
-            border-radius: 8px;
-            transition: background 0.2s;
-        }
-
-        .mobile-dropdown-card:hover {
-            background: rgba(0,0,0,0.03);
-        }
-
-        .mobile-dropdown-link {
-            display: block;
-            padding: 8px 12px; /* Smaller padding */
-            font-size: 0.85rem; /* Reduced font size */
-            color: #475569; 
-            font-weight: 500;
+            padding: 8px 0;
             cursor: pointer;
             width: 100%;
+            display: block;
+        }
+        
+        .mobile-submenu-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            color: #64748b;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .mobile-submenu-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            margin-bottom: 24px;
+            line-height: 1.1;
         }
 
         @media (max-width: 900px) {
@@ -463,7 +516,6 @@ const Header = () => {
             }
         }
 
-        /* Redefined Mobile UI/UX - Strict Scoping */
         @media (max-width: 768px) {
             .header {
                 padding: 10px 0;
@@ -481,20 +533,19 @@ const Header = () => {
                 padding: 0 20px;
                 height: 54px;
                 position: relative;
-                justify-content: space-between !important; /* Force space between */
+                justify-content: space-between !important;
             }
             .header.scrolled .header-container {
                 margin: 0 16px;
                 height: 50px;
             }
             
-            /* Logo Positioning - Left Aligned */
             .logo-link {
-                position: static !important; /* Reset absolute positioning */
+                position: static !important;
                 transform: none !important;
             }
             .logo-link img {
-                height: 32px !important; /* Slightly smaller for mobile bar */
+                height: 32px !important;
                 display: block;
             }
             
@@ -502,7 +553,7 @@ const Header = () => {
                 display: flex !important;
                 align-items: center;
                 justify-content: center;
-                margin-left: 0 !important; /* Reset margin auto */
+                margin-left: 0 !important;
                 background: rgba(255,255,255,0.1);
                 border-radius: 12px;
                 padding: 8px;
@@ -514,8 +565,9 @@ const Header = () => {
                 border-radius: 32px;
                 border: 1px solid rgba(255,255,255,1);
                 top: 80px;
+                bottom: 20px;
                 box-shadow: 0 20px 60px -10px rgba(0,0,0,0.15);
-                padding: 24px; /* More breathing room outside */
+                padding: 24px;
             }
         }
       `}</style>

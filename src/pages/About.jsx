@@ -6,17 +6,17 @@ const doctors = [
     {
         name: "Dr. Ong Nguk Jean",
         role: "Founder & Dental Surgeon, BDS (Malaya)",
-        years: "33 years",
+        years: "34 years",
         qualifications: "BDS, University of Malaya",
         bio: "Passionate about caring for people and families, building genuine long-term relationships that last,",
         languages: "English, Chinese, Malay, Foo Chow, Cantonese, Hokkien",
         img: "/images/doctors/dr_Jean Ong.jpg",
-        keyCompetency: "General Dentistry, Endodontics / root canal treatment, Occlusion & smile, Functional occlusion & rehabilitation"
+        keyCompetency: "General Dentistry, Endodontics / Root Canal Treatment, Occlusion & Smile, Functional Occlusion & Rehabilitation"
     },
     {
         name: "Dr. Amy Chin Mei Kuen",
         role: "Dental Surgeon, BDS (Malaya)",
-        years: "23 years",
+        years: "24 years",
         qualifications: "BDS, University of Malaya",
         bio: "Passionate about educating patients and helping them achieve good oral health with confidence.",
         languages: "English, Malay, Cantonese",
@@ -26,27 +26,27 @@ const doctors = [
     {
         name: "Dr. Ling Yoke Li",
         role: "Dental Surgeon, DDS (USM)",
-        years: "19 years",
+        years: "20 years",
         qualifications: "DDS, University of Science Malaysia",
         bio: "Warm and thoughtful, with a strong focus on early intervention and long-term airway wellness in children.",
         languages: "English, Chinese, Malay",
         img: "/images/doctors/dr_Ling.jpg",
-        keyCompetency: "Extensive post graduate training, covering Pediatric interceptive orthodontics (including myofunctional therapy), functional orthodontics, airway-focused dentistry"
+        keyCompetency: "Extensive Post-Graduate Training, Covering Pediatric Interceptive Orthodontics (incl. Myofunctional Therapy), Functional Orthodontics, Airway-focused Dentistry for Adults & Children"
     },
     {
         name: "Dr. Mah Haw Yeng",
         role: "Dental Surgeon, BDS (Malaya)",
-        years: "23 years",
+        years: "24 years",
         qualifications: "BDS, University of Malaya",
         bio: "Passionate about families, committed to serving patients wholeheartedly with warmth.",
         languages: "Mandarin, Cantonese, English, Bahasa Malaysia",
         img: "/images/doctors/dr_Mah Haw Yeng.jpg",
-        keyCompetency: "Orthodontics (children & adults), Myofunctional orthodontics"
+        keyCompetency: "General Dentistry, Orthodontics (children & adults), Myofunctional orthodontics"
     },
     {
         name: "Dr. Azelia Lau Yiling",
         role: "Dental Surgeon, BDS (NIZ, RUSSIA)",
-        years: "16 years",
+        years: "17 years",
         qualifications: "BDS, Nizhny Novgorod State Medical Academy",
         bio: "Passionate about making dental visits a pleasant experience for patients of all ages.",
         languages: "English, Malay",
@@ -66,9 +66,9 @@ const doctors = [
     {
         name: "Dr Lim Zhi Yin Joan",
         role: "Specialist, BDS (Malaya), Cert. Advanced Restorative & Aesthetic Dentistry (UCLA)",
-        years: "18 years",
+        years: "19 years",
         qualifications: "Cert. Advanced Restorative (UCLA), MFDS (RCS Edinburgh), BDS (UM)",
-        specialties: "Esthetic dentistry, Fixed prosthodontics, Implantology, Smile design, Full-mouth rehabilitation",
+        specialties: "Esthetic Dentistry, Fixed Prosthodontics, Implantology, Smile Design, Full-mouth Rehabilitation",
         bio: "Passionate about advancing restorative and aesthetic dentistry, delivering the highest quality to patients.",
         languages: "English, Mandarin, Malay",
         img: "/images/doctors/dr_Lim Zhi Yin Joan.jpg"
@@ -76,9 +76,9 @@ const doctors = [
     {
         name: "Dr Yeoh Oon Take",
         role: "Specialist, BDS (Malaya), D.Clin.Dent Prosthodontics (Melbourne)",
-        years: "13 years",
+        years: "14 years",
         qualifications: "BDS (Malaya), D.Clin.Dent Prosthodontics (Melbourne)",
-        specialties: "Dental implants, Oral function, Crown and bridge",
+        specialties: "Dental Implants, Oral Function, Crown and Bridge",
         bio: "Driven toward continual improvement while delivering functional and long-lasting treatment outcomes.",
         languages: "Malay, Mandarin, English, Cantonese, Hokkien",
         img: "/images/doctors/dr_yeoh.jpg"
@@ -191,7 +191,7 @@ const About = () => {
 
                                         {doc.keyCompetency && (
                                             <div className="team-specialties">
-                                                <strong>Key Competency / Expertise:</strong><br />
+                                                <strong>Key Competencies:</strong><br />
                                                 {doc.keyCompetency}
                                             </div>
                                         )}

@@ -12,11 +12,11 @@ const MyofunctionalOrthodontics = () => {
     const faqs = [
         {
             "q": "Is it better than braces?",
-            "a": "It addresses the root cause (muscles), whereas braces only treat the symptoms (teeth). Often, it reduces or eliminates the need for future braces."
+            "a": "It addresses the root cause (muscles, breathing dysfunction, poor bone loading), whereas braces only treat the symptoms (teeth). Often, it reduces or eliminates the need for future braces."
         },
         {
             "q": "What age is best to start?",
-            "a": "Ideally between ages 5 and 10, while the jaw is still actively growing and habits are easier to retrain."
+            "a": "Ideally as soon as possible, while the jaw is still actively growing and habits are easier to retrain. Depending on the assessment conducted and appliance that is prescribed, the dentist will advise you on how best to guide your child's jaw growth and development."
         },
         {
             "q": "What does the patient have to do?",
@@ -70,12 +70,20 @@ const MyofunctionalOrthodontics = () => {
                         <div className="tech-meta glass-panel">
                             <h3>Clinical Workflow</h3>
                             <ul className="step-list">
-                                <li><span>01</span> Oral Myofunctional Assessment</li>
-                                <li><span>02</span> Airway & Sleep Screening</li>
-                                <li><span>03</span> Customized Appliance Selection (e.g. Myobrace)</li>
-                                <li><span>04</span> Monthly Muscle Exercise Programs</li>
-                                <li><span>05</span> Progress Tracking & Growth Monitoring</li>
-
+                                <li><span>01</span> Thorough Assessment of medical, birth and child developmental history</li>
+                                <li><span>02</span> Oral Myofunctional Assessment</li>
+                                <li><span>03</span> Airway & Sleep Screening</li>
+                                <li>
+                                    <span>04</span>
+                                    <div>
+                                        Customized Appliance Selection
+                                        <div style={{ fontSize: '0.9rem', opacity: 0.8, marginTop: '4px' }}>
+                                            e.g. Expanders, Mandibular Advancers, Maxillary Protractor, Munchees, Myofunctional Appliances ie LM Activator, Braces, Clear Aligners
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><span>05</span> Monthly Muscle Exercise Programs</li>
+                                <li><span>06</span> Progress Tracking & Growth Monitoring</li>
                             </ul>
                         </div>
                     </div>

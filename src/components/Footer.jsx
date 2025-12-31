@@ -102,7 +102,7 @@ const Footer = () => {
                                 <p className="time-val">9:30 AM - 3:30 PM</p>
                             </div>
                             <div className="hours-block">
-                                <p className="day-label">Sunday:</p>
+                                <p className="day-label">Sunday / Public Holidays:</p>
                                 <p className="time-val">Closed</p>
                             </div>
                         </div>

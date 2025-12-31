@@ -55,13 +55,13 @@ const servicesData = {
         icon: <Sparkles size={32} />,
         color: "var(--color-secondary)",
         services: [
-            { name: "Clear Aligners", desc: "Invisible, removable trays (Invisalign/Clearsmile) for discreet straightening." },
+            { name: "Clear Aligners", desc: "Invisible, removable trays (Invisalign / Angel / ClearSmile) for discreet straightening." },
             { name: "Fixed Appliances (Metal & Clear Brackets)", desc: "Powered by the latest Damon Ultima, Q2, and Clear 2 technology." },
             { name: "Removable Appliances", desc: "Early intervention devices for minor tooth movements and growth." },
             { name: "Retainers", desc: "Custom devices (Hawley/Essix) to maintain your new smile after treatment." }
         ],
         tier1: {
-            title: "Clear Aligners (Invisalign / Clearsmile)",
+            title: "Clear Aligners (Invisalign / Angel / ClearSmile)",
             desc: "The clear alternative to braces. Straighten your teeth without anyone knowing.",
             path: "/services/straighten/clear-aligners"
         },
@@ -157,7 +157,7 @@ const servicesData = {
         icon: <Users size={32} />,
         color: "var(--color-secondary)",
         services: [
-            { name: "Myofunctional Orthodontics", desc: "Correcting oral habits to guide proper jaw and face growth." },
+            { name: "Functional Orthodontics", desc: "Correcting oral habits to guide proper jaw and face growth." },
             { name: "Fissure Sealants", desc: "Protective coatings on back teeth to prevent decay in grooves." },
             { name: "Topical Fluoride", desc: "Strengthening enamel to make teeth more resistant to cavities." },
             { name: "Paediatric Fillings", desc: "Gentle restoration for baby teeth to maintain space and health." },
@@ -170,7 +170,7 @@ const servicesData = {
         },
         experience: {
             title: "Growing Healthy Airways & Smiles",
-            desc: "Modern paediatric dentistry is about more than cavities. We rigorously screen for developmental issues like mouth breathing and tongue ties, intervening early to ensure your child develops a healthy airway and a broad, beautiful smile.",
+            desc: "Modern paediatric dentistry is about more than cavities. We rigorously screen for developmental issues like mouth breathing and its causes, incorrect swallowing, low tongue posture, tethered oral tissues, bite interference and retained primitive reflexes, intervening early to ensure your child develops a healthy airway and a broad, beautiful smile.",
             benefits: [
                 "Airway-Centric Growth Assessment",
                 "Myofunctional Therapy for Oral Habits",
@@ -673,6 +673,9 @@ const ServiceHub = () => {
                     .service-list-card, .tier1-card, .benefits-card, .info-visual {
                         padding: 24px;
                         border-radius: 20px;
+                        margin-left: 8px;
+                        margin-right: 8px;
+                        width: auto;
                     }
                     
                     .blog-section .glass-panel {

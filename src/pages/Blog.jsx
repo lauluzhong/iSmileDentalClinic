@@ -160,6 +160,9 @@ const Blog = () => {
                   grid-template-columns: 1fr;
                   border-radius: 20px;
                   min-height: auto;
+                  margin-left: 8px;
+                  margin-right: 8px;
+                  width: auto;
               }
               .featured-image {
                   height: 200px;
@@ -173,7 +176,12 @@ const Blog = () => {
                   gap: 20px; 
                   margin-top: 40px !important; 
               }
-              .post-card { border-radius: 20px; }
+              .post-card { 
+                  border-radius: 20px;
+                  margin-left: 8px;
+                  margin-right: 8px;
+                  width: auto;
+              }
               
               .blog-hero-gradient { padding-top: 120px !important; padding-bottom: 60px !important; }
               .hero-title { font-size: 2.5rem !important; }

@@ -21,16 +21,16 @@ const Contact = () => {
                             <div>
                                 <h4>Visit Us</h4>
                                 <p>75 & 75A , Jalan SS 22/23,<br />Damansara Jaya, Petaling Jaya,<br />Malaysia</p>
-                                <div className="direction-buttons mt-4">
+                                <div className="contact-direction-buttons mt-4">
                                     <Button
-                                        className="direction-btn google-btn"
+                                        className="contact-direction-btn google-btn"
                                         onClick={() => window.open('https://maps.app.goo.gl/yt8MxXDpDxXgXqre6', '_blank')}
                                     >
                                         <img src="/images/google-maps.png" alt="Google Maps" className="btn-icon" />
                                         Google Maps
                                     </Button>
                                     <Button
-                                        className="direction-btn waze-btn"
+                                        className="contact-direction-btn waze-btn"
                                         onClick={() => window.open('https://ul.waze.com/ul?place=ChIJMyz-_jZJzDERBTVNqS_uGzg&ll=3.12583430%2C101.61623380&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location', '_blank')}
                                     >
                                         <img src="/images/waze.png" alt="Waze" className="btn-icon" />
@@ -105,7 +105,7 @@ const Contact = () => {
               flex-shrink: 0;
           }
 
-          .direction-buttons {
+          .contact-direction-buttons {
               display: flex;
               flex-direction: column;
               gap: 12px;
@@ -113,27 +113,29 @@ const Contact = () => {
               align-items: flex-start;
           }
 
-          .direction-btn {
+          .contact-direction-btn {
               background: white !important;
-              border: 1.5px solid var(--color-primary, #00A0C6) !important;
-              color: var(--color-primary, #00A0C6) !important;
-              padding: 8px 16px !important;
+              border: 1px solid #e2e8f0 !important;
+              color: #475569 !important;
+              padding: 10px 20px !important;
               font-size: 0.9rem !important;
               display: flex !important;
               align-items: center !important;
-              gap: 8px !important;
-              border-radius: 50px !important;
-              transition: all 0.3s ease !important;
+              gap: 10px !important;
+              border-radius: 12px !important;
+              transition: all 0.2s ease !important;
               width: 180px !important;
               justify-content: flex-start !important;
               padding-left: 20px !important;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
           }
 
-          .direction-btn:hover {
-              background: var(--color-primary, #00A0C6) !important;
-              color: white !important;
+          .contact-direction-btn:hover {
+              border-color: var(--color-primary, #00A0C6) !important;
+              color: var(--color-primary, #00A0C6) !important;
+              background: #f0f9ff !important;
               transform: translateY(-2px);
-              box-shadow: 0 4px 12px rgba(0, 160, 198, 0.2);
+              box-shadow: 0 4px 12px rgba(0, 160, 198, 0.1);
           }
 
           .btn-icon {
@@ -160,8 +162,19 @@ const Contact = () => {
               .hero-title { font-size: 2.5rem !important; margin-bottom: 20px !important; }
               .lead-text { font-size: 1rem !important; margin-bottom: 30px !important; }
               
-              .direction-buttons { width: 100%; }
-              .direction-btn { width: 100% !important; justify-content: center !important; }
+              .contact-direction-buttons { 
+                  width: 100%; 
+                  flex-direction: row;
+                  justify-content: center;
+                  gap: 15px; 
+              }
+              .contact-direction-btn { 
+                  width: 155px !important; 
+                  justify-content: center !important; 
+                  padding: 10px 10px !important;
+                  padding-left: 10px !important;
+                  text-align: center;
+              }
           }
        `}</style>
         </div>

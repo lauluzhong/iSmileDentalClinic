@@ -97,7 +97,7 @@ export const blogPosts = [
             <p>It’s often a balance between cost and convenience. For many working parents, the flexibility and immediate start of private care provide peace of mind that outweighs the savings of the government option.</p>
 
             <h3>When to Start the Conversation</h3>
-            <p>It is generally recommended to have an initial assessment by age 7. This helps you plan ahead and understand your child's developmental needs, regardless of which route you eventually choose.</p>
+            <p>It is generally recommended to have an initial assessment after birth or as soon as your baby develops his/her first tooth, as 60-70% of the jaw has grown by age 6. Fix by Six for healthier growth! This helps us prevent possible future orthodontic treatment or minimising one with early interceptive advice on diet, habits and nutrition.</p>
 
             <p><strong>Considering braces for your child?</strong> Schedule a relaxed consultation with us to explore your private orthodontic options and create a plan that fits your life.</p>
         `
@@ -112,7 +112,7 @@ export const blogPosts = [
         content: `
             <h3>Choosing the Right Fit for Your Life</h3>
             <p>A straighter smile is often on the wish list for both teens and adults, but the path to get there varies. The choice between clear aligners and traditional braces isn’t just about aesthetics; it’s about how the treatment fits into your daily routine and lifestyle.</p>
-            <p>While we carry industry-leading clear aligner brands like Invisalign and ClearSmile, understanding whether clear aligners or traditional braces are right for you is the first step in your journey.</p>
+            <p>While we carry industry-leading clear aligner brands like Invisalign, Angel, and ClearSmile, understanding whether clear aligners or traditional braces are right for you is the first step in your journey.</p>
             <p>Whether you are a busy professional or a parent of an active teen, understanding the daily impact of each option is key to a successful and stress-free journey.</p>
 
             <h3>Visibility and Personal Confidence</h3>
@@ -126,6 +126,9 @@ export const blogPosts = [
 
             <h3>What Works Best for Your Family?</h3>
             <p>Consider your child's personality and schedule. If they are responsible and active, clear aligners are a comfortable, flexible choice. If life is a bit more chaotic, traditional braces might be the more predictable option for parents.</p>
+
+            <h3>When to Start the Conversation</h3>
+            <p>It is generally recommended to have an initial assessment after birth or as soon as your baby develops his/her first tooth, as 60-70% of the jaw has grown by age 6. Fix by Six for healthier growth! This helps us prevent possible future orthodontic treatment or minimising one with early interceptive advice on diet, habits and nutrition.</p>
 
             <h3>The First Step to a New Smile</h3>
             <p>If you have crowded teeth, spacing issues, or bite problems, a consultation is the best way to see which system suits your specific case and goals.</p>
@@ -143,7 +146,7 @@ export const blogPosts = [
         content: `
             <h3>Your Unique Journey to a Straight Smile</h3>
             <p>“How long will it take?” is often the first question we hear. With clear aligners, the answer depends entirely on the unique starting point of your smile. While some cases are simple fixes, others require more complex movements that take time and precision to achieve the perfect result.</p>
-            <p>While we carry industry-leading clear aligner brands like Invisalign and ClearSmile, understanding what goes into your personalized treatment plan can help manage expectations and ensure a successful outcome.</p>
+            <p>While we carry industry-leading clear aligner brands like Invisalign, Angel, and ClearSmile, understanding what goes into your personalized treatment plan can help manage expectations and ensure a successful outcome.</p>
 
             <h3>Crowding vs. Spacing: Different Challenges</h3>
             <p>Closing gaps is often faster than resolving severe crowding. Addressing crowded teeth may require expanding the dental arch or carefully reshaping teeth to create the space needed for a healthy, straight alignment.</p>

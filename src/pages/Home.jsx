@@ -96,7 +96,7 @@ const Home = () => {
             <section className="section-padding services-bento-section">
                 <div className="container">
                     <div className="section-header text-center">
-                        <Reveal width="100%"><h2 className="section-title services-title">Comprehensive Care for <span className="text-gradient">Every Stage of Life</span></h2></Reveal>
+                        <Reveal width="100%"><h2 className="section-title services-title">Comprehensive Care for <br className="mobile-break" /><span className="text-gradient">Every Stage of Life</span></h2></Reveal>
                     </div>
 
                     <div className="bento-grid">
@@ -303,6 +303,7 @@ const Home = () => {
 
             <style>{`
         /* General Hero & Section Styles */
+        .mobile-break { display: none; }
         .hero-section { min-height: 90vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 80px; }
         .hero-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; position: relative; z-index: 2; }
         .hero-title { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 20px; font-weight: 700; word-break: break-word; }
@@ -613,14 +614,14 @@ const Home = () => {
                 display: flex;
                 overflow-x: auto;
                 scroll-snap-type: x mandatory;
-                gap: 12px;
-                margin: 0 -16px;
-                padding: 20px 16px 40px 16px;
+                gap: 16px;
+                margin: 0; /* Remove negative margins to respect container padding */
+                padding: 20px 8px 40px 8px; /* Add internal padding to make cards thinner */
                 scrollbar-width: none;
             }
             .reviews-slider::-webkit-scrollbar { display: none; }
             .review-card { 
-                flex: 0 0 85%;
+                flex: 0 0 100%; /* Cards take full width of the narrowed container */
                 scroll-snap-align: center;
                 padding: 20px; 
                 border-radius: 20px; 
@@ -630,6 +631,7 @@ const Home = () => {
             .dental-edu-header { margin-bottom: 16px; align-items: flex-end; }
 
             .desktop-only { display: none; }
+            .mobile-break { display: inline; }
             .horizontal-track-simple { gap: 12px; padding: 0 16px; }
             .insight-card-large { width: 240px; border-radius: 20px; }
             .insight-image-large { height: 140px; }
