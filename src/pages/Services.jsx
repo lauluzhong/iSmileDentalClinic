@@ -655,7 +655,7 @@ const ServiceHub = () => {
                     margin-top: 4px;
                 }
 
-                @media (max-width: 768px) {
+                @media (max-width: 1024px) {
                     .sub-grid { grid-template-columns: 1fr; gap: 24px; }
                     .hero-main-title { font-size: 2.2rem; word-wrap: break-word; line-height: 1.1; margin-bottom: 16px; } 
                     .hub-hero { padding: 100px 0 50px 0; min-height: auto; }

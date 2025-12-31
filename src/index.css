@@ -34,7 +34,7 @@
   --glass-blur: blur(12px);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   :root {
     --section-padding: 40px;
     --fs-h1: 32px;
@@ -93,7 +93,7 @@ a {
   padding: 0 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .container {
     padding: 0 16px;
   }

@@ -121,7 +121,7 @@ const WisdomToothSurgery = () => {
                 .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
                 .faq-item { padding: 30px; background: white; }
                 .faq-item h4 { margin-bottom: 15px; color: var(--color-primary); }
-                @media (max-width: 768px) {
+                @media (max-width: 1024px) {
                     .specialty-page { padding-top: 80px; }
                     .tech-hero { padding: 60px 0; }
                     .tech-hero h1 { font-size: 2.2rem; line-height: 1.1; margin-bottom: 16px; }

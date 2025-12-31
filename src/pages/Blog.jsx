@@ -155,7 +155,7 @@ const Blog = () => {
               margin-top: 10px;
           }
           
-          @media (max-width: 768px) {
+          @media (max-width: 1024px) {
               .featured-post {
                   grid-template-columns: 1fr;
                   border-radius: 20px;
