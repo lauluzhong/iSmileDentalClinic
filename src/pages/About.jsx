@@ -478,7 +478,9 @@ const About = () => {
                 @media (max-width: 1024px) {
                     .founder-card-dark {
                         flex-direction: column;
-                        text-align: center;
+                    }
+                    .founder-content {
+                        width: 100%;
                     }
                     .founder-image-container {
                         max-width: 100%;
@@ -492,6 +494,12 @@ const About = () => {
                         margin: 0;
                     }
                     .section-title {
+                        text-align: center;
+                    }
+                }
+
+                @media (max-width: 767px) {
+                    .founder-card-dark {
                         text-align: center;
                     }
                 }
@@ -526,18 +534,26 @@ const About = () => {
                     .founder-bio p { font-size: 1rem; }
                     .founder-img { border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
 
-                    /* Team Mobile */
+                    /* Team Tablet/Mobile */
                     .team-grid {
-                         grid-template-columns: 1fr;
                          gap: 24px;
                     }
                     .team-card { border-radius: 20px; }
-                    .team-photo { height: 280px; } /* Reduced height */
+                    
                     .team-info { padding: 20px; }
                     .team-info h3 { font-size: 1.3rem; }
                     .team-role { font-size: 0.75rem; }
                     .team-bio { font-size: 0.9rem; }
                     .team-specialties { padding: 12px; font-size: 0.8rem; }
+                }
+
+                @media (max-width: 767px) {
+                    .team-grid {
+                        grid-template-columns: 1fr;
+                    }
+                    .team-photo {
+                         height: 280px;
+                    }
                 }
             `}</style>
         </div>
