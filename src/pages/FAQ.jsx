@@ -14,7 +14,7 @@ const FAQ = () => {
                 },
                 {
                     q: "How do I book an appointment?",
-                    a: "We operate strictly by appointment to ensure every patient receives dedicated care. Please call or WhatsApp us at +60 16 322 2135 to schedule your visit."
+                    a: <>We operate strictly by appointment to ensure every patient receives dedicated care. Please call or WhatsApp us at <a href="https://wa.me/60163222135" target="_blank" rel="noopener noreferrer" className="phone-link">+60 16 322 2135</a> to schedule your visit.</>
                 },
                 {
                     q: "Do you accept credit cards?",
@@ -40,7 +40,7 @@ const FAQ = () => {
                 },
                 {
                     q: "What should I do in a dental emergency?",
-                    a: "If you experience severe pain, swelling, or a dental injury, please reach out to us at +60 16 322 2135. We prioritize emergency cases and will do our best to provide same-day care."
+                    a: <>If you experience severe pain, swelling, or a dental injury, please reach out to us at <a href="https://wa.me/60163222135" target="_blank" rel="noopener noreferrer" className="phone-link">+60 16 322 2135</a>. We prioritize emergency cases and will do our best to provide same-day care.</>
                 },
                 {
                     q: "Are dental X-rays (radiographs) safe?",
@@ -97,7 +97,7 @@ const FAQ = () => {
                                     {section.questions.map((item, qIdx) => (
                                         <div key={qIdx} className="faq-card glass-panel">
                                             <h3 className="h5 font-weight-bold mb-3" style={{ color: '#2d3748' }}>{item.q}</h3>
-                                            <p className="mb-0" style={{ color: '#4a5568', lineHeight: 1.6 }}>{item.a}</p>
+                                            <div className="mb-0" style={{ color: '#4a5568', lineHeight: 1.6 }}>{item.a}</div>
                                         </div>
                                     ))}
                                 </div>
@@ -160,6 +160,18 @@ const FAQ = () => {
                     display: flex;
                     align-items: center;
                     gap: 15px;
+                }
+
+                .phone-link {
+                    color: var(--color-primary);
+                    font-weight: 600;
+                    text-decoration: none;
+                    transition: color 0.3s ease;
+                }
+
+                .phone-link:hover {
+                    color: var(--color-primary-dark);
+                    text-decoration: underline;
                 }
 
                 .d-flex {
@@ -243,4 +255,3 @@ const FAQ = () => {
 };
 
 export default FAQ;
-

@@ -1,9 +1,12 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, HelpCircle } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import { Reveal, FadeIn } from '../components/Reveal';
 
 const Contact = () => {
+    const navigate = useNavigate();
+    
     return (
         <div className="contact-page">
             <div className="container section-padding" style={{ paddingTop: '180px' }}>
@@ -45,6 +48,32 @@ const Contact = () => {
                             <div>
                                 <h4>Contact Us</h4>
                                 <p>+60 16 322 2135</p>
+                                <div className="contact-direction-buttons mt-4">
+                                    <Button 
+                                        className="contact-direction-btn"
+                                        onClick={() => window.open('https://wa.me/60163222135', '_blank')}
+                                    >
+                                        <Phone size={18} />
+                                        WhatsApp Us
+                                    </Button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="info-item">
+                            <div className="icon-box"><HelpCircle /></div>
+                            <div>
+                                <h4>FAQ</h4>
+                                <p>Find answers to common questions about our services and policies.</p>
+                                <div className="contact-direction-buttons mt-4">
+                                    <Button 
+                                        className="contact-direction-btn"
+                                        onClick={() => navigate('/faq')}
+                                    >
+                                        <HelpCircle size={18} />
+                                        View FAQ
+                                    </Button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -65,7 +94,7 @@ const Contact = () => {
 
             <style>{`
           .contact-content {
-              max-width: 900px;
+              max-width: 1200px;
               margin: 0 auto;
           }
 

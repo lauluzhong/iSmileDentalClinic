@@ -119,7 +119,7 @@ const Header = () => {
                 <div className="header-left">
                     <Link
                         to="/"
-                        className="logo-link"
+                        className="logo-link" data-analytics-click="logo-header"
                         onClick={(e) => {
                             if (location.pathname === '/') {
                                 e.preventDefault();
@@ -143,7 +143,7 @@ const Header = () => {
                                     {link.path ? (
                                         <Link
                                             to={link.path}
-                                            className="nav-link"
+                                            className="nav-link" data-analytics-click="nav-link" data-analytics-label={link.name}
                                             onClick={(e) => {
                                                 if (location.pathname === link.path) {
                                                     e.preventDefault();
@@ -183,7 +183,7 @@ const Header = () => {
 
                 {/* Action Button */}
                 <div className="header-actions">
-                    <Button onClick={() => openBooking()}>Book Appointment</Button>
+                    <Button data-analytics-click="header-booking" onClick={() => openBooking()}>Book Appointment</Button>
                 </div>
 
                 {/* Mobile Menu Toggle */}
@@ -244,7 +244,7 @@ const Header = () => {
                                                 </li>
                                             ))}
                                             <li style={{ marginTop: '20px' }}>
-                                                <Button onClick={() => { openBooking(); handleMobileMenuClose(); }} style={{ width: '100%', fontSize: '1rem', padding: '12px' }}>Book Appointment</Button>
+                                                <Button data-analytics-click="mobile-header-booking" onClick={() => { openBooking(); handleMobileMenuClose(); }} style={{ width: '100%', fontSize: '1rem', padding: '12px' }}>Book Appointment</Button>
                                             </li>
                                         </ul>
                                     </motion.div>
