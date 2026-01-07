@@ -64,6 +64,8 @@ ${formData.experience}`;
         const encodedMessage = encodeURIComponent(message);
         const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
         
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'booking_complete' });
         window.open(url, '_blank');
         closeBooking();
     };
@@ -76,10 +78,10 @@ ${formData.experience}`;
                 <h2 className="modal-title">Book an appointment with us today</h2>
                 <div style={{height: '2px', width: '60px', background: 'var(--color-secondary)', margin: '0 auto 20px', borderRadius: '1px'}}></div>
 
-                <form onSubmit={handleSubmit} className="booking-form">
+                <form data-analytics-form="booking-submission" onSubmit={handleSubmit} className="booking-form">
                     <div className="form-group">
                         <label>Name *</label>
-                        <input 
+                        <input data-analytics-focus="booking-field" 
                             type="text" 
                             name="name" 
                             value={formData.name} 
@@ -92,7 +94,7 @@ ${formData.experience}`;
 
                     <div className="form-group">
                         <label>Contact Number *</label>
-                        <input 
+                        <input data-analytics-focus="booking-field" 
                             type="tel" 
                             name="contact" 
                             value={formData.contact} 
@@ -104,7 +106,7 @@ ${formData.experience}`;
 
                     <div className="form-group">
                         <label>Email *</label>
-                        <input 
+                        <input data-analytics-focus="booking-field" 
                             type="email" 
                             name="email" 
                             value={formData.email} 
@@ -116,7 +118,7 @@ ${formData.experience}`;
 
                     <div className="form-group">
                         <label>Describe what you're feeling or any preferences</label>
-                        <textarea 
+                        <textarea data-analytics-focus="booking-field" 
                             name="experience" 
                             value={formData.experience} 
                             onChange={handleChange} 

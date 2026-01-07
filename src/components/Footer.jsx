@@ -34,7 +34,7 @@ const Footer = () => {
                     <div className="footer-col branding-col">
                         <Link
                             to="/"
-                            className="footer-logo"
+                            className="footer-logo" data-analytics-click="logo-footer"
                             onClick={(e) => {
                                 if (location.pathname === '/') {
                                     e.preventDefault();
@@ -76,10 +76,10 @@ const Footer = () => {
                                 <p>75 & 75A, Jalan SS 22/23,<br />Damansara Jaya, PJ, Malaysia</p>
                             </div>
                             <div className="direction-buttons">
-                                <Button className="direction-btn" onClick={() => window.open('https://maps.app.goo.gl/yt8MxXDpDxXgXqre6', '_blank')}>
+                                <Button className="direction-btn" data-analytics-click="footer-maps" data-analytics-label="google-maps" onClick={() => window.open('https://maps.app.goo.gl/yt8MxXDpDxXgXqre6', '_blank')}>
                                     <img src="/images/google-maps.png" alt="Maps" className="btn-icon" /> Google
                                 </Button>
-                                <Button className="direction-btn" onClick={() => window.open('https://ul.waze.com/ul?place=ChIJMyz-_jZJzDERBTVNqS_uGzg&ll=3.12583430%2C101.61623380&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location', '_blank')}>
+                                <Button className="direction-btn" data-analytics-click="footer-maps" data-analytics-label="waze" onClick={() => window.open('https://ul.waze.com/ul?place=ChIJMyz-_jZJzDERBTVNqS_uGzg&ll=3.12583430%2C101.61623380&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location', '_blank')}>
                                     <img src="/images/waze.png" alt="Waze" className="btn-icon" /> Waze
                                 </Button>
                             </div>
@@ -113,7 +113,7 @@ const Footer = () => {
                         <h4 className="footer-heading">Book Appointment</h4>
                         <p className="cta-desc">Ready to schedule your visit?</p>
                         <div className="mt-4">
-                            <Button style={{ background: '#00A0C6', border: 'none', padding: '10px 40px', borderRadius: '50px' }} onClick={() => openBooking()}>Schedule Visit</Button>
+                            <Button data-analytics-click="footer-booking" style={{ background: '#00A0C6', border: 'none', padding: '10px 40px', borderRadius: '50px' }} onClick={() => openBooking()}>Schedule Visit</Button>
                         </div>
                     </div>
 
