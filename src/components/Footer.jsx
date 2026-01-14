@@ -110,10 +110,10 @@ const Footer = () => {
 
                     {/* Column 5: Call to Action */}
                     <div className="footer-col cta-col">
-                        <h4 className="footer-heading">Book Appointment</h4>
+                        <h4 className="footer-heading">Schedule a Visit</h4>
                         <p className="cta-desc">Ready to schedule your visit?</p>
                         <div className="mt-4">
-                            <Button data-analytics-click="footer-booking" style={{ background: '#00A0C6', border: 'none', padding: '10px 40px', borderRadius: '50px' }} onClick={() => openBooking()}>Schedule Visit</Button>
+                            <Button data-analytics-click="footer-booking" style={{ padding: '12px 40px', boxShadow: '0 4px 15px rgba(79, 163, 194, 0.3)' }} onClick={() => openBooking()}>Get in touch</Button>
                         </div>
                     </div>
 
