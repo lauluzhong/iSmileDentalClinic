@@ -54,7 +54,7 @@ const Contact = () => {
                                         onClick={() => window.open('https://wa.me/60163222135', '_blank')}
                                     >
                                         <Phone size={18} />
-                                        WhatsApp Us
+                                        Get In Touch With Us
                                     </Button>
                                 </div>
                             </div>

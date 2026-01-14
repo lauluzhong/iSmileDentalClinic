@@ -13,7 +13,7 @@ const FAQ = () => {
                     a: "There is street parking is available around the clinic. For your convenience, there is also covered parking at Atria Shopping Gallery just a short 1 minute walk from our clinic."
                 },
                 {
-                    q: "How do I book an appointment?",
+                    q: "How do I schedule a visit?",
                     a: <>We operate strictly by appointment to ensure every patient receives dedicated care. Please call or WhatsApp us at <a href="https://wa.me/60163222135" target="_blank" rel="noopener noreferrer" className="phone-link">+60 16 322 2135</a> to schedule your visit.</>
                 },
                 {
@@ -115,7 +115,7 @@ const FAQ = () => {
                             className="btn btn-primary"
                             onClick={() => window.open('https://wa.me/60163222135', '_blank')}
                         >
-                            WhatsApp Us
+                            Get In Touch With Us
                         </button>
                     </FadeIn>
                 </div>

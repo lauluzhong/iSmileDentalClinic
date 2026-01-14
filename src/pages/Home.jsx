@@ -76,10 +76,10 @@ const Home = () => {
                             <span className="text-gradient">Every Generation</span>
                         </h1></Reveal>
                         <Reveal delay={0.2}><p className="hero-subtitle">
-                            At iSmile, we deliver high-quality dental care for every stage of life, ensuring that individuals and families maintain radiant, healthy smiles.
+                            From young children to seniors, we provide gentle, patient-centered dental care, taking time to listen, explain, and treat you and your family with confidence.
                         </p></Reveal>
                         <FadeIn delay={0.4} className="hero-actions">
-                            <Button onClick={() => openBooking()}>Book an Appointment</Button>
+                            <Button onClick={() => openBooking()}>Schedule a Visit</Button>
                         </FadeIn>
                     </div>
 

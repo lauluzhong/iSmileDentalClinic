@@ -53,7 +53,7 @@ const BookingModal = () => {
         const phoneNumber = '60163222135'; 
         
         // Construct the message
-const message = `Hi iSmile Dental, I’d like to book an appointment.
+const message = `Hi iSmile Dental, I’d like to schedule a visit.
 
 Name: ${formData.name}
 Contact: ${formData.contact}
@@ -75,7 +75,7 @@ ${formData.experience}`;
             <div className="modal-content glass-panel" onClick={e => e.stopPropagation()}>
                 <button className="close-btn" onClick={closeBooking}><X size={24} /></button>
                 
-                <h2 className="modal-title">Book an appointment with us today</h2>
+                <h2 className="modal-title">Schedule a visit with us today</h2>
                 <div style={{height: '2px', width: '60px', background: 'var(--color-secondary)', margin: '0 auto 20px', borderRadius: '1px'}}></div>
 
                 <form data-analytics-form="booking-submission" onSubmit={handleSubmit} className="booking-form">

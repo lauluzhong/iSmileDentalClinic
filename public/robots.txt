@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Allow: /favicon.png
+Allow: /apple-touch-icon.png
