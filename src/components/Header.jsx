@@ -43,6 +43,20 @@ const Header = () => {
             ]
         },
         {
+            name: 'Conditions & Concerns',
+            path: '/concerns',
+            dropdown: [
+                { name: 'Pain & Infection', path: '/concerns/pain-infection' },
+                { name: 'Cavities, Damage & Wear', path: '/concerns/cavities-damage-wear' },
+                { name: 'Missing or Loose Teeth', path: '/concerns/missing-loose-teeth' },
+                { name: 'Crooked Teeth & Bite Issues', path: '/concerns/crooked-teeth-bite' },
+                { name: 'Smile Appearance', path: '/concerns/smile-appearance' },
+                { name: 'Children’s Oral Care', path: '/concerns/children-oral-care' },
+                { name: 'Elderly & Ageing Oral Care', path: '/concerns/elderly-ageing-care' },
+                { name: 'Preventive & Routine Care', path: '/concerns/preventive-routine' }
+            ]
+        },
+        {
             name: 'Our Services',
             path: null,
             dropdown: [

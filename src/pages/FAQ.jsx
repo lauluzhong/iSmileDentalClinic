@@ -39,8 +39,8 @@ const FAQ = () => {
                     a: "We recommend a routine check-up and professional cleaning every 6 months. Regular visits help maintain optimal oral health and allow us to detect potential issues before they become serious."
                 },
                 {
-                    q: "What should I do in a dental emergency?",
-                    a: <>If you experience severe pain, swelling, or a dental injury, please reach out to us at <a href="https://wa.me/60163222135" target="_blank" rel="noopener noreferrer" className="phone-link">+60 16 322 2135</a>. We prioritize emergency cases and will do our best to provide same-day care.</>
+                    q: "What should I do if I am experiencing dental pain?",
+                    a: <>If you experience severe pain, swelling, or a dental injury, please reach out to us at <a href="https://wa.me/60163222135" target="_blank" rel="noopener noreferrer" className="phone-link">+60 16 322 2135</a>. Our team will guide you on the next steps and help you schedule a priority consultation for care and relief.</>
                 },
                 {
                     q: "Are dental X-rays (radiographs) safe?",
