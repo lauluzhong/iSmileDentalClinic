@@ -1,6 +1,7 @@
 import { useBooking } from '../context/BookingContext';
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Smartphone } from 'lucide-react';
 import Button from './Button';
 
 const Footer = () => {
@@ -45,7 +46,10 @@ const Footer = () => {
                             <img src="/logo.png" alt="iSmile" />
                         </Link>
                         <p className="footer-desc">
-                            We are ready to help you smile with confidence. At iSmile Dental, we are dedicated to providing comprehensive dental care for the entire family.
+                            We are ready to help you smile with confidence. At iSmile Dental Clinic, we are dedicated to providing comprehensive dental care for the entire family.
+                        </p>
+                        <p className="footer-copyright">
+                            © 2026 iSmile Dental Clinic. All rights reserved.
                         </p>
                     </div>
 
@@ -58,10 +62,11 @@ const Footer = () => {
                         <ul className={`footer-links accordion-content ${openSections.links ? 'show' : ''}`}>
                             <li><Link to="/" onClick={(e) => { if (location.pathname === '/') { e.preventDefault(); scrollToTop(); } }}>Home</Link></li>
                             <li><Link to="/about" onClick={(e) => { if (location.pathname === '/about') { e.preventDefault(); scrollToTop(); } }}>About Us</Link></li>
-                            <li><Link to="/services" onClick={(e) => { if (location.pathname === '/services') { e.preventDefault(); scrollToTop(); } }}>Services</Link></li>
+                            <li><Link to="/services" onClick={(e) => { if (location.pathname === '/services') { e.preventDefault(); scrollToTop(); } }}>Our Services</Link></li>
                             <li><Link to="/reviews" onClick={(e) => { if (location.pathname === '/reviews') { e.preventDefault(); scrollToTop(); } }}>Reviews</Link></li>
                             <li><Link to="/blog" onClick={(e) => { if (location.pathname === '/blog') { e.preventDefault(); scrollToTop(); } }}>Learning Centre</Link></li>
                             <li><Link to="/faq" onClick={(e) => { if (location.pathname === '/faq') { e.preventDefault(); scrollToTop(); } }}>FAQs</Link></li>
+                            <li><Link to="/services#service-directory">Full Service Directory</Link></li>
                         </ul>
                     </div>
 
@@ -73,7 +78,7 @@ const Footer = () => {
                         </div>
                         <div className={`accordion-content ${openSections.visit ? 'show' : ''}`}>
                             <div className="address-block">
-                                <p>75 & 75A, Jalan SS 22/23,<br />Damansara Jaya, PJ, Malaysia</p>
+                                <p>75 & 75A, Jalan SS 22/23, Damansara Jaya, 47400 Petaling Jaya, Selangor</p>
                             </div>
                             <div className="direction-buttons">
                                 <Button className="direction-btn" data-analytics-click="footer-maps" data-analytics-label="google-maps" onClick={() => window.open('https://maps.app.goo.gl/yt8MxXDpDxXgXqre6', '_blank')}>
@@ -110,7 +115,11 @@ const Footer = () => {
 
                     {/* Column 5: Call to Action */}
                     <div className="footer-col cta-col">
-                        <h4 className="footer-heading">Schedule a Visit</h4>
+                        <h4 className="footer-heading">Contact</h4>
+                        <div className="phone-block">
+                            <Smartphone size={20} className="phone-icon" />
+                            <a href="tel:0163222135" className="phone-link">016-322 2135</a>
+                        </div>
                         <p className="cta-desc">Ready to schedule your visit?</p>
                         <div className="mt-4">
                             <Button data-analytics-click="footer-booking" style={{ padding: '12px 40px', boxShadow: '0 4px 15px rgba(79, 163, 194, 0.3)' }} onClick={() => openBooking()}>Get in Touch</Button>
@@ -135,8 +144,8 @@ const Footer = () => {
         }
 
         .footer-logo img {
-            height: 90px !important;
-            margin-bottom: 24px;
+            height: 155px !important;
+            margin-bottom: 8px;
         }
 
         .footer-desc {
@@ -145,6 +154,13 @@ const Footer = () => {
             color: #64748b;
             max-width: 280px;
             margin-top: 0;
+            margin-bottom: 24px;
+        }
+
+        .footer-copyright {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin: 0;
         }
 
         .footer-heading {
@@ -166,6 +182,26 @@ const Footer = () => {
         .day-label { font-weight: 700; color: #334155; font-size: 0.95rem; margin-top: 0; margin-bottom: 4px; }
         .time-val { font-size: 0.9rem; color: #64748b; margin-top: 0; }
         .cta-desc { font-size: 0.95rem; color: #64748b; line-height: 1.5; margin-top: 0; }
+
+        .phone-block {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+        .phone-icon {
+            color: #00A0C6;
+        }
+        .phone-link {
+            color: #475569;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .phone-link:hover {
+            color: var(--color-primary);
+        }
 
         .direction-buttons { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
         .direction-btn {
@@ -192,6 +228,7 @@ const Footer = () => {
         @media (max-width: 1024px) {
             .footer-grid { grid-template-columns: repeat(3, 1fr); }
             .cta-col { grid-column: span 3; text-align: center; margin-top: 20px; }
+            .phone-block { justify-content: center; }
         }
 
         @media (max-width: 1024px) {
@@ -201,8 +238,8 @@ const Footer = () => {
                 gap: 0;
             }
             .branding-col { text-align: center; align-items: center; padding: 0 0 16px; border-bottom: 1px solid #f1f5f9; margin-bottom: 16px; }
-            .footer-logo img { height: 60px !important; margin-bottom: 12px; }
-            .footer-desc { margin: 0 auto; font-size: 0.85rem; }
+            .footer-logo img { height: 100px !important; margin-bottom: 0px; }
+            .footer-desc { margin: 8px auto 16px; font-size: 0.85rem; }
             
             .footer-col { border-bottom: 1px solid #f1f5f9; padding: 16px 0; }
             .footer-heading { margin-bottom: 0; font-size: 1rem; }
