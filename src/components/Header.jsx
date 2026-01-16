@@ -21,7 +21,7 @@ const Header = () => {
             behavior: 'smooth'
         });
     };
-    const isDarkPage = location.pathname.startsWith('/services') && !isScrolled;
+    const isDarkPage = location.pathname.startsWith('/services/') && !isScrolled;
 
     // Handle scroll effect for glass header
     useEffect(() => {
@@ -43,8 +43,8 @@ const Header = () => {
             ]
         },
         {
-            name: 'Our Services',
-            path: null,
+            name: 'Our Services', path: '/services',
+            
             dropdown: [
                 { name: 'Protect & Repair', path: '/services/protect' },
                 { name: 'Straighten Teeth', path: '/services/straighten' },
@@ -127,7 +127,7 @@ const Header = () => {
                             }
                         }}
                     >
-                        <img src={logo} alt="iSmile Dental Clinic" style={{ height: '65px', width: 'auto', transition: 'height 0.3s ease' }} />
+                        <img src={logo} alt="iSmile Dental Clinic" style={{ height: '110px', width: 'auto', transition: 'height 0.3s ease' }} />
                     </Link>
 
                     {/* Desktop Navigation */}

@@ -76,7 +76,7 @@ const Home = () => {
                             <span className="text-gradient">Every Generation</span>
                         </h1></Reveal>
                         <Reveal delay={0.2}><p className="hero-subtitle">
-                            From young children to seniors, we provide gentle, patient-centered dental care, taking time to listen, explain, and treat you and your family with confidence.
+                            iSmile Dental Clinic is a patient-centred dental clinic in Petaling Jaya, caring for children, adults, and families through every stage of life. We focus on clear explanations, thoughtful recommendations, and long-term oral health—so you can feel confident about the care you choose.
                         </p></Reveal>
                         <FadeIn delay={0.4} className="hero-actions">
                             <Button onClick={() => openBooking()}>Schedule a Visit</Button>

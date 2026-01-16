@@ -53,7 +53,7 @@ const BookingModal = () => {
         const phoneNumber = '60163222135'; 
         
         // Construct the message
-const message = `Hi iSmile Dental, I’d like to schedule a visit.
+const message = `Hi iSmile Dental Clinic, I’d like to schedule a visit.
 
 Name: ${formData.name}
 Contact: ${formData.contact}
