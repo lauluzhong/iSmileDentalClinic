@@ -40,7 +40,7 @@ const BookingModal = () => {
         setTouched(prev => ({ ...prev, [e.target.name]: true }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         
         // Basic Validation
@@ -49,11 +49,31 @@ const BookingModal = () => {
             return;
         }
 
+        // N8N Trigger implementation
+        const n8nWebhookUrl = 'https://lauluzhong.app.n8n.cloud/webhook/de920d9d-60f4-445d-941a-3991599824b7';
+        const payload = {
+            ...formData,
+            sourceButton: prefillData.sourceButton || 'unknown',
+            sourcePage: prefillData.sourcePage || window.location.pathname,
+            timestamp: new Date().toISOString()
+        };
+
+        console.log('Triggering N8N with payload:', payload);
+
+        // Fire and forget tracking to ensure WhatsApp flow isn't blocked by network issues
+        fetch(n8nWebhookUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        }).catch(err => {
+            console.error('N8N Trigger Error (expected if URL is placeholder):', err);
+        });
+
         // WhatsApp Link Construction
         const phoneNumber = '60163222135'; 
         
         // Construct the message
-const message = `Hi iSmile Dental Clinic, I’d like to schedule a visit.
+        const message = `Hi iSmile Dental Clinic, I’d like to schedule a visit.
 
 Name: ${formData.name}
 Contact: ${formData.contact}

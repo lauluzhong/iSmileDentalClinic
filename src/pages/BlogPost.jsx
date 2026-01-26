@@ -126,7 +126,7 @@ const BlogPost = () => {
                                         topic = 'clear aligner treatment';
                                     }
 
-                                    openBooking(`Interested in ${topic}`);
+                                    openBooking(`Interested in ${topic}`, `blog-post-${post.id}`);
                                 }}
                             >
                                 Book a Consultation
