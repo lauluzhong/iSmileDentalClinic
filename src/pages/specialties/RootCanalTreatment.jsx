@@ -106,7 +106,7 @@ const RootCanalTreatment = () => {
                 <div className="container">
                     <h2>Save your natural tooth today</h2>
                     <p className="mb-4">Don't wait for the pain to worsen. Consult with us early.</p>
-                    <Button onClick={() => openBooking('Interested in Root Canal Treatment')}>Book Consultation</Button>
+                    <Button onClick={() => openBooking('Interested in Root Canal Treatment', 'specialty-root-canal')}>Book Consultation</Button>
                 </div>
             </section>
 

@@ -100,7 +100,7 @@ const ClearAligners = () => {
                 <div className="container">
                     <h2>Consult with our dentists today</h2>
                     <p className="mb-4">Get a professional assessment based on your unique dental structure.</p>
-                    <Button onClick={() => openBooking('Interested in Clear Aligners')}>Book Consultation</Button>
+                    <Button onClick={() => openBooking('Interested in Clear Aligners', 'specialty-clear-aligners')}>Book Consultation</Button>
                 </div>
             </section>
 

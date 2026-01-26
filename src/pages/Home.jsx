@@ -79,7 +79,7 @@ const Home = () => {
                             iSmile Dental Clinic is a patient-centred dental clinic in Petaling Jaya, caring for children, adults, and families through every stage of life. We focus on clear explanations, thoughtful recommendations, and long-term oral health—so you can feel confident about the care you choose.
                         </p></Reveal>
                         <FadeIn delay={0.4} className="hero-actions">
-                            <Button onClick={() => openBooking()}>Schedule a Visit</Button>
+                            <Button onClick={() => openBooking('', 'hero-cta')}>Schedule a Visit</Button>
                         </FadeIn>
                     </div>
 

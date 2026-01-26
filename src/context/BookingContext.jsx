@@ -4,18 +4,23 @@ const BookingContext = createContext();
 
 export const BookingProvider = ({ children }) => {
     const [isBookingOpen, setIsBookingOpen] = useState(false);
-    const [prefillData, setPrefillData] = useState({ experience: '' });
+    const [prefillData, setPrefillData] = useState({ 
+        experience: '',
+        sourceButton: '',
+        sourcePage: ''
+    });
 
-    const openBooking = (initialExperience = '') => {
-        setPrefillData({ experience: initialExperience });
+    const openBooking = (initialExperience = '', sourceButton = '', sourcePage = '') => {
+        setPrefillData({ 
+            experience: initialExperience,
+            sourceButton: sourceButton,
+            sourcePage: sourcePage || window.location.pathname
+        });
         setIsBookingOpen(true);
     };
     
     const closeBooking = () => {
         setIsBookingOpen(false);
-        // Optional: clear prefill data on close or keep it. 
-        // Typically clearing it or resetting it when opening is better.
-        // We reset it on open, so this is fine.
     };
 
     return (

@@ -47,7 +47,7 @@ const Contact = () => {
                             <div className="icon-box"><Phone /></div>
                             <div>
                                 <h4>Contact Us</h4>
-                                <p>+60 16 322 2135</p>
+                                <p><a href="tel:+60163222135" className="phone-link">+60 16 322 2135</a></p>
                                 <div className="contact-direction-buttons mt-4">
                                     <Button 
                                         className="contact-direction-btn"
@@ -165,6 +165,19 @@ const Contact = () => {
               background: #f0f9ff !important;
               transform: translateY(-2px);
               box-shadow: 0 4px 12px rgba(0, 160, 198, 0.1);
+          }
+
+          .phone-link {
+              color: #475569;
+              font-size: 1.1rem;
+              font-weight: 600;
+              text-decoration: none;
+              transition: color 0.2s;
+          }
+
+          .phone-link:hover {
+              color: var(--color-primary);
+              text-decoration: underline;
           }
 
           .btn-icon {

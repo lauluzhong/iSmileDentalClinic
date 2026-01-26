@@ -178,7 +178,7 @@ const ServiceHub = () => {
                 >
                     <h2>Ready for a healthier smile?</h2>
                     <br />
-                    <Button onClick={() => openBooking(`Interested in ${data.title.split("\n")[0]}`)}>Book Consultation</Button>
+                    <Button onClick={() => openBooking(`Interested in ${data.title.split("\n")[0]}`, "services-hub-cta")}>Book Consultation</Button>
                 </motion.div>
             </div>
 

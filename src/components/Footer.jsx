@@ -122,7 +122,7 @@ const Footer = () => {
                         </div>
                         <p className="cta-desc">Ready to schedule your visit?</p>
                         <div className="mt-4">
-                            <Button data-analytics-click="footer-booking" style={{ padding: '12px 40px', boxShadow: '0 4px 15px rgba(79, 163, 194, 0.3)' }} onClick={() => openBooking()}>Get in Touch</Button>
+                            <Button data-analytics-click="footer-booking" style={{ padding: '12px 40px', boxShadow: '0 4px 15px rgba(79, 163, 194, 0.3)' }} onClick={() => openBooking('', 'footer-cta')}>Get in Touch</Button>
                         </div>
                     </div>
 

@@ -106,7 +106,7 @@ const TeethWhitening = () => {
                 <div className="container">
                     <h2>Ready for a lasting transformation?</h2>
                     <p className="mb-4">Consult with our doctors to receive your customized professional whitening kit.</p>
-                    <Button onClick={() => openBooking('Interested in Take-Home Whitening')}>Get Your Custom Kit</Button>
+                    <Button onClick={() => openBooking('Interested in Take-Home Whitening', 'specialty-teeth-whitening')}>Get Your Custom Kit</Button>
                 </div>
             </section>
 

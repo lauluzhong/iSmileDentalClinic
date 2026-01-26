@@ -108,7 +108,7 @@ const MyofunctionalOrthodontics = () => {
                 <div className="container">
                     <h2>Consult with our specialists today</h2>
                     <p className="mb-4">Get a professional assessment based on your unique dental structure.</p>
-                    <Button onClick={() => openBooking('Interested in  Myofunctional Orthodontics')}>Book Consultation</Button>
+                    <Button onClick={() => openBooking('Interested in  Myofunctional Orthodontics', 'specialty-myofunctional')}>Book Consultation</Button>
                 </div>
             </section>
 
