@@ -1,4 +1,6 @@
+# Robots.txt for iSmile Dental Clinic
 User-agent: *
 Allow: /
-Allow: /favicon.png
-Allow: /apple-touch-icon.png
+
+# Sitemap
+Sitemap: https://ismile.com.my/sitemap.xml
