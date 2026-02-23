@@ -48,6 +48,19 @@ const Footer = () => {
                         <p className="footer-desc">
                             We are ready to help you smile with confidence. At iSmile Dental Clinic, we are dedicated to providing comprehensive dental care for the entire family.
                         </p>
+                        
+                        {/* Google Reviews Badge */}
+                        <div className="google-reviews-badge" onClick={() => window.open('https://search.google.com/search?q=iSmile+Dental+Clinic+Petaling+Jaya', '_blank')}>
+                            <div className="google-rating-row">
+                                <div className="stars">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                                </div>
+                                <span className="rating-text">4.9</span>
+                            </div>
+                            <p className="reviews-count">76 reviews</p>
+                            <p className="write-review">Write a review →</p>
+                        </div>
+
                         <p className="footer-copyright">
                             © 2026 iSmile Dental Clinic. All rights reserved.
                         </p>
@@ -154,7 +167,51 @@ const Footer = () => {
             color: #64748b;
             max-width: 280px;
             margin-top: 0;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
+        }
+
+        .google-reviews-badge {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+        .google-reviews-badge:hover {
+            border-color: #00A0C6;
+            box-shadow: 0 4px 12px rgba(0, 160, 198, 0.15);
+            transform: translateY(-2px);
+        }
+        .google-rating-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+        .stars {
+            color: #FBBC05;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+        .rating-text {
+            font-weight: 700;
+            color: #202124;
+            font-size: 1.1rem;
+        }
+        .reviews-count {
+            color: #5f6368;
+            font-size: 0.85rem;
+            margin: 0 0 8px 0;
+        }
+        .write-review {
+            color: #00A0C6;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0;
         }
 
         .footer-copyright {
