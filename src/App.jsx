@@ -14,6 +14,7 @@ import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Contact from './pages/Contact';
 import FAQ from './pages/FAQ';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   const location = useLocation();
@@ -37,6 +38,7 @@ function App() {
           <Route path="/blog/:slug" element={<PageTransition><BlogPost /></PageTransition>} />
           <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
           <Route path="/faq" element={<PageTransition><FAQ /></PageTransition>} />
+          <Route path="/dashboard" element={<PageTransition><Dashboard /></PageTransition>} />
         </Routes>
       </AnimatePresence>
     </Layout>
