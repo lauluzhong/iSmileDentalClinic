@@ -72,8 +72,8 @@ const Home = () => {
                 <div className="container hero-container">
                     <div className="hero-content">
                         <Reveal><h1 className="hero-title">
-                            Dental Care for <br />
-                            <span className="text-gradient">Every Generation</span>
+                            iSmile Dental Clinic <br />
+                            <span className="text-gradient">Dental Care for Every Generation</span>
                         </h1></Reveal>
                         <Reveal delay={0.2}><p className="hero-subtitle">
                             iSmile Dental Clinic is a patient-centred dental clinic in Petaling Jaya, caring for children, adults, and families through every stage of life. We focus on clear explanations, thoughtful recommendations, and long-term oral health—so you can feel confident about the care you choose.
