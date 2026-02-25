@@ -4,6 +4,21 @@ import { Link, useLocation } from 'react-router-dom';
 import { Smartphone } from 'lucide-react';
 import Button from './Button';
 
+// SVG Icons for social media
+const InstagramIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+    </svg>
+);
+
+const FacebookIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+    </svg>
+);
+
 const Footer = () => {
     const { openBooking } = useBooking();
     const location = useLocation();
@@ -136,6 +151,45 @@ const Footer = () => {
                         <p className="cta-desc">Ready to schedule your visit?</p>
                         <div className="mt-4">
                             <Button data-analytics-click="footer-booking" style={{ padding: '12px 40px', boxShadow: '0 4px 15px rgba(79, 163, 194, 0.3)' }} onClick={() => openBooking('', 'footer-cta')}>Get in Touch</Button>
+                        </div>
+                        
+                        {/* Social Media Links */}
+                        <div className="footer-social" style={{ marginTop: '20px' }}>
+                            <p className="social-label" style={{ fontSize: '0.85rem', color: '#64748b', marginBottom: '12px' }}>Follow Us</p>
+                            <div className="social-icons-row" style={{ display: 'flex', gap: '12px' }}>
+                                <a 
+                                    href="https://www.instagram.com/ismiledentalclinicmy" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="footer-social-icon instagram"
+                                    aria-label="Follow us on Instagram"
+                                    style={{ 
+                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                        width: '40px', height: '40px', borderRadius: '50%',
+                                        background: 'white', color: '#64748b',
+                                        boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+                                        transition: 'all 0.3s ease'
+                                    }}
+                                >
+                                    <InstagramIcon />
+                                </a>
+                                <a 
+                                    href="https://www.facebook.com/share/18RSFR4Zww/?mibextid=wwXIfr" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="footer-social-icon facebook"
+                                    aria-label="Follow us on Facebook"
+                                    style={{ 
+                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                        width: '40px', height: '40px', borderRadius: '50%',
+                                        background: 'white', color: '#64748b',
+                                        boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+                                        transition: 'all 0.3s ease'
+                                    }}
+                                >
+                                    <FacebookIcon />
+                                </a>
+                            </div>
                         </div>
                     </div>
 
@@ -277,6 +331,20 @@ const Footer = () => {
         }
         .direction-btn:hover { border-color: var(--color-primary) !important; color: var(--color-primary) !important; background: #f0f9ff !important; }
         .btn-icon { width: 18px; height: 18px; }
+
+        /* Footer Social Icons */
+        .footer-social-icon.instagram:hover {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
+            color: white !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(225, 48, 108, 0.3) !important;
+        }
+        .footer-social-icon.facebook:hover {
+            background: #1877F2 !important;
+            color: white !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3) !important;
+        }
 
         .footer-accordion-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
         .accordion-icon { display: none; font-size: 1.2rem; transition: transform 0.3s; color: #94a3b8; }
