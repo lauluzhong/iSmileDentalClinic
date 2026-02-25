@@ -94,6 +94,36 @@ const Contact = () => {
                     </div>
                 </div>
 
+                {/* Follow Us Section - Between Contact Info and Map */}
+                <div className="social-links-section" style={{ marginTop: '60px', padding: '40px 0' }}>
+                    <Reveal delay={0.3} width="100%">
+                        <h3 style={{ fontSize: '1.5rem', fontWeight: 600, marginBottom: '20px', color: 'var(--color-text)' }}>Follow Us</h3>
+                        <p style={{ color: 'var(--color-text-muted)', marginBottom: '30px', maxWidth: '500px', margin: '0 auto 30px' }}>
+                            Stay updated with our latest news and dental tips
+                        </p>
+                    </Reveal>
+                    <div className="social-icons-container">
+                        <a 
+                            href="https://www.instagram.com/ismiledentalclinicmy" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="social-icon-link instagram"
+                            aria-label="Follow us on Instagram"
+                        >
+                            <InstagramIcon />
+                        </a>
+                        <a 
+                            href="https://www.facebook.com/share/18RSFR4Zww/?mibextid=wwXIfr" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="social-icon-link facebook"
+                            aria-label="Follow us on Facebook"
+                        >
+                            <FacebookIcon />
+                        </a>
+                    </div>
+                </div>
+
                 {/* Map */}
                 <div className="glass-panel" style={{ marginTop: '80px', padding: 0, overflow: 'hidden', borderRadius: '20px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
                     <iframe
