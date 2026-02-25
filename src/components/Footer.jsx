@@ -346,6 +346,11 @@ const Footer = () => {
             box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3) !important;
         }
 
+        @media (max-width: 1024px) {
+            .footer-social { text-align: center; }
+            .social-icons-row { justify-content: center; }
+        }
+
         .footer-accordion-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
         .accordion-icon { display: none; font-size: 1.2rem; transition: transform 0.3s; color: #94a3b8; }
         .accordion-icon.open { transform: rotate(45deg); }
