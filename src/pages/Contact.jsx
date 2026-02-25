@@ -4,6 +4,21 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import { Reveal, FadeIn } from '../components/Reveal';
 
+// SVG Icons for social media
+const InstagramIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+    </svg>
+);
+
+const FacebookIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+    </svg>
+);
+
 const Contact = () => {
     const navigate = useNavigate();
     
@@ -89,6 +104,36 @@ const Contact = () => {
                         allowFullScreen=""
                         loading="lazy">
                     </iframe>
+                </div>
+
+                {/* Social Media Links */}
+                <div className="social-links-section" style={{ marginTop: '60px', padding: '40px 0' }}>
+                    <Reveal delay={0.3} width="100%">
+                        <h3 style={{ fontSize: '1.5rem', fontWeight: 600, marginBottom: '20px', color: 'var(--color-text)' }}>Follow Us</h3>
+                        <p style={{ color: 'var(--color-text-muted)', marginBottom: '30px', maxWidth: '500px', margin: '0 auto 30px' }}>
+                            Stay updated with our latest news and dental tips
+                        </p>
+                    </Reveal>
+                    <div className="social-icons-container">
+                        <a 
+                            href="https://www.instagram.com/ismiledentalclinicmy" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="social-icon-link instagram"
+                            aria-label="Follow us on Instagram"
+                        >
+                            <InstagramIcon />
+                        </a>
+                        <a 
+                            href="https://www.facebook.com/share/18RSFR4Zww/?mibextid=wwXIfr" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="social-icon-link facebook"
+                            aria-label="Follow us on Facebook"
+                        >
+                            <FacebookIcon />
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -216,6 +261,64 @@ const Contact = () => {
                   justify-content: center !important; 
                   padding: 10px 10px !important;
                   text-align: center;
+              }
+          }
+
+          /* Social Media Icons */
+          .social-links-section {
+              text-align: center;
+          }
+
+          .social-icons-container {
+              display: flex;
+              justify-content: center;
+              gap: 20px;
+          }
+
+          .social-icon-link {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 56px;
+              height: 56px;
+              border-radius: 50%;
+              transition: all 0.3s ease;
+              color: var(--color-text-muted);
+              background: rgba(255, 255, 255, 0.9);
+              box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+          }
+
+          .social-icon-link:hover {
+              transform: translateY(-3px);
+              box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+          }
+
+          .social-icon-link.instagram:hover {
+              background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+              color: white;
+          }
+
+          .social-icon-link.facebook:hover {
+              background: #1877F2;
+              color: white;
+          }
+
+          .social-icon-link svg {
+              width: 24px;
+              height: 24px;
+          }
+
+          @media (max-width: 480px) {
+              .social-icon-link {
+                  width: 50px;
+                  height: 50px;
+              }
+              .social-icon-link svg {
+                  width: 22px;
+                  height: 22px;
+              }
+              .social-icons-container {
+                  gap: 16px;
               }
           }
        `}</style>
