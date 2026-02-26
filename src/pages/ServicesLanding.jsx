@@ -103,13 +103,17 @@ const ServicesLanding = () => {
                             <FadeIn key={key} className="directory-category-card">
                                 <div className="category-header">
                                     <div className="category-icon-small">{data.icon}</div>
-                                    <h4>{data.displayTitle}</h4>
+                                    <Link to={`/services/${key}`}><h4>{data.displayTitle}</h4></Link>
                                 </div>
                                 <ul className="directory-list">
                                     {data.services.map((service, sIdx) => (
                                         <li key={sIdx}>
                                             <CheckCircle size={16} className="text-primary-teal" />
-                                            <span>{service.name}</span>
+                                            {service.path ? (
+                                                <Link to={service.path}><span>{service.name}</span></Link>
+                                            ) : (
+                                                <span>{service.name}</span>
+                                            )}
                                         </li>
                                     ))}
                                 </ul>
