@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { Reveal, FadeIn } from '../components/Reveal';
 import { servicesData } from '../data/servicesData';
 import { ArrowRight, CheckCircle } from 'lucide-react';
@@ -68,67 +67,46 @@ const ServicesLanding = () => {
                 </div>
             </div>
 
-            {/* Category Cards Section */}
-            <div className="container" style={{ paddingBottom: '120px' }}>
-                <div className="services-grid">
+            {/* Service Directory Grid */}
+            <div id="service-directory" className="container" style={{ paddingBottom: '80px' }}>
+                <div className="directory-grid">
                     {Object.entries(servicesData).map(([key, data], index) => (
-                        <FadeIn key={key} delay={index * 0.1}>
-                            <Link to={`/services/${key}`} className="service-landing-card" style={{ textDecoration: 'none' }}>
-                                <div className="card-icon-container">
-                                    {data.icon}
-                                </div>
-                                <h3 className="card-title">{data.displayTitle}</h3>
-                                <p className="card-bracket">({data.bracketText})</p>
-                                <div className="card-footer">
-                                    <span>Explore Services</span>
-                                    <ArrowRight size={18} />
-                                </div>
+                        <FadeIn key={key} delay={index * 0.08} className="directory-category-card">
+                            <div className="category-header">
+                                <div className="category-icon-small">{data.icon}</div>
+                                <Link to={`/services/${key}`} className="category-title-link">
+                                    <h3>{data.displayTitle}</h3>
+                                </Link>
+                            </div>
+                            <p className="category-bracket">({data.bracketText})</p>
+                            <ul className="directory-list">
+                                {data.services.map((service, sIdx) => (
+                                    <li key={sIdx}>
+                                        <CheckCircle size={16} className="text-primary-teal list-check-icon" />
+                                        {service.path ? (
+                                            <Link to={service.path} className="service-link">{service.name}</Link>
+                                        ) : (
+                                            <span>{service.name}</span>
+                                        )}
+                                    </li>
+                                ))}
+                            </ul>
+                            <Link to={`/services/${key}`} className="explore-category-link">
+                                <span>Explore Category</span>
+                                <ArrowRight size={16} />
                             </Link>
                         </FadeIn>
                     ))}
                 </div>
-            </div>
 
-            {/* All Services Directory Section */}
-            <div id="service-directory" className="directory-section" style={{ paddingBottom: '120px' }}>
-                <div className="container">
+                {/* CTA */}
+                <div className="text-center" style={{ marginTop: '80px', paddingBottom: '40px' }}>
                     <FadeIn>
-                        <div className="mb-5">
-                            <h2 className="directory-main-title">Full Service Directory</h2>
-                        </div>
+                        <h3 style={{ color: '#2d3748', fontWeight: 700, marginBottom: '20px', fontSize: '1.3rem' }}>Not sure which treatment is right for you?</h3>
+                        <Button onClick={() => window.open('https://wa.me/60163222135', '_blank')}>
+                            Get In Touch With Us
+                        </Button>
                     </FadeIn>
-
-                    <div className="directory-grid">
-                        {Object.entries(servicesData).map(([key, data]) => (
-                            <FadeIn key={key} className="directory-category-card">
-                                <div className="category-header">
-                                    <div className="category-icon-small">{data.icon}</div>
-                                    <Link to={`/services/${key}`}><h4>{data.displayTitle}</h4></Link>
-                                </div>
-                                <ul className="directory-list">
-                                    {data.services.map((service, sIdx) => (
-                                        <li key={sIdx}>
-                                            <CheckCircle size={16} className="text-primary-teal" />
-                                            {service.path ? (
-                                                <Link to={service.path}><span>{service.name}</span></Link>
-                                            ) : (
-                                                <span>{service.name}</span>
-                                            )}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </FadeIn>
-                        ))}
-                    </div>
-
-                    <div className="text-center" style={{ marginTop: '80px', paddingBottom: '40px' }}>
-                        <FadeIn>
-                            <h3 className="h4 mb-4" style={{ color: '#2d3748', fontWeight: 700 }}>Not sure which treatment is right for you?</h3>
-                            <Button onClick={() => window.open('https://wa.me/60163222135', '_blank')}>
-                                Get In Touch With Us
-                            </Button>
-                        </FadeIn>
-                    </div>
                 </div>
             </div>
 
@@ -137,85 +115,10 @@ const ServicesLanding = () => {
                     min-height: 100vh;
                     background: linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 50%, #dcfce7 100%);
                 }
-                
-                .services-grid {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                    gap: 40px;
-                }
-
-                .service-landing-card {
-                    background: rgba(255, 255, 255, 0.6);
-                    backdrop-filter: blur(10px);
-                    border: 1px solid rgba(255, 255, 255, 0.8);
-                    padding: 40px;
-                    border-radius: 24px;
-                    height: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-start;
-                    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-                }
-
-                .service-landing-card:hover {
-                    transform: translateY(-10px);
-                    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
-                    background: rgba(255, 255, 255, 0.8);
-                }
-
-                .card-icon-container {
-                    margin-bottom: 25px;
-                    color: var(--color-primary-teal);
-                    background: var(--color-tint-blue);
-                    width: 64px;
-                    height: 64px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border-radius: 16px;
-                }
-
-                .card-title {
-                    font-size: 1.6rem;
-                    font-weight: 700;
-                    color: #2d3748;
-                    margin-bottom: 12px;
-                }
-
-                .card-bracket {
-                    font-size: 1.05rem;
-                    color: #64748b;
-                    margin-bottom: 30px;
-                    font-weight: 500;
-                }
-
-                .card-footer {
-                    margin-top: auto;
-                    display: flex;
-                    align-items: center;
-                    gap: 8px;
-                    color: var(--color-primary-teal);
-                    font-weight: 700;
-                    font-size: 0.95rem;
-                    transition: all 0.3s;
-                }
-
-                .service-landing-card:hover .card-footer {
-                    gap: 12px;
-                }
-
-                /* Directory Styles */
-                .directory-main-title {
-                    font-size: 2.5rem;
-                    font-weight: 700;
-                    color: var(--color-primary);
-                    margin-bottom: 40px;
-                }
 
                 .directory-grid {
                     display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
                     gap: 30px;
                 }
 
@@ -223,60 +126,115 @@ const ServicesLanding = () => {
                     background: rgba(255, 255, 255, 0.6);
                     backdrop-filter: blur(10px);
                     border: 1px solid rgba(255, 255, 255, 0.8);
-                    padding: 30px;
+                    padding: 32px;
                     border-radius: 24px;
                     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
                     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+                    display: flex;
+                    flex-direction: column;
                 }
 
                 .directory-category-card:hover {
                     transform: translateY(-5px);
                     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-                    background: rgba(255, 255, 255, 0.8);
+                    background: rgba(255, 255, 255, 0.85);
                 }
 
                 .category-header {
                     display: flex;
                     align-items: center;
                     gap: 12px;
-                    margin-bottom: 25px;
-                    padding-bottom: 15px;
-                    border-bottom: 1px solid rgba(0,0,0,0.05);
+                    margin-bottom: 6px;
+                    padding-bottom: 0;
                 }
 
                 .category-icon-small {
                     color: var(--color-primary-teal);
+                    flex-shrink: 0;
                 }
 
-                .category-header h4 {
-                    font-size: 1.25rem;
+                .category-title-link {
+                    text-decoration: none;
+                }
+
+                .category-title-link h3 {
+                    font-size: 1.3rem;
                     font-weight: 700;
                     color: #1e293b;
                     margin: 0;
+                    transition: color 0.2s ease;
+                }
+
+                .category-title-link:hover h3 {
+                    color: var(--color-primary-teal);
+                }
+
+                .category-bracket {
+                    font-size: 0.95rem;
+                    color: #64748b;
+                    margin: 0 0 20px 0;
+                    font-weight: 500;
+                    padding-bottom: 15px;
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
                 }
 
                 .directory-list {
                     list-style: none;
                     padding: 0;
-                    margin: 0;
+                    margin: 0 0 20px 0;
+                    flex-grow: 1;
                 }
 
                 .directory-list li {
                     display: flex;
                     align-items: flex-start;
                     gap: 10px;
-                    margin-bottom: 15px;
+                    margin-bottom: 14px;
                     font-size: 0.95rem;
                     color: #475569;
                     line-height: 1.4;
                 }
 
+                .list-check-icon {
+                    flex-shrink: 0;
+                    margin-top: 2px;
+                }
+
                 .directory-list li span {
-                    margin-top: -2px;
+                    margin-top: -1px;
+                }
+
+                .service-link {
+                    text-decoration: none;
+                    color: #475569;
+                    transition: color 0.2s ease;
+                    margin-top: -1px;
+                }
+
+                .service-link:hover {
+                    color: var(--color-primary-teal);
                 }
 
                 .text-primary-teal {
                     color: var(--color-primary-teal);
+                }
+
+                .explore-category-link {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    color: var(--color-primary-teal);
+                    font-weight: 700;
+                    font-size: 0.9rem;
+                    text-decoration: none;
+                    margin-top: auto;
+                    padding-top: 16px;
+                    border-top: 1px solid rgba(0, 0, 0, 0.05);
+                    transition: gap 0.3s ease;
+                }
+
+                .explore-category-link:hover {
+                    gap: 14px;
                 }
 
                 @media (max-width: 1024px) {
@@ -288,14 +246,6 @@ const ServicesLanding = () => {
                     .hero-description {
                         margin: 0 auto !important;
                     }
-                    .services-grid {
-                        grid-template-columns: 1fr;
-                        gap: 20px;
-                    }
-                    .service-landing-card {
-                        padding: 24px;
-                        border-radius: 20px;
-                    }
                     .directory-grid {
                         grid-template-columns: 1fr;
                         gap: 20px;
@@ -303,10 +253,6 @@ const ServicesLanding = () => {
                     .directory-category-card {
                         padding: 24px;
                         border-radius: 20px;
-                    }
-                    .directory-main-title {
-                        font-size: 2rem;
-                        text-align: center;
                     }
                     .hero-title { font-size: 2.2rem !important; }
                     .hero-description { font-size: 1rem !important; }
