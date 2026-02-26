@@ -33,7 +33,6 @@ function App() {
               Thus <PageTransition> triggers.
           */}
           <Route path="/services/*" element={<PageTransition><Services /></PageTransition>} />
-          <Route path="/service-directory" element={<PageTransition><ServicesLanding directoryOnly /></PageTransition>} />
           <Route path="/reviews" element={<PageTransition><Reviews /></PageTransition>} />
           <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
           <Route path="/blog/:slug" element={<PageTransition><BlogPost /></PageTransition>} />
