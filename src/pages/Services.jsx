@@ -27,9 +27,15 @@ const ServiceHub = () => {
             setTimeout(() => {
                 const element = document.getElementById(location.hash.replace('#', ''));
                 if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
+                    const headerOffset = 100;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
                 }
-            }, 100);
+            }, 300);
         }
     }, [location]);
     const data = servicesData[category];
