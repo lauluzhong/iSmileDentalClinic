@@ -4,9 +4,66 @@ import { Shield, CheckCircle, HelpCircle, Smile } from 'lucide-react';
 import Button from '../../components/Button';
 
 const DentalImplants = () => {
+    // Add Service schema for SEO
+    useEffect(() => {
+        const serviceSchema = {
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "name": "DentalImplants",
+            "description": "Professional dental treatment at iSmile Dental Clinic Petaling Jaya",
+            "provider": {
+                "@type": "Dentist",
+                "name": "iSmile Dental Clinic",
+                "url": "https://ismile.com.my/services/replace"
+            },
+            "areaServed": {
+                "@type": "Place",
+                "name": "Petaling Jaya, Selangor"
+            },
+            "url": "https://ismile.com.my/services/replace"
+        };
+        
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.innerHTML = JSON.stringify(serviceSchema);
+        document.head.appendChild(script);
+        
+        return () => {
+            document.head.removeChild(script);
+        };
+    }, []);
     const { openBooking } = useBooking();
     useEffect(() => {
         window.scrollTo(0, 0);
+    }, []);
+
+    // Add Service schema for SEO
+    useEffect(() => {
+        const serviceSchema = {
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "name": "Dental Implants",
+            "description": "Bio-compatible titanium dental implants at iSmile Dental Clinic Petaling Jaya",
+            "provider": {
+                "@type": "Dentist",
+                "name": "iSmile Dental Clinic",
+                "url": "https://ismile.com.my/services/replace"
+            },
+            "areaServed": {
+                "@type": "Place",
+                "name": "Petaling Jaya, Selangor"
+            },
+            "url": "https://ismile.com.my/services/replace"
+        };
+        
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.innerHTML = JSON.stringify(serviceSchema);
+        document.head.appendChild(script);
+        
+        return () => {
+            document.head.removeChild(script);
+        };
     }, []);
 
     const faqs = [
