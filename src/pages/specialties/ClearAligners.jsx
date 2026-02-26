@@ -37,8 +37,8 @@ const ClearAligners = () => {
             <div className="tech-hero">
                 <div className="container">
                     <div className="tech-badge"><Shield size={16} /> Technical Deep-Dive</div>
-                    <h1>Clear Aligners <span>(Invisalign / Angel / ClearSmile)</span></h1>
-                    <p className="lead">A modern orthodontic solution using a series of custom-made, transparent plastic trays to gradually shift teeth into alignment without the need for traditional braces.</p>
+                    <h1>Clear Aligners Petaling Jaya | iSmile Dental Clinic</h1>
+                    <p className="lead">A modern orthodontic solution using a series of custom-made, transparent plastic trays to gradually shift teeth into alignment without the need for traditional braces. We offer Invisalign, Angel, and ClearSmile aligner systems.</p>
                 </div>
             </div>
 
