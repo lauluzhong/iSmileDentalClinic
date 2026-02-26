@@ -10,6 +10,20 @@ import { Helmet } from 'react-helmet-async';
 const ServicesLanding = ({ directoryOnly = false }) => {
     const location = useLocation();
 
+    // Handle hash scrolling for normal page
+    useEffect(() => {
+        if (!directoryOnly && location.hash) {
+            setTimeout(() => {
+                const element = document.getElementById(location.hash.slice(1));
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        } else if (!directoryOnly && location.pathname === '/service-directory') {
+            window.scrollTo(0, 0);
+        }
+    }, [location, directoryOnly]);
+
     // If directoryOnly, show just the directory section
     if (directoryOnly) {
         return (
@@ -47,18 +61,6 @@ const ServicesLanding = ({ directoryOnly = false }) => {
                 </div>
             </div>
         );
-    }
-
-    // Normal Services Landing page
-    if (location.hash) {
-        useEffect(() => {
-            const element = document.getElementById(location.hash.slice(1));
-            if (element) {
-                setTimeout(() => {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                }, 100);
-            }
-        }, [location]);
     }
 
     return (
