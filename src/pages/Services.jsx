@@ -1,6 +1,6 @@
 import { useBooking } from '../context/BookingContext';
-import React from 'react';
-import { Routes, Route, Link, useParams, Navigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Routes, Route, Link, useParams, Navigate, useLocation } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Shield, Sparkles, Smile, Star, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Button from '../components/Button';
@@ -19,6 +19,19 @@ import MyofunctionalOrthodontics from './specialties/MyofunctionalOrthodontics';
 const ServiceHub = () => {
     const { openBooking } = useBooking();
     const { category } = useParams();
+    const location = useLocation();
+    
+    // Handle hash scrolling from footer link
+    useEffect(() => {
+        if (location.hash) {
+            setTimeout(() => {
+                const element = document.getElementById(location.hash.replace('#', ''));
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
+    }, [location]);
     const data = servicesData[category];
 
     if (!data) return <div className="container section-padding">Service not found</div>;
