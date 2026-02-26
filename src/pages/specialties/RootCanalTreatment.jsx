@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useBooking } from '../../context/BookingContext';
 import React, { useEffect } from 'react';
 import { Shield, CheckCircle, HelpCircle } from 'lucide-react';
@@ -91,6 +92,11 @@ const RootCanalTreatment = () => {
 
     return (
         <div className="specialty-page">
+            <Helmet>
+                <title>Root Canal Treatment Petaling Jaya | iSmile Dental Clinic</title>
+                <meta name="description" content="Root canal treatment in Petaling Jaya. Save infected teeth & relieve pain. Book your consultation today." />
+            </Helmet>
+
             <div className="tech-hero">
                 <div className="container">
                     <div className="tech-badge"><Shield size={16} /> Technical Deep-Dive</div>

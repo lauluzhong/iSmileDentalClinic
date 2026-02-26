@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useBooking } from '../../context/BookingContext';
 import React, { useEffect } from 'react';
 import { Shield, CheckCircle, HelpCircle, Smile } from 'lucide-react';
@@ -91,6 +92,11 @@ const DentalImplants = () => {
 
     return (
         <div className="specialty-page">
+            <Helmet>
+                <title>Dental Implants Petaling Jaya | iSmile Dental Clinic</title>
+                <meta name="description" content="Replace missing teeth with dental implants in Petaling Jaya. Restore your smile with lasting results. Book your consultation." />
+            </Helmet>
+
             <div className="tech-hero">
                 <div className="container">
                     <div className="tech-badge"><Shield size={16} /> Technical Deep-Dive</div>

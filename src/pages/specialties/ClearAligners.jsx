@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useBooking } from '../../context/BookingContext';
 import React, { useEffect } from 'react';
 import { Shield, CheckCircle, HelpCircle, Sparkles } from 'lucide-react';
@@ -64,6 +65,11 @@ const ClearAligners = () => {
 
     return (
         <div className="specialty-page">
+            <Helmet>
+                <title>Clear Aligners Petaling Jaya | iSmile Dental Clinic</title>
+                <meta name="description" content="Straighten your smile with clear aligners in Petaling Jaya. Custom treatment plans for adults & teens. Book your visit." />
+            </Helmet>
+
             <div className="tech-hero">
                 <div className="container">
                     <div className="tech-badge"><Shield size={16} /> Technical Deep-Dive</div>

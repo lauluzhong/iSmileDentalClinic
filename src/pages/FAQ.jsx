@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import React, { useEffect } from 'react';
 import { Reveal, FadeIn } from '../components/Reveal';
 import { HelpCircle, Info, CreditCard, User, Droplets, Calendar, Users } from 'lucide-react';
@@ -98,6 +99,10 @@ const FAQ = () => {
 
     return (
         <div className="page-container faq-page">
+            <Helmet>
+                <title>Dental FAQ | iSmile Dental Clinic Petaling Jaya</title>
+                <meta name="description" content="Common dental questions answered. Learn about dental treatments & oral care at iSmile Dental Clinic Petaling Jaya." />
+            </Helmet>
             <div className="container section-padding" style={{ paddingTop: '160px' }}>
                 <div className="mb-5">
                     <Reveal>

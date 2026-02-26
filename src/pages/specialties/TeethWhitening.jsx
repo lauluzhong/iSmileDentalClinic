@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useBooking } from '../../context/BookingContext';
 import React, { useEffect } from 'react';
 import { Shield, CheckCircle, HelpCircle, Star } from 'lucide-react';
@@ -91,6 +92,11 @@ const TeethWhitening = () => {
 
     return (
         <div className="specialty-page">
+            <Helmet>
+                <title>Teeth Whitening Petaling Jaya | iSmile Dental Clinic</title>
+                <meta name="description" content="Professional teeth whitening in Petaling Jaya. Brighten your smile with our custom treatment. Book your consultation." />
+            </Helmet>
+
             <div className="tech-hero">
                 <div className="container">
                     <div className="tech-badge"><Star size={16} /> Professional Gold Standard</div>
