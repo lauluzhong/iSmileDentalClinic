@@ -100,8 +100,8 @@ const RootCanalTreatment = () => {
             <div className="tech-hero">
                 <div className="container">
                     <div className="tech-badge"><Shield size={16} /> Technical Deep-Dive</div>
-                    <h1>Root Canal Treatment <span>(Endodontics)</span></h1>
-                    <p className="lead">A precise procedure to save severely infected teeth by removing damaged pulp, disinfecting the canals, and sealing them for long-term preservation.</p>
+                    <h1>Root Canal Treatment <span className="h1-sub">Petaling Jaya | iSmile Dental Clinic</span></h1>
+                    <p className="lead">Root canal treatment in Petaling Jaya. Save infected teeth and relieve pain. Book your consultation today.</p>
                 </div>
             </div>
 

@@ -100,8 +100,8 @@ const WisdomToothSurgery = () => {
             <div className="tech-hero">
                 <div className="container">
                     <div className="tech-badge"><Shield size={16} /> Technical Deep-Dive</div>
-                    <h1>Wisdom Tooth Surgery <span>(Odontectomy)</span></h1>
-                    <p className="lead">A precise surgical procedure to remove impacted or problematic third molars with clinical accuracy and patient comfort.</p>
+                    <h1>Wisdom Tooth Surgery <span className="h1-sub">Petaling Jaya | iSmile Dental Clinic</span></h1>
+                    <p className="lead">Safe removal of impacted wisdom teeth in Petaling Jaya. Expert care for painful or problematic third molars. Book your consultation today.</p>
                 </div>
             </div>
 

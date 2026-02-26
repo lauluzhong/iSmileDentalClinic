@@ -1,6 +1,6 @@
 import { useBooking } from '../context/BookingContext';
-import React from 'react';
-import { Routes, Route, Link, useParams, Navigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Routes, Route, Link, useParams, Navigate, useLocation } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Shield, Sparkles, Smile, Star, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Button from '../components/Button';
@@ -19,6 +19,25 @@ import MyofunctionalOrthodontics from './specialties/MyofunctionalOrthodontics';
 const ServiceHub = () => {
     const { openBooking } = useBooking();
     const { category } = useParams();
+    const location = useLocation();
+    
+    // Handle hash scrolling from footer link
+    useEffect(() => {
+        if (location.hash) {
+            setTimeout(() => {
+                const element = document.getElementById(location.hash.replace('#', ''));
+                if (element) {
+                    const headerOffset = 200;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            }, 500);
+        }
+    }, [location]);
     const data = servicesData[category];
 
     if (!data) return <div className="container section-padding">Service not found</div>;
@@ -103,7 +122,7 @@ const ServiceHub = () => {
                     >
                         <div className="tier1-content">
                             <span className="badge">Highlight</span>
-                            <h3>{data.tier1.title}</h3>
+                            <Link to={data.tier1.path}><h3>{data.tier1.title}</h3></Link>
                             <p>{data.tier1.desc}</p>
                             <Link to={data.tier1.path}>
                                 <Button variant="outline">Learn More</Button>
