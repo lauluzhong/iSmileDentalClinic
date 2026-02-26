@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import React from 'react';
 import { Award } from 'lucide-react';
 import { Reveal, FadeIn } from '../components/Reveal';
@@ -88,6 +89,10 @@ const doctors = [
 const About = () => {
     return (
         <div className="about-page">
+            <Helmet>
+                <title>About iSmile Dental Clinic Petaling Jaya | Your Family Dentist</title>
+                <meta name="description" content="Learn about iSmile Dental Clinic Petaling Jaya. Our team, philosophy & commitment to gentle dental care for every generation." />
+            </Helmet>
             <div className="about-hero-container">
                 <div className="about-hero">
                     <div className="container">

@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import React from 'react';
 import { Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -13,6 +14,10 @@ const Blog = () => {
 
     return (
         <div className="blog-page">
+            <Helmet>
+                <title>Dental Learning Centre | iSmile Dental Clinic Petaling Jaya</title>
+                <meta name="description" content="Dental health tips & advice from iSmile Dental Clinic Petaling Jaya. Learn about oral care & dental treatments." />
+            </Helmet>
             <div className="blog-hero-gradient" style={{
                 background: 'linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 50%, #dcfce7 100%)',
                 paddingTop: '180px',

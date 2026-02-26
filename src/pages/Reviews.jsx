@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import React from 'react';
 import { Star, Quote } from 'lucide-react';
 import Button from '../components/Button';
@@ -96,6 +97,10 @@ const reviewsList = [
 const Reviews = () => {
     return (
         <div className="reviews-page">
+            <Helmet>
+                <title>Patient Reviews | iSmile Dental Clinic Petaling Jaya</title>
+                <meta name="description" content="See what our patients say about their experience at iSmile Dental Clinic Petaling Jaya." />
+            </Helmet>
             <div className="reviews-hero-gradient" style={{
                 background: 'linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 50%, #dcfce7 100%)',
                 paddingTop: '180px',
