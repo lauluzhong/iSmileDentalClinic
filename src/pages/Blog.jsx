@@ -28,12 +28,12 @@ const Blog = () => {
                     <Reveal width="100%"><h1 className="hero-title" style={{
                         fontSize: "clamp(2.5rem, 5vw, 4rem)",
                         fontWeight: 800,
-                        color: '#2d3748',
+                        color: 'var(--color-text-charcoal)',
                         letterSpacing: '-0.02em'
                     }}>Learning <span className="text-gradient">Centre</span></h1></Reveal>
                     <Reveal delay={0.2} width="100%"><p className="hero-subtitle" style={{
                         fontSize: '1.2rem',
-                        color: '#4a5568',
+                        color: 'var(--color-text-muted)',
                         maxWidth: '800px',
                         margin: '25px auto 0',
                         lineHeight: '1.6',
@@ -179,7 +179,7 @@ const Blog = () => {
               .posts-grid { 
                   grid-template-columns: 1fr; 
                   gap: 20px; 
-                  margin-top: 40px !important; 
+                  margin-top: 40px; 
               }
               .post-card { 
                   border-radius: 20px;
@@ -188,9 +188,9 @@ const Blog = () => {
                   width: auto;
               }
               
-              .blog-hero-gradient { padding-top: 120px !important; padding-bottom: 60px !important; }
-              .hero-title { font-size: 2.5rem !important; }
-              .hero-subtitle { font-size: 1rem !important; margin-top: 15px !important; }
+              .blog-hero-gradient { padding-top: 120px; padding-bottom: 60px; }
+              .hero-title { font-size: 2.5rem; }
+              .hero-subtitle { font-size: 1rem; margin-top: 15px; }
           }
        `}</style>
         </div>
