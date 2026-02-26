@@ -14,7 +14,7 @@ export const servicesData = {
             { name: "Comprehensive Examination and Diagnosis", desc: "Detailed evaluation to cover your oral health for accurate diagnosis and treatment planning." },
             { name: "Scaling & Polishing", desc: "Professional cleaning to remove plaque, tartar, and surface stains." },
             { name: "Tooth Fillings", desc: "Restoring decayed teeth with high-quality tooth-coloured materials." },
-            { name: "Root Canal Treatment", desc: "Saving infected teeth by removing damaged pulp and sealing the root." },
+            { name: "Root Canal Treatment", desc: "Saving infected teeth by removing damaged pulp and sealing the root.", path: "/services/protect/root-canal" },
             { name: "Wisdom Tooth Surgery", desc: "Safe removal of impacted wisdom teeth to prevent pain and crowding.", path: "/services/protect/wisdom-tooth" }
         ],
         tier1: {
@@ -46,7 +46,7 @@ export const servicesData = {
         icon: <Sparkles size={32} />,
         color: "var(--color-secondary)",
         services: [
-            { name: "Clear Aligners", desc: "Invisible, removable trays (Invisalign / Angel / ClearSmile) for discreet straightening." },
+            { name: "Clear Aligners", desc: "Invisible, removable trays (Invisalign / Angel / ClearSmile) for discreet straightening.", path: "/services/straighten/clear-aligners" },
             { name: "Fixed Appliances (Metal & Clear Brackets)", desc: "Powered by the latest Damon Ultima, Q2, and Clear 2 technology." },
             { name: "Removable Appliances", desc: "Early intervention devices for minor tooth movements and growth." },
             { name: "Retainers", desc: "Custom devices (Hawley/Essix) to maintain your new smile after treatment." }
@@ -83,7 +83,7 @@ export const servicesData = {
         icon: <Smile size={32} />,
         color: "var(--color-primary)",
         services: [
-            { name: "Dental Implants", desc: "Permanent, natural-looking replacements for missing tooth roots." },
+            { name: "Dental Implants", desc: "Permanent, natural-looking replacements for missing tooth roots.", path: "/services/replace/dental-implants" },
             { name: "Dental Bridges", desc: "Fixed restoration to bridge the gap created by one or more missing teeth." },
             { name: "Complete Dentures", desc: "Full replacements for missing teeth, restoring function and appearance." },
             { name: "Partial Dentures", desc: "Removable option to replace several missing teeth in a row." },
@@ -120,7 +120,7 @@ export const servicesData = {
         services: [
             { name: "Composite Veneers", desc: "Direct bonding to reshape teeth and improve aesthetics in one visit." },
             { name: "Ceramic Veneers", desc: "Durable, high-quality porcelain shells for a flawless, lasting smile." },
-            { name: "Take-Home Whitening (Gold Standard)", desc: "Customized trays and professional gels for the most stable, long-lasting results." },
+            { name: "Take-Home Whitening (Gold Standard)", desc: "Customized trays and professional gels for the most stable, long-lasting results.", path: "/services/enhance/teeth-whitening" },
             { name: "In-House Whitening", desc: "Rapid clinical whitening for immediate results when time is of the essence." },
             { name: "All-Ceramic Crowns", desc: "Strength and beauty combined for badly damaged or aesthetic teeth. Option for single-visit crown by appointment." },
             { name: "Full Mouth Rehabilitation", desc: "Comprehensive restoration of worn down teeth to improve function, health, and appearance." }
