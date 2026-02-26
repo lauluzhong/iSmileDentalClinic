@@ -94,7 +94,7 @@ const Footer = () => {
                             <li><Link to="/reviews" onClick={(e) => { if (location.pathname === '/reviews') { e.preventDefault(); scrollToTop(); } }}>Reviews</Link></li>
                             <li><Link to="/blog" onClick={(e) => { if (location.pathname === '/blog') { e.preventDefault(); scrollToTop(); } }}>Learning Centre</Link></li>
                             <li><Link to="/faq" onClick={(e) => { if (location.pathname === '/faq') { e.preventDefault(); scrollToTop(); } }}>FAQs</Link></li>
-                            <li><Link to="/services">Full Service Directory</Link></li>
+                            <li><Link to="/services#service-directory">Full Service Directory</Link></li>
                         </ul>
                     </div>
 
