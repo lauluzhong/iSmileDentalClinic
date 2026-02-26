@@ -94,7 +94,7 @@ const DentalImplants = () => {
         <div className="specialty-page">
             <Helmet>
                 <title>Dental Implants Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Replace missing teeth with dental implants in Petaling Jaya. Restore your smile with lasting results. Book your consultation." />
+                <meta name="description" content="Replace missing teeth with dental implants in Petaling Jaya. Restore your smile with lasting results. Book your visit." />
             </Helmet>
 
             <div className="tech-hero">

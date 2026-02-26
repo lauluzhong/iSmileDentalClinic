@@ -93,8 +93,8 @@ const WisdomToothSurgery = () => {
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Wisdom Tooth Surgery Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Wisdom tooth extraction in Petaling Jaya. Safe & comfortable removal. Book your consultation today." />
+                <title>Dental Services Petaling Jaya | iSmile Dental Clinic</title>
+                <meta name="description" content="Comprehensive dental services in Petaling Jaya — preventive, restorative, orthodontic & cosmetic treatments for the whole family." />
             </Helmet>
 
             <div className="tech-hero">

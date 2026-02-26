@@ -93,8 +93,8 @@ const RootCanalTreatment = () => {
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Root Canal Treatment Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Root canal treatment in Petaling Jaya. Save infected teeth & relieve pain. Book your consultation today." />
+                <title>Dental Services Petaling Jaya | iSmile Dental Clinic</title>
+                <meta name="description" content="Comprehensive dental services in Petaling Jaya — preventive, restorative, orthodontic & cosmetic treatments for the whole family." />
             </Helmet>
 
             <div className="tech-hero">
