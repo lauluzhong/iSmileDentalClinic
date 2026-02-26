@@ -27,7 +27,7 @@ const ServiceHub = () => {
             setTimeout(() => {
                 const element = document.getElementById(location.hash.replace('#', ''));
                 if (element) {
-                    const headerOffset = 100;
+                    const headerOffset = 200;
                     const elementPosition = element.getBoundingClientRect().top;
                     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
                     window.scrollTo({
@@ -35,7 +35,7 @@ const ServiceHub = () => {
                         behavior: "smooth"
                     });
                 }
-            }, 300);
+            }, 500);
         }
     }, [location]);
     const data = servicesData[category];
