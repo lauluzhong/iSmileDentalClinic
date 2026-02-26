@@ -7,21 +7,60 @@ import { ArrowRight, CheckCircle } from 'lucide-react';
 import Button from '../components/Button';
 import { Helmet } from 'react-helmet-async';
 
-const ServicesLanding = () => {
+const ServicesLanding = ({ directoryOnly }) => {
     const location = useLocation();
 
     useEffect(() => {
-        if (location.hash) {
+        if (!directoryOnly && location.hash) {
             const element = document.getElementById(location.hash.slice(1));
             if (element) {
                 setTimeout(() => {
                     element.scrollIntoView({ behavior: 'smooth' });
                 }, 100);
             }
-        } else {
+        } else if (!directoryOnly) {
             window.scrollTo(0, 0);
         }
-    }, [location]);
+    }, [location, directoryOnly]);
+
+    // If directoryOnly, show just the directory section
+    if (directoryOnly) {
+        return (
+            <div className="services-landing" style={{ paddingTop: '120px' }}>
+                <Helmet>
+                    <title>Service Directory | iSmile Dental Clinic Petaling Jaya</title>
+                    <meta name="description" content="Browse all dental services offered at iSmile Dental Clinic Petaling Jaya — preventive, restorative, orthodontic & cosmetic treatments." />
+                </Helmet>
+                <div className="container">
+                    <FadeIn>
+                        <h1 className="hero-title" style={{ marginBottom: '40px' }}>Service Directory</h1>
+                    </FadeIn>
+                    <div className="directory-grid">
+                        {Object.entries(servicesData).map(([key, data]) => (
+                            <FadeIn key={key} className="directory-category-card">
+                                <div className="category-header">
+                                    <div className="category-icon-small">{data.icon}</div>
+                                    <Link to={`/services/${key}`}><h4>{data.displayTitle}</h4></Link>
+                                </div>
+                                <ul className="directory-list">
+                                    {data.services.map((service, sIdx) => (
+                                        <li key={sIdx}>
+                                            <CheckCircle size={16} className="text-primary-teal" />
+                                            {service.path ? (
+                                                <Link to={service.path}><span>{service.name}</span></Link>
+                                            ) : (
+                                                <span>{service.name}</span>
+                                            )}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </FadeIn>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="services-landing">
