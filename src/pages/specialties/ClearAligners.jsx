@@ -5,8 +5,38 @@ import Button from '../../components/Button';
 
 const ClearAligners = () => {
     const { openBooking } = useBooking();
+    
     useEffect(() => {
         window.scrollTo(0, 0);
+    }, []);
+
+    // Add Service schema for SEO
+    useEffect(() => {
+        const serviceSchema = {
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "name": "Clear Aligners",
+            "description": "Modern orthodontic solution using custom-made transparent plastic trays to gradually shift teeth into alignment.",
+            "provider": {
+                "@type": "Dentist",
+                "name": "iSmile Dental Clinic",
+                "url": "https://ismile.com.my/services/straighten"
+            },
+            "areaServed": {
+                "@type": "Place",
+                "name": "Petaling Jaya, Selangor"
+            },
+            "url": "https://ismile.com.my/services/straighten"
+        };
+        
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.innerHTML = JSON.stringify(serviceSchema);
+        document.head.appendChild(script);
+        
+        return () => {
+            document.head.removeChild(script);
+        };
     }, []);
 
     const faqs = [
