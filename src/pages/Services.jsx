@@ -103,7 +103,7 @@ const ServiceHub = () => {
                     >
                         <div className="tier1-content">
                             <span className="badge">Highlight</span>
-                            <h3>{data.tier1.title}</h3>
+                            <Link to={data.tier1.path}><h3>{data.tier1.title}</h3></Link>
                             <p>{data.tier1.desc}</p>
                             <Link to={data.tier1.path}>
                                 <Button variant="outline">Learn More</Button>

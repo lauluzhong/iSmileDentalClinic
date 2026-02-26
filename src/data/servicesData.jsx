@@ -15,7 +15,7 @@ export const servicesData = {
             { name: "Scaling & Polishing", desc: "Professional cleaning to remove plaque, tartar, and surface stains." },
             { name: "Tooth Fillings", desc: "Restoring decayed teeth with high-quality tooth-coloured materials." },
             { name: "Root Canal Treatment", desc: "Saving infected teeth by removing damaged pulp and sealing the root." },
-            { name: "Wisdom Tooth Surgery", desc: "Safe removal of impacted wisdom teeth to prevent pain and crowding." }
+            { name: "Wisdom Tooth Surgery", desc: "Safe removal of impacted wisdom teeth to prevent pain and crowding.", path: "/services/protect/wisdom-tooth" }
         ],
         tier1: {
             title: "Root Canal Treatment",

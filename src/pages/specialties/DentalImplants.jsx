@@ -100,8 +100,8 @@ const DentalImplants = () => {
             <div className="tech-hero">
                 <div className="container">
                     <div className="tech-badge"><Shield size={16} /> Technical Deep-Dive</div>
-                    <h1>Dental Implants <span>(Implantology)</span></h1>
-                    <p className="lead">A bio-compatible titanium post that serves as an artificial tooth root, fused directly into the jawbone through a clinical process called 'Osseointegration'.</p>
+                    <h1>Dental Implants <span className="h1-sub">Petaling Jaya | iSmile Dental Clinic</span></h1>
+                    <p className="lead">Replace missing teeth with dental implants in Petaling Jaya. Restore your smile with lasting results. Book your visit.</p>
                 </div>
             </div>
 

@@ -100,8 +100,8 @@ const TeethWhitening = () => {
             <div className="tech-hero">
                 <div className="container">
                     <div className="tech-badge"><Star size={16} /> Professional Gold Standard</div>
-                    <h1>Take-Home Teeth Whitening <span>(Customized Precision)</span></h1>
-                    <p className="lead">The most effective, stable, and predictable way to brighten your smile. Using laboratory-grade custom trays and prescribed whitening gels for a professional transformation in the comfort of your home.</p>
+                    <h1>Teeth Whitening <span className="h1-sub">Petaling Jaya | iSmile Dental Clinic</span></h1>
+                    <p className="lead">Professional teeth whitening in Petaling Jaya. Brighten your smile with our custom treatment. Book your consultation today.</p>
                 </div>
             </div>
 
