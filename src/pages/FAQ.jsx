@@ -1,8 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Reveal, FadeIn } from '../components/Reveal';
 import { HelpCircle, Info, CreditCard, User, Droplets, Calendar, Users } from 'lucide-react';
 
 const FAQ = () => {
+    
+    // Add FAQ schema markup for SEO
+    useEffect(() => {
+        const faqSchema = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqData.flatMap(category => 
+                category.questions.map(q => ({
+                    "@type": "Question",
+                    "name": q.q,
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": typeof q.a === 'string' ? q.a : 'Contact us for more information.'
+                    }
+                }))
+            )
+        };
+        
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.innerHTML = JSON.stringify(faqSchema);
+        document.head.appendChild(script);
+        
+        return () => {
+            document.head.removeChild(script);
+        };
+    }, []);
+
     const faqData = [
         {
             category: "Visiting & Payments",

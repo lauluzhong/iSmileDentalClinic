@@ -72,7 +72,7 @@ const Home = () => {
                 <div className="container hero-container">
                     <div className="hero-content">
                         <Reveal><h1 className="hero-title">
-                            iSmile Dental Clinic <br />
+                            iSmile Dental Clinic Petaling Jaya <br />
                             <span className="text-gradient">Dental Care for Every Generation</span>
                         </h1></Reveal>
                         <Reveal delay={0.2}><p className="hero-subtitle">
