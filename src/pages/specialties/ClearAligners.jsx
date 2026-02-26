@@ -37,8 +37,8 @@ const ClearAligners = () => {
             <div className="tech-hero">
                 <div className="container">
                     <div className="tech-badge"><Shield size={16} /> Technical Deep-Dive</div>
-                    <h1>Clear Aligners <span>(Invisalign / Angel / ClearSmile)</span></h1>
-                    <p className="lead">A modern orthodontic solution using a series of custom-made, transparent plastic trays to gradually shift teeth into alignment without the need for traditional braces.</p>
+                    <h1>Clear Aligners <span className="h1-sub">Petaling Jaya | iSmile Dental Clinic</span></h1>
+                    <p className="lead">A modern orthodontic solution using a series of custom-made, transparent plastic trays to gradually shift teeth into alignment without the need for traditional braces. We offer Invisalign, Angel, and ClearSmile aligner systems.</p>
                 </div>
             </div>
 
@@ -110,6 +110,7 @@ const ClearAligners = () => {
                 .tech-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; background: rgba(255,255,255,0.1); border-radius: 20px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; color: var(--color-secondary); }
                 .tech-hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; color: white; }
                 .tech-hero h1 span { font-weight: 400; opacity: 0.6; font-size: 2rem; display: block; }
+                .tech-hero .h1-sub { font-weight: 400; opacity: 0.6; font-size: 2rem; display: block; }
                 .tech-hero .lead { font-size: 1.3rem; max-width: 800px; opacity: 0.9; }
                 .tech-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; align-items: start; }
                 .tech-feature-list { margin-top: 40px; }
