@@ -100,8 +100,8 @@ const MyofunctionalOrthodontics = () => {
             <div className="tech-hero">
                 <div className="container">
                     <div className="tech-badge"><Shield size={16} /> Technical Deep-Dive</div>
-                    <h1>Myofunctional Orthodontics <span>(Early Growth Guidance)</span></h1>
-                    <p className="lead">A 'Pre-Orthodontic' treatment focusing on correcting the underlying causes of crooked teeth—poor oral habits like mouth breathing and tongue thrusting.</p>
+                    <h1>Myofunctional Orthodontics <span className="h1-sub">Petaling Jaya | iSmile Dental Clinic</span></h1>
+                    <p className="lead">Gentle dental care for children and teens in Petaling Jaya. First visits, preventive care and orthodontic assessment. Book now.</p>
                 </div>
             </div>
 
