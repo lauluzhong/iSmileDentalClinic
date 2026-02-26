@@ -112,7 +112,7 @@ const Reviews = () => {
                         <h1 className="hero-title" style={{
                             fontSize: "clamp(2.5rem, 5vw, 4rem)",
                             fontWeight: 800,
-                            color: '#2d3748',
+                            color: 'var(--color-text-charcoal)',
                             letterSpacing: '-0.02em',
                             marginBottom: '20px'
                         }}>
@@ -123,7 +123,7 @@ const Reviews = () => {
                     <Reveal delay={0.2} width="100%">
                         <p className="hero-subtitle" style={{
                             fontSize: '1.2rem',
-                            color: '#4a5568',
+                            color: 'var(--color-text-muted)',
                             maxWidth: '800px',
                             margin: '0 auto',
                             lineHeight: '1.6',
@@ -228,8 +228,8 @@ const Reviews = () => {
                 margin-right: 8px;
                 width: auto;
             }
-            .hero-title { font-size: 2.5rem !important; }
-            .hero-subtitle { font-size: 1rem !important; margin-top: 15px !important; }
+            .hero-title { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1rem; margin-top: 15px; }
             /* Adjust inline styles via class overrides if possible, or assume parent handles some */
         }
       `}</style>

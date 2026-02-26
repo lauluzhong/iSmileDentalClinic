@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Reveal, FadeIn } from '../components/Reveal';
 import { servicesData } from '../data/servicesData';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle, ArrowUpRight } from 'lucide-react';
 import Button from '../components/Button';
 import { Helmet } from 'react-helmet-async';
 
@@ -41,7 +41,7 @@ const ServicesLanding = () => {
                             <h1 className="hero-title" style={{
                                 fontSize: "clamp(2.5rem, 5vw, 4rem)",
                                 fontWeight: 800,
-                                color: '#2d3748',
+                                color: 'var(--color-text-charcoal)',
                                 letterSpacing: '-0.02em',
                                 marginBottom: '20px',
                                 lineHeight: '1.1'
@@ -53,7 +53,7 @@ const ServicesLanding = () => {
                         <Reveal delay={0.2} width="100%">
                             <p className="hero-description" style={{
                                 fontSize: '1.25rem',
-                                color: '#4a5568',
+                                color: 'var(--color-text-muted)',
                                 maxWidth: '700px',
                                 margin: '0',
                                 lineHeight: '1.6',
@@ -84,7 +84,7 @@ const ServicesLanding = () => {
                                     <li key={sIdx}>
                                         <CheckCircle size={16} className="text-primary-teal list-check-icon" />
                                         {service.path ? (
-                                            <Link to={service.path} className="service-link">{service.name}</Link>
+                                            <Link to={service.path} className="service-link">{service.name} <ArrowUpRight size={14} className="service-link-arrow" /></Link>
                                         ) : (
                                             <span>{service.name}</span>
                                         )}
@@ -102,7 +102,7 @@ const ServicesLanding = () => {
                 {/* CTA */}
                 <div className="text-center" style={{ marginTop: '80px', paddingBottom: '40px' }}>
                     <FadeIn>
-                        <h3 style={{ color: '#2d3748', fontWeight: 700, marginBottom: '20px', fontSize: '1.3rem' }}>Not sure which treatment is right for you?</h3>
+                        <h3 style={{ color: 'var(--color-text-charcoal)', fontWeight: 700, marginBottom: '20px', fontSize: '1.3rem' }}>Not sure which treatment is right for you?</h3>
                         <Button onClick={() => window.open('https://wa.me/60163222135', '_blank')}>
                             Get In Touch With Us
                         </Button>
@@ -215,6 +215,19 @@ const ServicesLanding = () => {
                     color: var(--color-primary-teal);
                 }
 
+                .service-link-arrow {
+                    display: inline-block;
+                    vertical-align: middle;
+                    opacity: 0.4;
+                    transition: opacity 0.2s ease, transform 0.2s ease;
+                    margin-left: 2px;
+                }
+
+                .service-link:hover .service-link-arrow {
+                    opacity: 1;
+                    transform: translate(2px, -2px);
+                }
+
                 .text-primary-teal {
                     color: var(--color-primary-teal);
                 }
@@ -240,11 +253,11 @@ const ServicesLanding = () => {
                 @media (max-width: 1024px) {
                     .services-landing { padding-top: 20px; }
                     .services-hero-gradient { 
-                        padding-top: 100px !important; 
-                        text-align: center !important; 
+                        padding-top: 100px; 
+                        text-align: center; 
                     }
                     .hero-description {
-                        margin: 0 auto !important;
+                        margin: 0 auto;
                     }
                     .directory-grid {
                         grid-template-columns: 1fr;
@@ -254,8 +267,8 @@ const ServicesLanding = () => {
                         padding: 24px;
                         border-radius: 20px;
                     }
-                    .hero-title { font-size: 2.2rem !important; }
-                    .hero-description { font-size: 1rem !important; }
+                    .hero-title { font-size: 2.2rem; }
+                    .hero-description { font-size: 1rem; }
                 }
             `}</style>
         </div>

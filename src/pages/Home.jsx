@@ -310,10 +310,10 @@ const Home = () => {
             <style>{`
         /* General Hero & Section Styles */
         .mobile-break { display: none; }
-        .hero-section { min-height: 90vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 80px; }
+        .hero-section { min-height: 90vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 120px; }
         .hero-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; position: relative; z-index: 2; }
         .hero-title { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 20px; font-weight: 700; word-break: break-word; }
-        .hero-subtitle { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 30px; max-width: 500px; line-height: 1.5; }
+        .hero-subtitle { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 30px; max-width: 520px; line-height: 1.6; }
         .hero-card { padding: 10px; position: relative; transform: rotate(-2deg); transition: transform 0.5s ease; width: 100%; max-width: 400px; margin: 0 auto; box-sizing: border-box; }
         .hero-card:hover { transform: rotate(0deg) scale(1.02); }
         .floating-badge { position: absolute; bottom: 40px; right: -20px; background: rgba(255, 255, 255, 0.9); padding: 10px 20px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); backdrop-filter: blur(10px); }
@@ -578,11 +578,12 @@ const Home = () => {
             .hero-title { font-size: 2rem; line-height: 1.1; margin-bottom: 12px; }
             .hero-subtitle { font-size: 0.95rem; margin-bottom: 24px; margin-top: 0; max-width: 300px; line-height: 1.4; }
             .hero-visual { order: 1; width: 100%; max-width: 260px; margin: 0 auto; }
-            .hero-card { transform: rotate(0); border-radius: 20px; aspect-ratio: 1/1 !important; height: auto !important; }
+            .hero-card { transform: rotate(0); border-radius: 20px; aspect-ratio: 1/1; height: auto; }
             
-            .section-title { font-size: 1.75rem !important; margin-bottom: 1rem !important; line-height: 1.1 !important; }
+            .section-title { font-size: 1.75rem; margin-bottom: 1rem; line-height: 1.1; }
             
             /* Services Carousel */
+            .services-bento-section { position: relative; }
             .bento-grid {
                 display: flex;
                 overflow-x: auto;
@@ -594,6 +595,8 @@ const Home = () => {
                 margin: 0 -16px;
                 padding: 0 16px 20px 16px;
                 width: calc(100% + 32px);
+                mask-image: linear-gradient(to right, black calc(100% - 40px), transparent 100%);
+                -webkit-mask-image: linear-gradient(to right, black calc(100% - 40px), transparent 100%);
             }
             .bento-grid::-webkit-scrollbar { display: none; }
             .bento-card {
