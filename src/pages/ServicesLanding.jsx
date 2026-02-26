@@ -5,6 +5,7 @@ import { Reveal, FadeIn } from '../components/Reveal';
 import { servicesData } from '../data/servicesData';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import Button from '../components/Button';
+import { Helmet } from 'react-helmet-async';
 
 const ServicesLanding = () => {
     const location = useLocation();
@@ -24,6 +25,11 @@ const ServicesLanding = () => {
 
     return (
         <div className="services-landing">
+            <Helmet>
+                <title>Dental Services Petaling Jaya | iSmile Dental Clinic</title>
+                <meta name="description" content="Comprehensive dental services in Petaling Jaya — preventive, restorative, orthodontic & cosmetic treatments for the whole family." />
+            </Helmet>
+
             {/* Hero Section */}
             <div className="services-hero-gradient" style={{
                 paddingTop: '180px',

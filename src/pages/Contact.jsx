@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import React from 'react';
 import { MapPin, Phone, HelpCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -24,6 +25,10 @@ const Contact = () => {
     
     return (
         <div className="contact-page">
+            <Helmet>
+                <title>Contact iSmile Dental Clinic Petaling Jaya</title>
+                <meta name="description" content="Contact iSmile Dental Clinic Petaling Jaya. Book your appointment or ask us a question. Located in Damansara Jaya." />
+            </Helmet>
             <div className="container section-padding" style={{ paddingTop: '180px' }}>
                 <div className="contact-content text-center">
                     <Reveal width="100%">

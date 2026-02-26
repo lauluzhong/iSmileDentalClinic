@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import Button from '../components/Button';
 import { servicesData } from '../data/servicesData';
 import ServicesLanding from './ServicesLanding';
+import { Helmet } from 'react-helmet-async';
 
 // Specialty Pages
 import WisdomToothSurgery from './specialties/WisdomToothSurgery';
@@ -33,8 +34,22 @@ const ServiceHub = () => {
         return positions[cat] || 'center center';
     };
 
+    // SEO titles for each service category
+    const seoData = {
+        protect: { title: "Protect & Repair Dental Services Petaling Jaya | iSmile Dental Clinic", desc: "Preventive & restorative dental care in Petaling Jaya. Root canal, wisdom tooth surgery & more." },
+        straighten: { title: "Straighten Teeth Petaling Jaya | iSmile Dental Clinic", desc: "Orthodontic treatments in Petaling Jaya. Clear aligners & braces for adults & teens." },
+        replace: { title: "Replace Missing Teeth Petaling Jaya | iSmile Dental Clinic", desc: "Dental implants & dentures in Petaling Jaya. Restore your smile with lasting results." },
+        enhance: { title: "Enhance Your Smile Petaling Jaya | iSmile Dental Clinic", desc: "Cosmetic dentistry in Petaling Jaya. Teeth whitening, veneers & smile makeovers." },
+        children: { title: "Children's Dentistry Petaling Jaya | iSmile Dental Clinic", desc: "Gentle dental care for children & teens in Petaling Jaya. First visits & preventive care." }
+    };
+    const seo = seoData[category] || { title: "Dental Services Petaling Jaya | iSmile Dental Clinic", desc: "Comprehensive dental services in Petaling Jaya for the whole family." };
+
     return (
         <div className="service-hub">
+            <Helmet>
+                <title>{seo.title}</title>
+                <meta name="description" content={seo.desc} />
+            </Helmet>
             {/* Hero */}
             <div className="hub-hero" style={{
                 backgroundImage: `url(/images/service_${category}.png)`,

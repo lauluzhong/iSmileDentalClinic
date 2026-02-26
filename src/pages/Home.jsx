@@ -3,6 +3,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, Star, Heart, Shield, Sparkles, Smile, Users, Quote } from 'lucide-react';
 import Button from '../components/Button';
+import { Helmet } from 'react-helmet-async';
 import { Reveal, FadeIn } from '../components/Reveal';
 import { motion } from 'framer-motion';
 
@@ -63,6 +64,11 @@ const Home = () => {
 
     return (
         <div className="home-page" style={{ background: 'linear-gradient(180deg, #FFFFFF 0%, #eff6ff 100%)', minHeight: '100vh' }}>
+            <Helmet>
+                <title>iSmile Dental Clinic Petaling Jaya | Family Dentist in Damansara Jaya</title>
+                <meta name="description" content="iSmile Dental Clinic Petaling Jaya - Gentle, patient-centred dental care for children, adults & families. Book your visit today." />
+            </Helmet>
+
             {/* 1. Hero Section */}
             <section className="hero-section">
                 <div className="liquid-shape" style={{ top: '20%', left: '10%', width: '300px', height: '300px', background: 'var(--color-secondary)' }}></div>
