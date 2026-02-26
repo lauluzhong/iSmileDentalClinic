@@ -1,6 +1,8 @@
 import { Helmet } from 'react-helmet-async';
+import { useBooking } from '../context/BookingContext';
 import React from 'react';
 import { Award } from 'lucide-react';
+import Button from '../components/Button';
 import { Reveal, FadeIn } from '../components/Reveal';
 
 const doctors = [
@@ -87,6 +89,8 @@ const doctors = [
 ];
 
 const About = () => {
+    const { openBooking } = useBooking();
+
     return (
         <div className="about-page">
             <Helmet>
@@ -212,6 +216,22 @@ const About = () => {
                 </div>
             </section>
 
+
+            {/* Schedule a Visit CTA */}
+            <section className="section-padding" style={{ textAlign: 'center', paddingBottom: '80px' }}>
+                <div className="container">
+                    <FadeIn>
+                        <h2 style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--color-text-charcoal)', marginBottom: '16px' }}>
+                            Ready to Experience Thoughtful Dental Care?
+                        </h2>
+                        <p style={{ color: 'var(--color-text-muted)', marginBottom: '30px', maxWidth: '600px', margin: '0 auto 30px', lineHeight: 1.6 }}>
+                            We'd love to meet you and your family. Schedule a visit to see how we can care for your smile.
+                        </p>
+                        <Button onClick={() => openBooking('', 'about-page-cta')}>Schedule a Visit</Button>
+                    </FadeIn>
+                </div>
+            </section>
+
             <style>{`
                 .about-page {
                     background: #fff;
@@ -234,7 +254,7 @@ const About = () => {
                 .hero-title {
                     font-size: clamp(2.5rem, 5vw, 4.2rem);
                     font-weight: 800;
-                    color: #2d3748;
+                    color: var(--color-text-charcoal);
                     line-height: 1.1;
                     margin-bottom: 30px;
                     letter-spacing: -0.02em;
@@ -293,7 +313,7 @@ const About = () => {
 
                 .journey-card h3 {
                     font-size: 1.6rem;
-                    color: #2d3748;
+                    color: var(--color-text-charcoal);
                     margin-bottom: 15px;
                     font-weight: 700;
                 }
@@ -428,7 +448,7 @@ const About = () => {
                 .team-info h3 {
                     font-size: 1.5rem;
                     margin-bottom: 8px;
-                    color: #2d3748;
+                    color: var(--color-text-charcoal);
                 }
 
                 .team-role {

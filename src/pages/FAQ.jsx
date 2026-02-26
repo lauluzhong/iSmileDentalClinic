@@ -1,10 +1,15 @@
 import { Helmet } from 'react-helmet-async';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Reveal, FadeIn } from '../components/Reveal';
-import { HelpCircle, Info, CreditCard, User, Droplets, Calendar, Users } from 'lucide-react';
+import { HelpCircle, Info, CreditCard, User, Droplets, Calendar, Users, ChevronDown } from 'lucide-react';
 
 const FAQ = () => {
-    
+    const [openItems, setOpenItems] = useState({});
+
+    const toggleItem = (key) => {
+        setOpenItems(prev => ({ ...prev, [key]: !prev[key] }));
+    };
+
     // Add FAQ schema markup for SEO
     useEffect(() => {
         const faqSchema = {
@@ -109,7 +114,7 @@ const FAQ = () => {
                         <h1 className="hero-title mb-3" style={{ color: 'var(--color-primary)' }}>Common Questions</h1>
                     </Reveal>
                     <Reveal delay={0.1}>
-                        <p className="lead-text" style={{ maxWidth: '800px', fontSize: '1.2rem', color: '#4a5568' }}>
+                        <p className="lead-text" style={{ maxWidth: '800px', fontSize: '1.2rem', color: 'var(--color-text-muted)' }}>
                             We're here to help you feel confident and informed about every part of your dental journey with us.
                         </p>
                     </Reveal>
@@ -123,16 +128,25 @@ const FAQ = () => {
                                     <div className="category-icon">
                                         {section.icon}
                                     </div>
-                                    <h2 className="h3 mb-0" style={{ color: '#2d3748', fontWeight: 700 }}>{section.category}</h2>
+                                    <h2 className="h3 mb-0" style={{ color: 'var(--color-text-charcoal)', fontWeight: 700 }}>{section.category}</h2>
                                 </div>
 
                                 <div className="faq-grid">
-                                    {section.questions.map((item, qIdx) => (
-                                        <div key={qIdx} className="faq-card glass-panel">
-                                            <h3 className="h5 font-weight-bold mb-3" style={{ color: '#2d3748' }}>{item.q}</h3>
-                                            <div className="mb-0" style={{ color: '#4a5568', lineHeight: 1.6 }}>{item.a}</div>
+                                    {section.questions.map((item, qIdx) => {
+                                        const itemKey = `${sIdx}-${qIdx}`;
+                                        const isOpen = openItems[itemKey];
+                                        return (
+                                        <div key={qIdx} className={`faq-card glass-panel ${isOpen ? 'faq-card-open' : ''}`} onClick={() => toggleItem(itemKey)} style={{ cursor: 'pointer' }}>
+                                            <div className="faq-question-row">
+                                                <h3 className="h5 font-weight-bold mb-0" style={{ color: 'var(--color-text-charcoal)', flex: 1 }}>{item.q}</h3>
+                                                <ChevronDown size={20} className={`faq-chevron ${isOpen ? 'faq-chevron-open' : ''}`} />
+                                            </div>
+                                            <div className={`faq-answer ${isOpen ? 'faq-answer-open' : ''}`}>
+                                                <div className="faq-answer-inner" style={{ color: 'var(--color-text-muted)', lineHeight: 1.6 }}>{item.a}</div>
+                                            </div>
                                         </div>
-                                    ))}
+                                        );
+                                    })}
                                 </div>
                             </FadeIn>
                         </div>
@@ -161,20 +175,53 @@ const FAQ = () => {
                 }
 
                 .faq-grid {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-                    gap: 25px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
                 }
 
                 .faq-card {
                     padding: 30px;
-                    height: 100%;
+                    height: auto;
                     transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    user-select: none;
                 }
 
                 .faq-card:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 15px 40px rgba(79, 163, 194, 0.2);
+                    transform: translateY(-3px);
+                    box-shadow: 0 15px 40px rgba(79, 163, 194, 0.15);
+                }
+
+                .faq-card-open {
+                    border-color: rgba(79, 163, 194, 0.3);
+                }
+
+                .faq-question-row {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                }
+
+                .faq-chevron {
+                    color: var(--color-primary-teal);
+                    transition: transform 0.3s ease;
+                    flex-shrink: 0;
+                }
+
+                .faq-chevron-open {
+                    transform: rotate(180deg);
+                }
+
+                .faq-answer {
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: max-height 0.35s ease, margin-top 0.35s ease;
+                    margin-top: 0;
+                }
+
+                .faq-answer-open {
+                    max-height: 500px;
+                    margin-top: 16px;
                 }
 
                 .category-icon {
@@ -265,14 +312,14 @@ const FAQ = () => {
                         border-radius: 20px;
                     }
                     .section-padding {
-                        padding-top: 100px !important; /* Override inline style */
+                        padding-top: 100px; /* Override inline style */
                         padding-bottom: 60px;
                     }
                     .hero-title {
                         font-size: 2.5rem;
                     }
                     .lead-text {
-                        font-size: 1rem !important;
+                        font-size: 1rem;
                     }
                     .category-icon {
                         width: 40px;

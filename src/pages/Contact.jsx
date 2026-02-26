@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import React from 'react';
-import { MapPin, Phone, HelpCircle } from 'lucide-react';
+import { MapPin, Phone, HelpCircle, Clock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import { Reveal, FadeIn } from '../components/Reveal';
@@ -76,6 +76,18 @@ const Contact = () => {
                                         <Phone size={18} />
                                         Get In Touch With Us
                                     </Button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="info-item">
+                            <div className="icon-box"><Clock /></div>
+                            <div>
+                                <h4>Opening Hours</h4>
+                                <div style={{ marginTop: '8px' }}>
+                                    <p style={{ marginBottom: '6px' }}><strong>Mon – Fri:</strong> 9:30 AM – 5:30 PM</p>
+                                    <p style={{ marginBottom: '6px' }}><strong>Saturday:</strong> 9:30 AM – 3:30 PM</p>
+                                    <p style={{ marginBottom: '0' }}><strong>Sun / PH:</strong> Closed</p>
                                 </div>
                             </div>
                         </div>

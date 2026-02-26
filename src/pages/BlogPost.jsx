@@ -63,7 +63,7 @@ const BlogPost = () => {
                     <Reveal delay={0.2}>
                         <p style={{
                             fontSize: '1.1rem',
-                            color: '#64748b',
+                            color: 'var(--color-text-muted)',
                             fontWeight: 500,
                             marginTop: '20px',
                             letterSpacing: '0.5px'
@@ -163,7 +163,7 @@ const BlogPost = () => {
                 }
                 .blog-content h3 {
                     font-size: 1.8rem;
-                    color: #2d3748;
+                    color: var(--color-text-charcoal);
                     margin-top: 40px;
                     margin-bottom: 20px;
                     font-weight: 700;
@@ -207,24 +207,24 @@ const BlogPost = () => {
                     color: #4a5568;
                 }
                 .blog-content strong {
-                    color: #1a202c;
+                    color: var(--color-text-charcoal);
                 }
                 
                 @media (max-width: 1024px) {
-                    .post-header-gradient { padding: 100px 0 60px !important; }
-                    .post-title-gradient { font-size: 2.2rem !important; margin: 10px 0 !important; }
+                    .post-header-gradient { padding: 100px 0 60px; }
+                    .post-title-gradient { font-size: 2.2rem; margin: 10px 0; }
                     .container { padding-left: 20px; padding-right: 20px; }
                     
                     .featured-image-wrapper { margin-top: -30px; border-radius: 20px; }
                     .featured-post-img { max-height: 250px; }
                     
-                    .blog-content { padding-top: 20px !important; }
+                    .blog-content { padding-top: 20px; }
                     .blog-content h3 { font-size: 1.5rem; margin-top: 30px; }
                     .blog-content p { font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; }
                     .blog-content li { font-size: 1rem; }
                     
-                    .post-footer { margin-top: 40px !important; padding-top: 30px !important; }
-                    .post-footer h3 { font-size: 1.5rem !important; }
+                    .post-footer { margin-top: 40px; padding-top: 30px; }
+                    .post-footer h3 { font-size: 1.5rem; }
                 }
             `}</style>
         </div>
