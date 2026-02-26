@@ -81,6 +81,7 @@ const BlogPost = () => {
                                 src={post.img}
                                 alt={post.title}
                                 className="featured-post-img"
+                                loading="lazy"
                             />
                         </div>
                     )}

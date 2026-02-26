@@ -117,6 +117,7 @@ const ServiceHub = () => {
                                 src="/images/teeth_3d_scan.png"
                                 alt="3D Digital Scan"
                                 className="scanning-image"
+                                loading="lazy"
                             />
                         </div>
                     </motion.div>
