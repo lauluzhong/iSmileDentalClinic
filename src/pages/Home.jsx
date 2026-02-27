@@ -578,9 +578,9 @@ const Home = () => {
             .hero-title { font-size: 2rem; line-height: 1.1; margin-bottom: 12px; }
             .hero-subtitle { font-size: 0.95rem; margin-bottom: 24px; margin-top: 0; max-width: 300px; line-height: 1.4; }
             .hero-visual { order: 1; width: 100%; max-width: 260px; margin: 0 auto; }
-            .hero-card { transform: rotate(0); border-radius: 20px; aspect-ratio: 1/1; height: auto; }
+            .home-page .hero-card { transform: rotate(0); border-radius: 20px; aspect-ratio: 1/1; height: auto; }
             
-            .section-title { font-size: 1.75rem; margin-bottom: 1rem; line-height: 1.1; }
+            .home-page .section-title { font-size: 1.75rem; margin-bottom: 1rem; line-height: 1.1; }
             
             /* Services Carousel */
             .services-bento-section { position: relative; }

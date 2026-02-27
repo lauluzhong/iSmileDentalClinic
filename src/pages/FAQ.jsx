@@ -108,7 +108,7 @@ const FAQ = () => {
                 <title>Dental FAQ | iSmile Dental Clinic Petaling Jaya</title>
                 <meta name="description" content="Common dental questions answered. Learn about dental treatments & oral care at iSmile Dental Clinic Petaling Jaya." />
             </Helmet>
-            <div className="container section-padding" style={{ paddingTop: '160px' }}>
+            <div className="container section-padding faq-container">
                 <div className="mb-5">
                     <Reveal>
                         <h1 className="hero-title mb-3" style={{ color: 'var(--color-primary)' }}>Common Questions</h1>
@@ -299,24 +299,29 @@ const FAQ = () => {
                 .w-12 { width: 48px; }
                 .h-12 { height: 48px; }
 
+                .faq-container {
+                    padding-top: 160px;
+                }
+
                 @media (max-width: 1024px) {
+                    .faq-container {
+                        padding-top: 100px;
+                        padding-bottom: 60px;
+                        padding-left: 20px;
+                        padding-right: 20px;
+                    }
                     .faq-grid {
-                        grid-template-columns: 1fr;
-                        gap: 20px;
+                        gap: 12px;
                     }
                     .p-5 {
                         padding: 1.5rem;
                     }
                     .faq-card {
-                        padding: 24px;
-                        border-radius: 20px;
-                    }
-                    .section-padding {
-                        padding-top: 100px; /* Override inline style */
-                        padding-bottom: 60px;
+                        padding: 20px;
+                        border-radius: 16px;
                     }
                     .hero-title {
-                        font-size: 2.5rem;
+                        font-size: 2rem;
                     }
                     .lead-text {
                         font-size: 1rem;
@@ -326,7 +331,17 @@ const FAQ = () => {
                         height: 40px;
                     }
                     .section-header h2 {
-                        font-size: 1.5rem;
+                        font-size: 1.3rem;
+                    }
+                    .faq-question-row h3 {
+                        font-size: 0.95rem;
+                    }
+                    .faq-answer-inner {
+                        font-size: 0.9rem;
+                    }
+                    .still-questions {
+                        border-radius: 20px !important;
+                        padding: 1.5rem !important;
                     }
                 }
             `}</style>
