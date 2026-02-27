@@ -33,6 +33,10 @@ yarn-error.log*
 *.sln
 *.sw?
 
+# Generated blog artifacts
+src/data/blog-index.json
+public/blog-content/
+
 # Agent-specific
 task.md
 task.md.*
