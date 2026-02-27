@@ -1,19 +1,22 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 
-export const Reveal = ({ children, width = "fit-content", delay = 0 }) => {
+export const Reveal = ({ children, width = "100%", delay = 0 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const mainControls = useAnimation();
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
     if (isInView) {
       mainControls.start("visible");
+      const timer = setTimeout(() => setHasAnimated(true), (delay + 0.5) * 1000);
+      return () => clearTimeout(timer);
     }
-  }, [isInView, mainControls]);
+  }, [isInView, mainControls, delay]);
 
   return (
-    <div ref={ref} style={{ position: "relative", width, overflow: "hidden" }}>
+    <div ref={ref} style={{ position: "relative", width, overflow: hasAnimated ? "visible" : "hidden" }}>
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 75 },
