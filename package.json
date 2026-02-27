@@ -4,7 +4,9 @@
     "version": "0.1.0",
     "type": "module",
     "scripts": {
-        "dev": "vite",
+        "blog:build": "node scripts/build-blog.js",
+        "prebuild": "node scripts/build-blog.js",
+        "dev": "node scripts/build-blog.js && vite",
         "build": "vite build",
         "lint": "eslint .",
         "preview": "vite preview"
@@ -27,6 +29,8 @@
         "eslint-plugin-react-hooks": "^5.0.0",
         "eslint-plugin-react-refresh": "^0.4.16",
         "globals": "^15.13.0",
+        "gray-matter": "^4.0.3",
+        "marked": "^17.0.3",
         "vite": "^6.0.3"
     }
 }

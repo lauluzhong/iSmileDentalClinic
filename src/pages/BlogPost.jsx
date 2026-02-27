@@ -1,30 +1,113 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Navigate, useNavigate } from 'react-router-dom';
-import { blogPosts } from '../data/blogPosts';
+import { Helmet } from 'react-helmet-async';
 import { Reveal, FadeIn } from '../components/Reveal';
 import Button from '../components/Button';
 import { ArrowLeft } from 'lucide-react';
 import { useBooking } from '../context/BookingContext';
 
+const SITE_URL = 'https://ismile.com.my';
+
+const formatDate = (isoDate) => {
+    return new Date(isoDate + 'T00:00:00').toLocaleDateString('en-US', {
+        year: 'numeric', month: 'short', day: 'numeric'
+    });
+};
+
 const BlogPost = () => {
     const { slug } = useParams();
     const navigate = useNavigate();
     const { openBooking } = useBooking();
+    const [post, setPost] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [notFound, setNotFound] = useState(false);
 
-    // Find the post by id matching the slug
-    const post = blogPosts.find(p => p.id === slug);
-
-    // Scroll to top on mount
     useEffect(() => {
         window.scrollTo(0, 0);
+        setLoading(true);
+        setNotFound(false);
+
+        fetch(`/blog-content/${slug}.json`)
+            .then(res => {
+                if (!res.ok) throw new Error('Not found');
+                return res.json();
+            })
+            .then(data => {
+                setPost(data);
+                setLoading(false);
+            })
+            .catch(() => {
+                setNotFound(true);
+                setLoading(false);
+            });
     }, [slug]);
 
-    if (!post) {
-        return <Navigate to="/blog" replace />;
-    }
+    if (notFound) return <Navigate to="/blog" replace />;
+
+    if (loading) return (
+        <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{
+                width: '40px',
+                height: '40px',
+                border: '3px solid #e0e0e0',
+                borderTopColor: 'var(--color-primary-teal)',
+                borderRadius: '50%',
+                animation: 'spin 0.8s linear infinite'
+            }} />
+            <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+        </div>
+    );
+
+    const canonicalUrl = `${SITE_URL}/blog/${slug}`;
+    const ogImage = post.img?.startsWith('http') ? post.img : `${SITE_URL}${post.img}`;
 
     return (
         <div className="blog-post-page">
+            <Helmet>
+                <title>{post.title} | iSmile Dental Clinic</title>
+                <meta name="description" content={post.excerpt} />
+                <link rel="canonical" href={canonicalUrl} />
+
+                {/* Open Graph */}
+                <meta property="og:type" content="article" />
+                <meta property="og:url" content={canonicalUrl} />
+                <meta property="og:title" content={post.title} />
+                <meta property="og:description" content={post.excerpt} />
+                <meta property="og:image" content={ogImage} />
+                <meta property="og:site_name" content="iSmile Dental Clinic" />
+                <meta property="article:published_time" content={post.date} />
+                <meta property="article:section" content={post.category} />
+
+                {/* Twitter Card */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={post.title} />
+                <meta name="twitter:description" content={post.excerpt} />
+                <meta name="twitter:image" content={ogImage} />
+
+                {/* Article JSON-LD */}
+                <script type="application/ld+json">{JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "BlogPosting",
+                    "headline": post.title,
+                    "description": post.excerpt,
+                    "image": ogImage,
+                    "datePublished": post.date,
+                    "dateModified": post.date,
+                    "author": {
+                        "@type": "Organization",
+                        "name": "iSmile Dental Clinic",
+                        "url": SITE_URL
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "iSmile Dental Clinic",
+                        "logo": { "@type": "ImageObject", "url": `${SITE_URL}/logo.png` }
+                    },
+                    "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
+                    "articleSection": post.category
+                })}</script>
+            </Helmet>
+
             {/* Hero Section */}
             <div className="post-header-gradient" style={{
                 background: 'linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 50%, #dcfce7 100%)',
@@ -67,7 +150,7 @@ const BlogPost = () => {
                             fontWeight: 500,
                             marginTop: '20px',
                             letterSpacing: '0.5px'
-                        }}>{post.date}</p>
+                        }}>{formatDate(post.date)}</p>
                     </Reveal>
                 </div>
             </div>
@@ -118,16 +201,14 @@ const BlogPost = () => {
                             <Button
                                 variant="primary"
                                 onClick={() => {
-                                    // Clean up the title for the prefill text
                                     const cleanTopic = post.title.replace(/\?$/, '');
                                     let topic = cleanTopic;
 
-                                    // Specific override for Clear Aligner complexity
-                                    if (post.id === 'clear-aligner-treatment-complexity') {
+                                    if (post.slug === 'clear-aligner-treatment-complexity') {
                                         topic = 'clear aligner treatment';
                                     }
 
-                                    openBooking(`Interested in ${topic}`, `blog-post-${post.id}`);
+                                    openBooking(`Interested in ${topic}`, `blog-post-${post.slug}`);
                                 }}
                             >
                                 Book a Consultation
@@ -145,15 +226,15 @@ const BlogPost = () => {
                     background-clip: text;
                 }
                 .featured-image-wrapper {
-                    border-radius: 24px; 
-                    overflow: hidden; 
+                    border-radius: 24px;
+                    overflow: hidden;
                     box-shadow: 0 30px 60px rgba(0,0,0,0.12);
                     background: white;
                 }
                 .featured-post-img {
-                    width: 100%; 
-                    height: auto; 
-                    max-height: 550px; 
+                    width: 100%;
+                    height: auto;
+                    max-height: 550px;
                     object-fit: cover;
                     display: block;
                     transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -209,20 +290,20 @@ const BlogPost = () => {
                 .blog-content strong {
                     color: var(--color-text-charcoal);
                 }
-                
+
                 @media (max-width: 1024px) {
                     .post-header-gradient { padding: 100px 0 60px; }
                     .post-title-gradient { font-size: 2.2rem; margin: 10px 0; }
                     .container { padding-left: 20px; padding-right: 20px; }
-                    
+
                     .featured-image-wrapper { margin-top: -30px; border-radius: 20px; }
                     .featured-post-img { max-height: 250px; }
-                    
+
                     .blog-content { padding-top: 20px; }
                     .blog-content h3 { font-size: 1.5rem; margin-top: 30px; }
                     .blog-content p { font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px; }
                     .blog-content li { font-size: 1rem; }
-                    
+
                     .post-footer { margin-top: 40px; padding-top: 30px; }
                     .post-footer h3 { font-size: 1.5rem; }
                 }

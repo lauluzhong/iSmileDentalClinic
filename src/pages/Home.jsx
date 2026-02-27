@@ -17,14 +17,14 @@ const AIRWAY_IMG = "/images/child_airway_hero_1765825276038.png";
 
 const MotionLink = motion(Link);
 
-import { blogPosts } from '../data/blogPosts';
+import blogIndex from '../data/blog-index.json';
 
 const Home = () => {
     const { openBooking } = useBooking();
     const navigate = useNavigate();
 
     // Get the specific blog posts in the requested order
-    const orderedBlogIds = [
+    const orderedBlogSlugs = [
         'clear-aligners-vs-braces',
         'root-canal-vs-extraction',
         'your-childs-first-dental-visit',
@@ -32,8 +32,8 @@ const Home = () => {
         'government-vs-private-braces'
     ];
 
-    const featuredBlogs = orderedBlogIds
-        .map(id => blogPosts.find(post => post.id === id))
+    const featuredBlogs = orderedBlogSlugs
+        .map(slug => blogIndex.find(post => post.slug === slug))
         .filter(Boolean);
 
     // Scroll Animation Logic
@@ -292,7 +292,7 @@ const Home = () => {
                     <div className="horizontal-scroll-mask">
                         <div className="horizontal-track-simple">
                             {featuredBlogs.map((post, i) => (
-                                <Link to={`/blog/${post.id}`} key={i} className="glass-panel insight-card-large" style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <Link to={`/blog/${post.slug}`} key={i} className="glass-panel insight-card-large" style={{ textDecoration: 'none', color: 'inherit' }}>
                                     <div className="insight-image-large">
                                         <img src={post.img} alt={post.title} />
                                     </div>
