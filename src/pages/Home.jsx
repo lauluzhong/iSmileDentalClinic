@@ -574,8 +574,8 @@ const Home = () => {
             .section-padding { padding: 24px 0; }
             .hero-section { padding-top: 90px; text-align: center; min-height: auto; padding-bottom: 40px; }
             .hero-container { grid-template-columns: 1fr; gap: 24px; padding: 0 16px; }
-            .hero-content { display: flex; flex-direction: column; align-items: center; order: 2; }
-            .hero-title { font-size: 2rem; line-height: 1.1; margin-bottom: 12px; }
+            .hero-content { display: flex; flex-direction: column; align-items: center; order: 2; text-align: center; }
+            .hero-title { font-size: 2rem; line-height: 1.1; margin-bottom: 12px; text-align: center; }
             .hero-subtitle { font-size: 0.95rem; margin-bottom: 24px; margin-top: 0; max-width: 300px; line-height: 1.4; }
             .hero-visual { order: 1; width: 100%; max-width: 260px; margin: 0 auto; }
             .home-page .hero-card { transform: rotate(0); border-radius: 20px; aspect-ratio: 1/1; height: auto; }
