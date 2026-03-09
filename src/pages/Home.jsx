@@ -71,10 +71,6 @@ const Home = () => {
 
             {/* 1. Hero Section */}
             <section className="hero-section">
-                <div className="liquid-shape" style={{ top: '20%', left: '10%', width: '300px', height: '300px', background: 'var(--color-secondary)' }}></div>
-                <div className="liquid-shape animate-float" style={{ bottom: '10%', right: '5%', width: '400px', height: '400px', background: 'var(--color-primary)', animationDelay: '1s' }}></div>
-                <div className="liquid-shape" style={{ top: '40%', right: '30%', width: '200px', height: '200px', background: 'var(--color-accent)', filter: 'blur(60px)' }}></div>
-
                 <div className="container hero-container">
                     <div className="hero-content">
                         <Reveal><h1 className="hero-title">
