@@ -549,40 +549,98 @@ const Home = () => {
             font-weight: 600;
         }
 
-        /* Responsive */
+        /* ============================
+           RESPONSIVE — TABLET (481–1024px)
+           ============================ */
         @media (max-width: 1024px) {
+            .desktop-only { display: none; }
+            .mobile-break { display: inline; }
+
+            .section-padding { padding: 48px 0; }
+            .home-page .section-title { font-size: 2rem; margin-bottom: 1.5rem; line-height: 1.1; }
+
+            /* Hero — stacked but with more breathing room */
+            .hero-section { padding-top: 100px; text-align: center; min-height: auto; padding-bottom: 48px; }
+            .hero-container { grid-template-columns: 1fr; gap: 32px; padding: 0 24px; }
+            .hero-content { display: flex; flex-direction: column; align-items: center; order: 2; text-align: center; }
+            .hero-title { font-size: 2.25rem; line-height: 1.1; margin-bottom: 16px; text-align: center; }
+            .hero-subtitle { font-size: 1rem; margin-bottom: 28px; margin-top: 0; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.5; }
+            .hero-visual { order: 1; width: 100%; max-width: 280px; margin: 0 auto; }
+            .home-page .hero-card { transform: rotate(0); border-radius: 20px; aspect-ratio: 4/5; height: auto; }
+
+            /* Services — 2-col grid on tablet, not horizontal scroll */
             .bento-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
             }
             .bento-card {
-                min-height: 200px;
+                min-height: 180px;
+                padding: 20px;
+                border-radius: 20px;
             }
-            .card-large, .card-wide, .card-vertical, .card-medium, .card-small {
-                grid-column: span 1;
-                grid-row: span 1;
-                min-height: 350px;
-                flex-direction: column;
-                max-width: 100%;
+            .bento-card:last-child {
+                grid-column: 1 / -1;
+                max-width: 50%;
+                margin: 0 auto;
             }
-            .card-large .card-content, .card-wide .card-content {
-                max-width: 100%;
+            .card-headline { font-size: 1.1rem; line-height: 1.2; margin-bottom: 8px; }
+            .card-body { font-size: 0.85rem; line-height: 1.4; opacity: 0.85; }
+            .eyebrow { margin-bottom: 6px; font-size: 0.7rem; }
+            .card-top { margin-bottom: 16px; }
+            .card-icon { width: 28px; height: 28px; }
+
+            /* Welcome — stacked but with larger image */
+            .welcome-container, .about-card-container { flex-direction: column; border-radius: 28px; }
+            .welcome-content-split, .about-content-split { padding: 40px 32px; text-align: center; align-items: center; }
+            .welcome-headline, .about-headline { font-size: 2rem; margin-bottom: 16px; }
+            .welcome-description, .about-description { font-size: 0.95rem; margin-bottom: 28px; line-height: 1.5; }
+            .welcome-image-split, .about-image-split { height: 320px; border-radius: 0 0 28px 28px; }
+
+            /* Reviews — 2 visible on tablet */
+            .reviews-slider { 
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 16px;
+                margin: 0;
+                padding: 20px 8px 40px 8px;
+                scrollbar-width: none;
             }
-            .side-float { width: 100%; height: 50%; left: 0; }
+            .reviews-slider::-webkit-scrollbar { display: none; }
+            .review-card { 
+                flex: 0 0 calc(50% - 12px);
+                scroll-snap-align: start;
+                padding: 24px; 
+                border-radius: 20px; 
+            }
+            .review-text { font-size: 0.85rem; margin-bottom: 16px; }
+
+            /* Dental Education — header centered for consistency */
+            .dental-edu-header { margin-bottom: 16px; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+            .horizontal-track-simple { gap: 20px; padding: 0 16px; }
+            .insight-card-large { width: 320px; border-radius: 20px; }
+            .insight-image-large { height: 200px; }
+            .insight-content { padding: 20px; }
+            .insight-content h4 { font-size: 1rem; line-height: 1.3; margin-bottom: 6px; }
+            .read-more-link { font-size: 0.9rem; }
         }
 
-        @media (max-width: 1024px) {
-            .section-padding { padding: 24px 0; }
-            .hero-section { padding-top: 90px; text-align: center; min-height: auto; padding-bottom: 40px; }
-            .hero-container { grid-template-columns: 1fr; gap: 24px; padding: 0 16px; }
-            .hero-content { display: flex; flex-direction: column; align-items: center; order: 2; text-align: center; }
-            .hero-title { font-size: 2rem; line-height: 1.1; margin-bottom: 12px; text-align: center; }
-            .hero-subtitle { font-size: 0.95rem; margin-bottom: 24px; margin-top: 0; max-width: 300px; margin-left: auto; margin-right: auto; line-height: 1.4; }
-            .hero-visual { order: 1; width: 100%; max-width: 260px; margin: 0 auto; }
-            .home-page .hero-card { transform: rotate(0); border-radius: 20px; aspect-ratio: 1/1; height: auto; }
-            
-            .home-page .section-title { font-size: 1.75rem; margin-bottom: 1rem; line-height: 1.1; }
-            
-            /* Services Carousel */
+        /* ============================
+           RESPONSIVE — PHONE (≤480px)
+           ============================ */
+        @media (max-width: 480px) {
+            .section-padding { padding: 40px 0; }
+            .home-page .section-title { font-size: 1.6rem; margin-bottom: 1.25rem; line-height: 1.1; }
+
+            /* Hero — compact to keep CTA near fold */
+            .hero-section { padding-top: 80px; padding-bottom: 32px; }
+            .hero-container { gap: 20px; padding: 0 16px; }
+            .hero-title { font-size: 1.75rem; line-height: 1.1; margin-bottom: 10px; }
+            .hero-subtitle { font-size: 0.9rem; margin-bottom: 20px; max-width: 300px; line-height: 1.4; }
+            .hero-visual { max-width: 200px; }
+            .home-page .hero-card { aspect-ratio: 4/5; border-radius: 16px; }
+
+            /* Services — horizontal scroll carousel */
             .services-bento-section { position: relative; }
             .bento-grid {
                 display: flex;
@@ -595,59 +653,55 @@ const Home = () => {
                 margin: 0 -16px;
                 padding: 0 16px 20px 16px;
                 width: calc(100% + 32px);
-                mask-image: linear-gradient(to right, black calc(100% - 40px), transparent 100%);
-                -webkit-mask-image: linear-gradient(to right, black calc(100% - 40px), transparent 100%);
+                mask-image: linear-gradient(to right, black calc(100% - 30px), transparent 100%);
+                -webkit-mask-image: linear-gradient(to right, black calc(100% - 30px), transparent 100%);
             }
             .bento-grid::-webkit-scrollbar { display: none; }
             .bento-card {
-                flex: 0 0 calc(85% - 16px);
+                flex: 0 0 75%;
                 scroll-snap-align: center;
-                min-height: 180px; /* Reduced further */
+                min-height: 170px;
                 aspect-ratio: auto; 
                 padding: 20px;
-                border-radius: 20px;
+                border-radius: 18px;
             }
-            .card-headline { font-size: 1.1rem; line-height: 1.2; margin-bottom: 6px; }
-            .card-body { font-size: 0.85rem; line-height: 1.35; opacity: 0.85; }
-            .eyebrow { margin-bottom: 6px; font-size: 0.7rem; }
-            .card-top { margin-bottom: 16px; }
-            .card-icon { width: 28px; height: 28px; }
+            .bento-card:last-child {
+                grid-column: unset;
+                max-width: unset;
+                margin: unset;
+            }
+            .card-headline { font-size: 1.05rem; line-height: 1.2; margin-bottom: 6px; }
+            .card-body { font-size: 0.8rem; line-height: 1.35; opacity: 0.85; }
+            .eyebrow { margin-bottom: 4px; font-size: 0.65rem; }
+            .card-top { margin-bottom: 14px; }
+            .card-icon { width: 26px; height: 26px; }
 
-            .welcome-container, .about-card-container { flex-direction: column; border-radius: 24px; }
-            .welcome-content-split, .about-content-split { padding: 32px 20px; text-align: center; align-items: center; }
-            .welcome-headline, .about-headline { font-size: 1.75rem; margin-bottom: 16px; }
-            .welcome-description, .about-description { font-size: 0.9rem; margin-bottom: 24px; line-height: 1.5; }
-            .welcome-image-split, .about-image-split { height: 180px; border-radius: 0 0 24px 24px; }
-            
-            .reviews-slider { 
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                gap: 16px;
-                margin: 0; /* Remove negative margins to respect container padding */
-                padding: 20px 8px 40px 8px; /* Add internal padding to make cards thinner */
-                scrollbar-width: none;
-            }
-            .reviews-slider::-webkit-scrollbar { display: none; }
+            /* Welcome — taller image for better visual impact */
+            .welcome-container, .about-card-container { border-radius: 20px; }
+            .welcome-content-split, .about-content-split { padding: 28px 20px; }
+            .welcome-headline, .about-headline { font-size: 1.6rem; margin-bottom: 12px; }
+            .welcome-description, .about-description { font-size: 0.88rem; margin-bottom: 20px; }
+            .welcome-image-split, .about-image-split { height: 260px; border-radius: 0 0 20px 20px; }
+
+            /* Reviews — full-width swipe */
             .review-card { 
-                flex: 0 0 100%; /* Cards take full width of the narrowed container */
+                flex: 0 0 calc(100% - 16px);
                 scroll-snap-align: center;
                 padding: 20px; 
-                border-radius: 20px; 
+                border-radius: 18px; 
             }
-            .review-text { font-size: 0.85rem; margin-bottom: 16px; }
-            
-            .dental-edu-header { margin-bottom: 16px; align-items: flex-end; }
+            .review-text { font-size: 0.82rem; margin-bottom: 14px; }
 
-            .desktop-only { display: none; }
-            .mobile-break { display: inline; }
+            /* Dental Education */
+            .dental-edu-header { flex-direction: column; align-items: center; gap: 6px; text-align: center; }
             .horizontal-track-simple { gap: 12px; padding: 0 16px; }
-            .insight-card-large { width: 240px; border-radius: 20px; }
+            .insight-card-large { width: 240px; border-radius: 16px; }
             .insight-image-large { height: 140px; }
-            .insight-content { padding: 16px; }
-            .insight-content h4 { font-size: 0.95rem; line-height: 1.3; margin-bottom: 4px; }
-            .read-more-link { font-size: 0.85rem; }
+            .insight-content { padding: 14px; }
+            .insight-content h4 { font-size: 0.9rem; line-height: 1.3; margin-bottom: 4px; }
+            .read-more-link { font-size: 0.82rem; }
         }
+
       `}</style>
         </div>
     );
