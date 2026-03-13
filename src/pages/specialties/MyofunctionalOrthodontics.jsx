@@ -93,8 +93,8 @@ const MyofunctionalOrthodontics = () => {
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Children's Dentistry Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Gentle dental care for children & teens in Petaling Jaya. First visits, preventive care & orthodontic assessment. Book now." />
+                <title>Myobrace for Children Damansara Jaya | iSmile Dental Clinic</title>
+                <meta name="description" content="Myobrace orthodontic treatment for children in Damansara Jaya. Early intervention for jaw development & teeth alignment. Book your child's assessment today." />
             </Helmet>
 
             <div className="tech-hero">
