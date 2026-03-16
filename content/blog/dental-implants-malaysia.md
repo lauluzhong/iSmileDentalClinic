@@ -2,7 +2,7 @@
 title: "Dental Implants in Malaysia: A Complete Guide for Adults"
 category: "Restorative"
 date: "2026-03-16"
-img: "/images/blog/dental-implants-malaysia.png"
+img: "/images/blog/dental-implants-hero.png"
 excerpt: "Considering dental implants in Malaysia? Learn about the procedure, benefits, candidacy, and what to expect from treatment at iSmile Dental Clinic."
 featured: false
 ---
