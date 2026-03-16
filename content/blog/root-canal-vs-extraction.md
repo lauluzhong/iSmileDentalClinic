@@ -9,7 +9,7 @@ featured: false
 
 ### Choosing the Best Path for Your Smile
 
-The words "root canal" often spark fear, leading many patients to ask, "Can't you just pull it?" While extraction might seem like the quicker, cheaper fix in the moment, it often leads to more complex and costly issues down the road.
+The words "root canal" often spark fear, leading many patients to ask, "Can't you just pull it?" While extraction might seem like the quicker, simpler fix in the moment, it often leads to more complex issues down the road.
 
 Our goal is always to help you keep your natural teeth whenever possible. Understanding the trade-offs between these two procedures is key to making a decision you won't regret later.
 

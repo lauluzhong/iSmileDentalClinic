@@ -27,7 +27,7 @@ Private practice offers Saturday or evening appointments, meaning your child doe
 
 ### Investing in Your Child's Future
 
-It's often a balance between cost and convenience. For many working parents, the flexibility and immediate start of private care provide peace of mind that outweighs the savings of the government option.
+It's often a balance between investment and convenience. For many working parents, the flexibility and immediate start of private care provide peace of mind that outweighs the government option.
 
 ### When to Start the Conversation
 
