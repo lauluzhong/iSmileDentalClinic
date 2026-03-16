@@ -2,7 +2,7 @@
 title: "Invisalign in Malaysia: Everything You Need to Know Before Starting"
 category: "Orthodontics"
 date: "2026-03-16"
-img: "/images/blog/invisalign-malaysia.png"
+img: "/images/blog/invisalign-hero.png"
 excerpt: "Considering Invisalign in Malaysia? Discover how clear aligners work, what treatment involves, and why adults are choosing this modern approach to straighter teeth."
 featured: false
 ---
