@@ -1,7 +1,7 @@
 ---
 title: Dental Implants in Malaysia: What You Need to Know Before Starting Treatment
 description: A comprehensive guide to dental implants in Malaysia. Learn about the procedure, benefits, and what to expect from iSmile Dental Clinic.
-img: /images/blog/dental-implants-hero.png
+img: "/images/blog/dental-implants-hero.png"
 category: Restorative
 keywords: dental implants Malaysia, tooth replacement, implant procedure
 date: 2026-03-16
@@ -15,7 +15,7 @@ Dental implants have transformed how we replace missing teeth. Unlike dentures t
 
 ## What Makes Dental Implants Different
 
-When you choose dental implants, you're investing in a solution that mimics nature. The implant itself is a small titanium post surgically placed into your jawbone. Over several months, it fuses with your bone, creating unmatched stability. This integration preserves your jawbone health and prevents the bone loss that typically follows tooth extraction.
+When you choose dental implants, you're choosing a solution that mimics nature. The implant itself is a small titanium post surgically placed into your jawbone. Over several months, it fuses with your bone, creating unmatched stability. This integration preserves your jawbone health and prevents the bone loss that typically follows tooth extraction.
 
 Traditional bridges rely on neighbouring teeth for support, which means those healthy teeth must be reduced. With implants, your adjacent teeth stay completely untouched. This preservation of natural tooth structure is one of the most significant advantages.
 
@@ -27,13 +27,13 @@ The journey begins with a thorough examination and 3D imaging to assess your bon
 
 The surgical placement itself is performed under local anesthesia, so you won't feel pain during the procedure. Most patients compare it to a routine extraction—uncomfortable, but manageable.
 
-After placement, healing takes time. The implant needs three to six months to integrate with your jawbone. During this period, we'll provide temporary teeth so you can eat and speak normally.
+After placement, healing takes time. The implant needs time to integrate with your jawbone. During this period, we'll provide temporary teeth so you can eat and speak normally.
 
 Finally, once healing is complete, your custom-made crown is attached. This crown is meticulously designed to match your natural teeth in colour, shape, and function.
 
 ## Why Quality Matters
 
-Dental implants are a significant investment in your oral health. The materials used, the technology employed, and the expertise of your dental team all contribute to long-term success.
+Dental implants are a significant decision for your oral health. The materials used, the technology employed, and the expertise of your dental team all contribute to long-term success.
 
 At iSmile Dental Clinic, we use internationally certified implant systems with proven track records. Our digital workflow ensures precision planning and predictable outcomes. Every step follows evidence-based protocols designed for your safety and satisfaction.
 
