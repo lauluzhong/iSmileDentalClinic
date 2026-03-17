@@ -2,7 +2,7 @@
 title: "Dental Implants in Malaysia: What You Need to Know"
 category: "Restorative"
 date: "2026-03-17"
-img: "/images/blog/dentist_xray.png"
+img: "/images/blog/asian_couple_40s.png"
 excerpt: "Thinking about dental implants in Malaysia? Here's what the procedure involves, who makes a good candidate, and what to expect during recovery."
 featured: false
 ---
