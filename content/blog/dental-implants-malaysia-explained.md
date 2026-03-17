@@ -1,7 +1,7 @@
 ---
 title: "Dental Implants in Malaysia: What You Need to Know Before Starting Treatment"
 description: "A comprehensive guide to dental implants in Malaysia. Learn about the procedure, benefits, and what to expect from iSmile Dental Clinic."
-img: "/images/blog/dental-implants-hero.png"
+img: "/images/blog/dental-implants-hero.jpg"
 category: "Restorative"
 keywords: "dental implants Malaysia, tooth replacement, implant procedure"
 date: "2026-03-16"
