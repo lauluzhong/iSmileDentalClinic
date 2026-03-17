@@ -31,10 +31,39 @@ if (files.length === 0) {
   process.exit(0);
 }
 
+// Validate frontmatter: warn on unquoted values with colons
+function validateFrontmatter(filename, frontmatter) {
+  const raw = fs.readFileSync(path.join(CONTENT_DIR, filename), 'utf-8');
+  const frontmatterMatch = raw.match(/^---\n([\s\S]*?)\n---/);
+  
+  if (!frontmatterMatch) return;
+  
+  const frontmatterBlock = frontmatterMatch[1];
+  const lines = frontmatterBlock.split('\n');
+  
+  for (const line of lines) {
+    // Check for unquoted values containing colons (common YAML error)
+    const match = line.match(/^(\w+):\s*(.+)$/);
+    if (match) {
+      const [, key, value] = match;
+      // If value contains colon but isn't quoted, that's an error
+      if (value.includes(':') && !value.startsWith('"') && !value.startsWith("'")) {
+        throw new Error(
+          `YAML Error in ${filename}: "${key}" contains unquoted colon. ` +
+          `Fix: wrap in quotes like ${key}: "${value}"`
+        );
+      }
+    }
+  }
+}
+
 const blogIndex = files.map(filename => {
   const slug = filename.replace('.md', '');
   const raw = fs.readFileSync(path.join(CONTENT_DIR, filename), 'utf-8');
   const { data: frontmatter, content: markdownBody } = matter(raw);
+
+  // Validate frontmatter before processing
+  validateFrontmatter(filename, frontmatter);
 
   const htmlContent = marked(markdownBody);
 
