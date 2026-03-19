@@ -26,7 +26,8 @@ const ServicesLanding = () => {
         <div className="services-landing">
             <Helmet>
                 <title>Dental Services Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Comprehensive dental services in Petaling Jaya — preventive, restorative, orthodontic & cosmetic treatments for the whole family." />
+                <meta name="description" content="Explore comprehensive dental services in Petaling Jaya — preventive, restorative, orthodontic & cosmetic treatments for children, adults & families at iSmile Clinic." />
+                <link rel="canonical" href="https://ismile.com.my/services" />
             </Helmet>
 
             {/* Hero Section */}

@@ -66,7 +66,8 @@ const Home = () => {
         <div className="home-page" style={{ background: 'linear-gradient(180deg, #FFFFFF 0%, #eff6ff 100%)', minHeight: '100vh' }}>
             <Helmet>
                 <title>iSmile Dental Clinic Petaling Jaya | Family Dentist in Damansara Jaya</title>
-                <meta name="description" content="iSmile Dental Clinic Petaling Jaya - Gentle, patient-centred dental care for children, adults & families. Book your visit today." />
+                <meta name="description" content="iSmile Dental Clinic in Damansara Jaya, Petaling Jaya — gentle, patient-centred dental care for children, adults & families. Book your visit today." />
+                <link rel="canonical" href="https://ismile.com.my/" />
             </Helmet>
 
             {/* 1. Hero Section */}

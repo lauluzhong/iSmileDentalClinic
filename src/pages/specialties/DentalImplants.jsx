@@ -94,7 +94,8 @@ const DentalImplants = () => {
         <div className="specialty-page">
             <Helmet>
                 <title>Dental Implants Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Replace missing teeth with dental implants in Petaling Jaya. Restore your smile with lasting results. Book your visit." />
+                <meta name="description" content="Replace missing teeth with permanent dental implants at iSmile Clinic, Damansara Jaya. Bio-compatible titanium implants for a natural-looking, lasting smile." />
+                <link rel="canonical" href="https://ismile.com.my/services/replace/dental-implants" />
             </Helmet>
 
             <div className="tech-hero">
