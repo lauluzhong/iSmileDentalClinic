@@ -99,7 +99,8 @@ const Reviews = () => {
         <div className="reviews-page">
             <Helmet>
                 <title>Patient Reviews | iSmile Dental Clinic Petaling Jaya</title>
-                <meta name="description" content="See what our patients say about their experience at iSmile Dental Clinic Petaling Jaya." />
+                <meta name="description" content="Read genuine patient reviews for iSmile Dental Clinic in Damansara Jaya. See why families trust us for gentle, professional dental care." />
+                <link rel="canonical" href="https://ismile.com.my/reviews" />
             </Helmet>
             <div className="reviews-hero-gradient" style={{
                 background: 'linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 50%, #dcfce7 100%)',

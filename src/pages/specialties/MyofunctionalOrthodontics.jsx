@@ -93,8 +93,9 @@ const MyofunctionalOrthodontics = () => {
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Myobrace for Children Damansara Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Myobrace orthodontic treatment for children in Damansara Jaya. Early intervention for jaw development & teeth alignment. Book your child's assessment today." />
+                <title>Myobrace for Children Petaling Jaya | iSmile Dental Clinic</title>
+                <meta name="description" content="Myobrace orthodontic treatment for children in Damansara Jaya, Petaling Jaya. Early intervention for healthy jaw development & natural teeth alignment." />
+                <link rel="canonical" href="https://ismile.com.my/services/children/myobrace" />
             </Helmet>
 
             <div className="tech-hero">

@@ -93,8 +93,9 @@ const RootCanalTreatment = () => {
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Dental Services Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Comprehensive dental services in Petaling Jaya — preventive, restorative, orthodontic & cosmetic treatments for the whole family." />
+                <title>Root Canal Treatment Petaling Jaya | iSmile Dental Clinic</title>
+                <meta name="description" content="Save your infected tooth with gentle root canal treatment at iSmile Clinic, Damansara Jaya. Pain-free endodontic care using modern technology & techniques." />
+                <link rel="canonical" href="https://ismile.com.my/services/protect/root-canal" />
             </Helmet>
 
             <div className="tech-hero">

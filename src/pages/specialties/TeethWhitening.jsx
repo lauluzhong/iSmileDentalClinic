@@ -93,8 +93,9 @@ const TeethWhitening = () => {
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Dental Services Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Comprehensive dental services in Petaling Jaya — preventive, restorative, orthodontic & cosmetic treatments for the whole family." />
+                <title>Teeth Whitening Petaling Jaya | iSmile Dental Clinic</title>
+                <meta name="description" content="Professional teeth whitening in Petaling Jaya at iSmile Clinic, Damansara Jaya. Take-home trays & in-clinic treatments for a brighter, whiter smile safely." />
+                <link rel="canonical" href="https://ismile.com.my/services/enhance/teeth-whitening" />
             </Helmet>
 
             <div className="tech-hero">

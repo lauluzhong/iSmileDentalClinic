@@ -67,7 +67,8 @@ const ClearAligners = () => {
         <div className="specialty-page">
             <Helmet>
                 <title>Clear Aligners Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Straighten your smile with clear aligners in Petaling Jaya. Custom treatment plans for adults & teens. Book your visit." />
+                <meta name="description" content="Straighten your teeth discreetly with clear aligners (Invisalign / Angel / ClearSmile) at iSmile Clinic, Damansara Jaya. Custom plans for adults & teens." />
+                <link rel="canonical" href="https://ismile.com.my/services/straighten/clear-aligners" />
             </Helmet>
 
             <div className="tech-hero">
