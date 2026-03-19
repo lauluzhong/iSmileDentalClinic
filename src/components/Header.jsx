@@ -46,6 +46,14 @@ const Header = () => {
             name: 'Our Services', path: '/services',
             
             dropdown: [
+                { name: 'Clear Aligners / Invisalign', path: '/services/straighten/clear-aligners' },
+                { name: 'Dental Implants', path: '/services/replace/dental-implants' },
+                { name: 'Myofunctional Orthodontics (Myobrace)', path: '/services/children/myobrace' },
+                { name: 'Cosmetic Dentistry', path: '/services/enhance/cosmetic-dentistry' },
+                { name: 'Crowns & Bridges', path: '/services/protect/root-canal' },
+                { name: 'Wisdom Tooth / Oral Surgery', path: '/services/protect/wisdom-tooth' },
+                { name: 'Pediatric Dentistry', path: '/services/children/pediatric-dentistry' },
+                { divider: true },
                 { name: 'Protect & Repair', path: '/services/protect' },
                 { name: 'Straighten Teeth', path: '/services/straighten' },
                 { name: 'Replace Teeth', path: '/services/replace' },
@@ -164,14 +172,18 @@ const Header = () => {
                                     {/* Dropdown Menu */}
                                     {link.dropdown && (
                                         <div className={`dropdown-menu ${activeDropdown === link.name ? 'active' : ''}`}>
-                                            {link.dropdown.map((item) => (
-                                                <div
-                                                    key={item.name}
-                                                    className="dropdown-item"
-                                                    onClick={() => handleDropdownClick(link.path, item.hash || item.path)}
-                                                >
-                                                    {item.name}
-                                                </div>
+                                            {link.dropdown.map((item, i) => (
+                                                item.divider ? (
+                                                    <div key={`divider-${i}`} className="dropdown-divider" />
+                                                ) : (
+                                                    <div
+                                                        key={item.name}
+                                                        className="dropdown-item"
+                                                        onClick={() => handleDropdownClick(link.path, item.hash || item.path)}
+                                                    >
+                                                        {item.name}
+                                                    </div>
+                                                )
                                             ))}
                                         </div>
                                     )}
@@ -281,7 +293,7 @@ const Header = () => {
                                         )}
 
                                         <ul className="mobile-nav-list">
-                                            {activeSubmenuData?.dropdown?.map((subItem) => (
+                                            {activeSubmenuData?.dropdown?.filter(item => !item.divider).map((subItem) => (
                                                 <li key={subItem.name} className="mobile-nav-item">
                                                     <span
                                                         onClick={() => handleDropdownClick(activeSubmenuData.path, subItem.hash || subItem.path)}
@@ -417,6 +429,12 @@ const Header = () => {
         .dropdown-item:hover {
             background: var(--color-tint-blue);
             color: var(--color-primary);
+        }
+
+        .dropdown-divider {
+            height: 1px;
+            background: rgba(0,0,0,0.08);
+            margin: 8px 0;
         }
 
         .mobile-toggle {

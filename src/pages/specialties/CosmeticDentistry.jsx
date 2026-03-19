@@ -1,10 +1,10 @@
 import { Helmet } from 'react-helmet-async';
 import { useBooking } from '../../context/BookingContext';
 import React, { useEffect } from 'react';
-import { Shield, CheckCircle, HelpCircle, Sparkles } from 'lucide-react';
+import { Shield, CheckCircle, HelpCircle, Star } from 'lucide-react';
 import Button from '../../components/Button';
 
-const ClearAligners = () => {
+const CosmeticDentistry = () => {
     const { openBooking } = useBooking();
     
     useEffect(() => {
@@ -16,18 +16,18 @@ const ClearAligners = () => {
         const serviceSchema = {
             "@context": "https://schema.org",
             "@type": "MedicalProcedure",
-            "name": "Clear Aligners",
-            "description": "Modern orthodontic solution using custom-made transparent plastic trays to gradually shift teeth into alignment.",
+            "name": "Cosmetic Dentistry",
+            "description": "Transform your smile with veneers, smile design, and aesthetic dental treatments at iSmile Dental Clinic Petaling Jaya.",
             "provider": {
                 "@type": "Dentist",
                 "name": "iSmile Dental Clinic",
-                "url": "https://ismile.com.my/services/straighten"
+                "url": "https://ismile.com.my/services/enhance"
             },
             "areaServed": {
                 "@type": "Place",
                 "name": "Petaling Jaya, Selangor"
             },
-            "url": "https://ismile.com.my/services/straighten"
+            "url": "https://ismile.com.my/services/enhance/cosmetic-dentistry"
         };
         
         const script = document.createElement('script');
@@ -39,6 +39,29 @@ const ClearAligners = () => {
             document.head.removeChild(script);
         };
     }, []);
+
+    const faqs = [
+        {
+            "q": "What's the difference between composite and ceramic veneers?",
+            "a": "Composite veneers are directly bonded in a single visit and can be repaired easily. Ceramic veneers are lab-made from porcelain for superior aesthetics, durability, and stain resistance. Your dentist will recommend the best option based on your goals and tooth condition."
+        },
+        {
+            "q": "How long do veneers last?",
+            "a": "With proper care, ceramic veneers can last 10-15 years or longer. Composite veneers typically last 5-7 years before requiring maintenance or replacement."
+        },
+        {
+            "q": "Do veneers require tooth reduction?",
+            "a": "Minimally invasive protocols mean we preserve as much natural tooth structure as possible. Composite veneers often require little to no reduction, while ceramic veneers may require a thin layer (0.3-0.5mm) for optimal fit and aesthetics."
+        },
+        {
+            "q": "Can I see how my new smile will look before committing?",
+            "a": "Yes. We offer a 'Trial Smile' mock-up process where you can preview and feel your new smile before any treatment begins. This ensures complete confidence in the final result."
+        },
+        {
+            "q": "Is cosmetic dentistry only about aesthetics?",
+            "a": "Not at iSmile. Our cosmetic treatments are designed with function in mind. We analyze bite forces, jaw alignment, and facial harmony to ensure your new smile is as healthy as it is beautiful."
+        }
+    ];
 
     // Add FAQ schema for SEO
     useEffect(() => {
@@ -65,42 +88,19 @@ const ClearAligners = () => {
         };
     }, []);
 
-    const faqs = [
-        {
-            "q": "How many hours a day must I wear them?",
-            "a": "For clinical success, 20\u201322 hours per day is required. They should only be removed for eating, drinking (except water), and oral hygiene."
-        },
-        {
-            "q": "Does it affect speech?",
-            "a": "A minor lisp may occur for the first 48 hours as the tongue adapts to the aligner thickness, but this typically resolves quickly."
-        },
-        {
-            "q": "Can I eat with them?",
-            "a": "No, aligners must be removed during meals to prevent staining, damage, and ensuring proper oral hygiene."
-        },
-        {
-            "q": "Are aligners suitable for all cases?",
-            "a": "While aligners can treat most orthodontic issues, some complex bone-level corrections may still require traditional braces. Our doctors will provide a detailed assessment using 3D scanning."
-        },
-        {
-            "q": "How do I clean my aligners?",
-            "a": "Rinse them with lukewarm water and brush them gently with a soft toothbrush. Avoid hot water as it can warp the plastic."
-        }
-    ];
-
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Clear Aligners Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Straighten your teeth discreetly with clear aligners (Invisalign / Angel / ClearSmile) at iSmile Clinic, Damansara Jaya. Custom plans for adults & teens." />
-                <link rel="canonical" href="https://ismile.com.my/services/straighten/clear-aligners" />
+                <title>Cosmetic Dentistry Petaling Jaya | iSmile Dental Clinic</title>
+                <meta name="description" content="Transform your smile with cosmetic dentistry at iSmile Clinic, Damansara Jaya. Ceramic & composite veneers, smile design, and full mouth rehabilitation." />
+                <link rel="canonical" href="https://ismile.com.my/services/enhance/cosmetic-dentistry" />
             </Helmet>
 
             <div className="tech-hero">
                 <div className="container">
-                    <div className="tech-badge"><Shield size={16} /> Technical Deep-Dive</div>
-                    <h1>Clear Aligners <span className="h1-sub">Petaling Jaya | iSmile Dental Clinic</span></h1>
-                    <p className="lead">A modern orthodontic solution using a series of custom-made, transparent plastic trays to gradually shift teeth into alignment without the need for traditional braces. We offer Invisalign, Angel, and ClearSmile aligner systems.</p>
+                    <div className="tech-badge"><Star size={16} /> Smile Design</div>
+                    <h1>Cosmetic Dentistry <span className="h1-sub">Petaling Jaya | iSmile Dental Clinic</span></h1>
+                    <p className="lead">Design your dream smile with aesthetic dental treatments tailored to your unique facial features. From veneers to full mouth rehabilitation, we combine art and science for results that look natural and function beautifully.</p>
                 </div>
             </div>
 
@@ -108,35 +108,41 @@ const ClearAligners = () => {
                 <div className="container">
                     <div className="tech-grid">
                         <div className="tech-info">
-                            <h2>The Science & Tech</h2>
-                            <p>We leverage advanced clinical protocols and digital technology to provide predictable, high-quality outcomes for our patients.</p>
+                            <h2>The Art & Science</h2>
+                            <p>True cosmetic dentistry goes beyond just 'white teeth'. We analyze and design a smile with function in mind that is pleasing and harmonious with your facial features.</p>
 
                             <div className="tech-feature-list">
 
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
-                                        <h4>Advanced Aligner Material</h4>
-                                        <p>Utilizes specialized multi-layer medical-grade materials designed for constant, gentle force and superior control of tooth movements.</p>
+                                        <h4>Smile Analysis</h4>
+                                        <p>We evaluate tooth proportions, gum display, lip support, and facial symmetry to create a smile that is uniquely yours.</p>
                                     </div>
                                 </div>
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
-                                        <h4>Digital Workflow</h4>
-                                        <p>High-precision 3D intraoral scanning eliminates the need for messy impressions and allows for precise treatment planning.</p>
+                                        <h4>Trial Smile Mock-ups</h4>
+                                        <p>Preview your new smile before any treatment. See and feel how it looks in your mouth, then approve before we proceed.</p>
+                                    </div>
+                                </div>
+                                <div className="tech-feature">
+                                    <div className="feature-icon"><CheckCircle size={20} /></div>
+                                    <div className="feature-text">
+                                        <h4>Minimally Invasive Protocols</h4>
+                                        <p>We preserve natural tooth structure wherever possible. Composite veneers often require little to no reduction.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="tech-meta glass-panel">
-                            <h3>Clinical Workflow</h3>
+                            <h3>Treatment Options</h3>
                             <ul className="step-list">
-                                <li><span>01</span> 3D Intraoral Scanning & Digital Impressions</li>
-                                <li><span>02</span> Advanced Digital Treatment Planning</li>
-                                <li><span>03</span> Custom Aligner Fabrication & Delivery</li>
-                                <li><span>04</span> Precision Attachment Placement</li>
-                                <li><span>05</span> Monitoring & Periodic Progress Tracking</li>
+                                <li><span>01</span> Composite Veneers — Direct bonding, single visit</li>
+                                <li><span>02</span> Ceramic Veneers — Lab-made, superior aesthetics</li>
+                                <li><span>03</span> All-Ceramic Crowns — Strength and beauty combined</li>
+                                <li><span>04</span> Full Mouth Rehabilitation — Complete transformation</li>
 
                             </ul>
                         </div>
@@ -160,9 +166,9 @@ const ClearAligners = () => {
 
             <section className="section-padding text-center">
                 <div className="container">
-                    <h2>Consult with our dentists today</h2>
-                    <p className="mb-4">Get a professional assessment based on your unique dental structure.</p>
-                    <Button onClick={() => openBooking('Interested in Clear Aligners', 'specialty-clear-aligners')}>Book Consultation</Button>
+                    <h2>Design your perfect smile</h2>
+                    <p className="mb-4">Book a cosmetic consultation to explore your options.</p>
+                    <Button onClick={() => openBooking('Interested in Cosmetic Dentistry', 'specialty-cosmetic-dentistry')}>Book Consultation</Button>
                 </div>
             </section>
 
@@ -217,4 +223,4 @@ const ClearAligners = () => {
     );
 };
 
-export default ClearAligners;
+export default CosmeticDentistry;
