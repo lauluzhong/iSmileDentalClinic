@@ -38,6 +38,7 @@ const Header = () => {
             name: 'About Us',
             path: '/about',
             dropdown: [
+                { name: 'Our Journey', hash: '#journey' },
                 { name: 'Our Founder', hash: '#founder' },
                 { name: 'Our Team', hash: '#team' }
             ]
@@ -46,9 +47,17 @@ const Header = () => {
             name: 'Our Services', path: '/services',
             
             dropdown: [
-                { name: 'Protect & Repair', path: '/services/protect' },
+                { label: "Featured Services" },
+                { name: 'Myofunctional Orthodontics', path: '/services/children/myobrace' },
+                { name: 'Clear Aligners (Invisalign)', path: '/services/straighten/clear-aligners' },
+                { name: 'Dental Implants', path: '/services/replace/dental-implants' },
+                { name: 'Crowns & Bridges', path: '/services/protect/root-canal' },
+                { name: 'Cosmetic Dentistry', path: '/services/enhance/cosmetic-dentistry' },
+                { divider: true },
+                { label: "All Services" },
                 { name: 'Straighten Teeth', path: '/services/straighten' },
                 { name: 'Replace Teeth', path: '/services/replace' },
+                { name: 'Protect & Repair', path: '/services/protect' },
                 { name: 'Enhance Smile', path: '/services/enhance' },
                 { name: 'Children & Growth', path: '/services/children' },
             ]
@@ -164,14 +173,20 @@ const Header = () => {
                                     {/* Dropdown Menu */}
                                     {link.dropdown && (
                                         <div className={`dropdown-menu ${activeDropdown === link.name ? 'active' : ''}`}>
-                                            {link.dropdown.map((item) => (
-                                                <div
-                                                    key={item.name}
-                                                    className="dropdown-item"
-                                                    onClick={() => handleDropdownClick(link.path, item.hash || item.path)}
-                                                >
-                                                    {item.name}
-                                                </div>
+                                            {link.dropdown.map((item, i) => (
+                                                item.label ? (
+                                                    <div key={item.label} className="dropdown-label">{item.label}</div>
+                                                ) : item.divider ? (
+                                                    <div key={`divider-${i}`} className="dropdown-divider" />
+                                                ) : (
+                                                    <div
+                                                        key={item.name}
+                                                        className="dropdown-item"
+                                                        onClick={() => handleDropdownClick(link.path, item.hash || item.path)}
+                                                    >
+                                                        {item.name}
+                                                    </div>
+                                                )
                                             ))}
                                         </div>
                                     )}
@@ -281,16 +296,24 @@ const Header = () => {
                                         )}
 
                                         <ul className="mobile-nav-list">
-                                            {activeSubmenuData?.dropdown?.map((subItem) => (
-                                                <li key={subItem.name} className="mobile-nav-item">
-                                                    <span
-                                                        onClick={() => handleDropdownClick(activeSubmenuData.path, subItem.hash || subItem.path)}
-                                                        className="mobile-nav-link-header"
-                                                        style={{ fontWeight: '500', color: '#475569', fontSize: '1.1rem' }}
-                                                    >
-                                                        {subItem.name}
-                                                    </span>
-                                                </li>
+                                            {activeSubmenuData?.dropdown?.filter(item => !item.divider).map((subItem) => (
+                                                subItem.label ? (
+                                                    <li key={subItem.label} className="mobile-nav-item" style={{ paddingTop: '16px' }}>
+                                                        <span style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#94a3b8' }}>
+                                                            {subItem.label}
+                                                        </span>
+                                                    </li>
+                                                ) : (
+                                                    <li key={subItem.name} className="mobile-nav-item">
+                                                        <span
+                                                            onClick={() => handleDropdownClick(activeSubmenuData.path, subItem.hash || subItem.path)}
+                                                            className="mobile-nav-link-header"
+                                                            style={{ fontWeight: '500', color: '#475569', fontSize: '1.1rem' }}
+                                                        >
+                                                            {subItem.name}
+                                                        </span>
+                                                    </li>
+                                                )
                                             ))}
                                         </ul>
                                     </motion.div>
@@ -417,6 +440,22 @@ const Header = () => {
         .dropdown-item:hover {
             background: var(--color-tint-blue);
             color: var(--color-primary);
+        }
+
+        .dropdown-divider {
+            height: 1px;
+            background: rgba(0,0,0,0.08);
+            margin: 8px 0;
+        }
+
+        .dropdown-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #94a3b8;
+            padding: 12px 15px 4px;
+            pointer-events: none;
         }
 
         .mobile-toggle {

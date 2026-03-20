@@ -1,10 +1,10 @@
 import { Helmet } from 'react-helmet-async';
 import { useBooking } from '../../context/BookingContext';
 import React, { useEffect } from 'react';
-import { Shield, CheckCircle, HelpCircle, Sparkles } from 'lucide-react';
+import { Shield, CheckCircle, HelpCircle, Users } from 'lucide-react';
 import Button from '../../components/Button';
 
-const ClearAligners = () => {
+const PediatricDentistry = () => {
     const { openBooking } = useBooking();
     
     useEffect(() => {
@@ -16,18 +16,18 @@ const ClearAligners = () => {
         const serviceSchema = {
             "@context": "https://schema.org",
             "@type": "MedicalProcedure",
-            "name": "Clear Aligners",
-            "description": "Modern orthodontic solution using custom-made transparent plastic trays to gradually shift teeth into alignment.",
+            "name": "Pediatric Dentistry",
+            "description": "Gentle dental care for children in Petaling Jaya. First dental visits, preventive treatments, and child-friendly care at iSmile Dental Clinic.",
             "provider": {
                 "@type": "Dentist",
                 "name": "iSmile Dental Clinic",
-                "url": "https://ismile.com.my/services/straighten"
+                "url": "https://ismile.com.my/services/children"
             },
             "areaServed": {
                 "@type": "Place",
                 "name": "Petaling Jaya, Selangor"
             },
-            "url": "https://ismile.com.my/services/straighten"
+            "url": "https://ismile.com.my/services/children/pediatric-dentistry"
         };
         
         const script = document.createElement('script');
@@ -39,6 +39,29 @@ const ClearAligners = () => {
             document.head.removeChild(script);
         };
     }, []);
+
+    const faqs = [
+        {
+            "q": "When should my child have their first dental visit?",
+            "a": "The first dental visit should occur by age 1 or within 6 months of the first tooth appearing. Early visits help your child become comfortable with the dental environment and allow us to monitor growth and development from the start."
+        },
+        {
+            "q": "Are baby teeth really that important?",
+            "a": "Yes. Baby teeth hold space for adult teeth, guide proper chewing and speech development, and affect your child's confidence. Untreated decay in baby teeth can also lead to infection and affect developing adult teeth underneath."
+        },
+        {
+            "q": "What are fissure sealants?",
+            "a": "Fissure sealants are thin protective coatings applied to the chewing surfaces of back teeth (molars) where cavities commonly form. They fill in the grooves and pits, creating a smooth surface that is easier to clean and protected from plaque and food particles."
+        },
+        {
+            "q": "Is fluoride treatment safe for children?",
+            "a": "Yes. Professional topical fluoride strengthens tooth enamel and makes it more resistant to cavities. We use age-appropriate concentrations and amounts that are both safe and effective for your child's developmental stage."
+        },
+        {
+            "q": "How can I help my child feel comfortable at the dentist?",
+            "a": "Start young, keep conversations positive, and avoid using words like 'pain' or 'shot.' At iSmile, we create a fun, judgment-free environment where children learn to see dental visits as a normal part of staying healthy."
+        }
+    ];
 
     // Add FAQ schema for SEO
     useEffect(() => {
@@ -65,42 +88,19 @@ const ClearAligners = () => {
         };
     }, []);
 
-    const faqs = [
-        {
-            "q": "How many hours a day must I wear them?",
-            "a": "For clinical success, 20\u201322 hours per day is required. They should only be removed for eating, drinking (except water), and oral hygiene."
-        },
-        {
-            "q": "Does it affect speech?",
-            "a": "A minor lisp may occur for the first 48 hours as the tongue adapts to the aligner thickness, but this typically resolves quickly."
-        },
-        {
-            "q": "Can I eat with them?",
-            "a": "No, aligners must be removed during meals to prevent staining, damage, and ensuring proper oral hygiene."
-        },
-        {
-            "q": "Are aligners suitable for all cases?",
-            "a": "While aligners can treat most orthodontic issues, some complex bone-level corrections may still require traditional braces. Our doctors will provide a detailed assessment using 3D scanning."
-        },
-        {
-            "q": "How do I clean my aligners?",
-            "a": "Rinse them with lukewarm water and brush them gently with a soft toothbrush. Avoid hot water as it can warp the plastic."
-        }
-    ];
-
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Clear Aligners Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Straighten your teeth discreetly with clear aligners (Invisalign / Angel / ClearSmile) at iSmile Clinic, Damansara Jaya. Custom plans for adults & teens." />
-                <link rel="canonical" href="https://ismile.com.my/services/straighten/clear-aligners" />
+                <title>Pediatric Dentistry Petaling Jaya | iSmile Dental Clinic</title>
+                <meta name="description" content="Gentle dental care for children in Damansara Jaya, Petaling Jaya. First dental visits, fissure sealants, fluoride treatment & child-friendly care." />
+                <link rel="canonical" href="https://ismile.com.my/services/children/pediatric-dentistry" />
             </Helmet>
 
             <div className="tech-hero">
                 <div className="container">
-                    <div className="tech-badge"><Shield size={16} /> Technical Deep-Dive</div>
-                    <h1>Clear Aligners <span className="h1-sub">Petaling Jaya | iSmile Dental Clinic</span></h1>
-                    <p className="lead">A modern orthodontic solution using a series of custom-made, transparent plastic trays to gradually shift teeth into alignment without the need for traditional braces. We offer Invisalign, Angel, and ClearSmile aligner systems.</p>
+                    <div className="tech-badge"><Users size={16} /> Children's Dentistry</div>
+                    <h1>Pediatric Dentistry <span className="h1-sub">Petaling Jaya | iSmile Dental Clinic</span></h1>
+                    <p className="lead">Gentle, trauma-free dental care for children from their very first tooth onwards. We focus on prevention, education, and creating positive dental experiences that last a lifetime.</p>
                 </div>
             </div>
 
@@ -108,35 +108,42 @@ const ClearAligners = () => {
                 <div className="container">
                     <div className="tech-grid">
                         <div className="tech-info">
-                            <h2>The Science & Tech</h2>
-                            <p>We leverage advanced clinical protocols and digital technology to provide predictable, high-quality outcomes for our patients.</p>
+                            <h2>Prevention is Key</h2>
+                            <p>Our pediatric approach focuses on early intervention, prevention, and building healthy habits from a young age so your child can maintain a healthy smile for life.</p>
 
                             <div className="tech-feature-list">
 
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
-                                        <h4>Advanced Aligner Material</h4>
-                                        <p>Utilizes specialized multi-layer medical-grade materials designed for constant, gentle force and superior control of tooth movements.</p>
+                                        <h4>Fissure Sealants</h4>
+                                        <p>Protective coatings on back teeth to prevent decay in grooves and pits where cavities commonly form. A painless, quick procedure that provides years of protection.</p>
                                     </div>
                                 </div>
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
-                                        <h4>Digital Workflow</h4>
-                                        <p>High-precision 3D intraoral scanning eliminates the need for messy impressions and allows for precise treatment planning.</p>
+                                        <h4>Topical Fluoride</h4>
+                                        <p>Strengthening enamel to make teeth more resistant to cavities. Applied professionally at cleanings for optimal coverage and protection.</p>
+                                    </div>
+                                </div>
+                                <div className="tech-feature">
+                                    <div className="feature-icon"><CheckCircle size={20} /></div>
+                                    <div className="feature-text">
+                                        <h4>Child-Friendly Environment</h4>
+                                        <p>We take time to build trust with your child. No rush, no judgment—just a positive, fun experience that makes them excited about dental health.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="tech-meta glass-panel">
-                            <h3>Clinical Workflow</h3>
+                            <h3>Children's Services</h3>
                             <ul className="step-list">
-                                <li><span>01</span> 3D Intraoral Scanning & Digital Impressions</li>
-                                <li><span>02</span> Advanced Digital Treatment Planning</li>
-                                <li><span>03</span> Custom Aligner Fabrication & Delivery</li>
-                                <li><span>04</span> Precision Attachment Placement</li>
-                                <li><span>05</span> Monitoring & Periodic Progress Tracking</li>
+                                <li><span>01</span> First Dental Visit & Assessment</li>
+                                <li><span>02</span> Fissure Sealants</li>
+                                <li><span>03</span> Topical Fluoride Treatment</li>
+                                <li><span>04</span> Paediatric Fillings</li>
+                                <li><span>05</span> Baby Tooth Extraction</li>
 
                             </ul>
                         </div>
@@ -160,9 +167,9 @@ const ClearAligners = () => {
 
             <section className="section-padding text-center">
                 <div className="container">
-                    <h2>Consult with our dentists today</h2>
-                    <p className="mb-4">Get a professional assessment based on your unique dental structure.</p>
-                    <Button onClick={() => openBooking('Interested in Clear Aligners', 'specialty-clear-aligners')}>Book Consultation</Button>
+                    <h2>Start your child on a healthy smile</h2>
+                    <p className="mb-4">Book their first visit and set them up for a lifetime of great dental health.</p>
+                    <Button onClick={() => openBooking('Pediatric Dentistry for my child', 'specialty-pediatric-dentistry')}>Book Consultation</Button>
                 </div>
             </section>
 
@@ -217,4 +224,4 @@ const ClearAligners = () => {
     );
 };
 
-export default ClearAligners;
+export default PediatricDentistry;

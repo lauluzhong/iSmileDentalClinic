@@ -38,28 +38,24 @@ const DentalImplants = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    // Add Service schema for SEO
+    // Add FAQ schema for SEO
     useEffect(() => {
-        const serviceSchema = {
+        const faqSchema = {
             "@context": "https://schema.org",
-            "@type": "MedicalProcedure",
-            "name": "Dental Implants",
-            "description": "Bio-compatible titanium dental implants at iSmile Dental Clinic Petaling Jaya",
-            "provider": {
-                "@type": "Dentist",
-                "name": "iSmile Dental Clinic",
-                "url": "https://ismile.com.my/services/replace"
-            },
-            "areaServed": {
-                "@type": "Place",
-                "name": "Petaling Jaya, Selangor"
-            },
-            "url": "https://ismile.com.my/services/replace"
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+                "@type": "Question",
+                "name": faq.q,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": faq.a
+                }
+            }))
         };
         
         const script = document.createElement('script');
         script.type = 'application/ld+json';
-        script.innerHTML = JSON.stringify(serviceSchema);
+        script.innerHTML = JSON.stringify(faqSchema);
         document.head.appendChild(script);
         
         return () => {

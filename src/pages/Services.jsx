@@ -15,6 +15,8 @@ import DentalImplants from './specialties/DentalImplants';
 import TeethWhitening from './specialties/TeethWhitening';
 import RootCanalTreatment from './specialties/RootCanalTreatment';
 import MyofunctionalOrthodontics from './specialties/MyofunctionalOrthodontics';
+import CosmeticDentistry from './specialties/CosmeticDentistry';
+import PediatricDentistry from './specialties/PediatricDentistry';
 
 const ServiceHub = () => {
     const { openBooking } = useBooking();
@@ -578,6 +580,8 @@ const Services = () => {
             <Route path="replace/dental-implants" element={<DentalImplants />} />
             <Route path="enhance/teeth-whitening" element={<TeethWhitening />} />
             <Route path="children/myobrace" element={<MyofunctionalOrthodontics />} />
+            <Route path="enhance/cosmetic-dentistry" element={<CosmeticDentistry />} />
+            <Route path="children/pediatric-dentistry" element={<PediatricDentistry />} />
         </Routes>
     );
 };

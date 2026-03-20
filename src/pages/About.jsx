@@ -270,6 +270,7 @@ const About = () => {
 
                 .journey-section {
                     padding-bottom: 120px;
+                    scroll-margin-top: 120px;
                 }
 
                 .section-title {
@@ -337,6 +338,7 @@ const About = () => {
                 .founder-section-dark {
                     background: #1a202c;
                     padding: 120px 0;
+                    scroll-margin-top: 120px;
                 }
 
                 .founder-card-dark {
@@ -401,6 +403,7 @@ const About = () => {
                 /* Team Section */
                 .team-section {
                     background: #f8fafc;
+                    scroll-margin-top: 120px;
                 }
 
                 .team-grid {
