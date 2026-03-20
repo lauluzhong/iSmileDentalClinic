@@ -2,6 +2,7 @@
 title: "Myobrace vs Invisalign Malaysia: What's the Difference and Which Does My Child Actually Need?"
 category: "Orthodontics"
 date: "2026-03-20"
+img: "/images/blog/myobrace-hero.png"
 excerpt: "Confused between Myobrace and Invisalign for your child? Learn the key differences and which option suits growing smiles best."
 featured: false
 ---
