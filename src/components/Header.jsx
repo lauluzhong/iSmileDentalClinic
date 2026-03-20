@@ -43,16 +43,17 @@ const Header = () => {
             ]
         },
         {
-            name: 'Treatments', path: '/services',
+            name: 'Our Services', path: '/services',
             
             dropdown: [
-                { label: 'Featured Services' },
+                { label: "Featured Services" },
+                { name: 'Myofunctional Orthodontics (Myobrace)', path: '/services/children/myobrace' },
                 { name: 'Clear Aligners / Invisalign', path: '/services/straighten/clear-aligners' },
                 { name: 'Dental Implants', path: '/services/replace/dental-implants' },
-                { name: 'Myofunctional Orthodontics (Myobrace)', path: '/services/children/myobrace' },
-                { name: 'Cosmetic Dentistry', path: '/services/enhance/cosmetic-dentistry' },
                 { name: 'Crowns & Bridges', path: '/services/protect/root-canal' },
+                { name: 'Cosmetic Dentistry', path: '/services/enhance/cosmetic-dentistry' },
                 { divider: true },
+                { label: "All Services" },
                 { name: 'Straighten Teeth', path: '/services/straighten' },
                 { name: 'Replace Teeth', path: '/services/replace' },
                 { name: 'Protect & Repair', path: '/services/protect' },
