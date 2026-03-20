@@ -154,7 +154,7 @@ export const servicesData = {
         icon: <Users size={32} />,
         color: "var(--color-secondary)",
         services: [
-            { name: "Functional Orthodontics", desc: "Correcting oral habits to guide proper jaw and face growth." },
+            { name: "Myofunctional Orthodontics", desc: "Correcting oral habits to guide proper jaw and face growth.", path: "/services/children/myobrace" },
             { name: "Fissure Sealants", desc: "Protective coatings on back teeth to prevent decay in grooves." },
             { name: "Topical Fluoride", desc: "Strengthening enamel to make teeth more resistant to cavities." },
             { name: "Paediatric Fillings", desc: "Gentle restoration for baby teeth to maintain space and health." },
