@@ -43,20 +43,19 @@ const Header = () => {
             ]
         },
         {
-            name: 'Our Services', path: '/services',
+            name: 'Treatments', path: '/services',
             
             dropdown: [
+                { label: 'Featured Services' },
                 { name: 'Clear Aligners / Invisalign', path: '/services/straighten/clear-aligners' },
                 { name: 'Dental Implants', path: '/services/replace/dental-implants' },
                 { name: 'Myofunctional Orthodontics (Myobrace)', path: '/services/children/myobrace' },
                 { name: 'Cosmetic Dentistry', path: '/services/enhance/cosmetic-dentistry' },
                 { name: 'Crowns & Bridges', path: '/services/protect/root-canal' },
-                { name: 'Wisdom Tooth / Oral Surgery', path: '/services/protect/wisdom-tooth' },
-                { name: 'Pediatric Dentistry', path: '/services/children/pediatric-dentistry' },
                 { divider: true },
-                { name: 'Protect & Repair', path: '/services/protect' },
                 { name: 'Straighten Teeth', path: '/services/straighten' },
                 { name: 'Replace Teeth', path: '/services/replace' },
+                { name: 'Protect & Repair', path: '/services/protect' },
                 { name: 'Enhance Smile', path: '/services/enhance' },
                 { name: 'Children & Growth', path: '/services/children' },
             ]
@@ -173,7 +172,9 @@ const Header = () => {
                                     {link.dropdown && (
                                         <div className={`dropdown-menu ${activeDropdown === link.name ? 'active' : ''}`}>
                                             {link.dropdown.map((item, i) => (
-                                                item.divider ? (
+                                                item.label ? (
+                                                    <div key={item.label} className="dropdown-label">{item.label}</div>
+                                                ) : item.divider ? (
                                                     <div key={`divider-${i}`} className="dropdown-divider" />
                                                 ) : (
                                                     <div
@@ -435,6 +436,16 @@ const Header = () => {
             height: 1px;
             background: rgba(0,0,0,0.08);
             margin: 8px 0;
+        }
+
+        .dropdown-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #94a3b8;
+            padding: 12px 15px 4px;
+            pointer-events: none;
         }
 
         .mobile-toggle {
