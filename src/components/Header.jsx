@@ -297,15 +297,23 @@ const Header = () => {
 
                                         <ul className="mobile-nav-list">
                                             {activeSubmenuData?.dropdown?.filter(item => !item.divider).map((subItem) => (
-                                                <li key={subItem.name} className="mobile-nav-item">
-                                                    <span
-                                                        onClick={() => handleDropdownClick(activeSubmenuData.path, subItem.hash || subItem.path)}
-                                                        className="mobile-nav-link-header"
-                                                        style={{ fontWeight: '500', color: '#475569', fontSize: '1.1rem' }}
-                                                    >
-                                                        {subItem.name}
-                                                    </span>
-                                                </li>
+                                                subItem.label ? (
+                                                    <li key={subItem.label} className="mobile-nav-item" style={{ paddingTop: '16px' }}>
+                                                        <span style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#94a3b8' }}>
+                                                            {subItem.label}
+                                                        </span>
+                                                    </li>
+                                                ) : (
+                                                    <li key={subItem.name} className="mobile-nav-item">
+                                                        <span
+                                                            onClick={() => handleDropdownClick(activeSubmenuData.path, subItem.hash || subItem.path)}
+                                                            className="mobile-nav-link-header"
+                                                            style={{ fontWeight: '500', color: '#475569', fontSize: '1.1rem' }}
+                                                        >
+                                                            {subItem.name}
+                                                        </span>
+                                                    </li>
+                                                )
                                             ))}
                                         </ul>
                                     </motion.div>
