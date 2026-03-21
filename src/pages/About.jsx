@@ -95,7 +95,8 @@ const About = () => {
         <div className="about-page">
             <Helmet>
                 <title>About iSmile Dental Clinic Petaling Jaya | Your Family Dentist</title>
-                <meta name="description" content="Learn about iSmile Dental Clinic Petaling Jaya. Our team, philosophy & commitment to gentle dental care for every generation." />
+                <meta name="description" content="Meet the experienced dental team at iSmile Clinic in Damansara Jaya. 7 specialists in general, restorative & cosmetic dentistry serving Petaling Jaya families." />
+                <link rel="canonical" href="https://ismile.com.my/about" />
             </Helmet>
             <div className="about-hero-container">
                 <div className="about-hero">
@@ -269,6 +270,7 @@ const About = () => {
 
                 .journey-section {
                     padding-bottom: 120px;
+                    scroll-margin-top: 120px;
                 }
 
                 .section-title {
@@ -336,6 +338,7 @@ const About = () => {
                 .founder-section-dark {
                     background: #1a202c;
                     padding: 120px 0;
+                    scroll-margin-top: 120px;
                 }
 
                 .founder-card-dark {
@@ -400,6 +403,7 @@ const About = () => {
                 /* Team Section */
                 .team-section {
                     background: #f8fafc;
+                    scroll-margin-top: 120px;
                 }
 
                 .team-grid {

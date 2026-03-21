@@ -90,11 +90,37 @@ const MyofunctionalOrthodontics = () => {
         }
     ];
 
+    // Add FAQ schema for SEO
+    useEffect(() => {
+        const faqSchema = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+                "@type": "Question",
+                "name": faq.q,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": faq.a
+                }
+            }))
+        };
+        
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.innerHTML = JSON.stringify(faqSchema);
+        document.head.appendChild(script);
+        
+        return () => {
+            document.head.removeChild(script);
+        };
+    }, []);
+
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Myobrace for Children Damansara Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Myobrace orthodontic treatment for children in Damansara Jaya. Early intervention for jaw development & teeth alignment. Book your child's assessment today." />
+                <title>Myobrace for Children Petaling Jaya | iSmile Dental Clinic</title>
+                <meta name="description" content="Myobrace orthodontic treatment for children in Damansara Jaya, Petaling Jaya. Early intervention for healthy jaw development & natural teeth alignment." />
+                <link rel="canonical" href="https://ismile.com.my/services/children/myobrace" />
             </Helmet>
 
             <div className="tech-hero">

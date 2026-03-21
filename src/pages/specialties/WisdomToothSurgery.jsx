@@ -90,11 +90,37 @@ const WisdomToothSurgery = () => {
         }
     ];
 
+    // Add FAQ schema for SEO
+    useEffect(() => {
+        const faqSchema = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+                "@type": "Question",
+                "name": faq.q,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": faq.a
+                }
+            }))
+        };
+        
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.innerHTML = JSON.stringify(faqSchema);
+        document.head.appendChild(script);
+        
+        return () => {
+            document.head.removeChild(script);
+        };
+    }, []);
+
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Dental Services Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Comprehensive dental services in Petaling Jaya — preventive, restorative, orthodontic & cosmetic treatments for the whole family." />
+                <title>Wisdom Tooth Surgery Petaling Jaya | iSmile Dental Clinic</title>
+                <meta name="description" content="Safe, gentle wisdom tooth extraction at iSmile Clinic, Damansara Jaya. Expert surgical removal of impacted wisdom teeth to prevent pain & crowding." />
+                <link rel="canonical" href="https://ismile.com.my/services/protect/wisdom-tooth" />
             </Helmet>
 
             <div className="tech-hero">

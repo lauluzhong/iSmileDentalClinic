@@ -15,6 +15,8 @@ import DentalImplants from './specialties/DentalImplants';
 import TeethWhitening from './specialties/TeethWhitening';
 import RootCanalTreatment from './specialties/RootCanalTreatment';
 import MyofunctionalOrthodontics from './specialties/MyofunctionalOrthodontics';
+import CosmeticDentistry from './specialties/CosmeticDentistry';
+import PediatricDentistry from './specialties/PediatricDentistry';
 
 const ServiceHub = () => {
     const { openBooking } = useBooking();
@@ -53,21 +55,22 @@ const ServiceHub = () => {
         return positions[cat] || 'center center';
     };
 
-    // SEO titles for each service category
+    // SEO data for each service category
     const seoData = {
-        protect: { title: "Protect & Repair Dental Services Petaling Jaya | iSmile Dental Clinic", desc: "Preventive & restorative dental care in Petaling Jaya. Root canal, wisdom tooth surgery & more." },
-        straighten: { title: "Straighten Teeth Petaling Jaya | iSmile Dental Clinic", desc: "Orthodontic treatments in Petaling Jaya. Clear aligners & braces for adults & teens." },
-        replace: { title: "Replace Missing Teeth Petaling Jaya | iSmile Dental Clinic", desc: "Dental implants & dentures in Petaling Jaya. Restore your smile with lasting results." },
-        enhance: { title: "Enhance Your Smile Petaling Jaya | iSmile Dental Clinic", desc: "Cosmetic dentistry in Petaling Jaya. Teeth whitening, veneers & smile makeovers." },
-        children: { title: "Children's Dentistry Petaling Jaya | iSmile Dental Clinic", desc: "Gentle dental care for children & teens in Petaling Jaya. First visits & preventive care." }
+        protect: { title: "Protect & Repair Dental Services Petaling Jaya | iSmile Dental Clinic", desc: "Preventive & restorative dental care in Petaling Jaya. Root canal, wisdom tooth surgery & more.", canonical: "https://ismile.com.my/services/protect" },
+        straighten: { title: "Straighten Teeth Petaling Jaya | iSmile Dental Clinic", desc: "Orthodontic treatments in Petaling Jaya. Clear aligners & braces for adults & teens.", canonical: "https://ismile.com.my/services/straighten" },
+        replace: { title: "Replace Missing Teeth Petaling Jaya | iSmile Dental Clinic", desc: "Dental implants & dentures in Petaling Jaya. Restore your smile with lasting results.", canonical: "https://ismile.com.my/services/replace" },
+        enhance: { title: "Enhance Your Smile Petaling Jaya | iSmile Dental Clinic", desc: "Cosmetic dentistry in Petaling Jaya. Teeth whitening, veneers & smile makeovers.", canonical: "https://ismile.com.my/services/enhance" },
+        children: { title: "Children's Dentistry Petaling Jaya | iSmile Dental Clinic", desc: "Gentle dental care for children & teens in Petaling Jaya. First visits & preventive care.", canonical: "https://ismile.com.my/services/children" }
     };
-    const seo = seoData[category] || { title: "Dental Services Petaling Jaya | iSmile Dental Clinic", desc: "Comprehensive dental services in Petaling Jaya for the whole family." };
+    const seo = seoData[category] || { title: "Dental Services Petaling Jaya | iSmile Dental Clinic", desc: "Comprehensive dental services in Petaling Jaya for the whole family.", canonical: "https://ismile.com.my/services" };
 
     return (
         <div className="service-hub">
             <Helmet>
                 <title>{seo.title}</title>
                 <meta name="description" content={seo.desc} />
+                <link rel="canonical" href={seo.canonical} />
             </Helmet>
             {/* Hero */}
             <div className="hub-hero" style={{
@@ -577,6 +580,8 @@ const Services = () => {
             <Route path="replace/dental-implants" element={<DentalImplants />} />
             <Route path="enhance/teeth-whitening" element={<TeethWhitening />} />
             <Route path="children/myobrace" element={<MyofunctionalOrthodontics />} />
+            <Route path="enhance/cosmetic-dentistry" element={<CosmeticDentistry />} />
+            <Route path="children/pediatric-dentistry" element={<PediatricDentistry />} />
         </Routes>
     );
 };

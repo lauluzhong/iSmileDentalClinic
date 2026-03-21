@@ -38,28 +38,24 @@ const DentalImplants = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    // Add Service schema for SEO
+    // Add FAQ schema for SEO
     useEffect(() => {
-        const serviceSchema = {
+        const faqSchema = {
             "@context": "https://schema.org",
-            "@type": "MedicalProcedure",
-            "name": "Dental Implants",
-            "description": "Bio-compatible titanium dental implants at iSmile Dental Clinic Petaling Jaya",
-            "provider": {
-                "@type": "Dentist",
-                "name": "iSmile Dental Clinic",
-                "url": "https://ismile.com.my/services/replace"
-            },
-            "areaServed": {
-                "@type": "Place",
-                "name": "Petaling Jaya, Selangor"
-            },
-            "url": "https://ismile.com.my/services/replace"
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+                "@type": "Question",
+                "name": faq.q,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": faq.a
+                }
+            }))
         };
         
         const script = document.createElement('script');
         script.type = 'application/ld+json';
-        script.innerHTML = JSON.stringify(serviceSchema);
+        script.innerHTML = JSON.stringify(faqSchema);
         document.head.appendChild(script);
         
         return () => {
@@ -94,7 +90,8 @@ const DentalImplants = () => {
         <div className="specialty-page">
             <Helmet>
                 <title>Dental Implants Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Replace missing teeth with dental implants in Petaling Jaya. Restore your smile with lasting results. Book your visit." />
+                <meta name="description" content="Replace missing teeth with permanent dental implants at iSmile Clinic, Damansara Jaya. Bio-compatible titanium implants for a natural-looking, lasting smile." />
+                <link rel="canonical" href="https://ismile.com.my/services/replace/dental-implants" />
             </Helmet>
 
             <div className="tech-hero">

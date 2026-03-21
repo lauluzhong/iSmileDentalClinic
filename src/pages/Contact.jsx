@@ -27,7 +27,8 @@ const Contact = () => {
         <div className="contact-page">
             <Helmet>
                 <title>Contact iSmile Dental Clinic Petaling Jaya</title>
-                <meta name="description" content="Contact iSmile Dental Clinic Petaling Jaya. Book your appointment or ask us a question. Located in Damansara Jaya." />
+                <meta name="description" content="Book your dental appointment at iSmile Clinic in Damansara Jaya. Call, WhatsApp or visit us — located near Atria Shopping Gallery, Petaling Jaya." />
+                <link rel="canonical" href="https://ismile.com.my/contact" />
             </Helmet>
             <div className="container section-padding" style={{ paddingTop: '180px' }}>
                 <div className="contact-content text-center">
