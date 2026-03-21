@@ -5,7 +5,7 @@ slug: "dental-crowns-malaysia"
 category: "Restorative"
 excerpt: "If your dentist has mentioned you need a dental crown, you probably have questions. Here is what you need to know about getting a crown in Malaysia."
 author: "iSmile Dental Clinic"
-img: "/images/blog/dental-crowns-malaysia-hero.png"
+img: "/images/blog/dental-crowns-malaysia-hero.jpg"
 ---
 
 # Dental Crowns in Malaysia: What You Need to Know
@@ -35,13 +35,12 @@ A dental crown is a custom-made cap that covers a damaged or weakened tooth. It 
 
 ## The Procedure
 
-Getting a dental crown typically requires two visits.
+Getting a dental crown normally takes at least two visits, though the exact number depends on your individual situation.
 
-**First visit:** The tooth is prepared by removing any decay and shaping it to fit the crown. An impression is taken and sent to a dental lab. A temporary crown is placed.
+**First visit — consultation and preparation:** Your dentist will assess the tooth and discuss the best approach. The tooth is then prepared by removing any decay and shaping it to fit the crown. An impression is taken and sent to a dental lab. A temporary crown is placed while the permanent one is being made.
 
-**Second visit:** The permanent crown is fitted, adjusted, and cemented into place.
+**Second visit — fitting:** The permanent crown is fitted, adjusted, and cemented into place. Your dentist will advise on aftercare.
 
-Some clinics offer same-day crowns using CEREC or similar systems.
 
 ## Is a Crown Right for You?
 
