@@ -47,6 +47,11 @@
   </url>
   <url>
     <loc>https://ismile.com.my/blog</loc>
+  <url>
+    <loc>https://ismile.com.my/blog/myobrace-vs-invisalign</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
