@@ -5,8 +5,35 @@ import { Shield, CheckCircle, HelpCircle, Users } from 'lucide-react';
 import Button from '../../components/Button';
 
 const MyofunctionalOrthodontics = () => {
+    // Add Service schema for SEO
+    useEffect(() => {
+        const serviceSchema = {
+            "@context": "https://schema.org",
+            "@type": "MedicalProcedure",
+            "name": "MyofunctionalOrthodontics",
+            "description": "Professional dental treatment at iSmile Dental Clinic Petaling Jaya",
+            "provider": {
+                "@type": "Dentist",
+                "name": "iSmile Dental Clinic",
+                "url": "https://ismile.com.my/services/replace"
+            },
+            "areaServed": {
+                "@type": "Place",
+                "name": "Petaling Jaya, Selangor"
+            },
+            "url": "https://ismile.com.my/services/replace"
+        };
+        
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.innerHTML = JSON.stringify(serviceSchema);
+        document.head.appendChild(script);
+        
+        return () => {
+            document.head.removeChild(script);
+        };
+    }, []);
     const { openBooking } = useBooking();
-    
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -27,7 +54,7 @@ const MyofunctionalOrthodontics = () => {
                 "@type": "Place",
                 "name": "Petaling Jaya, Selangor"
             },
-            "url": "https://ismile.com.my/services/children/myobrace"
+            "url": "https://ismile.com.my/services/children"
         };
         
         const script = document.createElement('script');
@@ -43,31 +70,23 @@ const MyofunctionalOrthodontics = () => {
     const faqs = [
         {
             "q": "Is it better than braces?",
-            "a": "It addresses the root cause — muscle patterns, breathing dysfunction, poor bone loading — whereas braces only treat the symptoms (tooth position). Often, it reduces or eliminates the need for future braces. We sometimes work with braces as a combined approach when the situation calls for it."
+            "a": "It addresses the root cause (muscle patterns, breathing habits, oral posture) whereas braces only treat the symptoms (tooth position). In many cases, it can reduce or eliminate the need for future braces. Your dentist will assess and advise based on your child's specific situation."
         },
         {
             "q": "What age is best to start?",
-            "a": "Around 6–7 years old, when the first adult molars and front teeth are typically visible. This is early enough to intercept habit patterns before they become structural problems. Your dentist will assess your child's specific growth stage and recommend the right timing."
+            "a": "We typically recommend around age 6 to 7, when the first adult molars and front teeth are usually visible. This is early enough to intercept habit patterns before they become structural problems. That said, every child develops differently, so your dentist will advise on the best timing for your child."
         },
         {
-            "q": "What does the patient have to do?",
-            "a": "Wear the appliance 1–2 hours during the day and overnight while sleeping. Plus daily myofunctional exercises — short routines that retrain muscle patterns. Your dentist will advise on the specific wearing schedule for your child's case."
+            "q": "What does my child have to do?",
+            "a": "Wear the appliance for 1 to 2 hours during the day (at home) and overnight while sleeping, plus perform daily muscle exercises. We work with families on realistic expectations here."
         },
         {
             "q": "How soon can we see results?",
-            "a": "Visible changes in oral habits — lip seal, nasal breathing — can often be seen within 6 months. Structural changes in the jaw develop over 12–24 months, depending on severity and compliance."
+            "a": "Visible changes in oral habits, like lip seal and nasal breathing, can often be seen within around 6 months. Structural changes in the jaw take longer, typically 12 to 24 months, and your dentist will advise on the expected timeline for your child's case."
         },
         {
             "q": "Does my child need to wear it at school?",
-            "a": "Typically not for most of the school day. The main wear is overnight during sleep, plus 1–2 hours during quiet activities at home (reading, homework, screen time)."
-        },
-        {
-            "q": "My child has thumb-sucking habit. Can Myobrace help?",
-            "a": "Yes. Myobrace makes thumb-sucking physically awkward during the critical night hours when habits consolidate. We also address the habit directly with counseling and myofunctional exercises."
-        },
-        {
-            "q": "Is it uncomfortable?",
-            "a": "Most children adapt within the first 1–2 weeks. It's bulkier than nothing, but it's soft silicone, not metal. Children who breathe through their mouth often notice they sleep better once they start wearing it — which tends to be motivating."
+            "a": "No. The appliance is typically worn for only 1 to 2 hours during the day at home, plus overnight while sleeping."
         }
     ];
 
@@ -106,9 +125,9 @@ const MyofunctionalOrthodontics = () => {
 
             <div className="tech-hero">
                 <div className="container">
-                    <div className="tech-badge"><Shield size={16} /> Myobrace System</div>
+                    <div className="tech-badge"><Shield size={16} /> Technical Deep-Dive</div>
                     <h1>Myofunctional Orthodontics <span className="h1-sub">Petaling Jaya | iSmile Dental Clinic</span></h1>
-                    <p className="lead">Myobrace is a removable, functional brace worn mostly at night that gently guides jaw development and habit correction. At iSmile, every child's first visit includes a myofunctional screening — we look at lip seal, tongue posture, breathing pattern, and tonsil size to understand why the bite went off track in the first place.</p>
+                    <p className="lead">Myofunctional orthodontics addresses the root causes of jaw underdevelopment and crowding by correcting muscle patterns, breathing habits, and oral posture. At iSmile, we use the Myobrace system, a removable functional brace worn mostly at night that gently guides jaw development and habit correction.</p>
                 </div>
             </div>
 
@@ -116,51 +135,45 @@ const MyofunctionalOrthodontics = () => {
                 <div className="container">
                     <div className="tech-grid">
                         <div className="tech-info">
-                            <h2>How Myobrace Works</h2>
-                            <p>Myobrace corrects the muscle patterns, breathing habits, and oral posture that cause bite problems — working upstream rather than just moving teeth downstream. Think of it like fixing the soil before planting rather than just pruning a crooked tree.</p>
+                            <h2>The Science & Tech</h2>
+                            <p>Instead of just moving teeth after they have gone off course, myofunctional orthodontics works upstream to address why the bite problem developed in the first place.</p>
 
                             <div className="tech-feature-list">
+
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
-                                        <h4>The Myobrace System</h4>
-                                        <p>One of the most researched myofunctional appliances globally. A removable, functional brace that guides jaw development and habit correction — worn mostly at night plus 1–2 hours during the day.</p>
+                                        <h4>Muscle Retraining</h4>
+                                        <p>Uses specialized appliances to train the tongue to rest on the roof of the mouth, establish proper lip seal, and correct swallowing patterns.</p>
                                     </div>
                                 </div>
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
-                                        <h4>Habit Correction</h4>
-                                        <p>Corrects mouth breathing, tongue posture, lip seal, and swallowing pattern — the root causes of jaw underdevelopment and crowding that braces alone can't fix.</p>
-                                    </div>
-                                </div>
-                                <div className="tech-feature">
-                                    <div className="feature-icon"><CheckCircle size={20} /></div>
-                                    <div className="feature-text">
-                                        <h4>The Airway Connection</h4>
-                                        <p>Mouth breathing in children is far more common — and consequential — than most parents realize. A narrow palate means a narrowed nasal airway. We flag mouth breathing early and discuss whether an ENT referral is needed alongside our work.</p>
-                                    </div>
-                                </div>
-                                <div className="tech-feature">
-                                    <div className="feature-icon"><CheckCircle size={20} /></div>
-                                    <div className="feature-text">
-                                        <h4>Why Early Intervention Matters</h4>
-                                        <p>Between ages roughly 5 and 12, the jaw is still malleable. After 12, growth slows dramatically and the window for non-surgical jaw expansion largely closes. Small interventions at 7 can produce structural changes that surgery can't replicate later.</p>
+                                        <h4>Airway & Breathing Health</h4>
+                                        <p>Focuses on establishing nasal breathing, which is important for proper facial growth and may help with sleep quality. We screen for mouth breathing patterns at every assessment.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="tech-meta glass-panel">
-                            <h3>Treatment Process</h3>
+                            <h3>Clinical Workflow</h3>
                             <ul className="step-list">
-                                <li><span>01</span> Full myofunctional assessment — lip seal, breathing, tonsils, tongue posture</li>
-                                <li><span>02</span> Custom Myobrace appliance ordering (typically arrives within 2 weeks)</li>
-                                <li><span>03</span> Night wear (every night during sleep) + 1–2 hours daytime quiet activities</li>
-                                <li><span>04</span> Regular check-ins every 6–8 weeks — monitor progress, adjust appliance</li>
-                                <li><span>05</span> Myofunctional exercises — short daily routines retrain muscle patterns</li>
-                                <li><span>06</span> Retention phase — transition to retainer, assessed individually</li>
+                                <li><span>01</span> Thorough Assessment of medical, birth and child developmental history</li>
+                                <li><span>02</span> Oral Myofunctional Assessment</li>
+                                <li><span>03</span> Airway & Sleep Screening</li>
+                                <li>
+                                    <span>04</span>
+                                    <div>
+                                        Customized Appliance Selection
+                                        <div style={{ fontSize: '0.9rem', opacity: 0.8, marginTop: '4px' }}>
+                                            e.g. Expanders, Mandibular Advancers, Maxillary Protractor, Munchees, Myofunctional Appliances ie LM Activator, Braces, Clear Aligners
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><span>05</span> Monthly Muscle Exercise Programs</li>
+                                <li><span>06</span> Progress Tracking & Growth Monitoring</li>
                             </ul>
-                            <p style={{ marginTop: '20px', fontSize: '0.9rem', opacity: 0.8 }}>Typical treatment duration: 12–24 months, depending on severity and compliance.</p>
                         </div>
                     </div>
                 </div>
@@ -182,9 +195,9 @@ const MyofunctionalOrthodontics = () => {
 
             <section className="section-padding text-center">
                 <div className="container">
-                    <h2>Find out if Myobrace is right for your child</h2>
-                    <p className="mb-4">If your child is between 5 and 12 and you've noticed anything — mouth breathing, teeth crowding, thumb-sucking, snoring, difficulty concentrating — it's worth a conversation.</p>
-                    <Button onClick={() => openBooking('Interested in Myofunctional Orthodontics', 'specialty-myofunctional')}>Book Consultation</Button>
+                    <h2>Consult with our specialists today</h2>
+                    <p className="mb-4">Get a professional assessment based on your unique dental structure.</p>
+                    <Button onClick={() => openBooking('Interested in  Myofunctional Orthodontics', 'specialty-myofunctional')}>Book Consultation</Button>
                 </div>
             </section>
 
@@ -205,21 +218,27 @@ const MyofunctionalOrthodontics = () => {
                 .step-list li { display: flex; align-items: center; gap: 20px; padding: 15px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
                 .step-list li span { font-family: 'Space Grotesk', sans-serif; font-weight: 800; color: var(--color-primary); font-size: 1.2rem; opacity: 0.3; }
                 .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-                .faq-item { padding: 24px; border-radius: 16px; }
+                .faq-item { padding: 30px; background: white; }
                 .faq-item h4 { margin-bottom: 15px; color: var(--color-primary); }
-                .faq-item p { font-size: 0.95rem; line-height: 1.6; opacity: 0.9; }
                 @media (max-width: 1024px) {
                     .specialty-page { padding-top: 80px; }
                     .tech-hero { padding: 60px 0; }
                     .tech-hero h1 { font-size: 2.2rem; line-height: 1.1; margin-bottom: 16px; }
                     .tech-hero h1 span { font-size: 1.25rem; margin-top: 4px; }
                     .tech-hero .lead { font-size: 1rem; line-height: 1.5; }
+                    
                     .tech-grid { grid-template-columns: 1fr; gap: 40px; }
                     .tech-info h2 { font-size: 1.8rem; margin-bottom: 16px; }
                     .tech-feature-list { margin-top: 30px; }
                     .tech-feature { gap: 16px; margin-bottom: 24px; }
                     .feature-text h4 { font-size: 1.1rem; margin-bottom: 4px; }
                     .feature-text p { font-size: 0.95rem; line-height: 1.5; }
+                    
+                    .tech-meta { padding: 24px; border-radius: 20px; }
+                    .tech-meta h3 { font-size: 1.3rem; }
+                    .step-list li { padding: 12px 0; gap: 16px; font-size: 0.95rem; }
+                    .step-list li span { font-size: 1rem; }
+                    
                     .faq-grid { gap: 20px; margin-top: 30px; }
                     .faq-item { padding: 24px; border-radius: 20px; }
                     .faq-item h4 { font-size: 1.05rem; line-height: 1.4; }
