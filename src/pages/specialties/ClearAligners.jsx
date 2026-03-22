@@ -27,7 +27,7 @@ const ClearAligners = () => {
                 "@type": "Place",
                 "name": "Petaling Jaya, Selangor"
             },
-            "url": "https://ismile.com.my/services/straighten"
+            "url": "https://ismile.com.my/services/straighten/clear-aligners"
         };
         
         const script = document.createElement('script');
@@ -39,6 +39,29 @@ const ClearAligners = () => {
             document.head.removeChild(script);
         };
     }, []);
+
+    const faqs = [
+        {
+            "q": "Are clear aligners really invisible?",
+            "a": ""Almost invisible" is more accurate — they're not braces-on-teeth visible, but up close, people can usually see them, especially under certain lighting. Most adults and teens find this acceptable. Younger children with Invisalign First aligners typically don't mind at all."
+        },
+        {
+            "q": "Does it hurt?",
+            "a": "You'll feel pressure for the first day or two after switching to a new tray, that's the tooth movement happening. It's not sharp pain, but it's noticeable. Most patients describe it as "uncomfortable but manageable" and say they get used to it quickly."
+        },
+        {
+            "q": "Can my teenager lose aligners?",
+            "a": "It happens. Aligners get wrapped in napkins and accidentally thrown away. We have a replacement protocol. We tell every teen patient: "the aligner goes in your face, not on the table.""
+        },
+        {
+            "q": "What's the difference between Invisalign and other clear aligners?",
+            "a": "Invisalign has the most extensive research database and the most sophisticated software. Other systems (Angel Aligner, ClearCorrect, etc.) work on similar principles. We choose based on your clinical needs and budget, and they'll perform differently for complex cases."
+        },
+        {
+            "q": "My child is 9. Can they use clear aligners?",
+            "a": "Yes, if they're mature enough to wear them consistently (20+ hours/day) and have sufficient adult teeth erupted. This is assessed case by case. Some 9-year-olds are ready; others need to wait."
+        }
+    ];
 
     // Add FAQ schema for SEO
     useEffect(() => {
@@ -65,29 +88,6 @@ const ClearAligners = () => {
         };
     }, []);
 
-    const faqs = [
-        {
-            "q": "How many hours a day must I wear them?",
-            "a": "For clinical success, 20\u201322 hours per day is required. They should only be removed for eating, drinking (except water), and oral hygiene."
-        },
-        {
-            "q": "Does it affect speech?",
-            "a": "A minor lisp may occur for the first 48 hours as the tongue adapts to the aligner thickness, but this typically resolves quickly."
-        },
-        {
-            "q": "Can I eat with them?",
-            "a": "No, aligners must be removed during meals to prevent staining, damage, and ensuring proper oral hygiene."
-        },
-        {
-            "q": "Are aligners suitable for all cases?",
-            "a": "While aligners can treat most orthodontic issues, some complex bone-level corrections may still require traditional braces. Our doctors will provide a detailed assessment using 3D scanning."
-        },
-        {
-            "q": "How do I clean my aligners?",
-            "a": "Rinse them with lukewarm water and brush them gently with a soft toothbrush. Avoid hot water as it can warp the plastic."
-        }
-    ];
-
     return (
         <div className="specialty-page">
             <Helmet>
@@ -100,7 +100,7 @@ const ClearAligners = () => {
                 <div className="container">
                     <div className="tech-badge"><Shield size={16} /> Technical Deep-Dive</div>
                     <h1>Clear Aligners <span className="h1-sub">Petaling Jaya | iSmile Dental Clinic</span></h1>
-                    <p className="lead">A modern orthodontic solution using a series of custom-made, transparent plastic trays to gradually shift teeth into alignment without the need for traditional braces. We offer Invisalign, Angel, and ClearSmile aligner systems.</p>
+                    <p className="lead">Clear aligners are transparent, custom-fitted plastic trays that gradually shift teeth into alignment — no brackets, no wires, no emergency visits. The key question we ask isn't "do you want clear aligners?" It's "are clear aligners the right mechanism for your specific tooth movement needs?" At iSmile, we offer both Invisalign and clear aligner alternatives, and we walk you through the pros and cons without steering you toward the most expensive option if it's not the best fit.</p>
                 </div>
             </div>
 
@@ -108,36 +108,44 @@ const ClearAligners = () => {
                 <div className="container">
                     <div className="tech-grid">
                         <div className="tech-info">
-                            <h2>The Science & Tech</h2>
-                            <p>We leverage advanced clinical protocols and digital technology to provide predictable, high-quality outcomes for our patients.</p>
+                            <h2>The Myofunctional Connection — Why Early Intervention Matters</h2>
+                            <p>Teeth are symptoms, not causes. A child whose teeth are crowded typically has a jaw that didn't develop wide enough — most commonly because they breathe through their mouth instead of their nose. When we intervene early (ages 7–12) with an aligner system that expands the arch gently, combined with myofunctional therapy to retrain breathing and tongue posture, we're potentially helping avoid extractions later, jaw surgery in adulthood, or years of braces.</p>
 
                             <div className="tech-feature-list">
 
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
-                                        <h4>Advanced Aligner Material</h4>
-                                        <p>Utilizes specialized multi-layer medical-grade materials designed for constant, gentle force and superior control of tooth movements.</p>
+                                        <h4>We Treat Children, Not Just Adults</h4>
+                                        <p>Most clear aligner providers in KL and PJ focus exclusively on adult cosmetic cases. We're set up for families. Your teenager can be treated alongside you, in the same clinic, with a care team who understands developing teeth vs. mature teeth.</p>
                                     </div>
                                 </div>
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
-                                        <h4>Digital Workflow</h4>
-                                        <p>High-precision 3D intraoral scanning eliminates the need for messy impressions and allows for precise treatment planning.</p>
+                                        <h4>Myofunctional Integration Is Standard</h4>
+                                        <p>We don't just move teeth. We assess why the teeth need moving and address root causes where we can. Children receiving clear aligners undergo myofunctional screening as standard practice, giving more durable outcomes than aligner-only clinics.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="tech-meta glass-panel">
-                            <h3>Clinical Workflow</h3>
+                            <h3>Treatment Stages at iSmile</h3>
                             <ul className="step-list">
-                                <li><span>01</span> 3D Intraoral Scanning & Digital Impressions</li>
-                                <li><span>02</span> Advanced Digital Treatment Planning</li>
-                                <li><span>03</span> Custom Aligner Fabrication & Delivery</li>
-                                <li><span>04</span> Precision Attachment Placement</li>
-                                <li><span>05</span> Monitoring & Periodic Progress Tracking</li>
-
+                                <li><span>01</span> Full examination, digital scans (no messy putty impressions), goal discussion</li>
+                                <li><span>02</span> Digital treatment preview (ClinCheck) — you approve before production</li>
+                                <li><span>03</span> Aligner delivery, fitting, and wearing instructions</li>
+                                <li><span>04</span> Ongoing wear (20–22 hours/day) with check-ins every 6–8 weeks</li>
+                                <li><span>05</span> Refinement trays if needed (normal and built into most plans)</li>
+                                <li>
+                                    <span>06</span>
+                                    <div>
+                                        Retention phase
+                                        <div style={{ fontSize: '0.9rem', opacity: 0.8, marginTop: '4px' }}>
+                                            Clear retainer at night to hold your new smile in place
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>

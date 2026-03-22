@@ -5,13 +5,18 @@ import { Shield, CheckCircle, HelpCircle, Smile } from 'lucide-react';
 import Button from '../../components/Button';
 
 const DentalImplants = () => {
+    const { openBooking } = useBooking();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     // Add Service schema for SEO
     useEffect(() => {
         const serviceSchema = {
             "@context": "https://schema.org",
             "@type": "MedicalProcedure",
-            "name": "DentalImplants",
-            "description": "Professional dental treatment at iSmile Dental Clinic Petaling Jaya",
+            "name": "Dental Implants",
+            "description": "Replace missing teeth with permanent dental implants at iSmile Dental Clinic Petaling Jaya.",
             "provider": {
                 "@type": "Dentist",
                 "name": "iSmile Dental Clinic",
@@ -21,7 +26,7 @@ const DentalImplants = () => {
                 "@type": "Place",
                 "name": "Petaling Jaya, Selangor"
             },
-            "url": "https://ismile.com.my/services/replace"
+            "url": "https://ismile.com.my/services/replace/dental-implants"
         };
         
         const script = document.createElement('script');
@@ -33,10 +38,29 @@ const DentalImplants = () => {
             document.head.removeChild(script);
         };
     }, []);
-    const { openBooking } = useBooking();
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+
+    const faqs = [
+        {
+            "q": "Does dental implant surgery hurt?",
+            "a": "No, the procedure itself is painless with local anesthesia. The recovery is mildly uncomfortable (swelling, soreness for a few days) but manageable with prescribed pain relief. Most patients are back to work within a few days."
+        },
+        {
+            "q": "How long does the entire process take?",
+            "a": "In straightforward cases with good bone, the process may take around 4–5 months from implant placement to final crown. Cases requiring bone grafting or sinus lift may take longer. We'll give you a realistic timeline at assessment."
+        },
+        {
+            "q": "What if I don't have enough bone?",
+            "a": "Bone grafting is common and well-established. We may use synthetic bone, donor bone, or your own bone. It adds a healing stage before implant placement, but it makes implant placement possible in many cases that would otherwise not have been viable."
+        },
+        {
+            "q": "Is the implant safe if I have metal allergies?",
+            "a": "Titanium allergies are exceptionally rare. Titanium is one of the most biocompatible materials used in medicine. If you have a documented titanium sensitivity, we discuss alternative materials (zirconia implants), though these have slightly different clinical profiles."
+        },
+        {
+            "q": "How do I know if my implant is failing?",
+            "a": "Signs include: persistent pain or discomfort around the implant site (beyond normal healing), mobility of the implant, gum recession or deepening pockets around it, or infection. Many problems may be caught at routine review appointments, which is why long-term monitoring matters."
+        }
+    ];
 
     // Add FAQ schema for SEO
     useEffect(() => {
@@ -63,29 +87,6 @@ const DentalImplants = () => {
         };
     }, []);
 
-    const faqs = [
-        {
-            "q": "How long does the process take?",
-            "a": "Typically 3-6 months to allow for full osseointegration before the final crown is placed, ensuring a lifelong foundation."
-        },
-        {
-            "q": "Is the procedure painful?",
-            "a": "The jawbone has very few pain receptors; most patients report that the procedure is less uncomfortable than a standard tooth extraction."
-        },
-        {
-            "q": "What is the success rate?",
-            "a": "Clinical studies show a success rate of over 95-98% when performed by experienced clinicians and supported by proper oral hygiene."
-        },
-        {
-            "q": "Am I too old for dental implants?",
-            "a": "Age is rarely a factor. As long as you have good oral health and sufficient bone density (or are suitable for bone grafting), implants are a viable option for most adults."
-        },
-        {
-            "q": "How do I care for my dental implant?",
-            "a": "Treat it just like a natural tooth—brush and floss regularly. Regular check-ups are essential to monitor the health of the surrounding gum and bone."
-        }
-    ];
-
     return (
         <div className="specialty-page">
             <Helmet>
@@ -98,7 +99,7 @@ const DentalImplants = () => {
                 <div className="container">
                     <div className="tech-badge"><Shield size={16} /> Technical Deep-Dive</div>
                     <h1>Dental Implants <span className="h1-sub">Petaling Jaya | iSmile Dental Clinic</span></h1>
-                    <p className="lead">Replace missing teeth with dental implants in Petaling Jaya. Restore your smile with lasting results. Book your visit.</p>
+                    <p className="lead">A dental implant is a titanium screw surgically placed into your jawbone, functioning as an artificial tooth root. After healing (osseointegration), a crown is attached — giving you a replacement tooth that looks, feels, and functions like a natural one. The success rate is routinely cited at 95–98% over 10 years. But that doesn't mean the process is simple or without trade-offs. We'll be upfront about both.</p>
                 </div>
             </div>
 
@@ -106,36 +107,44 @@ const DentalImplants = () => {
                 <div className="container">
                     <div className="tech-grid">
                         <div className="tech-info">
-                            <h2>The Science & Tech</h2>
-                            <p>We leverage advanced clinical protocols and digital technology to provide predictable, high-quality outcomes for our patients.</p>
+                            <h2>Who Needs Dental Implants — and Who Doesn't</h2>
+                            <p>Implants aren't for everyone, and a good dentist will tell you that clearly. Implants are typically recommended when you have missing teeth (or teeth so broken they need extraction), enough bone density or willingness to graft, reasonable general health, and don't smoke or are willing to stop during healing. A bridge or partial denture might be more appropriate in some cases. We're not going to push implants if another solution is better for your situation.</p>
 
                             <div className="tech-feature-list">
 
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
-                                        <h4>Bio-compatibility</h4>
-                                        <p>We use Grade 5 Titanium or Zirconia to ensure the body does not reject the implant, promoting healthy bone growth.</p>
+                                        <h4>No Grinding of Adjacent Teeth</h4>
+                                        <p>Unlike bridges, implants don't require grinding down healthy adjacent teeth. They integrate with your bone, which is why they feel more like your own teeth than any other replacement option.</p>
                                     </div>
                                 </div>
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
-                                        <h4>Osseointegration</h4>
-                                        <p>The biological process where bone cells grow directly onto the surface of the implant, creating a structural bond as strong as natural roots.</p>
+                                        <h4>Recovery and Long-Term Care</h4>
+                                        <p>Implant care is like natural teeth — brush twice daily, floss around the abutment with a water flosser or interdental brush. Regular check-ups every 6 months are essential. Note: natural teeth can develop gum disease; implants can develop peri-implantitis, which is preventable with good hygiene.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="tech-meta glass-panel">
-                            <h3>Clinical Workflow</h3>
+                            <h3>The Implant Process Step by Step</h3>
                             <ul className="step-list">
-                                <li><span>01</span> CBCT 3D Bone Density Analysis</li>
-                                <li><span>02</span> Surgical Implant Placement (Fixtures)</li>
-                                <li><span>03</span> Osseointegration Healing Phase (3-6 Months)</li>
-                                <li><span>04</span> Abutment Attachment & Soft Tissue Shaping</li>
-                                <li><span>05</span> Final Porcelain Crown / Prosthesis Placement</li>
-
+                                <li><span>01</span> Assessment — CBCT 3D scans, bone quality/volume check, health history</li>
+                                <li><span>02</span> Treatment plan presentation — clear cost breakdown, no pressure</li>
+                                <li><span>03</span> Surgical implant placement under local anesthesia (~30–90 min)</li>
+                                <li><span>04</span> Healing and osseointegration (bone fuses to titanium) — 4–8 months</li>
+                                <li><span>05</span> Abutment attachment and impressions for custom crown</li>
+                                <li>
+                                    <span>06</span>
+                                    <div>
+                                        Final crown fitting
+                                        <div style={{ fontSize: '0.9rem', opacity: 0.8, marginTop: '4px' }}>
+                                            Custom porcelain crown cemented or screwed into place
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>

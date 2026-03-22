@@ -5,34 +5,6 @@ import { Shield, CheckCircle, HelpCircle, Users } from 'lucide-react';
 import Button from '../../components/Button';
 
 const MyofunctionalOrthodontics = () => {
-    // Add Service schema for SEO
-    useEffect(() => {
-        const serviceSchema = {
-            "@context": "https://schema.org",
-            "@type": "MedicalProcedure",
-            "name": "MyofunctionalOrthodontics",
-            "description": "Professional dental treatment at iSmile Dental Clinic Petaling Jaya",
-            "provider": {
-                "@type": "Dentist",
-                "name": "iSmile Dental Clinic",
-                "url": "https://ismile.com.my/services/replace"
-            },
-            "areaServed": {
-                "@type": "Place",
-                "name": "Petaling Jaya, Selangor"
-            },
-            "url": "https://ismile.com.my/services/replace"
-        };
-        
-        const script = document.createElement('script');
-        script.type = 'application/ld+json';
-        script.innerHTML = JSON.stringify(serviceSchema);
-        document.head.appendChild(script);
-        
-        return () => {
-            document.head.removeChild(script);
-        };
-    }, []);
     const { openBooking } = useBooking();
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -54,7 +26,7 @@ const MyofunctionalOrthodontics = () => {
                 "@type": "Place",
                 "name": "Petaling Jaya, Selangor"
             },
-            "url": "https://ismile.com.my/services/children"
+            "url": "https://ismile.com.my/services/children/myobrace"
         };
         
         const script = document.createElement('script');
@@ -69,24 +41,24 @@ const MyofunctionalOrthodontics = () => {
 
     const faqs = [
         {
-            "q": "Is it better than braces?",
-            "a": "It addresses the root cause (muscles, breathing dysfunction, poor bone loading), whereas braces only treat the symptoms (teeth). Often, it reduces or eliminates the need for future braces."
+            "q": "At what age should I bring my child for myofunctional assessment?",
+            "a": "We recommend around age 6–7, when the first adult molars and front teeth are typically visible. This is early enough to intercept habit patterns before they become structural problems."
         },
         {
-            "q": "What age is best to start?",
-            "a": "Ideally as soon as possible, while the jaw is still actively growing and habits are easier to retrain. Depending on the assessment conducted and appliance that is prescribed, the dentist will advise you on how best to guide your child's jaw growth and development."
+            "q": "Will my child need braces later if they do Myobrace first?",
+            "a": "Possibly, but likely far less treatment than if you did nothing now. Some children who complete Myobrace treatment with good habit correction need only minor cosmetic alignment later. Others still benefit from braces but for a shorter duration. Your dentist will give you honest guidance either way."
         },
         {
-            "q": "What does the patient have to do?",
-            "a": "Wear the appliance for 1-2 hours during the day and overnight, plus perform daily 5-minute muscle exercises."
+            "q": "Is Myobrace uncomfortable?",
+            "a": "Most children adapt within the first couple of weeks. It's bulkier than nothing, but it's soft silicone, not metal. We find that children who've been mouth breathing often notice they sleep better once they start wearing it, which tends to be motivating."
         },
         {
-            "q": "How soon can we see results?",
-            "a": "Visible changes in oral habits (like lip seal and nasal breathing) can often be seen within 6 months, while structural changes in the jaw guide evolve over 1-2 years."
+            "q": "My child has thumb-sucking habit. Can Myobrace help?",
+            "a": "Yes, one of the things Myobrace does is make thumb-sucking physically awkward during the night hours when habits consolidate. We may also address the habit directly with counseling and myofunctional exercises."
         },
         {
-            "q": "Does my child need to wear it at school?",
-            "a": "No, the appliance is typically worn for only 1-2 hours during the day (at home) and overnight while sleeping."
+            "q": "My child is already 10. Is it too late?",
+            "a": "It depends on growth stage. We assess each child individually with a growth check. Some 10-year-olds still have significant growth remaining; others are approaching the end of the interceptive window. Come in and we'll tell you honestly."
         }
     ];
 
@@ -127,7 +99,7 @@ const MyofunctionalOrthodontics = () => {
                 <div className="container">
                     <div className="tech-badge"><Shield size={16} /> Technical Deep-Dive</div>
                     <h1>Myofunctional Orthodontics <span className="h1-sub">Petaling Jaya | iSmile Dental Clinic</span></h1>
-                    <p className="lead">Gentle dental care for children and teens in Petaling Jaya. First visits, preventive care and orthodontic assessment. Book now.</p>
+                    <p className="lead">Myofunctional orthodontics isn't just "braces for kids" — it's a fundamentally different approach that corrects the muscle patterns, breathing habits, and oral posture causing the bite problem at its root. The goal isn't just straight teeth. It's a child who breathes through their nose, rests their tongue properly on the palate, and has a wide enough airway to sleep deeply and focus at school.</p>
                 </div>
             </div>
 
@@ -135,44 +107,44 @@ const MyofunctionalOrthodontics = () => {
                 <div className="container">
                     <div className="tech-grid">
                         <div className="tech-info">
-                            <h2>The Science & Tech</h2>
-                            <p>We leverage advanced clinical protocols and digital technology to provide predictable, high-quality outcomes for our patients.</p>
+                            <h2>Why Children Are the Ideal Patients</h2>
+                            <p>Between ages roughly 5 and 12, a child's jaw is still malleable — the interceptive treatment window when small interventions produce outsized results. The human face grows most rapidly before age 12. After that, growth slows dramatically and the window for non-surgical jaw expansion largely closes. By the time many teenagers reach us at 14 or 15, significant jaw underdevelopment may only be corrected through surgery. But at 7? A myofunctional appliance combined with habit correction can genuinely expand a narrow palate, open an airway, and redirect jaw growth.</p>
 
                             <div className="tech-feature-list">
 
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
-                                        <h4>Muscle Retraining</h4>
-                                        <p>Uses specialized appliances to train the tongue to rest on the roof of the mouth and establish natural lip seal.</p>
+                                        <h4>Habit Correction</h4>
+                                        <p>Corrects mouth breathing, tongue posture, lip seal, and swallowing pattern — the upstream causes of orthodontic problems. Once these are corrected, teeth tend to drift into better positions naturally with minimal mechanical assistance.</p>
                                     </div>
                                 </div>
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
-                                        <h4>Airway Health</h4>
-                                        <p>Focuses on establishing nasal breathing, which is crucial for proper facial growth and preventing sleep-disordered breathing.</p>
+                                        <h4>The Airway Connection</h4>
+                                        <p>Mouth breathing triggers a chain reaction: tongue sits low, palate doesn't get stimulated, upper jaw doesn't develop fully, arch is too small for adult teeth, leading to crowding. We screen for this at every first visit and refer to ENT if needed.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="tech-meta glass-panel">
-                            <h3>Clinical Workflow</h3>
+                            <h3>Treatment Process at iSmile</h3>
                             <ul className="step-list">
-                                <li><span>01</span> Thorough Assessment of medical, birth and child developmental history</li>
-                                <li><span>02</span> Oral Myofunctional Assessment</li>
-                                <li><span>03</span> Airway & Sleep Screening</li>
+                                <li><span>01</span> Initial consultation — full myofunctional assessment (free first visit)</li>
+                                <li><span>02</span> Custom Myobrace appliance fitting (arrives within ~2 weeks)</li>
+                                <li><span>03</span> Night wear (during sleep) + 1–2 hours daytime quiet activities</li>
+                                <li><span>04</span> Regular check-ins with habit tracking and appliance adjustments</li>
+                                <li><span>05</span> Retention phase — transition to retainer as needed</li>
                                 <li>
-                                    <span>04</span>
+                                    <span>06</span>
                                     <div>
-                                        Customized Appliance Selection
+                                        Typical treatment duration
                                         <div style={{ fontSize: '0.9rem', opacity: 0.8, marginTop: '4px' }}>
-                                            e.g. Expanders, Mandibular Advancers, Maxillary Protractor, Munchees, Myofunctional Appliances ie LM Activator, Braces, Clear Aligners
+                                            12 to 24 months depending on severity and compliance
                                         </div>
                                     </div>
                                 </li>
-                                <li><span>05</span> Monthly Muscle Exercise Programs</li>
-                                <li><span>06</span> Progress Tracking & Growth Monitoring</li>
                             </ul>
                         </div>
                     </div>

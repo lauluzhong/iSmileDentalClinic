@@ -42,24 +42,24 @@ const PediatricDentistry = () => {
 
     const faqs = [
         {
-            "q": "When should my child have their first dental visit?",
-            "a": "The first dental visit should occur by age 1 or within 6 months of the first tooth appearing. Early visits help your child become comfortable with the dental environment and allow us to monitor growth and development from the start."
+            "q": "What age should a child stop using a bottle?",
+            "a": "Around 12–14 months is the recommended target. After that, bottle use — especially at night — may be one of the leading causes of early childhood caries. Transition to a cup."
         },
         {
-            "q": "Are baby teeth really that important?",
-            "a": "Yes. Baby teeth hold space for adult teeth, guide proper chewing and speech development, and affect your child's confidence. Untreated decay in baby teeth can also lead to infection and affect developing adult teeth underneath."
+            "q": "My child is afraid of the dentist. What do I do?",
+            "a": "This is very common, especially if they've had a negative experience elsewhere. Our approach is gradual desensitization. We don't force anything. Some children need a couple of visits before we're even looking in their mouth properly. That's okay. The goal is a child who trusts us and is willing to come back."
         },
         {
-            "q": "What are fissure sealants?",
-            "a": "Fissure sealants are thin protective coatings applied to the chewing surfaces of back teeth (molars) where cavities commonly form. They fill in the grooves and pits, creating a smooth surface that is easier to clean and protected from plaque and food particles."
+            "q": "When do baby teeth fall out?",
+            "a": "Most children start losing front teeth around age 6–7, and back molars around age 10–12. The full adult dentition (28 teeth, minus wisdom teeth) is usually in around age 12–13. We track this at every visit and flag if something seems early or late."
         },
         {
-            "q": "Is fluoride treatment safe for children?",
-            "a": "Yes. Professional topical fluoride strengthens tooth enamel and makes it more resistant to cavities. We use age-appropriate concentrations and amounts that are both safe and effective for your child's developmental stage."
+            "q": "Should I help my child brush?",
+            "a": "Yes, young children don't have the fine motor control to brush effectively. We recommend parents brush for the child or do a "supervised brush" where you go over what they've done. Electric toothbrushes with a timer help make this less of a battle."
         },
         {
-            "q": "How can I help my child feel comfortable at the dentist?",
-            "a": "Start young, keep conversations positive, and avoid using words like 'pain' or 'shot.' At iSmile, we create a fun, judgment-free environment where children learn to see dental visits as a normal part of staying healthy."
+            "q": "What are dental sealants and does my child need them?",
+            "a": "Sealants are a thin protective coating applied to the chewing surfaces of back molars — the areas most prone to cavities because food gets trapped in the grooves. We typically recommend them when adult molars erupt (around age 6–7) and again for the 12-year molars. It's a quick, painless procedure with strong evidence for cavity prevention."
         }
     ];
 
@@ -100,7 +100,7 @@ const PediatricDentistry = () => {
                 <div className="container">
                     <div className="tech-badge"><Users size={16} /> Children's Dentistry</div>
                     <h1>Pediatric Dentistry <span className="h1-sub">Petaling Jaya | iSmile Dental Clinic</span></h1>
-                    <p className="lead">Gentle, trauma-free dental care for children from their very first tooth onwards. We focus on prevention, education, and creating positive dental experiences that last a lifetime.</p>
+                    <p className="lead">Tooth decay can start the moment a tooth erupts, and baby teeth aren't throwaway teeth — they hold space for adult teeth, guide eruption, and affect speech development. But beyond the clinical reason, there's a practical one: the earlier a child visits, the more comfortable they become. An 18-month-old who comes in for a quick, positive first visit grows into a 5-year-old who walks in without fear.</p>
                 </div>
             </div>
 
@@ -108,43 +108,36 @@ const PediatricDentistry = () => {
                 <div className="container">
                     <div className="tech-grid">
                         <div className="tech-info">
-                            <h2>Prevention is Key</h2>
-                            <p>Our pediatric approach focuses on early intervention, prevention, and building healthy habits from a young age so your child can maintain a healthy smile for life.</p>
+                            <h2>What Happens at a Children's Check-Up at iSmile</h2>
+                            <p>We start seeing children young — some before their first birthday. For each visit: we ask about brushing habits and diet; count teeth and check for decay; assess how the bite is developing; do a gentle clean if appropriate; apply fluoride varnish to strengthen enamel; then discuss findings with parents. Every pediatric check-up also includes our myofunctional screening — we observe breathing pattern, tongue posture, and lip seal at rest, and flag any concerns.</p>
 
                             <div className="tech-feature-list">
 
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
-                                        <h4>Fissure Sealants</h4>
-                                        <p>Protective coatings on back teeth to prevent decay in grooves and pits where cavities commonly form. A painless, quick procedure that provides years of protection.</p>
+                                        <h4>Myofunctional Screening Included</h4>
+                                        <p>Can your child breathe through their nose comfortably with lips closed? Does their tongue rest on the roof of the mouth or the floor? We flag mouth-breathing patterns and discuss whether a detailed assessment or ENT referral is warranted.</p>
                                     </div>
                                 </div>
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
-                                        <h4>Topical Fluoride</h4>
-                                        <p>Strengthening enamel to make teeth more resistant to cavities. Applied professionally at cleanings for optimal coverage and protection.</p>
-                                    </div>
-                                </div>
-                                <div className="tech-feature">
-                                    <div className="feature-icon"><CheckCircle size={20} /></div>
-                                    <div className="feature-text">
-                                        <h4>Child-Friendly Environment</h4>
-                                        <p>We take time to build trust with your child. No rush, no judgment—just a positive, fun experience that makes them excited about dental health.</p>
+                                        <h4>Common Issues We Address</h4>
+                                        <p>Early childhood caries (bottle tooth decay), thumb-sucking and pacifier habits beyond age 4, crowding and spacing, enamel hypoplasia, dental trauma, and tongue-tie/lip-tie. We assess for all of these routinely at every visit.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="tech-meta glass-panel">
-                            <h3>Children's Services</h3>
+                            <h3>Children's Services at iSmile</h3>
                             <ul className="step-list">
-                                <li><span>01</span> First Dental Visit & Assessment</li>
-                                <li><span>02</span> Fissure Sealants</li>
-                                <li><span>03</span> Topical Fluoride Treatment</li>
-                                <li><span>04</span> Paediatric Fillings</li>
-                                <li><span>05</span> Baby Tooth Extraction</li>
-
+                                <li><span>01</span> First dental visit — low-key, parent on lap, just a quick peek</li>
+                                <li><span>02</span> Dental check-up — counting teeth, decay check, bite assessment</li>
+                                <li><span>03</span> Gentle cleaning and fluoride application</li>
+                                <li><span>04</span> Myofunctional screening — breathing, tongue posture, lip seal</li>
+                                <li><span>05</span> Parent discussion — practical advice specific to your child</li>
+                                <li><span>06</span> Tongue-tie / lip-tie assessment and simple release (frenectomy)</li>
                             </ul>
                         </div>
                     </div>
