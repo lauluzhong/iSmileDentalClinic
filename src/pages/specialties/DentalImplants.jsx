@@ -66,23 +66,23 @@ const DentalImplants = () => {
     const faqs = [
         {
             "q": "How long does the process take?",
-            "a": "Typically 3-6 months to allow for full osseointegration before the final crown is placed, ensuring a lifelong foundation."
+            "a": "Typically, the osseointegration healing phase takes several months before the final crown is placed. Your dentist will give you a more specific estimate based on your individual case and bone quality."
         },
         {
             "q": "Is the procedure painful?",
-            "a": "The jawbone has very few pain receptors; most patients report that the procedure is less uncomfortable than a standard tooth extraction."
+            "a": "The jawbone has very few pain receptors. Most patients find the procedure less uncomfortable than a standard tooth extraction."
         },
         {
             "q": "What is the success rate?",
-            "a": "Clinical studies show a success rate of over 95-98% when performed by experienced clinicians and supported by proper oral hygiene."
+            "a": "Dental implants, when placed by experienced clinicians in suitable patients with good oral hygiene, tend to have high success rates over time. Your dentist will discuss factors that affect outcomes for your specific situation."
         },
         {
             "q": "Am I too old for dental implants?",
-            "a": "Age is rarely a factor. As long as you have good oral health and sufficient bone density (or are suitable for bone grafting), implants are a viable option for most adults."
+            "a": "Age itself is rarely a limiting factor. As long as you have reasonable oral health and sufficient bone density (or are suitable for bone grafting), implants may be a viable option. Your dentist will assess your individual situation."
         },
         {
             "q": "How do I care for my dental implant?",
-            "a": "Treat it just like a natural tooth—brush and floss regularly. Regular check-ups are essential to monitor the health of the surrounding gum and bone."
+            "a": "Treat it much like a natural tooth. Brush and floss regularly. Regular dental check-ups are important to monitor the health of the surrounding gum and bone over time."
         }
     ];
 
@@ -98,7 +98,7 @@ const DentalImplants = () => {
                 <div className="container">
                     <div className="tech-badge"><Shield size={16} /> Technical Deep-Dive</div>
                     <h1>Dental Implants <span className="h1-sub">Petaling Jaya | iSmile Dental Clinic</span></h1>
-                    <p className="lead">Replace missing teeth with dental implants in Petaling Jaya. Restore your smile with lasting results. Book your visit.</p>
+                    <p className="lead">A dental implant is a titanium screw placed surgically into your jawbone, where it functions as an artificial tooth root. After a healing period called osseointegration, a crown is attached to give you a replacement tooth that looks, feels, and functions like a natural one.</p>
                 </div>
             </div>
 
@@ -107,7 +107,7 @@ const DentalImplants = () => {
                     <div className="tech-grid">
                         <div className="tech-info">
                             <h2>The Science & Tech</h2>
-                            <p>We leverage advanced clinical protocols and digital technology to provide predictable, high-quality outcomes for our patients.</p>
+                            <p>We use Grade 5 Titanium or Zirconia for implants, both of which are highly biocompatible materials that the body readily accepts.</p>
 
                             <div className="tech-feature-list">
 
@@ -115,14 +115,14 @@ const DentalImplants = () => {
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
                                         <h4>Bio-compatibility</h4>
-                                        <p>We use Grade 5 Titanium or Zirconia to ensure the body does not reject the implant, promoting healthy bone growth.</p>
+                                        <p>Grade 5 Titanium or Zirconia promotes healthy bone growth and integration, minimizing the risk of rejection.</p>
                                     </div>
                                 </div>
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
                                         <h4>Osseointegration</h4>
-                                        <p>The biological process where bone cells grow directly onto the surface of the implant, creating a structural bond as strong as natural roots.</p>
+                                        <p>The biological process where bone cells grow directly onto the surface of the implant, creating a structural bond that mimics the strength of natural tooth roots.</p>
                                     </div>
                                 </div>
                             </div>
@@ -132,7 +132,7 @@ const DentalImplants = () => {
                             <ul className="step-list">
                                 <li><span>01</span> CBCT 3D Bone Density Analysis</li>
                                 <li><span>02</span> Surgical Implant Placement (Fixtures)</li>
-                                <li><span>03</span> Osseointegration Healing Phase (3-6 Months)</li>
+                                <li><span>03</span> Osseointegration Healing Phase (typically several months)</li>
                                 <li><span>04</span> Abutment Attachment & Soft Tissue Shaping</li>
                                 <li><span>05</span> Final Porcelain Crown / Prosthesis Placement</li>
 

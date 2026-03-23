@@ -70,23 +70,23 @@ const MyofunctionalOrthodontics = () => {
     const faqs = [
         {
             "q": "Is it better than braces?",
-            "a": "It addresses the root cause (muscles, breathing dysfunction, poor bone loading), whereas braces only treat the symptoms (teeth). Often, it reduces or eliminates the need for future braces."
+            "a": "It addresses the root cause (muscle patterns, breathing habits, oral posture) whereas braces only treat the symptoms (tooth position). In many cases, it can reduce or eliminate the need for future braces. Your dentist will assess and advise based on your child's specific situation."
         },
         {
             "q": "What age is best to start?",
-            "a": "Ideally as soon as possible, while the jaw is still actively growing and habits are easier to retrain. Depending on the assessment conducted and appliance that is prescribed, the dentist will advise you on how best to guide your child's jaw growth and development."
+            "a": "We typically recommend around age 6 to 7, when the first adult molars and front teeth are usually visible. This is early enough to intercept habit patterns before they become structural problems. That said, every child develops differently, so your dentist will advise on the best timing for your child."
         },
         {
-            "q": "What does the patient have to do?",
-            "a": "Wear the appliance for 1-2 hours during the day and overnight, plus perform daily 5-minute muscle exercises."
+            "q": "What does my child have to do?",
+            "a": "Wear the appliance for 1 to 2 hours during the day (at home) and overnight while sleeping, plus perform daily muscle exercises. We work with families on realistic expectations here."
         },
         {
             "q": "How soon can we see results?",
-            "a": "Visible changes in oral habits (like lip seal and nasal breathing) can often be seen within 6 months, while structural changes in the jaw guide evolve over 1-2 years."
+            "a": "Visible changes in oral habits, like lip seal and nasal breathing, can often be seen within around 6 months. Structural changes in the jaw take longer, typically 12 to 24 months, and your dentist will advise on the expected timeline for your child's case."
         },
         {
             "q": "Does my child need to wear it at school?",
-            "a": "No, the appliance is typically worn for only 1-2 hours during the day (at home) and overnight while sleeping."
+            "a": "No. The appliance is typically worn for only 1 to 2 hours during the day at home, plus overnight while sleeping."
         }
     ];
 
@@ -127,7 +127,7 @@ const MyofunctionalOrthodontics = () => {
                 <div className="container">
                     <div className="tech-badge"><Shield size={16} /> Technical Deep-Dive</div>
                     <h1>Myofunctional Orthodontics <span className="h1-sub">Petaling Jaya | iSmile Dental Clinic</span></h1>
-                    <p className="lead">Gentle dental care for children and teens in Petaling Jaya. First visits, preventive care and orthodontic assessment. Book now.</p>
+                    <p className="lead">Myofunctional orthodontics addresses the root causes of jaw underdevelopment and crowding by correcting muscle patterns, breathing habits, and oral posture. At iSmile, we use the Myobrace system, a removable functional brace worn mostly at night that gently guides jaw development and habit correction.</p>
                 </div>
             </div>
 
@@ -136,7 +136,7 @@ const MyofunctionalOrthodontics = () => {
                     <div className="tech-grid">
                         <div className="tech-info">
                             <h2>The Science & Tech</h2>
-                            <p>We leverage advanced clinical protocols and digital technology to provide predictable, high-quality outcomes for our patients.</p>
+                            <p>Instead of just moving teeth after they have gone off course, myofunctional orthodontics works upstream to address why the bite problem developed in the first place.</p>
 
                             <div className="tech-feature-list">
 
@@ -144,14 +144,14 @@ const MyofunctionalOrthodontics = () => {
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
                                         <h4>Muscle Retraining</h4>
-                                        <p>Uses specialized appliances to train the tongue to rest on the roof of the mouth and establish natural lip seal.</p>
+                                        <p>Uses specialized appliances to train the tongue to rest on the roof of the mouth, establish proper lip seal, and correct swallowing patterns.</p>
                                     </div>
                                 </div>
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
-                                        <h4>Airway Health</h4>
-                                        <p>Focuses on establishing nasal breathing, which is crucial for proper facial growth and preventing sleep-disordered breathing.</p>
+                                        <h4>Airway & Breathing Health</h4>
+                                        <p>Focuses on establishing nasal breathing, which is important for proper facial growth and may help with sleep quality. We screen for mouth breathing patterns at every assessment.</p>
                                     </div>
                                 </div>
                             </div>

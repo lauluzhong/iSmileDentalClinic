@@ -43,23 +43,23 @@ const PediatricDentistry = () => {
     const faqs = [
         {
             "q": "When should my child have their first dental visit?",
-            "a": "The first dental visit should occur by age 1 or within 6 months of the first tooth appearing. Early visits help your child become comfortable with the dental environment and allow us to monitor growth and development from the start."
+            "a": "We typically recommend around age 1, or within 6 months of the first tooth appearing. Early visits help your child become comfortable with the dental environment and allow us to monitor growth and development from the start."
         },
         {
             "q": "Are baby teeth really that important?",
-            "a": "Yes. Baby teeth hold space for adult teeth, guide proper chewing and speech development, and affect your child's confidence. Untreated decay in baby teeth can also lead to infection and affect developing adult teeth underneath."
+            "a": "Yes. Baby teeth hold space for adult teeth, guide proper chewing and speech development, and affect your child's confidence. Untreated decay in baby teeth can also lead to infection and may affect developing adult teeth underneath."
         },
         {
             "q": "What are fissure sealants?",
-            "a": "Fissure sealants are thin protective coatings applied to the chewing surfaces of back teeth (molars) where cavities commonly form. They fill in the grooves and pits, creating a smooth surface that is easier to clean and protected from plaque and food particles."
+            "a": "Fissure sealants are thin protective coatings applied to the chewing surfaces of back teeth where cavities commonly form. They fill in the grooves and pits, creating a smoother surface that is easier to clean and protected from plaque and food particles."
         },
         {
             "q": "Is fluoride treatment safe for children?",
-            "a": "Yes. Professional topical fluoride strengthens tooth enamel and makes it more resistant to cavities. We use age-appropriate concentrations and amounts that are both safe and effective for your child's developmental stage."
+            "a": "Yes. Professionally applied topical fluoride strengthens tooth enamel and makes it more resistant to cavities. We use age-appropriate concentrations that are both safe and effective for your child's developmental stage."
         },
         {
             "q": "How can I help my child feel comfortable at the dentist?",
-            "a": "Start young, keep conversations positive, and avoid using words like 'pain' or 'shot.' At iSmile, we create a fun, judgment-free environment where children learn to see dental visits as a normal part of staying healthy."
+            "a": "Start young, keep conversations positive, and avoid using words like pain or shot. At iSmile, we create a fun, judgment-free environment where children learn to see dental visits as a normal part of staying healthy."
         }
     ];
 
@@ -100,7 +100,7 @@ const PediatricDentistry = () => {
                 <div className="container">
                     <div className="tech-badge"><Users size={16} /> Children's Dentistry</div>
                     <h1>Pediatric Dentistry <span className="h1-sub">Petaling Jaya | iSmile Dental Clinic</span></h1>
-                    <p className="lead">Gentle, trauma-free dental care for children from their very first tooth onwards. We focus on prevention, education, and creating positive dental experiences that last a lifetime.</p>
+                    <p className="lead">Gentle, trauma-free dental care for children from their very first tooth onwards. We focus on prevention, education, and creating positive dental experiences that last a lifetime. Every pediatric check-up at iSmile also includes a basic myofunctional screening to assess breathing patterns and oral posture.</p>
                 </div>
             </div>
 
@@ -117,21 +117,21 @@ const PediatricDentistry = () => {
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
                                         <h4>Fissure Sealants</h4>
-                                        <p>Protective coatings on back teeth to prevent decay in grooves and pits where cavities commonly form. A painless, quick procedure that provides years of protection.</p>
+                                        <p>Protective coatings on back teeth to prevent decay in grooves and pits where cavities commonly form. A painless, quick procedure that may provide years of protection.</p>
                                     </div>
                                 </div>
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
                                         <h4>Topical Fluoride</h4>
-                                        <p>Strengthening enamel to make teeth more resistant to cavities. Applied professionally at cleanings for optimal coverage and protection.</p>
+                                        <p>Professionally applied fluoride strengthens enamel and makes teeth more resistant to cavities. Applied at cleanings for optimal coverage and protection.</p>
                                     </div>
                                 </div>
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
                                         <h4>Child-Friendly Environment</h4>
-                                        <p>We take time to build trust with your child. No rush, no judgment—just a positive, fun experience that makes them excited about dental health.</p>
+                                        <p>We take time to build trust with your child. No rush, no judgment. Just a positive, fun experience that makes them excited about dental health.</p>
                                     </div>
                                 </div>
                             </div>
@@ -144,7 +144,7 @@ const PediatricDentistry = () => {
                                 <li><span>03</span> Topical Fluoride Treatment</li>
                                 <li><span>04</span> Paediatric Fillings</li>
                                 <li><span>05</span> Baby Tooth Extraction</li>
-
+                                <li><span>06</span> Basic Myofunctional Screening</li>
                             </ul>
                         </div>
                     </div>

@@ -68,19 +68,19 @@ const ClearAligners = () => {
     const faqs = [
         {
             "q": "How many hours a day must I wear them?",
-            "a": "For clinical success, 20\u201322 hours per day is required. They should only be removed for eating, drinking (except water), and oral hygiene."
+            "a": "For clinical success, 20 to 22 hours per day is typically required. They should only be removed for eating, drinking (except water), and oral hygiene."
         },
         {
             "q": "Does it affect speech?",
-            "a": "A minor lisp may occur for the first 48 hours as the tongue adapts to the aligner thickness, but this typically resolves quickly."
+            "a": "A minor lisp may occur for the first day or two as the tongue adapts to the aligner thickness. This usually resolves quickly on its own."
         },
         {
             "q": "Can I eat with them?",
-            "a": "No, aligners must be removed during meals to prevent staining, damage, and ensuring proper oral hygiene."
+            "a": "No, aligners must be removed during meals to prevent staining, damage, and to ensure proper oral hygiene."
         },
         {
             "q": "Are aligners suitable for all cases?",
-            "a": "While aligners can treat most orthodontic issues, some complex bone-level corrections may still require traditional braces. Our doctors will provide a detailed assessment using 3D scanning."
+            "a": "While aligners can treat many orthodontic issues, some complex cases may still require traditional braces. Our dentists will assess your situation using 3D scanning and advise on the most appropriate option."
         },
         {
             "q": "How do I clean my aligners?",
@@ -100,7 +100,7 @@ const ClearAligners = () => {
                 <div className="container">
                     <div className="tech-badge"><Shield size={16} /> Technical Deep-Dive</div>
                     <h1>Clear Aligners <span className="h1-sub">Petaling Jaya | iSmile Dental Clinic</span></h1>
-                    <p className="lead">A modern orthodontic solution using a series of custom-made, transparent plastic trays to gradually shift teeth into alignment without the need for traditional braces. We offer Invisalign, Angel, and ClearSmile aligner systems.</p>
+                    <p className="lead">A modern orthodontic solution using a series of custom-made, transparent plastic trays to gradually shift teeth into alignment. Think of it as a sequence of almost-invisible molds, each tray slightly different from the last, with you moving to the next tray every 1 to 2 weeks. There are no brackets, no wires, and no food restrictions. We offer Invisalign, Angel Aligner, and ClearSmile systems.</p>
                 </div>
             </div>
 
@@ -109,7 +109,7 @@ const ClearAligners = () => {
                     <div className="tech-grid">
                         <div className="tech-info">
                             <h2>The Science & Tech</h2>
-                            <p>We leverage advanced clinical protocols and digital technology to provide predictable, high-quality outcomes for our patients.</p>
+                            <p>Clear aligners apply controlled, directional force to specific teeth at specific times. Your dentist plans the entire tooth movement sequence digitally before you start, so you can see a projected outcome on screen before committing.</p>
 
                             <div className="tech-feature-list">
 
@@ -117,14 +117,14 @@ const ClearAligners = () => {
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
                                         <h4>Advanced Aligner Material</h4>
-                                        <p>Utilizes specialized multi-layer medical-grade materials designed for constant, gentle force and superior control of tooth movements.</p>
+                                        <p>Multi-layer medical-grade plastic aligner material designed for constant, gentle force and precise control of tooth movements.</p>
                                     </div>
                                 </div>
                                 <div className="tech-feature">
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
                                         <h4>Digital Workflow</h4>
-                                        <p>High-precision 3D intraoral scanning eliminates the need for messy impressions and allows for precise treatment planning.</p>
+                                        <p>High-precision 3D intraoral scanning eliminates the need for messy putty impressions and allows for accurate treatment planning from the start.</p>
                                     </div>
                                 </div>
                             </div>
