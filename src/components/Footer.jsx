@@ -146,7 +146,7 @@ const Footer = () => {
                         <h4 className="footer-heading">Contact</h4>
                         <div className="phone-block">
                             <Smartphone size={20} className="phone-icon" />
-                            <a href="tel:0163222135" className="phone-link">016-322 2135</a>
+                            <a href="tel:0163222135" className="phone-link">+60163222135</a>
                         </div>
                         <p className="cta-desc">Ready to schedule your visit?</p>
                         <div className="mt-4">

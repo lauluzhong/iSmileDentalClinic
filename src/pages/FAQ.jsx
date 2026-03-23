@@ -48,7 +48,7 @@ const FAQ = () => {
                 },
                 {
                     q: "How do I schedule a visit?",
-                    a: <>We operate strictly by appointment to ensure every patient receives dedicated care. Please call or WhatsApp us at <a href="https://wa.me/60163222135" target="_blank" rel="noopener noreferrer" className="phone-link">+60 16 322 2135</a> to schedule your visit.</>
+                    a: <>We operate strictly by appointment to ensure every patient receives dedicated care. Please call or WhatsApp us at <a href="https://wa.me/60163222135" target="_blank" rel="noopener noreferrer" className="phone-link">+60163222135</a> to schedule your visit.</>
                 },
                 {
                     q: "Do you accept credit cards?",
@@ -74,7 +74,7 @@ const FAQ = () => {
                 },
                 {
                     q: "What should I do in a dental emergency?",
-                    a: <>If you experience severe pain, swelling, or a dental injury, please reach out to us at <a href="https://wa.me/60163222135" target="_blank" rel="noopener noreferrer" className="phone-link">+60 16 322 2135</a>. We prioritize emergency cases and will do our best to provide same-day care.</>
+                    a: <>If you experience severe pain, swelling, or a dental injury, please reach out to us at <a href="https://wa.me/60163222135" target="_blank" rel="noopener noreferrer" className="phone-link">+60163222135</a>. We prioritize emergency cases and will do our best to provide same-day care.</>
                 },
                 {
                     q: "Are dental X-rays (radiographs) safe?",
