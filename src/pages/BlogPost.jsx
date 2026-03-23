@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, Navigate, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState, useMemo } from 'react';
+import { useParams, Navigate, useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Reveal, FadeIn } from '../components/Reveal';
 import Button from '../components/Button';
 import { ArrowLeft } from 'lucide-react';
 import { useBooking } from '../context/BookingContext';
+import blogIndex from '../data/blog-index.json';
 
 const SITE_URL = 'https://ismile.com.my';
 
@@ -41,6 +42,15 @@ const BlogPost = () => {
                 setLoading(false);
             });
     }, [slug]);
+
+    // Compute related posts: same category first, then fill with recent posts
+    const relatedPosts = useMemo(() => {
+        if (!post) return [];
+        const sameCat = blogIndex.filter(p => p.category === post.category && p.slug !== slug);
+        const others = blogIndex.filter(p => p.category !== post.category && p.slug !== slug);
+        const combined = [...sameCat, ...others];
+        return combined.slice(0, 3);
+    }, [post, slug]);
 
     if (notFound) return <Navigate to="/blog" replace />;
 
@@ -218,6 +228,31 @@ const BlogPost = () => {
                 </FadeIn>
             </div>
 
+            {/* Related Posts Section */}
+            {relatedPosts.length > 0 && (
+                <div className="related-posts-section">
+                    <div className="container" style={{ maxWidth: '1100px', margin: '0 auto' }}>
+                        <FadeIn>
+                            <h2 className="related-posts-title">You May Also Like</h2>
+                            <div className="related-posts-grid">
+                                {relatedPosts.map((rp) => (
+                                    <Link to={`/blog/${rp.slug}`} key={rp.slug} className="related-post-card">
+                                        <div className="related-post-image">
+                                            <img src={rp.img} alt={rp.title} loading="lazy" />
+                                        </div>
+                                        <div className="related-post-content">
+                                            <span className="related-post-cat">{rp.category}</span>
+                                            <h4>{rp.title}</h4>
+                                            <span className="related-post-date">{formatDate(rp.date)}</span>
+                                        </div>
+                                    </Link>
+                                ))}
+                            </div>
+                        </FadeIn>
+                    </div>
+                </div>
+            )}
+
             <style>{`
                 .post-title-gradient {
                     background: linear-gradient(135deg, #1a202c 0%, var(--color-primary-teal) 100%);
@@ -291,6 +326,90 @@ const BlogPost = () => {
                     color: var(--color-text-charcoal);
                 }
 
+                /* Related Posts Section */
+                .related-posts-section {
+                    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 30%, #f0f7ff 100%);
+                    padding: 60px 20px 80px;
+                    margin-top: 20px;
+                }
+
+                .related-posts-title {
+                    text-align: center;
+                    font-size: 1.8rem;
+                    font-weight: 700;
+                    color: var(--color-text-charcoal);
+                    margin-bottom: 40px;
+                    letter-spacing: -0.01em;
+                }
+
+                .related-posts-grid {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 24px;
+                }
+
+                .related-post-card {
+                    background: white;
+                    border-radius: 20px;
+                    overflow: hidden;
+                    text-decoration: none;
+                    color: inherit;
+                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .related-post-card:hover {
+                    transform: translateY(-6px);
+                    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+                }
+
+                .related-post-image {
+                    height: 180px;
+                    overflow: hidden;
+                }
+
+                .related-post-image img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.5s ease;
+                }
+
+                .related-post-card:hover .related-post-image img {
+                    transform: scale(1.06);
+                }
+
+                .related-post-content {
+                    padding: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1;
+                }
+
+                .related-post-cat {
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    color: var(--color-primary);
+                    letter-spacing: 1px;
+                }
+
+                .related-post-content h4 {
+                    font-size: 1.05rem;
+                    font-weight: 600;
+                    line-height: 1.4;
+                    margin: 8px 0 12px;
+                    color: var(--color-text-charcoal);
+                }
+
+                .related-post-date {
+                    font-size: 0.8rem;
+                    color: var(--color-text-muted);
+                    margin-top: auto;
+                }
+
                 @media (max-width: 1024px) {
                     .post-header-gradient { padding: 100px 0 60px; }
                     .post-title-gradient { font-size: 2.2rem; margin: 10px 0; }
@@ -306,6 +425,30 @@ const BlogPost = () => {
 
                     .post-footer { margin-top: 40px; padding-top: 30px; }
                     .post-footer h3 { font-size: 1.5rem; }
+
+                    /* Related posts mobile */
+                    .related-posts-section { padding: 40px 16px 60px; }
+                    .related-posts-title { font-size: 1.4rem; margin-bottom: 24px; }
+                    .related-posts-grid {
+                        grid-template-columns: 1fr;
+                        gap: 16px;
+                    }
+                    .related-post-card {
+                        flex-direction: row;
+                        border-radius: 16px;
+                    }
+                    .related-post-image {
+                        width: 120px;
+                        min-width: 120px;
+                        height: auto;
+                    }
+                    .related-post-content {
+                        padding: 14px 16px;
+                    }
+                    .related-post-content h4 {
+                        font-size: 0.95rem;
+                        margin: 4px 0 8px;
+                    }
                 }
             `}</style>
         </div>

@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import React from 'react';
+import React, { useMemo, useRef, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import Button from '../components/Button';
 import { Reveal, FadeIn } from '../components/Reveal';
@@ -16,11 +16,32 @@ const formatDate = (isoDate) => {
 const Blog = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const currentPage = parseInt(searchParams.get('page') || '1', 10);
+    const activeCategory = searchParams.get('category') || 'All';
+    const filterRef = useRef(null);
+
+    // Extract unique categories with counts
+    const categories = useMemo(() => {
+        const counts = {};
+        blogIndex.forEach(p => {
+            counts[p.category] = (counts[p.category] || 0) + 1;
+        });
+        return Object.entries(counts)
+            .sort((a, b) => b[1] - a[1])
+            .map(([name, count]) => ({ name, count }));
+    }, []);
 
     // Featured post: first post with featured: true, fallback to first post
     const featuredPost = blogIndex.find(p => p.featured) || blogIndex[0];
-    // Grid posts: everything except the featured post
-    const otherPosts = blogIndex.filter(p => p.slug !== featuredPost?.slug);
+
+    // Grid posts: everything except the featured post, filtered by category
+    // When "All": exclude featured post from grid (it's shown separately)
+    // When filtering: include ALL posts (featured post not shown separately)
+    const otherPosts = useMemo(() => {
+        if (activeCategory === 'All') {
+            return blogIndex.filter(p => p.slug !== featuredPost?.slug);
+        }
+        return blogIndex.filter(p => p.category === activeCategory);
+    }, [activeCategory, featuredPost]);
 
     // Pagination
     const totalPages = Math.ceil(otherPosts.length / POSTS_PER_PAGE);
@@ -28,9 +49,34 @@ const Blog = () => {
     const paginatedPosts = otherPosts.slice(startIndex, startIndex + POSTS_PER_PAGE);
 
     const goToPage = (page) => {
-        setSearchParams(page === 1 ? {} : { page: String(page) });
+        const params = {};
+        if (activeCategory !== 'All') params.category = activeCategory;
+        if (page > 1) params.page = String(page);
+        setSearchParams(params);
         window.scrollTo(0, 0);
     };
+
+    const setCategory = (cat) => {
+        const params = {};
+        if (cat !== 'All') params.category = cat;
+        setSearchParams(params);
+
+        if (filterRef.current) {
+            const pill = filterRef.current.querySelector(`[data-cat="${cat}"]`);
+            if (pill) {
+                pill.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
+        }
+    };
+
+    useEffect(() => {
+        if (filterRef.current) {
+            const pill = filterRef.current.querySelector(`[data-cat="${activeCategory}"]`);
+            if (pill) {
+                pill.scrollIntoView({ inline: 'center', block: 'nearest' });
+            }
+        }
+    }, [activeCategory]);
 
     return (
         <div className="blog-page">
@@ -66,8 +112,31 @@ const Blog = () => {
             </div>
 
             <div className="container section-padding">
-                {/* Featured */}
-                {featuredPost && (
+                {/* Category Filter Bar */}
+                <nav className="category-filter-bar" ref={filterRef} aria-label="Filter by topic">
+                    <button
+                        className={`category-pill${activeCategory === 'All' ? ' active' : ''}`}
+                        onClick={() => setCategory('All')}
+                        data-cat="All"
+                    >
+                        All
+                        <span className="pill-count">{blogIndex.length}</span>
+                    </button>
+                    {categories.map(({ name, count }) => (
+                        <button
+                            key={name}
+                            className={`category-pill${activeCategory === name ? ' active' : ''}`}
+                            onClick={() => setCategory(name)}
+                            data-cat={name}
+                        >
+                            {name}
+                            <span className="pill-count">{count}</span>
+                        </button>
+                    ))}
+                </nav>
+
+                {/* Featured — only show on "All" view */}
+                {featuredPost && activeCategory === 'All' && (
                     <FadeIn className="glass-panel featured-post">
                         <div className="featured-content">
                             <span className="badge">Featured</span>
@@ -84,21 +153,29 @@ const Blog = () => {
                 )}
 
                 {/* Grid */}
-                <div className="posts-grid" style={{ marginTop: '80px' }}>
-                    {paginatedPosts.map((post) => (
-                        <Link to={`/blog/${post.slug}`} key={post.slug} style={{ textDecoration: 'none', color: 'inherit' }}>
-                            <FadeIn className="glass-panel post-card">
-                                <div className="post-image">
-                                    <img src={post.img} alt={post.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                                </div>
-                                <div className="post-content">
-                                    <span className="post-cat">{post.category}</span>
-                                    <h3>{post.title}</h3>
-                                    <div className="post-meta">{formatDate(post.date)}</div>
-                                </div>
-                            </FadeIn>
-                        </Link>
-                    ))}
+                <div className="posts-grid" style={{ marginTop: '50px' }}>
+                    {paginatedPosts.length > 0 ? (
+                        paginatedPosts.map((post) => (
+                            <Link to={`/blog/${post.slug}`} key={post.slug} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <FadeIn className="glass-panel post-card">
+                                    <div className="post-image">
+                                        <img src={post.img} alt={post.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                    </div>
+                                    <div className="post-content">
+                                        <span className="post-cat">{post.category}</span>
+                                        <h3>{post.title}</h3>
+                                        <div className="post-meta">{formatDate(post.date)}</div>
+                                    </div>
+                                </FadeIn>
+                            </Link>
+                        ))
+                    ) : (
+                        <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '60px 20px' }}>
+                            <p style={{ fontSize: '1.1rem', color: 'var(--color-text-muted)' }}>
+                                No other posts in this category yet. Check back soon!
+                            </p>
+                        </div>
+                    )}
                 </div>
 
                 {/* Pagination */}
@@ -129,15 +206,73 @@ const Blog = () => {
             </div>
 
             <style>{`
-          .search-bar {
+          /* Category Filter Bar */
+          .category-filter-bar {
               display: flex;
+              gap: 10px;
+              padding: 6px 0 20px;
+              margin-bottom: 30px;
+              overflow-x: auto;
+              -webkit-overflow-scrolling: touch;
+              scrollbar-width: none;
+              -ms-overflow-style: none;
+              scroll-behavior: smooth;
+              position: relative;
+          }
+
+          .category-filter-bar::-webkit-scrollbar {
+              display: none;
+          }
+
+          .category-pill {
+              display: inline-flex;
               align-items: center;
-              gap: 15px;
-              max-width: 500px;
-              margin: 0 auto;
-              padding: 10px 15px;
+              gap: 6px;
+              padding: 10px 20px;
               border-radius: 50px;
-              background: rgba(255,255,255,0.8);
+              border: 1.5px solid #e2e8f0;
+              background: rgba(255, 255, 255, 0.85);
+              color: var(--color-text-charcoal);
+              font-size: 0.9rem;
+              font-weight: 600;
+              cursor: pointer;
+              white-space: nowrap;
+              transition: all 0.25s ease;
+              flex-shrink: 0;
+              backdrop-filter: blur(8px);
+          }
+
+          .category-pill:hover {
+              border-color: var(--color-primary-teal);
+              color: var(--color-primary-teal);
+              box-shadow: 0 2px 12px rgba(79, 163, 194, 0.15);
+          }
+
+          .category-pill.active {
+              background: var(--color-primary-teal);
+              color: white;
+              border-color: var(--color-primary-teal);
+              box-shadow: 0 4px 16px rgba(79, 163, 194, 0.3);
+          }
+
+          .category-pill.active .pill-count {
+              background: rgba(255, 255, 255, 0.25);
+              color: white;
+          }
+
+          .pill-count {
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              min-width: 22px;
+              height: 22px;
+              padding: 0 6px;
+              border-radius: 50px;
+              background: #f1f5f9;
+              color: var(--color-text-muted);
+              font-size: 0.75rem;
+              font-weight: 700;
+              line-height: 1;
           }
 
           .featured-post {
@@ -163,7 +298,7 @@ const Blog = () => {
 
           .posts-grid {
               display: grid;
-              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+              grid-template-columns: repeat(3, 1fr);
               gap: 30px;
           }
 
@@ -208,6 +343,18 @@ const Blog = () => {
           }
 
           @media (max-width: 1024px) {
+              .category-filter-bar {
+                  padding: 6px 8px 16px;
+                  margin-bottom: 20px;
+                  mask-image: linear-gradient(to right, transparent 0, black 8px, black calc(100% - 30px), transparent 100%);
+                  -webkit-mask-image: linear-gradient(to right, transparent 0, black 8px, black calc(100% - 30px), transparent 100%);
+              }
+
+              .category-pill {
+                  padding: 8px 16px;
+                  font-size: 0.85rem;
+              }
+
               .featured-post {
                   grid-template-columns: 1fr;
                   border-radius: 20px;
@@ -226,7 +373,7 @@ const Blog = () => {
               .posts-grid {
                   grid-template-columns: 1fr;
                   gap: 20px;
-                  margin-top: 40px;
+                  margin-top: 30px !important;
               }
               .post-card {
                   border-radius: 20px;
