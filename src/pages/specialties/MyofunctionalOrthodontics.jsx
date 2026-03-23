@@ -74,11 +74,11 @@ const MyofunctionalOrthodontics = () => {
         },
         {
             "q": "What age is best to start?",
-            "a": "We typically recommend around age 6 to 7, when the first adult molars and front teeth are usually visible. This is early enough to intercept habit patterns before they become structural problems. That said, every child develops differently, so your dentist will advise on the best timing for your child."
+            "a": "Ideally as soon as possible, while the jaw is still actively growing and habits are easier to retrain. Depending on the assessment conducted and appliance that is prescribed, the dentist will advise you on how best to guide your child's jaw growth and development."
         },
         {
             "q": "What does my child have to do?",
-            "a": "Wear the appliance for 1 to 2 hours during the day (at home) and overnight while sleeping, plus perform daily muscle exercises. We work with families on realistic expectations here."
+            "a": "Wear the appliance for 1 to 2 hours during the day (at home) and overnight while sleeping, plus perform daily 5-minute muscle exercises. We work with families on realistic expectations here."
         },
         {
             "q": "How soon can we see results?",
@@ -118,16 +118,16 @@ const MyofunctionalOrthodontics = () => {
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Myobrace for Children Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Myobrace orthodontic treatment for children in Damansara Jaya, Petaling Jaya. Early intervention for healthy jaw development & natural teeth alignment." />
-                <link rel="canonical" href="https://ismile.com.my/services/children/myobrace" />
+                <title>Myofunctional Orthodontics for Children Petaling Jaya | iSmile Dental Clinic</title>
+                <meta name="description" content="Myofunctional orthodontic treatment for children in Damansara Jaya, Petaling Jaya. Early intervention for healthy jaw development & natural teeth alignment." />
+                <link rel="canonical" href="https://ismile.com.my/services/children/myofunctional" />
             </Helmet>
 
             <div className="tech-hero">
                 <div className="container">
                     <div className="tech-badge"><Shield size={16} /> Technical Deep-Dive</div>
                     <h1>Myofunctional Orthodontics <span className="h1-sub">Petaling Jaya | iSmile Dental Clinic</span></h1>
-                    <p className="lead">Myofunctional orthodontics addresses the root causes of jaw underdevelopment and crowding by correcting muscle patterns, breathing habits, and oral posture. At iSmile, we use the Myobrace system, a removable functional brace worn mostly at night that gently guides jaw development and habit correction.</p>
+                    <p className="lead">Myofunctional orthodontics addresses the root causes of jaw underdevelopment and crowding by correcting muscle patterns, breathing habits, and oral posture. At iSmile, we use removable functional braces worn mostly at night that gently guide jaw development and habit correction.</p>
                 </div>
             </div>
 

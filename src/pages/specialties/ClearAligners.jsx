@@ -109,7 +109,7 @@ const ClearAligners = () => {
                     <div className="tech-grid">
                         <div className="tech-info">
                             <h2>The Science & Tech</h2>
-                            <p>Clear aligners apply controlled, directional force to specific teeth at specific times. Your dentist plans the entire tooth movement sequence digitally before you start, so you can see a projected outcome on screen before committing.</p>
+                            <p>Clear aligners apply controlled, directional force to specific teeth at specific times. Your dentist plans the entire tooth movement sequence digitally before you start, using 3D scans to guide treatment and improve precision.</p>
 
                             <div className="tech-feature-list">
 

@@ -41,7 +41,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ismile.com.my/services/children/myobrace</loc>
+    <loc>https://ismile.com.my/services/children/myofunctional</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -62,16 +62,11 @@
   </url>
   <url>
     <loc>https://ismile.com.my/blog</loc>
-  <url>
-    <loc>https://ismile.com.my/blog/myobrace-vs-invisalign</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ismile.com.my/blog/myobrace-vs-invisalign</loc>
+    <loc>https://ismile.com.my/blog/lm-activator-vs-invisalign</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

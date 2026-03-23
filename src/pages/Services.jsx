@@ -579,7 +579,7 @@ const Services = () => {
             <Route path="straighten/clear-aligners" element={<ClearAligners />} />
             <Route path="replace/dental-implants" element={<DentalImplants />} />
             <Route path="enhance/teeth-whitening" element={<TeethWhitening />} />
-            <Route path="children/myobrace" element={<MyofunctionalOrthodontics />} />
+            <Route path="children/myofunctional" element={<MyofunctionalOrthodontics />} />
             <Route path="enhance/cosmetic-dentistry" element={<CosmeticDentistry />} />
             <Route path="children/pediatric-dentistry" element={<PediatricDentistry />} />
         </Routes>
