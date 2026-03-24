@@ -1,6 +1,6 @@
 // Vercel Serverless Function — GA4 Analytics Data API
 // Uses direct HTTPS calls — no extra npm packages needed
-import { createHmac } from 'crypto';
+import { createSign } from 'crypto';
 
 const GA4_PROPERTY_ID = '518699898';
 const CREDENTIALS = JSON.parse(process.env.GOOGLE_ANALYTICS_CREDENTIALS || '{}');
@@ -22,7 +22,10 @@ async function getAccessToken() {
 
   const signingInput = `${jwtHeader}.${jwtClaim}`;
   const signingKey = CREDENTIALS.private_key.replace(/\\n/g, '\n');
-  const signature = createHmac('sha256', signingKey).update(signingInput).digest('base64url');
+  const signer = createSign('RSA-SHA256');
+  signer.update(signingInput);
+  signer.end();
+  const signature = signer.sign(signingKey, 'base64url');
   const signedJwt = `${signingInput}.${signature}`;
 
   const tokenResp = await fetch('https://oauth2.googleapis.com/token', {
@@ -128,7 +131,7 @@ export default async function handler(req, res) {
     const totalSessions = (sourceData.rows || []).reduce((s, r) => s + parseInt(r.metricValues[0].value), 0);
     const totalUsers = (sourceData.rows || []).reduce((s, r) => s + parseInt(r.metricValues[1].value), 0);
 
-    const result = {
+    return res.status(200).json({
       generatedAt: new Date().toISOString(),
       dateRange: '2026-03-17 to 2026-03-23 (7 days)',
       summary: { totalPageViews, totalSessions, totalUsers },
@@ -139,9 +142,7 @@ export default async function handler(req, res) {
       landingPageSources: formatRows(landingSourceData.rows, landingSourceData.dimensions.map(d => d.name), landingSourceData.metrics.map(m => m.name)),
       engagement: formatRows(engagementData.rows, engagementData.dimensions.map(d => d.name), engagementData.metrics.map(m => m.name)),
       today: todayData ? formatRows(todayData.rows, todayData.dimensions.map(d => d.name), todayData.metrics.map(m => m.name)) : null,
-    };
-
-    return res.status(200).json(result);
+    });
   } catch (error) {
     console.error('Analytics API error:', error.message);
     return res.status(500).json({ error: 'Failed to fetch analytics data', message: error.message });
