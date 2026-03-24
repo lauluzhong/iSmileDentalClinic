@@ -13,6 +13,8 @@ Parents in Malaysia often face a dilemma when their child needs braces: the affo
 
 Understanding these differences can help you plan your child's orthodontic journey without unnecessary stress.
 
+<p>To learn more about our approach to straightening teeth, visit our <a href="https://ismile.com.my/services/straighten">teeth straightening service</a> page.</p>
+
 ### Timeline and Waiting Periods
 
 Government clinics provide excellent care but often have long waiting lists due to high demand. Private clinics, on the other hand, can usually begin treatment almost immediately, which is crucial if you want to utilize the prime teenage growth spurt for optimal results.

@@ -13,6 +13,8 @@ A bright, white smile is often associated with health and vitality. With so many
 
 Our priority is ensuring you get that radiant glow without ever compromising the health and strength of your enamel.
 
+<p>To learn more about our professional teeth whitening options, visit our <a href="https://ismile.com.my/services/enhance/teeth-whitening">teeth whitening service</a> page.</p>
+
 ### Professional Care vs. Over-the-Counter Options
 
 Store-bought strips often have lower concentrations of active ingredients or use abrasive agents that can be harsh. Professional whitening uses safe, buffered gels that protect your gums while effectively and deeply lifting stubborn stains.

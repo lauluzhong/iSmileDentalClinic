@@ -13,6 +13,8 @@ It's a common sight: you spit into the sink after brushing, and there is a pinki
 
 The good news is that this is usually reversible. By understanding why it happens, you can take simple steps at home and with your dentist to stop the bleeding and protect your smile for the long term.
 
+<p>To learn more about how we help protect your oral health, visit our <a href="https://ismile.com.my/services/protect">protective dental care service</a> page.</p>
+
 ![Person concerned while brushing teeth](/images/blog/concerned_person_brushing.png "Healthy habits start with paying attention to small signals.")
 
 ### The Plaque Trap

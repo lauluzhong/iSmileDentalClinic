@@ -13,6 +13,8 @@ featured: false
 
 While we carry industry-leading clear aligner brands like Invisalign, Angel, and ClearSmile, understanding what goes into your personalized treatment plan can help manage expectations and ensure a successful outcome.
 
+<p>To learn more about our approach to straightening teeth, visit our <a href="https://ismile.com.my/services/straighten">teeth straightening service</a> page.</p>
+
 ### Crowding vs. Spacing: Different Challenges
 
 Closing gaps is often faster than resolving severe crowding. Addressing crowded teeth may require expanding the dental arch or carefully reshaping teeth to create the space needed for a healthy, straight alignment.

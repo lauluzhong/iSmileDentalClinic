@@ -13,6 +13,8 @@ Enhancing the shape, size, or color of your teeth is a personal and exciting dec
 
 Let's explore the options so you can choose the makeover that perfectly fits your vision for your smile.
 
+<p>To learn more about our full range of cosmetic treatments, visit our <a href="https://ismile.com.my/services/enhance">smile enhancement service</a> page.</p>
+
 ### Understanding the Materials
 
 Composite veneers are skillfully sculpted directly onto your teeth in a single visit. They are highly versatile and easily reparable if ever needed. Porcelain veneers are custom-crafted in a specialized lab, offering exceptional strength and a beautiful, glass-like translucency that mimics natural enamel perfectly.

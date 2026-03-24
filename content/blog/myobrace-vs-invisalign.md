@@ -13,6 +13,8 @@ Myobrace is a pre-orthodontic system designed for children aged 3 to 12. Instead
 
 Mouth breathing, tongue thrust, thumb sucking, and incorrect swallowing patterns — these are the things that slowly push teeth out of alignment over years. Myobrace uses a series of soft trainers that your child wears for a few hours each day (plus overnight) to retrain how the tongue sits, how breathing happens through the nose, and how swallowing works.
 
+<p>To learn more about our myofunctional orthodontics program, visit our <a href="https://ismile.com.my/services/children/myofunctional">myofunctional orthodontics service</a> page.</p>
+
 The trainers are silicone-based, so they're comfortable and kids adjust to them fairly quickly. There's also a habit-breaking component, which means parents get guidance on helping their child break those unconscious patterns that cause problems in the first place.
 
 This matters because if you only straighten teeth without fixing the underlying habits, there's a good chance crowding or spacing issues will come back. Myobrace tries to solve that problem from the ground up.
