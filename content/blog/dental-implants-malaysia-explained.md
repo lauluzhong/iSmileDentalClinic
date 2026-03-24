@@ -13,6 +13,8 @@ A dental implant is basically an artificial tooth root that gets surgically plac
 
 Think of it as a replacement for the whole tooth structure, not just the visible part. Bridges sit on top of neighboring teeth. Dentures float on your gums. Implants actually go into the bone, which is why they feel so natural. Most patients tell me they forget it's even there after a while.
 
+<p>To learn more about dental implants and our full range of tooth replacement options, visit our <a href="https://ismile.com.my/services/replace/dental-implants">dental implants service</a> page.</p>
+
 ### Who Should Consider Getting One?
 
 If you're missing one tooth or several, implants could work for you. The key requirement is having enough bone density to support the implant. If you've been missing teeth for a while, bone loss happens, and you might need a bone graft first. That's an extra step, but nothing to stress about.

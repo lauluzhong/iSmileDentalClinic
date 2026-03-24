@@ -16,6 +16,8 @@ If your dentist has mentioned you need a dental crown, you probably have questio
 
 A dental crown is a custom-made cap that covers a damaged or weakened tooth. It restores the tooth's shape, size, strength, and appearance. Crowns are typically recommended when a tooth has been significantly weakened by decay, a large filling, or a root canal treatment.
 
+<p>To learn more about dental crowns and our full range of restorative treatments, visit our <a href="https://ismile.com.my/services/replace">tooth replacement service</a> page.</p>
+
 ## Why Might You Need a Crown?
 
 - **Large cavity** too big for a standard filling
