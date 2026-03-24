@@ -70,9 +70,18 @@ const Contact = () => {
                                 <h4>Contact Us</h4>
                                 <p><a href="tel:+60163222135" className="phone-link">+60163222135</a></p>
                                 <div className="contact-direction-buttons mt-4">
-                                    <Button 
+                                    <Button
                                         className="contact-direction-btn"
-                                        onClick={() => window.open('https://wa.me/60163222135', '_blank')}
+                                        onClick={() => {
+                                            window.dataLayer = window.dataLayer || [];
+                                            window.dataLayer.push({
+                                                event: 'whatsapp_click',
+                                                whatsapp_page: window.location.pathname,
+                                                whatsapp_cta_text: 'Get In Touch With Us',
+                                                whatsapp_type: 'contact_page_cta'
+                                            });
+                                            window.open('https://wa.me/60163222135', '_blank');
+                                        }}
                                     >
                                         <Phone size={18} />
                                         Get In Touch With Us

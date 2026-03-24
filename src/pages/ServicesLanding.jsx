@@ -104,7 +104,16 @@ const ServicesLanding = () => {
                 <div className="text-center" style={{ marginTop: '80px', paddingBottom: '40px' }}>
                     <FadeIn>
                         <h3 style={{ color: 'var(--color-text-charcoal)', fontWeight: 700, marginBottom: '20px', fontSize: '1.3rem' }}>Not sure which treatment is right for you?</h3>
-                        <Button onClick={() => window.open('https://wa.me/60163222135', '_blank')}>
+                        <Button onClick={() => {
+                            window.dataLayer = window.dataLayer || [];
+                            window.dataLayer.push({
+                                event: 'whatsapp_click',
+                                whatsapp_page: window.location.pathname,
+                                whatsapp_cta_text: 'Get In Touch With Us',
+                                whatsapp_type: 'services_landing_cta'
+                            });
+                            window.open('https://wa.me/60163222135', '_blank');
+                        }}>
                             Get In Touch With Us
                         </Button>
                     </FadeIn>
