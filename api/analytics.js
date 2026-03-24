@@ -1,44 +1,18 @@
 // Vercel Serverless Function — GA4 Analytics Data API
-// Uses direct HTTPS calls — no extra npm packages needed
-import { createSign } from 'crypto';
+// Uses google-auth-library for JWT signing (already available in Vercel)
+import { GoogleAuth } from 'google-auth-library';
 
 const GA4_PROPERTY_ID = '518699898';
-const CREDENTIALS = JSON.parse(process.env.GOOGLE_ANALYTICS_CREDENTIALS || '{}');
 
 async function getAccessToken() {
-  if (!CREDENTIALS.client_email || !CREDENTIALS.private_key) {
-    throw new Error('GOOGLE_ANALYTICS_CREDENTIALS env var not set or invalid');
-  }
-
-  const now = Math.floor(Date.now() / 1000);
-  const jwtHeader = Buffer.from(JSON.stringify({ alg: 'RS256', typ: 'JWT' })).toString('base64url');
-  const jwtClaim = Buffer.from(JSON.stringify({
-    iss: CREDENTIALS.client_email,
-    scope: 'https://www.googleapis.com/auth/analytics.readonly',
-    aud: 'https://oauth2.googleapis.com/token',
-    exp: now + 3600,
-    iat: now,
-  })).toString('base64url');
-
-  const signingInput = `${jwtHeader}.${jwtClaim}`;
-  const signingKey = CREDENTIALS.private_key.replace(/\\n/g, '\n');
-  const signer = createSign('RSA-SHA256');
-  signer.update(signingInput);
-  signer.end();
-  const signature = signer.sign(signingKey, 'base64url');
-  const signedJwt = `${signingInput}.${signature}`;
-
-  const tokenResp = await fetch('https://oauth2.googleapis.com/token', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({
-      grant_type: 'urn:ietf:params:oauth2:grant-type:jwt-bearer',
-      assertion: signedJwt,
-    }),
+  const credentials = JSON.parse(process.env.GOOGLE_ANALYTICS_CREDENTIALS || '{}');
+  const auth = new GoogleAuth({
+    credentials,
+    scopes: ['https://www.googleapis.com/auth/analytics.readonly'],
   });
-  const tokenData = await tokenResp.json();
-  if (!tokenData.access_token) throw new Error('Failed to get access token: ' + JSON.stringify(tokenData));
-  return tokenData.access_token;
+  const client = await auth.getClient();
+  const tokenResp = await client.getAccessToken();
+  return tokenResp.token;
 }
 
 async function queryGA4(accessToken, postData) {

@@ -13,6 +13,7 @@
     },
     "dependencies": {
         "framer-motion": "^11.11.17",
+        "google-auth-library": "^10.6.2",
         "lucide-react": "^0.468.0",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
