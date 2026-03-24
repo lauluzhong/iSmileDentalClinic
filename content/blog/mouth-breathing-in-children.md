@@ -13,6 +13,8 @@ We often think of breathing as automatic, but *how* your child breathes truly ma
 
 Spotting these signs early can prevent long-term orthodontic, sleep, and developmental challenges.
 
+<p>For early assessment of this issue, consider visiting our <a href="https://ismile.com.my/services/children">children's dental service</a> page.</p>
+
 ### Impact on Facial and Dental Growth
 
 Natural nasal breathing encourages the tongue to rest on the roof of the mouth, which helps guide the upper jaw to grow wide and healthy. Mouth breathing causes the tongue to drop, which can lead to a narrower jaw, crowded teeth, and a different facial profile over time.

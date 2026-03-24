@@ -15,6 +15,8 @@ While we carry industry-leading clear aligner brands like Invisalign, Angel, and
 
 Whether you are a busy professional or a parent of an active teen, understanding the daily impact of each option is key to a successful and stress-free journey.
 
+<p>To learn more about our approach to straightening teeth, visit our <a href="https://ismile.com.my/services/straighten">teeth straightening service</a> page.</p>
+
 ### Visibility and Personal Confidence
 
 Clear aligners offer a "barely there" look, making them a favorite for adults in client-facing roles or self-conscious teens. While modern ceramic braces are much more discreet than the metal tracks of the past, they are still a visible part of your smile during treatment.

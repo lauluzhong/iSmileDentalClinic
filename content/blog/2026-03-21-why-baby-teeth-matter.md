@@ -17,6 +17,8 @@ Baby teeth typically start appearing around six months of age. By age three, mos
 
 Here is why that timeline matters.
 
+<p>For early assessment of this issue, consider visiting our <a href="https://ismile.com.my/services/children">children's dental service</a> page.</p>
+
 ### Baby Teeth Hold Space for Adult Teeth
 
 One of the most important jobs of baby teeth is acting as guides for the permanent teeth that follow. Each baby tooth keeps the right amount of space in the jaw for its adult replacement. If a baby tooth is lost too early due to decay or injury, the surrounding teeth can drift into that space. When the adult tooth eventually comes through, there might not be enough room, leading to crowding or misalignment.

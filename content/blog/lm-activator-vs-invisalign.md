@@ -17,6 +17,8 @@ The trainers are silicone-based, so they're comfortable and kids adjust to them 
 
 This matters because if you only straighten teeth without fixing the underlying habits, there's a good chance crowding or spacing issues will come back. LM Activator tries to solve that problem from the ground up.
 
+<p>To learn more about our approach to early orthodontic care, visit our <a href="https://ismile.com.my/services/children/myofunctional">myofunctional orthodontics service</a> page.</p>
+
 ### What Is Invisalign and How Does It Work?
 
 Invisalign uses a series of custom-made clear aligners that apply gentle, consistent pressure to move teeth into the desired position. Your child wears each set of aligners for about one to two weeks before switching to the next set. The dentist plans the entire movement sequence digitally, so you can see a preview of how the teeth will look before treatment even starts.

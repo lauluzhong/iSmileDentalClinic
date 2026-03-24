@@ -13,6 +13,8 @@ When the back of the mouth starts throbbing, it is often a sign that wisdom teet
 
 Fear often stems from the unknown. Knowing exactly what to expect can turn this common procedure into a manageable health decision for your future comfort.
 
+<p>To learn more about our full range of tooth replacement and oral surgery options, visit our <a href="https://ismile.com.my/services/replace">tooth replacement service</a> page.</p>
+
 ### The Importance of Timing
 
 Wisdom teeth often become impacted (stuck) because there isn't enough room in the jaw. This can lead to persistent infection or even pushing other teeth out of alignment, potentially affecting years of orthodontic work.

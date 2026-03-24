@@ -13,6 +13,8 @@ The words "root canal" often spark fear, leading many patients to ask, "Can't yo
 
 Our goal is always to help you keep your natural teeth whenever possible. Understanding the trade-offs between these two procedures is key to making a decision you won't regret later.
 
+<p>To learn more about how we help protect your natural teeth, visit our <a href="https://ismile.com.my/services/protect">protective dental care service</a> page.</p>
+
 ![Root Canal vs Extraction comparison](/images/blog/root_vs_extraction.png)
 
 ### Saving Your Natural Tooth

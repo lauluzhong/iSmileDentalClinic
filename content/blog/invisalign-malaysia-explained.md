@@ -15,6 +15,8 @@ Each set of aligners is worn for about 1-2 weeks, then you switch to the next se
 
 The biggest draw is obvious: they're nearly invisible. Most people won't notice you're wearing them unless they're standing really close. That's a massive appeal for adults who want to straighten their teeth without the metal-mouth look.
 
+<p>To learn more about our approach to straightening teeth, visit our <a href="https://ismile.com.my/services/straighten">teeth straightening service</a> page.</p>
+
 ### What Can Invisalign Actually Fix?
 
 Here's where honesty matters. Invisalign works great for mild to moderate crowding, gaps between teeth, and certain bite issues (overbite, underbite, crossbite). Severe cases or complex rotations sometimes need traditional braces or even surgery.

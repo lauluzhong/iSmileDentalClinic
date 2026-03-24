@@ -13,6 +13,8 @@ The first dental visit sets the tone for your child's entire journey with oral h
 
 Our goal is to host "happy visits" where we prioritize your child's comfort and trust, building a positive foundation for years to come.
 
+<p>For early assessment of this issue, consider visiting our <a href="https://ismile.com.my/services/children">children's dental service</a> page.</p>
+
 ### The Perfect Time to Start
 
 We recommend a first visit by a child's first birthday or as soon as their first tooth appears. This early start emphasizes prevention and helps them become comfortably acclimatized before they ever need treatment.
