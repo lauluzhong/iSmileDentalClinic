@@ -1,7 +1,7 @@
 // Vercel Serverless Function — GA4 Analytics Data API
-// Uses direct HTTPS calls — no extra npm packages required
+// Uses direct HTTPS calls — no extra npm packages needed
+import { createHmac } from 'crypto';
 
-const BOT_TOKEN = '8664606786:AAFIu9TtXlw_CDFht81g3qdgD81GZYUm-vM';
 const GA4_PROPERTY_ID = '518699898';
 const CREDENTIALS = JSON.parse(process.env.GOOGLE_ANALYTICS_CREDENTIALS || '{}');
 
@@ -21,10 +21,9 @@ async function getAccessToken() {
   })).toString('base64url');
 
   const signingInput = `${jwtHeader}.${jwtClaim}`;
-  const crypto = require('crypto');
   const signingKey = CREDENTIALS.private_key.replace(/\\n/g, '\n');
-  const signature = crypto.sign('RSA-SHA256', Buffer.from(signingInput), signingKey);
-  const signedJwt = `${signingInput}.${signature.toString('base64url')}`;
+  const signature = createHmac('sha256', signingKey).update(signingInput).digest('base64url');
+  const signedJwt = `${signingInput}.${signature}`;
 
   const tokenResp = await fetch('https://oauth2.googleapis.com/token', {
     method: 'POST',
@@ -123,7 +122,7 @@ export default async function handler(req, res) {
         metrics: [{ name: 'screenPageViews' }, { name: 'sessions' }],
         limit: 10,
       });
-    } catch (e) { /* today data may not be ready yet */ }
+    } catch (e) { /* today data may not be ready */ }
 
     const totalPageViews = (pageData.rows || []).reduce((s, r) => s + parseInt(r.metricValues[0].value), 0);
     const totalSessions = (sourceData.rows || []).reduce((s, r) => s + parseInt(r.metricValues[0].value), 0);
