@@ -1,8 +1,13 @@
 // Vercel Serverless Function — GA4 Analytics Data API
-// Uses google-auth-library for JWT signing (already available in Vercel)
 import { GoogleAuth } from 'google-auth-library';
 
 const GA4_PROPERTY_ID = '518699898';
+
+function getRollingDate(daysAgo) {
+  const d = new Date();
+  d.setDate(d.getDate() - daysAgo);
+  return d.toISOString().split('T')[0]; // YYYY-MM-DD in local TZ
+}
 
 async function getAccessToken() {
   const credentials = JSON.parse(process.env.GOOGLE_ANALYTICS_CREDENTIALS || '{}');
@@ -42,7 +47,6 @@ function formatRows(rows, dimNames, metNames) {
   });
 }
 
-// GA4 returns dimensionHeaders/metricHeaders, not dimensions/metrics
 function getDimNames(data) {
   return (data.dimensionHeaders || data.dimensions || []).map(d => d.name);
 }
@@ -58,41 +62,43 @@ export default async function handler(req, res) {
   if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
+    const today = getRollingDate(0);    // today
+    const weekAgo = getRollingDate(7); // 7 days ago
     const accessToken = await getAccessToken();
 
     const [pageData, sourceData, eventData, pageEventData, landingSourceData, engagementData] = await Promise.all([
       queryGA4(accessToken, {
-        dateRanges: [{ startDate: '2026-03-17', endDate: '2026-03-23' }],
+        dateRanges: [{ startDate: weekAgo, endDate: today }],
         dimensions: [{ name: 'pagePath' }],
         metrics: [{ name: 'screenPageViews' }, { name: 'sessions' }, { name: 'totalUsers' }],
         limit: 25,
       }),
       queryGA4(accessToken, {
-        dateRanges: [{ startDate: '2026-03-17', endDate: '2026-03-23' }],
+        dateRanges: [{ startDate: weekAgo, endDate: today }],
         dimensions: [{ name: 'sessionDefaultChannelGrouping' }],
         metrics: [{ name: 'sessions' }, { name: 'totalUsers' }],
         limit: 10,
       }),
       queryGA4(accessToken, {
-        dateRanges: [{ startDate: '2026-03-17', endDate: '2026-03-23' }],
+        dateRanges: [{ startDate: weekAgo, endDate: today }],
         dimensions: [{ name: 'eventName' }],
         metrics: [{ name: 'eventCount' }],
         limit: 20,
       }),
       queryGA4(accessToken, {
-        dateRanges: [{ startDate: '2026-03-17', endDate: '2026-03-23' }],
+        dateRanges: [{ startDate: weekAgo, endDate: today }],
         dimensions: [{ name: 'eventName' }, { name: 'pagePath' }],
         metrics: [{ name: 'eventCount' }],
         limit: 30,
       }),
       queryGA4(accessToken, {
-        dateRanges: [{ startDate: '2026-03-17', endDate: '2026-03-23' }],
+        dateRanges: [{ startDate: weekAgo, endDate: today }],
         dimensions: [{ name: 'pagePath' }, { name: 'sessionDefaultChannelGrouping' }],
         metrics: [{ name: 'sessions' }],
         limit: 30,
       }),
       queryGA4(accessToken, {
-        dateRanges: [{ startDate: '2026-03-17', endDate: '2026-03-23' }],
+        dateRanges: [{ startDate: weekAgo, endDate: today }],
         dimensions: [{ name: 'pagePath' }],
         metrics: [{ name: 'bounceRate' }, { name: 'averageSessionDuration' }, { name: 'screenPageViews' }],
         limit: 20,
@@ -102,7 +108,7 @@ export default async function handler(req, res) {
     let todayData = null;
     try {
       todayData = await queryGA4(accessToken, {
-        dateRanges: [{ startDate: 'today', endDate: 'today' }],
+        dateRanges: [{ startDate: today, endDate: today }],
         dimensions: [{ name: 'pagePath' }],
         metrics: [{ name: 'screenPageViews' }, { name: 'sessions' }],
         limit: 10,
@@ -115,7 +121,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({
       generatedAt: new Date().toISOString(),
-      dateRange: '2026-03-17 to 2026-03-23 (7 days)',
+      dateRange: `${weekAgo} to ${today} (rolling 7 days)`,
       summary: { totalPageViews, totalSessions, totalUsers },
       topPages: formatRows(pageData.rows, getDimNames(pageData), getMetNames(pageData)),
       trafficSources: formatRows(sourceData.rows, getDimNames(sourceData), getMetNames(sourceData)),
