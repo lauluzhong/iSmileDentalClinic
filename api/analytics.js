@@ -42,6 +42,14 @@ function formatRows(rows, dimNames, metNames) {
   });
 }
 
+// GA4 returns dimensionHeaders/metricHeaders, not dimensions/metrics
+function getDimNames(data) {
+  return (data.dimensionHeaders || data.dimensions || []).map(d => d.name);
+}
+function getMetNames(data) {
+  return (data.metricHeaders || data.metrics || []).map(m => m.name);
+}
+
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
@@ -109,13 +117,13 @@ export default async function handler(req, res) {
       generatedAt: new Date().toISOString(),
       dateRange: '2026-03-17 to 2026-03-23 (7 days)',
       summary: { totalPageViews, totalSessions, totalUsers },
-      topPages: formatRows(pageData.rows, pageData.dimensions.map(d => d.name), pageData.metrics.map(m => m.name)),
-      trafficSources: formatRows(sourceData.rows, sourceData.dimensions.map(d => d.name), sourceData.metrics.map(m => m.name)),
-      events: formatRows(eventData.rows, eventData.dimensions.map(d => d.name), eventData.metrics.map(m => m.name)),
-      eventsByPage: formatRows(pageEventData.rows, pageEventData.dimensions.map(d => d.name), pageEventData.metrics.map(m => m.name)),
-      landingPageSources: formatRows(landingSourceData.rows, landingSourceData.dimensions.map(d => d.name), landingSourceData.metrics.map(m => m.name)),
-      engagement: formatRows(engagementData.rows, engagementData.dimensions.map(d => d.name), engagementData.metrics.map(m => m.name)),
-      today: todayData ? formatRows(todayData.rows, todayData.dimensions.map(d => d.name), todayData.metrics.map(m => m.name)) : null,
+      topPages: formatRows(pageData.rows, getDimNames(pageData), getMetNames(pageData)),
+      trafficSources: formatRows(sourceData.rows, getDimNames(sourceData), getMetNames(sourceData)),
+      events: formatRows(eventData.rows, getDimNames(eventData), getMetNames(eventData)),
+      eventsByPage: formatRows(pageEventData.rows, getDimNames(pageEventData), getMetNames(pageEventData)),
+      landingPageSources: formatRows(landingSourceData.rows, getDimNames(landingSourceData), getMetNames(landingSourceData)),
+      engagement: formatRows(engagementData.rows, getDimNames(engagementData), getMetNames(engagementData)),
+      today: todayData ? formatRows(todayData.rows, getDimNames(todayData), getMetNames(todayData)) : null,
     });
   } catch (error) {
     console.error('Analytics API error:', error.message);
