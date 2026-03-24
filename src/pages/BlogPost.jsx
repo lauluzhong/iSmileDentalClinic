@@ -325,6 +325,14 @@ const BlogPost = () => {
                 .blog-content strong {
                     color: var(--color-text-charcoal);
                 }
+                .blog-content a {
+                    color: var(--color-primary);
+                    text-decoration: underline;
+                    text-underline-offset: 3px;
+                }
+                .blog-content a:hover {
+                    color: var(--color-primary-teal);
+                }
 
                 /* Related Posts Section */
                 .related-posts-section {
