@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Layout from './components/Layout';
@@ -17,6 +17,24 @@ import FAQ from './pages/FAQ';
 
 function App() {
   const location = useLocation();
+
+  // Global WhatsApp click tracker — catches ALL wa.me links site-wide
+  useEffect(() => {
+    const handleWhatsAppClick = (e) => {
+      const link = e.target.closest('a[href*="wa.me"]');
+      if (!link) return;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'whatsapp_click',
+        whatsapp_page: window.location.pathname,
+        whatsapp_url: link.href,
+        whatsapp_cta_text: link.textContent.trim().substring(0, 100) || link.innerText.trim().substring(0, 100) || 'unknown',
+        whatsapp_type: 'global_wa_link'
+      });
+    };
+    document.addEventListener('click', handleWhatsAppClick);
+    return () => document.removeEventListener('click', handleWhatsAppClick);
+  }, []);
 
   return (
     <Layout>

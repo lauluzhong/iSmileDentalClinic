@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { X } from 'lucide-react';
 import { useBooking } from '../context/BookingContext';
-import Button from './Button'; 
+import Button from './Button';
 
 const BookingModal = () => {
     const { isBookingOpen, closeBooking, prefillData } = useBooking();
+    const hasOpenedRef = useRef(false);
 
     // Form state
     const [formData, setFormData] = useState({
@@ -13,9 +14,26 @@ const BookingModal = () => {
         contact: '',
         experience: ''
     });
-    
+
     // Simple state to track touched fields
     const [touched, setTouched] = useState({});
+
+    // Fire booking_modal_open event when modal opens
+    useEffect(() => {
+        if (isBookingOpen && !hasOpenedRef.current) {
+            hasOpenedRef.current = true;
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                event: 'booking_modal_open',
+                booking_page: window.location.pathname,
+                booking_source_button: prefillData?.sourceButton || 'direct',
+                booking_cta_text: prefillData?.sourceButton || 'unknown'
+            });
+        }
+        if (!isBookingOpen) {
+            hasOpenedRef.current = false;
+        }
+    }, [isBookingOpen, prefillData]);
 
     // Effect to handle prefill data when modal opens
     useEffect(() => {
@@ -23,7 +41,6 @@ const BookingModal = () => {
             if (prefillData && prefillData.experience) {
                 setFormData(prev => ({ ...prev, experience: prefillData.experience }));
             } else {
-                // Optional: Reset experience if no prefill data is provided (clean slate)
                 setFormData(prev => ({ ...prev, experience: "" }));
             }
         }
@@ -38,42 +55,61 @@ const BookingModal = () => {
 
     const handleBlur = (e) => {
         setTouched(prev => ({ ...prev, [e.target.name]: true }));
+
+        // Fire form_start on first interaction with any field
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            event: 'form_start',
+            form_page: window.location.pathname,
+            form_field: e.target.name
+        });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         // Basic Validation
         if (!formData.name || !formData.email || !formData.contact) {
             alert('Please fill in all required fields marked with *');
             return;
         }
 
-        // N8N Trigger implementation
-        const n8nWebhookUrl = 'https://lauluzhong.app.n8n.cloud/webhook/de920d9d-60f4-445d-941a-3991599824b7';
+        const currentPage = window.location.pathname;
+
+        // Fire whatsapp_submit_click event BEFORE opening WhatsApp
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            event: 'whatsapp_submit_click',
+            whatsapp_page: currentPage,
+            whatsapp_cta_text: prefillData?.sourceButton || 'unknown',
+            form_name: formData.name,
+            form_has_experience: Boolean(formData.experience)
+        });
+
+        // Vercel API — Telegram notification
+        const apiUrl = '/api/booking-notification';
         const payload = {
-            ...formData,
-            sourceButton: prefillData.sourceButton || 'unknown',
-            sourcePage: prefillData.sourcePage || window.location.pathname,
+            name: formData.name,
+            email: formData.email,
+            contact: formData.contact,
+            experience: formData.experience,
+            sourceButton: prefillData?.sourceButton || 'unknown',
+            sourcePage: currentPage,
             timestamp: new Date().toISOString()
         };
 
-        console.log('Triggering N8N with payload:', payload);
-
-        // Fire and forget tracking to ensure WhatsApp flow isn't blocked by network issues
-        fetch(n8nWebhookUrl, {
+        // Fire to Vercel API (non-blocking — don't slow down WhatsApp open)
+        fetch(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
         }).catch(err => {
-            console.error('N8N Trigger Error (expected if URL is placeholder):', err);
+            console.error('Booking notification API error:', err);
         });
 
         // WhatsApp Link Construction
-        const phoneNumber = '60163222135'; 
-        
-        // Construct the message
-        const message = `Hi iSmile Dental Clinic, I’d like to schedule a visit.
+        const phoneNumber = '60163222135';
+        const message = `Hi iSmile Dental Clinic, I'd like to schedule a visit.
 
 Name: ${formData.name}
 Contact: ${formData.contact}
@@ -83,9 +119,7 @@ ${formData.experience}`;
 
         const encodedMessage = encodeURIComponent(message);
         const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-        
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ event: 'booking_complete' });
+
         window.open(url, '_blank');
         closeBooking();
     };
@@ -94,54 +128,54 @@ ${formData.experience}`;
         <div className="modal-overlay" onClick={closeBooking}>
             <div className="modal-content glass-panel" onClick={e => e.stopPropagation()}>
                 <button className="close-btn" onClick={closeBooking}><X size={24} /></button>
-                
+
                 <h2 className="modal-title">Schedule a visit with us today</h2>
                 <div style={{height: '2px', width: '60px', background: 'var(--color-secondary)', margin: '0 auto 20px', borderRadius: '1px'}}></div>
 
                 <form data-analytics-form="booking-submission" onSubmit={handleSubmit} className="booking-form">
                     <div className="form-group">
                         <label>Name *</label>
-                        <input data-analytics-focus="booking-field" 
-                            type="text" 
-                            name="name" 
-                            value={formData.name} 
-                            onChange={handleChange} 
+                        <input data-analytics-focus="booking-field"
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
                             onBlur={handleBlur}
                             placeholder="Your Name"
-                            required 
+                            required
                         />
                     </div>
 
                     <div className="form-group">
                         <label>Contact Number *</label>
-                        <input data-analytics-focus="booking-field" 
-                            type="tel" 
-                            name="contact" 
-                            value={formData.contact} 
-                            onChange={handleChange} 
+                        <input data-analytics-focus="booking-field"
+                            type="tel"
+                            name="contact"
+                            value={formData.contact}
+                            onChange={handleChange}
                             placeholder="012-345 6789"
-                            required 
+                            required
                         />
                     </div>
 
                     <div className="form-group">
                         <label>Email *</label>
-                        <input data-analytics-focus="booking-field" 
-                            type="email" 
-                            name="email" 
-                            value={formData.email} 
-                            onChange={handleChange} 
+                        <input data-analytics-focus="booking-field"
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
                             placeholder="email@example.com"
-                            required 
+                            required
                         />
                     </div>
 
                     <div className="form-group">
                         <label>Describe what you're feeling or any preferences</label>
-                        <textarea data-analytics-focus="booking-field" 
-                            name="experience" 
-                            value={formData.experience} 
-                            onChange={handleChange} 
+                        <textarea data-analytics-focus="booking-field"
+                            name="experience"
+                            value={formData.experience}
+                            onChange={handleChange}
                             placeholder="I'm experiencing..."
                             rows={4}
                         />
