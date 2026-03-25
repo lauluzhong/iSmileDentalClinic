@@ -1,10 +1,30 @@
 ---
-title: "Root Canal vs Tooth Extraction: Which Is the Better Long-Term Choice?"
-categories: ["Restorative"]
-date: "2025-01-08"
-img: "/images/blog/root_canal_vs_extraction_hero.png"
-excerpt: "Facing a decision between saving a tooth or pulling it? We break down the long-term impact of each choice."
+categories:
+- Restorative
+date: '2025-01-08'
+excerpt: Facing a decision between saving a tooth or pulling it? We break down the
+  long-term impact of each choice.
+faq:
+- a: A root canal clears out infection while preserving the tooth structure. This
+    means you keep your natural bite, alignment, and jawbone density. No replacement
+    tooth feels or functions exactly like your own natural teeth.
+  q: Why Is Saving Your Natural Tooth the Better Option?
+- a: Pulling a tooth seems final, but it is often just the beginning of a new dental
+    journey. When a tooth is missing, surrounding teeth can shift, and the jawbone
+    begins to shrink. To restore function and prevent further issues, you may eventually
+    need a bridge or dental implant.
+  q: Why Isn't Tooth Extraction the 'One and Done' Solution?
+- a: Your teeth stimulate your jawbone. When one is lost, that stimulation stops,
+    which can lead to bone loss over time. Saving the tooth with a root canal maintains
+    this vital relationship and keeps your facial structure supported.
+  q: How Does Tooth Loss Affect Jawbone Health?
+- a: If you are experiencing throbbing pain, sensitivity to heat, or swelling, do
+    not wait. Early intervention often saves the tooth and avoids more invasive procedures
+    later.
+  q: When Should You Act Early on Tooth Pain?
 featured: false
+img: /images/blog/root_canal_vs_extraction_hero.png
+title: 'Root Canal vs Tooth Extraction: Which Is the Better Long-Term Choice?'
 ---
 
 ### Choosing the Best Path for Your Smile

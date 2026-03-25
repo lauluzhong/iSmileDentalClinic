@@ -1,10 +1,35 @@
 ---
-title: "Dental Implants in Malaysia: What You Need to Know"
-categories: ["Restorative"]
-date: "2026-03-17"
-img: "/images/blog/dental-implants-hero.png"
-excerpt: "Thinking about dental implants in Malaysia? Here's what the procedure involves, who makes a good candidate, and what to expect during recovery."
+categories:
+- Restorative
+date: '2026-03-17'
+excerpt: Thinking about dental implants in Malaysia? Here's what the procedure involves,
+  who makes a good candidate, and what to expect during recovery.
+faq:
+- a: A dental implant is an artificial tooth root surgically placed into the jawbone.
+    Made from titanium, it fuses with the bone over time through osseointegration.
+    Once bonded, a crown sits on top and functions like a real tooth. Unlike bridges
+    or dentures, implants go into the bone, which is why they feel natural.
+  q: What Exactly Is a Dental Implant?
+- a: If you're missing one tooth or several, implants could work for you. Key requirements
+    include sufficient bone density to support the implant — if bone loss has occurred,
+    you might need a bone graft first. Candidates should be generally healthy enough
+    for minor surgery. Age is not a barrier if the jaw has finished growing, which
+    varies by individual.
+  q: Who Should Consider Getting a Dental Implant?
+- a: The process starts with a consultation using X-rays or 3D scans to assess bone
+    and plan placement. Surgery happens under local anesthesia. The dentist makes
+    a small incision, drills a pilot hole, and places the implant. Healing takes typically
+    several months. Once fused, an abutment is attached, then the final crown is placed.
+  q: What Does the Dental Implant Procedure Involve?
+- a: The first few days bring swelling, bruising, and mild discomfort. Most people
+    return to normal activities within 2-3 days. The surgical site heals in 1-2 weeks,
+    but bone integration continues beneath the surface. Possible complications are
+    rare but include infection, nerve damage, or sinus issues — choosing an experienced
+    dentist significantly reduces these risks.
+  q: What Is Recovery Like After Dental Implant Surgery?
 featured: false
+img: /images/blog/dental-implants-hero.png
+title: 'Dental Implants in Malaysia: What You Need to Know'
 ---
 
 ### What Exactly Is a Dental Implant?

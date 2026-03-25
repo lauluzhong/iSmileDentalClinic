@@ -1,10 +1,22 @@
 ---
-title: "Clear Aligners vs Braces: Which Fits a Busy Adult or Teen Lifestyle Better?"
-categories: ["Orthodontics"]
-date: "2025-01-10"
-img: "/images/invisalign_hand.png"
-excerpt: "Choosing between clear aligners and traditional braces isn't just about looks—it's about your daily habits and lifestyle."
+categories:
+- Orthodontics
+date: '2025-01-10'
+excerpt: Choosing between clear aligners and traditional braces isn't just about looks—it's
+  about your daily habits and lifestyle.
+faq:
+- a: Consider your child's personality and schedule. If they are responsible and active,
+    clear aligners are a comfortable, flexible choice. If life is a bit more chaotic,
+    traditional braces might be the more predictable option for parents.
+  q: What works best for your family when choosing between clear aligners and braces?
+- a: It is generally recommended to have an initial assessment after birth or as soon
+    as your baby develops his/her first tooth, as children grow and their jaw develops
+    significantly. This helps prevent possible future orthodontic treatment or minimising
+    one with early interceptive advice.
+  q: When should a child have their first orthodontic assessment?
 featured: true
+img: /images/invisalign_hand.png
+title: 'Clear Aligners vs Braces: Which Fits a Busy Adult or Teen Lifestyle Better?'
 ---
 
 ### Choosing the Right Fit for Your Life

@@ -1,10 +1,30 @@
 ---
-title: "Is Teeth Whitening Safe? What Dentists Want You to Know"
-categories: ["Cosmetic"]
-date: "2024-12-15"
-img: "/images/veneers_hero_1765825257935.png"
-excerpt: "Everyone wants a brighter smile, but is it safe for your enamel? We separate fact from fiction."
+categories:
+- Cosmetic
+date: '2024-12-15'
+excerpt: Everyone wants a brighter smile, but is it safe for your enamel? We separate
+  fact from fiction.
+faq:
+- a: Sometimes the logic 'harder is cleaner' backfires. Using a hard-bristled toothbrush
+    or aggressive scrubbing can traumatize gum tissue. Switching to a soft-bristled
+    brush and using gentle, circular motions can make a world of difference.
+  q: Are You Brushing Too Hard?
+- a: When done correctly, professional whitening does not 'strip' your enamel — it
+    gently opens the pores to lift out deep-seated pigments. However, aggressive scrubbing
+    with abrasive materials like charcoal can actually erode your enamel over time.
+    Professional whitening uses safe, buffered gels that protect gums while effectively
+    lifting stubborn stains.
+  q: Is Professional Teeth Whitening Safe for Your Enamel?
+- a: If your teen is asking for a brighter smile, it is best to talk to a dentist
+    first. We generally recommend waiting until all adult teeth have fully matured
+    before beginning any whitening treatments.
+  q: When Should a Teen Consider Teeth Whitening?
+- a: Always have a check-up before whitening. Ensuring there are no underlying cavities
+    or issues first prevents any discomfort and gives you the best, most even results.
+  q: What Should You Do Before Starting Teeth Whitening?
 featured: false
+img: /images/veneers_hero_1765825257935.png
+title: Is Teeth Whitening Safe? What Dentists Want You to Know
 ---
 
 ### Brighter Smiles, Safely Achieved
