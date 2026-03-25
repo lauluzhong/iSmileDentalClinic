@@ -92,4 +92,6 @@ If the orthodontist does identify a problem, early treatment does not always mea
 
 The specific recommendation will depend entirely on your child's individual situation, and a good orthodontist will explain the reasoning clearly before suggesting anything.
 
+<p>To learn more about our approach to early orthodontic care, visit our <a href="https://ismile.com.my/services/children/myofunctional">myofunctional orthodontics service</a> page.</p>
+
 **Early intervention gives you more options, more time, and often better outcomes.** If you have noticed any of the signs above, or if your child is around 7 to 8 years old and has not yet had an orthodontic check, book a consultation with iSmile Dental Clinic today and get a clear picture of where things stand.
