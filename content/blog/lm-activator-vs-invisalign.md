@@ -1,6 +1,6 @@
 ---
 title: "LM Activator vs Invisalign Malaysia: What's the Difference and Which Does My Child Actually Need?"
-category: "Orthodontics"
+categories: ["Orthodontics", "Kids & Growth"]
 date: "2026-03-20"
 img: "/images/child_airway_hero_1765825276038.png"
 excerpt: "Confused between LM Activator and Invisalign for your child? Learn the key differences and which option suits growing smiles best."

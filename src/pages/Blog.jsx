@@ -23,7 +23,10 @@ const Blog = () => {
     const categories = useMemo(() => {
         const counts = {};
         blogIndex.forEach(p => {
-            counts[p.category] = (counts[p.category] || 0) + 1;
+            const cats = p.categories && p.categories.length > 0 ? p.categories : (p.category ? [p.category] : []);
+            cats.forEach(c => {
+                counts[c] = (counts[c] || 0) + 1;
+            });
         });
         return Object.entries(counts)
             .sort((a, b) => b[1] - a[1])
@@ -40,7 +43,10 @@ const Blog = () => {
         if (activeCategory === 'All') {
             return blogIndex.filter(p => p.slug !== featuredPost?.slug);
         }
-        return blogIndex.filter(p => p.category === activeCategory);
+        return blogIndex.filter(p => {
+            const cats = p.categories && p.categories.length > 0 ? p.categories : (p.category ? [p.category] : []);
+            return cats.includes(activeCategory);
+        });
     }, [activeCategory, featuredPost]);
 
     // Pagination
@@ -162,7 +168,7 @@ const Blog = () => {
                                         <img src={post.img} alt={post.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                     </div>
                                     <div className="post-content">
-                                        <span className="post-cat">{post.category}</span>
+                                        <span className="post-cat">{(post.categories && post.categories[0]) || post.category}</span>
                                         <h3>{post.title}</h3>
                                         <div className="post-meta">{formatDate(post.date)}</div>
                                     </div>

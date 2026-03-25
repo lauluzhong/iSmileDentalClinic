@@ -1,6 +1,6 @@
 ---
 title: "Clear Aligners vs Braces: Which Fits a Busy Adult or Teen Lifestyle Better?"
-category: "Orthodontics"
+categories: ["Orthodontics"]
 date: "2025-01-10"
 img: "/images/invisalign_hand.png"
 excerpt: "Choosing between clear aligners and traditional braces isn't just about looks—it's about your daily habits and lifestyle."

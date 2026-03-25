@@ -1,6 +1,6 @@
 ---
 title: "Root Canal vs Tooth Extraction: Which Is the Better Long-Term Choice?"
-category: "Restorative"
+categories: ["Restorative"]
 date: "2025-01-08"
 img: "/images/blog/root_canal_vs_extraction_hero.png"
 excerpt: "Facing a decision between saving a tooth or pulling it? We break down the long-term impact of each choice."

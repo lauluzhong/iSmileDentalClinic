@@ -44,7 +44,7 @@ const blogIndex = files.map(filename => {
     JSON.stringify({
       slug,
       title: frontmatter.title,
-      category: frontmatter.category,
+      categories: frontmatter.categories || (frontmatter.category ? [frontmatter.category] : []),
       date: frontmatter.date,
       img: frontmatter.img,
       excerpt: frontmatter.excerpt,
@@ -57,7 +57,7 @@ const blogIndex = files.map(filename => {
   return {
     slug,
     title: frontmatter.title,
-    category: frontmatter.category,
+    categories: frontmatter.categories || (frontmatter.category ? [frontmatter.category] : []),
     date: frontmatter.date,
     img: frontmatter.img,
     excerpt: frontmatter.excerpt,

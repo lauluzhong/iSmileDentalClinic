@@ -54,7 +54,8 @@ export default function blogSSG() {
         const ogImage = post.img && post.img.startsWith('http') ? post.img : SITE_URL + post.img;
         const safeTitle = escapeHtml(post.title);
         const safeExcerpt = escapeHtml(post.excerpt || '');
-        const safeCategory = escapeHtml(post.category || '');
+        const safeCategory = escapeHtml((post.categories && post.categories[0]) || post.category || '');
+        const articleSection = post.categories ? post.categories.join(', ') : (post.category || '');
 
         const jsonLd = JSON.stringify({
           "@context": "https://schema.org",
@@ -75,7 +76,7 @@ export default function blogSSG() {
             "logo": { "@type": "ImageObject", "url": SITE_URL + "/logo.png" }
           },
           "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
-          "articleSection": post.category
+          "articleSection": articleSection
         });
 
         const cssLink = entryCss ? '  <link rel="stylesheet" href="' + entryCss + '" />' : '';

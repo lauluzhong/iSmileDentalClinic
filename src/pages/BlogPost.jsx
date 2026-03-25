@@ -46,8 +46,23 @@ const BlogPost = () => {
     // Compute related posts: same category first, then fill with recent posts
     const relatedPosts = useMemo(() => {
         if (!post) return [];
-        const sameCat = blogIndex.filter(p => p.category === post.category && p.slug !== slug);
-        const others = blogIndex.filter(p => p.category !== post.category && p.slug !== slug);
+        const activeCats = post.categories && post.categories.length > 0 ? post.categories : (post.category ? [post.category] : []);
+        const sameCat = blogIndex.filter(p => {
+            if (p.slug === slug) return false;
+            const pCats = p.categories && p.categories.length > 0 ? p.categories : (p.category ? [p.category] : []);
+            return pCats.some(c => activeCats.includes(c));
+        }).sort((a, b) => {
+            const aCats = a.categories && a.categories.length > 0 ? a.categories : (a.category ? [a.category] : []);
+            const bCats = b.categories && b.categories.length > 0 ? b.categories : (b.category ? [b.category] : []);
+            const aOverlap = aCats.filter(c => activeCats.includes(c)).length;
+            const bOverlap = bCats.filter(c => activeCats.includes(c)).length;
+            return bOverlap - aOverlap;
+        });
+        const others = blogIndex.filter(p => {
+            if (p.slug === slug) return false;
+            const pCats = p.categories && p.categories.length > 0 ? p.categories : (p.category ? [p.category] : []);
+            return !pCats.some(c => activeCats.includes(c));
+        });
         const combined = [...sameCat, ...others];
         return combined.slice(0, 3);
     }, [post, slug]);
@@ -86,7 +101,7 @@ const BlogPost = () => {
                 <meta property="og:image" content={ogImage} />
                 <meta property="og:site_name" content="iSmile Dental Clinic" />
                 <meta property="article:published_time" content={post.date} />
-                <meta property="article:section" content={post.category} />
+                <meta property="article:section" content={post.categories ? post.categories.join(", ") : post.category} />
 
                 {/* Twitter Card */}
                 <meta name="twitter:card" content="summary_large_image" />
@@ -114,7 +129,7 @@ const BlogPost = () => {
                         "logo": { "@type": "ImageObject", "url": `${SITE_URL}/logo.png` }
                     },
                     "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
-                    "articleSection": post.category
+                    "articleSection": post.categories ? post.categories.join(", ") : post.category
                 })}</script>
             </Helmet>
 
@@ -136,7 +151,7 @@ const BlogPost = () => {
                             letterSpacing: '2px',
                             textTransform: 'uppercase'
                         }}>
-                            {post.category}
+                            {(post.categories && post.categories[0]) || post.category}
                         </span>
                     </Reveal>
                     <Reveal delay={0.1}>
@@ -241,7 +256,7 @@ const BlogPost = () => {
                                             <img src={rp.img} alt={rp.title} loading="lazy" />
                                         </div>
                                         <div className="related-post-content">
-                                            <span className="related-post-cat">{rp.category}</span>
+                                            <span className="related-post-cat">{(rp.categories && rp.categories[0]) || rp.category}</span>
                                             <h4>{rp.title}</h4>
                                             <span className="related-post-date">{formatDate(rp.date)}</span>
                                         </div>

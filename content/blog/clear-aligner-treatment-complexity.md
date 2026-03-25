@@ -1,6 +1,6 @@
 ---
 title: "What Determines Clear Aligner Treatment Complexity?"
-category: "Orthodontics"
+categories: ["Orthodontics"]
 date: "2024-12-30"
 img: "/images/blog/invisalign_hero.png"
 excerpt: "Not all smiles are the same. Learn what factors influence the length and complexity of your clear aligner journey."
