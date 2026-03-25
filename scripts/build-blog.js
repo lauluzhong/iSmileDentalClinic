@@ -45,12 +45,12 @@ const blogIndex = files.map(filename => {
       slug,
       title: frontmatter.title,
       categories: frontmatter.categories || (frontmatter.category ? [frontmatter.category] : []),
-      tags: frontmatter.tags || [],
+    tags: frontmatter.tags || [],
       date: frontmatter.date,
       img: frontmatter.img,
       excerpt: frontmatter.excerpt,
       featured: frontmatter.featured || false,
-      faq: frontmatter.faq || [],
+      tags: frontmatter.tags || [],
       content: htmlContent
     })
   );

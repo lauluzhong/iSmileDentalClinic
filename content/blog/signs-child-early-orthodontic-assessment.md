@@ -40,6 +40,7 @@ parent_page: /services/children/myofunctional
 priority: P2
 tier: T3
 title: Signs Your Child May Need Early Orthodontic Assessment
+tags: ['Orthodontics', 'Myofunctional']
 ---
 
 ## Why Early Assessments Matter More Than You Think
