@@ -1,10 +1,31 @@
 ---
-title: "Invisalign in Malaysia: Clear Aligners Explained"
-categories: ["Orthodontics"]
-date: "2026-03-16"
-img: "/images/blog/invisalign-malaysia-hero.jpg"
-excerpt: "Curious about Invisalign in Malaysia? Learn how clear aligners work, what they can fix, and whether they're the right choice for your smile."
+categories:
+- Orthodontics
+date: '2026-03-16'
+excerpt: Curious about Invisalign in Malaysia? Learn how clear aligners work, what
+  they can fix, and whether they're the right choice for your smile.
+faq:
+- a: Invisalign is a system of clear, removable aligners that gradually shift teeth
+    into better positions using custom-made plastic trays instead of brackets and
+    wires. Each set is worn for about 1-2 weeks, applying controlled pressure to gently
+    move teeth. The aligners are nearly invisible, made from SmartTrack material,
+    and can be removed for eating and brushing.
+  q: What Is Invisalign?
+- a: Invisalign works great for mild to moderate crowding, gaps between teeth, and
+    certain bite issues like overbite, underbite, and crossbite. However, severe cases
+    or complex rotations sometimes need traditional braces or even surgery. During
+    consultation, 3D scanning shows a digital preview of expected results for a realistic
+    expectation of outcomes.
+  q: What Can Invisalign Actually Fix?
+- a: For the right candidate, Invisalign offers a convenient, discreet way to straighten
+    teeth with no wires poking cheeks and easier oral hygiene. The trade-offs are
+    cost — generally more expensive than traditional braces — and the discipline required.
+    You must commit to wearing them 20-22 hours per day consistently. Treatment time
+    varies, your dentist will advise.
+  q: Is Invisalign Worth It?
 featured: false
+img: /images/blog/invisalign-malaysia-hero.jpg
+title: 'Invisalign in Malaysia: Clear Aligners Explained'
 ---
 
 ### What Is Invisalign Actually?

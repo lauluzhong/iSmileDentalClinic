@@ -1,11 +1,28 @@
 ---
-title: "Dental Crowns in Malaysia: What You Need to Know"
-date: "2026-03-18"
-slug: "dental-crowns-malaysia"
-categories: ["Restorative"]
-excerpt: "If your dentist has mentioned you need a dental crown, you probably have questions. Here is what you need to know about getting a crown in Malaysia."
-author: "iSmile Dental Clinic"
-img: "/images/blog/dental-crowns-malaysia-hero.jpg"
+author: iSmile Dental Clinic
+categories:
+- Restorative
+date: '2026-03-18'
+excerpt: If your dentist has mentioned you need a dental crown, you probably have
+  questions. Here is what you need to know about getting a crown in Malaysia.
+faq:
+- a: A dental crown is a custom-made cap that covers a damaged or weakened tooth.
+    It restores the tooth's shape, size, strength, and appearance. Crowns are typically
+    recommended when a tooth has been significantly weakened by decay, a large filling,
+    or a root canal treatment.
+  q: What Is a Dental Crown?
+- a: You might need a crown for a large cavity too big for a standard filling, a cracked
+    or worn tooth from grinding or injury, after a root canal to protect the treated
+    tooth, for a misshapen or discoloured tooth for cosmetic improvement, or to anchor
+    a dental bridge in place.
+  q: Why Might You Need a Crown?
+- a: If you have a damaged or weakened tooth, a dental crown may be the key solution
+    to restore your smile and protect your oral health. Speak with your dentist to
+    discuss your options and find the right treatment plan for your needs.
+  q: Is a Crown Right for You?
+img: /images/blog/dental-crowns-malaysia-hero.jpg
+slug: dental-crowns-malaysia
+title: 'Dental Crowns in Malaysia: What You Need to Know'
 ---
 
 # Dental Crowns in Malaysia: What You Need to Know

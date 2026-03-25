@@ -131,6 +131,20 @@ const BlogPost = () => {
                     "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
                     "articleSection": post.categories ? post.categories.join(", ") : post.category
                 })}</script>
+                {post.faq && post.faq.length > 0 && (
+                  <script type="application/ld+json">{JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "FAQPage",
+                    "mainEntity": post.faq.map(f => ({
+                      "@type": "Question",
+                      "name": f.q,
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": f.a
+                      }
+                    }))
+                  })}</script>
+                )}
             </Helmet>
 
             {/* Hero Section */}
@@ -218,6 +232,20 @@ const BlogPost = () => {
                     </button>
 
                     <div className="blog-content" dangerouslySetInnerHTML={{ __html: post.content }} />
+
+                    {post.faq && post.faq.length > 0 && (
+                      <div className="post-faq-section" style={{ marginTop: '60px', paddingTop: '40px', borderTop: '1px solid #eee' }}>
+                        <h3 style={{ marginBottom: '30px', textAlign: 'center', fontSize: '2rem' }}>Frequently Asked Questions</h3>
+                        <div style={{ textAlign: 'left', maxWidth: '700px', margin: '0 auto' }}>
+                          {post.faq.map((item, idx) => (
+                            <div key={idx} style={{ marginBottom: '24px', padding: '20px', background: '#f8fafc', borderRadius: '8px', borderLeft: '4px solid var(--color-primary)' }}>
+                              <h4 style={{ marginBottom: '10px', color: 'var(--color-primary)', fontWeight: '600' }}>{item.q}</h4>
+                              <p style={{ margin: 0, color: 'var(--color-text)', lineHeight: '1.7' }}>{item.a}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
                     <div className="post-footer" style={{ marginTop: '60px', paddingTop: '40px', borderTop: '1px solid #eee', textAlign: 'center' }}>
                         <h3 style={{ fontSize: '2rem', marginBottom: '10px' }}>Your Smile Deserves Thoughtful Care</h3>
