@@ -1,6 +1,7 @@
 ---
 title: "Mouth Breathing in Children: When Is It a Dental Concern?"
 categories: ["Kids & Growth"]
+tags: ['Myofunctional', 'Airway Health']
 date: "2024-12-05"
 img: "/images/mouth_breathing_sleep.png"
 excerpt: "Is your child sleeping with their mouth open? It might be more than just a habit—it could impact their facial development."

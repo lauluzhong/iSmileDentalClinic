@@ -45,7 +45,9 @@ const Blog = () => {
         }
         return blogIndex.filter(p => {
             const cats = p.categories && p.categories.length > 0 ? p.categories : (p.category ? [p.category] : []);
-            return cats.includes(activeCategory);
+            const inCategory = cats.includes(activeCategory);
+            const inTags = p.tags && p.tags.includes(activeCategory);
+            return inCategory || inTags;
         });
     }, [activeCategory, featuredPost]);
 

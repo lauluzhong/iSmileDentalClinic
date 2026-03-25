@@ -1,6 +1,7 @@
 ---
 title: "Is Teeth Whitening Safe? What Dentists Want You to Know"
 categories: ["Cosmetic"]
+tags: ['Teeth Whitening']
 date: "2024-12-15"
 img: "/images/veneers_hero_1765825257935.png"
 excerpt: "Everyone wants a brighter smile, but is it safe for your enamel? We separate fact from fiction."

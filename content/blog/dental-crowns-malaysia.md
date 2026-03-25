@@ -3,6 +3,7 @@ title: "Dental Crowns in Malaysia: What You Need to Know"
 date: "2026-03-18"
 slug: "dental-crowns-malaysia"
 categories: ["Restorative"]
+tags: ['Dental Crowns']
 excerpt: "If your dentist has mentioned you need a dental crown, you probably have questions. Here is what you need to know about getting a crown in Malaysia."
 author: "iSmile Dental Clinic"
 img: "/images/blog/dental-crowns-malaysia-hero.jpg"

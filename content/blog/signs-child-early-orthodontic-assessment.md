@@ -1,6 +1,7 @@
 ---
 title: "Signs Your Child May Need Early Orthodontic Assessment"
 categories: ["Kids & Growth"]
+tags: ['Orthodontics', 'Myofunctional']
 date: "2026-03-25"
 img: "/images/blog/signs-child-early-orthodontic-assessment.png"
 excerpt: "Worried your child might need orthodontic treatment? Here are the clear signs that your child may need an early orthodontic assessment in Malaysia, and why timing matters so much."

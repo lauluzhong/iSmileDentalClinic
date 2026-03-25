@@ -45,10 +45,12 @@ const blogIndex = files.map(filename => {
       slug,
       title: frontmatter.title,
       categories: frontmatter.categories || (frontmatter.category ? [frontmatter.category] : []),
+    tags: frontmatter.tags || [],
       date: frontmatter.date,
       img: frontmatter.img,
       excerpt: frontmatter.excerpt,
       featured: frontmatter.featured || false,
+      tags: frontmatter.tags || [],
       content: htmlContent
     })
   );
@@ -58,6 +60,7 @@ const blogIndex = files.map(filename => {
     slug,
     title: frontmatter.title,
     categories: frontmatter.categories || (frontmatter.category ? [frontmatter.category] : []),
+    tags: frontmatter.tags || [],
     date: frontmatter.date,
     img: frontmatter.img,
     excerpt: frontmatter.excerpt,
