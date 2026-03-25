@@ -1,6 +1,7 @@
 ---
 title: "Government vs Private Braces in Malaysia: What Parents Should Know"
 category: "Orthodontics"
+tags: ['Kids & Growth', 'Braces']
 date: "2025-01-05"
 img: "/images/service_straighten.png"
 excerpt: "Deciding where to get braces for your child involves balancing time, convenience, and treatment options."

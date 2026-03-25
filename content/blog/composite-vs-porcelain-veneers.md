@@ -1,6 +1,7 @@
 ---
 title: "Composite vs Porcelain Veneers: Which Smile Makeover Makes Sense?"
 category: "Cosmetic"
+tags: ['Veneers']
 date: "2024-12-10"
 img: "/images/service_enhance.png"
 excerpt: "Veneers can transform a smile, but which material is right for you? We compare durability, look, and process."

@@ -1,6 +1,7 @@
 ---
 title: "Wisdom Tooth Surgery: What to Expect Before, During, and After"
 category: "Oral Surgery"
+tags: ['Wisdom Teeth']
 date: "2024-12-20"
 img: "/images/blog/asian_couple_40s.png"
 excerpt: "Wisdom tooth removal is a rite of passage for many. Here is a guide to help you prepare and recover smoothly."

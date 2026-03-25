@@ -1,6 +1,7 @@
 ---
 title: "Your Child's First Dental Visit: How to Make It a Positive Experience"
 category: "Kids & Growth"
+tags: ['Pediatric Dentistry']
 date: "2024-11-28"
 img: "/images/dentist-child.png"
 excerpt: "First impressions last a lifetime. Here is how to ensure your little one grows up loving the dentist."

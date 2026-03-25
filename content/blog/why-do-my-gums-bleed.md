@@ -1,6 +1,7 @@
 ---
 title: "Why Do My Gums Bleed Even If I Brush Every Day?"
 category: "Oral Health"
+tags: ['Gum Health']
 date: "2025-01-12"
 img: "/images/blog/concerned_person_brushing.png"
 excerpt: "Bleeding gums are a common concern, but they are often a sign that your oral care routine needs a tweak."

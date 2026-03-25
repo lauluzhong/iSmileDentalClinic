@@ -1,6 +1,7 @@
 ---
 title: "Invisalign in Malaysia: Clear Aligners Explained"
 category: "Orthodontics"
+tags: ['Clear Aligners', 'Invisalign']
 date: "2026-03-16"
 img: "/images/blog/invisalign-malaysia-hero.jpg"
 excerpt: "Curious about Invisalign in Malaysia? Learn how clear aligners work, what they can fix, and whether they're the right choice for your smile."

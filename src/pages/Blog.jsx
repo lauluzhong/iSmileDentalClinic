@@ -33,14 +33,17 @@ const Blog = () => {
     // Featured post: first post with featured: true, fallback to first post
     const featuredPost = blogIndex.find(p => p.featured) || blogIndex[0];
 
-    // Grid posts: everything except the featured post, filtered by category
+    // Grid posts: everything except the featured post, filtered by category or tags
     // When "All": exclude featured post from grid (it's shown separately)
-    // When filtering: include ALL posts (featured post not shown separately)
+    // When filtering: include posts where category matches OR tags include the active category
     const otherPosts = useMemo(() => {
         if (activeCategory === 'All') {
             return blogIndex.filter(p => p.slug !== featuredPost?.slug);
         }
-        return blogIndex.filter(p => p.category === activeCategory);
+        return blogIndex.filter(p =>
+            p.category === activeCategory ||
+            (p.tags && p.tags.includes(activeCategory))
+        );
     }, [activeCategory, featuredPost]);
 
     // Pagination
