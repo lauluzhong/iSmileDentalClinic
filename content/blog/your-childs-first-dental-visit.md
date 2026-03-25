@@ -26,6 +26,7 @@ faq:
 featured: false
 img: /images/dentist-child.png
 title: 'Your Child''s First Dental Visit: How to Make It a Positive Experience'
+tags: ['Pediatric Dentistry']
 ---
 
 ### Building a Lifetime of Confident Smiles

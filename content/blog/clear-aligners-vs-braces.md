@@ -17,6 +17,7 @@ faq:
 featured: true
 img: /images/invisalign_hand.png
 title: 'Clear Aligners vs Braces: Which Fits a Busy Adult or Teen Lifestyle Better?'
+tags: ['Clear Aligners', 'Braces']
 ---
 
 ### Choosing the Right Fit for Your Life

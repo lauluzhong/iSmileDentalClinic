@@ -18,6 +18,7 @@ faq:
 featured: false
 img: /images/service_straighten.png
 title: 'Government vs Private Braces in Malaysia: What Parents Should Know'
+tags: ['Kids & Growth', 'Braces']
 ---
 
 ### Navigating Orthodontic Care in Malaysia

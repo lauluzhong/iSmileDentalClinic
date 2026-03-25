@@ -30,6 +30,7 @@ faq:
 featured: false
 img: /images/blog/dental-implants-hero.png
 title: 'Dental Implants in Malaysia: What You Need to Know'
+tags: ['Dental Implants']
 ---
 
 ### What Exactly Is a Dental Implant?

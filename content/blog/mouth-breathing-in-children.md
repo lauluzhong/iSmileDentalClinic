@@ -27,6 +27,7 @@ faq:
 featured: false
 img: /images/mouth_breathing_sleep.png
 title: 'Mouth Breathing in Children: When Is It a Dental Concern?'
+tags: ['Myofunctional', 'Airway Health']
 ---
 
 ### More Than Just a Habit: Understanding How Your Child Breathes

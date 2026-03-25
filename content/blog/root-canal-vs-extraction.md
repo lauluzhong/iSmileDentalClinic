@@ -25,6 +25,7 @@ faq:
 featured: false
 img: /images/blog/root_canal_vs_extraction_hero.png
 title: 'Root Canal vs Tooth Extraction: Which Is the Better Long-Term Choice?'
+tags: ['Root Canal', 'Oral Health']
 ---
 
 ### Choosing the Best Path for Your Smile
