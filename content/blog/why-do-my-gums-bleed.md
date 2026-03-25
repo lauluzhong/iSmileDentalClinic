@@ -1,10 +1,30 @@
 ---
-title: "Why Do My Gums Bleed Even If I Brush Every Day?"
-category: "Oral Health"
-date: "2025-01-12"
-img: "/images/blog/concerned_person_brushing.png"
-excerpt: "Bleeding gums are a common concern, but they are often a sign that your oral care routine needs a tweak."
+category: Oral Health
+date: '2025-01-12'
+excerpt: Bleeding gums are a common concern, but they are often a sign that your oral
+  care routine needs a tweak.
+faq:
+- a: Sometimes the logic 'harder is cleaner' backfires. Using a hard-bristled toothbrush
+    or aggressive scrubbing can traumatize gum tissue. Switching to a soft-bristled
+    brush and using gentle, circular motions can make a world of difference.
+  q: Are You Brushing Too Hard?
+- a: The most common culprit is plaque buildup along the gumline. If plaque is not
+    removed effectively, it hardens into tartar, which irritates the gums and causes
+    them to swell and bleed. This can happen even if you brush daily, especially if
+    you are missing the spots right where the tooth meets the gum. Healthy gums should
+    not bleed, even with firm brushing — bleeding is often the body signalling inflammation,
+    the early stage of gum disease known as gingivitis.
+  q: Why Do Gums Bleed Even With Good Brushing Habits?
+- a: For women, pregnancy or hormonal fluctuations can lead to 'pregnancy gingivitis.'
+    Your gums can become more sensitive and reactive to plaque during these times.
+  q: Can Hormonal Changes Affect Gum Health?
+- a: If you have improved your brushing and flossing routine but the bleeding persists
+    for more than a week, it is time for a professional assessment. A simple cleaning
+    might be all you need to get back on track.
+  q: When Should You Seek Professional Help for Bleeding Gums?
 featured: false
+img: /images/blog/concerned_person_brushing.png
+title: Why Do My Gums Bleed Even If I Brush Every Day?
 ---
 
 ### Healthy Gums: The Foundation of Your Smile

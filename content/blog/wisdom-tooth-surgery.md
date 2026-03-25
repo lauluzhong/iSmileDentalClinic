@@ -1,10 +1,30 @@
 ---
-title: "Wisdom Tooth Surgery: What to Expect Before, During, and After"
-category: "Oral Surgery"
-date: "2024-12-20"
-img: "/images/blog/asian_couple_40s.png"
-excerpt: "Wisdom tooth removal is a rite of passage for many. Here is a guide to help you prepare and recover smoothly."
+category: Oral Surgery
+date: '2024-12-20'
+excerpt: Wisdom tooth removal is a rite of passage for many. Here is a guide to help
+  you prepare and recover smoothly.
+faq:
+- a: Wisdom teeth often become impacted because there is not enough room in the jaw.
+    This can lead to persistent infection or even pushing other teeth out of alignment,
+    potentially affecting years of orthodontic work.
+  q: Why Is Timing Important for Wisdom Tooth Removal?
+- a: Modern anesthesia and techniques mean the procedure itself is designed to be
+    painless. You might feel some pressure, but comfort is prioritized throughout.
+    We understand that dental visits can feel daunting for some, and we are committed
+    to providing a gentle experience tailored to your comfort and peace of mind.
+  q: Is Wisdom Tooth Surgery Painful?
+- a: Swelling typically peaks within the first few days and then begins to subside.
+    Sticking to a soft, nutritious diet and keeping the area clean as instructed is
+    the secret to a quick and trouble-free recovery. Your dentist will advise on the
+    expected recovery timeline.
+  q: What Is the Recovery Process Like After Wisdom Tooth Surgery?
+- a: If you feel pressure, pain, or notice any swelling or gum changes at the back
+    of your mouth, it is worth coming in for a quick X-ray to see what is happening
+    beneath the surface.
+  q: When Should You Check In with Your Dentist About Wisdom Teeth?
 featured: false
+img: /images/blog/asian_couple_40s.png
+title: 'Wisdom Tooth Surgery: What to Expect Before, During, and After'
 ---
 
 ### A Healthier Smile: Understanding Wisdom Tooth Care

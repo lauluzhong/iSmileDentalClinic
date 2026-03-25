@@ -1,10 +1,30 @@
 ---
-title: "Your Child's First Dental Visit: How to Make It a Positive Experience"
-category: "Kids & Growth"
-date: "2024-11-28"
-img: "/images/dentist-child.png"
-excerpt: "First impressions last a lifetime. Here is how to ensure your little one grows up loving the dentist."
+category: Kids & Growth
+date: '2024-11-28'
+excerpt: First impressions last a lifetime. Here is how to ensure your little one
+  grows up loving the dentist.
+faq:
+- a: We recommend a first visit around age 1 or within 6 months of the first tooth
+    appearing. This early start emphasises prevention and helps children become comfortably
+    acclimatised before they ever need treatment.
+  q: When Is the Perfect Time for a Child's First Dental Visit?
+- a: A 'happy visit' prioritises your child's comfort and trust. A ride in the 'magic'
+    chair, counting their teeth, and choosing a special sticker might be all we do
+    first. This builds the confidence and trust they need to feel safe and secure
+    during future visits.
+  q: What Is a 'Happy Visit' and What Happens During It?
+- a: 'Try to avoid using words like ''pain,'' ''needle,'' or ''hurt,'' as these can
+    accidentally create anxiety. Instead, keep it light and exciting: ''We are going
+    to have our teeth counted and made all shiny today!'' Your calm, positive energy
+    is the best reassurance they can have.'
+  q: How Can Parents Help Create a Positive Dental Experience?
+- a: Building a 'dental home' early means you have a dedicated partner in your child's
+    growth. We are here to guide you on nutrition, healthy habits, and everything
+    you need to keep their smile bright as they grow.
+  q: Why Is It Important to Establish a 'Dental Home' Early?
 featured: false
+img: /images/dentist-child.png
+title: 'Your Child''s First Dental Visit: How to Make It a Positive Experience'
 ---
 
 ### Building a Lifetime of Confident Smiles
