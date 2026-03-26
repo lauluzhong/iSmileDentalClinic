@@ -62,9 +62,9 @@ By the time crowded adult teeth show up, the underlying jaw development problem 
 
 This is a genuinely important distinction because it changes how you think about the solution.
 
-If crowding were purely a size problem, extraction of adult teeth might seem logical. But modern myofunctional orthodontics takes a different view: the jaw can be guided to grow wider, especially in growing children, which creates the space the teeth need. This is where systems like **Myobrace** come in.
+If crowding were purely a size problem, extraction of adult teeth might seem logical. But modern myofunctional orthodontics takes a different view: the jaw can be guided to grow wider, especially in growing children, which creates the space the teeth need. This is where systems like **LM Activator** come in.
 
-Myobrace is a removable functional appliance worn mostly at night (and sometimes one to two hours during the day). It works by correcting tongue posture, lip seal, and breathing habits while gently applying low forces to guide jaw development. It's not a brace in the traditional sense — it's more like training equipment for the muscles of the face and tongue.
+LM Activator is a removable functional appliance worn mostly at night (and sometimes one to two hours during the day). It works by correcting tongue posture, lip seal, and breathing habits while gently applying low forces to guide jaw development. It's not a brace in the traditional sense — it's more like training equipment for the muscles of the face and tongue.
 
 Another option available at iSmile is **Invisalign First**, designed specifically for children in their mixed dentition phase (when they have a mix of baby teeth and adult teeth). This clear aligner system can address crowding while also allowing room for the jaw to develop properly.
 
@@ -109,7 +109,7 @@ Treating the crowding without addressing the breathing and habits is like bailin
 
 A good myofunctional orthodontist will look at all three angles: how your child breathes, how their tongue rests, and what habits might be contributing. Then they'll create a plan that addresses the root cause, not just the symptom.
 
-Some children need expanders to widen the upper jaw. Some need Myobrace to retrain muscle habits. Some need a combination of approaches. Your dentist will assess your child's individual situation and recommend what actually fits, not what fits a marketing brochure.
+Some children need expanders to widen the upper jaw. Some need LM Activator to retrain muscle habits. Some need a combination of approaches. Your dentist will assess your child's individual situation and recommend what actually fits, not what fits a marketing brochure.
 
 **The best time to act was five years ago. The second best time is now.** If your child is under 10 and showing signs of mouth breathing or thumb sucking habits, book a consultation with iSmile Dental Clinic. We'll assess whether early intervention could make a meaningful difference to their dental development, and we'll tell you honestly if it's too early to worry.
 
