@@ -6,7 +6,12 @@
       "Kids & Growth",
       "Orthodontics"
     ],
-    "tags": [],
+    "tags": [
+      "Myofunctional Orthodontics",
+      "Children's Dentistry",
+      "Early Intervention",
+      "Airway Health"
+    ],
     "date": "2026-03-28",
     "excerpt": "Wondering if your child might benefit from myofunctional orthodontics? Learn about the signs that indicate they could be a good candidate and what the assessment process involves.",
     "featured": false,
@@ -48,8 +53,29 @@
     "date": "2026-03-26",
     "img": "/images/blog/mouth-breathing-thumb-sucking-crowded-teeth.png",
     "excerpt": "Wondering why your child's teeth are getting crooked even though you brush and floss faithfully? The answer might have nothing to do with brushing at all. Learn how mouth breathing and thumb sucking affect jaw development.",
-    "featured": false,
-    "faq": []
+    "featured": true,
+    "faq": [
+      {
+        "q": "How does mouth breathing affect my child's teeth and jaw development?",
+        "a": "Mouth breathing changes tongue position, leading to improper jaw growth. The tongue should rest against the palate to guide proper jaw width development. When breathing through the mouth, the tongue drops, allowing the cheeks to exert inward pressure, resulting in narrow arches and crowded teeth. It also dries the mouth, increasing decay risk."
+      },
+      {
+        "q": "At what age should thumb sucking stop to prevent dental problems?",
+        "a": "Thumb sucking should naturally stop by age 3-4. Beyond this age, it can cause significant dental issues: anterior open bite (front teeth don't meet), narrow palate, speech problems, and altered jaw growth. If the habit continues past age 4, professional intervention is often recommended to prevent long-term effects."
+      },
+      {
+        "q": "Can myofunctional therapy help with mouth breathing and thumb sucking?",
+        "a": "Yes, myofunctional therapy addresses the root causes by retraining oral muscles. Exercises improve nasal breathing, correct tongue posture, and eliminate harmful habits. Combined with appliances like LM Activators, it can guide proper jaw development and prevent or reduce crowding without traditional braces."
+      },
+      {
+        "q": "What are the warning signs that my child might need intervention?",
+        "a": "Watch for: persistent mouth breathing (day or night), snoring or restless sleep, dark circles under eyes, speech difficulties, preference for soft foods, crowded or misaligned teeth, long narrow face, lips that don't close at rest, and thumb/finger sucking beyond age 4. Early assessment (age 5-7) is ideal."
+      },
+      {
+        "q": "Are Malaysian children more susceptible to these issues?",
+        "a": "Yes, due to several factors: high allergy rates leading to nasal congestion, cultural acceptance of thumb sucking, humid climate contributing to respiratory issues, and dietary preferences for softer foods. These combine to create higher rates of mouth breathing and dental development issues in Malaysian children."
+      }
+    ]
   },
   {
     "slug": "signs-child-early-orthodontic-assessment",
@@ -97,7 +123,28 @@
     "img": "/images/blog/why-baby-teeth-matter-hero.jpg",
     "excerpt": "Many parents assume baby teeth are just placeholders until the real ones arrive. The truth is, those tiny teeth do far more work than most people realize.",
     "featured": false,
-    "faq": []
+    "faq": [
+      {
+        "q": "Why are baby teeth important if they're just going to fall out?",
+        "a": "Baby teeth serve several critical functions: they guide permanent teeth into proper position, enable proper chewing for nutrition, support speech development, maintain jaw space, and contribute to a child's self-confidence. Losing them too early can lead to crowding, speech issues, and nutritional problems."
+      },
+      {
+        "q": "When should my child have their first dental visit?",
+        "a": "The American Academy of Pediatric Dentistry recommends the first dental visit by age one or within six months after the first tooth appears. Early visits help establish good oral hygiene habits, identify potential issues, and make dental care a normal part of your child's health routine."
+      },
+      {
+        "q": "What happens if a baby tooth is lost too early due to decay?",
+        "a": "Early loss of baby teeth can cause surrounding teeth to drift into the empty space, leaving insufficient room for the permanent tooth to emerge properly. This often leads to crowding, misalignment, and may require orthodontic treatment later. That's why dentists prioritize saving baby teeth with fillings or crowns rather than extracting them."
+      },
+      {
+        "q": "How can I prevent baby tooth decay?",
+        "a": "Prevention starts with cleaning gums even before teeth appear, using a soft cloth. Once teeth emerge, brush twice daily with a rice-grain-sized amount of fluoride toothpaste. Avoid putting babies to bed with bottles, limit sugary drinks and snacks, and schedule regular dental check-ups starting by age one."
+      },
+      {
+        "q": "Do cavities in baby teeth need to be filled?",
+        "a": "Yes, cavities in baby teeth should be treated. Untreated decay can cause pain, infection, difficulty eating, and affect the developing permanent teeth underneath. Early treatment is simpler, less invasive, and helps prevent more serious problems later."
+      }
+    ]
   },
   {
     "slug": "lm-activator-vs-invisalign",
@@ -352,7 +399,28 @@
     "img": "/images/blog/invisalign_hero.png",
     "excerpt": "Not all smiles are the same. Learn what factors influence the length and complexity of your clear aligner journey.",
     "featured": false,
-    "faq": []
+    "faq": [
+      {
+        "q": "What makes some clear aligner treatments more complex than others?",
+        "a": "Treatment complexity depends on several factors: the amount of crowding or spacing, bite issues (overbite, underbite, crossbite), tooth rotation, required root movement, and the need for attachments or additional procedures like IPR (interproximal reduction). Complex cases require more precise planning and longer treatment times."
+      },
+      {
+        "q": "How long does a typical clear aligner treatment take?",
+        "a": "Simple cases may take 6-12 months, while complex cases can take 18-24 months or more. The duration depends on your specific dental issues, how consistently you wear the aligners (20-22 hours daily), and how your teeth respond to movement. Your dentist will provide a personalized timeline after assessment."
+      },
+      {
+        "q": "Can clear aligners fix severe crowding or bite problems?",
+        "a": "Yes, modern clear aligner systems like Invisalign can address many complex cases that previously required traditional braces. However, extremely severe cases might still benefit from braces or combined treatment. A thorough assessment will determine the best approach for your specific situation."
+      },
+      {
+        "q": "What are attachments and why are they sometimes needed?",
+        "a": "Attachments are small, tooth-colored bumps bonded to teeth to help with specific movements like rotation or extrusion. They provide grip points for the aligners to apply precise force. Not all cases need attachments, but they're common in moderate to complex treatments for better control."
+      },
+      {
+        "q": "How important is patient compliance in treatment success?",
+        "a": "Extremely important. Clear aligners must be worn 20-22 hours daily to be effective. Inconsistent wear is the most common reason for extended treatment times or compromised results. Your commitment to wearing aligners as directed is crucial for achieving the planned outcome on schedule."
+      }
+    ]
   },
   {
     "slug": "wisdom-tooth-surgery",
@@ -431,7 +499,28 @@
     "img": "/images/service_enhance.png",
     "excerpt": "Veneers can transform a smile, but which material is right for you? We compare durability, look, and process.",
     "featured": false,
-    "faq": []
+    "faq": [
+      {
+        "q": "What's the main difference between composite and porcelain veneers?",
+        "a": "Composite veneers are resin material applied directly to teeth in one visit, offering flexibility and easy repair. Porcelain veneers are custom-made in a lab, providing superior stain resistance, durability, and a more natural translucent appearance. Composite is more affordable and conservative, while porcelain offers longer-lasting, more aesthetic results."
+      },
+      {
+        "q": "How long do veneers typically last?",
+        "a": "Composite veneers usually last 5-7 years with proper care, while porcelain veneers can last 10-15 years or longer. Longevity depends on oral hygiene, habits (like teeth grinding), and regular dental check-ups. Both types require maintenance, but porcelain is more stain-resistant and durable."
+      },
+      {
+        "q": "Are veneers reversible or permanent?",
+        "a": "Composite veneers are more reversible as they require minimal tooth preparation. Porcelain veneers involve removing a small amount of enamel (0.3-0.5mm), making them irreversible. However, both options preserve most of your natural tooth structure compared to crowns, and the process is considered conservative cosmetic dentistry."
+      },
+      {
+        "q": "Can veneers fix crooked teeth or gaps?",
+        "a": "Yes, veneers can improve the appearance of mildly crooked teeth, gaps, chips, stains, and uneven shapes. However, they're primarily cosmetic and don't correct underlying bite issues or severe misalignment. For significant orthodontic problems, braces or clear aligners might be recommended before or instead of veneers."
+      },
+      {
+        "q": "How do I care for my veneers?",
+        "a": "Care for veneers like natural teeth: brush twice daily with non-abrasive toothpaste, floss regularly, avoid biting hard objects, and wear a night guard if you grind your teeth. Regular dental check-ups (every 6 months) are essential. Porcelain veneers resist stains better, but both types benefit from avoiding excessive coffee, tea, red wine, and tobacco."
+      }
+    ]
   },
   {
     "slug": "mouth-breathing-in-children",
