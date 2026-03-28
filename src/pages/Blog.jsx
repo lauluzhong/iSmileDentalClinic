@@ -382,14 +382,14 @@ const Blog = () => {
           }
 
           .post-tag {
-              font-size: 0.45rem;
+              font-size: 0.54rem; /* Increased by 20% from 0.45rem */
               color: var(--color-primary);
               font-weight: 500;
               text-transform: uppercase;
               background: rgba(79, 163, 194, 0.1);
               border: 1px solid rgba(79, 163, 194, 0.2);
               border-radius: 12px;
-              padding: 2px 8px;
+              padding: 3px 10px; /* Slightly increased padding for better proportion */
               cursor: pointer;
               transition: all 0.2s;
               white-space: nowrap;

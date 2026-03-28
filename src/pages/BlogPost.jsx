@@ -170,13 +170,13 @@ const BlogPost = () => {
                                   className="post-tag" 
                                   style={{
                                     color: 'var(--color-primary)',
-                                    fontSize: '0.45rem',
+                                    fontSize: '0.54rem', /* Increased by 20% from 0.45rem */
                                     fontWeight: 500,
                                     textTransform: 'uppercase',
                                     background: 'rgba(79, 163, 194, 0.1)',
                                     border: '1px solid rgba(79, 163, 194, 0.2)',
                                     borderRadius: '12px',
-                                    padding: '2px 8px',
+                                    padding: '3px 10px', /* Slightly increased padding for better proportion */
                                     textDecoration: 'none',
                                     transition: 'all 0.2s',
                                     whiteSpace: 'nowrap'

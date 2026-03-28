@@ -5,8 +5,9 @@ date: "2026-03-28"
 author: "iSmile Dental Clinic"
 excerpt: "Wondering if your child might benefit from myofunctional orthodontics? Learn about the signs that indicate they could be a good candidate and what the assessment process involves."
 keywords: "myofunctional orthodontics Malaysia, child orthodontic assessment, myobrace candidate, early orthodontic treatment, airway-focused orthodontics"
+img: "/images/child_airway_hero_1765825276038.png"
 tags:
-- "Childrens Dentistry"
+- "Pediatric Dentistry"
 - "Myofunctional Orthodontics"
 faq:
 - q: "What causes children to need myofunctional orthodontics?"
