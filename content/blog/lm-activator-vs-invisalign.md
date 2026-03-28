@@ -39,7 +39,10 @@ featured: false
 img: /images/child_airway_hero_1765825276038.png
 title: 'LM Activator vs Invisalign Malaysia: What''s the Difference and Which Does
   My Child Actually Need?'
-tags: ['Kids & Growth', 'Myofunctional', 'LM Activator', 'Invisalign']
+tags:
+- "Clear Aligners"
+- "Myofunctional Orthodontics"
+- "Pediatric Dentistry"
 ---
 
 ### What Is LM Activator and How Does It Work?

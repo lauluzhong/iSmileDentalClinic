@@ -19,17 +19,45 @@ const Blog = () => {
     const activeCategory = searchParams.get('category') || 'All';
     const filterRef = useRef(null);
 
-    // Extract unique categories with counts
+    // MECE Tag List (12 tags)
+    const MECE_TAGS = [
+        'Pediatric Dentistry',
+        'Orthodontics',
+        'Myofunctional Orthodontics',
+        'Clear Aligners',
+        'Traditional Braces',
+        'Cosmetic Dentistry',
+        'Restorative Dentistry',
+        'Oral Surgery',
+        'Oral Health',
+        'Preventive Care',
+        'Emergency Dental',
+        'Dental Technology'
+    ];
+
+    // Extract unique categories with counts from tags
     const categories = useMemo(() => {
         const counts = {};
         blogIndex.forEach(p => {
-            const cats = p.categories && p.categories.length > 0 ? p.categories : (p.category ? [p.category] : []);
-            cats.forEach(c => {
-                counts[c] = (counts[c] || 0) + 1;
+            // Use tags if available, otherwise fall back to categories
+            const tags = p.tags && p.tags.length > 0 ? p.tags : 
+                        (p.categories && p.categories.length > 0 ? p.categories : 
+                        (p.category ? [p.category] : []));
+            
+            tags.forEach(tag => {
+                // Only count tags that are in our MECE list
+                if (MECE_TAGS.includes(tag)) {
+                    counts[tag] = (counts[tag] || 0) + 1;
+                }
             });
         });
+        
+        // Sort by count, then alphabetically
         return Object.entries(counts)
-            .sort((a, b) => b[1] - a[1])
+            .sort((a, b) => {
+                if (b[1] !== a[1]) return b[1] - a[1]; // Sort by count first
+                return a[0].localeCompare(b[0]); // Then alphabetically
+            })
             .map(([name, count]) => ({ name, count }));
     }, []);
 
@@ -44,10 +72,11 @@ const Blog = () => {
             return blogIndex.filter(p => p.slug !== featuredPost?.slug);
         }
         return blogIndex.filter(p => {
-            const cats = p.categories && p.categories.length > 0 ? p.categories : (p.category ? [p.category] : []);
-            const inCategory = cats.includes(activeCategory);
-            const inTags = p.tags && p.tags.includes(activeCategory);
-            return inCategory || inTags;
+            // Use tags for filtering (primary), fall back to categories
+            const tags = p.tags && p.tags.length > 0 ? p.tags : 
+                        (p.categories && p.categories.length > 0 ? p.categories : 
+                        (p.category ? [p.category] : []));
+            return tags.includes(activeCategory);
         });
     }, [activeCategory, featuredPost]);
 
@@ -171,19 +200,6 @@ const Blog = () => {
                                     </div>
                                     <div className="post-content">
                                         <div className="post-tags">
-                                            {post.categories && post.categories.map((cat, idx) => (
-                                                <button 
-                                                    key={idx}
-                                                    className="post-tag"
-                                                    onClick={(e) => {
-                                                        e.preventDefault();
-                                                        e.stopPropagation();
-                                                        setCategory(cat);
-                                                    }}
-                                                >
-                                                    {cat}
-                                                </button>
-                                            ))}
                                             {post.tags && post.tags.map((tag, idx) => (
                                                 <button 
                                                     key={`tag-${idx}`}
@@ -366,14 +382,14 @@ const Blog = () => {
           }
 
           .post-tag {
-              font-size: 0.75rem;
+              font-size: 0.45rem;
               color: var(--color-primary);
-              font-weight: 600;
+              font-weight: 500;
               text-transform: uppercase;
               background: rgba(79, 163, 194, 0.1);
               border: 1px solid rgba(79, 163, 194, 0.2);
               border-radius: 12px;
-              padding: 4px 10px;
+              padding: 2px 8px;
               cursor: pointer;
               transition: all 0.2s;
               white-space: nowrap;

@@ -26,7 +26,7 @@ faq:
 featured: false
 img: /images/blog/invisalign-malaysia-hero.jpg
 title: 'Invisalign in Malaysia: Clear Aligners Explained'
-tags: ['Clear Aligners', 'Invisalign']
+tags: ['Clear Aligners']
 ---
 
 ### What Is Invisalign Actually?

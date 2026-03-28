@@ -26,7 +26,7 @@ faq:
 featured: false
 img: /images/blog/asian_couple_40s.png
 title: 'Wisdom Tooth Surgery: What to Expect Before, During, and After'
-tags: ['Wisdom Teeth']
+tags: ['Oral Surgery']
 ---
 
 ### A Healthier Smile: Understanding Wisdom Tooth Care
