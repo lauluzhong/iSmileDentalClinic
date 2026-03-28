@@ -25,7 +25,7 @@ faq:
 featured: false
 img: /images/veneers_hero_1765825257935.png
 title: Is Teeth Whitening Safe? What Dentists Want You to Know
-tags: ['Teeth Whitening']
+tags: ['Cosmetic Dentistry']
 ---
 
 ### Brighter Smiles, Safely Achieved

@@ -23,7 +23,7 @@ faq:
 img: /images/blog/dental-crowns-malaysia-hero.jpg
 slug: dental-crowns-malaysia
 title: 'Dental Crowns in Malaysia: What You Need to Know'
-tags: ['Dental Crowns']
+tags: ['Restorative Dentistry']
 ---
 
 # Dental Crowns in Malaysia: What You Need to Know

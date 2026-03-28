@@ -1,18 +1,112 @@
 [
   {
+    "slug": "child-candidate-myofunctional-orthodontics",
+    "title": "Is Your Child a Good Candidate for Myofunctional Orthodontics?",
+    "categories": [
+      "Kids & Growth",
+      "Orthodontics"
+    ],
+    "tags": [
+      "Pediatric Dentistry",
+      "Myofunctional Orthodontics"
+    ],
+    "date": "2026-03-28",
+    "img": "/images/blog/child-candidate-myofunctional-orthodontics.jpg",
+    "excerpt": "Wondering if your child might benefit from myofunctional orthodontics? Learn about the signs that indicate they could be a good candidate and what the assessment process involves.",
+    "featured": false,
+    "faq": [
+      {
+        "q": "What causes children to need myofunctional orthodontics?",
+        "a": "Several factors can contribute: genetics play a role, but so do environmental factors like allergies that lead to mouth breathing, prolonged thumb sucking or pacifier use, certain swallowing patterns, and even diet (soft foods don't give jaws the workout they need to develop fully). Often it's a combination of factors rather than one single cause."
+      },
+      {
+        "q": "How does iSmile approach myofunctional orthodontic treatment?",
+        "a": "We start with a thorough assessment to understand your child's unique situation. If treatment is recommended, it typically involves a removable appliance worn during sleep and specific exercises to retrain oral muscles. We focus on creating better conditions for natural jaw development rather than forcing changes. Regular check-ins help us monitor progress and make adjustments as needed."
+      },
+      {
+        "q": "When should I consider myofunctional orthodontics for my child?",
+        "a": "Consider an assessment if you notice persistent mouth breathing, thumb sucking beyond age 4-5, snoring or restless sleep, crowded teeth, or speech concerns. Early evaluation (around age 6-8) can help identify issues before they become more complex, but it's never too late to address functional habits that might be affecting dental health."
+      },
+      {
+        "q": "How long does myofunctional orthodontic treatment typically take?",
+        "a": "Treatment duration varies based on your child's age, the specific issues being addressed, and how consistently recommendations are followed. Some children show improvement within months, while others may benefit from longer-term guidance through their growth years. Your dentist can provide a more personalized timeline after assessment."
+      },
+      {
+        "q": "Can myofunctional orthodontics replace traditional braces?",
+        "a": "Sometimes, but not always. For some children, myofunctional treatment alone can guide teeth into better positions. For others, it might be a first phase that makes any future orthodontic treatment simpler and shorter. The approach depends on your child's specific needs and growth pattern."
+      }
+    ]
+  },
+  {
+    "slug": "mouth-breathing-thumb-sucking-crowded-teeth",
+    "title": "Mouth Breathing, Thumb Sucking, and Crowded Teeth: What's the Connection?",
+    "categories": [
+      "Kids & Growth",
+      "Myofunctional"
+    ],
+    "tags": [
+      "Myofunctional Orthodontics",
+      "Pediatric Dentistry"
+    ],
+    "date": "2026-03-26",
+    "img": "/images/blog/mouth-breathing-thumb-sucking-crowded-teeth.png",
+    "excerpt": "Wondering why your child's teeth are getting crooked even though you brush and floss faithfully? The answer might have nothing to do with brushing at all. Learn how mouth breathing and thumb sucking affect jaw development.",
+    "featured": true,
+    "faq": [
+      {
+        "q": "How does mouth breathing affect my child's teeth and jaw development?",
+        "a": "Mouth breathing changes tongue position, leading to improper jaw growth. The tongue should rest against the palate to guide proper jaw width development. When breathing through the mouth, the tongue drops, allowing the cheeks to exert inward pressure, resulting in narrow arches and crowded teeth. It also dries the mouth, increasing decay risk."
+      },
+      {
+        "q": "At what age should thumb sucking stop to prevent dental problems?",
+        "a": "Thumb sucking should naturally stop by age 3-4. Beyond this age, it can cause significant dental issues: anterior open bite (front teeth don't meet), narrow palate, speech problems, and altered jaw growth. If the habit continues past age 4, professional intervention is often recommended to prevent long-term effects."
+      },
+      {
+        "q": "Can myofunctional therapy help with mouth breathing and thumb sucking?",
+        "a": "Yes, myofunctional therapy addresses the root causes by retraining oral muscles. Exercises improve nasal breathing, correct tongue posture, and eliminate harmful habits. Combined with appliances like LM Activators, it can guide proper jaw development and prevent or reduce crowding without traditional braces."
+      },
+      {
+        "q": "What are the warning signs that my child might need intervention?",
+        "a": "Watch for: persistent mouth breathing (day or night), snoring or restless sleep, dark circles under eyes, speech difficulties, preference for soft foods, crowded or misaligned teeth, long narrow face, lips that don't close at rest, and thumb/finger sucking beyond age 4. Early assessment (age 5-7) is ideal."
+      },
+      {
+        "q": "Are Malaysian children more susceptible to these issues?",
+        "a": "Yes, due to several factors: high allergy rates leading to nasal congestion, cultural acceptance of thumb sucking, humid climate contributing to respiratory issues, and dietary preferences for softer foods. These combine to create higher rates of mouth breathing and dental development issues in Malaysian children."
+      }
+    ]
+  },
+  {
     "slug": "signs-child-early-orthodontic-assessment",
     "title": "Signs Your Child May Need Early Orthodontic Assessment",
     "categories": [
       "Kids & Growth"
     ],
     "tags": [
-      "Orthodontics",
-      "Myofunctional"
+      "Myofunctional Orthodontics",
+      "Orthodontics"
     ],
     "date": "2026-03-25",
     "img": "/images/blog/signs-child-early-orthodontic-assessment.png",
     "excerpt": "Worried your child might need orthodontic treatment? Here are the clear signs that your child may need an early orthodontic assessment in Malaysia, and why timing matters so much.",
-    "featured": false
+    "featured": false,
+    "faq": [
+      {
+        "a": "Some problems are easier to fix while the jaw is still growing. Waiting until all the adult teeth come in can mean longer treatment, more invasive procedures, or problems that become harder to address altogether. Getting a first look approximately 7-8 years old, when a child has a mix of baby teeth and adult teeth, gives you more options.",
+        "q": "Why Are Early Orthodontic Assessments Important?"
+      },
+      {
+        "a": "Watch for: noticeably crowded or crooked adult teeth, baby teeth falling out too early or staying too long, mouth breathing especially during sleep, difficulty biting or chewing foods other kids handle fine, jaw clicking or asymmetry when yawning or chewing, and thumb sucking or other habits continuing past age 4 or 5.",
+        "q": "What Are the Signs That My Child May Need Early Orthodontic Assessment?"
+      },
+      {
+        "a": "The assessment is typically straightforward and non-invasive. The orthodontist will look at how the teeth are coming in, how the jaws relate to each other, and whether there are any obvious developmental concerns. They may take photographs or digital scans of the teeth. X-rays are sometimes used to see the position of unerupted adult teeth. Based on this, they will either confirm normal development and recommend a review, or identify an issue that warrants early intervention.",
+        "q": "What Happens at an Early Orthodontic Assessment?"
+      },
+      {
+        "a": "Early treatment does not always mean braces right away. Depending on the issue, options may include a removable or fixed expander to widen a narrow upper jaw, a Myobrace-style functional appliance to address habits and jaw development, monitoring with periodic reviews, or in some cases, a short phase of aligner therapy or limited braces.",
+        "q": "What Early Intervention Options Are Available?"
+      }
+    ]
   },
   {
     "slug": "2026-03-21-why-baby-teeth-matter",
@@ -26,7 +120,29 @@
     "date": "2026-03-21",
     "img": "/images/blog/why-baby-teeth-matter-hero.jpg",
     "excerpt": "Many parents assume baby teeth are just placeholders until the real ones arrive. The truth is, those tiny teeth do far more work than most people realize.",
-    "featured": false
+    "featured": false,
+    "faq": [
+      {
+        "q": "Why are baby teeth important if they're just going to fall out?",
+        "a": "Baby teeth serve several critical functions: they guide permanent teeth into proper position, enable proper chewing for nutrition, support speech development, maintain jaw space, and contribute to a child's self-confidence. Losing them too early can lead to crowding, speech issues, and nutritional problems."
+      },
+      {
+        "q": "When should my child have their first dental visit?",
+        "a": "The American Academy of Pediatric Dentistry recommends the first dental visit by age one or within six months after the first tooth appears. Early visits help establish good oral hygiene habits, identify potential issues, and make dental care a normal part of your child's health routine."
+      },
+      {
+        "q": "What happens if a baby tooth is lost too early due to decay?",
+        "a": "Early loss of baby teeth can cause surrounding teeth to drift into the empty space, leaving insufficient room for the permanent tooth to emerge properly. This often leads to crowding, misalignment, and may require orthodontic treatment later. That's why dentists prioritize saving baby teeth with fillings or crowns rather than extracting them."
+      },
+      {
+        "q": "How can I prevent baby tooth decay?",
+        "a": "Prevention starts with cleaning gums even before teeth appear, using a soft cloth. Once teeth emerge, brush twice daily with a rice-grain-sized amount of fluoride toothpaste. Avoid putting babies to bed with bottles, limit sugary drinks and snacks, and schedule regular dental check-ups starting by age one."
+      },
+      {
+        "q": "Do cavities in baby teeth need to be filled?",
+        "a": "Yes, cavities in baby teeth should be treated. Untreated decay can cause pain, infection, difficulty eating, and affect the developing permanent teeth underneath. Early treatment is simpler, less invasive, and helps prevent more serious problems later."
+      }
+    ]
   },
   {
     "slug": "lm-activator-vs-invisalign",
@@ -36,15 +152,32 @@
       "Kids & Growth"
     ],
     "tags": [
-      "Kids & Growth",
-      "Myofunctional",
-      "LM Activator",
-      "Invisalign"
+      "Clear Aligners",
+      "Myofunctional Orthodontics",
+      "Pediatric Dentistry"
     ],
     "date": "2026-03-20",
     "img": "/images/child_airway_hero_1765825276038.png",
     "excerpt": "Confused between LM Activator and Invisalign for your child? Learn the key differences and which option suits growing smiles best.",
-    "featured": false
+    "featured": false,
+    "faq": [
+      {
+        "a": "LM Activator is a pre-orthodontic system designed for growing children that targets the root causes of crooked teeth — bad oral habits like mouth breathing, tongue thrust, thumb sucking, and incorrect swallowing patterns. It uses silicone-based trainers worn for a few hours each day plus overnight to retrain tongue position, breathing through the nose, and swallowing. If you only straighten teeth without fixing underlying habits, crowding or spacing issues tend to return.",
+        "q": "What Is LM Activator and How Does It Work?"
+      },
+      {
+        "a": "Invisalign uses a series of custom-made clear aligners that apply gentle, consistent pressure to move teeth into the desired position. Each set is worn for about one to two weeks before switching to the next. The dentist plans the entire movement sequence digitally. However, unlike LM Activator, Invisalign corrects tooth position but does not correct oral habits — tongue thrust or mouth breathing will still be present after treatment.",
+        "q": "What Is Invisalign and How Does It Work for Children?"
+      },
+      {
+        "a": "LM Activator is a habit corrector that also straightens teeth as a side effect of better oral function, working best during active growth phases in younger children and requiring significant parental involvement. Invisalign is a tooth position corrector that moves teeth precisely but does not address functional habits behind misalignment. It works best when the jaw has finished growing, typically for older children and teenagers. Treatment duration varies, your dentist will advise.",
+        "q": "What Are the Core Differences Between LM Activator and Invisalign?"
+      },
+      {
+        "a": "There is no universal answer — it depends on your child's age, severity of misalignment, whether they have underlying habit issues, and how their jaw is developing. If your child is younger with functional habits like mouth breathing or tongue thrust, LM Activator is often the better starting point. If your child is a teenager with mostly permanent teeth and straightforward crowding or spacing, Invisalign is a strong option. Some children benefit from both phases — ask your dentist for a personalised recommendation.",
+        "q": "Which Orthodontic Appliance Does My Child Actually Need?"
+      }
+    ]
   },
   {
     "slug": "dental-crowns-malaysia",
@@ -53,12 +186,26 @@
       "Restorative"
     ],
     "tags": [
-      "Dental Crowns"
+      "Restorative Dentistry"
     ],
     "date": "2026-03-18",
     "img": "/images/blog/dental-crowns-malaysia-hero.jpg",
     "excerpt": "If your dentist has mentioned you need a dental crown, you probably have questions. Here is what you need to know about getting a crown in Malaysia.",
-    "featured": false
+    "featured": false,
+    "faq": [
+      {
+        "a": "A dental crown is a custom-made cap that covers a damaged or weakened tooth. It restores the tooth's shape, size, strength, and appearance. Crowns are typically recommended when a tooth has been significantly weakened by decay, a large filling, or a root canal treatment.",
+        "q": "What Is a Dental Crown?"
+      },
+      {
+        "a": "You might need a crown for a large cavity too big for a standard filling, a cracked or worn tooth from grinding or injury, after a root canal to protect the treated tooth, for a misshapen or discoloured tooth for cosmetic improvement, or to anchor a dental bridge in place.",
+        "q": "Why Might You Need a Crown?"
+      },
+      {
+        "a": "If you have a damaged or weakened tooth, a dental crown may be the key solution to restore your smile and protect your oral health. Speak with your dentist to discuss your options and find the right treatment plan for your needs.",
+        "q": "Is a Crown Right for You?"
+      }
+    ]
   },
   {
     "slug": "dental-implants-malaysia-explained",
@@ -67,12 +214,30 @@
       "Restorative"
     ],
     "tags": [
-      "Dental Implants"
+      "Restorative Dentistry"
     ],
     "date": "2026-03-17",
     "img": "/images/blog/dental-implants-hero.png",
     "excerpt": "Thinking about dental implants in Malaysia? Here's what the procedure involves, who makes a good candidate, and what to expect during recovery.",
-    "featured": false
+    "featured": false,
+    "faq": [
+      {
+        "a": "A dental implant is an artificial tooth root surgically placed into the jawbone. Made from titanium, it fuses with the bone over time through osseointegration. Once bonded, a crown sits on top and functions like a real tooth. Unlike bridges or dentures, implants go into the bone, which is why they feel natural.",
+        "q": "What Exactly Is a Dental Implant?"
+      },
+      {
+        "a": "If you're missing one tooth or several, implants could work for you. Key requirements include sufficient bone density to support the implant — if bone loss has occurred, you might need a bone graft first. Candidates should be generally healthy enough for minor surgery. Age is not a barrier if the jaw has finished growing, which varies by individual.",
+        "q": "Who Should Consider Getting a Dental Implant?"
+      },
+      {
+        "a": "The process starts with a consultation using X-rays or 3D scans to assess bone and plan placement. Surgery happens under local anesthesia. The dentist makes a small incision, drills a pilot hole, and places the implant. Healing takes typically several months. Once fused, an abutment is attached, then the final crown is placed.",
+        "q": "What Does the Dental Implant Procedure Involve?"
+      },
+      {
+        "a": "The first few days bring swelling, bruising, and mild discomfort. Most people return to normal activities within 2-3 days. The surgical site heals in 1-2 weeks, but bone integration continues beneath the surface. Possible complications are rare but include infection, nerve damage, or sinus issues — choosing an experienced dentist significantly reduces these risks.",
+        "q": "What Is Recovery Like After Dental Implant Surgery?"
+      }
+    ]
   },
   {
     "slug": "invisalign-malaysia-explained",
@@ -81,13 +246,26 @@
       "Orthodontics"
     ],
     "tags": [
-      "Clear Aligners",
-      "Invisalign"
+      "Clear Aligners"
     ],
     "date": "2026-03-16",
     "img": "/images/blog/invisalign-malaysia-hero.jpg",
     "excerpt": "Curious about Invisalign in Malaysia? Learn how clear aligners work, what they can fix, and whether they're the right choice for your smile.",
-    "featured": false
+    "featured": false,
+    "faq": [
+      {
+        "a": "Invisalign is a system of clear, removable aligners that gradually shift teeth into better positions using custom-made plastic trays instead of brackets and wires. Each set is worn for about 1-2 weeks, applying controlled pressure to gently move teeth. The aligners are nearly invisible, made from SmartTrack material, and can be removed for eating and brushing.",
+        "q": "What Is Invisalign?"
+      },
+      {
+        "a": "Invisalign works great for mild to moderate crowding, gaps between teeth, and certain bite issues like overbite, underbite, and crossbite. However, severe cases or complex rotations sometimes need traditional braces or even surgery. During consultation, 3D scanning shows a digital preview of expected results for a realistic expectation of outcomes.",
+        "q": "What Can Invisalign Actually Fix?"
+      },
+      {
+        "a": "For the right candidate, Invisalign offers a convenient, discreet way to straighten teeth with no wires poking cheeks and easier oral hygiene. The trade-offs are cost — generally more expensive than traditional braces — and the discipline required. You must commit to wearing them 20-22 hours per day consistently. Treatment time varies, your dentist will advise.",
+        "q": "Is Invisalign Worth It?"
+      }
+    ]
   },
   {
     "slug": "why-do-my-gums-bleed",
@@ -96,12 +274,30 @@
       "Oral Health"
     ],
     "tags": [
-      "Gum Health"
+      "Oral Health"
     ],
     "date": "2025-01-12",
     "img": "/images/blog/concerned_person_brushing.png",
     "excerpt": "Bleeding gums are a common concern, but they are often a sign that your oral care routine needs a tweak.",
-    "featured": false
+    "featured": false,
+    "faq": [
+      {
+        "a": "Sometimes the logic 'harder is cleaner' backfires. Using a hard-bristled toothbrush or aggressive scrubbing can traumatize gum tissue. Switching to a soft-bristled brush and using gentle, circular motions can make a world of difference.",
+        "q": "Are You Brushing Too Hard?"
+      },
+      {
+        "a": "The most common culprit is plaque buildup along the gumline. If plaque is not removed effectively, it hardens into tartar, which irritates the gums and causes them to swell and bleed. This can happen even if you brush daily, especially if you are missing the spots right where the tooth meets the gum. Healthy gums should not bleed, even with firm brushing — bleeding is often the body signalling inflammation, the early stage of gum disease known as gingivitis.",
+        "q": "Why Do Gums Bleed Even With Good Brushing Habits?"
+      },
+      {
+        "a": "For women, pregnancy or hormonal fluctuations can lead to 'pregnancy gingivitis.' Your gums can become more sensitive and reactive to plaque during these times.",
+        "q": "Can Hormonal Changes Affect Gum Health?"
+      },
+      {
+        "a": "If you have improved your brushing and flossing routine but the bleeding persists for more than a week, it is time for a professional assessment. A simple cleaning might be all you need to get back on track.",
+        "q": "When Should You Seek Professional Help for Bleeding Gums?"
+      }
+    ]
   },
   {
     "slug": "clear-aligners-vs-braces",
@@ -111,12 +307,22 @@
     ],
     "tags": [
       "Clear Aligners",
-      "Braces"
+      "Traditional Braces"
     ],
     "date": "2025-01-10",
     "img": "/images/invisalign_hand.png",
     "excerpt": "Choosing between clear aligners and traditional braces isn't just about looks—it's about your daily habits and lifestyle.",
-    "featured": true
+    "featured": false,
+    "faq": [
+      {
+        "a": "Consider your child's personality and schedule. If they are responsible and active, clear aligners are a comfortable, flexible choice. If life is a bit more chaotic, traditional braces might be the more predictable option for parents.",
+        "q": "What works best for your family when choosing between clear aligners and braces?"
+      },
+      {
+        "a": "It is generally recommended to have an initial assessment after birth or as soon as your baby develops his/her first tooth, as children grow and their jaw develops significantly. This helps prevent possible future orthodontic treatment or minimising one with early interceptive advice.",
+        "q": "When should a child have their first orthodontic assessment?"
+      }
+    ]
   },
   {
     "slug": "root-canal-vs-extraction",
@@ -125,13 +331,31 @@
       "Restorative"
     ],
     "tags": [
-      "Root Canal",
-      "Oral Health"
+      "Oral Health",
+      "Oral Surgery"
     ],
     "date": "2025-01-08",
     "img": "/images/blog/root_canal_vs_extraction_hero.png",
     "excerpt": "Facing a decision between saving a tooth or pulling it? We break down the long-term impact of each choice.",
-    "featured": false
+    "featured": false,
+    "faq": [
+      {
+        "a": "A root canal clears out infection while preserving the tooth structure. This means you keep your natural bite, alignment, and jawbone density. No replacement tooth feels or functions exactly like your own natural teeth.",
+        "q": "Why Is Saving Your Natural Tooth the Better Option?"
+      },
+      {
+        "a": "Pulling a tooth seems final, but it is often just the beginning of a new dental journey. When a tooth is missing, surrounding teeth can shift, and the jawbone begins to shrink. To restore function and prevent further issues, you may eventually need a bridge or dental implant.",
+        "q": "Why Isn't Tooth Extraction the 'One and Done' Solution?"
+      },
+      {
+        "a": "Your teeth stimulate your jawbone. When one is lost, that stimulation stops, which can lead to bone loss over time. Saving the tooth with a root canal maintains this vital relationship and keeps your facial structure supported.",
+        "q": "How Does Tooth Loss Affect Jawbone Health?"
+      },
+      {
+        "a": "If you are experiencing throbbing pain, sensitivity to heat, or swelling, do not wait. Early intervention often saves the tooth and avoids more invasive procedures later.",
+        "q": "When Should You Act Early on Tooth Pain?"
+      }
+    ]
   },
   {
     "slug": "government-vs-private-braces",
@@ -140,13 +364,23 @@
       "Orthodontics"
     ],
     "tags": [
-      "Kids & Growth",
-      "Braces"
+      "Pediatric Dentistry",
+      "Traditional Braces"
     ],
     "date": "2025-01-05",
     "img": "/images/service_straighten.png",
     "excerpt": "Deciding where to get braces for your child involves balancing time, convenience, and treatment options.",
-    "featured": false
+    "featured": false,
+    "faq": [
+      {
+        "a": "Government clinics provide excellent care but often have long waiting lists due to high demand. Private clinics can usually begin treatment almost immediately, which is crucial if you want to utilize the prime teenage growth spurt for optimal results.",
+        "q": "How do government and private orthodontic clinics compare for waiting periods?"
+      },
+      {
+        "a": "Private practice offers Saturday or evening appointments, meaning your child does not have to miss school and you do not have to take leave for every adjustment visit. This convenience, combined with access to advanced options like clear ceramic braces and self-ligating systems, makes the process much smoother for active families.",
+        "q": "Why might private orthodontic care be worth the investment for families?"
+      }
+    ]
   },
   {
     "slug": "clear-aligner-treatment-complexity",
@@ -160,7 +394,29 @@
     "date": "2024-12-30",
     "img": "/images/blog/invisalign_hero.png",
     "excerpt": "Not all smiles are the same. Learn what factors influence the length and complexity of your clear aligner journey.",
-    "featured": false
+    "featured": false,
+    "faq": [
+      {
+        "q": "What makes some clear aligner treatments more complex than others?",
+        "a": "Treatment complexity depends on several factors: the amount of crowding or spacing, bite issues (overbite, underbite, crossbite), tooth rotation, required root movement, and the need for attachments or additional procedures like IPR (interproximal reduction). Complex cases require more precise planning and longer treatment times."
+      },
+      {
+        "q": "How long does a typical clear aligner treatment take?",
+        "a": "Simple cases may take 6-12 months, while complex cases can take 18-24 months or more. The duration depends on your specific dental issues, how consistently you wear the aligners (20-22 hours daily), and how your teeth respond to movement. Your dentist will provide a personalized timeline after assessment."
+      },
+      {
+        "q": "Can clear aligners fix severe crowding or bite problems?",
+        "a": "Yes, modern clear aligner systems like Invisalign can address many complex cases that previously required traditional braces. However, extremely severe cases might still benefit from braces or combined treatment. A thorough assessment will determine the best approach for your specific situation."
+      },
+      {
+        "q": "What are attachments and why are they sometimes needed?",
+        "a": "Attachments are small, tooth-colored bumps bonded to teeth to help with specific movements like rotation or extrusion. They provide grip points for the aligners to apply precise force. Not all cases need attachments, but they're common in moderate to complex treatments for better control."
+      },
+      {
+        "q": "How important is patient compliance in treatment success?",
+        "a": "Extremely important. Clear aligners must be worn 20-22 hours daily to be effective. Inconsistent wear is the most common reason for extended treatment times or compromised results. Your commitment to wearing aligners as directed is crucial for achieving the planned outcome on schedule."
+      }
+    ]
   },
   {
     "slug": "wisdom-tooth-surgery",
@@ -169,12 +425,30 @@
       "Oral Surgery"
     ],
     "tags": [
-      "Wisdom Teeth"
+      "Oral Surgery"
     ],
     "date": "2024-12-20",
     "img": "/images/blog/asian_couple_40s.png",
     "excerpt": "Wisdom tooth removal is a rite of passage for many. Here is a guide to help you prepare and recover smoothly.",
-    "featured": false
+    "featured": false,
+    "faq": [
+      {
+        "a": "Wisdom teeth often become impacted because there is not enough room in the jaw. This can lead to persistent infection or even pushing other teeth out of alignment, potentially affecting years of orthodontic work.",
+        "q": "Why Is Timing Important for Wisdom Tooth Removal?"
+      },
+      {
+        "a": "Modern anesthesia and techniques mean the procedure itself is designed to be painless. You might feel some pressure, but comfort is prioritized throughout. We understand that dental visits can feel daunting for some, and we are committed to providing a gentle experience tailored to your comfort and peace of mind.",
+        "q": "Is Wisdom Tooth Surgery Painful?"
+      },
+      {
+        "a": "Swelling typically peaks within the first few days and then begins to subside. Sticking to a soft, nutritious diet and keeping the area clean as instructed is the secret to a quick and trouble-free recovery. Your dentist will advise on the expected recovery timeline.",
+        "q": "What Is the Recovery Process Like After Wisdom Tooth Surgery?"
+      },
+      {
+        "a": "If you feel pressure, pain, or notice any swelling or gum changes at the back of your mouth, it is worth coming in for a quick X-ray to see what is happening beneath the surface.",
+        "q": "When Should You Check In with Your Dentist About Wisdom Teeth?"
+      }
+    ]
   },
   {
     "slug": "is-teeth-whitening-safe",
@@ -183,12 +457,30 @@
       "Cosmetic"
     ],
     "tags": [
-      "Teeth Whitening"
+      "Cosmetic Dentistry"
     ],
     "date": "2024-12-15",
     "img": "/images/veneers_hero_1765825257935.png",
     "excerpt": "Everyone wants a brighter smile, but is it safe for your enamel? We separate fact from fiction.",
-    "featured": false
+    "featured": false,
+    "faq": [
+      {
+        "a": "Sometimes the logic 'harder is cleaner' backfires. Using a hard-bristled toothbrush or aggressive scrubbing can traumatize gum tissue. Switching to a soft-bristled brush and using gentle, circular motions can make a world of difference.",
+        "q": "Are You Brushing Too Hard?"
+      },
+      {
+        "a": "When done correctly, professional whitening does not 'strip' your enamel — it gently opens the pores to lift out deep-seated pigments. However, aggressive scrubbing with abrasive materials like charcoal can actually erode your enamel over time. Professional whitening uses safe, buffered gels that protect gums while effectively lifting stubborn stains.",
+        "q": "Is Professional Teeth Whitening Safe for Your Enamel?"
+      },
+      {
+        "a": "If your teen is asking for a brighter smile, it is best to talk to a dentist first. We generally recommend waiting until all adult teeth have fully matured before beginning any whitening treatments.",
+        "q": "When Should a Teen Consider Teeth Whitening?"
+      },
+      {
+        "a": "Always have a check-up before whitening. Ensuring there are no underlying cavities or issues first prevents any discomfort and gives you the best, most even results.",
+        "q": "What Should You Do Before Starting Teeth Whitening?"
+      }
+    ]
   },
   {
     "slug": "composite-vs-porcelain-veneers",
@@ -197,12 +489,34 @@
       "Cosmetic"
     ],
     "tags": [
-      "Veneers"
+      "Cosmetic Dentistry"
     ],
     "date": "2024-12-10",
     "img": "/images/service_enhance.png",
     "excerpt": "Veneers can transform a smile, but which material is right for you? We compare durability, look, and process.",
-    "featured": false
+    "featured": false,
+    "faq": [
+      {
+        "q": "What's the main difference between composite and porcelain veneers?",
+        "a": "Composite veneers are resin material applied directly to teeth in one visit, offering flexibility and easy repair. Porcelain veneers are custom-made in a lab, providing superior stain resistance, durability, and a more natural translucent appearance. Composite is more affordable and conservative, while porcelain offers longer-lasting, more aesthetic results."
+      },
+      {
+        "q": "How long do veneers typically last?",
+        "a": "Composite veneers usually last 5-7 years with proper care, while porcelain veneers can last 10-15 years or longer. Longevity depends on oral hygiene, habits (like teeth grinding), and regular dental check-ups. Both types require maintenance, but porcelain is more stain-resistant and durable."
+      },
+      {
+        "q": "Are veneers reversible or permanent?",
+        "a": "Composite veneers are more reversible as they require minimal tooth preparation. Porcelain veneers involve removing a small amount of enamel (0.3-0.5mm), making them irreversible. However, both options preserve most of your natural tooth structure compared to crowns, and the process is considered conservative cosmetic dentistry."
+      },
+      {
+        "q": "Can veneers fix crooked teeth or gaps?",
+        "a": "Yes, veneers can improve the appearance of mildly crooked teeth, gaps, chips, stains, and uneven shapes. However, they're primarily cosmetic and don't correct underlying bite issues or severe misalignment. For significant orthodontic problems, braces or clear aligners might be recommended before or instead of veneers."
+      },
+      {
+        "q": "How do I care for my veneers?",
+        "a": "Care for veneers like natural teeth: brush twice daily with non-abrasive toothpaste, floss regularly, avoid biting hard objects, and wear a night guard if you grind your teeth. Regular dental check-ups (every 6 months) are essential. Porcelain veneers resist stains better, but both types benefit from avoiding excessive coffee, tea, red wine, and tobacco."
+      }
+    ]
   },
   {
     "slug": "mouth-breathing-in-children",
@@ -211,13 +525,30 @@
       "Kids & Growth"
     ],
     "tags": [
-      "Myofunctional",
-      "Airway Health"
+      "Myofunctional Orthodontics"
     ],
     "date": "2024-12-05",
     "img": "/images/mouth_breathing_sleep.png",
     "excerpt": "Is your child sleeping with their mouth open? It might be more than just a habit—it could impact their facial development.",
-    "featured": false
+    "featured": false,
+    "faq": [
+      {
+        "a": "Natural nasal breathing encourages the tongue to rest on the roof of the mouth, which helps guide the upper jaw to grow wide and healthy. Mouth breathing causes the tongue to drop, which can lead to a narrower jaw, crowded teeth, and a different facial profile over time.",
+        "q": "How Does Mouth Breathing Affect My Child's Facial and Dental Development?"
+      },
+      {
+        "a": "Watch your child sleep. If you notice snoring, gasping, or an open mouth, it is worth discussing with your dentist and possibly an ENT specialist to ensure their airway health. Mouth breathing may also be associated with dry mouth upon waking, daytime fatigue, or trouble focusing at school despite getting enough sleep.",
+        "q": "What Signs Should Parents Look For?"
+      },
+      {
+        "a": "Saliva is nature's way of protecting teeth. Mouth breathing dries out the mouth, significantly increasing the risk of cavities and gum inflammation, even if your child has great brushing habits.",
+        "q": "How Does Mouth Breathing Affect Dental Health?"
+      },
+      {
+        "a": "Simple, comfortable appliances can often help expand the jaw and gently retrain healthy breathing habits, setting children up for a lifetime of health. Your dentist will assess the right timing for intervention.",
+        "q": "What Can Be Done About Mouth Breathing?"
+      }
+    ]
   },
   {
     "slug": "your-childs-first-dental-visit",
@@ -231,6 +562,24 @@
     "date": "2024-11-28",
     "img": "/images/dentist-child.png",
     "excerpt": "First impressions last a lifetime. Here is how to ensure your little one grows up loving the dentist.",
-    "featured": false
+    "featured": false,
+    "faq": [
+      {
+        "a": "We recommend a first visit around age 1 or within 6 months of the first tooth appearing. This early start emphasises prevention and helps children become comfortably acclimatised before they ever need treatment.",
+        "q": "When Is the Perfect Time for a Child's First Dental Visit?"
+      },
+      {
+        "a": "A 'happy visit' prioritises your child's comfort and trust. A ride in the 'magic' chair, counting their teeth, and choosing a special sticker might be all we do first. This builds the confidence and trust they need to feel safe and secure during future visits.",
+        "q": "What Is a 'Happy Visit' and What Happens During It?"
+      },
+      {
+        "a": "Try to avoid using words like 'pain,' 'needle,' or 'hurt,' as these can accidentally create anxiety. Instead, keep it light and exciting: 'We are going to have our teeth counted and made all shiny today!' Your calm, positive energy is the best reassurance they can have.",
+        "q": "How Can Parents Help Create a Positive Dental Experience?"
+      },
+      {
+        "a": "Building a 'dental home' early means you have a dedicated partner in your child's growth. We are here to guide you on nutrition, healthy habits, and everything you need to keep their smile bright as they grow.",
+        "q": "Why Is It Important to Establish a 'Dental Home' Early?"
+      }
+    ]
   }
 ]

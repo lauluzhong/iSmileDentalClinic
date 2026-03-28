@@ -14,10 +14,12 @@ faq:
     significantly. This helps prevent possible future orthodontic treatment or minimising
     one with early interceptive advice.
   q: When should a child have their first orthodontic assessment?
-featured: true
+featured: false
 img: /images/invisalign_hand.png
 title: 'Clear Aligners vs Braces: Which Fits a Busy Adult or Teen Lifestyle Better?'
-tags: ['Clear Aligners', 'Braces']
+tags:
+- "Clear Aligners"
+- "Traditional Braces"
 ---
 
 ### Choosing the Right Fit for Your Life

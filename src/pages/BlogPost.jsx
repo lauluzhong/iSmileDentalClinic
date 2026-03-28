@@ -156,17 +156,44 @@ const BlogPost = () => {
             }}>
                 <div className="container" style={{ textAlign: 'center' }}>
                     <Reveal>
-                        <span className="post-category" style={{
-                            color: 'var(--color-primary)',
+                        <div className="post-tags-container" style={{
                             marginBottom: '20px',
-                            display: 'inline-block',
-                            fontSize: '0.9rem',
-                            fontWeight: 700,
-                            letterSpacing: '2px',
-                            textTransform: 'uppercase'
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            gap: '6px',
+                            justifyContent: 'center'
                         }}>
-                            {(post.categories && post.categories[0]) || post.category}
-                        </span>
+                            {post.tags && post.tags.map((tag, idx) => (
+                                <Link 
+                                  key={`tag-${idx}`}
+                                  to={`/blog?category=${encodeURIComponent(tag)}`}
+                                  className="post-tag" 
+                                  style={{
+                                    color: 'var(--color-primary)',
+                                    fontSize: '0.54rem', /* Increased by 20% from 0.45rem */
+                                    fontWeight: 500,
+                                    textTransform: 'uppercase',
+                                    background: 'rgba(79, 163, 194, 0.1)',
+                                    border: '1px solid rgba(79, 163, 194, 0.2)',
+                                    borderRadius: '12px',
+                                    padding: '3px 10px', /* Slightly increased padding for better proportion */
+                                    textDecoration: 'none',
+                                    transition: 'all 0.2s',
+                                    whiteSpace: 'nowrap'
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    e.target.style.background = 'rgba(79, 163, 194, 0.2)';
+                                    e.target.style.borderColor = 'var(--color-primary)';
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    e.target.style.background = 'rgba(79, 163, 194, 0.1)';
+                                    e.target.style.borderColor = 'rgba(79, 163, 194, 0.2)';
+                                  }}
+                                >
+                                    {tag}
+                                </Link>
+                            ))}
+                        </div>
                     </Reveal>
                     <Reveal delay={0.1}>
                         <h1 className="post-title-gradient" style={{
@@ -284,7 +311,7 @@ const BlogPost = () => {
                                             <img src={rp.img} alt={rp.title} loading="lazy" />
                                         </div>
                                         <div className="related-post-content">
-                                            <span className="related-post-cat">{(rp.categories && rp.categories[0]) || rp.category}</span>
+                                            <span className="related-post-cat">{rp.tags && rp.tags.length > 0 ? rp.tags[0] : (rp.categories && rp.categories[0]) || rp.category}</span>
                                             <h4>{rp.title}</h4>
                                             <span className="related-post-date">{formatDate(rp.date)}</span>
                                         </div>

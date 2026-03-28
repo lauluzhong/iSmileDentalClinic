@@ -24,12 +24,13 @@ const Home = () => {
     const navigate = useNavigate();
 
     // Get the specific blog posts in the requested order
+    // Updated 2026-03-28: Feature newest posts covering priority topics
     const orderedBlogSlugs = [
-        'clear-aligners-vs-braces',
-        'root-canal-vs-extraction',
-        'your-childs-first-dental-visit',
-        'mouth-breathing-in-children',
-        'government-vs-private-braces'
+        'child-candidate-myofunctional-orthodontics',      // P2: Myofunctional Orthodontics
+        'mouth-breathing-thumb-sucking-crowded-teeth',     // P2: Myofunctional + Kids
+        'signs-child-early-orthodontic-assessment',        // P2: Orthodontics
+        'lm-activator-vs-invisalign',                      // P2: Myofunctional vs Clear Aligners
+        'dental-implants-malaysia-explained'               // P3: Implants
     ];
 
     const featuredBlogs = orderedBlogSlugs

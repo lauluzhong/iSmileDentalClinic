@@ -19,45 +19,17 @@ const Blog = () => {
     const activeCategory = searchParams.get('category') || 'All';
     const filterRef = useRef(null);
 
-    // MECE Tag List (12 tags)
-    const MECE_TAGS = [
-        'Pediatric Dentistry',
-        'Orthodontics',
-        'Myofunctional Orthodontics',
-        'Clear Aligners',
-        'Traditional Braces',
-        'Cosmetic Dentistry',
-        'Restorative Dentistry',
-        'Oral Surgery',
-        'Oral Health',
-        'Preventive Care',
-        'Emergency Dental',
-        'Dental Technology'
-    ];
-
-    // Extract unique categories with counts from tags
+    // Extract unique categories with counts
     const categories = useMemo(() => {
         const counts = {};
         blogIndex.forEach(p => {
-            // Use tags if available, otherwise fall back to categories
-            const tags = p.tags && p.tags.length > 0 ? p.tags : 
-                        (p.categories && p.categories.length > 0 ? p.categories : 
-                        (p.category ? [p.category] : []));
-            
-            tags.forEach(tag => {
-                // Only count tags that are in our MECE list
-                if (MECE_TAGS.includes(tag)) {
-                    counts[tag] = (counts[tag] || 0) + 1;
-                }
+            const cats = p.categories && p.categories.length > 0 ? p.categories : (p.category ? [p.category] : []);
+            cats.forEach(c => {
+                counts[c] = (counts[c] || 0) + 1;
             });
         });
-        
-        // Sort by count, then alphabetically
         return Object.entries(counts)
-            .sort((a, b) => {
-                if (b[1] !== a[1]) return b[1] - a[1]; // Sort by count first
-                return a[0].localeCompare(b[0]); // Then alphabetically
-            })
+            .sort((a, b) => b[1] - a[1])
             .map(([name, count]) => ({ name, count }));
     }, []);
 
@@ -72,11 +44,10 @@ const Blog = () => {
             return blogIndex.filter(p => p.slug !== featuredPost?.slug);
         }
         return blogIndex.filter(p => {
-            // Use tags for filtering (primary), fall back to categories
-            const tags = p.tags && p.tags.length > 0 ? p.tags : 
-                        (p.categories && p.categories.length > 0 ? p.categories : 
-                        (p.category ? [p.category] : []));
-            return tags.includes(activeCategory);
+            const cats = p.categories && p.categories.length > 0 ? p.categories : (p.category ? [p.category] : []);
+            const inCategory = cats.includes(activeCategory);
+            const inTags = p.tags && p.tags.includes(activeCategory);
+            return inCategory || inTags;
         });
     }, [activeCategory, featuredPost]);
 
@@ -199,21 +170,7 @@ const Blog = () => {
                                         <img src={post.img} alt={post.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                     </div>
                                     <div className="post-content">
-                                        <div className="post-tags">
-                                            {post.tags && post.tags.map((tag, idx) => (
-                                                <button 
-                                                    key={`tag-${idx}`}
-                                                    className="post-tag"
-                                                    onClick={(e) => {
-                                                        e.preventDefault();
-                                                        e.stopPropagation();
-                                                        setCategory(tag);
-                                                    }}
-                                                >
-                                                    {tag}
-                                                </button>
-                                            ))}
-                                        </div>
+                                        <span className="post-cat">{(post.categories && post.categories[0]) || post.category}</span>
                                         <h3>{post.title}</h3>
                                         <div className="post-meta">{formatDate(post.date)}</div>
                                     </div>
@@ -374,30 +331,11 @@ const Blog = () => {
               padding: 24px;
           }
 
-          .post-tags {
-              display: flex;
-              flex-wrap: wrap;
-              gap: 6px;
-              margin-bottom: 8px;
-          }
-
-          .post-tag {
-              font-size: 0.54rem; /* Increased by 20% from 0.45rem */
+          .post-cat {
+              font-size: 0.8rem;
               color: var(--color-primary);
-              font-weight: 500;
+              font-weight: 600;
               text-transform: uppercase;
-              background: rgba(79, 163, 194, 0.1);
-              border: 1px solid rgba(79, 163, 194, 0.2);
-              border-radius: 12px;
-              padding: 3px 10px; /* Slightly increased padding for better proportion */
-              cursor: pointer;
-              transition: all 0.2s;
-              white-space: nowrap;
-          }
-
-          .post-tag:hover {
-              background: rgba(79, 163, 194, 0.2);
-              border-color: var(--color-primary);
           }
 
           .post-content h3 {
