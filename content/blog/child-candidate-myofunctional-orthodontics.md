@@ -1,10 +1,22 @@
 ---
 title: "Is Your Child a Good Candidate for Myofunctional Orthodontics?"
-category: "Kids & Growth"
+categories: ["Kids & Growth", "Orthodontics"]
 date: "2026-03-28"
 author: "iSmile Dental Clinic"
 excerpt: "Wondering if your child might benefit from myofunctional orthodontics? Learn about the signs that indicate they could be a good candidate and what the assessment process involves."
 keywords: "myofunctional orthodontics Malaysia, child orthodontic assessment, myobrace candidate, early orthodontic treatment, airway-focused orthodontics"
+tags: ["Myofunctional Orthodontics", "Children's Dentistry", "Early Intervention", "Airway Health"]
+faq:
+- q: "What causes children to need myofunctional orthodontics?"
+  a: "Several factors can contribute: genetics play a role, but so do environmental factors like allergies that lead to mouth breathing, prolonged thumb sucking or pacifier use, certain swallowing patterns, and even diet (soft foods don't give jaws the workout they need to develop fully). Often it's a combination of factors rather than one single cause."
+- q: "How does iSmile approach myofunctional orthodontic treatment?"
+  a: "We start with a thorough assessment to understand your child's unique situation. If treatment is recommended, it typically involves a removable appliance worn during sleep and specific exercises to retrain oral muscles. We focus on creating better conditions for natural jaw development rather than forcing changes. Regular check-ins help us monitor progress and make adjustments as needed."
+- q: "When should I consider myofunctional orthodontics for my child?"
+  a: "Consider an assessment if you notice persistent mouth breathing, thumb sucking beyond age 4-5, snoring or restless sleep, crowded teeth, or speech concerns. Early evaluation (around age 6-8) can help identify issues before they become more complex, but it's never too late to address functional habits that might be affecting dental health."
+- q: "How long does myofunctional orthodontic treatment typically take?"
+  a: "Treatment duration varies based on your child's age, the specific issues being addressed, and how consistently recommendations are followed. Some children show improvement within months, while others may benefit from longer-term guidance through their growth years. Your dentist can provide a more personalized timeline after assessment."
+- q: "Can myofunctional orthodontics replace traditional braces?"
+  a: "Sometimes, but not always. For some children, myofunctional treatment alone can guide teeth into better positions. For others, it might be a first phase that makes any future orthodontic treatment simpler and shorter. The approach depends on your child's specific needs and growth pattern."
 ---
 
 # Is Your Child a Good Candidate for Myofunctional Orthodontics?
@@ -93,36 +105,9 @@ In those cases, we might recommend:
 
 The goal is always what's best for your child in the long term, not rushing into treatment because it's available.
 
-## Frequently Asked Questions
-
-### What causes children to need myofunctional orthodontics?
-
-Several factors can contribute: genetics play a role, but so do environmental factors like allergies that lead to mouth breathing, prolonged thumb sucking or pacifier use, certain swallowing patterns, and even diet (soft foods don't give jaws the workout they need to develop fully). Often it's a combination of factors rather than one single cause.
-
-### How does iSmile approach myofunctional orthodontic treatment?
-
-We start with a thorough assessment to understand your child's unique situation. If treatment is recommended, it typically involves a removable appliance worn during sleep and specific exercises to retrain oral muscles. We focus on creating better conditions for natural jaw development rather than forcing changes. Regular check-ins help us monitor progress and make adjustments as needed.
-
-[Learn more about our myofunctional orthodontics approach](https://ismile.com.my/services/children/myobrace).
-
-### When should I consider myofunctional orthodontics for my child?
-
-Consider an assessment if you notice persistent mouth breathing, thumb sucking beyond age 4-5, snoring or restless sleep, crowded teeth, or speech concerns. Early evaluation (around age 6-8) can help identify issues before they become more complex, but it's never too late to address functional habits that might be affecting dental health.
-
-### How long does myofunctional orthodontic treatment typically take?
-
-Treatment duration varies based on your child's age, the specific issues being addressed, and how consistently recommendations are followed. Some children show improvement within months, while others may benefit from longer-term guidance through their growth years. Your dentist can provide a more personalized timeline after assessment.
-
-### Can myofunctional orthodontics replace traditional braces?
-
-Sometimes, but not always. For some children, myofunctional treatment alone can guide teeth into better positions. For others, it might be a first phase that makes any future orthodontic treatment simpler and shorter. The approach depends on your child's specific needs and growth pattern.
-
 ## Taking the Next Step
 
 If you're wondering whether myofunctional orthodontics might help your child, the best place to start is with a conversation. Bring your observations, your questions, and your child—we'll take the time to understand what's happening and whether this approach aligns with your child's needs.
 
 Sometimes just having a professional look at the situation can provide clarity, whether that leads to treatment now, monitoring for the future, or exploring other options. What matters most is finding the right path for your child's unique journey.
 
----
-
-*This article is for informational purposes only and does not constitute medical advice. Please consult with a qualified dental professional for diagnosis and treatment options suitable for your child's individual needs.*

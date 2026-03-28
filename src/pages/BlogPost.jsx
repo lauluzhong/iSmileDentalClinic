@@ -156,17 +156,25 @@ const BlogPost = () => {
             }}>
                 <div className="container" style={{ textAlign: 'center' }}>
                     <Reveal>
-                        <span className="post-category" style={{
+                        <Link 
+                          to={`/blog?category=${encodeURIComponent((post.categories && post.categories[0]) || post.category)}`}
+                          className="post-category" 
+                          style={{
                             color: 'var(--color-primary)',
                             marginBottom: '20px',
                             display: 'inline-block',
                             fontSize: '0.9rem',
                             fontWeight: 700,
                             letterSpacing: '2px',
-                            textTransform: 'uppercase'
-                        }}>
+                            textTransform: 'uppercase',
+                            textDecoration: 'none',
+                            transition: 'color 0.3s'
+                          }}
+                          onMouseEnter={(e) => e.target.style.color = 'var(--color-primary-dark)'}
+                          onMouseLeave={(e) => e.target.style.color = 'var(--color-primary)'}
+                        >
                             {(post.categories && post.categories[0]) || post.category}
-                        </span>
+                        </Link>
                     </Reveal>
                     <Reveal delay={0.1}>
                         <h1 className="post-title-gradient" style={{
