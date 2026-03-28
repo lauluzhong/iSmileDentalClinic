@@ -7,7 +7,7 @@ tags: ["Kids & Growth", "Myofunctional", "Airway Health"]
 date: "2026-03-26"
 img: "/images/blog/mouth-breathing-thumb-sucking-crowded-teeth.png"
 excerpt: "Wondering why your child's teeth are getting crooked even though you brush and floss faithfully? The answer might have nothing to do with brushing at all. Learn how mouth breathing and thumb sucking affect jaw development."
-featured: false
+featured: true
 priority: "P2"
 tier: "T2"
 parent_page: "https://ismile.com.my/services/children"
