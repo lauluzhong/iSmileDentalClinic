@@ -51,4 +51,4 @@ It's often a balance between investment and convenience. For many working parent
 
 It is generally recommended to have an initial assessment after birth or as soon as your baby develops his/her first tooth, as 60-70% of the jaw has grown by age 6. Fix by Six for healthier growth! This helps us prevent possible future orthodontic treatment or minimising one with early interceptive advice on diet, habits and nutrition.
 
-**Considering braces for your child?** Schedule a relaxed consultation with us to explore your private orthodontic options and create a plan that fits your life. Visit our [Damansara Jaya clinic](/services/locations/damansara-jaya) to discuss your child's orthodontic needs. Our [Damansara Jaya clinic](/services/locations/damansara-jaya) offers comprehensive orthodontic assessments for children and teens.
+**Considering braces for your child?** Schedule a relaxed consultation with us to explore your private orthodontic options and create a plan that fits your life. Our [Damansara Jaya clinic](/services/locations/damansara-jaya) offers comprehensive orthodontic assessments for children and teens.

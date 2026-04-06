@@ -73,4 +73,4 @@ The trade-offs are cost (generally more expensive than traditional braces) and t
 
 For many adults in Malaysia, the ability to improve their smile without it being obvious makes Invisalign worth the investment. The results can be genuinely transformative, both for appearance and confidence.
 
-**Ready to see what Invisalign could do for your smile?** Book a consultation with iSmile Dental Clinic today and get a personalized assessment for your teeth.
+**Ready to see what Invisalign could do for your smile?** Book a consultation with iSmile Dental Clinic today and get a personalized assessment for your teeth. Visit our [Damansara Jaya location](/services/locations/damansara-jaya) to learn more about Invisalign and other clear aligner options.

@@ -73,4 +73,4 @@ Once healed, an implant needs the same care as your natural teeth. Brush twice d
 
 One thing to note: while the implant itself can't get cavities, the gum around it can develop inflammation or infection if you neglect oral hygiene. Peri-implantitis is the technical term, and it's preventable with proper cleaning. Basically, keep doing what you'd normally do for your teeth.
 
-**If you've been putting off replacing a missing tooth, here's your sign.** Book a consultation with iSmile Dental Clinic today and find out whether dental implants are the right solution for your situation.
+**If you've been putting off replacing a missing tooth, here's your sign.** Book a consultation with iSmile Dental Clinic today and find out whether dental implants are the right solution for your situation. Our [Damansara Jaya location](/services/locations/damansara-jaya) offers comprehensive dental implant services with modern technology and experienced practitioners.

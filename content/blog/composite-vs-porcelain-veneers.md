@@ -47,4 +47,4 @@ For younger patients or minor corrections, composite is often the ideal conserva
 
 If you feel less than confident due to gaps, chips, or stubborn discoloration, a cosmetic consultation can open the door to a smile you truly love to share.
 
-**Ready to fall in love with your smile?** Book a consultation with us today to discuss which veneer option is the best fit for your goals.
+**Ready to fall in love with your smile?** Book a consultation with us today to discuss which veneer option is the best fit for your goals. Our [Damansara Jaya location](/services/locations/damansara-jaya) offers cosmetic dentistry consultations to help you achieve your ideal smile.

@@ -95,4 +95,4 @@ Here's what to think through when making your decision: How old is your child? W
 
 If you're genuinely unsure, that's exactly what a consultation is for. We can assess your child's situation, explain the options in plain language, and help you make a decision that you'll feel confident about.
 
-**Ready to explore the right option for your child?** WhatsApp us at iSmile for a consultation.
+**Ready to explore the right option for your child?** WhatsApp us at iSmile for a consultation. Our [Damansara Jaya clinic](/services/locations/damansara-jaya) specializes in pediatric orthodontics and myofunctional therapy.

@@ -64,6 +64,6 @@ Getting a dental crown normally takes at least two visits, though the exact numb
 
 ## Is a Crown Right for You?
 
-If you have a damaged or weakened tooth, a dental crown may be the key solution to restore your smile and protect your oral health. Speak with your dentist to discuss your options and find the right treatment plan for your needs.
+If you have a damaged or weakened tooth, a dental crown may be the key solution to restore your smile and protect your oral health. Speak with your dentist to discuss your options and find the right treatment plan for your needs. Our [Damansara Jaya clinic](/services/locations/damansara-jaya) offers comprehensive dental crown services with modern technology.
 
 *Ready to discuss dental crowns? Contact iSmile Dental Clinic to book a consultation.*
