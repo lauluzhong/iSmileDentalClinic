@@ -1,4 +1,10 @@
 {
+  "routes": [
+    {
+      "src": "/services/locations/damansara-jaya",
+      "dest": "/services/locations/damansara-jaya/index.html"
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

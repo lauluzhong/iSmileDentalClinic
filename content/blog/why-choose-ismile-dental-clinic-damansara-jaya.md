@@ -44,10 +44,12 @@ From treatment planning to cost estimates, we believe in clear, honest communica
 
 ## Conveniently Located in Damansara Jaya
 
-Our Damansara Jaya location makes dental care accessible for residents throughout Petaling Jaya and surrounding areas. We offer flexible scheduling options to accommodate busy families and working professionals.
+Our Damansara Jaya location makes dental care accessible for residents throughout Petaling Jaya and surrounding areas. We offer flexible scheduling options to accommodate busy families and working professionals. Our clinic is conveniently located in Damansara Jaya.
 
 ## Getting Started with iSmile Damansara Jaya
 
 If you're looking for a dental clinic in Damansara Jaya that combines professional expertise with genuine care for patients, we invite you to visit our [Damansara Jaya location](/services/locations/damansara-jaya). Schedule a consultation to meet our team, tour our facility, and discuss your dental health goals.
 
 Your dentist will assess your individual needs and recommend the right approach for your situation. Whether you need routine care, have specific concerns, or are considering cosmetic improvements, we're here to help you achieve and maintain optimal oral health.
+
+*[About our Damansara Jaya clinic](/services/locations/damansara-jaya)*
