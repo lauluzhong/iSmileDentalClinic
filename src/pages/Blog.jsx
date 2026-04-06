@@ -4,6 +4,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import Button from '../components/Button';
 import { Reveal, FadeIn } from '../components/Reveal';
 import blogIndex from '../data/blog-index.json';
+const educationalPosts = blogIndex.filter(post => post.content_type === 'educational');
 
 const POSTS_PER_PAGE = 12;
 
@@ -38,7 +39,7 @@ const Blog = () => {
     // Extract unique categories with counts from tags
     const categories = useMemo(() => {
         const counts = {};
-        blogIndex.forEach(p => {
+        educationalPosts.forEach(p => {
             // Use tags if available, otherwise fall back to categories
             const tags = p.tags && p.tags.length > 0 ? p.tags : 
                         (p.categories && p.categories.length > 0 ? p.categories : 
@@ -62,16 +63,16 @@ const Blog = () => {
     }, []);
 
     // Featured post: first post with featured: true, fallback to first post
-    const featuredPost = blogIndex.find(p => p.featured) || blogIndex[0];
+    const featuredPost = educationalPosts.find(p => p.featured) || educationalPosts[0];
 
     // Grid posts: everything except the featured post, filtered by category
     // When "All": exclude featured post from grid (it's shown separately)
     // When filtering: include ALL posts (featured post not shown separately)
     const otherPosts = useMemo(() => {
         if (activeCategory === 'All') {
-            return blogIndex.filter(p => p.slug !== featuredPost?.slug);
+            return educationalPosts.filter(p => p.slug !== featuredPost?.slug);
         }
-        return blogIndex.filter(p => {
+        return educationalPosts.filter(p => {
             // Use tags for filtering (primary), fall back to categories
             const tags = p.tags && p.tags.length > 0 ? p.tags : 
                         (p.categories && p.categories.length > 0 ? p.categories : 
@@ -157,7 +158,7 @@ const Blog = () => {
                         data-cat="All"
                     >
                         All
-                        <span className="pill-count">{blogIndex.length}</span>
+                        <span className="pill-count">{educationalPosts.length}</span>
                     </button>
                     {categories.map(({ name, count }) => (
                         <button

@@ -1,33 +1,23 @@
 ---
 categories:
-- Kids & Growth
+  - Kids & Growth
 date: '2024-12-05'
-excerpt: Is your child sleeping with their mouth open? It might be more than just
-  a habit—it could impact their facial development.
+excerpt: Is your child sleeping with their mouth open? It might be more than just a habit—it could impact their facial development.
 faq:
-- a: Natural nasal breathing encourages the tongue to rest on the roof of the mouth,
-    which helps guide the upper jaw to grow wide and healthy. Mouth breathing causes
-    the tongue to drop, which can lead to a narrower jaw, crowded teeth, and a different
-    facial profile over time.
-  q: How Does Mouth Breathing Affect My Child's Facial and Dental Development?
-- a: Watch your child sleep. If you notice snoring, gasping, or an open mouth, it
-    is worth discussing with your dentist and possibly an ENT specialist to ensure
-    their airway health. Mouth breathing may also be associated with dry mouth upon
-    waking, daytime fatigue, or trouble focusing at school despite getting enough
-    sleep.
-  q: What Signs Should Parents Look For?
-- a: Saliva is nature's way of protecting teeth. Mouth breathing dries out the mouth,
-    significantly increasing the risk of cavities and gum inflammation, even if your
-    child has great brushing habits.
-  q: How Does Mouth Breathing Affect Dental Health?
-- a: Simple, comfortable appliances can often help expand the jaw and gently retrain
-    healthy breathing habits, setting children up for a lifetime of health. Your dentist
-    will assess the right timing for intervention.
-  q: What Can Be Done About Mouth Breathing?
+  - a: 'Natural nasal breathing encourages the tongue to rest on the roof of the mouth, which helps guide the upper jaw to grow wide and healthy. Mouth breathing causes the tongue to drop, which can lead to a narrower jaw, crowded teeth, and a different facial profile over time.'
+    q: How Does Mouth Breathing Affect My Child's Facial and Dental Development?
+  - a: 'Watch your child sleep. If you notice snoring, gasping, or an open mouth, it is worth discussing with your dentist and possibly an ENT specialist to ensure their airway health. Mouth breathing may also be associated with dry mouth upon waking, daytime fatigue, or trouble focusing at school despite getting enough sleep.'
+    q: What Signs Should Parents Look For?
+  - a: 'Saliva is nature''s way of protecting teeth. Mouth breathing dries out the mouth, significantly increasing the risk of cavities and gum inflammation, even if your child has great brushing habits.'
+    q: How Does Mouth Breathing Affect Dental Health?
+  - a: 'Simple, comfortable appliances can often help expand the jaw and gently retrain healthy breathing habits, setting children up for a lifetime of health. Your dentist will assess the right timing for intervention.'
+    q: What Can Be Done About Mouth Breathing?
 featured: false
 img: /images/mouth_breathing_sleep.png
 title: 'Mouth Breathing in Children: When Is It a Dental Concern?'
-tags: ['Myofunctional Orthodontics']
+tags:
+  - Myofunctional Orthodontics
+content_type: educational
 ---
 
 ### More Than Just a Habit: Understanding How Your Child Breathes

@@ -1,38 +1,19 @@
 ---
 categories:
-- Kids & Growth
+  - Kids & Growth
 cluster: Myofunctional Orthodontics
 created_at: '2026-03-25'
 date: '2026-03-25'
-excerpt: Worried your child might need orthodontic treatment? Here are the clear signs
-  that your child may need an early orthodontic assessment in Malaysia, and why timing
-  matters so much.
+excerpt: 'Worried your child might need orthodontic treatment? Here are the clear signs that your child may need an early orthodontic assessment in Malaysia, and why timing matters so much.'
 faq:
-- a: Some problems are easier to fix while the jaw is still growing. Waiting until
-    all the adult teeth come in can mean longer treatment, more invasive procedures,
-    or problems that become harder to address altogether. Getting a first look approximately
-    7-8 years old, when a child has a mix of baby teeth and adult teeth, gives you
-    more options.
-  q: Why Are Early Orthodontic Assessments Important?
-- a: 'Watch for: noticeably crowded or crooked adult teeth, baby teeth falling out
-    too early or staying too long, mouth breathing especially during sleep, difficulty
-    biting or chewing foods other kids handle fine, jaw clicking or asymmetry when
-    yawning or chewing, and thumb sucking or other habits continuing past age 4 or
-    5.'
-  q: What Are the Signs That My Child May Need Early Orthodontic Assessment?
-- a: The assessment is typically straightforward and non-invasive. The orthodontist
-    will look at how the teeth are coming in, how the jaws relate to each other, and
-    whether there are any obvious developmental concerns. They may take photographs
-    or digital scans of the teeth. X-rays are sometimes used to see the position of
-    unerupted adult teeth. Based on this, they will either confirm normal development
-    and recommend a review, or identify an issue that warrants early intervention.
-  q: What Happens at an Early Orthodontic Assessment?
-- a: Early treatment does not always mean braces right away. Depending on the issue,
-    options may include a removable or fixed expander to widen a narrow upper jaw,
-    a Myobrace-style functional appliance to address habits and jaw development, monitoring
-    with periodic reviews, or in some cases, a short phase of aligner therapy or limited
-    braces.
-  q: What Early Intervention Options Are Available?
+  - a: 'Some problems are easier to fix while the jaw is still growing. Waiting until all the adult teeth come in can mean longer treatment, more invasive procedures, or problems that become harder to address altogether. Getting a first look approximately 7-8 years old, when a child has a mix of baby teeth and adult teeth, gives you more options.'
+    q: Why Are Early Orthodontic Assessments Important?
+  - a: 'Watch for: noticeably crowded or crooked adult teeth, baby teeth falling out too early or staying too long, mouth breathing especially during sleep, difficulty biting or chewing foods other kids handle fine, jaw clicking or asymmetry when yawning or chewing, and thumb sucking or other habits continuing past age 4 or 5.'
+    q: What Are the Signs That My Child May Need Early Orthodontic Assessment?
+  - a: 'The assessment is typically straightforward and non-invasive. The orthodontist will look at how the teeth are coming in, how the jaws relate to each other, and whether there are any obvious developmental concerns. They may take photographs or digital scans of the teeth. X-rays are sometimes used to see the position of unerupted adult teeth. Based on this, they will either confirm normal development and recommend a review, or identify an issue that warrants early intervention.'
+    q: What Happens at an Early Orthodontic Assessment?
+  - a: 'Early treatment does not always mean braces right away. Depending on the issue, options may include a removable or fixed expander to widen a narrow upper jaw, a Myobrace-style functional appliance to address habits and jaw development, monitoring with periodic reviews, or in some cases, a short phase of aligner therapy or limited braces.'
+    q: What Early Intervention Options Are Available?
 featured: false
 img: /images/blog/signs-child-early-orthodontic-assessment.png
 keyword: signs child needs orthodontic assessment malaysia
@@ -41,8 +22,9 @@ priority: P2
 tier: T3
 title: Signs Your Child May Need Early Orthodontic Assessment
 tags:
-- "Myofunctional Orthodontics"
-- "Orthodontics"
+  - Myofunctional Orthodontics
+  - Orthodontics
+content_type: educational
 ---
 
 ## Why Early Assessments Matter More Than You Think

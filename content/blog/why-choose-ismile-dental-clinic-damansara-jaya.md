@@ -1,6 +1,7 @@
 ---
 title: Why Choose iSmile Dental Clinic in Damansara Jaya
 date: 2026-04-06
+content_type: locality
 priority: P1
 tier: T2
 parent_page: /services/locations/damansara-jaya

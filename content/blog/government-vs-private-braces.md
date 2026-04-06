@@ -1,26 +1,20 @@
 ---
 categories:
-- Orthodontics
+  - Orthodontics
 date: '2025-01-05'
-excerpt: Deciding where to get braces for your child involves balancing time, convenience,
-  and treatment options.
+excerpt: 'Deciding where to get braces for your child involves balancing time, convenience, and treatment options.'
 faq:
-- a: Government clinics provide excellent care but often have long waiting lists due
-    to high demand. Private clinics can usually begin treatment almost immediately,
-    which is crucial if you want to utilize the prime teenage growth spurt for optimal
-    results.
-  q: How do government and private orthodontic clinics compare for waiting periods?
-- a: Private practice offers Saturday or evening appointments, meaning your child
-    does not have to miss school and you do not have to take leave for every adjustment
-    visit. This convenience, combined with access to advanced options like clear ceramic
-    braces and self-ligating systems, makes the process much smoother for active families.
-  q: Why might private orthodontic care be worth the investment for families?
+  - a: 'Government clinics provide excellent care but often have long waiting lists due to high demand. Private clinics can usually begin treatment almost immediately, which is crucial if you want to utilize the prime teenage growth spurt for optimal results.'
+    q: How do government and private orthodontic clinics compare for waiting periods?
+  - a: 'Private practice offers Saturday or evening appointments, meaning your child does not have to miss school and you do not have to take leave for every adjustment visit. This convenience, combined with access to advanced options like clear ceramic braces and self-ligating systems, makes the process much smoother for active families.'
+    q: Why might private orthodontic care be worth the investment for families?
 featured: false
 img: /images/service_straighten.png
 title: 'Government vs Private Braces in Malaysia: What Parents Should Know'
 tags:
-- "Pediatric Dentistry"
-- "Traditional Braces"
+  - Pediatric Dentistry
+  - Traditional Braces
+content_type: educational
 ---
 
 ### Navigating Orthodontic Care in Malaysia

@@ -35,6 +35,7 @@ const blogIndex = files.map(filename => {
   const slug = filename.replace('.md', '');
   const raw = fs.readFileSync(path.join(CONTENT_DIR, filename), 'utf-8');
   const { data: frontmatter, content: markdownBody } = matter(raw);
+  const content_type = frontmatter.content_type || 'educational';
 
   const htmlContent = marked(markdownBody);
 
@@ -51,6 +52,7 @@ const blogIndex = files.map(filename => {
       excerpt: frontmatter.excerpt,
       featured: frontmatter.featured || false,
       faq: frontmatter.faq || [],
+      content_type,
       content: htmlContent
     })
   );
@@ -65,7 +67,8 @@ const blogIndex = files.map(filename => {
     img: frontmatter.img,
     excerpt: frontmatter.excerpt,
     featured: frontmatter.featured || false,
-    faq: frontmatter.faq || []
+    faq: frontmatter.faq || [],
+    content_type
   };
 });
 

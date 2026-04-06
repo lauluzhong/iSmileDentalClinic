@@ -260,6 +260,24 @@ const BlogPost = () => {
 
                     <div className="blog-content" dangerouslySetInnerHTML={{ __html: post.content }} />
 
+                    <div style={{ marginTop: '60px', textAlign: 'center' }}>
+                        <Button
+                            variant="primary"
+                            onClick={() => {
+                                const cleanTopic = post.title.replace(/\?$/, '');
+                                let topic = cleanTopic;
+
+                                if (post.slug === 'clear-aligner-treatment-complexity') {
+                                    topic = 'clear aligner treatment';
+                                }
+
+                                openBooking(`Interested in ${topic}`, `blog-post-${post.slug}`);
+                            }}
+                        >
+                            Book a Consultation
+                        </Button>
+                    </div>
+
                     {post.faq && post.faq.length > 0 && (
                       <div className="post-faq-section" style={{ marginTop: '60px', paddingTop: '40px', borderTop: '1px solid #eee' }}>
                         <h3 style={{ marginBottom: '30px', textAlign: 'center', fontSize: '2rem' }}>Frequently Asked Questions</h3>
