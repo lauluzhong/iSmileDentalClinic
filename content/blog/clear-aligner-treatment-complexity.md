@@ -47,4 +47,4 @@ Be realistic about the timeline. A complex case might take 18-24 months, while a
 
 The best way to know what to expect is to come in for a digital scan. Our 3D technology allows us to visualize the complexity and the potential outcome before you even begin your journey.
 
-**Want to know how clear aligners can transform your smile?** Let's move towards your goal with a comprehensive assessment and personalized plan.
+**Want to know how clear aligners can transform your smile?** Let's move towards your goal with a comprehensive assessment and personalized plan. Schedule a consultation at our [Damansara Jaya location](/services/locations/damansara-jaya) to discuss your clear aligner treatment.
