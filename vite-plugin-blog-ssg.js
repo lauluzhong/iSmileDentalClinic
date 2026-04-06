@@ -16,6 +16,37 @@ export default function blogSSG() {
       const root = process.cwd();
       const distDir = path.resolve(root, 'dist');
 
+      // Location pages to generate
+      const locationPages = [
+        {
+          slug: 'damansara-jaya',
+          path: 'services/locations/damansara-jaya',
+          title: 'Dentist in Damansara Jaya | iSmile Dental Clinic',
+          description: 'Your trusted family dentist in Damansara Jaya. Comprehensive dental care with a gentle touch.',
+          address: {
+            streetAddress: '75 & 75A, Jalan SS 22/23',
+            addressLocality: 'Damansara Jaya, Petaling Jaya',
+            addressRegion: 'Selangor',
+            postalCode: '47400',
+            addressCountry: 'MY'
+          },
+          geo: {
+            latitude: '3.12583430',
+            longitude: '101.61623380'
+          },
+          openingHours: [
+            'Mo-Fr 09:30-17:30',
+            'Sa 09:30-15:30',
+            'Su off'
+          ],
+          telephone: '+6016-322-2135',
+          rating: {
+            ratingValue: '4.8',
+            reviewCount: '84'
+          }
+        }
+      ];
+
       const indexPath = path.resolve(root, 'src/data/blog-index.json');
       if (!fs.existsSync(indexPath)) {
         console.warn('[blog-ssg] src/data/blog-index.json not found — skipping.');
@@ -177,6 +208,151 @@ export default function blogSSG() {
       }
 
       console.log('[blog-ssg] ✓ Generated ' + generated + ' blog pages' + (skipped ? ', skipped ' + skipped : '') + '.');
+
+      // Generate location pages
+      let locationGenerated = 0;
+      for (const location of locationPages) {
+        const canonicalUrl = SITE_URL + '/' + location.path;
+        const safeTitle = escapeHtml(location.title);
+        const safeDescription = escapeHtml(location.description);
+        const safeAddress = escapeHtml(location.address.streetAddress + ', ' + location.address.addressLocality + ', ' + location.address.addressRegion + ' ' + location.address.postalCode + ', ' + location.address.addressCountry);
+        const safeTelephone = escapeHtml(location.telephone);
+
+        // LocalBusiness JSON-LD
+        const jsonLd = JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "iSmile Dental Clinic - " + location.title,
+          "description": location.description,
+          "image": SITE_URL + "/logo.png",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": location.address.streetAddress,
+            "addressLocality": location.address.addressLocality,
+            "addressRegion": location.address.addressRegion,
+            "postalCode": location.address.postalCode,
+            "addressCountry": location.address.addressCountry
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": location.geo.latitude,
+            "longitude": location.geo.longitude
+          },
+          "openingHours": location.openingHours,
+          "telephone": location.telephone,
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": location.rating.ratingValue,
+            "reviewCount": location.rating.reviewCount,
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "priceRange": "$$",
+          "url": canonicalUrl,
+          "sameAs": [
+            "https://www.facebook.com/ismiledentalclinic",
+            "https://www.instagram.com/ismiledentalclinic"
+          ]
+        });
+
+        const cssLink = entryCss ? '  <link rel="stylesheet" href="' + entryCss + '" />' : '';
+        const scriptTag = entryScript ? '  <script type="module" src="' + entryScript + '"><\/script>' : '';
+
+        const html = [
+          '<!doctype html>',
+          '<html lang="en">',
+          '<head>',
+          '  <meta charset="UTF-8" />',
+          '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />',
+          '  <meta name="facebook-domain-verification" content="76cn9giu5poxaecud7uc1atvnejnjc" />',
+          '',
+          '  <title>' + safeTitle + '</title>',
+          '  <meta name="description" content="' + safeDescription + '" />',
+          '  <link rel="canonical" href="' + canonicalUrl + '" />',
+          '',
+          '  <!-- Open Graph / Facebook -->',
+          '  <meta property="og:type" content="website" />',
+          '  <meta property="og:url" content="' + canonicalUrl + '" />',
+          '  <meta property="og:title" content="' + safeTitle + '" />',
+          '  <meta property="og:description" content="' + safeDescription + '" />',
+          '  <meta property="og:image" content="' + SITE_URL + '/logo.png" />',
+          '  <meta property="og:site_name" content="iSmile Dental Clinic" />',
+          '',
+          '  <!-- Twitter Card -->',
+          '  <meta name="twitter:card" content="summary_large_image" />',
+          '  <meta name="twitter:title" content="' + safeTitle + '" />',
+          '  <meta name="twitter:description" content="' + safeDescription + '" />',
+          '  <meta name="twitter:image" content="' + SITE_URL + '/logo.png" />',
+          '',
+          '  <!-- Fonts -->',
+          '  <link rel="preconnect" href="https://fonts.googleapis.com">',
+          '  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
+          '  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">',
+          '',
+          '  <link rel="icon" type="image/png" href="/favicon.png" />',
+          '  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />',
+          '  <link rel="manifest" href="/manifest.json" />',
+          cssLink,
+          '',
+          '  <!-- LocalBusiness JSON-LD -->',
+          '  <script type="application/ld+json">' + jsonLd + '<\/script>',
+          '',
+          '  <!-- Google Tag Manager -->',
+          '  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({\'gtm.start\':',
+          '  new Date().getTime(),event:\'gtm.js\'});var f=d.getElementsByTagName(s)[0],',
+          '  j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=',
+          '  \'https://www.googletagmanager.com/gtm.js?id=\'+i+dl;f.parentNode.insertBefore(j,f);',
+          '  })(window,document,\'script\',\'dataLayer\',\'GTM-NR9PQ2H7\');<\/script>',
+          '  <!-- End Google Tag Manager -->',
+          '</head>',
+          '<body>',
+          '  <!-- Google Tag Manager (noscript) -->',
+          '  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NR9PQ2H7"',
+          '  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>',
+          '  <!-- End Google Tag Manager (noscript) -->',
+          '',
+          '  <!-- Pre-rendered location content for SEO — removed once React mounts -->',
+          '  <article id="ssg-content" style="max-width:800px;margin:80px auto;padding:0 20px;font-family:Inter,system-ui,sans-serif">',
+          '    <h1>' + safeTitle + '</h1>',
+          '    <p>' + safeDescription + '</p>',
+          '    <address>' + safeAddress + '</address>',
+          '    <p>Phone: ' + safeTelephone + '</p>',
+          '    <p>Hours: ' + location.openingHours.join(', ') + '</p>',
+          '  </article>',
+          '',
+          '  <!-- React SPA mount point -->',
+          '  <div id="root"></div>',
+          scriptTag,
+          '',
+          '  <!-- Remove static content once React renders into #root -->',
+          '  <script>',
+          '    (function(){',
+          '      var o=new MutationObserver(function(){',
+          '        var r=document.getElementById(\'root\');',
+          '        if(r&&r.children.length>0){',
+          '          var s=document.getElementById(\'ssg-content\');',
+          '          if(s)s.remove();',
+          '          o.disconnect();',
+          '        }',
+          '      });',
+          '      var r=document.getElementById(\'root\');',
+          '      if(r)o.observe(r,{childList:true});',
+          '    })();',
+          '  <\/script>',
+          '</body>',
+          '</html>'
+        ].join('\n');
+
+        const outDir = path.resolve(distDir, location.path);
+        fs.mkdirSync(outDir, { recursive: true });
+        fs.writeFileSync(path.resolve(outDir, 'index.html'), html, 'utf-8');
+        locationGenerated++;
+      }
+
+      if (locationGenerated > 0) {
+        console.log('[blog-ssg] ✓ Generated ' + locationGenerated + ' location pages.');
+      }
+
     }
   };
 }
