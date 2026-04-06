@@ -44,7 +44,7 @@ const Contact = () => {
                             <div className="icon-box"><MapPin /></div>
                             <div>
                                 <h4>Visit Us</h4>
-                                <p>75 & 75A , Jalan SS 22/23,<br />Damansara Jaya, Petaling Jaya,<br />Malaysia</p>
+                                <p>75 & 75A, Jalan SS 22/23,<br />Damansara Jaya, 47400 Petaling Jaya,<br />Selangor, Malaysia</p>
                                 <div className="contact-direction-buttons mt-4">
                                     <Button
                                         className="contact-direction-btn google-btn"
