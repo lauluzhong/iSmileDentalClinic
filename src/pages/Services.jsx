@@ -18,6 +18,9 @@ import MyofunctionalOrthodontics from './specialties/MyofunctionalOrthodontics';
 import CosmeticDentistry from './specialties/CosmeticDentistry';
 import PediatricDentistry from './specialties/PediatricDentistry';
 
+// Location Pages
+import DamansaraJaya from './locations/DamansaraJaya';
+
 const ServiceHub = () => {
     const { openBooking } = useBooking();
     const { category } = useParams();
@@ -569,6 +572,9 @@ const Services = () => {
     return (
         <Routes>
             <Route path="/" element={<ServicesLanding />} />
+
+            {/* Location Pages */}
+            <Route path="locations/damansara-jaya" element={<DamansaraJaya />} />
 
             {/* Main Category Pages */}
             <Route path=":category" element={<ServiceHub />} />

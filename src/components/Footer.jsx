@@ -106,7 +106,7 @@ const Footer = () => {
                         </div>
                         <div className={`accordion-content ${openSections.visit ? 'show' : ''}`}>
                             <div className="address-block">
-                                <p>75 & 75A, Jalan SS 22/23, Damansara Jaya, 47400 Petaling Jaya, Selangor</p>
+                                <p>75 & 75A, Jalan SS 22/23, Damansara Jaya, 47400 Petaling Jaya, Selangor, Malaysia</p>
                             </div>
                             <div className="direction-buttons">
                                 <Button className="direction-btn" data-analytics-click="footer-maps" data-analytics-label="google-maps" onClick={() => window.open('https://maps.app.goo.gl/yt8MxXDpDxXgXqre6', '_blank')}>
@@ -146,7 +146,7 @@ const Footer = () => {
                         <h4 className="footer-heading">Contact</h4>
                         <div className="phone-block">
                             <Smartphone size={20} className="phone-icon" />
-                            <a href="tel:0163222135" className="phone-link">+60163222135</a>
+                            <a href="tel:+60163222135" className="phone-link">+60163222135</a>
                         </div>
                         <p className="cta-desc">Ready to schedule your visit?</p>
                         <div className="mt-4">

@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 const PageTransition = ({ children }) => {
   const location = useLocation();
   // Check if we are going to a dark page
-  const isDarkPage = location.pathname.startsWith('/services');
+  const isDarkPage = location.pathname.startsWith('/services') && ! location.pathname.startsWith('/services/locations');
 
   return (
     <motion.div

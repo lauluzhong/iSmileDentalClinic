@@ -1,24 +1,27 @@
 ---
-title: "Why Baby Teeth Actually Matter: More Than Just Temporary Teeth"
-categories: ["Kids & Growth"]
-tags: ['Oral Health']
-date: "2026-03-21"
-img: "/images/blog/why-baby-teeth-matter-hero.jpg"
-excerpt: "Many parents assume baby teeth are just placeholders until the real ones arrive. The truth is, those tiny teeth do far more work than most people realize."
-slug: "baby-teeth-basics-first-dental-visit-malaysia"
-author: "iSmile Dental Clinic"
+title: 'Why Baby Teeth Actually Matter: More Than Just Temporary Teeth'
+categories:
+  - Kids & Growth
+tags:
+  - Oral Health
+date: '2026-03-21'
+img: /images/blog/why-baby-teeth-matter-hero.jpg
+excerpt: 'Many parents assume baby teeth are just placeholders until the real ones arrive. The truth is, those tiny teeth do far more work than most people realize.'
+slug: baby-teeth-basics-first-dental-visit-malaysia
+author: iSmile Dental Clinic
 featured: false
 faq:
-- q: "Why are baby teeth important if they're just going to fall out?"
-  a: "Baby teeth serve several critical functions: they guide permanent teeth into proper position, enable proper chewing for nutrition, support speech development, maintain jaw space, and contribute to a child's self-confidence. Losing them too early can lead to crowding, speech issues, and nutritional problems."
-- q: "When should my child have their first dental visit?"
-  a: "The American Academy of Pediatric Dentistry recommends the first dental visit by age one or within six months after the first tooth appears. Early visits help establish good oral hygiene habits, identify potential issues, and make dental care a normal part of your child's health routine."
-- q: "What happens if a baby tooth is lost too early due to decay?"
-  a: "Early loss of baby teeth can cause surrounding teeth to drift into the empty space, leaving insufficient room for the permanent tooth to emerge properly. This often leads to crowding, misalignment, and may require orthodontic treatment later. That's why dentists prioritize saving baby teeth with fillings or crowns rather than extracting them."
-- q: "How can I prevent baby tooth decay?"
-  a: "Prevention starts with cleaning gums even before teeth appear, using a soft cloth. Once teeth emerge, brush twice daily with a rice-grain-sized amount of fluoride toothpaste. Avoid putting babies to bed with bottles, limit sugary drinks and snacks, and schedule regular dental check-ups starting by age one."
-- q: "Do cavities in baby teeth need to be filled?"
-  a: "Yes, cavities in baby teeth should be treated. Untreated decay can cause pain, infection, difficulty eating, and affect the developing permanent teeth underneath. Early treatment is simpler, less invasive, and helps prevent more serious problems later."
+  - q: Why are baby teeth important if they're just going to fall out?
+    a: 'Baby teeth serve several critical functions: they guide permanent teeth into proper position, enable proper chewing for nutrition, support speech development, maintain jaw space, and contribute to a child''s self-confidence. Losing them too early can lead to crowding, speech issues, and nutritional problems.'
+  - q: When should my child have their first dental visit?
+    a: 'The American Academy of Pediatric Dentistry recommends the first dental visit by age one or within six months after the first tooth appears. Early visits help establish good oral hygiene habits, identify potential issues, and make dental care a normal part of your child''s health routine.'
+  - q: What happens if a baby tooth is lost too early due to decay?
+    a: 'Early loss of baby teeth can cause surrounding teeth to drift into the empty space, leaving insufficient room for the permanent tooth to emerge properly. This often leads to crowding, misalignment, and may require orthodontic treatment later. That''s why dentists prioritize saving baby teeth with fillings or crowns rather than extracting them.'
+  - q: How can I prevent baby tooth decay?
+    a: 'Prevention starts with cleaning gums even before teeth appear, using a soft cloth. Once teeth emerge, brush twice daily with a rice-grain-sized amount of fluoride toothpaste. Avoid putting babies to bed with bottles, limit sugary drinks and snacks, and schedule regular dental check-ups starting by age one.'
+  - q: Do cavities in baby teeth need to be filled?
+    a: 'Yes, cavities in baby teeth should be treated. Untreated decay can cause pain, infection, difficulty eating, and affect the developing permanent teeth underneath. Early treatment is simpler, less invasive, and helps prevent more serious problems later.'
+content_type: educational
 ---
 
 ### The Truth About Baby Teeth

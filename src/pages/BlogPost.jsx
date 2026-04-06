@@ -260,6 +260,30 @@ const BlogPost = () => {
 
                     <div className="blog-content" dangerouslySetInnerHTML={{ __html: post.content }} />
 
+                    {/* Pre-FAQ CTA */}
+                    <div className="pre-faq-cta" style={{ marginTop: '60px', paddingTop: '40px', borderTop: '1px solid #eee', textAlign: 'center' }}>
+                        <h3 style={{ fontSize: '1.8rem', marginBottom: '10px', fontWeight: 700 }}>
+                            {(() => {
+                                const tag = post.tags && post.tags.length > 0 ? post.tags[0] : (post.categories && post.categories[0]) || '';
+                                return tag ? `Have Questions About ${tag}?` : 'Have Questions for Our Dentists?';
+                            })()}
+                        </h3>
+                        <p style={{ color: 'var(--color-text-muted)', marginBottom: '24px', fontSize: '1.05rem', lineHeight: '1.6' }}>
+                            Our dentists are here to help — schedule a consultation for personalised advice.
+                        </p>
+                        <Button
+                            variant="primary"
+                            onClick={() => {
+                                if (post.slug === 'clear-aligner-treatment-complexity') {
+                                    topic = 'clear aligner treatment';
+                                }
+                                openBooking(`Interested in ${topic}`, `blog-post-${post.slug}`);
+                            }}
+                        >
+                            Book a Consultation
+                        </Button>
+                    </div>
+
                     {post.faq && post.faq.length > 0 && (
                       <div className="post-faq-section" style={{ marginTop: '60px', paddingTop: '40px', borderTop: '1px solid #eee' }}>
                         <h3 style={{ marginBottom: '30px', textAlign: 'center', fontSize: '2rem' }}>Frequently Asked Questions</h3>

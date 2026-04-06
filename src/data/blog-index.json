@@ -1,5 +1,15 @@
 [
   {
+    "slug": "why-choose-ismile-dental-clinic-damansara-jaya",
+    "title": "Why Choose iSmile Dental Clinic in Damansara Jaya",
+    "categories": [],
+    "tags": [],
+    "date": "2026-04-06T00:00:00.000Z",
+    "featured": false,
+    "faq": [],
+    "content_type": "locality"
+  },
+  {
     "slug": "child-candidate-myofunctional-orthodontics",
     "title": "Is Your Child a Good Candidate for Myofunctional Orthodontics?",
     "categories": [
@@ -35,7 +45,8 @@
         "q": "Can myofunctional orthodontics replace traditional braces?",
         "a": "Sometimes, but not always. For some children, myofunctional treatment alone can guide teeth into better positions. For others, it might be a first phase that makes any future orthodontic treatment simpler and shorter. The approach depends on your child's specific needs and growth pattern."
       }
-    ]
+    ],
+    "content_type": "educational"
   },
   {
     "slug": "mouth-breathing-thumb-sucking-crowded-teeth",
@@ -73,7 +84,8 @@
         "q": "Are Malaysian children more susceptible to these issues?",
         "a": "Yes, due to several factors: high allergy rates leading to nasal congestion, cultural acceptance of thumb sucking, humid climate contributing to respiratory issues, and dietary preferences for softer foods. These combine to create higher rates of mouth breathing and dental development issues in Malaysian children."
       }
-    ]
+    ],
+    "content_type": "educational"
   },
   {
     "slug": "signs-child-early-orthodontic-assessment",
@@ -106,7 +118,8 @@
         "a": "Early treatment does not always mean braces right away. Depending on the issue, options may include a removable or fixed expander to widen a narrow upper jaw, a Myobrace-style functional appliance to address habits and jaw development, monitoring with periodic reviews, or in some cases, a short phase of aligner therapy or limited braces.",
         "q": "What Early Intervention Options Are Available?"
       }
-    ]
+    ],
+    "content_type": "educational"
   },
   {
     "slug": "2026-03-21-why-baby-teeth-matter",
@@ -142,7 +155,8 @@
         "q": "Do cavities in baby teeth need to be filled?",
         "a": "Yes, cavities in baby teeth should be treated. Untreated decay can cause pain, infection, difficulty eating, and affect the developing permanent teeth underneath. Early treatment is simpler, less invasive, and helps prevent more serious problems later."
       }
-    ]
+    ],
+    "content_type": "educational"
   },
   {
     "slug": "lm-activator-vs-invisalign",
@@ -177,7 +191,8 @@
         "a": "There is no universal answer — it depends on your child's age, severity of misalignment, whether they have underlying habit issues, and how their jaw is developing. If your child is younger with functional habits like mouth breathing or tongue thrust, LM Activator is often the better starting point. If your child is a teenager with mostly permanent teeth and straightforward crowding or spacing, Invisalign is a strong option. Some children benefit from both phases — ask your dentist for a personalised recommendation.",
         "q": "Which Orthodontic Appliance Does My Child Actually Need?"
       }
-    ]
+    ],
+    "content_type": "educational"
   },
   {
     "slug": "dental-crowns-malaysia",
@@ -205,7 +220,8 @@
         "a": "If you have a damaged or weakened tooth, a dental crown may be the key solution to restore your smile and protect your oral health. Speak with your dentist to discuss your options and find the right treatment plan for your needs.",
         "q": "Is a Crown Right for You?"
       }
-    ]
+    ],
+    "content_type": "educational"
   },
   {
     "slug": "dental-implants-malaysia-explained",
@@ -237,7 +253,8 @@
         "a": "The first few days bring swelling, bruising, and mild discomfort. Most people return to normal activities within 2-3 days. The surgical site heals in 1-2 weeks, but bone integration continues beneath the surface. Possible complications are rare but include infection, nerve damage, or sinus issues — choosing an experienced dentist significantly reduces these risks.",
         "q": "What Is Recovery Like After Dental Implant Surgery?"
       }
-    ]
+    ],
+    "content_type": "educational"
   },
   {
     "slug": "invisalign-malaysia-explained",
@@ -265,7 +282,8 @@
         "a": "For the right candidate, Invisalign offers a convenient, discreet way to straighten teeth with no wires poking cheeks and easier oral hygiene. The trade-offs are cost — generally more expensive than traditional braces — and the discipline required. You must commit to wearing them 20-22 hours per day consistently. Treatment time varies, your dentist will advise.",
         "q": "Is Invisalign Worth It?"
       }
-    ]
+    ],
+    "content_type": "educational"
   },
   {
     "slug": "why-do-my-gums-bleed",
@@ -297,7 +315,8 @@
         "a": "If you have improved your brushing and flossing routine but the bleeding persists for more than a week, it is time for a professional assessment. A simple cleaning might be all you need to get back on track.",
         "q": "When Should You Seek Professional Help for Bleeding Gums?"
       }
-    ]
+    ],
+    "content_type": "educational"
   },
   {
     "slug": "clear-aligners-vs-braces",
@@ -322,7 +341,8 @@
         "a": "It is generally recommended to have an initial assessment after birth or as soon as your baby develops his/her first tooth, as children grow and their jaw develops significantly. This helps prevent possible future orthodontic treatment or minimising one with early interceptive advice.",
         "q": "When should a child have their first orthodontic assessment?"
       }
-    ]
+    ],
+    "content_type": "educational"
   },
   {
     "slug": "root-canal-vs-extraction",
@@ -355,7 +375,8 @@
         "a": "If you are experiencing throbbing pain, sensitivity to heat, or swelling, do not wait. Early intervention often saves the tooth and avoids more invasive procedures later.",
         "q": "When Should You Act Early on Tooth Pain?"
       }
-    ]
+    ],
+    "content_type": "educational"
   },
   {
     "slug": "government-vs-private-braces",
@@ -380,7 +401,8 @@
         "a": "Private practice offers Saturday or evening appointments, meaning your child does not have to miss school and you do not have to take leave for every adjustment visit. This convenience, combined with access to advanced options like clear ceramic braces and self-ligating systems, makes the process much smoother for active families.",
         "q": "Why might private orthodontic care be worth the investment for families?"
       }
-    ]
+    ],
+    "content_type": "educational"
   },
   {
     "slug": "clear-aligner-treatment-complexity",
@@ -416,7 +438,8 @@
         "q": "How important is patient compliance in treatment success?",
         "a": "Extremely important. Clear aligners must be worn 20-22 hours daily to be effective. Inconsistent wear is the most common reason for extended treatment times or compromised results. Your commitment to wearing aligners as directed is crucial for achieving the planned outcome on schedule."
       }
-    ]
+    ],
+    "content_type": "educational"
   },
   {
     "slug": "wisdom-tooth-surgery",
@@ -448,7 +471,8 @@
         "a": "If you feel pressure, pain, or notice any swelling or gum changes at the back of your mouth, it is worth coming in for a quick X-ray to see what is happening beneath the surface.",
         "q": "When Should You Check In with Your Dentist About Wisdom Teeth?"
       }
-    ]
+    ],
+    "content_type": "educational"
   },
   {
     "slug": "is-teeth-whitening-safe",
@@ -480,7 +504,8 @@
         "a": "Always have a check-up before whitening. Ensuring there are no underlying cavities or issues first prevents any discomfort and gives you the best, most even results.",
         "q": "What Should You Do Before Starting Teeth Whitening?"
       }
-    ]
+    ],
+    "content_type": "educational"
   },
   {
     "slug": "composite-vs-porcelain-veneers",
@@ -516,7 +541,8 @@
         "q": "How do I care for my veneers?",
         "a": "Care for veneers like natural teeth: brush twice daily with non-abrasive toothpaste, floss regularly, avoid biting hard objects, and wear a night guard if you grind your teeth. Regular dental check-ups (every 6 months) are essential. Porcelain veneers resist stains better, but both types benefit from avoiding excessive coffee, tea, red wine, and tobacco."
       }
-    ]
+    ],
+    "content_type": "educational"
   },
   {
     "slug": "mouth-breathing-in-children",
@@ -548,7 +574,8 @@
         "a": "Simple, comfortable appliances can often help expand the jaw and gently retrain healthy breathing habits, setting children up for a lifetime of health. Your dentist will assess the right timing for intervention.",
         "q": "What Can Be Done About Mouth Breathing?"
       }
-    ]
+    ],
+    "content_type": "educational"
   },
   {
     "slug": "your-childs-first-dental-visit",
@@ -580,6 +607,7 @@
         "a": "Building a 'dental home' early means you have a dedicated partner in your child's growth. We are here to guide you on nutrition, healthy habits, and everything you need to keep their smile bright as they grow.",
         "q": "Why Is It Important to Establish a 'Dental Home' Early?"
       }
-    ]
+    ],
+    "content_type": "educational"
   }
 ]
