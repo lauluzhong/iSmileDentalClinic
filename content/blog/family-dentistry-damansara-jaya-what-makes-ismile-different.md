@@ -1,5 +1,5 @@
 ---
-title: Family Dentistry in Damansara Jaya: What Makes iSmile Different
+title: "Family Dentistry in Damansara Jaya: What Makes iSmile Different"
 date: 2026-04-06
 content_type: locality
 priority: P1
@@ -8,6 +8,19 @@ parent_page: https://ismile.com.my/services/locations/damansara-jaya
 cluster: LOCAL SEO DEFENSE
 keyword: family dentist Damansara Jaya
 created_at: 2026-04-06
+faq:
+  - q: What age should children have their first dental visit?
+    a: The Malaysian Association of Paediatric Dentistry recommends children have their first dental visit by age one, or within six months of their first tooth appearing. Early visits help establish good oral health habits and allow us to monitor development from the beginning.
+  - q: How does iSmile handle dental anxiety in children?
+    a: We take a gradual, gentle approach tailored to each child's comfort level. We use positive reinforcement, age-appropriate explanations, and never force treatment. For children with significant anxiety, we can discuss options like shorter appointments or breaks during treatment.
+  - q: Can adults and children be seen at the same appointment?
+    a: Yes, we can often schedule family members back-to-back to make dental visits more convenient. Let our scheduling team know your preferences when booking appointments.
+  - q: What if my child needs specialized treatment beyond general dentistry?
+    a: While we provide complete family dentistry, some children may benefit from seeing a specialist. In those cases, we can provide referrals to trusted pediatric dental specialists while continuing to coordinate with their care.
+  - q: How often should family members have dental check-ups?
+    a: Most patients benefit from check-ups every six months, but your dentist may recommend a different schedule based on individual needs. Children, patients with specific health conditions, or those undergoing certain treatments might need more frequent visits.
+  - q: Does iSmile accept dental insurance for family treatments?
+    a: We work with most major dental insurance providers. Our team can help you understand your coverage and submit claims on your behalf. Contact our clinic for specific information about your insurance plan.
 ---
 
 # Family Dentistry in Damansara Jaya: What Makes iSmile Different
@@ -36,7 +49,7 @@ At iSmile Damansara Jaya, we offer a full range of dental services so your famil
 - **First dental visits** starting from age one
 - **Preventive care** including cleanings, fluoride treatments, and sealants
 - **Early orthodontic assessments** to monitor development
-- **Myofunctional orthodontics** with systems like Myobrace for addressing functional habits
+- **Myofunctional orthodontics** with systems like LM Activator for addressing functional habits
 - **Clear aligner options** including Invisalign First for children
 
 **For Adults:**
@@ -91,31 +104,7 @@ If you're looking for a dental home for your family in Damansara Jaya, we invite
 
 To learn more about our family dentistry services or to schedule an appointment, visit our <a href="https://ismile.com.my/services/locations/damansara-jaya">Damansara Jaya location page</a> for contact information and directions.
 
-## Frequently Asked Questions
 
-### What age should children have their first dental visit?
-
-The Malaysian Association of Paediatric Dentistry recommends children have their first dental visit by age one, or within six months of their first tooth appearing. Early visits help establish good oral health habits and allow us to monitor development from the beginning.
-
-### How does iSmile handle dental anxiety in children?
-
-We take a gradual, gentle approach tailored to each child's comfort level. We use positive reinforcement, age-appropriate explanations, and never force treatment. For children with significant anxiety, we can discuss options like shorter appointments or breaks during treatment.
-
-### Can adults and children be seen at the same appointment?
-
-Yes, we can often schedule family members back-to-back to make dental visits more convenient. Let our scheduling team know your preferences when booking appointments.
-
-### What if my child needs specialized treatment beyond general dentistry?
-
-While we provide complete family dentistry, some children may benefit from seeing a specialist. In those cases, we can provide referrals to trusted pediatric dental specialists while continuing to coordinate with their care.
-
-### How often should family members have dental check-ups?
-
-Most patients benefit from check-ups every six months, but your dentist may recommend a different schedule based on individual needs. Children, patients with specific health conditions, or those undergoing certain treatments might need more frequent visits.
-
-### Does iSmile accept dental insurance for family treatments?
-
-We work with most major dental insurance providers. Our team can help you understand your coverage and submit claims on your behalf. Contact our clinic for specific information about your insurance plan.
 
 ---
 
