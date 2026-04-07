@@ -9,7 +9,7 @@ const educationalPosts = blogIndex.filter(post => post.content_type === 'educati
 const POSTS_PER_PAGE = 12;
 
 const formatDate = (isoDate) => {
-    return new Date(isoDate + 'T00:00:00').toLocaleDateString('en-US', {
+    return new Date(isoDate).toLocaleDateString('en-US', {
         year: 'numeric', month: 'short', day: 'numeric'
     });
 };
