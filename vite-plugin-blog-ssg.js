@@ -173,7 +173,7 @@ export default function blogSSG() {
           '  <!-- Pre-rendered blog content for SEO — removed once React mounts -->',
           '  <article id="ssg-content" style="max-width:800px;margin:80px auto;padding:0 20px;font-family:Inter,system-ui,sans-serif">',
           '    <h1>' + safeTitle + '</h1>',
-          '    <p><time datetime="' + post.date + '">' + post.date + '</time>' + categorySpan + '</p>',
+          '    <p><time datetime="' + post.date + '">' + formatDate(post.date) + '</time>' + categorySpan + '</p>',
           imgTag,
           '    <div>' + (post.content || '') + '</div>',
           '  </article>',
@@ -355,6 +355,17 @@ export default function blogSSG() {
 
     }
   };
+}
+
+/** Escape HTML special chars for safe insertion into attributes/text nodes */
+/** Format ISO date string to human-readable format (e.g., "Apr 6, 2026") */
+function formatDate(isoDate) {
+  const d = new Date(isoDate);
+  return d.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
 }
 
 /** Escape HTML special chars for safe insertion into attributes/text nodes */
