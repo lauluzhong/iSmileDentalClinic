@@ -1,12 +1,46 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Reveal, FadeIn } from '../../components/Reveal';
 import { Link } from 'react-router-dom';
+import { ChevronDown } from 'lucide-react';
 
 const DamansaraJaya = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const [openItems, setOpenItems] = useState({});
+
+  const toggleItem = (key) => {
+    setOpenItems(prev => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  const faqData = [
+    {
+      q: "Where is iSmile Dental Clinic located in Damansara Jaya?",
+      a: "Our clinic is located at 75 & 75A, Jalan SS 22/23, Damansara Jaya, Petaling Jaya. We are near Atria Shopping Gallery, with parking available nearby."
+    },
+    {
+      q: "What are your clinic hours in Damansara Jaya?",
+      a: "We are open Monday to Friday from 9:00 AM to 6:00 PM, and Saturday from 9:00 AM to 1:00 PM. We are closed on Sundays and public holidays. Emergency dental services are available during clinic hours."
+    },
+    {
+      q: "Do you accept walk-ins at your Damansara Jaya clinic?",
+      a: "Appointments are preferred to ensure we can give you the best possible service. However, we accommodate walk-ins based on availability, and emergency cases are always prioritized."
+    },
+    {
+      q: "Is iSmile Dental Clinic in Damansara Jaya accepting new patients?",
+      a: "Yes, we welcome new patients and families! You can schedule online, call us at +6016-322 2135, or WhatsApp us to book your first appointment."
+    },
+    {
+      q: "What dental services are available at your Damansara Jaya location?",
+      a: "We offer comprehensive dental care including family dentistry for all ages, preventive care and check-ups, emergency dental services, cosmetic and restorative treatments, orthodontics, dental implants, wisdom tooth surgery, and more."
+    },
+    {
+      q: "How do I book an appointment at your Damansara Jaya clinic?",
+      a: "You can book an appointment by calling +6016-322 2135, sending a WhatsApp message to https://wa.me/60163222135, or using our online booking system. We recommend booking in advance to secure your preferred time slot."
+    }
+  ];
 
   return (
     <div className="location-page">
@@ -234,6 +268,32 @@ const DamansaraJaya = () => {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="loc-section">
+        <div className="loc-container">
+          <FadeIn>
+            <h2 className="loc-section-title" style={{ textAlign: 'center', marginBottom: '40px' }}>Frequently Asked Questions</h2>
+            <div className="loc-faq-grid">
+              {faqData.map((item, idx) => {
+                const itemKey = `faq-${idx}`;
+                const isOpen = openItems[itemKey];
+                return (
+                  <div key={idx} className={`loc-faq-card ${isOpen ? 'loc-faq-card-open' : ''}`} onClick={() => toggleItem(itemKey)} style={{ cursor: 'pointer' }}>
+                    <div className="loc-faq-question-row">
+                      <h3 className="loc-faq-question" style={{ color: 'var(--color-text-charcoal)', flex: 1 }}>{item.q}</h3>
+                      <ChevronDown size={20} className={`loc-faq-chevron ${isOpen ? 'loc-faq-chevron-open' : ''}`} />
+                    </div>
+                    <div className={`loc-faq-answer ${isOpen ? 'loc-faq-answer-open' : ''}`}>
+                      <div className="loc-faq-answer-inner" style={{ color: 'var(--color-text-muted)', lineHeight: 1.6 }}>{item.a}</div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="loc-final-cta">
         <div className="loc-container" style={{ maxWidth: '800px' }}>
@@ -309,6 +369,19 @@ const DamansaraJaya = () => {
         .loc-final-phone { margin-top: 16px; font-size: 1rem; opacity: 0.8; }
         .loc-final-phone strong { font-weight: 600; }
 
+        /* FAQ Section Styles */
+        .loc-faq-grid { display: flex; flex-direction: column; gap: 16px; margin-top: 40px; }
+        .loc-faq-card { padding: 30px; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 8px 32px 0 rgba(79, 163, 194, 0.15); border-radius: 20px; transition: transform 0.3s ease, box-shadow 0.3s ease; user-select: none; }
+        .loc-faq-card:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(79, 163, 194, 0.25); }
+        .loc-faq-card-open { border-color: rgba(79, 163, 194, 0.3); }
+        .loc-faq-question-row { display: flex; align-items: center; gap: 12px; }
+        .loc-faq-question { font-size: 1.05rem; font-weight: 600; margin: 0; }
+        .loc-faq-chevron { color: var(--color-primary-teal); transition: transform 0.3s ease; flex-shrink: 0; }
+        .loc-faq-chevron-open { transform: rotate(180deg); }
+        .loc-faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, margin-top 0.35s ease; margin-top: 0; }
+        .loc-faq-answer-open { max-height: 500px; margin-top: 16px; }
+        .loc-faq-answer-inner { color: var(--color-text-muted); line-height: 1.6; }
+
         @media (max-width: 1024px) {
           .loc-hero { padding: 90px 0 50px; }
           .loc-hero h1 { font-size: 2.2rem; }
@@ -326,6 +399,10 @@ const DamansaraJaya = () => {
           .loc-final-cta h2 { font-size: 1.8rem; }
           .loc-final-cta p { font-size: 1rem; }
           .loc-container { padding: 0 16px; }
+          .loc-faq-grid { gap: 12px; margin-top: 30px; }
+          .loc-faq-card { padding: 20px; border-radius: 16px; }
+          .loc-faq-question { font-size: 0.95rem; }
+          .loc-faq-answer-inner { font-size: 0.9rem; }
         }
       ` }}></style>
     </div>
