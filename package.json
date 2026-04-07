@@ -4,8 +4,9 @@
     "version": "0.1.0",
     "type": "module",
     "scripts": {
-        "blog:build": "node scripts/build-blog.js",
-        "prebuild": "node scripts/build-blog.js",
+        "blog:build": "node scripts/build-blog.js && node scripts/generate-sitemap.js",
+        "sitemap:generate": "node scripts/generate-sitemap.js",
+        "prebuild": "npm run blog:build",
         "dev": "node scripts/build-blog.js && vite",
         "build": "vite build",
         "lint": "eslint .",
