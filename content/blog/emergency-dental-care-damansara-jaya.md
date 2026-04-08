@@ -14,7 +14,7 @@ faq:
   - q: How quickly can I get an emergency dental appointment?
     a: Many dental clinics, including iSmile, try to see emergency patients on the same day or within 24 hours. We understand that dental emergencies can be painful and stressful, so we prioritize urgent cases in our scheduling.
   - q: What should I do if I knock out a tooth?
-    a: If a permanent tooth is knocked out, try to place it back in the socket without touching the root. If that's not possible, keep it moist in milk or saliva and get to a dentist immediately—the sooner you receive treatment, the better the chances of saving the tooth.
+    a: If a permanent tooth is knocked out, keep it moist and get to a dentist immediately—the sooner you receive treatment, the better the chances of saving the tooth.
   - q: Can I go to the hospital for a dental emergency?
     a: Hospitals typically handle life-threatening emergencies but may not have dentists on staff for routine dental issues. For most dental emergencies, a dental clinic is better equipped to provide appropriate treatment.
   - q: What if I have a dental emergency outside clinic hours?
@@ -56,24 +56,24 @@ During your emergency visit, here's what typically happens:
 
 4. **We talk about what comes next** – Once the immediate crisis is handled, we'll discuss longer-term options and help you understand what to expect moving forward.
 
-## Common Dental Emergencies and What to Do First
+## Common Dental Emergencies: What to Keep in Mind
 
-While every situation is different, here are some basic guidelines for common dental emergencies before you can get to a dentist:
+Different dental emergencies require different approaches, but the most important thing is to get professional help as soon as possible. Here are some general guidelines for common situations:
 
 ### Knocked-Out Tooth
-If an adult tooth gets knocked out completely, time is everything. Try to put the tooth back in its socket without touching the root. If that doesn't work, keep it moist in milk or your own saliva (just hold it in your cheek). Get to a dentist as fast as you can—the quicker the tooth gets reimplanted, the better the chance of saving it.
+If an adult tooth gets knocked out completely, time is critical. Keep the tooth moist and get to a dentist immediately—the sooner you receive treatment, the better the chance of saving the tooth.
 
 ### Broken or Chipped Tooth
-Save any broken pieces if you can. Rinse your mouth with warm water to clean the area. If there's bleeding, use clean gauze with gentle pressure. A cold compress on the outside of your cheek can help with swelling. Don't chew on that side until you see a dentist.
+Save any broken pieces if possible. Rinse your mouth gently with warm water to clean the area. Avoid chewing on that side until you can see a dentist.
 
 ### Severe Toothache
-Rinse your mouth with warm water to clean it out. Gently floss to remove any food stuck between teeth. Don't put aspirin directly on the tooth or gums—that can actually damage the tissue. Over-the-counter pain relievers might help temporarily until you can see a dentist.
+Rinse your mouth with warm water to help clean the area. Avoid putting any medication directly on the tooth or gums. Over-the-counter pain relievers might provide temporary relief until you can see a dentist.
 
 ### Lost Filling or Crown
-If a filling comes out, you can temporarily put sugar-free gum or over-the-counter dental cement in the hole. For a lost crown, try slipping it back on with dental adhesive or even toothpaste as a temporary fix. Avoid chewing on that side until it's properly fixed.
+If a filling or crown comes out, try to keep the area clean and avoid chewing on that side. Don't attempt to fix it yourself with household items—this needs to be done properly by a dentist.
 
 ### Abscess or Swelling
-Dental abscesses are infections that need professional treatment. Rinse with mild salt water a few times a day to help with discomfort. Use a cold compress on the outside of your cheek. Don't try to drain it yourself—that needs to be done properly by a dentist.
+Dental abscesses are infections that require professional treatment. Use a cold compress on the outside of your cheek to help with swelling. Don't attempt to drain it yourself—this needs to be handled properly by a dentist.
 
 ## Why Getting Help Quickly Matters
 
