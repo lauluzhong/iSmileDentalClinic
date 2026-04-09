@@ -63,7 +63,7 @@ function parseFrontmatter(raw) {
         }
         data.tags = collected;
       }
-      break;
+      continue;
     }
   }
 

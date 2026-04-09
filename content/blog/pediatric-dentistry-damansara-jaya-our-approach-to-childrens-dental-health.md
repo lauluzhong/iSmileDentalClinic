@@ -3,12 +3,13 @@ title: "Pediatric Dentistry in Damansara Jaya: Our Approach to Children's Dental
 date: "2026-04-09"
 excerpt: "Learn about our gentle, child-friendly approach to pediatric dentistry in Damansara Jaya. We create positive dental experiences for children."
 categories: ["Pediatric Dentistry"]
-tags: ["Pediatric Dentistry", "Children's Dental Care", "Kids Dentist", "Family Dentistry", "Damansara Jaya"]
+tags: []
 priority: "P3"
 tier: "T3"
 parent_page: "https://ismile.com.my/services/locations/damansara-jaya"
 cluster: "LOCAL SEO DEFENSE (Damansara Jaya locality)"
 keyword: "children dentist Damansara Jaya"
+content_type: locality
 ---
 
 ## Why Choose a Pediatric Dentist?
