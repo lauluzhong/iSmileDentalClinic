@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import React, { useMemo, useRef, useEffect } from 'react';
+import React, { useMemo, useRef, useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import Button from '../components/Button';
 import { Reveal, FadeIn } from '../components/Reveal';
@@ -18,6 +18,8 @@ const Blog = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const currentPage = parseInt(searchParams.get('page') || '1', 10);
     const activeCategory = searchParams.get('category') || 'All';
+    const activeQuery = (searchParams.get('q') || '').trim();
+    const [searchDraft, setSearchDraft] = useState(activeQuery);
     const filterRef = useRef(null);
 
     // MECE Tag List (12 tags)
@@ -65,21 +67,32 @@ const Blog = () => {
     // Featured post: first post with featured: true, fallback to first post
     const featuredPost = educationalPosts.find(p => p.featured) || educationalPosts[0];
 
-    // Grid posts: everything except the featured post, filtered by category
-    // When "All": exclude featured post from grid (it's shown separately)
-    // When filtering: include ALL posts (featured post not shown separately)
-    const otherPosts = useMemo(() => {
-        if (activeCategory === 'All') {
-            return educationalPosts.filter(p => p.slug !== featuredPost?.slug);
-        }
+    useEffect(() => {
+        setSearchDraft(activeQuery);
+    }, [activeQuery]);
+
+    const filteredPosts = useMemo(() => {
+        const normalizedQuery = activeQuery.toLowerCase();
         return educationalPosts.filter(p => {
-            // Use tags for filtering (primary), fall back to categories
             const tags = p.tags && p.tags.length > 0 ? p.tags : 
                         (p.categories && p.categories.length > 0 ? p.categories : 
                         (p.category ? [p.category] : []));
-            return tags.includes(activeCategory);
+            const matchesCategory = activeCategory === 'All' || tags.includes(activeCategory);
+            if (!matchesCategory) return false;
+            if (!normalizedQuery) return true;
+
+            const haystack = `${p.title || ''} ${p.excerpt || ''} ${(p.tags || []).join(' ')}`.toLowerCase();
+            return haystack.includes(normalizedQuery);
         });
-    }, [activeCategory, featuredPost]);
+    }, [activeCategory, activeQuery]);
+
+    // Grid posts: everything except featured on the default view.
+    const otherPosts = useMemo(() => {
+        if (activeCategory === 'All' && !activeQuery) {
+            return filteredPosts.filter(p => p.slug !== featuredPost?.slug);
+        }
+        return filteredPosts;
+    }, [activeCategory, activeQuery, filteredPosts, featuredPost]);
 
     // Pagination
     const totalPages = Math.ceil(otherPosts.length / POSTS_PER_PAGE);
@@ -96,6 +109,7 @@ const Blog = () => {
 
     const setCategory = (cat) => {
         const params = {};
+        if (activeQuery) params.q = activeQuery;
         if (cat !== 'All') params.category = cat;
         setSearchParams(params);
 
@@ -105,6 +119,14 @@ const Blog = () => {
                 pill.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
             }
         }
+    };
+
+    const setQuery = (value) => {
+        const next = value.trim();
+        const params = {};
+        if (next) params.q = next;
+        if (activeCategory !== 'All') params.category = activeCategory;
+        setSearchParams(params);
     };
 
     useEffect(() => {
@@ -151,6 +173,33 @@ const Blog = () => {
 
             <div className="container section-padding">
                 {/* Category Filter Bar */}
+                <div className="blog-search-wrap">
+                    <input
+                        type="search"
+                        className="blog-search-input"
+                        placeholder="Search articles by keyword"
+                        value={searchDraft}
+                        onChange={(e) => {
+                            const value = e.target.value;
+                            setSearchDraft(value);
+                            setQuery(value);
+                        }}
+                        aria-label="Search blog posts"
+                    />
+                    {searchDraft && (
+                        <button
+                            type="button"
+                            className="blog-search-clear"
+                            onClick={() => {
+                                setSearchDraft('');
+                                setQuery('');
+                            }}
+                            aria-label="Clear search"
+                        >
+                            Clear
+                        </button>
+                    )}
+                </div>
                 <nav className="category-filter-bar" ref={filterRef} aria-label="Filter by topic">
                     <button
                         className={`category-pill${activeCategory === 'All' ? ' active' : ''}`}
@@ -174,7 +223,7 @@ const Blog = () => {
                 </nav>
 
                 {/* Featured — only show on "All" view */}
-                {featuredPost && activeCategory === 'All' && (
+                {featuredPost && activeCategory === 'All' && !activeQuery && (
                     <FadeIn className="glass-panel featured-post">
                         <div className="featured-content">
                             <span className="badge">Featured</span>
@@ -201,19 +250,18 @@ const Blog = () => {
                                     </div>
                                     <div className="post-content">
                                         <div className="post-tags">
-                                            {post.tags && post.tags.map((tag, idx) => (
-                                                <button 
-                                                    key={`tag-${idx}`}
+                                            {post.tags && post.tags.length > 0 && (
+                                                <button
                                                     className="post-tag"
                                                     onClick={(e) => {
                                                         e.preventDefault();
                                                         e.stopPropagation();
-                                                        setCategory(tag);
+                                                        setCategory(post.tags[0]);
                                                     }}
                                                 >
-                                                    {tag}
+                                                    {post.tags[0]}
                                                 </button>
-                                            ))}
+                                            )}
                                         </div>
                                         <h3>{post.title}</h3>
                                         <div className="post-meta">{formatDate(post.date)}</div>
@@ -259,6 +307,43 @@ const Blog = () => {
 
             <style>{`
           /* Category Filter Bar */
+          .blog-search-wrap {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              margin-bottom: 14px;
+          }
+
+          .blog-search-input {
+              flex: 1;
+              min-width: 0;
+              border: 1.5px solid #e2e8f0;
+              background: rgba(255, 255, 255, 0.88);
+              border-radius: 14px;
+              padding: 12px 14px;
+              font-size: 0.95rem;
+              color: var(--color-text-charcoal);
+              backdrop-filter: blur(8px);
+          }
+
+          .blog-search-input:focus {
+              outline: none;
+              border-color: var(--color-primary-teal);
+              box-shadow: 0 0 0 3px rgba(79, 163, 194, 0.2);
+          }
+
+          .blog-search-clear {
+              border: none;
+              border-radius: 12px;
+              background: rgba(79, 163, 194, 0.12);
+              color: var(--color-primary-teal);
+              font-size: 0.85rem;
+              font-weight: 600;
+              padding: 10px 12px;
+              cursor: pointer;
+              white-space: nowrap;
+          }
+
           .category-filter-bar {
               display: flex;
               gap: 10px;
@@ -414,6 +499,15 @@ const Blog = () => {
           }
 
           @media (max-width: 1024px) {
+              .blog-search-wrap {
+                  margin: 0 8px 12px;
+              }
+
+              .blog-search-input {
+                  font-size: 16px; /* avoid iOS zoom */
+                  padding: 12px;
+              }
+
               .category-filter-bar {
                   padding: 6px 8px 16px;
                   margin-bottom: 20px;

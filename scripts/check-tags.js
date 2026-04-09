@@ -2,89 +2,139 @@
 
 import fs from 'fs';
 import path from 'path';
-import matter from 'gray-matter';
 
 const CONTENT_DIR = path.resolve('content/blog');
+const ALLOWED_TAGS = [
+  'Myofunctional Orthodontics',
+  'Clear Aligners',
+  'Traditional Braces',
+  'Orthodontics',
+  'Pediatric Dentistry',
+  'Restorative Dentistry',
+  'Cosmetic Dentistry',
+  'Oral Surgery',
+  'Emergency Dental',
+  'Preventive Care',
+  'Oral Health',
+  'Dental Technology'
+];
+const TAG_PRIORITY = Object.fromEntries(ALLOWED_TAGS.map((tag, i) => [tag, i]));
 
-// Read all .md files
+function parseFrontmatter(raw) {
+  const match = raw.match(/^---\n([\s\S]*?)\n---/);
+  if (!match) return {};
+  const fm = match[1];
+  const lines = fm.split('\n');
+
+  const data = {};
+  data.content_type = 'educational';
+  data.tags = [];
+
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i];
+
+    if (line.startsWith('title:')) {
+      data.title = line.replace(/^title:\s*/, '').trim().replace(/^['"]|['"]$/g, '');
+      continue;
+    }
+
+    if (line.startsWith('content_type:')) {
+      data.content_type = line.replace(/^content_type:\s*/, '').trim().replace(/^['"]|['"]$/g, '');
+      continue;
+    }
+
+    if (line.startsWith('tags:')) {
+      const remainder = line.replace(/^tags:\s*/, '').trim();
+      if (remainder.startsWith('[') && remainder.endsWith(']')) {
+        data.tags = remainder
+          .slice(1, -1)
+          .split(',')
+          .map(t => t.trim().replace(/^['"]|['"]$/g, ''))
+          .filter(Boolean);
+      } else {
+        const collected = [];
+        for (let j = i + 1; j < lines.length; j += 1) {
+          const tagLine = lines[j];
+          if (/^\s*-\s+/.test(tagLine)) {
+            collected.push(tagLine.replace(/^\s*-\s+/, '').trim().replace(/^['"]|['"]$/g, ''));
+          } else if (/^\S/.test(tagLine)) {
+            break;
+          }
+        }
+        data.tags = collected;
+      }
+      break;
+    }
+  }
+
+  return data;
+}
+
 const files = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.md'));
-
-console.log('=== Blog Post Tag Audit ===\n');
-console.log(`Total posts: ${files.length}\n`);
-
-let postsWithoutTags = [];
-let postsWithTags = [];
-let allTags = new Set();
-let allCategories = new Set();
+const violations = [];
+let checkedEducational = 0;
 
 files.forEach(filename => {
   const slug = filename.replace('.md', '');
   const raw = fs.readFileSync(path.join(CONTENT_DIR, filename), 'utf-8');
-  const { data: frontmatter } = matter(raw);
+  const frontmatter = parseFrontmatter(raw);
+  const isEducational = (frontmatter.content_type || 'educational') === 'educational';
+  if (!isEducational) return;
 
-  const categories = frontmatter.categories || (frontmatter.category ? [frontmatter.category] : []);
-  const tags = frontmatter.tags || [];
-  
-  // Collect all tags and categories
-  categories.forEach(cat => allCategories.add(cat));
-  tags.forEach(tag => allTags.add(tag));
-  
-  if (tags.length === 0) {
-    postsWithoutTags.push({
+  checkedEducational += 1;
+  const tags = Array.isArray(frontmatter.tags) ? frontmatter.tags : [];
+  const postErrors = [];
+
+  if (tags.length < 1) {
+    postErrors.push('must have at least 1 tag');
+  }
+  if (tags.length > 2) {
+    postErrors.push('must have at most 2 tags');
+  }
+
+  const uniqueTags = new Set(tags);
+  if (uniqueTags.size !== tags.length) {
+    postErrors.push('contains duplicate tags');
+  }
+
+  const invalidTags = tags.filter(tag => !ALLOWED_TAGS.includes(tag));
+  if (invalidTags.length > 0) {
+    postErrors.push(`contains invalid tags: ${invalidTags.join(', ')}`);
+  }
+
+  for (let i = 1; i < tags.length; i += 1) {
+    const prev = tags[i - 1];
+    const curr = tags[i];
+    if (TAG_PRIORITY[prev] > TAG_PRIORITY[curr]) {
+      const expected = [...tags].sort((a, b) => TAG_PRIORITY[a] - TAG_PRIORITY[b]).join(', ');
+      postErrors.push(`tags must follow canonical order (expected: ${expected})`);
+      break;
+    }
+  }
+
+  if (postErrors.length > 0) {
+    violations.push({
       slug,
-      title: frontmatter.title,
-      categories
-    });
-  } else {
-    postsWithTags.push({
-      slug,
-      title: frontmatter.title,
+      title: frontmatter.title || slug,
       tags,
-      tagCount: tags.length
+      errors: postErrors
     });
   }
 });
 
-// Print results
-console.log('=== Posts WITHOUT Tags ===');
-if (postsWithoutTags.length === 0) {
-  console.log('All posts have tags! ✅\n');
-} else {
-  console.log(`Found ${postsWithoutTags.length} posts without tags:\n`);
-  postsWithoutTags.forEach(post => {
-    console.log(`- ${post.slug}`);
-    console.log(`  Title: ${post.title}`);
-    console.log(`  Categories: ${post.categories.join(', ')}`);
-    console.log('');
-  });
+console.log('=== Tag Validation ===');
+console.log(`Checked educational posts: ${checkedEducational}`);
+console.log(`Allowed tags: ${ALLOWED_TAGS.join(', ')}`);
+
+if (violations.length === 0) {
+  console.log('\n✅ All educational posts passed tag validation.');
+  process.exit(0);
 }
 
-console.log('=== Posts WITH Tags ===');
-console.log(`Found ${postsWithTags.length} posts with tags:\n`);
-postsWithTags.forEach(post => {
-  console.log(`- ${post.slug}`);
-  console.log(`  Tags (${post.tagCount}): ${post.tags.join(', ')}`);
+console.error(`\n❌ Found ${violations.length} post(s) with tag violations:\n`);
+violations.forEach(v => {
+  console.error(`- ${v.slug} (${v.title})`);
+  console.error(`  Tags: ${v.tags.join(', ') || '(none)'}`);
+  v.errors.forEach(err => console.error(`  • ${err}`));
 });
-
-console.log('\n=== Tag Statistics ===');
-console.log(`Total unique tags: ${allTags.size}`);
-console.log(`Total unique categories: ${allCategories.size}`);
-
-console.log('\n=== All Unique Tags ===');
-console.log(Array.from(allTags).sort().join(', '));
-
-console.log('\n=== All Unique Categories ===');
-console.log(Array.from(allCategories).sort().join(', '));
-
-// Check for posts without FAQ sections
-console.log('\n=== FAQ Section Check ===');
-const postsWithoutFAQ = files.filter(filename => {
-  const raw = fs.readFileSync(path.join(CONTENT_DIR, filename), 'utf-8');
-  const { data: frontmatter } = matter(raw);
-  return !frontmatter.faq || frontmatter.faq.length === 0;
-});
-
-console.log(`Posts without FAQ sections: ${postsWithoutFAQ.length}`);
-postsWithoutFAQ.forEach(filename => {
-  console.log(`- ${filename.replace('.md', '')}`);
-});
+process.exit(1);
