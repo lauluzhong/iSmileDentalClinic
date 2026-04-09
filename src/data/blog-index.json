@@ -1,5 +1,36 @@
 [
   {
+    "slug": "cosmetic-dentistry-at-ismile-damansara-jaya",
+    "title": "Cosmetic Dentistry at iSmile Damansara Jaya",
+    "categories": [],
+    "tags": [],
+    "date": "2026-04-10T00:00:00.000Z",
+    "featured": false,
+    "faq": [
+      {
+        "q": "What is cosmetic dentistry and how is it different from general dentistry?",
+        "a": "Cosmetic dentistry focuses on improving the appearance of your smile—things like tooth colour, shape, alignment, and overall smile aesthetics. While general dentistry maintains oral health through cleanings, fillings, and preventive care, cosmetic dentistry enhances smile appearance while still considering function and oral health."
+      },
+      {
+        "q": "What cosmetic dentistry treatments are available at iSmile?",
+        "a": "iSmile offers a range of cosmetic treatments including composite veneers (direct bonding), ceramic veneers, all-ceramic crowns, and full mouth rehabilitation. During a consultation, your dentist will assess your smile and discuss which options might be suitable for your specific goals and dental situation."
+      },
+      {
+        "q": "How do I know if cosmetic dentistry is right for me?",
+        "a": "The best way to determine if cosmetic dentistry could help you achieve your smile goals is through a comprehensive dental assessment. Your dentist will evaluate your oral health, discuss your concerns and expectations, and explain what treatments might be appropriate for your situation."
+      },
+      {
+        "q": "Is cosmetic dentistry only about making teeth whiter?",
+        "a": "No, cosmetic dentistry goes beyond just tooth whitening. It involves smile analysis that considers tooth proportions, gum display, lip support, and facial symmetry. The goal is to create a smile that looks natural and functions harmoniously with your facial features."
+      },
+      {
+        "q": "How long do cosmetic dentistry treatments typically take?",
+        "a": "Treatment timelines vary depending on the specific procedure and your individual dental situation. Some treatments like composite veneers might be completed in a single visit, while others like ceramic veneers or full mouth rehabilitation require multiple appointments. Your dentist will provide a personalised treatment plan with estimated timelines during your consultation."
+      }
+    ],
+    "content_type": "locality"
+  },
+  {
     "slug": "pediatric-dentistry-damansara-jaya-our-approach-to-childrens-dental-health",
     "title": "Pediatric Dentistry in Damansara Jaya: Our Approach to Children's Dental Health",
     "categories": [
