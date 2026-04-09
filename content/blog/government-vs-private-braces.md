@@ -12,8 +12,8 @@ featured: false
 img: /images/service_straighten.png
 title: 'Government vs Private Braces in Malaysia: What Parents Should Know'
 tags:
-  - Pediatric Dentistry
   - Traditional Braces
+  - Pediatric Dentistry
 content_type: educational
 ---
 
