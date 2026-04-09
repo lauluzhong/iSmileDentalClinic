@@ -9,6 +9,21 @@ tier: "T3"
 parent_page: "https://ismile.com.my/services/locations/damansara-jaya"
 cluster: "LOCAL SEO DEFENSE (Damansara Jaya locality)"
 keyword: "children dentist Damansara Jaya"
+faq:
+  - q: What age should my child first see a dentist?
+    a: The general recommendation is around age one, or within six months of the first tooth appearing. Early visits focus on prevention and education rather than treatment. We check for proper development, discuss feeding habits, and show parents how to care for new teeth. These appointments are short and positive, helping children become comfortable with dental care from the start.
+  - q: What services do you offer for children?
+    a: We provide a range of pediatric dental services including first dental visits and assessments, fissure sealants, topical fluoride treatment, pediatric fillings, and baby tooth extraction when necessary. For older children with mixed dentition, we offer clear aligner systems designed for growing mouths. Our approach is prevention-focused, with age-appropriate care for toddlers through teenagers.
+  - q: How do you make dental visits less scary for children?
+    a: We create a child-friendly environment with patient explanations, child-sized equipment when appropriate, and a no-rush approach. We show children how tools work before using them, let them hold mirrors to see what we're doing, and celebrate their cooperation. Our team has experience working with children of all ages and focuses on building trust through positive experiences.
+  - q: What are fissure sealants and how do they work?
+    a: Fissure sealants are protective coatings applied to the back teeth where cavities most often form. The procedure is quick and painless—we clean the tooth surface, apply the sealant material, and use a special light to harden it. Sealants fill in the grooves and pits where food particles and bacteria can get trapped, providing long-lasting protection against decay.
+  - q: How often should children have dental check-ups?
+    a: Visit frequency depends on your child's individual needs. Some children benefit from more frequent check-ups, while others do well with standard intervals. During your child's assessment, your dentist will advise what schedule is appropriate based on their dental development, risk factors, and overall oral health. Regular monitoring helps us catch potential issues early.
+  - q: Do you offer orthodontic treatment for children?
+    a: Yes, we provide orthodontic assessment and treatment for children. For younger children with developing dental issues, we offer clear aligner systems designed for mixed dentition. We also screen for myofunctional factors that can affect dental development, such as breathing patterns and tongue position. Your dentist will assess your child's specific needs and recommend appropriate options.
+  - q: What should I do if my child is anxious about dental visits?
+    a: Start by talking positively about dental care at home. Read children's books about visiting the dentist, play "dentist" with toys, and avoid sharing any negative dental experiences you might have had. Schedule morning appointments when children are typically well-rested, and let us know about any concerns beforehand. We're experienced with anxious patients and will work at your child's pace to build comfort and trust.
 content_type: locality
 ---
 
@@ -59,35 +74,5 @@ Early visits are mostly about education and prevention. We check for proper deve
 As children grow, we adjust how often they visit based on their individual needs. Some kids do better with more frequent check-ups, while others are fine with standard intervals. Your dentist will let you know what's right for your child's specific situation.
 
 The key is consistency. Regular dental visits from an early age help children see dental care as a normal, positive part of life instead of something to fear. That positive association? It pays off for decades.
-
-## Frequently Asked Questions
-
-### What age should my child first see a dentist?
-
-The general recommendation is around age one, or within six months of the first tooth appearing. Early visits focus on prevention and education rather than treatment. We check for proper development, discuss feeding habits, and show parents how to care for new teeth. These appointments are short and positive, helping children become comfortable with dental care from the start.
-
-### What services do you offer for children?
-
-We provide a range of pediatric dental services including first dental visits and assessments, fissure sealants, topical fluoride treatment, pediatric fillings, and baby tooth extraction when necessary. For older children with mixed dentition, we offer clear aligner systems designed for growing mouths. Our approach is prevention-focused, with age-appropriate care for toddlers through teenagers.
-
-### How do you make dental visits less scary for children?
-
-We create a child-friendly environment with patient explanations, child-sized equipment when appropriate, and a no-rush approach. We show children how tools work before using them, let them hold mirrors to see what we're doing, and celebrate their cooperation. Our team has experience working with children of all ages and focuses on building trust through positive experiences.
-
-### What are fissure sealants and how do they work?
-
-Fissure sealants are protective coatings applied to the back teeth where cavities most often form. The procedure is quick and painless—we clean the tooth surface, apply the sealant material, and use a special light to harden it. Sealants fill in the grooves and pits where food particles and bacteria can get trapped, providing long-lasting protection against decay.
-
-### How often should children have dental check-ups?
-
-Visit frequency depends on your child's individual needs. Some children benefit from more frequent check-ups, while others do well with standard intervals. During your child's assessment, your dentist will advise what schedule is appropriate based on their dental development, risk factors, and overall oral health. Regular monitoring helps us catch potential issues early.
-
-### Do you offer orthodontic treatment for children?
-
-Yes, we provide orthodontic assessment and treatment for children. For younger children with developing dental issues, we offer clear aligner systems designed for mixed dentition. We also screen for myofunctional factors that can affect dental development, such as breathing patterns and tongue position. Your dentist will assess your child's specific needs and recommend appropriate options.
-
-### What should I do if my child is anxious about dental visits?
-
-Start by talking positively about dental care at home. Read children's books about visiting the dentist, play "dentist" with toys, and avoid sharing any negative dental experiences you might have had. Schedule morning appointments when children are typically well-rested, and let us know about any concerns beforehand. We're experienced with anxious patients and will work at your child's pace to build comfort and trust.
 
 For more information about our children's dental services in Damansara Jaya, visit our [Damansara Jaya location page](https://ismile.com.my/services/locations/damansara-jaya) or contact us to schedule an appointment.
