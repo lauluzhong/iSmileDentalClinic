@@ -46,8 +46,9 @@ const BlogPost = () => {
     // Compute related posts: same category first, then fill with recent posts
     const relatedPosts = useMemo(() => {
         if (!post) return [];
+        const eligiblePosts = blogIndex.filter(p => p.content_type === 'educational');
         const activeCats = post.categories && post.categories.length > 0 ? post.categories : (post.category ? [post.category] : []);
-        const sameCat = blogIndex.filter(p => {
+        const sameCat = eligiblePosts.filter(p => {
             if (p.slug === slug) return false;
             const pCats = p.categories && p.categories.length > 0 ? p.categories : (p.category ? [p.category] : []);
             return pCats.some(c => activeCats.includes(c));
@@ -58,7 +59,7 @@ const BlogPost = () => {
             const bOverlap = bCats.filter(c => activeCats.includes(c)).length;
             return bOverlap - aOverlap;
         });
-        const others = blogIndex.filter(p => {
+        const others = eligiblePosts.filter(p => {
             if (p.slug === slug) return false;
             const pCats = p.categories && p.categories.length > 0 ? p.categories : (p.category ? [p.category] : []);
             return !pCats.some(c => activeCats.includes(c));

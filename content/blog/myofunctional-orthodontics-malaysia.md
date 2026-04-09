@@ -11,7 +11,7 @@ faq:
   - q: What is myofunctional orthodontics?
     a: Myofunctional orthodontics focuses on correcting oral habits like mouth breathing, incorrect tongue posture, and improper swallowing that can affect jaw development and tooth alignment in children.
   - q: At what age should my child be assessed for myofunctional issues?
-    a: Many dentists recommend assessment between ages 6 and 10, when children's jaws are still developing rapidly, but your dentist can advise on the best timing for your child's specific situation.
+    a: Timing depends on your child. You can bring your child in as early as their first birthday for a general dental assessment, and for myofunctional concerns specifically, it's best to come in as soon as you notice signs like mouth breathing, sleep issues, or oral habit concerns.
   - q: What are the signs my child might need myofunctional therapy?
     a: Common signs include mouth breathing (day or night), snoring or sleep disturbances, speech development concerns, difficulty with certain foods, forward head posture, and dark circles under the eyes.
   - q: How does myofunctional treatment work?
@@ -55,7 +55,7 @@ Sticking with the exercises and wearing the device consistently matters. Your de
 
 ## When to Start Treatment
 
-Timing depends on your child. Many dentists suggest checking things out between ages 6 and 10, when there's still plenty of growing left to do. But your dentist will tell you what timing makes sense for your kid.
+Timing depends on your child. You can start assessments very early, including from the first birthday for general dental checks, and for myofunctional concerns the best time is as soon as you notice signs. Many children are assessed during ages 6 to 10, but there is no need to wait if concerns appear earlier.
 
 Starting early can steer jaw growth before adult teeth come in fully. Sometimes this means less orthodontic work later on. But kids develop at their own pace, so your dentist's advice is what counts.
 
