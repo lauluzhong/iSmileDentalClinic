@@ -14,9 +14,9 @@ faq:
   - q: How quickly can I get an emergency dental appointment?
     a: Many dental clinics, including iSmile, try to see emergency patients on the same day or within 24 hours. We understand that dental emergencies can be painful and stressful, so we prioritize urgent cases in our scheduling.
   - q: What should I do if I knock out a tooth?
-    a: If a permanent tooth is knocked out, keep it moist and get to a dentist immediately—the sooner you receive treatment, the better the chances of saving the tooth.
+    a: If a permanent tooth is knocked out, get to a dentist immediately—the sooner you receive treatment, the better the chances of saving the tooth.
   - q: Can I go to the hospital for a dental emergency?
-    a: Hospitals typically handle life-threatening emergencies but may not have dentists on staff for routine dental issues. For most dental emergencies, a dental clinic is better equipped to provide appropriate treatment.
+    a: Hospitals handle life-threatening emergencies. For most dental emergencies, contact a dental clinic as soon as possible for prompt dental care.
   - q: What if I have a dental emergency outside clinic hours?
     a: Many dental clinics provide after-hours contact information for emergencies. Check your clinic's website or voicemail message for instructions on reaching them outside regular hours.
   - q: How can I manage dental pain until I can see a dentist?
@@ -61,7 +61,7 @@ During your emergency visit, here's what typically happens:
 Different dental emergencies require different approaches, but the most important thing is to get professional help as soon as possible. Here are some general guidelines for common situations:
 
 ### Knocked-Out Tooth
-If an adult tooth gets knocked out completely, time is critical. Keep the tooth moist and get to a dentist immediately—the sooner you receive treatment, the better the chance of saving the tooth.
+If an adult tooth gets knocked out completely, time is critical. Get to a dentist immediately—the sooner you receive treatment, the better the chance of saving the tooth.
 
 ### Broken or Chipped Tooth
 Save any broken pieces if possible. Rinse your mouth gently with warm water to clean the area. Avoid chewing on that side until you can see a dentist.
@@ -94,7 +94,7 @@ You can't predict when a dental emergency will happen, but you can be prepared:
 - **Wear mouthguards during sports** – If you or your kids play contact sports, proper mouthguards prevent a lot of dental injuries.
 - **Take care of small problems early** – Regular check-ups and fixing minor issues before they become emergencies is your best prevention strategy.
 
-## What's Different About iSmile's Emergency Care
+## How iSmile Handles Emergency Care
 
 At iSmile Dental Clinic in Damansara Jaya, we handle emergencies with both clinical skill and real understanding. We know dental emergencies can be scary and painful, so we work to create a calm, reassuring environment from the moment you contact us.
 
