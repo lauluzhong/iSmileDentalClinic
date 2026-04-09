@@ -1,6 +1,7 @@
 ---
 title: "Myofunctional Orthodontics: What Malaysian Parents Need to Know"
 date: 2026-04-07
+img: "/images/blog/myofunctional-orthodontics-malaysia-hero.jpg"
 priority: P2
 tier: T2
 parent_page: /services/orthodontics/myofunctional
