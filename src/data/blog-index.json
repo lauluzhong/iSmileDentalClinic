@@ -82,7 +82,10 @@
     "slug": "myofunctional-orthodontics-malaysia",
     "title": "Myofunctional Orthodontics: What Malaysian Parents Need to Know",
     "categories": [],
-    "tags": [],
+    "tags": [
+      "Myofunctional Orthodontics",
+      "Pediatric Dentistry"
+    ],
     "date": "2026-04-07T00:00:00.000Z",
     "img": "/images/blog/myofunctional-orthodontics-malaysia-hero.jpg",
     "featured": false,
@@ -171,8 +174,8 @@
       "Orthodontics"
     ],
     "tags": [
-      "Pediatric Dentistry",
-      "Myofunctional Orthodontics"
+      "Myofunctional Orthodontics",
+      "Pediatric Dentistry"
     ],
     "date": "2026-03-28",
     "img": "/images/blog/child-candidate-myofunctional-orthodontics.jpg",
@@ -320,9 +323,8 @@
       "Kids & Growth"
     ],
     "tags": [
-      "Clear Aligners",
       "Myofunctional Orthodontics",
-      "Pediatric Dentistry"
+      "Clear Aligners"
     ],
     "date": "2026-03-20",
     "img": "/images/child_airway_hero_1765825276038.png",
@@ -505,8 +507,8 @@
       "Restorative"
     ],
     "tags": [
-      "Oral Health",
-      "Oral Surgery"
+      "Oral Surgery",
+      "Oral Health"
     ],
     "date": "2025-01-08",
     "img": "/images/blog/root_canal_vs_extraction_hero.png",
@@ -539,8 +541,8 @@
       "Orthodontics"
     ],
     "tags": [
-      "Pediatric Dentistry",
-      "Traditional Braces"
+      "Traditional Braces",
+      "Pediatric Dentistry"
     ],
     "date": "2025-01-05",
     "img": "/images/service_straighten.png",
