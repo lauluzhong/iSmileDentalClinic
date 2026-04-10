@@ -9,7 +9,36 @@
     "date": "2026-04-09",
     "excerpt": "Learn about our gentle, child-friendly approach to pediatric dentistry in Damansara Jaya. We create positive dental experiences for children.",
     "featured": false,
-    "faq": [],
+    "faq": [
+      {
+        "q": "What age should my child first see a dentist?",
+        "a": "The general recommendation is around age one, or within six months of the first tooth appearing. Early visits focus on prevention and education rather than treatment. We check for proper development, discuss feeding habits, and show parents how to care for new teeth. These appointments are short and positive, helping children become comfortable with dental care from the start."
+      },
+      {
+        "q": "What services do you offer for children?",
+        "a": "We provide a range of pediatric dental services including first dental visits and assessments, fissure sealants, topical fluoride treatment, pediatric fillings, and baby tooth extraction when necessary. For older children with mixed dentition, we offer clear aligner systems designed for growing mouths. Our approach is prevention-focused, with age-appropriate care for toddlers through teenagers."
+      },
+      {
+        "q": "How do you make dental visits less scary for children?",
+        "a": "We create a child-friendly environment with patient explanations, child-sized equipment when appropriate, and a no-rush approach. We show children how tools work before using them, let them hold mirrors to see what we're doing, and celebrate their cooperation. Our team has experience working with children of all ages and focuses on building trust through positive experiences."
+      },
+      {
+        "q": "What are fissure sealants and how do they work?",
+        "a": "Fissure sealants are protective coatings applied to the back teeth where cavities most often form. The procedure is quick and painless—we clean the tooth surface, apply the sealant material, and use a special light to harden it. Sealants fill in the grooves and pits where food particles and bacteria can get trapped, providing long-lasting protection against decay."
+      },
+      {
+        "q": "How often should children have dental check-ups?",
+        "a": "Visit frequency depends on your child's individual needs. Some children benefit from more frequent check-ups, while others do well with standard intervals. During your child's assessment, your dentist will advise what schedule is appropriate based on their dental development, risk factors, and overall oral health. Regular monitoring helps us catch potential issues early."
+      },
+      {
+        "q": "Do you offer orthodontic treatment for children?",
+        "a": "Yes, we provide orthodontic assessment and treatment for children. For younger children with developing dental issues, we offer clear aligner systems designed for mixed dentition. We also screen for myofunctional factors that can affect dental development, such as breathing patterns and tongue position. Your dentist will assess your child's specific needs and recommend appropriate options."
+      },
+      {
+        "q": "What should I do if my child is anxious about dental visits?",
+        "a": "Start by talking positively about dental care at home. Read children's books about visiting the dentist, play \"dentist\" with toys, and avoid sharing any negative dental experiences you might have had. Schedule morning appointments when children are typically well-rested, and let us know about any concerns beforehand. We're experienced with anxious patients and will work at your child's pace to build comfort and trust."
+      }
+    ],
     "content_type": "locality"
   },
   {
@@ -567,6 +596,39 @@
     "content_type": "educational"
   },
   {
+    "slug": "is-teeth-whitening-safe",
+    "title": "Is Teeth Whitening Safe? What Dentists Want You to Know",
+    "categories": [
+      "Cosmetic"
+    ],
+    "tags": [
+      "Cosmetic Dentistry"
+    ],
+    "date": "2024-12-15",
+    "img": "/images/veneers_hero_1765825257935.png",
+    "excerpt": "Everyone wants a brighter smile, but is it safe for your enamel? We separate fact from fiction.",
+    "featured": false,
+    "faq": [
+      {
+        "a": "Sometimes the logic 'harder is cleaner' backfires. Using a hard-bristled toothbrush or aggressive scrubbing can traumatize gum tissue. Switching to a soft-bristled brush and using gentle, circular motions can make a world of difference.",
+        "q": "Are You Brushing Too Hard?"
+      },
+      {
+        "a": "When done correctly, professional whitening does not 'strip' your enamel — it gently opens the pores to lift out deep-seated pigments. However, aggressive scrubbing with abrasive materials like charcoal can actually erode your enamel over time. Professional whitening uses safe, buffered gels that protect gums while effectively lifting stubborn stains.",
+        "q": "Is Professional Teeth Whitening Safe for Your Enamel?"
+      },
+      {
+        "a": "If your teen is asking for a brighter smile, it is best to talk to a dentist first. We generally recommend waiting until all adult teeth have fully matured before beginning any whitening treatments.",
+        "q": "When Should a Teen Consider Teeth Whitening?"
+      },
+      {
+        "a": "Always have a check-up before whitening. Ensuring there are no underlying cavities or issues first prevents any discomfort and gives you the best, most even results.",
+        "q": "What Should You Do Before Starting Teeth Whitening?"
+      }
+    ],
+    "content_type": "educational"
+  },
+  {
     "slug": "composite-vs-porcelain-veneers",
     "title": "Composite vs Porcelain Veneers: Which Smile Makeover Makes Sense?",
     "categories": [
@@ -611,12 +673,24 @@
     ],
     "tags": [
       "Cosmetic Dentistry",
-      "Damansara Jaya",
-      "Smile Makeover",
-      "Aesthetic Dentistry",
-      "Dental Treatments"
+      "Oral Health"
     ],
     "excerpt": "Explore cosmetic dentistry options at iSmile Dental Clinic in Damansara Jaya, including treatments that can help improve smile aesthetics with a personalised assessment.",
+    "featured": false,
+    "faq": [],
+    "content_type": "educational"
+  },
+  {
+    "slug": "invisalign-and-clear-aligners-in-damansara-jaya",
+    "title": "Invisalign & Clear Aligners in Damansara Jaya",
+    "categories": [
+      "Orthodontics"
+    ],
+    "tags": [
+      "Clear Aligners",
+      "Orthodontics"
+    ],
+    "excerpt": "Learn what patients in Damansara Jaya should know about Invisalign and clear aligner treatment options, including suitability, planning, and common questions.",
     "featured": false,
     "faq": [],
     "content_type": "educational"
@@ -650,39 +724,6 @@
       {
         "a": "If you feel pressure, pain, or notice any swelling or gum changes at the back of your mouth, it is worth coming in for a quick X-ray to see what is happening beneath the surface.",
         "q": "When Should You Check In with Your Dentist About Wisdom Teeth?"
-      }
-    ],
-    "content_type": "educational"
-  },
-  {
-    "slug": "is-teeth-whitening-safe",
-    "title": "Is Teeth Whitening Safe? What Dentists Want You to Know",
-    "categories": [
-      "Cosmetic"
-    ],
-    "tags": [
-      "Cosmetic Dentistry"
-    ],
-    "date": "2024-12-15",
-    "img": "/images/veneers_hero_1765825257935.png",
-    "excerpt": "Everyone wants a brighter smile, but is it safe for your enamel? We separate fact from fiction.",
-    "featured": false,
-    "faq": [
-      {
-        "a": "Sometimes the logic 'harder is cleaner' backfires. Using a hard-bristled toothbrush or aggressive scrubbing can traumatize gum tissue. Switching to a soft-bristled brush and using gentle, circular motions can make a world of difference.",
-        "q": "Are You Brushing Too Hard?"
-      },
-      {
-        "a": "When done correctly, professional whitening does not 'strip' your enamel — it gently opens the pores to lift out deep-seated pigments. However, aggressive scrubbing with abrasive materials like charcoal can actually erode your enamel over time. Professional whitening uses safe, buffered gels that protect gums while effectively lifting stubborn stains.",
-        "q": "Is Professional Teeth Whitening Safe for Your Enamel?"
-      },
-      {
-        "a": "If your teen is asking for a brighter smile, it is best to talk to a dentist first. We generally recommend waiting until all adult teeth have fully matured before beginning any whitening treatments.",
-        "q": "When Should a Teen Consider Teeth Whitening?"
-      },
-      {
-        "a": "Always have a check-up before whitening. Ensuring there are no underlying cavities or issues first prevents any discomfort and gives you the best, most even results.",
-        "q": "What Should You Do Before Starting Teeth Whitening?"
       }
     ],
     "content_type": "educational"
