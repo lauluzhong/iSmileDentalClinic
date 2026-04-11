@@ -1,9 +1,13 @@
 ---
 title: "Cosmetic Dentistry at iSmile Damansara Jaya"
+date: "2026-04-10"
 excerpt: "Explore cosmetic dentistry options at iSmile Dental Clinic in Damansara Jaya, including treatments that can help improve smile aesthetics with a personalised assessment."
 categories: ["Cosmetic Dentistry"]
-tags: ["Cosmetic Dentistry", "Damansara Jaya", "Smile Makeover", "Aesthetic Dentistry", "Dental Treatments"]
+tags: []
 parent_page: "https://ismile.com.my/services/locations/damansara-jaya"
+cluster: "LOCAL SEO DEFENSE (Damansara Jaya locality)"
+keyword: "cosmetic dentistry Damansara Jaya"
+content_type: locality
 ---
 
 ## What Cosmetic Dentistry Covers
