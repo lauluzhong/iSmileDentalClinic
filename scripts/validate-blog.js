@@ -26,6 +26,7 @@ function compareSets(contentSlugs, indexSlugs, sitemapSlugs) {
   const contentSet = new Set(contentSlugs);
   const indexSet = new Set(indexSlugs);
   const sitemapSet = new Set(sitemapSlugs);
+  const duplicateSitemapSlugs = sitemapSlugs.filter((slug, index) => sitemapSlugs.indexOf(slug) !== index);
 
   console.log(`Content directory: ${contentSet.size} posts`);
   console.log(`Blog index: ${indexSet.size} posts`);
@@ -51,6 +52,10 @@ function compareSets(contentSlugs, indexSlugs, sitemapSlugs) {
   }
   if (extraInSitemap.length > 0) {
     console.warn(`⚠ Extra blog entries in sitemap.xml not in content: ${extraInSitemap.join(', ')}`);
+  }
+  if (duplicateSitemapSlugs.length > 0) {
+    console.error(`❌ Duplicate blog entries in sitemap.xml: ${[...new Set(duplicateSitemapSlugs)].join(', ')}`);
+    hasErrors = true;
   }
 
   if (!hasErrors) {

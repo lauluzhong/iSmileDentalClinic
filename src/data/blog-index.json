@@ -1,5 +1,56 @@
 [
   {
+    "slug": "invisalign-and-clear-aligners-in-damansara-jaya",
+    "title": "Invisalign & Clear Aligners in Damansara Jaya",
+    "categories": [
+      "Orthodontics"
+    ],
+    "tags": [],
+    "date": "2026-04-11",
+    "excerpt": "Learn what patients in Damansara Jaya should know about Invisalign and clear aligner treatment options, including suitability, planning, and common questions.",
+    "featured": false,
+    "faq": [
+      {
+        "q": "How noticeable are clear aligners during wear?",
+        "a": "Clear aligners are designed to be minimally noticeable. The transparent plastic material makes them much less visible than traditional braces. Most people will not notice you are wearing aligners unless they look closely. This discreet appearance is one of the main reasons many adults choose this treatment option."
+      },
+      {
+        "q": "Can I eat and drink normally with clear aligners?",
+        "a": "Yes. One advantage of clear aligners is their removability. You take them out for eating and drinking, then clean your teeth before reinserting them. This means you can continue your regular diet without food restrictions. However, it is important to wear aligners for the recommended daily duration to stay on track."
+      },
+      {
+        "q": "How do I care for my clear aligners?",
+        "a": "Aligner care involves regular cleaning with recommended products. Typically, you rinse aligners each time you remove them and brush them gently with a soft toothbrush. Avoid hot water, which can warp the plastic. Your dental professional will provide specific care instructions for your aligner system."
+      },
+      {
+        "q": "What happens if I lose or damage an aligner?",
+        "a": "If you lose or damage an aligner, contact your dental clinic promptly. They can advise whether to move to the next aligner in your sequence or whether you need a replacement. Having your treatment supervised locally in Damansara Jaya makes these situations easier to manage."
+      },
+      {
+        "q": "How long does treatment typically take?",
+        "a": "Treatment duration varies based on individual needs. Some cases complete in six to twelve months, while more complex situations may take longer. Your dental professional will provide a personalized timeframe estimate during your consultation."
+      },
+      {
+        "q": "Are there any restrictions during treatment?",
+        "a": "The main requirement is wearing aligners for the recommended daily duration. You also need to maintain good oral hygiene and attend scheduled check-up appointments. Your dental professional will discuss any specific considerations relevant to your treatment plan."
+      }
+    ],
+    "content_type": "locality"
+  },
+  {
+    "slug": "cosmetic-dentistry-at-ismile-damansara-jaya",
+    "title": "Cosmetic Dentistry at iSmile Damansara Jaya",
+    "categories": [
+      "Cosmetic Dentistry"
+    ],
+    "tags": [],
+    "date": "2026-04-10",
+    "excerpt": "Explore cosmetic dentistry options at iSmile Dental Clinic in Damansara Jaya, including treatments that can help improve smile aesthetics with a personalised assessment.",
+    "featured": false,
+    "faq": [],
+    "content_type": "locality"
+  },
+  {
     "slug": "pediatric-dentistry-damansara-jaya-our-approach-to-childrens-dental-health",
     "title": "Pediatric Dentistry in Damansara Jaya: Our Approach to Children's Dental Health",
     "categories": [
@@ -46,7 +97,7 @@
     "title": "Emergency Dental Care in Damansara Jaya: What to Expect",
     "categories": [],
     "tags": [],
-    "date": "2026-04-08T00:00:00.000Z",
+    "date": "2026-04-08",
     "featured": false,
     "faq": [
       {
@@ -84,7 +135,7 @@
       "Myofunctional Orthodontics",
       "Pediatric Dentistry"
     ],
-    "date": "2026-04-07T00:00:00.000Z",
+    "date": "2026-04-07",
     "img": "/images/blog/myofunctional-orthodontics-malaysia-hero.jpg",
     "featured": false,
     "faq": [
@@ -124,7 +175,7 @@
     "title": "Family Dentistry in Damansara Jaya: What Makes iSmile Different",
     "categories": [],
     "tags": [],
-    "date": "2026-04-06T00:00:00.000Z",
+    "date": "2026-04-06",
     "featured": false,
     "faq": [
       {
@@ -159,7 +210,7 @@
     "title": "Why Choose iSmile Dental Clinic in Damansara Jaya",
     "categories": [],
     "tags": [],
-    "date": "2026-04-06T00:00:00.000Z",
+    "date": "2026-04-06",
     "featured": false,
     "faq": [],
     "content_type": "locality"
@@ -596,6 +647,39 @@
     "content_type": "educational"
   },
   {
+    "slug": "wisdom-tooth-surgery",
+    "title": "Wisdom Tooth Surgery: What to Expect Before, During, and After",
+    "categories": [
+      "Oral Surgery"
+    ],
+    "tags": [
+      "Oral Surgery"
+    ],
+    "date": "2024-12-20",
+    "img": "/images/blog/asian_couple_40s.png",
+    "excerpt": "Wisdom tooth removal is a rite of passage for many. Here is a guide to help you prepare and recover smoothly.",
+    "featured": false,
+    "faq": [
+      {
+        "a": "Wisdom teeth often become impacted because there is not enough room in the jaw. This can lead to persistent infection or even pushing other teeth out of alignment, potentially affecting years of orthodontic work.",
+        "q": "Why Is Timing Important for Wisdom Tooth Removal?"
+      },
+      {
+        "a": "Modern anesthesia and techniques mean the procedure itself is designed to be painless. You might feel some pressure, but comfort is prioritized throughout. We understand that dental visits can feel daunting for some, and we are committed to providing a gentle experience tailored to your comfort and peace of mind.",
+        "q": "Is Wisdom Tooth Surgery Painful?"
+      },
+      {
+        "a": "Swelling typically peaks within the first few days and then begins to subside. Sticking to a soft, nutritious diet and keeping the area clean as instructed is the secret to a quick and trouble-free recovery. Your dentist will advise on the expected recovery timeline.",
+        "q": "What Is the Recovery Process Like After Wisdom Tooth Surgery?"
+      },
+      {
+        "a": "If you feel pressure, pain, or notice any swelling or gum changes at the back of your mouth, it is worth coming in for a quick X-ray to see what is happening beneath the surface.",
+        "q": "When Should You Check In with Your Dentist About Wisdom Teeth?"
+      }
+    ],
+    "content_type": "educational"
+  },
+  {
     "slug": "is-teeth-whitening-safe",
     "title": "Is Teeth Whitening Safe? What Dentists Want You to Know",
     "categories": [
@@ -661,92 +745,6 @@
       {
         "q": "How do I care for my veneers?",
         "a": "Care for veneers like natural teeth: brush twice daily with non-abrasive toothpaste, floss regularly, avoid biting hard objects, and wear a night guard if you grind your teeth. Regular dental check-ups (every 6 months) are essential. Porcelain veneers resist stains better, but both types benefit from avoiding excessive coffee, tea, red wine, and tobacco."
-      }
-    ],
-    "content_type": "educational"
-  },
-  {
-    "slug": "cosmetic-dentistry-at-ismile-damansara-jaya",
-    "title": "Cosmetic Dentistry at iSmile Damansara Jaya",
-    "categories": [
-      "Cosmetic Dentistry"
-    ],
-    "tags": [
-      "Cosmetic Dentistry",
-      "Oral Health"
-    ],
-    "excerpt": "Explore cosmetic dentistry options at iSmile Dental Clinic in Damansara Jaya, including treatments that can help improve smile aesthetics with a personalised assessment.",
-    "featured": false,
-    "faq": [],
-    "content_type": "educational"
-  },
-  {
-    "slug": "invisalign-and-clear-aligners-in-damansara-jaya",
-    "title": "Invisalign & Clear Aligners in Damansara Jaya",
-    "categories": [
-      "Orthodontics"
-    ],
-    "tags": [],
-    "excerpt": "Learn what patients in Damansara Jaya should know about Invisalign and clear aligner treatment options, including suitability, planning, and common questions.",
-    "featured": false,
-    "faq": [
-      {
-        "q": "How noticeable are clear aligners during wear?",
-        "a": "Clear aligners are designed to be minimally noticeable. The transparent plastic material makes them much less visible than traditional braces. Most people will not notice you are wearing aligners unless they look closely. This discreet appearance is one of the main reasons many adults choose this treatment option."
-      },
-      {
-        "q": "Can I eat and drink normally with clear aligners?",
-        "a": "Yes. One advantage of clear aligners is their removability. You take them out for eating and drinking, then clean your teeth before reinserting them. This means you can continue your regular diet without food restrictions. However, it is important to wear aligners for the recommended daily duration to stay on track."
-      },
-      {
-        "q": "How do I care for my clear aligners?",
-        "a": "Aligner care involves regular cleaning with recommended products. Typically, you rinse aligners each time you remove them and brush them gently with a soft toothbrush. Avoid hot water, which can warp the plastic. Your dental professional will provide specific care instructions for your aligner system."
-      },
-      {
-        "q": "What happens if I lose or damage an aligner?",
-        "a": "If you lose or damage an aligner, contact your dental clinic promptly. They can advise whether to move to the next aligner in your sequence or whether you need a replacement. Having your treatment supervised locally in Damansara Jaya makes these situations easier to manage."
-      },
-      {
-        "q": "How long does treatment typically take?",
-        "a": "Treatment duration varies based on individual needs. Some cases complete in six to twelve months, while more complex situations may take longer. Your dental professional will provide a personalized timeframe estimate during your consultation."
-      },
-      {
-        "q": "Are there any restrictions during treatment?",
-        "a": "The main requirement is wearing aligners for the recommended daily duration. You also need to maintain good oral hygiene and attend scheduled check-up appointments. Your dental professional will discuss any specific considerations relevant to your treatment plan."
-      }
-    ],
-    "content_type": "locality",
-    "date": "2026-04-11"
-  },
-  {
-    "slug": "wisdom-tooth-surgery",
-    "title": "Wisdom Tooth Surgery: What to Expect Before, During, and After",
-    "categories": [
-      "Oral Surgery"
-    ],
-    "tags": [
-      "Oral Surgery"
-    ],
-    "date": "2024-12-20",
-    "img": "/images/blog/asian_couple_40s.png",
-    "excerpt": "Wisdom tooth removal is a rite of passage for many. Here is a guide to help you prepare and recover smoothly.",
-    "featured": false,
-    "faq": [
-      {
-        "a": "Wisdom teeth often become impacted because there is not enough room in the jaw. This can lead to persistent infection or even pushing other teeth out of alignment, potentially affecting years of orthodontic work.",
-        "q": "Why Is Timing Important for Wisdom Tooth Removal?"
-      },
-      {
-        "a": "Modern anesthesia and techniques mean the procedure itself is designed to be painless. You might feel some pressure, but comfort is prioritized throughout. We understand that dental visits can feel daunting for some, and we are committed to providing a gentle experience tailored to your comfort and peace of mind.",
-        "q": "Is Wisdom Tooth Surgery Painful?"
-      },
-      {
-        "a": "Swelling typically peaks within the first few days and then begins to subside. Sticking to a soft, nutritious diet and keeping the area clean as instructed is the secret to a quick and trouble-free recovery. Your dentist will advise on the expected recovery timeline.",
-        "q": "What Is the Recovery Process Like After Wisdom Tooth Surgery?"
-      },
-      {
-        "a": "If you feel pressure, pain, or notice any swelling or gum changes at the back of your mouth, it is worth coming in for a quick X-ray to see what is happening beneath the surface.",
-        "q": "When Should You Check In with Your Dentist About Wisdom Teeth?"
       }
     ],
     "content_type": "educational"

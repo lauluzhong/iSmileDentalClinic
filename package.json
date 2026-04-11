@@ -5,7 +5,8 @@
     "type": "module",
     "scripts": {
         "blog:validate-tags": "node scripts/check-tags.js",
-        "blog:build": "npm run blog:validate-tags && node scripts/build-blog.js",
+        "blog:validate": "node scripts/validate-blog.js",
+        "blog:build": "npm run blog:validate-tags && node scripts/build-blog.js && npm run blog:validate",
         "prebuild": "npm run blog:build",
         "dev": "npm run blog:build && vite",
         "build": "vite build",
