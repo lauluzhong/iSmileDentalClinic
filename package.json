@@ -4,9 +4,10 @@
     "version": "0.1.0",
     "type": "module",
     "scripts": {
-        "blog:build": "node scripts/build-blog.js",
-        "prebuild": "node scripts/build-blog.js",
-        "dev": "node scripts/build-blog.js && vite",
+        "blog:validate-tags": "node scripts/check-tags.js",
+        "blog:build": "npm run blog:validate-tags && node scripts/build-blog.js",
+        "prebuild": "npm run blog:build",
+        "dev": "npm run blog:build && vite",
         "build": "vite build",
         "lint": "eslint .",
         "preview": "vite preview"
