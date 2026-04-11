@@ -12,7 +12,7 @@ content_type: locality
 
 ## What Cosmetic Dentistry Covers
 
-Cosmetic dentistry focuses on improving the appearance of your smile while maintaining or enhancing dental health. At iSmile Dental Clinic in Damansara Jaya, we approach cosmetic treatments with a comprehensive perspective—considering both aesthetics and function. The goal isn't just about creating a beautiful smile, but ensuring it works well and feels comfortable too.
+Cosmetic dentistry focuses on improving the appearance of your smile while maintaining or enhancing dental health. At iSmile Dental Clinic in [Damansara Jaya](/services/locations/damansara-jaya), we approach cosmetic treatments with a comprehensive perspective—considering both aesthetics and function. The goal isn't just about creating a beautiful smile, but ensuring it works well and feels comfortable too.
 
 Many people associate cosmetic dentistry with purely aesthetic changes, but modern approaches often address underlying dental health issues as well. For example, correcting misaligned teeth can improve both appearance and bite function. Similarly, replacing missing teeth can restore both confidence and chewing ability. This dual focus on beauty and health represents the contemporary approach to cosmetic dental care.
 
@@ -20,7 +20,7 @@ In Petaling Jaya and surrounding Klang Valley areas, we see patients with divers
 
 ## Common Cosmetic Dental Treatments
 
-Several treatment options fall under the cosmetic dentistry umbrella. Teeth whitening remains one of the most requested procedures, addressing discoloration from aging, dietary habits, or lifestyle factors. Professional whitening treatments offered at our Damansara Jaya clinic can help brighten your smile under controlled, safe conditions supervised by dental professionals.
+Several treatment options fall under the cosmetic dentistry umbrella. Teeth whitening remains one of the most requested procedures, addressing discoloration from aging, dietary habits, or lifestyle factors. Professional whitening treatments offered at our [Damansara Jaya](/services/locations/damansara-jaya) clinic can help brighten your smile under controlled, safe conditions supervised by dental professionals.
 
 Dental veneers represent another popular option for transforming smile appearance. These thin, custom-made shells cover the front surface of teeth, addressing issues like chips, gaps, or discoloration that don't respond well to whitening. Veneers require careful planning and preparation to ensure natural-looking results that complement your facial features and existing teeth.
 
@@ -62,7 +62,7 @@ Some cosmetic treatments involve periodic maintenance or touch-ups. During your 
 
 ### What's the first step in considering cosmetic dentistry?
 
-The initial step involves a consultation at our Damansara Jaya clinic. During this visit, we discuss your concerns, examine your dental health, and explore potential treatment options. This assessment helps determine which approaches might be most suitable for achieving your aesthetic goals while considering your overall dental wellbeing.
+The initial step involves a consultation at our [Damansara Jaya](/services/locations/damansara-jaya) clinic. During this visit, we discuss your concerns, examine your dental health, and explore potential treatment options. This assessment helps determine which approaches might be most suitable for achieving your aesthetic goals while considering your overall dental wellbeing.
 
 ### How do I know which cosmetic treatment is right for me?
 

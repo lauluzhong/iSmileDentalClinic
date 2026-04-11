@@ -31,13 +31,13 @@ content_type: locality
 
 Here's the thing about children's dental care: it's not just about fixing problems when they happen. It's about setting up good habits from the start. Pediatric dentistry focuses on creating positive experiences that shape how kids feel about dental visits for years to come.
 
-At our Damansara Jaya clinic, we get that children aren't just small adults. Their dental needs are different, and honestly, their attention spans are too. We approach their care with patience and understanding, focusing on prevention, education, and building trust right from that first visit.
+At our [Damansara Jaya](/services/locations/damansara-jaya) clinic, we get that children aren't just small adults. Their dental needs are different, and honestly, their attention spans are too. We approach their care with patience and understanding, focusing on prevention, education, and building trust right from that first visit.
 
 The goal is pretty straightforward: help your child develop healthy habits early so they can enjoy good oral health for life. Getting kids comfortable with dental visits early on? That saves everyone a lot of stress later. Trust me on this one.
 
 ## Our Child-Friendly Environment
 
-Walking into a dental clinic can be intimidating for anyone, especially children. That's why we've designed our Damansara Jaya practice to feel welcoming and calm from the moment you arrive.
+Walking into a dental clinic can be intimidating for anyone, especially children. That's why we've designed our [Damansara Jaya](/services/locations/damansara-jaya) practice to feel welcoming and calm from the moment you arrive.
 
 We take our time with each child. We explain things in words they understand and answer their questions without rushing. There's no judgment here—just gentle guidance. Our team has worked with children of all ages, from wobbly toddlers to eye-rolling teenagers navigating orthodontic treatment.
 
@@ -75,4 +75,4 @@ As children grow, we adjust how often they visit based on their individual needs
 
 The key is consistency. Regular dental visits from an early age help children see dental care as a normal, positive part of life instead of something to fear. That positive association? It pays off for decades.
 
-For more information about our children's dental services in Damansara Jaya, visit our [Damansara Jaya location page](https://ismile.com.my/services/locations/damansara-jaya) or contact us to schedule an appointment.
+For more information about our children's dental services in Damansara Jaya, visit our [Damansara Jaya location page](/services/locations/damansara-jaya) or contact us to schedule an appointment.
