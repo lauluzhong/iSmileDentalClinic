@@ -17,9 +17,8 @@ featured: false
 img: /images/child_airway_hero_1765825276038.png
 title: 'LM Activator vs Invisalign Malaysia: What''s the Difference and Which Does My Child Actually Need?'
 tags:
-  - Clear Aligners
   - Myofunctional Orthodontics
-  - Pediatric Dentistry
+  - Clear Aligners
 content_type: educational
 ---
 

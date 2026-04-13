@@ -1,29 +1,103 @@
 [
   {
-    "slug": "myofunctional-orthodontics-for-children-what-parents-need-to-know",
-    "title": "Myofunctional Orthodontics for Children: What Parents Need to Know",
+    "slug": "invisalign-and-clear-aligners-in-damansara-jaya",
+    "title": "Invisalign & Clear Aligners in Damansara Jaya",
     "categories": [
-      "Kids & Growth"
+      "Orthodontics"
     ],
-    "tags": [
-      "Kids & Growth",
-      "Myofunctional Orthodontics",
-      "Children's Dentistry",
-      "Pediatric Orthodontics",
-      "Airway Health"
+    "tags": [],
+    "date": "2026-04-11",
+    "excerpt": "Learn what patients in Damansara Jaya should know about Invisalign and clear aligner treatment options, including suitability, planning, and common questions.",
+    "featured": false,
+    "faq": [
+      {
+        "q": "How noticeable are clear aligners during wear?",
+        "a": "Clear aligners are designed to be minimally noticeable. The transparent plastic material makes them much less visible than traditional braces. Most people will not notice you are wearing aligners unless they look closely. This discreet appearance is one of the main reasons many adults choose this treatment option."
+      },
+      {
+        "q": "Can I eat and drink normally with clear aligners?",
+        "a": "Yes. One advantage of clear aligners is their removability. You take them out for eating and drinking, then clean your teeth before reinserting them. This means you can continue your regular diet without food restrictions. However, it is important to wear aligners for the recommended daily duration to stay on track."
+      },
+      {
+        "q": "How do I care for my clear aligners?",
+        "a": "Aligner care involves regular cleaning with recommended products. Typically, you rinse aligners each time you remove them and brush them gently with a soft toothbrush. Avoid hot water, which can warp the plastic. Your dental professional will provide specific care instructions for your aligner system."
+      },
+      {
+        "q": "What happens if I lose or damage an aligner?",
+        "a": "If you lose or damage an aligner, contact your dental clinic promptly. They can advise whether to move to the next aligner in your sequence or whether you need a replacement. Having your treatment supervised locally in Damansara Jaya makes these situations easier to manage."
+      },
+      {
+        "q": "How long does treatment typically take?",
+        "a": "Treatment duration varies based on individual needs. Some cases complete in six to twelve months, while more complex situations may take longer. Your dental professional will provide a personalized timeframe estimate during your consultation."
+      },
+      {
+        "q": "Are there any restrictions during treatment?",
+        "a": "The main requirement is wearing aligners for the recommended daily duration. You also need to maintain good oral hygiene and attend scheduled check-up appointments. Your dental professional will discuss any specific considerations relevant to your treatment plan."
+      }
     ],
-    "date": "2026-04-13",
-    "excerpt": "Learn how myofunctional orthodontics addresses mouth breathing, tongue posture, and jaw development issues in children to prevent future dental problems and support healthy growth.",
+    "content_type": "locality"
+  },
+  {
+    "slug": "cosmetic-dentistry-at-ismile-damansara-jaya",
+    "title": "Cosmetic Dentistry at iSmile Damansara Jaya",
+    "categories": [
+      "Cosmetic Dentistry"
+    ],
+    "tags": [],
+    "date": "2026-04-10",
+    "excerpt": "Explore cosmetic dentistry options at iSmile Dental Clinic in Damansara Jaya, including treatments that can help improve smile aesthetics with a personalised assessment.",
     "featured": false,
     "faq": [],
-    "content_type": "educational"
+    "content_type": "locality"
+  },
+  {
+    "slug": "pediatric-dentistry-damansara-jaya-our-approach-to-childrens-dental-health",
+    "title": "Pediatric Dentistry in Damansara Jaya: Our Approach to Children's Dental Health",
+    "categories": [
+      "Pediatric Dentistry"
+    ],
+    "tags": [],
+    "date": "2026-04-09",
+    "excerpt": "Learn about our gentle, child-friendly approach to pediatric dentistry in Damansara Jaya. We create positive dental experiences for children.",
+    "featured": false,
+    "faq": [
+      {
+        "q": "What age should my child first see a dentist?",
+        "a": "The general recommendation is around age one, or within six months of the first tooth appearing. Early visits focus on prevention and education rather than treatment. We check for proper development, discuss feeding habits, and show parents how to care for new teeth. These appointments are short and positive, helping children become comfortable with dental care from the start."
+      },
+      {
+        "q": "What services do you offer for children?",
+        "a": "We provide a range of pediatric dental services including first dental visits and assessments, fissure sealants, topical fluoride treatment, pediatric fillings, and baby tooth extraction when necessary. For older children with mixed dentition, we offer clear aligner systems designed for growing mouths. Our approach is prevention-focused, with age-appropriate care for toddlers through teenagers."
+      },
+      {
+        "q": "How do you make dental visits less scary for children?",
+        "a": "We create a child-friendly environment with patient explanations, child-sized equipment when appropriate, and a no-rush approach. We show children how tools work before using them, let them hold mirrors to see what we're doing, and celebrate their cooperation. Our team has experience working with children of all ages and focuses on building trust through positive experiences."
+      },
+      {
+        "q": "What are fissure sealants and how do they work?",
+        "a": "Fissure sealants are protective coatings applied to the back teeth where cavities most often form. The procedure is quick and painless—we clean the tooth surface, apply the sealant material, and use a special light to harden it. Sealants fill in the grooves and pits where food particles and bacteria can get trapped, providing long-lasting protection against decay."
+      },
+      {
+        "q": "How often should children have dental check-ups?",
+        "a": "Visit frequency depends on your child's individual needs. Some children benefit from more frequent check-ups, while others do well with standard intervals. During your child's assessment, your dentist will advise what schedule is appropriate based on their dental development, risk factors, and overall oral health. Regular monitoring helps us catch potential issues early."
+      },
+      {
+        "q": "Do you offer orthodontic treatment for children?",
+        "a": "Yes, we provide orthodontic assessment and treatment for children. For younger children with developing dental issues, we offer clear aligner systems designed for mixed dentition. We also screen for myofunctional factors that can affect dental development, such as breathing patterns and tongue position. Your dentist will assess your child's specific needs and recommend appropriate options."
+      },
+      {
+        "q": "What should I do if my child is anxious about dental visits?",
+        "a": "Start by talking positively about dental care at home. Read children's books about visiting the dentist, play \"dentist\" with toys, and avoid sharing any negative dental experiences you might have had. Schedule morning appointments when children are typically well-rested, and let us know about any concerns beforehand. We're experienced with anxious patients and will work at your child's pace to build comfort and trust."
+      }
+    ],
+    "content_type": "locality"
   },
   {
     "slug": "emergency-dental-care-damansara-jaya",
     "title": "Emergency Dental Care in Damansara Jaya: What to Expect",
     "categories": [],
     "tags": [],
-    "date": "2026-04-08T00:00:00.000Z",
+    "date": "2026-04-08",
     "featured": false,
     "faq": [
       {
@@ -57,8 +131,11 @@
     "slug": "myofunctional-orthodontics-malaysia",
     "title": "Myofunctional Orthodontics: What Malaysian Parents Need to Know",
     "categories": [],
-    "tags": [],
-    "date": "2026-04-07T00:00:00.000Z",
+    "tags": [
+      "Myofunctional Orthodontics",
+      "Pediatric Dentistry"
+    ],
+    "date": "2026-04-07",
     "img": "/images/blog/myofunctional-orthodontics-malaysia-hero.jpg",
     "featured": false,
     "faq": [
@@ -98,7 +175,7 @@
     "title": "Family Dentistry in Damansara Jaya: What Makes iSmile Different",
     "categories": [],
     "tags": [],
-    "date": "2026-04-06T00:00:00.000Z",
+    "date": "2026-04-06",
     "featured": false,
     "faq": [
       {
@@ -133,7 +210,7 @@
     "title": "Why Choose iSmile Dental Clinic in Damansara Jaya",
     "categories": [],
     "tags": [],
-    "date": "2026-04-06T00:00:00.000Z",
+    "date": "2026-04-06",
     "featured": false,
     "faq": [],
     "content_type": "locality"
@@ -146,8 +223,8 @@
       "Orthodontics"
     ],
     "tags": [
-      "Pediatric Dentistry",
-      "Myofunctional Orthodontics"
+      "Myofunctional Orthodontics",
+      "Pediatric Dentistry"
     ],
     "date": "2026-03-28",
     "img": "/images/blog/child-candidate-myofunctional-orthodontics.jpg",
@@ -295,9 +372,8 @@
       "Kids & Growth"
     ],
     "tags": [
-      "Clear Aligners",
       "Myofunctional Orthodontics",
-      "Pediatric Dentistry"
+      "Clear Aligners"
     ],
     "date": "2026-03-20",
     "img": "/images/child_airway_hero_1765825276038.png",
@@ -480,8 +556,8 @@
       "Restorative"
     ],
     "tags": [
-      "Oral Health",
-      "Oral Surgery"
+      "Oral Surgery",
+      "Oral Health"
     ],
     "date": "2025-01-08",
     "img": "/images/blog/root_canal_vs_extraction_hero.png",
@@ -514,8 +590,8 @@
       "Orthodontics"
     ],
     "tags": [
-      "Pediatric Dentistry",
-      "Traditional Braces"
+      "Traditional Braces",
+      "Pediatric Dentistry"
     ],
     "date": "2025-01-05",
     "img": "/images/service_straighten.png",

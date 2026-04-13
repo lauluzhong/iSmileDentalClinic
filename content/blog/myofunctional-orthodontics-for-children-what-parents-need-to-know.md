@@ -3,12 +3,13 @@ title: "Myofunctional Orthodontics for Children: What Parents Need to Know"
 date: "2026-04-13"
 excerpt: "Learn how myofunctional orthodontics addresses mouth breathing, tongue posture, and jaw development issues in children to prevent future dental problems and support healthy growth."
 categories: ["Kids & Growth"]
-tags: ["Kids & Growth", "Myofunctional Orthodontics", "Children's Dentistry", "Pediatric Orthodontics", "Airway Health"]
+tags: ["Myofunctional Orthodontics", "Pediatric Dentistry"]
 priority: "P2"
 tier: "T2"
 parent_page: "https://ismile.com.my/services/children/myofunctional"
 cluster: "Myofunctional Orthodontics"
 keyword: "myofunctional orthodontics Malaysia"
+content_type: educational
 ---
 
 # Myofunctional Orthodontics for Children: What Parents Need to Know
