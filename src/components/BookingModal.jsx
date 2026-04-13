@@ -2,23 +2,29 @@ import React, { useState, useEffect, useRef } from 'react';
 import { X } from 'lucide-react';
 import { useBooking } from '../context/BookingContext';
 import Button from './Button';
+import { insertLead } from '../lib/supabase';
 
 const BookingModal = () => {
     const { isBookingOpen, closeBooking, prefillData } = useBooking();
     const hasOpenedRef = useRef(false);
 
-    // Form state
-    const [formData, setFormData] = useState({
+    const initialFormState = {
         name: '',
         email: '',
         contact: '',
-        experience: ''
-    });
+        experience: '',
+        forSelf: false,
+        forChild: false,
+        childAge: '',
+        forOther: false,
+        additionalNotes: ''
+    };
 
-    // Simple state to track touched fields
+    const [formData, setFormData] = useState(initialFormState);
     const [touched, setTouched] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitError, setSubmitError] = useState('');
 
-    // Fire booking_modal_open event when modal opens
     useEffect(() => {
         if (isBookingOpen && !hasOpenedRef.current) {
             hasOpenedRef.current = true;
@@ -35,28 +41,31 @@ const BookingModal = () => {
         }
     }, [isBookingOpen, prefillData]);
 
-    // Effect to handle prefill data when modal opens
     useEffect(() => {
         if (isBookingOpen) {
-            if (prefillData && prefillData.experience) {
-                setFormData(prev => ({ ...prev, experience: prefillData.experience }));
-            } else {
-                setFormData(prev => ({ ...prev, experience: "" }));
-            }
+            setFormData(prev => ({
+                ...initialFormState,
+                experience: prefillData?.experience || prev.experience || ''
+            }));
         }
+        if (!isBookingOpen) {
+            setFormData(initialFormState);
+            setTouched({});
+            setSubmitError('');
+            setIsSubmitting(false);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isBookingOpen, prefillData]);
 
     if (!isBookingOpen) return null;
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
+        const { name, value, type, checked } = e.target;
+        setFormData(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
     };
 
     const handleBlur = (e) => {
         setTouched(prev => ({ ...prev, [e.target.name]: true }));
-
-        // Fire form_start on first interaction with any field
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
             event: 'form_start',
@@ -67,60 +76,84 @@ const BookingModal = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setSubmitError('');
+        setIsSubmitting(true);
 
-        // Basic Validation
         if (!formData.name || !formData.email || !formData.contact) {
-            alert('Please fill in all required fields marked with *');
+            setSubmitError('Please fill in all required fields marked with *');
+            setIsSubmitting(false);
             return;
         }
 
         const currentPage = window.location.pathname;
+        const sourceButton = prefillData?.sourceButton || 'unknown';
+        const selectedFor = [];
+        if (formData.forSelf) selectedFor.push('For myself');
+        if (formData.forChild) selectedFor.push(`For my child${formData.childAge ? ` (${formData.childAge})` : ''}`);
+        if (formData.forOther) selectedFor.push('For someone else');
 
-        // Fire whatsapp_submit_click event BEFORE opening WhatsApp
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-            event: 'whatsapp_submit_click',
-            whatsapp_page: currentPage,
-            whatsapp_cta_text: prefillData?.sourceButton || 'unknown',
-            form_name: formData.name,
-            form_has_experience: Boolean(formData.experience)
-        });
+        const familySection = selectedFor.length > 0
+            ? `\n\nPatient details:\n${selectedFor.map(x => `- ${x}`).join('\n')}`
+            : '';
+        const notesSection = formData.additionalNotes.trim()
+            ? `\n\nAdditional notes:\n${formData.additionalNotes.trim()}`
+            : '';
 
-        // Vercel API — Telegram notification
-        const apiUrl = '/api/booking-notification';
-        const payload = {
-            name: formData.name,
-            email: formData.email,
-            contact: formData.contact,
-            experience: formData.experience,
-            sourceButton: prefillData?.sourceButton || 'unknown',
-            sourcePage: currentPage,
-            timestamp: new Date().toISOString()
-        };
-
-        // Fire to Vercel API (non-blocking — don't slow down WhatsApp open)
-        fetch(apiUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-        }).catch(err => {
-            console.error('Booking notification API error:', err);
-        });
-
-        // WhatsApp Link Construction
-        const phoneNumber = '60163222135';
         const message = `Hi iSmile Dental Clinic, I'd like to schedule a visit.
 
 Name: ${formData.name}
 Contact: ${formData.contact}
 Email: ${formData.email}
 
-${formData.experience}`;
+${formData.experience}${familySection}${notesSection}`;
 
-        const encodedMessage = encodeURIComponent(message);
-        const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            event: 'whatsapp_submit_click',
+            whatsapp_page: currentPage,
+            whatsapp_cta_text: sourceButton,
+            form_name: formData.name,
+            form_has_experience: Boolean(formData.experience),
+            for_self: formData.forSelf,
+            for_child: formData.forChild,
+            child_age: formData.childAge || null,
+            for_other: formData.forOther
+        });
 
-        window.open(url, '_blank');
+        await insertLead({
+            name: formData.name,
+            email: formData.email,
+            contact: formData.contact,
+            experience: formData.experience,
+            for_self: formData.forSelf,
+            for_child: formData.forChild,
+            child_age: formData.forChild && formData.childAge ? parseInt(formData.childAge, 10) : null,
+            for_other: formData.forOther,
+            additional_notes: formData.additionalNotes || null,
+            source_button: sourceButton,
+            source_page: currentPage,
+            whatsapp_sent: true,
+            timestamp: new Date().toISOString()
+        });
+
+        fetch('/api/booking-notification', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: formData.name,
+                email: formData.email,
+                contact: formData.contact,
+                experience: formData.experience,
+                sourceButton,
+                sourcePage: currentPage,
+                timestamp: new Date().toISOString()
+            })
+        }).catch(err => {
+            console.error('Booking notification API error:', err);
+        });
+
+        const phoneNumber = '60163222135';
+        window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
         closeBooking();
     };
 
@@ -130,12 +163,13 @@ ${formData.experience}`;
                 <button className="close-btn" onClick={closeBooking}><X size={24} /></button>
 
                 <h2 className="modal-title">Schedule a visit with us today</h2>
-                <div style={{height: '2px', width: '60px', background: 'var(--color-secondary)', margin: '0 auto 20px', borderRadius: '1px'}}></div>
+                <div style={{ height: '2px', width: '60px', background: 'var(--color-secondary)', margin: '0 auto 20px', borderRadius: '1px' }} />
 
                 <form data-analytics-form="booking-submission" onSubmit={handleSubmit} className="booking-form">
                     <div className="form-group">
                         <label>Name *</label>
-                        <input data-analytics-focus="booking-field"
+                        <input
+                            data-analytics-focus="booking-field"
                             type="text"
                             name="name"
                             value={formData.name}
@@ -148,7 +182,8 @@ ${formData.experience}`;
 
                     <div className="form-group">
                         <label>Contact Number *</label>
-                        <input data-analytics-focus="booking-field"
+                        <input
+                            data-analytics-focus="booking-field"
                             type="tel"
                             name="contact"
                             value={formData.contact}
@@ -160,7 +195,8 @@ ${formData.experience}`;
 
                     <div className="form-group">
                         <label>Email *</label>
-                        <input data-analytics-focus="booking-field"
+                        <input
+                            data-analytics-focus="booking-field"
                             type="email"
                             name="email"
                             value={formData.email}
@@ -171,8 +207,43 @@ ${formData.experience}`;
                     </div>
 
                     <div className="form-group">
+                        <label>Who Is This Consultation For?</label>
+                        <div className="booking-check-grid">
+                            <label className="booking-check-item">
+                                <input type="checkbox" name="forSelf" checked={formData.forSelf} onChange={handleChange} />
+                                <span>For myself</span>
+                            </label>
+                            <label className="booking-check-item">
+                                <input type="checkbox" name="forChild" checked={formData.forChild} onChange={handleChange} />
+                                <span>For my child</span>
+                            </label>
+                            <label className="booking-check-item">
+                                <input type="checkbox" name="forOther" checked={formData.forOther} onChange={handleChange} />
+                                <span>For someone else</span>
+                            </label>
+                        </div>
+                        {formData.forChild && (
+                            <div className="child-age-row">
+                                <label htmlFor="childAge">Child age</label>
+                                <select
+                                    id="childAge"
+                                    name="childAge"
+                                    value={formData.childAge}
+                                    onChange={handleChange}
+                                >
+                                    <option value="">Select age</option>
+                                    {Array.from({ length: 18 }, (_, i) => i + 1).map(age => (
+                                        <option key={age} value={String(age)}>{age}</option>
+                                    ))}
+                                </select>
+                            </div>
+                        )}
+                    </div>
+
+                    <div className="form-group">
                         <label>Describe what you're feeling or any preferences</label>
-                        <textarea data-analytics-focus="booking-field"
+                        <textarea
+                            data-analytics-focus="booking-field"
                             name="experience"
                             value={formData.experience}
                             onChange={handleChange}
@@ -181,8 +252,21 @@ ${formData.experience}`;
                         />
                     </div>
 
-                    <Button type="submit" style={{ width: '100%', marginTop: '10px' }}>
-                        Send via WhatsApp
+                    <div className="form-group">
+                        <label>Additional notes (optional)</label>
+                        <textarea
+                            name="additionalNotes"
+                            value={formData.additionalNotes}
+                            onChange={handleChange}
+                            placeholder="Anything else we should know?"
+                            rows={3}
+                        />
+                    </div>
+
+                    {submitError && <p className="submit-error">{submitError}</p>}
+
+                    <Button type="submit" style={{ width: '100%', marginTop: '10px' }} disabled={isSubmitting}>
+                        {isSubmitting ? 'Sending...' : 'Send via WhatsApp'}
                     </Button>
                 </form>
             </div>
@@ -202,7 +286,6 @@ ${formData.experience}`;
                     padding: 20px;
                     animation: fadeIn 0.3s ease;
                 }
-
                 .modal-content {
                     width: 100%;
                     max-width: 500px;
@@ -216,7 +299,6 @@ ${formData.experience}`;
                     border: 1px solid rgba(255,255,255,0.6);
                     border-radius: 24px;
                 }
-
                 .close-btn {
                     position: absolute;
                     top: 20px;
@@ -229,12 +311,10 @@ ${formData.experience}`;
                     padding: 5px;
                     border-radius: 50%;
                 }
-
                 .close-btn:hover {
                     color: var(--color-primary);
                     background: rgba(0,0,0,0.05);
                 }
-
                 .modal-title {
                     font-size: 1.8rem;
                     color: var(--color-primary);
@@ -242,27 +322,23 @@ ${formData.experience}`;
                     text-align: center;
                     font-weight: 700;
                 }
-
                 .booking-form {
                     display: flex;
                     flex-direction: column;
                     gap: 20px;
                 }
-
                 .form-group {
                     display: flex;
                     flex-direction: column;
                     gap: 8px;
                 }
-
                 .form-group label {
                     font-weight: 600;
                     color: var(--color-text-main);
                     font-size: 0.9rem;
                     margin-left: 2px;
                 }
-
-                .form-group input, .form-group textarea {
+                .form-group input, .form-group textarea, .form-group select {
                     padding: 12px 16px;
                     border: 1px solid #e1e4e8;
                     border-radius: 12px;
@@ -271,24 +347,49 @@ ${formData.experience}`;
                     background: rgba(255,255,255,0.8);
                     transition: all 0.3s;
                 }
-
-                .form-group input:focus, .form-group textarea:focus {
+                .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
                     outline: none;
                     border-color: var(--color-primary);
                     background: white;
                     box-shadow: 0 0 0 4px var(--color-tint-blue);
                 }
-
-                .form-group small {
-                    color: var(--color-text-grey);
-                    font-size: 0.8rem;
+                .booking-check-grid {
+                    display: grid;
+                    gap: 10px;
+                    margin-top: 4px;
                 }
-
+                .booking-check-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-weight: 500;
+                    margin-left: 0;
+                }
+                .booking-check-item input {
+                    width: 18px;
+                    height: 18px;
+                    padding: 0;
+                }
+                .child-age-row {
+                    display: grid;
+                    grid-template-columns: 120px 1fr;
+                    align-items: center;
+                    gap: 10px;
+                    margin-top: 6px;
+                }
+                .submit-error {
+                    color: #b91c1c;
+                    background: #fee2e2;
+                    border: 1px solid #fecaca;
+                    border-radius: 10px;
+                    padding: 10px 12px;
+                    margin: 0;
+                    font-size: 0.9rem;
+                }
                 @keyframes fadeIn {
                     from { opacity: 0; }
                     to { opacity: 1; }
                 }
-
                 @keyframes slideUp {
                     from { transform: translateY(40px); opacity: 0; }
                     to { transform: translateY(0); opacity: 1; }
