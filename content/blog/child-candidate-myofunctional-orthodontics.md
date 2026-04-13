@@ -9,8 +9,8 @@ excerpt: Wondering if your child might benefit from myofunctional orthodontics? 
 keywords: 'myofunctional orthodontics Malaysia, child orthodontic assessment, myobrace candidate, early orthodontic treatment, airway-focused orthodontics'
 img: /images/blog/child-candidate-myofunctional-orthodontics.jpg
 tags:
-  - Pediatric Dentistry
   - Myofunctional Orthodontics
+  - Pediatric Dentistry
 faq:
   - q: What causes children to need myofunctional orthodontics?
     a: 'Several factors can contribute: genetics play a role, but so do environmental factors like allergies that lead to mouth breathing, prolonged thumb sucking or pacifier use, certain swallowing patterns, and even diet (soft foods don''t give jaws the workout they need to develop fully). Often it''s a combination of factors rather than one single cause.'
@@ -116,4 +116,3 @@ The goal is always what's best for your child in the long term, not rushing into
 If you're wondering whether myofunctional orthodontics might help your child, the best place to start is with a conversation. Bring your observations, your questions, and your child—we'll take the time to understand what's happening and whether this approach aligns with your child's needs.
 
 Sometimes just having a professional look at the situation can provide clarity, whether that leads to treatment now, monitoring for the future, or exploring other options. What matters most is finding the right path for your child's unique journey.
-
