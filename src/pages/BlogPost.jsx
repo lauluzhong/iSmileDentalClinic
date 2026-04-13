@@ -275,9 +275,13 @@ const BlogPost = () => {
                         <Button
                             variant="primary"
                             onClick={() => {
+                                const cleanTopic = post.title.replace(/\?$/, '');
+                                let topic = cleanTopic;
+
                                 if (post.slug === 'clear-aligner-treatment-complexity') {
                                     topic = 'clear aligner treatment';
                                 }
+
                                 openBooking(`Interested in ${topic}`, `blog-post-${post.slug}`);
                             }}
                         >
