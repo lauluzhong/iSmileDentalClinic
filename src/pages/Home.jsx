@@ -9,11 +9,29 @@ import { motion } from 'framer-motion';
 
 // Updated Image Paths
 const FAMILY_HERO = "/images/family_hero_three_generations.jpg";
+const FAMILY_HERO_WEBP = "/images/family_hero_three_generations.webp";
 const GUM_IMG = "/images/blog/concerned_person_brushing.png";
+const GUM_IMG_WEBP = "/images/blog/concerned_person_brushing.webp";
 const SENSITIVITY_IMG = "/images/sensitivity_hero_1765825197668.png";
+const SENSITIVITY_IMG_WEBP = "/images/sensitivity_hero_1765825197668.webp";
 const ORTHO_IMG = "/images/adult_ortho_hero_1765825218135.png";
+const ORTHO_IMG_WEBP = "/images/adult_ortho_hero_1765825218135.webp";
 const VENEER_IMG = "/images/veneers_hero_1765825257935.png";
+const VENEER_IMG_WEBP = "/images/veneers_hero_1765825257935.webp";
 const AIRWAY_IMG = "/images/child_airway_hero_1765825276038.png";
+const AIRWAY_IMG_WEBP = "/images/child_airway_hero_1765825276038.webp";
+
+// Review avatar WebP variants
+const AVATAR_MIKE_WEBP = "/images/reviews/mike_ngui.webp";
+const AVATAR_MIKE = "/images/reviews/mike_ngui.png";
+const AVATAR_KAH_MUN_WEBP = "/images/reviews/kah_mun_hew.webp";
+const AVATAR_KAH_MUN = "/images/reviews/kah_mun_hew.png";
+const AVATAR_BENNY_WEBP = "/images/reviews/benny_kong.webp";
+const AVATAR_BENNY = "/images/reviews/benny_kong.png";
+
+// Team image
+const TEAM_IMG = "/images/team_group.jpg";
+const TEAM_IMG_WEBP = "/images/team_group.webp";
 
 const MotionLink = motion(Link);
 
@@ -70,6 +88,7 @@ const Home = () => {
                 <meta name="description" content="iSmile Dental Clinic in Damansara Jaya, Petaling Jaya — gentle, patient-centred dental care for children, adults & families. Book your visit today." />
                 <link rel="canonical" href="https://ismile.com.my/" />
                 <link rel="preload" as="image" href={FAMILY_HERO} />
+                <link rel="preload" as="image" href={FAMILY_HERO_WEBP} type="image/webp" />
             </Helmet>
 
             {/* 1. Hero Section */}
@@ -95,7 +114,11 @@ const Home = () => {
                     <div className="hero-visual">
                         <FadeIn delay={0.2}>
                             <div className="glass-panel hero-card" style={{ padding: 0, overflow: 'hidden', aspectRatio: '4/5' }}>
-                                <img src={FAMILY_HERO} srcSet={`${FAMILY_HERO} 947w`} sizes="(max-width: 768px) 100vw, 50vw" alt="Family dental care at iSmile Dental Clinic" width="947" height="1024" fetchPriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
+                                <picture>
+                                  <source type="image/webp" srcSet={`${FAMILY_HERO_WEBP} 947w`} />
+                                  <source type="image/jpeg" srcSet={`${FAMILY_HERO} 947w`} />
+                                  <img src={FAMILY_HERO} srcSet={`${FAMILY_HERO} 947w`} sizes="(max-width: 768px) 100vw, 50vw" alt="Family dental care at iSmile Dental Clinic" width="947" height="1024" fetchPriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
+                                </picture>
                             </div></FadeIn>
                     </div>
                 </div>
@@ -197,7 +220,7 @@ const Home = () => {
                                 ),
                                 author: "Mike Ngui",
                                 type: "Patient",
-                                avatar: "/images/reviews/mike_ngui.png",
+                                avatar: AVATAR_MIKE_WEBP,
                                 rating: 5
                             },
                             {
@@ -217,7 +240,7 @@ const Home = () => {
                                 ),
                                 author: "Kah Mun Hew",
                                 type: "Patient",
-                                avatar: "/images/reviews/kah_mun_hew.png",
+                                avatar: AVATAR_KAH_MUN_WEBP,
                                 rating: 5
                             },
                             {
@@ -237,7 +260,7 @@ const Home = () => {
                                 ),
                                 author: "Benny Kong",
                                 type: "Patient",
-                                avatar: "/images/reviews/benny_kong.png",
+                                avatar: AVATAR_BENNY_WEBP,
                                 rating: 5
                             }
                         ].map((review, i) => (
@@ -278,7 +301,11 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="welcome-image-split">
-                            <img src="/images/team_group.jpg" alt="Our Team" />
+                            <picture>
+                              <source type="image/webp" srcSet={TEAM_IMG_WEBP} />
+                              <source type="image/jpeg" srcSet={TEAM_IMG} />
+                              <img src={TEAM_IMG} alt="Our Team" />
+                            </picture>
                         </div>
                     </div>
                 </div>
