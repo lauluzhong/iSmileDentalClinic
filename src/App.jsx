@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 import Layout from './components/Layout';
 import PageTransition from './components/PageTransition';
 import BookingModal from './components/BookingModal';
+import ClarityAnalytics from './components/Analytics/ClarityAnalytics';
 
 // Pages
 import Home from './pages/Home';
@@ -39,6 +40,7 @@ function App() {
 
   return (
     <Layout>
+      <ClarityAnalytics />
       <BookingModal />
       <AnimatePresence>
         <Routes location={location} key={location.pathname}>
