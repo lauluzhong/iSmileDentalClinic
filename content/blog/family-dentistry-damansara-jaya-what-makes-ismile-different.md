@@ -25,7 +25,7 @@ faq:
 
 # Family Dentistry in Damansara Jaya: What Makes iSmile Different
 
-Finding the right dental clinic for your entire family can feel overwhelming. You want a place that can care for your children's developing smiles while also addressing your own dental needs—all in a comfortable, welcoming environment. At iSmile Dental Clinic in Damansara Jaya, we've built our practice around complete family dentistry that makes dental care simpler and more coordinated for busy families throughout Petaling Jaya.
+Finding the right dental clinic for your entire family can feel overwhelming. You want a place that can care for your children's developing smiles while also addressing your own dental needs—all in a comfortable, welcoming environment. At [iSmile Dental Clinic](/services/locations/damansara-jaya) in Damansara Jaya, we've built our practice around complete family dentistry that makes dental care simpler and more coordinated for busy families throughout Petaling Jaya.
 
 ## What is Family Dentistry and Why It Matters
 
@@ -54,9 +54,9 @@ At iSmile Damansara Jaya, we offer a full range of dental services so your famil
 
 **For Adults:**
 - **Regular check-ups and cleanings** to maintain oral health
-- **Restorative treatments** like dental implants, crowns, and bridges
+- **Restorative treatments** like [dental implants](/blog/dental-implants-malaysia-explained), crowns, and bridges
 - **Cosmetic dentistry** including teeth whitening and veneers
-- **Clear aligner treatments** with Invisalign and other clear aligner alternatives
+- **Clear aligner treatments** with [Invisalign and other clear aligner alternatives](/blog/invisalign-and-clear-aligners-in-damansara-jaya)
 - **Emergency dental care** for urgent concerns
 
 **For the Whole Family:**
