@@ -17,15 +17,15 @@ When looking for dental care in Damansara Jaya, you have several options. At [iS
 ## What Makes iSmile Different in Damansara Jaya
 
 ### Family-Centered Care
-We understand that dental care is often a family matter. Our clinic welcomes patients of all ages, from young children having their first dental visit to adults seeking cosmetic improvements or restorative work. We create a comfortable environment where families can receive coordinated care from practitioners who understand their unique needs.
+We understand that dental care is often a family matter. Our clinic welcomes patients of all ages, from young children having their [first dental visit](/blog/your-childs-first-dental-visit) to adults seeking cosmetic improvements or restorative work. We create a comfortable environment where families can receive coordinated care from practitioners who understand their unique needs.
 
 ### Comprehensive Services Under One Roof
 At iSmile Damansara Jaya, we offer a wide range of dental services so you don't need to visit multiple specialists for different needs:
 
 - **Preventive Dentistry**: Regular check-ups, cleanings, and oral health education to maintain healthy teeth
 - **Pediatric Dentistry**: Gentle care for children starting from age one, focusing on positive early experiences
-- **Orthodontic Options**: Including Invisalign clear aligners for adults and children, along with other clear aligner alternatives
-- **Restorative Treatments**: Dental implants, crowns, and bridges to restore function and appearance
+- **Orthodontic Options**: Including [Invisalign clear aligners](/blog/invisalign-and-clear-aligners-in-damansara-jaya) for adults and children, along with other clear aligner alternatives
+- **Restorative Treatments**: [Dental implants](/blog/dental-implants-malaysia-explained), crowns, and bridges to restore function and appearance
 - **Cosmetic Dentistry**: Teeth whitening, veneers, and smile makeovers
 - **Emergency Dental Care**: Prompt attention for dental emergencies and urgent concerns
 
