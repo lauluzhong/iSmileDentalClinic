@@ -13,7 +13,7 @@ tier: 1
 parent_page: "https://ismile.com.my/"
 cluster: "Damansara Jaya Local"
 keyword: "dental clinic Damansara Jaya checklist"
-content_type: educational
+content_type: locality
 faq:
   - q: "What should I check about a dental clinic's location and accessibility in Damansara Jaya?"
     a: "Look for clinics with convenient access from major roads like Jalan SS 22/19 or near LRT stations if you use public transport. Check parking availability—some clinics in Damansara Jaya have limited parking, which matters if you're bringing children or elderly family members. Consider operating hours that fit your schedule, especially if you need after-work or weekend appointments. Many clinics offer phone or WhatsApp booking options for convenient scheduling."
