@@ -54,9 +54,9 @@ At iSmile Damansara Jaya, we offer a full range of dental services so your famil
 
 **For Adults:**
 - **Regular check-ups and cleanings** to maintain oral health
-- **Restorative treatments** like [dental implants](/blog/dental-implants-malaysia-explained), crowns, and bridges
+- **Restorative treatments** like dental implants, crowns, and bridges
 - **Cosmetic dentistry** including teeth whitening and veneers
-- **Clear aligner treatments** with [Invisalign and other clear aligner alternatives](/blog/invisalign-and-clear-aligners-in-damansara-jaya)
+- **Clear aligner treatments** with Invisalign and other clear aligner alternatives
 - **Emergency dental care** for urgent concerns
 
 **For the Whole Family:**
