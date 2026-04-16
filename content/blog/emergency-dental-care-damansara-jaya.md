@@ -25,7 +25,7 @@ faq:
 
 # Emergency Dental Care in Damansara Jaya: What to Expect
 
-Dental emergencies always seem to happen at the worst possible times. A sudden toothache that keeps you awake at 2 AM, a broken tooth from biting down on something hard, or an accident that knocks a tooth loose—these situations can be really stressful. At iSmile Dental Clinic in Damansara Jaya, we get it. Dental emergencies need quick attention and a calm approach. Here's what you should know about handling dental emergencies and what to expect when you visit us.
+Dental emergencies always seem to happen at the worst possible times. A sudden toothache that keeps you awake at 2 AM, a broken tooth from biting down on something hard, or an accident that knocks a tooth loose—these situations can be really stressful. At [iSmile Dental Clinic in Damansara Jaya](/services/locations/damansara-jaya), we get it. Dental emergencies need quick attention and a calm approach. Here's what you should know about handling dental emergencies and what to expect when you visit us.
 
 ## Recognizing a Dental Emergency
 
