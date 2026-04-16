@@ -12,7 +12,7 @@ created_at: 2026-04-06
 
 # Why Choose iSmile Dental Clinic in Damansara Jaya
 
-When looking for dental care in Damansara Jaya, you have several options. At iSmile Dental Clinic, we believe in providing dental care that goes beyond just treating teeth. Our approach focuses on comprehensive oral health, preventive care, and building lasting relationships with our patients and their families.
+When looking for dental care in Damansara Jaya, you have several options. At [iSmile Dental Clinic](/services/locations/damansara-jaya), we believe in providing dental care that goes beyond just treating teeth. Our approach focuses on comprehensive oral health, preventive care, and building lasting relationships with our patients and their families.
 
 ## What Makes iSmile Different in Damansara Jaya
 
