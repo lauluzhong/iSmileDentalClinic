@@ -69,6 +69,7 @@ const Home = () => {
                 <title>iSmile Dental Clinic Petaling Jaya | Family Dentist in Damansara Jaya</title>
                 <meta name="description" content="iSmile Dental Clinic in Damansara Jaya, Petaling Jaya — gentle, patient-centred dental care for children, adults & families. Book your visit today." />
                 <link rel="canonical" href="https://ismile.com.my/" />
+                <link rel="preload" as="image" href={FAMILY_HERO} />
             </Helmet>
 
             {/* 1. Hero Section */}
@@ -94,7 +95,7 @@ const Home = () => {
                     <div className="hero-visual">
                         <FadeIn delay={0.2}>
                             <div className="glass-panel hero-card" style={{ padding: 0, overflow: 'hidden', aspectRatio: '4/5' }}>
-                                <img src={FAMILY_HERO} alt="Happy Family" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
+                                <img src={FAMILY_HERO} srcSet={`${FAMILY_HERO} 947w`} sizes="(max-width: 768px) 100vw, 50vw" alt="Family dental care at iSmile Dental Clinic" width="947" height="1024" fetchPriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
                             </div></FadeIn>
                     </div>
                 </div>
