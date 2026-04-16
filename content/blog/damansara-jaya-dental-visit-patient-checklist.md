@@ -8,8 +8,6 @@ categories:
 tags:
   - Preventive Care
   - Oral Health
-  - Damansara Jaya Dental
-  - Local Dental Clinic
 priority: high
 tier: 1
 parent_page: "https://ismile.com.my/"
