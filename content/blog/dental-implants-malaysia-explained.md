@@ -1,7 +1,7 @@
 ---
 categories:
   - Restorative
-date: '2026-03-17'
+date: '2026-04-17'
 excerpt: 'Thinking about dental implants in Malaysia? Here''s what the procedure involves, who makes a good candidate, and what to expect during recovery.'
 faq:
   - a: 'A dental implant is an artificial tooth root surgically placed into the jawbone. Made from titanium, it fuses with the bone over time through osseointegration. Once bonded, a crown sits on top and functions like a real tooth. Unlike bridges or dentures, implants go into the bone, which is why they feel natural.'
