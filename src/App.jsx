@@ -1,21 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Layout from './components/Layout';
 import PageTransition from './components/PageTransition';
 import BookingModal from './components/BookingModal';
 import ClarityAnalytics from './components/Analytics/ClarityAnalytics';
+import Loader from './components/Loader';
 
-// Pages
+// Primary pages (synchronous)
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
-import Reviews from './pages/Reviews';
-import Blog from './pages/Blog';
-import BlogPost from './pages/BlogPost';
-import Contact from './pages/Contact';
-import FAQ from './pages/FAQ';
-import Recall from './pages/Recall';
+
+// Secondary pages (lazy-loaded)
+const Reviews = lazy(() => import('./pages/Reviews'));
+const Blog = lazy(() => import('./pages/Blog'));
+const BlogPost = lazy(() => import('./pages/BlogPost'));
+const Contact = lazy(() => import('./pages/Contact'));
+const FAQ = lazy(() => import('./pages/FAQ'));
+const Recall = lazy(() => import('./pages/Recall'));
 
 function App() {
   const location = useLocation();
@@ -53,12 +56,12 @@ function App() {
               Thus <PageTransition> triggers.
           */}
           <Route path="/services/*" element={<PageTransition><Services /></PageTransition>} />
-          <Route path="/reviews" element={<PageTransition><Reviews /></PageTransition>} />
-          <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
-          <Route path="/blog/:slug" element={<PageTransition><BlogPost /></PageTransition>} />
-          <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
-          <Route path="/faq" element={<PageTransition><FAQ /></PageTransition>} />
-          <Route path="/recall" element={<PageTransition><Recall /></PageTransition>} />
+          <Route path="/reviews" element={<PageTransition><Suspense fallback={<Loader />}><Reviews /></Suspense></PageTransition>} />
+          <Route path="/blog" element={<PageTransition><Suspense fallback={<Loader />}><Blog /></Suspense></PageTransition>} />
+          <Route path="/blog/:slug" element={<PageTransition><Suspense fallback={<Loader />}><BlogPost /></Suspense></PageTransition>} />
+          <Route path="/contact" element={<PageTransition><Suspense fallback={<Loader />}><Contact /></Suspense></PageTransition>} />
+          <Route path="/faq" element={<PageTransition><Suspense fallback={<Loader />}><FAQ /></Suspense></PageTransition>} />
+          <Route path="/recall" element={<PageTransition><Suspense fallback={<Loader />}><Recall /></Suspense></PageTransition>} />
         </Routes>
       </AnimatePresence>
     </Layout>
