@@ -54,3 +54,16 @@ If you're looking for a dental clinic in Damansara Jaya that combines profession
 Your dentist will assess your individual needs and recommend the right approach for your situation. Whether you need routine care, have specific concerns, or are considering cosmetic improvements, we're here to help you achieve and maintain optimal oral health.
 
 *[About our Damansara Jaya clinic](/services/locations/damansara-jaya)*
+
+## Explore Our Dental Services
+
+At iSmile Dental Clinic in Damansara Jaya, we offer comprehensive dental care including:
+
+- [Family and children's dentistry](https://ismile.com.my/services/children) - Care for patients of all ages
+- [Orthodontic treatment options](https://ismile.com.my/services/straighten) - Teeth straightening services
+- [Cosmetic dentistry](https://ismile.com.my/services/enhance) - Smile enhancement treatments
+- [Restorative dentistry](https://ismile.com.my/services/replace) - Tooth replacement and repair
+- [Preventive dental care](https://ismile.com.my/services/protect) - Routine check-ups and maintenance
+- [Our complete services overview](https://ismile.com.my/services) - All available dental treatments
+
+For personalized dental care in Damansara Jaya, schedule a consultation to discuss your specific needs and treatment options.

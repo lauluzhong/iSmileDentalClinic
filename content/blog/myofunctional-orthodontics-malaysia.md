@@ -88,3 +88,13 @@ Expect questions about breathing patterns, sleep, and any development concerns. 
 After the assessment, your dentist explains if myofunctional therapy could help. If it's recommended, they walk you through what to expect and answer your questions.
 
 Every child is different—what works for one might not suit another. Your dentist's expertise plus your parent observations make the best combo for deciding what's right for your child's dental care.
+
+## Explore Related Dental Services
+
+If you're considering myofunctional orthodontics for your child, you might also want to learn about:
+
+- [Children's dental care](https://ismile.com.my/services/children) - Comprehensive pediatric dentistry services
+- [Clear aligner treatment](https://ismile.com.my/services/straighten) - Orthodontic options for older children and teenagers
+- [Preventive dental care](https://ismile.com.my/services/protect) - Routine check-ups and oral health maintenance
+
+For personalized advice about your child's oral development, schedule a consultation with a dental professional who can assess their specific needs.
