@@ -1,7 +1,7 @@
 ---
 categories:
   - Oral Surgery
-date: '2024-12-20'
+date: '2026-04-17'
 excerpt: Wisdom tooth removal is a rite of passage for many. Here is a guide to help you prepare and recover smoothly.
 faq:
   - a: 'Wisdom teeth often become impacted because there is not enough room in the jaw. This can lead to persistent infection or even pushing other teeth out of alignment, potentially affecting years of orthodontic work.'

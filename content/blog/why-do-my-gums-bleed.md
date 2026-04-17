@@ -1,7 +1,7 @@
 ---
 categories:
   - Oral Health
-date: '2025-01-12'
+date: '2026-04-17'
 excerpt: 'Bleeding gums are a common concern, but they are often a sign that your oral care routine needs a tweak.'
 faq:
   - a: 'Sometimes the logic ''harder is cleaner'' backfires. Using a hard-bristled toothbrush or aggressive scrubbing can traumatize gum tissue. Switching to a soft-bristled brush and using gentle, circular motions can make a world of difference.'
