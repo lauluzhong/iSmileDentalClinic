@@ -61,3 +61,14 @@ Some children actually benefit from both phases: LM Activator first to correct h
 To learn more about our approach to pediatric orthodontics, visit our [Myofunctional Orthodontics](/services/myofunctional-orthodontics) page.
 
 <p>If you're considering orthodontic treatment for your child, <a href="/contact">contact iSmile Dental Clinic</a> to schedule a consultation and discuss which option is right for their growing smile.</p>
+
+## Explore Related Dental Services
+
+If you're considering orthodontic treatment for your child, you might also want to learn about:
+
+- [Myofunctional orthodontics](https://ismile.com.my/services/children/myofunctional) - Habit correction and early intervention
+- [Orthodontic treatment options](https://ismile.com.my/services/straighten) - Teeth straightening services
+- [Children's dental care](https://ismile.com.my/services/children) - Comprehensive pediatric dentistry
+- [Preventive dental care](https://ismile.com.my/services/protect) - Routine check-ups and oral health maintenance
+
+For personalized advice about your child's orthodontic needs, schedule a consultation with a dental professional who can assess their specific situation and recommend the most appropriate treatment approach.

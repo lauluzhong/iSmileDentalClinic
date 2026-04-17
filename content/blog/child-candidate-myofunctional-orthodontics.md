@@ -116,3 +116,14 @@ The goal is always what's best for your child in the long term, not rushing into
 If you're wondering whether myofunctional orthodontics might help your child, the best place to start is with a conversation. Bring your observations, your questions, and your child—we'll take the time to understand what's happening and whether this approach aligns with your child's needs.
 
 Sometimes just having a professional look at the situation can provide clarity, whether that leads to treatment now, monitoring for the future, or exploring other options. What matters most is finding the right path for your child's unique journey.
+
+## Explore Related Dental Services
+
+If you're considering myofunctional orthodontics for your child, you might also want to learn about:
+
+- [Children's dental care](https://ismile.com.my/services/children) - Comprehensive pediatric dentistry services
+- [Myofunctional orthodontics](https://ismile.com.my/services/children/myofunctional) - Specialized treatment for oral habit correction
+- [Orthodontic treatment options](https://ismile.com.my/services/straighten) - Teeth straightening services for all ages
+- [Preventive dental care](https://ismile.com.my/services/protect) - Routine check-ups and oral health maintenance
+
+For personalized advice about your child's oral development, schedule a consultation with a dental professional who can assess their specific needs.
