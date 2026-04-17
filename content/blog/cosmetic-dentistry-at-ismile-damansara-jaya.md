@@ -83,3 +83,15 @@ Most cosmetic treatments involve minimal discomfort, and we use appropriate tech
 ### Can cosmetic dentistry address functional issues too?
 
 Many cosmetic treatments improve both appearance and function. For example, aligning crooked teeth can enhance chewing efficiency, and replacing missing teeth can prevent bite problems. During assessment, we evaluate both aesthetic and functional aspects to recommend comprehensive solutions when appropriate.
+
+## Explore Our Cosmetic Dentistry Services
+
+If you're considering cosmetic dentistry in Damansara Jaya, explore our comprehensive smile enhancement services:
+
+- [Cosmetic dentistry overview](https://ismile.com.my/services/enhance) - Complete smile enhancement treatments
+- [Teeth whitening services](https://ismile.com.my/services/enhance) - Professional smile brightening
+- [Dental veneers and bonding](https://ismile.com.my/services/enhance) - Smile transformation options
+- [Clear aligner treatment](https://ismile.com.my/services/straighten) - Discreet teeth straightening
+- [Our Damansara Jaya location](https://ismile.com.my/services/locations/damansara-jaya) - Convenient local cosmetic dentistry
+
+For personalized advice about cosmetic dental treatments, schedule a consultation to discuss your smile goals and explore suitable options.

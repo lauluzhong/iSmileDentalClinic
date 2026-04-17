@@ -129,3 +129,15 @@ Dental emergencies are stressful, no doubt about it. But knowing what to expect 
 If you're dealing with a dental emergency or just have questions about what counts as an emergency, don't hesitate to contact us. Our team is ready to help guide you through the process and give you the care you need to feel better.
 
 Remember, with dental emergencies, acting quickly often makes the difference between saving a tooth and losing it. We're here to help you through these situations with both expertise and genuine care.
+
+## Explore Our Emergency and General Dental Services
+
+If you're looking for reliable dental care in Damansara Jaya, consider exploring:
+
+- [Our complete dental services](https://ismile.com.my/services) - Full range of emergency and routine treatments
+- [Emergency dental care information](https://ismile.com.my/services) - Urgent dental treatment when needed
+- [Preventive dental care](https://ismile.com.my/services/protect) - Routine check-ups to prevent emergencies
+- [Restorative dentistry](https://ismile.com.my/services/replace) - Tooth repair and replacement options
+- [Our Damansara Jaya location](https://ismile.com.my/services/locations/damansara-jaya) - Convenient local emergency dental care
+
+For immediate assistance with dental emergencies or to schedule preventive care, contact our Damansara Jaya clinic for prompt attention and professional guidance.
