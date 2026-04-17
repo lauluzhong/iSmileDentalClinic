@@ -1,5 +1,5 @@
 import { useBooking } from '../context/BookingContext';
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, Link, useParams, Navigate, useLocation } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Shield, Sparkles, Smile, Star, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -7,19 +7,20 @@ import Button from '../components/Button';
 import { servicesData } from '../data/servicesData';
 import ServicesLanding from './ServicesLanding';
 import { Helmet } from 'react-helmet-async';
+import Loader from '../components/Loader';
 
-// Specialty Pages
-import WisdomToothSurgery from './specialties/WisdomToothSurgery';
-import ClearAligners from './specialties/ClearAligners';
-import DentalImplants from './specialties/DentalImplants';
-import TeethWhitening from './specialties/TeethWhitening';
-import RootCanalTreatment from './specialties/RootCanalTreatment';
-import MyofunctionalOrthodontics from './specialties/MyofunctionalOrthodontics';
-import CosmeticDentistry from './specialties/CosmeticDentistry';
-import PediatricDentistry from './specialties/PediatricDentistry';
+// Lazy-loaded Specialty Pages
+const WisdomToothSurgery = lazy(() => import('./specialties/WisdomToothSurgery'));
+const ClearAligners = lazy(() => import('./specialties/ClearAligners'));
+const DentalImplants = lazy(() => import('./specialties/DentalImplants'));
+const TeethWhitening = lazy(() => import('./specialties/TeethWhitening'));
+const RootCanalTreatment = lazy(() => import('./specialties/RootCanalTreatment'));
+const MyofunctionalOrthodontics = lazy(() => import('./specialties/MyofunctionalOrthodontics'));
+const CosmeticDentistry = lazy(() => import('./specialties/CosmeticDentistry'));
+const PediatricDentistry = lazy(() => import('./specialties/PediatricDentistry'));
 
-// Location Pages
-import DamansaraJaya from './locations/DamansaraJaya';
+// Lazy-loaded Location Pages
+const DamansaraJaya = lazy(() => import('./locations/DamansaraJaya'));
 
 const ServiceHub = () => {
     const { openBooking } = useBooking();
@@ -574,20 +575,56 @@ const Services = () => {
             <Route path="/" element={<ServicesLanding />} />
 
             {/* Location Pages */}
-            <Route path="locations/damansara-jaya" element={<DamansaraJaya />} />
+            <Route path="locations/damansara-jaya" element={(
+                <Suspense fallback={<Loader />}>
+                    <DamansaraJaya />
+                </Suspense>
+            )} />
 
             {/* Main Category Pages */}
             <Route path=":category" element={<ServiceHub />} />
 
             {/* Specialty Sub-Pages */}
-            <Route path="protect/wisdom-tooth" element={<WisdomToothSurgery />} />
-            <Route path="protect/root-canal" element={<RootCanalTreatment />} />
-            <Route path="straighten/clear-aligners" element={<ClearAligners />} />
-            <Route path="replace/dental-implants" element={<DentalImplants />} />
-            <Route path="enhance/teeth-whitening" element={<TeethWhitening />} />
-            <Route path="children/myofunctional" element={<MyofunctionalOrthodontics />} />
-            <Route path="enhance/cosmetic-dentistry" element={<CosmeticDentistry />} />
-            <Route path="children/pediatric-dentistry" element={<PediatricDentistry />} />
+            <Route path="protect/wisdom-tooth" element={(
+                <Suspense fallback={<Loader />}>
+                    <WisdomToothSurgery />
+                </Suspense>
+            )} />
+            <Route path="protect/root-canal" element={(
+                <Suspense fallback={<Loader />}>
+                    <RootCanalTreatment />
+                </Suspense>
+            )} />
+            <Route path="straighten/clear-aligners" element={(
+                <Suspense fallback={<Loader />}>
+                    <ClearAligners />
+                </Suspense>
+            )} />
+            <Route path="replace/dental-implants" element={(
+                <Suspense fallback={<Loader />}>
+                    <DentalImplants />
+                </Suspense>
+            )} />
+            <Route path="enhance/teeth-whitening" element={(
+                <Suspense fallback={<Loader />}>
+                    <TeethWhitening />
+                </Suspense>
+            )} />
+            <Route path="children/myofunctional" element={(
+                <Suspense fallback={<Loader />}>
+                    <MyofunctionalOrthodontics />
+                </Suspense>
+            )} />
+            <Route path="enhance/cosmetic-dentistry" element={(
+                <Suspense fallback={<Loader />}>
+                    <CosmeticDentistry />
+                </Suspense>
+            )} />
+            <Route path="children/pediatric-dentistry" element={(
+                <Suspense fallback={<Loader />}>
+                    <PediatricDentistry />
+                </Suspense>
+            )} />
         </Routes>
     );
 };
