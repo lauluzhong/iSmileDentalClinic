@@ -28,8 +28,6 @@ Regular dental visits work most effectively when they fit naturally into your ro
 
 Parking availability tops the list for many Damansara Jaya residents. The area around Atria Shopping Gallery can get busy, especially during weekends and evenings. A dental clinic with dedicated parking or clear instructions about nearby parking options makes the visit less stressful from the moment you arrive.
 
-Public transport access matters too. With the upcoming MRT station and existing bus routes serving the area, consider whether your potential clinic is reachable without a car. This becomes particularly important for elderly family members or teenagers who might need to attend appointments independently.
-
 Clinic hours that match local lifestyles make a difference. Many Damansara Jaya residents work standard office hours, so clinics offering evening or weekend appointments can be valuable. Some families appreciate early morning slots before school or work begins—though I'll admit, I'm not much of a morning person myself. The right schedule fit means you're less likely to cancel or reschedule appointments.
 
 Location familiarity helps with first-time visits. A clinic that's easy to find, with clear signage and straightforward directions, reduces appointment-day anxiety. This might seem minor, but when you're already nervous about a dental visit, not having to search for the entrance or figure out building access removes one stressor.
