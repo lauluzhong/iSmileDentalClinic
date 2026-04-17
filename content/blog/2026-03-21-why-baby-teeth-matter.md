@@ -75,3 +75,15 @@ Building a positive relationship with the dental clinic from a young age also he
 Baby teeth may be small and temporary, but they are far from insignificant. They help children eat well, speak clearly, maintain space for adult teeth, and smile with confidence. Taking care of them is one of the simplest investments in your child's long-term oral health.
 
 Think of it this way: every healthy baby tooth that stays in place until its natural time is one less problem to solve later. Give those little teeth the attention they deserve.
+
+## Explore Our Children's Dental Services
+
+For comprehensive dental care for your child, consider exploring:
+
+- [Children's dental care](https://ismile.com.my/services/children) - Complete pediatric dentistry services
+- [Myofunctional orthodontics](https://ismile.com.my/services/children/myofunctional) - Early intervention for oral habits
+- [Preventive dental care](https://ismile.com.my/services/protect) - Routine check-ups and maintenance
+- [Our complete dental services](https://ismile.com.my/services) - Full range of treatments for all ages
+- [Your child's first dental visit](https://ismile.com.my/services/children) - Gentle introduction to dental care
+
+For personalized advice about your child's dental development, schedule a consultation with a dental professional who can assess their specific needs and provide appropriate guidance.

@@ -104,7 +104,17 @@ If you're looking for a dental home for your family in Damansara Jaya, we invite
 
 To learn more about our family dentistry services or to schedule an appointment, visit our <a href="https://ismile.com.my/services/locations/damansara-jaya">Damansara Jaya location page</a> for contact information and directions.
 
+## Explore Our Family Dentistry Services
 
+For comprehensive dental care for your entire family, consider exploring:
+
+- [Our complete dental services](https://ismile.com.my/services) - Full range of treatments for all ages
+- [Children's dental care](https://ismile.com.my/services/children) - Specialized pediatric dentistry
+- [Preventive dental care](https://ismile.com.my/services/protect) - Routine check-ups and maintenance
+- [Orthodontic treatment options](https://ismile.com.my/services/straighten) - Teeth straightening for children and adults
+- [Emergency dental care](https://ismile.com.my/services) - Urgent dental treatment when needed
+
+For personalized family dental care in Damansara Jaya, schedule a consultation to discuss your family's specific needs and treatment preferences.
 
 ---
 
