@@ -75,4 +75,14 @@ As children grow, we adjust how often they visit based on their individual needs
 
 The key is consistency. Regular dental visits from an early age help children see dental care as a normal, positive part of life instead of something to fear. That positive association? It pays off for decades.
 
+## Explore Our Children's Dental Services
+
+If you're looking for pediatric dental care in Damansara Jaya, consider these related services:
+
+- [Children's dental care](https://ismile.com.my/services/children) - Comprehensive dental services for children of all ages
+- [Myofunctional orthodontics](https://ismile.com.my/services/straighten) - Early intervention for breathing and dental development concerns
+- [Orthodontic treatment options](https://ismile.com.my/services/straighten) - Teeth straightening approaches for growing children
+- [Preventive dental care](https://ismile.com.my/services/protect) - Routine check-ups and maintenance for long-term oral health
+- [Your child's first dental visit](https://ismile.com.my/blog/your-childs-first-dental-visit) - What to expect during initial appointments
+
 For more information about our children's dental services in Damansara Jaya, visit our [Damansara Jaya location page](/services/locations/damansara-jaya) or contact us to schedule an appointment.
