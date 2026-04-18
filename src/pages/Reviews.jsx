@@ -146,7 +146,7 @@ const Reviews = () => {
                             </div>
                             <div className="review-body">{review.text}</div>
                             <div className="review-footer" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                                <img src={review.avatar} alt={review.author} style={{ width: '50px', height: '50px', borderRadius: '50%', objectFit: 'cover' }} />
+                                <img src={review.avatar} alt={review.author} loading="lazy" width="50" height="50" style={{ width: '50px', height: '50px', borderRadius: '50%', objectFit: 'cover' }} />
                                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                                     <strong>{review.author}</strong>
                                     <span className="review-type">{review.type}</span>

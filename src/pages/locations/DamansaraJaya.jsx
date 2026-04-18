@@ -216,10 +216,10 @@ const DamansaraJaya = () => {
 
                 <div className="loc-direction-btns">
                   <a href="https://maps.app.goo.gl/yt8MxXDpDxXgXqre6" target="_blank" rel="noopener noreferrer" className="loc-dir-btn">
-                    <img src="/images/google-maps.png" alt="Google Maps" /> Google Maps
+                    <img src="/images/google-maps.png" alt="Google Maps" loading="lazy" /> Google Maps
                   </a>
                   <a href="https://ul.waze.com/ul?place=ChIJMyz-_jZJzDERBTVNqS_uGzg&ll=3.12583430%2C101.61623380&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location" target="_blank" rel="noopener noreferrer" className="loc-dir-btn">
-                    <img src="/images/waze.png" alt="Waze" /> Waze
+                    <img src="/images/waze.png" alt="Waze" loading="lazy" /> Waze
                   </a>
                 </div>
 

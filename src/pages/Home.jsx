@@ -271,7 +271,7 @@ const Home = () => {
                                 </div>
                                 <div className="review-text">{review.text}</div>
                                 <div className="review-author">
-                                    <img src={review.avatar} alt={review.author} style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }} />
+                                    <img src={review.avatar} alt={review.author} loading="lazy" width="40" height="40" style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }} />
                                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                                         <strong>{review.author}</strong>
                                         <span className="review-type">{review.type}</span>
@@ -304,7 +304,7 @@ const Home = () => {
                             <picture>
                               <source type="image/webp" srcSet={TEAM_IMG_WEBP} />
                               <source type="image/jpeg" srcSet={TEAM_IMG} />
-                              <img src={TEAM_IMG} alt="Our Team" />
+                              <img src={TEAM_IMG} alt="iSmile Dental Clinic team" width="1024" height="682" loading="lazy" />
                             </picture>
                         </div>
                     </div>
@@ -324,7 +324,7 @@ const Home = () => {
                             {featuredBlogs.map((post, i) => (
                                 <Link to={`/blog/${post.slug}`} key={i} className="glass-panel insight-card-large" style={{ textDecoration: 'none', color: 'inherit' }}>
                                     <div className="insight-image-large">
-                                        <img src={post.img} alt={post.title} />
+                                        <img src={post.img} alt={post.title} loading="lazy" />
                                     </div>
                                     <div className="insight-content">
                                         <h4>{post.title}</h4>
