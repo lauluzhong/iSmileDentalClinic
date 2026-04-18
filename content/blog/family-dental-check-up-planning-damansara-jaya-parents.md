@@ -33,7 +33,7 @@ When you approach dental visits as a family activity rather than individual appo
 
 **Scheduling efficiency** is the most obvious benefit. Instead of making separate calls or online bookings for each family member, you can often schedule everyone in one go. Some dental clinics in Damansara Jaya offer family appointment blocks where they reserve time for multiple people back-to-back. This means one trip to the clinic instead of several.
 
-**Consistency in care** happens when everyone sees the same dental team. The dentists and hygienists get to know your family's patterns, which can help them spot things that might otherwise be missed. They might notice similar dental concerns among siblings or recognize habits that could affect multiple family members.
+**Consistency in care** happens when everyone sees the same dental team. The dentists get to know your family's patterns, which can help them spot things that might otherwise be missed. They might notice similar dental concerns among siblings or recognize habits that could affect multiple family members.
 
 **Reduced anxiety** for children (and sometimes adults) comes from familiarity. When dental visits become a regular family activity rather than a special event, they start to feel more normal. Younger children often feel more comfortable when they see older siblings or parents going through the same routine.
 
