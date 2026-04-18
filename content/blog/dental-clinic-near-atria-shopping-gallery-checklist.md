@@ -1,6 +1,7 @@
 ---
 title: "Dental Clinic Near Atria Shopping Gallery: A Local Patient Checklist"
 excerpt: "A local checklist for patients searching near Atria Shopping Gallery who want practical access, service, and trust signals before booking."
+date: '2026-04-18'
 categories: ["Local Dentistry"]
 tags: ["Damansara Jaya", "Local Dentistry"]
 parent_page: "https://ismile.com.my/"
