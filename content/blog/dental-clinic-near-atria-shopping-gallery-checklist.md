@@ -82,4 +82,14 @@ Review your choice periodically. As your needs change, perhaps with children gro
 
 Building a relationship with a local dental clinic near Atria Shopping Gallery represents an investment in your long-term health. The right fit combines practical convenience with clinical competence and communication comfort. By considering these factors thoughtfully, you're more likely to find a dental home that supports your oral health for years to come.
 
+## Explore Dental Services in Damansara Jaya
+
+If you're looking for dental care near Atria Shopping Gallery, consider exploring these service areas:
+
+- [Our complete dental services overview](https://ismile.com.my/services) - Comprehensive range of dental treatments available
+- [Family and children's dentistry](https://ismile.com.my/services/children) - Dental care for all ages in a family-friendly environment
+- [Preventive dental care](https://ismile.com.my/services/protect) - Routine check-ups and maintenance to support long-term oral health
+- [Our Damansara Jaya location](https://ismile.com.my/services/locations/damansara-jaya) - Clinic details and contact information for our local practice
+- [Orthodontic treatment options](https://ismile.com.my/services/straighten) - Teeth straightening approaches for children and adults
+
 For more information about dental services in the Damansara Jaya area, visit our [main website](https://ismile.com.my/) to explore available options and approach to patient care.
