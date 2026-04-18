@@ -58,7 +58,7 @@ const Footer = () => {
                                 }
                             }}
                         >
-                            <img src="/logo.png" alt="iSmile Dental Clinic logo" width="500" height="500" loading="lazy" />
+                            <img src="/logo.png" alt="iSmile Dental Clinic logo" loading="lazy" />
                         </Link>
                         <p className="footer-desc">
                             We are ready to help you smile with confidence. At iSmile Dental Clinic, we are dedicated to providing comprehensive dental care for the entire family.
