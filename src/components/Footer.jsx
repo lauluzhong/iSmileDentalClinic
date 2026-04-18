@@ -58,7 +58,7 @@ const Footer = () => {
                                 }
                             }}
                         >
-                            <img src="/logo.png" alt="iSmile" />
+                            <img src="/logo.png" alt="iSmile Dental Clinic logo" loading="lazy" />
                         </Link>
                         <p className="footer-desc">
                             We are ready to help you smile with confidence. At iSmile Dental Clinic, we are dedicated to providing comprehensive dental care for the entire family.
@@ -110,10 +110,10 @@ const Footer = () => {
                             </div>
                             <div className="direction-buttons">
                                 <Button className="direction-btn" data-analytics-click="footer-maps" data-analytics-label="google-maps" onClick={() => window.open('https://maps.app.goo.gl/yt8MxXDpDxXgXqre6', '_blank')}>
-                                    <img src="/images/google-maps.png" alt="Maps" className="btn-icon" /> Google
+                                    <img src="/images/google-maps.png" alt="Maps" className="btn-icon" loading="lazy" width="18" height="18" /> Google
                                 </Button>
                                 <Button className="direction-btn" data-analytics-click="footer-maps" data-analytics-label="waze" onClick={() => window.open('https://ul.waze.com/ul?place=ChIJMyz-_jZJzDERBTVNqS_uGzg&ll=3.12583430%2C101.61623380&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location', '_blank')}>
-                                    <img src="/images/waze.png" alt="Waze" className="btn-icon" /> Waze
+                                    <img src="/images/waze.png" alt="Waze" className="btn-icon" loading="lazy" width="18" height="18" /> Waze
                                 </Button>
                             </div>
                         </div>

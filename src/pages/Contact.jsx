@@ -50,14 +50,14 @@ const Contact = () => {
                                         className="contact-direction-btn google-btn"
                                         onClick={() => window.open('https://maps.app.goo.gl/yt8MxXDpDxXgXqre6', '_blank')}
                                     >
-                                        <img src="/images/google-maps.png" alt="Google Maps" className="btn-icon" />
+                                        <img src="/images/google-maps.png" alt="Google Maps" className="btn-icon" loading="lazy" width="20" height="20" />
                                         Google Maps
                                     </Button>
                                     <Button
                                         className="contact-direction-btn waze-btn"
                                         onClick={() => window.open('https://ul.waze.com/ul?place=ChIJMyz-_jZJzDERBTVNqS_uGzg&ll=3.12583430%2C101.61623380&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location', '_blank')}
                                     >
-                                        <img src="/images/waze.png" alt="Waze" className="btn-icon" />
+                                        <img src="/images/waze.png" alt="Waze" className="btn-icon" loading="lazy" width="20" height="20" />
                                         Waze
                                     </Button>
                                 </div>

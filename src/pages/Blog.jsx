@@ -234,7 +234,7 @@ const Blog = () => {
                             </Link>
                         </div>
                         <div className="featured-image">
-                            <img src={featuredPost.img} alt={featuredPost.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                            <img src={featuredPost.img} alt={featuredPost.title} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         </div>
                     </FadeIn>
                 )}
@@ -246,7 +246,7 @@ const Blog = () => {
                             <Link to={`/blog/${post.slug}`} key={post.slug} style={{ textDecoration: 'none', color: 'inherit' }}>
                                 <FadeIn className="glass-panel post-card">
                                     <div className="post-image">
-                                        <img src={post.img} alt={post.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                        <img src={post.img} alt={post.title} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                     </div>
                                     <div className="post-content">
                                         <div className="post-tags">
