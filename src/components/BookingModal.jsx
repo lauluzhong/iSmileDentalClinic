@@ -3,6 +3,7 @@ import { X } from 'lucide-react';
 import { useBooking } from '../context/BookingContext';
 import Button from './Button';
 import { insertLead } from '../lib/supabase';
+import { enrichEvent } from '../lib/attribution';
 
 const BookingModal = () => {
     const { isBookingOpen, closeBooking, prefillData } = useBooking();
@@ -28,13 +29,15 @@ const BookingModal = () => {
     useEffect(() => {
         if (isBookingOpen && !hasOpenedRef.current) {
             hasOpenedRef.current = true;
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
+            const ctaLocation = prefillData?.sourceButton || 'unknown';
+            const eventData = {
                 event: 'booking_modal_open',
                 booking_page: window.location.pathname,
                 booking_source_button: prefillData?.sourceButton || 'direct',
                 booking_cta_text: prefillData?.sourceButton || 'unknown'
-            });
+            };
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push(enrichEvent(eventData, ctaLocation));
         }
         if (!isBookingOpen) {
             hasOpenedRef.current = false;
@@ -66,12 +69,14 @@ const BookingModal = () => {
 
     const handleBlur = (e) => {
         setTouched(prev => ({ ...prev, [e.target.name]: true }));
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
+        const ctaLocation = prefillData?.sourceButton || 'unknown';
+        const eventData = {
             event: 'form_start',
             form_page: window.location.pathname,
             form_field: e.target.name
-        });
+        };
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push(enrichEvent(eventData, ctaLocation));
     };
 
     const handleSubmit = async (e) => {
@@ -107,8 +112,8 @@ Email: ${formData.email}
 
 ${formData.experience}${familySection}${notesSection}`;
 
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
+        const ctaLocation = sourceButton;
+        const eventData = {
             event: 'whatsapp_submit_click',
             whatsapp_page: currentPage,
             whatsapp_cta_text: sourceButton,
@@ -118,7 +123,9 @@ ${formData.experience}${familySection}${notesSection}`;
             for_child: formData.forChild,
             child_age: formData.childAge || null,
             for_other: formData.forOther
-        });
+        };
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push(enrichEvent(eventData, ctaLocation));
 
         await insertLead({
             name: formData.name,

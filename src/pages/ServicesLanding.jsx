@@ -5,6 +5,7 @@ import { servicesData } from '../data/servicesData';
 import { ArrowRight, CheckCircle, ArrowUpRight } from 'lucide-react';
 import Button from '../components/Button';
 import { Helmet } from 'react-helmet-async';
+import { enrichEvent } from '../lib/attribution';
 
 const ServicesLanding = () => {
     const location = useLocation();
@@ -105,13 +106,15 @@ const ServicesLanding = () => {
                     <FadeIn>
                         <h3 style={{ color: 'var(--color-text-charcoal)', fontWeight: 700, marginBottom: '20px', fontSize: '1.3rem' }}>Not sure which treatment is right for you?</h3>
                         <Button onClick={() => {
-                            window.dataLayer = window.dataLayer || [];
-                            window.dataLayer.push({
+                            const ctaLocation = 'services_landing_cta';
+                            const eventData = {
                                 event: 'whatsapp_click',
                                 whatsapp_page: window.location.pathname,
                                 whatsapp_cta_text: 'Get In Touch With Us',
                                 whatsapp_type: 'services_landing_cta'
-                            });
+                            };
+                            window.dataLayer = window.dataLayer || [];
+                            window.dataLayer.push(enrichEvent(eventData, ctaLocation));
                             window.open('https://wa.me/60163222135', '_blank');
                         }}>
                             Get In Touch With Us

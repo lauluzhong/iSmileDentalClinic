@@ -3,6 +3,7 @@ import React from 'react';
 import { MapPin, Phone, HelpCircle, Clock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
+import { enrichEvent } from '../lib/attribution';
 import { Reveal, FadeIn } from '../components/Reveal';
 
 // SVG Icons for social media
@@ -73,13 +74,15 @@ const Contact = () => {
                                     <Button
                                         className="contact-direction-btn"
                                         onClick={() => {
-                                            window.dataLayer = window.dataLayer || [];
-                                            window.dataLayer.push({
+                                            const ctaLocation = 'contact_page_cta';
+                                            const eventData = {
                                                 event: 'whatsapp_click',
                                                 whatsapp_page: window.location.pathname,
                                                 whatsapp_cta_text: 'Get In Touch With Us',
                                                 whatsapp_type: 'contact_page_cta'
-                                            });
+                                            };
+                                            window.dataLayer = window.dataLayer || [];
+                                            window.dataLayer.push(enrichEvent(eventData, ctaLocation));
                                             window.open('https://wa.me/60163222135', '_blank');
                                         }}
                                     >
