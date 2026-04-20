@@ -302,9 +302,9 @@ const Home = () => {
                         </div>
                         <div className="welcome-image-split">
                             <picture>
-                              <source type="image/webp" srcSet={TEAM_IMG_WEBP} />
-                              <source type="image/jpeg" srcSet={TEAM_IMG} />
-                              <img src={TEAM_IMG} alt="iSmile Dental Clinic team" width="1024" height="682" loading="lazy" />
+                              <source type="image/webp" srcSet={`${TEAM_IMG_WEBP} 1024w`} />
+                              <source type="image/jpeg" srcSet={`${TEAM_IMG} 1024w`} />
+                              <img src={TEAM_IMG} srcSet={`${TEAM_IMG} 1024w`} sizes="(max-width: 768px) 100vw, 50vw" alt="iSmile Dental Clinic team" width="1024" height="682" loading="lazy" decoding="async" />
                             </picture>
                         </div>
                     </div>
