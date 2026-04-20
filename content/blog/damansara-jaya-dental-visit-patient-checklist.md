@@ -16,7 +16,7 @@ keyword: "dental clinic Damansara Jaya checklist"
 content_type: locality
 faq:
   - q: "What location factors should I consider for a Damansara Jaya dental clinic?"
-    a: "Consider transportation and parking—some clinics along Jalan SS 22/19 have dedicated parking, while others use nearby lots. If you use public transport, check proximity to the Damansara Jaya LRT station or local bus routes. Also look at operating hours that fit your schedule, especially if you need early morning, evening, or weekend appointments. Many Damansara Jaya clinics offer flexible booking options by phone or messaging apps."
+    a: "Consider transportation and parking—some clinics along Jalan SS 22/23 have dedicated parking, while others use nearby lots. If you use public transport, check proximity to the Damansara Jaya LRT station or local bus routes. Also look at operating hours that fit your schedule, especially if you need early morning, evening, or weekend appointments. Many Damansara Jaya clinics offer flexible booking options by phone or messaging apps."
   - q: "How can I learn what services a Damansara Jaya dental clinic provides?"
     a: "Check the clinic's website for their services page—this typically lists available treatments like family dentistry, children's dental care, clear aligners, dental implants, and preventive services. You can also contact the clinic directly to ask about specific treatments you're considering. How they explain their services can give you insight into their communication style and areas of focus."
   - q: "What should I expect during a dental consultation in Damansara Jaya?"
@@ -41,7 +41,7 @@ Think of this as your pre-appointment planning tool, designed to help you feel m
 
 ## 1. Location & Accessibility in Damansara Jaya
 
-**Parking and transportation options** are worth checking, especially if you're visiting with family members. Some dental clinics in Damansara Jaya have dedicated parking spaces, while others use nearby public lots or street parking along Jalan SS 22/19. If you rely on public transport, consider proximity to the Damansara Jaya LRT station or bus routes serving the SS 22 area.
+**Parking and transportation options** are worth checking, especially if you're visiting with family members. Some dental clinics in Damansara Jaya have dedicated parking spaces, while others use nearby public lots or street parking along Jalan SS 22/23. If you rely on public transport, consider proximity to the Damansara Jaya LRT station or bus routes serving the SS 22 area.
 
 **Clinic operating hours** should match your schedule needs. Many Damansara Jaya residents appreciate clinics offering early morning appointments before work or school, evening slots after regular hours, or weekend availability. Flexible scheduling can make regular dental visits more manageable for busy families.
 
