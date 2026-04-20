@@ -24,7 +24,7 @@ Okay, let's be real—going to the dentist isn't anyone's idea of a fun afternoo
 ### About Practical Stuff
 - **What are your hours, and how easy is it to get an appointment?** Because let's face it, most of us need appointments outside 9-to-5.
 - **How's the parking and accessibility?** Seriously, this matters—especially if you're bringing kids or have mobility concerns.
-- **What happens in a dental emergency?** Knowing they have a plan for urgent situations gives you peace of mind.
+- **What happens in a dental emergency?** Knowing they have a plan for urgent situations gives you peace of mind. You can learn more about [emergency dental care options in Damansara Jaya](/blog/emergency-dental-care-damansara-jaya) to understand what to expect.
 
 ### About How They Communicate
 - **How do you explain treatment options?** Look for dentists who take time to walk you through things in plain English (or Malay, or Mandarin).

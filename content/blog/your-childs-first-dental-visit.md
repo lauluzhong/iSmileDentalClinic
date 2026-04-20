@@ -22,7 +22,7 @@ content_type: educational
 
 ### Building a Lifetime of Confident Smiles
 
-The first dental visit sets the tone for your child's entire journey with oral health. We believe it should be an experience filled with curiosity rather than fear! With the right approach, the dental clinic can become a fun, welcoming place for your little one.
+The first dental visit sets the tone for your child's entire journey with oral health. We believe it should be an experience filled with curiosity rather than fear! With the right approach, the dental clinic can become a fun, welcoming place for your little one. At [iSmile Dental Clinic](/), we specialize in creating positive first dental experiences for children in Damansara Jaya.
 
 Our goal is to host "happy visits" where we prioritize your child's comfort and trust, building a positive foundation for years to come.
 

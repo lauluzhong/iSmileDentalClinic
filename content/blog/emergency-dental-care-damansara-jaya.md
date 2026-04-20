@@ -44,7 +44,7 @@ If you're dealing with any of these, call a dental clinic right away. Honestly, 
 
 ## What Happens When You Come In for Emergency Care
 
-When you call iSmile with a dental emergency, we'll ask a few questions to figure out how urgent your situation is. For truly urgent cases, we usually try to fit people in the same day or within 24 hours.
+When you call iSmile with a dental emergency, we'll ask a few questions to figure out how urgent your situation is. For truly urgent cases, we usually try to fit people in the same day or within 24 hours. You can find our contact information and learn more about our [Damansara Jaya location](/services/locations/damansara-jaya) to help plan your visit.
 
 During your emergency visit, here's what typically happens:
 

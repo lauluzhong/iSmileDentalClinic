@@ -85,7 +85,7 @@ Before agreeing to any dental treatment, it's important to feel fully informed. 
 
 Finding a dental practice where you feel comfortable involves more than just clinical services. Consider these factors:
 
-**Communication approach**—do you feel listened to and understood during conversations? Does the dental team explain things clearly and respectfully?
+**Communication approach**—do you feel listened to and understood during conversations? Does the dental team explain things clearly and respectfully? Good communication is essential for building trust with your [dental care provider](/services).
 
 **Support for dental anxiety**—if you or family members feel nervous about dental visits, how does the clinic address this? Some practices have specific approaches to help patients feel more at ease.
 

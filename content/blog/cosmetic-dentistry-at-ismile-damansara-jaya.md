@@ -42,7 +42,7 @@ For those considering multiple cosmetic improvements, we can help prioritise tre
 
 Living in Damansara Jaya and surrounding Petaling Jaya areas presents specific considerations for dental care. The local climate and dietary habits can influence dental health in ways that might affect cosmetic treatment planning. Understanding these local factors helps us provide more relevant advice and care recommendations.
 
-Accessibility matters too. Our Damansara Jaya location makes regular dental visits convenient for local residents, which can be important for certain cosmetic treatments requiring multiple appointments. Follow-up care and maintenance also become more manageable when your dental clinic is conveniently located within your community.
+Accessibility matters too. Our [Damansara Jaya location](/services/locations/damansara-jaya) makes regular dental visits convenient for local residents, which can be important for certain cosmetic treatments requiring multiple appointments. Follow-up care and maintenance also become more manageable when your dental clinic is conveniently located within your community.
 
 We understand the busy lifestyles common in Klang Valley urban areas. When planning cosmetic treatments, we consider factors like appointment scheduling, treatment duration, and recovery time. Some procedures require minimal downtime, while others might involve short recovery periods—we discuss these practical considerations during your consultation.
 
