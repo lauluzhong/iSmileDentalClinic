@@ -63,7 +63,7 @@ A well-conducted dental consultation should feel informative and collaborative. 
 
 **Comprehensive dental examination** includes checking your teeth, gums, and overall oral health. Many clinics use tools like intraoral cameras so you can see what the dentist sees. The examination should cover your bite alignment, gum health assessment, and routine oral soft-tissue checks.
 
-**Clear communication about findings** in language that makes sense to you. Dental terminology can be confusing, so a good dentist will explain what they're observing in plain terms—whether you prefer English, Bahasa Malaysia, or a mix of both.
+**Clear communication about findings** in language that makes sense to you. Dental terminology can be confusing, so a good dentist will explain what they're observing in plain terms—whether you prefer English, Mandarin/Chinese, Bahasa Malaysia, or a comfortable mix.
 
 **Discussion of treatment options** when needed. Most dental situations have multiple possible approaches, and your dentist should explain different options along with their considerations, timelines, and what each involves.
 
