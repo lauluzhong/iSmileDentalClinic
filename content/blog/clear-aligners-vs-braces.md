@@ -21,7 +21,7 @@ content_type: educational
 
 A straighter smile is often on the wish list for both teens and adults, but the path to get there varies. The choice between clear aligners and traditional braces isn't just about aesthetics; it's about how the treatment fits into your daily routine and lifestyle.
 
-While we carry industry-leading clear aligner brands like Invisalign, Angel, and ClearSmile, understanding whether clear aligners or traditional braces are right for you is the first step in your journey.
+While we carry industry-leading clear aligner brands like Invisalign, Angel, and ClearSmile at [iSmile Dental Clinic](https://ismile.com.my), understanding whether clear aligners or traditional braces are right for you is the first step in your journey.
 
 Whether you are a busy professional or a parent of an active teen, understanding the daily impact of each option is key to a successful and stress-free journey.
 

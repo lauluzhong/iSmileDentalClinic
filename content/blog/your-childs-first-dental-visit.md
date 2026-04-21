@@ -24,7 +24,7 @@ content_type: educational
 
 The first dental visit sets the tone for your child's entire journey with oral health. We believe it should be an experience filled with curiosity rather than fear! With the right approach, the dental clinic can become a fun, welcoming place for your little one.
 
-Our goal is to host "happy visits" where we prioritize your child's comfort and trust, building a positive foundation for years to come.
+Our goal at [iSmile Dental Clinic](https://ismile.com.my) is to host "happy visits" where we prioritize your child's comfort and trust, building a positive foundation for years to come.
 
 <p>For early assessment of this issue, consider visiting our <a href="https://ismile.com.my/services/children">children's dental service</a> page.</p>
 

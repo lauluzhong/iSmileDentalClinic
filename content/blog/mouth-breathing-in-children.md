@@ -24,7 +24,7 @@ content_type: educational
 
 We often think of breathing as automatic, but *how* your child breathes truly matters for their development. Mouth breathing, especially during sleep, can be a sign of underlying airway issues that impact not just their teeth, but their facial growth and overall health.
 
-Spotting these signs early can prevent long-term orthodontic, sleep, and developmental challenges.
+Spotting these signs early at a [dental clinic](https://ismile.com.my) can prevent long-term orthodontic, sleep, and developmental challenges.
 
 <p>For early assessment of this issue, consider visiting our <a href="https://ismile.com.my/services/children">children's dental service</a> page.</p>
 

@@ -25,7 +25,7 @@ Trying to coordinate dental appointments for everyone in the family can feel lik
 
 But here's the thing: when you plan family dental visits together, you're not just saving time. You're creating a consistent routine that helps everyone maintain better oral health. Missed check-ups mean small issues can become bigger problems, and rescheduling multiple appointments adds more stress to an already busy schedule.
 
-This guide walks through practical ways to organize family dental care in Damansara Jaya, focusing on what actually works for parents juggling multiple responsibilities.
+This guide walks through practical ways to organize family dental care in Damansara Jaya, focusing on what actually works for parents juggling multiple responsibilities. For more information about family dental services, visit our [main website](https://ismile.com.my).
 
 ## Why Family Planning Makes Dental Care More Manageable
 
