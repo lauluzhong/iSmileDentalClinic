@@ -4,6 +4,9 @@ import { Link, useLocation } from 'react-router-dom';
 import { Smartphone } from 'lucide-react';
 import Button from './Button';
 
+const logo = '/logo.png';
+const logoWebP = '/logo.webp';
+
 // SVG Icons for social media
 const InstagramIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -58,7 +61,11 @@ const Footer = () => {
                                 }
                             }}
                         >
-                            <img src="/logo.png" alt="iSmile Dental Clinic logo" loading="lazy" />
+                            <picture>
+                              <source type="image/webp" srcSet={logoWebP} />
+                              <source type="image/png" srcSet={logo} />
+                              <img className="site-logo-img" src={logo} alt="iSmile Dental Clinic logo" width="500" height="500" loading="lazy" decoding="async" />
+                            </picture>
                         </Link>
                         <p className="footer-desc">
                             We are ready to help you smile with confidence. At iSmile Dental Clinic, we are dedicated to providing comprehensive dental care for the entire family.
@@ -210,8 +217,18 @@ const Footer = () => {
             gap: 40px;
         }
 
+        .footer-logo picture {
+            display: block;
+            line-height: 0;
+        }
+
         .footer-logo img {
             height: 155px !important;
+            width: auto !important;
+            max-width: 100%;
+            object-fit: contain;
+            background: transparent;
+            display: block;
             margin-bottom: 8px;
         }
 
@@ -368,7 +385,7 @@ const Footer = () => {
                 gap: 0;
             }
             .branding-col { text-align: center; align-items: center; padding: 0 0 16px; border-bottom: 1px solid #f1f5f9; margin-bottom: 16px; }
-            .footer-logo img { height: 100px !important; margin-bottom: 0px; }
+            .footer-logo img { height: 100px !important; width: auto !important; margin-bottom: 0px; }
             .footer-desc { margin: 8px auto 16px; font-size: 0.85rem; }
             
             .footer-col { border-bottom: 1px solid #f1f5f9; padding: 16px 0; }
