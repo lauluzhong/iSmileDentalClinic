@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import React, { useEffect, useState } from 'react';
 import { Reveal, FadeIn } from '../components/Reveal';
 import { HelpCircle, Info, CreditCard, User, Droplets, Calendar, Users, ChevronDown } from 'lucide-react';
+import { enrichEvent } from '../lib/attribution';
 
 const FAQ = () => {
     const [openItems, setOpenItems] = useState({});
@@ -161,7 +162,18 @@ const FAQ = () => {
                         <p className="mb-4">Can't find what you're looking for? Reach out to our friendly team.</p>
                         <button
                             className="btn btn-primary"
-                            onClick={() => window.open('https://wa.me/60163222135', '_blank')}
+                            onClick={() => {
+                                const ctaLocation = 'faq_page_cta';
+                                const eventData = {
+                                    event: 'whatsapp_click',
+                                    whatsapp_page: window.location.pathname,
+                                    whatsapp_cta_text: 'Get In Touch With Us',
+                                    whatsapp_type: 'faq_page_cta'
+                                };
+                                window.dataLayer = window.dataLayer || [];
+                                window.dataLayer.push(enrichEvent(eventData, ctaLocation));
+                                window.open('https://wa.me/60163222135', '_blank');
+                            }}
                         >
                             Get In Touch With Us
                         </button>

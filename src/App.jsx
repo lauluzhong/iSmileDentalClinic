@@ -6,6 +6,7 @@ import PageTransition from './components/PageTransition';
 import BookingModal from './components/BookingModal';
 import ClarityAnalytics from './components/Analytics/ClarityAnalytics';
 import Loader from './components/Loader';
+import { initAttribution, enrichEvent } from './lib/attribution';
 
 // Primary pages (synchronous)
 import Home from './pages/Home';
@@ -23,19 +24,26 @@ const Recall = lazy(() => import('./pages/Recall'));
 function App() {
   const location = useLocation();
 
+  // Initialize attribution tracking
+  useEffect(() => {
+    initAttribution();
+  }, []);
+
   // Global WhatsApp click tracker — catches ALL wa.me links site-wide
   useEffect(() => {
     const handleWhatsAppClick = (e) => {
       const link = e.target.closest('a[href*="wa.me"]');
       if (!link) return;
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
+      const ctaLocation = link.dataset.analyticsClick || link.getAttribute('data-analytics-click') || 'global_wa_link';
+      const eventData = {
         event: 'whatsapp_click',
         whatsapp_page: window.location.pathname,
         whatsapp_url: link.href,
         whatsapp_cta_text: link.textContent.trim().substring(0, 100) || link.innerText.trim().substring(0, 100) || 'unknown',
         whatsapp_type: 'global_wa_link'
-      });
+      };
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(enrichEvent(eventData, ctaLocation));
     };
     document.addEventListener('click', handleWhatsAppClick);
     return () => document.removeEventListener('click', handleWhatsAppClick);
