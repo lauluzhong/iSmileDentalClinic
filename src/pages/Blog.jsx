@@ -141,8 +141,8 @@ const Blog = () => {
     return (
         <div className="blog-page">
             <Helmet>
-                <title>Dental Learning Centre | iSmile Dental Clinic Petaling Jaya</title>
-                <meta name="description" content="Dental health tips & advice from iSmile Dental Clinic Petaling Jaya. Learn about oral care & dental treatments." />
+                <title>Dental Health Blog & Advice | iSmile Dental Clinic Petaling Jaya</title>
+                <meta name="description" content="Practical dental advice for Petaling Jaya families. Read about children's dentistry, orthodontics, oral surgery, and preventive care from experienced dental practitioners." />
                 <link rel="canonical" href={`https://ismile.com.my/blog${currentPage > 1 ? `?page=${currentPage}` : ''}`} />
             </Helmet>
             <div className="blog-hero-gradient" style={{
