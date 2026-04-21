@@ -23,7 +23,7 @@ A straighter smile is often on the wish list for both teens and adults, but the 
 
 While we carry industry-leading clear aligner brands like Invisalign, Angel, and ClearSmile, understanding whether clear aligners or traditional braces are right for you is the first step in your journey.
 
-Whether you are a busy professional or a parent of an active teen, understanding the daily impact of each option is key to a successful and stress-free journey.
+Whether you are a busy professional or a parent of an active teen, understanding the daily impact of each option is key to a successful and stress-free journey. Learn more about our approach on our [main website](https://ismile.com.my).
 
 <p>To learn more about our approach to straightening teeth, visit our <a href="https://ismile.com.my/services/straighten">teeth straightening service</a> page.</p>
 

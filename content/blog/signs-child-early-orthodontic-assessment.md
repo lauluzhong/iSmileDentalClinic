@@ -33,7 +33,7 @@ A lot of parents assume orthodontic treatment only starts when all the adult tee
 
 The reason is simple. Some problems are easier to fix while the jaw is still growing. Waiting until all the adult teeth come in can mean longer treatment, more invasive procedures, or in some cases, problems that become harder to address altogether.
 
-If you are in Malaysia, this is especially relevant. Malaysian diets, habits, and genetics all play a role in how children's teeth and jaws develop. Getting an early assessment means you have more options, not fewer.
+If you are in Malaysia, this is especially relevant. Malaysian diets, habits, and genetics all play a role in how children's teeth and jaws develop. Getting an early assessment means you have more options, not fewer. Learn more about our [children's dental clinic](https://ismile.com.my/services/children) services.
 
 ## Crowded or Crooked Teeth Showing Up Early
 

@@ -28,7 +28,7 @@ faq:
 
 # Family Dental Care in Damansara Jaya: What to Expect for Patients of All Ages
 
-Finding dental care that works for your entire family involves considering different needs across ages and stages. You might be looking for a clinic that can care for your children's developing smiles while also addressing adult dental concerns—all in an environment that feels comfortable for everyone. At [iSmile Dental Clinic in Damansara Jaya](/services/locations/damansara-jaya), we provide dental services for patients of all ages, with attention to making dental visits manageable for busy families in the Petaling Jaya area.
+Finding dental care that works for your entire family involves considering different needs across ages and stages. You might be looking for a clinic that can care for your children's developing smiles while also addressing adult dental concerns—all in an environment that feels comfortable for everyone. At [iSmile Dental Clinic in Damansara Jaya](/services/locations/damansara-jaya), we provide dental services for patients of all ages, with attention to making dental visits manageable for busy families in the Petaling Jaya area. Learn more about our approach on our [main website](https://ismile.com.my).
 
 ## Understanding Family Dental Care
 
