@@ -59,7 +59,7 @@ Not all dental clinics are set up to handle family appointments efficiently. Whe
 
 **Scheduling flexibility** matters most for busy families. Look for clinics that offer appointment times outside regular business hours—early mornings, evenings, or weekends. Some clinics in Damansara Jaya have specific family appointment slots designed to accommodate school and work schedules.
 
-**Range of services** for different ages means you won't need to visit multiple specialists for routine care. A clinic that offers pediatric dentistry for children alongside adult dental services can handle check-ups for everyone in one place. This is especially helpful if you have children who might need early orthodontic assessments or other specialized attention.
+**Range of services** for different ages means you won't need to visit multiple specialists for routine care. A clinic that offers [pediatric dentistry for children](https://ismile.com.my/services/children) alongside adult dental services can handle check-ups for everyone in one place. This is especially helpful if you have children who might need early orthodontic assessments or other specialized attention.
 
 **Communication style** affects how easy it is to coordinate appointments. Some clinics make it simple to schedule multiple family members through phone calls or messaging apps, while others require separate online bookings for each person. Clear communication about appointment reminders, preparation instructions, and follow-up care also makes the process smoother.
 

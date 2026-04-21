@@ -46,7 +46,7 @@ We focus on coordinating care across different age groups within families. Under
 
 ## Complete Services for Every Family Member
 
-At iSmile Damansara Jaya, we offer a full range of dental services so your family doesn't need to visit multiple clinics for different needs:
+At iSmile Damansara Jaya, we offer a [full range of dental services](https://ismile.com.my/services) so your family doesn't need to visit multiple clinics for different needs:
 
 **For Children:**
 - **First dental visits** starting from age one
