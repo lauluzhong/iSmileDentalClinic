@@ -64,7 +64,7 @@ const Footer = () => {
                             <picture>
                               <source type="image/webp" srcSet={logoWebP} />
                               <source type="image/png" srcSet={logo} />
-                              <img src={logo} alt="iSmile Dental Clinic logo" width="500" height="500" loading="lazy" decoding="async" />
+                              <img className="site-logo-img" src={logo} alt="iSmile Dental Clinic logo" width="500" height="500" loading="lazy" decoding="async" />
                             </picture>
                         </Link>
                         <p className="footer-desc">
@@ -217,8 +217,18 @@ const Footer = () => {
             gap: 40px;
         }
 
+        .footer-logo picture {
+            display: block;
+            line-height: 0;
+        }
+
         .footer-logo img {
             height: 155px !important;
+            width: auto !important;
+            max-width: 100%;
+            object-fit: contain;
+            background: transparent;
+            display: block;
             margin-bottom: 8px;
         }
 
@@ -375,7 +385,7 @@ const Footer = () => {
                 gap: 0;
             }
             .branding-col { text-align: center; align-items: center; padding: 0 0 16px; border-bottom: 1px solid #f1f5f9; margin-bottom: 16px; }
-            .footer-logo img { height: 100px !important; margin-bottom: 0px; }
+            .footer-logo img { height: 100px !important; width: auto !important; margin-bottom: 0px; }
             .footer-desc { margin: 8px auto 16px; font-size: 0.85rem; }
             
             .footer-col { border-bottom: 1px solid #f1f5f9; padding: 16px 0; }

@@ -140,7 +140,7 @@ const Header = () => {
                         <picture>
                           <source type="image/webp" srcSet={logoWebP} />
                           <source type="image/png" srcSet={logo} />
-                          <img src={logo} alt="iSmile Dental Clinic" width="500" height="500" loading="eager" decoding="async" style={{ height: '110px', width: 'auto', transition: 'height 0.3s ease' }} />
+                          <img className="site-logo-img" src={logo} alt="iSmile Dental Clinic" width="500" height="500" loading="eager" decoding="async" style={{ height: '110px', width: 'auto', transition: 'height 0.3s ease' }} />
                         </picture>
                     </Link>
 
@@ -386,6 +386,18 @@ const Header = () => {
             color: var(--color-secondary);
         }
 
+        .logo-link picture {
+            display: block;
+            line-height: 0;
+        }
+
+        .logo-link img {
+            width: auto !important;
+            object-fit: contain;
+            background: transparent;
+            display: block;
+        }
+
         .nav-list {
             display: flex;
             gap: 30px;
@@ -590,6 +602,9 @@ const Header = () => {
             }
             .logo-link img {
                 height: 32px !important;
+                width: auto !important;
+                object-fit: contain;
+                background: transparent;
                 display: block;
             }
             
