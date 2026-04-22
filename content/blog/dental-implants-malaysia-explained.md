@@ -17,6 +17,7 @@ img: /images/blog/dental-implants-hero.png
 title: 'Dental Implants in Malaysia: What You Need to Know'
 tags:
   - Restorative Dentistry
+parent_page: "https://ismile.com.my/services/replace/dental-implants"
 content_type: educational
 ---
 

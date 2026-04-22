@@ -17,6 +17,7 @@ img: /images/blog/asian_couple_40s.png
 title: 'Wisdom Tooth Surgery: What to Expect Before, During, and After'
 tags:
   - Oral Surgery
+parent_page: "https://ismile.com.my/services/replace"
 content_type: educational
 ---
 

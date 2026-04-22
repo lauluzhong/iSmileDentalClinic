@@ -17,6 +17,7 @@ img: /images/blog/concerned_person_brushing.png
 title: Why Do My Gums Bleed Even If I Brush Every Day?
 tags:
   - Oral Health
+parent_page: "https://ismile.com.my/services/protect"
 content_type: educational
 ---
 
