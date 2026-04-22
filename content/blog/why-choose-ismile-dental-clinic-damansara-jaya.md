@@ -34,7 +34,7 @@ Okay, let's be real—going to the dentist isn't anyone's idea of a fun afternoo
 ## What Actually Happens During Your Visit
 
 ### The First Appointment (The "Getting to Know You" Part)
-Most first visits at Damansara Jaya clinics include:
+Most first visits at [Damansara Jaya](https://ismile.com.my/services/locations/damansara-jaya) clinics include:
 - A **thorough check** of your teeth, gums, and everything in between
 - Talking about your **dental history** and any current worries
 - **Visual aids** like tiny cameras that let you see what the dentist sees (honestly, it's kind of cool)

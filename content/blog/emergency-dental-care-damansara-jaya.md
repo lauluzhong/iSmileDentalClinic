@@ -96,7 +96,7 @@ You can't predict when a dental emergency will happen, but you can be prepared:
 
 ## How iSmile Handles Emergency Care
 
-At iSmile Dental Clinic in Damansara Jaya, we handle emergencies with both clinical skill and real understanding. We know dental emergencies can be scary and painful, so we work to create a calm, reassuring environment from the moment you contact us.
+At [iSmile Dental Clinic](https://ismile.com.my/) in Damansara Jaya, we handle emergencies with both clinical skill and real understanding. We know dental emergencies can be scary and painful, so we work to create a calm, reassuring environment from the moment you contact us.
 
 Our team knows how to handle all kinds of dental emergencies, and we have what we need to provide proper temporary or immediate treatment. We also schedule emergency appointments to minimize your wait while making sure each patient gets the attention they need.
 
