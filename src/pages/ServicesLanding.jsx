@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Reveal, FadeIn } from '../components/Reveal';
 import { servicesData } from '../data/servicesData';
-import { ArrowRight, CheckCircle, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, CheckCircle, ArrowUpRight, HelpCircle } from 'lucide-react';
 import Button from '../components/Button';
 import { Helmet } from 'react-helmet-async';
 import { enrichEvent } from '../lib/attribution';
@@ -22,6 +22,63 @@ const ServicesLanding = () => {
             window.scrollTo(0, 0);
         }
     }, [location]);
+
+    // GEO FAQ content for search visibility
+    const faqs = [
+        {
+            q: "What questions should I ask during a dental consultation?",
+            a: "You might ask about the recommended treatment approach, what to expect during the procedure, any alternatives available, and what the recovery timeline looks like. Your dentist can provide details specific to your situation."
+        },
+        {
+            q: "What should I expect during my first dental visit at iSmile?",
+            a: "Your first visit typically includes a comprehensive oral examination, discussion of your dental history and concerns, and sometimes diagnostic imaging if needed. The dental team will explain their findings and discuss potential treatment options with you."
+        },
+        {
+            q: "How do I know which dental treatment is right for me?",
+            a: "Your dentist will assess your oral health, discuss your goals and concerns, and explain different treatment options. They can help you understand the benefits and considerations of each approach based on your specific situation."
+        },
+        {
+            q: "What should I expect for my child's dental visit?",
+            a: "Children's dental visits are designed to be positive experiences. The dental team will gently examine your child's teeth and gums, discuss oral hygiene habits, and may provide preventive treatments like fluoride application. They'll work at your child's pace to build comfort and trust."
+        },
+        {
+            q: "What should I know about dental costs and insurance?",
+            a: "Dental costs vary depending on the treatment needed. During your consultation, your dentist can provide an estimate of treatment costs. Many clinics accept various insurance plans - you can contact the clinic directly to discuss your specific insurance coverage."
+        },
+        {
+            q: "What happens during emergency dental care?",
+            a: "For dental emergencies, the clinic will typically assess the situation promptly to address pain or immediate concerns. This may involve examination, diagnostic imaging if needed, and discussion of treatment options to manage the emergency situation."
+        },
+        {
+            q: "What kind of follow-up care should I expect after treatment?",
+            a: "Follow-up care depends on the treatment received. Your dentist will provide specific aftercare instructions and may schedule follow-up appointments to monitor healing and treatment outcomes. Regular check-ups are generally recommended to maintain oral health."
+        }
+    ];
+
+    // Add FAQ schema for GEO/SEO
+    useEffect(() => {
+        const faqSchema = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+                "@type": "Question",
+                "name": faq.q,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": faq.a
+                }
+            }))
+        };
+
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.innerHTML = JSON.stringify(faqSchema);
+        document.head.appendChild(script);
+
+        return () => {
+            document.head.removeChild(script);
+        };
+    }, []);
 
     return (
         <div className="services-landing">
@@ -100,6 +157,79 @@ const ServicesLanding = () => {
                         </FadeIn>
                     ))}
                 </div>
+
+                {/* FAQ Section for GEO Optimization */}
+                <section className="faq-section section-padding" style={{ 
+                    background: '#f8f9fa', 
+                    borderRadius: '24px',
+                    marginTop: '60px',
+                    padding: '60px 0'
+                }}>
+                    <div className="container">
+                        <div className="text-center" style={{ marginBottom: '50px' }}>
+                            <Reveal width="100%">
+                                <h2 style={{
+                                    fontSize: "clamp(1.8rem, 4vw, 2.5rem)",
+                                    fontWeight: 700,
+                                    color: 'var(--color-text-charcoal)',
+                                    marginBottom: '16px',
+                                    lineHeight: '1.2'
+                                }}>
+                                    Questions Patients <span className="text-gradient">Often Ask</span>
+                                </h2>
+                            </Reveal>
+                            <Reveal delay={0.2} width="100%">
+                                <p style={{
+                                    fontSize: '1.1rem',
+                                    color: 'var(--color-text-muted)',
+                                    maxWidth: '700px',
+                                    margin: '0 auto',
+                                    lineHeight: '1.6'
+                                }}>
+                                    Common questions about dental visits, treatments, and what to expect.
+                                </p>
+                            </Reveal>
+                        </div>
+
+                        <div className="faq-grid" style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                            gap: '30px',
+                            marginTop: '40px'
+                        }}>
+                            {faqs.map((faq, i) => (
+                                <FadeIn key={i} delay={i * 0.08} className="faq-item" style={{
+                                    padding: '30px',
+                                    background: 'white',
+                                    borderRadius: '20px',
+                                    boxShadow: '0 5px 20px rgba(0, 0, 0, 0.05)'
+                                }}>
+                                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', marginBottom: '15px' }}>
+                                        <HelpCircle size={20} className="text-primary-teal" style={{ flexShrink: 0, marginTop: '2px' }} />
+                                        <h4 style={{
+                                            margin: 0,
+                                            color: 'var(--color-primary)',
+                                            fontSize: '1.1rem',
+                                            fontWeight: 600,
+                                            lineHeight: '1.4'
+                                        }}>
+                                            {faq.q}
+                                        </h4>
+                                    </div>
+                                    <p style={{
+                                        margin: 0,
+                                        color: 'var(--color-text-muted)',
+                                        fontSize: '0.95rem',
+                                        lineHeight: '1.6',
+                                        paddingLeft: '32px'
+                                    }}>
+                                        {faq.a}
+                                    </p>
+                                </FadeIn>
+                            ))}
+                        </div>
+                    </div>
+                </section>
 
                 {/* CTA */}
                 <div className="text-center" style={{ marginTop: '80px', paddingBottom: '40px' }}>
