@@ -1,5 +1,46 @@
 [
   {
+    "slug": "pediatric-dental-care-damansara-jaya-parents-guide",
+    "title": "Pediatric Dental Care in Damansara Jaya: What Parents Should Know",
+    "categories": [
+      "Pediatric Dentistry"
+    ],
+    "tags": [
+      "pediatric dentistry",
+      "children's dental health"
+    ],
+    "date": "2026-04-22",
+    "excerpt": "A comprehensive guide for Damansara Jaya parents on pediatric dental care, from first visits to preventive treatments and what to expect.",
+    "featured": false,
+    "faq": [
+      {
+        "q": "When should my child have their first dental visit in Damansara Jaya?",
+        "a": "Many dental professionals suggest scheduling the first visit around age one, or within six months after the first tooth appears. Early visits help children become comfortable with dental environments and allow for monitoring of growth and development from an early stage."
+      },
+      {
+        "q": "What should I look for in a pediatric dental clinic in Damansara Jaya?",
+        "a": "You might consider a clinic with experience in children's dentistry, a welcoming environment for young patients, and clear communication about what to expect during visits. Many parents find it helpful to visit the clinic beforehand or ask about their approach to children's dental care."
+      },
+      {
+        "q": "How can I prepare my child for their first dental visit?",
+        "a": "You can talk about the visit in a positive way, read children's books about dental visits, and avoid using words that might cause anxiety. Some clinics offer familiarization visits where children can see the environment before any examination takes place."
+      },
+      {
+        "q": "What preventive treatments are available for children's teeth?",
+        "a": "Common preventive approaches include fluoride applications to strengthen enamel and fissure sealants that protect the chewing surfaces of back teeth. Your dentist can discuss which options might be suitable for your child's specific situation."
+      },
+      {
+        "q": "How often should children visit the dentist in Damansara Jaya?",
+        "a": "Many dental professionals recommend check-ups every six months for children, though this can vary based on individual needs. Your dentist can provide guidance on an appropriate schedule for your child's oral health."
+      },
+      {
+        "q": "What if my child is anxious about dental visits?",
+        "a": "Many dental clinics that work with children have approaches to help young patients feel more comfortable. This might include taking breaks during appointments, using positive reinforcement, and explaining procedures in age-appropriate language."
+      }
+    ],
+    "content_type": "locality"
+  },
+  {
     "slug": "wisdom-tooth-removal-damansara-jaya-guide",
     "title": "Wisdom Tooth Removal in Damansara Jaya: Procedure and Recovery Guide",
     "categories": [
