@@ -74,19 +74,23 @@ Your dentist will examine the tooth, possibly take X-rays to see the extent of t
 
 Before starting, the dentist will apply local anaesthetic to numb the area around the affected tooth. This ensures you remain comfortable throughout the procedure.
 
-### 3. Removing the Damaged Pulp
+### 3. Isolation with a Rubber Dam
+
+Once the tooth is anaesthetised, the dentist will isolate the tooth being worked on with a rubber dam. This keeps the working area sterile and prevents the strong medicaments used during the procedure from entering the oral cavity.
+
+### 4. Removing the Damaged Pulp
 
 A small opening is made in the crown of the tooth to access the pulp chamber. Tiny instruments are used to remove the infected or damaged pulp from the pulp chamber and root canals.
 
-### 4. Cleaning and Shaping
+### 5. Cleaning and Shaping
 
 The inside of the tooth is thoroughly cleaned, disinfected, and shaped to prepare for filling. This step is important for removing any remaining bacteria and preventing reinfection.
 
-### 5. Filling and Sealing
+### 6. Filling and Sealing
 
 After cleaning, the canals are filled with a biocompatible material called gutta-percha, which seals the space and prevents bacteria from entering. A temporary filling may be placed on top to protect the tooth.
 
-### 6. Restoration
+### 7. Restoration
 
 In most cases, a crown is recommended after root canal treatment to protect the tooth and restore its full function. Your dentist will discuss the best restoration option based on your individual situation.
 
@@ -123,7 +127,7 @@ Root canal treatment allows you to keep your natural tooth, preserving your bite
 
 ## Root Canal Treatment in Damansara Jaya
 
-At iSmile Dental Clinic in Damansara Jaya, root canal treatment is performed with a focus on patient comfort and successful outcomes. The dental team uses modern techniques to make the process as smooth as possible.
+At iSmile Dental Clinic in Damansara Jaya, root canal treatment is performed with a focus on patient comfort and successful outcomes. The dental team uses the latest evidence-based techniques and materials to ensure a comfortable treatment with a successful outcome.
 
 If you are experiencing tooth pain or have been told you might need a root canal, a consultation is the first step. The dentist will examine the tooth, discuss your options, and help you understand what route will work best for your situation.
 
