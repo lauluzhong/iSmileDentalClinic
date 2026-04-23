@@ -10,8 +10,10 @@ import { initAttribution, enrichEvent } from './lib/attribution';
 
 // Primary pages (synchronous)
 import Home from './pages/Home';
-import About from './pages/About';
-import Services from './pages/Services';
+
+// Remaining primary pages (lazy-loaded to reduce initial bundle weight)
+const About = lazy(() => import('./pages/About'));
+const Services = lazy(() => import('./pages/Services'));
 
 // Secondary pages (lazy-loaded)
 const Reviews = lazy(() => import('./pages/Reviews'));
@@ -56,14 +58,14 @@ function App() {
       <AnimatePresence>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<PageTransition><Home /></PageTransition>} />
-          <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+          <Route path="/about" element={<PageTransition><Suspense fallback={<Loader />}><About /></Suspense></PageTransition>} />
           {/* Apply Page Transition to Service Hub but NOT sub-routes? 
               The problem is /services/* renders <Services/> which renders <ServiceHub/>
               So when switching from /services/protect to /services/straighten, 
               App.jsx sees a KEY change (location.pathname), so it remounts <Services/>.
               Thus <PageTransition> triggers.
           */}
-          <Route path="/services/*" element={<PageTransition><Services /></PageTransition>} />
+          <Route path="/services/*" element={<PageTransition><Suspense fallback={<Loader />}><Services /></Suspense></PageTransition>} />
           <Route path="/reviews" element={<PageTransition><Suspense fallback={<Loader />}><Reviews /></Suspense></PageTransition>} />
           <Route path="/blog" element={<PageTransition><Suspense fallback={<Loader />}><Blog /></Suspense></PageTransition>} />
           <Route path="/blog/:slug" element={<PageTransition><Suspense fallback={<Loader />}><BlogPost /></Suspense></PageTransition>} />
