@@ -84,28 +84,28 @@ const DamansaraJaya = () => {
                 <div className="loc-highlight">
                   <div className="loc-highlight-icon">🏥</div>
                   <div>
-                    <h4>Modern Equipment</h4>
+                    <h3>Modern Equipment</h3>
                     <p>Digital X-rays, 3D scanners, and advanced sterilisation</p>
                   </div>
                 </div>
                 <div className="loc-highlight">
                   <div className="loc-highlight-icon">👨‍👩‍👧‍👦</div>
                   <div>
-                    <h4>Family-Friendly</h4>
+                    <h3>Family-Friendly</h3>
                     <p>Welcoming environment for patients of all ages</p>
                   </div>
                 </div>
                 <div className="loc-highlight">
                   <div className="loc-highlight-icon">💬</div>
                   <div>
-                    <h4>Clear Communication</h4>
+                    <h3>Clear Communication</h3>
                     <p>We explain every treatment option so you can decide confidently</p>
                   </div>
                 </div>
                 <div className="loc-highlight">
                   <div className="loc-highlight-icon">🅿️</div>
                   <div>
-                    <h4>Convenient Location</h4>
+                    <h3>Convenient Location</h3>
                     <p>Reserved parking in front, near Atria Mall Damansara Jaya</p>
                   </div>
                 </div>

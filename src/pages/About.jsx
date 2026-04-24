@@ -143,7 +143,7 @@ const About = () => {
                         <div className="founder-content">
                             <Reveal><span className="founder-eyebrow">Meet Our Founder</span></Reveal>
                             <Reveal><h2>Dr. Jean Ong</h2></Reveal>
-                            <Reveal><h4 className="founder-role">Founder & Dental Surgeon</h4></Reveal>
+                            <Reveal><h3 className="founder-role">Founder & Dental Surgeon</h3></Reveal>
 
                             <Reveal delay={0.2}><div className="founder-bio">
                                 <h3>A Vision for Better Care</h3>
