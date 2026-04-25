@@ -138,7 +138,7 @@ const FAQ = () => {
                                         const itemKey = `${sIdx}-${qIdx}`;
                                         const isOpen = openItems[itemKey];
                                         return (
-                                        <div key={qIdx} className={`faq-card glass-panel ${isOpen ? 'faq-card-open' : ''}`} onClick={() => toggleItem(itemKey)} style={{ cursor: 'pointer' }}>
+                                        <div key={qIdx} className={`faq-card glass-panel ${isOpen ? 'faq-card-open' : ''}`} onClick={() => toggleItem(itemKey)} role="button" tabIndex={0} aria-expanded={isOpen} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleItem(itemKey); } }}>
                                             <div className="faq-question-row">
                                                 <h3 className="h5 font-weight-bold mb-0" style={{ color: 'var(--color-text-charcoal)', flex: 1 }}>{item.q}</h3>
                                                 <ChevronDown size={20} className={`faq-chevron ${isOpen ? 'faq-chevron-open' : ''}`} />

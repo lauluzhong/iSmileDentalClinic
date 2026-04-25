@@ -167,7 +167,7 @@ ${formData.experience}${familySection}${notesSection}`;
     return (
         <div className="modal-overlay" onClick={closeBooking}>
             <div className="modal-content glass-panel" onClick={e => e.stopPropagation()}>
-                <button className="close-btn" onClick={closeBooking}><X size={24} /></button>
+                <button className="close-btn" onClick={closeBooking} aria-label="Close booking modal"><X size={24} /></button>
 
                 <h2 className="modal-title">Schedule a visit with us today</h2>
                 <div style={{ height: '2px', width: '60px', background: 'var(--color-secondary)', margin: '0 auto 20px', borderRadius: '1px' }} />

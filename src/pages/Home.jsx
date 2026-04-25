@@ -327,7 +327,7 @@ const Home = () => {
                                         <img src={post.img} alt={post.title} loading="lazy" />
                                     </div>
                                     <div className="insight-content">
-                                        <h4>{post.title}</h4>
+                                        <h3>{post.title}</h3>
                                         <span className="read-more-link">Read More</span>
                                     </div>
                                 </Link>

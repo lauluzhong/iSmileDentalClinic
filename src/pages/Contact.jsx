@@ -44,7 +44,7 @@ const Contact = () => {
                         <div className="info-item">
                             <div className="icon-box"><MapPin /></div>
                             <div>
-                                <h4>Visit Us</h4>
+                                <h2>Visit Us</h2>
                                 <p>75 & 75A, Jalan SS 22/23,<br />Damansara Jaya, 47400 Petaling Jaya,<br />Selangor, Malaysia</p>
                                 <div className="contact-direction-buttons mt-4">
                                     <Button
@@ -68,7 +68,7 @@ const Contact = () => {
                         <div className="info-item">
                             <div className="icon-box"><Phone /></div>
                             <div>
-                                <h4>Contact Us</h4>
+                                <h2>Contact Us</h2>
                                 <p><a href="tel:+60163222135" className="phone-link">+60163222135</a></p>
                                 <div className="contact-direction-buttons mt-4">
                                     <Button
@@ -96,7 +96,7 @@ const Contact = () => {
                         <div className="info-item">
                             <div className="icon-box"><Clock /></div>
                             <div>
-                                <h4>Opening Hours</h4>
+                                <h2>Opening Hours</h2>
                                 <div style={{ marginTop: '8px' }}>
                                     <p style={{ marginBottom: '6px' }}><strong>Mon – Fri:</strong> 9:30 AM – 5:30 PM</p>
                                     <p style={{ marginBottom: '6px' }}><strong>Saturday:</strong> 9:30 AM – 3:30 PM</p>
@@ -108,7 +108,7 @@ const Contact = () => {
                         <div className="info-item">
                             <div className="icon-box"><HelpCircle /></div>
                             <div>
-                                <h4>FAQ</h4>
+                                <h2>FAQ</h2>
                                 <p>Find answers to common questions about our services and policies.</p>
                                 <div className="contact-direction-buttons mt-4">
                                     <Button 
@@ -127,7 +127,7 @@ const Contact = () => {
                 {/* Follow Us Section - Between Contact Info and Map */}
                 <div className="social-links-section" style={{ marginTop: '60px', padding: '40px 0' }}>
                     <Reveal delay={0.3} width="100%">
-                        <h3 style={{ fontSize: '1.5rem', fontWeight: 600, marginBottom: '20px', color: 'var(--color-text)' }}>Follow Us</h3>
+                        <h2 style={{ fontSize: '1.5rem', fontWeight: 600, marginBottom: '20px', color: 'var(--color-text)' }}>Follow Us</h2>
                         <p style={{ color: 'var(--color-text-muted)', marginBottom: '30px', maxWidth: '500px', margin: '0 auto 30px' }}>
                             Stay updated with our latest news and dental tips
                         </p>
