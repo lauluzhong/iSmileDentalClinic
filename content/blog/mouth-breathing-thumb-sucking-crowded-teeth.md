@@ -126,7 +126,7 @@ A good myofunctional orthodontist will look at all three angles: how your child 
 
 Some children need expanders to widen the upper jaw. Some need LM Activator to retrain muscle habits. Some need a combination of approaches. Your dentist will assess your child's individual situation and recommend what actually fits, not what fits a marketing brochure.
 
-**The best time to act was five years ago. The second best time is now.** If your child is under 10 and showing signs of mouth breathing or thumb sucking habits, book a consultation with iSmile Dental Clinic. We'll assess whether early intervention could make a meaningful difference to their dental development, and we'll tell you honestly if it's too early to worry.
+**The best time to act was five years ago. The second best time is now.** If your child is under 10 and showing signs of mouth breathing or thumb sucking habits, book a consultation with [iSmile Dental Clinic](https://ismile.com.my/). We'll assess whether early intervention could make a meaningful difference to their dental development, and we'll tell you honestly if it's too early to worry.
 
 <p>To learn more about our approach to myofunctional orthodontics and children's dental development, visit our <a href="https://ismile.com.my/services/children">children's dental service</a> page.</p>
 
