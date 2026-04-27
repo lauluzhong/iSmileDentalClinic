@@ -87,8 +87,7 @@ const Home = () => {
                 <title>iSmile Dental Clinic Petaling Jaya | Family Dentist in Damansara Jaya</title>
                 <meta name="description" content="iSmile Dental Clinic in Damansara Jaya, Petaling Jaya — gentle, patient-centred dental care for children, adults & families. Book your visit today." />
                 <link rel="canonical" href="https://ismile.com.my/" />
-                <link rel="preload" as="image" href={FAMILY_HERO} />
-                <link rel="preload" as="image" href={FAMILY_HERO_WEBP} type="image/webp" />
+                <link rel="preload" as="image" href={`/images/family_hero_three_generations-480w.webp`} imagesrcset={`/images/family_hero_three_generations-480w.webp 480w, /images/family_hero_three_generations-768w.webp 768w, ${FAMILY_HERO_WEBP} 947w`} imagesizes="(max-width: 768px) 100vw, 50vw" type="image/webp" />
             </Helmet>
 
             {/* 1. Hero Section */}
@@ -115,9 +114,9 @@ const Home = () => {
                         <FadeIn delay={0.2}>
                             <div className="glass-panel hero-card" style={{ padding: 0, overflow: 'hidden', aspectRatio: '4/5' }}>
                                 <picture>
-                                  <source type="image/webp" srcSet={`${FAMILY_HERO_WEBP} 947w`} />
-                                  <source type="image/jpeg" srcSet={`${FAMILY_HERO} 947w`} />
-                                  <img src={FAMILY_HERO} srcSet={`${FAMILY_HERO} 947w`} sizes="(max-width: 768px) 100vw, 50vw" alt="Family dental care at iSmile Dental Clinic" width="947" height="1024" fetchPriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
+                                  <source type="image/webp" srcSet={`/images/family_hero_three_generations-480w.webp 480w, /images/family_hero_three_generations-768w.webp 768w, ${FAMILY_HERO_WEBP} 947w`} sizes="(max-width: 768px) 100vw, 50vw" />
+                                  <source type="image/jpeg" srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 947w`} sizes="(max-width: 768px) 100vw, 50vw" />
+                                  <img src={FAMILY_HERO} srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 947w`} sizes="(max-width: 768px) 100vw, 50vw" alt="Family dental care at iSmile Dental Clinic" width="947" height="1024" fetchPriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
                                 </picture>
                             </div></FadeIn>
                     </div>
@@ -302,9 +301,9 @@ const Home = () => {
                         </div>
                         <div className="welcome-image-split">
                             <picture>
-                              <source type="image/webp" srcSet={`${TEAM_IMG_WEBP} 1024w`} />
-                              <source type="image/jpeg" srcSet={`${TEAM_IMG} 1024w`} />
-                              <img src={TEAM_IMG} srcSet={`${TEAM_IMG} 1024w`} sizes="(max-width: 768px) 100vw, 50vw" alt="iSmile Dental Clinic team" width="1024" height="682" loading="lazy" decoding="async" />
+                              <source type="image/webp" srcSet={`/images/team_group-480w.webp 480w, /images/team_group-768w.webp 768w, ${TEAM_IMG_WEBP} 1024w`} sizes="(max-width: 768px) 100vw, 50vw" />
+                              <source type="image/jpeg" srcSet={`/images/team_group-480w.jpg 480w, /images/team_group-768w.jpg 768w, ${TEAM_IMG} 1024w`} sizes="(max-width: 768px) 100vw, 50vw" />
+                              <img src={TEAM_IMG} srcSet={`/images/team_group-480w.jpg 480w, /images/team_group-768w.jpg 768w, ${TEAM_IMG} 1024w`} sizes="(max-width: 768px) 100vw, 50vw" alt="iSmile Dental Clinic team" width="1024" height="682" loading="lazy" decoding="async" />
                             </picture>
                         </div>
                     </div>
