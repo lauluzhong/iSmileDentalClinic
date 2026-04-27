@@ -1,0 +1,70 @@
+{
+  "timestamp": "2026-04-27T22:06:12Z",
+  "urls": [
+    "https://ismile.com.my/blog/why-do-my-gums-bleed/",
+    "https://ismile.com.my/blog/wisdom-tooth-surgery/",
+    "https://ismile.com.my/blog/root-canal-treatment-damansara-jaya/",
+    "https://ismile.com.my/blog/invisalign-malaysia-explained/",
+    "https://ismile.com.my/blog/family-dental-check-up-planning-damansara-jaya-parents/"
+  ],
+  "indexing_api": [
+    {
+      "url": "https://ismile.com.my/blog/why-do-my-gums-bleed/",
+      "status": "error_403",
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Permission denied. Failed to verify the URL ownership.\",\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n"
+    },
+    {
+      "url": "https://ismile.com.my/blog/wisdom-tooth-surgery/",
+      "status": "error_403",
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Permission denied. Failed to verify the URL ownership.\",\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n"
+    },
+    {
+      "url": "https://ismile.com.my/blog/root-canal-treatment-damansara-jaya/",
+      "status": "error_403",
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Permission denied. Failed to verify the URL ownership.\",\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n"
+    },
+    {
+      "url": "https://ismile.com.my/blog/invisalign-malaysia-explained/",
+      "status": "error_403",
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Permission denied. Failed to verify the URL ownership.\",\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n"
+    },
+    {
+      "url": "https://ismile.com.my/blog/family-dental-check-up-planning-damansara-jaya-parents/",
+      "status": "error_403",
+      "error": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Permission denied. Failed to verify the URL ownership.\",\n    \"status\": \"PERMISSION_DENIED\"\n  }\n}\n"
+    }
+  ],
+  "search_console_inspect": [
+    {
+      "url": "https://ismile.com.my/blog/why-do-my-gums-bleed/",
+      "status": "ok",
+      "coverageState": "URL is unknown to Google",
+      "verdict": "NEUTRAL"
+    },
+    {
+      "url": "https://ismile.com.my/blog/wisdom-tooth-surgery/",
+      "status": "ok",
+      "coverageState": "URL is unknown to Google",
+      "verdict": "NEUTRAL"
+    },
+    {
+      "url": "https://ismile.com.my/blog/root-canal-treatment-damansara-jaya/",
+      "status": "ok",
+      "coverageState": "URL is unknown to Google",
+      "verdict": "NEUTRAL"
+    },
+    {
+      "url": "https://ismile.com.my/blog/invisalign-malaysia-explained/",
+      "status": "ok",
+      "coverageState": "URL is unknown to Google",
+      "verdict": "NEUTRAL"
+    },
+    {
+      "url": "https://ismile.com.my/blog/family-dental-check-up-planning-damansara-jaya-parents/",
+      "status": "ok",
+      "coverageState": "URL is unknown to Google",
+      "verdict": "NEUTRAL"
+    }
+  ],
+  "note": "Indexing API requires service account to be Search Console property owner level. Current permission: siteFullUser. Owner-level access needed in Search Console settings."
+}
