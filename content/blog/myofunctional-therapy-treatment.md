@@ -2,6 +2,7 @@
 title: "What Does Myofunctional Therapy Treat"
 date: 2026-04-27
 excerpt: "Learn what conditions myofunctional therapy treats including mouth breathing, tongue thrusting, and sleep-disordered breathing in children and adults."
+img: "/images/blog/myofunctional-therapy-treatment-hero.jpg"
 content_type: educational
 categories:
   - Myofunctional Orthodontics
