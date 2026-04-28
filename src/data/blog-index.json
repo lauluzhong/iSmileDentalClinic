@@ -1,5 +1,51 @@
 [
   {
+    "slug": "myofunctional-therapy-treatment",
+    "title": "What Does Myofunctional Therapy Treat",
+    "categories": [
+      "Myofunctional Orthodontics"
+    ],
+    "tags": [
+      "Myofunctional Orthodontics",
+      "Pediatric Dentistry"
+    ],
+    "date": "2026-04-27",
+    "img": "/images/blog/myofunctional-therapy-treatment-hero.jpg",
+    "excerpt": "Learn what conditions myofunctional therapy treats including mouth breathing, tongue thrusting, and sleep-disordered breathing in children and adults.",
+    "featured": false,
+    "faq": [
+      {
+        "q": "What is myofunctional therapy?",
+        "a": "Myofunctional therapy is a set of exercises that retrain the muscles of the face, mouth, and tongue. It addresses improper oral habits such as mouth breathing, incorrect tongue posture, and poor swallowing patterns. The goal is to establish healthy muscle function that supports proper jaw development and stable tooth alignment."
+      },
+      {
+        "q": "What conditions does myofunctional therapy treat?",
+        "a": "Myofunctional therapy is used for mouth breathing, tongue thrust (where the tongue pushes against the front teeth during swallowing), improper tongue resting posture, speech difficulties related to oral muscle function, sleep-disordered breathing, and certain cases of TMJ discomfort."
+      },
+      {
+        "q": "Can adults benefit from myofunctional therapy?",
+        "a": "Yes. While myofunctional therapy is often discussed in the context of children whose jaws are still developing, adults can also benefit. Adults with tongue thrust, mouth breathing habits, TMJ discomfort, or relapse after orthodontic treatment may find myofunctional exercises helpful."
+      },
+      {
+        "q": "How does myofunctional therapy relate to orthodontics?",
+        "a": "Myofunctional therapy and orthodontics are often used together. Myofunctional therapy addresses the muscle habits that can contribute to misaligned teeth, while orthodontic treatment moves the teeth into proper alignment. Combined, they can produce more stable results than orthodontic treatment alone."
+      },
+      {
+        "q": "Is myofunctional therapy covered by dental treatment?",
+        "a": "Myofunctional therapy is typically provided as part of a broader myofunctional orthodontic treatment plan. Your dentist will explain how it fits into your overall care during a consultation."
+      },
+      {
+        "q": "How long does myofunctional therapy take to show results?",
+        "a": "Results depend on consistency, age, and the specific issues being addressed. In many cases, improvements can be seen over several months as new muscle habits are established. Your dentist can give you a better idea based on individual assessment."
+      },
+      {
+        "q": "Does myofunctional therapy involve devices or just exercises?",
+        "a": "It can involve both. Myofunctional therapy primarily consists of exercises that retrain muscle function. In some cases, a removable device worn mainly at night may also be used to support proper tongue and jaw positioning while the exercises train the muscles."
+      }
+    ],
+    "content_type": "educational"
+  },
+  {
     "slug": "dental-implant-consultation-damansara-jaya",
     "title": "Dental Implant Consultation in Damansara Jaya: What to Expect",
     "categories": [
