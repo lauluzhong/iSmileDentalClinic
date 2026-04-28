@@ -1,5 +1,51 @@
 [
   {
+    "slug": "signs-child-mouth-breather",
+    "title": "Signs Your Child Might Be a Mouth Breather",
+    "categories": [
+      "Myofunctional Orthodontics"
+    ],
+    "tags": [
+      "Myofunctional Orthodontics",
+      "Pediatric Dentistry"
+    ],
+    "date": "2026-04-28",
+    "img": "/images/blog/signs-child-mouth-breather-hero.png",
+    "excerpt": "Wondering if your child is a mouth breather? Learn the common signs and how myofunctional therapy can help correct mouth breathing habits.",
+    "featured": false,
+    "faq": [
+      {
+        "q": "What is mouth breathing in children?",
+        "a": "Mouth breathing refers to breathing through the mouth instead of the nose, especially during rest or sleep. While occasional mouth breathing is normal when a child has a cold or allergies, habitual mouth breathing can affect facial development, sleep quality, and dental health over time."
+      },
+      {
+        "q": "What are the most common signs of mouth breathing in children?",
+        "a": "Common signs include sleeping with the mouth open, snoring, heavy breathing during sleep, dry lips or mouth upon waking, daytime fatigue, dark circles under the eyes, frequent bad breath, and resting with an open mouth during the day."
+      },
+      {
+        "q": "How does mouth breathing affect a child's teeth?",
+        "a": "Mouth breathing dries out the mouth by reducing saliva flow. Saliva helps protect teeth from decay and wash away food particles. Over time, chronic mouth breathing can also affect jaw development and contribute to crowded teeth, a narrow palate, and changes in facial structure."
+      },
+      {
+        "q": "Can mouth breathing be corrected?",
+        "a": "Yes. In many cases, mouth breathing can be addressed by identifying and treating the underlying cause. This may involve myofunctional therapy to retrain oral muscles and establish nasal breathing habits. In some cases, referral to an ENT specialist may be needed to address airway obstructions."
+      },
+      {
+        "q": "At what age should I check if my child is a mouth breather?",
+        "a": "Mouth breathing habits can be identified quite early. If you notice your child consistently breathes through their mouth during the day or night when they are not congested, it is worth discussing with your dentist. Many children benefit from assessment around age four to seven, when the jaw is still developing."
+      },
+      {
+        "q": "Is mouth breathing the same as snoring?",
+        "a": "Not exactly, but they are related. Mouth breathing often accompanies snoring because breathing through the mouth can create airway turbulence. Not every mouth breather snores, but snoring combined with open-mouth sleeping is a sign that warrants attention."
+      },
+      {
+        "q": "Can myofunctional therapy help a child who mouth breathes?",
+        "a": "Yes. Myofunctional therapy is one of the main approaches used to correct mouth breathing. It involves simple exercises that train the tongue and facial muscles to support nasal breathing and proper oral posture. Your dentist can assess whether myofunctional therapy is suitable for your child."
+      }
+    ],
+    "content_type": "educational"
+  },
+  {
     "slug": "myofunctional-therapy-treatment",
     "title": "What Does Myofunctional Therapy Treat",
     "categories": [
