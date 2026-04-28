@@ -13,6 +13,7 @@ tier: 1
 parent_page: "https://ismile.com.my/"
 cluster: "Damansara Jaya Local"
 keyword: "dental clinic Damansara Jaya checklist"
+img: "/images/blog/damansara-jaya-dental-visit-patient-checklist-hero.png"
 content_type: locality
 faq:
   - q: "What should I check about a dental clinic's location and accessibility in Damansara Jaya?"
