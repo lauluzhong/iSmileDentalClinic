@@ -2,6 +2,7 @@
 title: "Signs Your Child Might Be a Mouth Breather"
 date: 2026-04-28
 excerpt: "Wondering if your child is a mouth breather? Learn the common signs and how myofunctional therapy can help correct mouth breathing habits."
+img: "/images/blog/signs-child-mouth-breather-hero.png"
 content_type: educational
 categories:
   - Myofunctional Orthodontics
