@@ -2,6 +2,7 @@
 title: "Myofunctional Therapy Before and After Braces"
 date: 2026-04-29
 excerpt: "How myofunctional therapy can complement orthodontic treatment before or after braces for more stable, lasting results."
+img: "/images/blog/myofunctional-therapy-before-after-braces-hero.png"
 content_type: educational
 categories:
   - Myofunctional Orthodontics
