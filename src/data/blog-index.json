@@ -39,6 +39,52 @@
     "content_type": "educational"
   },
   {
+    "slug": "myofunctional-therapy-before-after-braces",
+    "title": "Myofunctional Therapy Before and After Braces",
+    "categories": [
+      "Myofunctional Orthodontics"
+    ],
+    "tags": [
+      "Myofunctional Orthodontics",
+      "Orthodontics"
+    ],
+    "date": "2026-04-29",
+    "img": "/images/blog/myofunctional-therapy-before-after-braces-hero.png",
+    "excerpt": "How myofunctional therapy can complement orthodontic treatment before or after braces for more stable, lasting results.",
+    "featured": false,
+    "faq": [
+      {
+        "q": "What is myofunctional therapy and how does it relate to braces?",
+        "a": "Myofunctional therapy is a program of exercises that retrains the muscles of the mouth, tongue, and face. It addresses habits like mouth breathing, incorrect tongue posture, and improper swallowing that can affect tooth alignment. When used before or after braces, it can support better and more stable orthodontic outcomes."
+      },
+      {
+        "q": "Should my child do myofunctional therapy before getting braces?",
+        "a": "In many cases, yes. If a child has oral habits like mouth breathing or tongue thrust, addressing them before braces can help the orthodontic treatment work more effectively. Your dentist will assess whether myofunctional therapy is recommended before starting braces."
+      },
+      {
+        "q": "What are the benefits of myofunctional therapy before braces?",
+        "a": "Myofunctional therapy before braces can help establish proper tongue posture and nasal breathing habits. This may allow the teeth and jaw to respond better to orthodontic forces and reduce the likelihood of teeth shifting back after treatment."
+      },
+      {
+        "q": "Can myofunctional therapy be done after braces?",
+        "a": "Yes. Myofunctional therapy after braces can help retrain oral muscles that may have contributed to the original alignment issues. This can support the stability of the orthodontic result and reduce the risk of relapse."
+      },
+      {
+        "q": "Does myofunctional therapy replace the need for braces?",
+        "a": "No. Myofunctional therapy and braces address different aspects of orthodontic health. Braces move teeth into proper alignment, while myofunctional therapy corrects the muscle habits that influence tooth position. In many cases, the two work best together."
+      },
+      {
+        "q": "How long does myofunctional therapy take before or after braces?",
+        "a": "The duration varies depending on the individual and the habits being addressed. Many programs take several months of consistent exercise practice. Your dentist can provide a personalised timeline based on assessment."
+      },
+      {
+        "q": "Is myofunctional therapy suitable for adults who have had braces?",
+        "a": "Yes. Adults who have completed orthodontic treatment but experience relapse or have persistent oral habits like tongue thrust may benefit from myofunctional therapy to help maintain their results."
+      }
+    ],
+    "content_type": "educational"
+  },
+  {
     "slug": "signs-child-mouth-breather",
     "title": "Signs Your Child Might Be a Mouth Breather",
     "categories": [
