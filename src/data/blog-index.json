@@ -1,5 +1,51 @@
 [
   {
+    "slug": "tongue-thrust-in-children",
+    "title": "Tongue Thrust in Children: Causes, Signs, and Treatment",
+    "categories": [
+      "Myofunctional Orthodontics"
+    ],
+    "tags": [
+      "Myofunctional Orthodontics",
+      "Orthodontics"
+    ],
+    "date": "2026-04-30",
+    "excerpt": "Tongue thrust in children — what causes it, how to spot the signs, and what treatment options like myofunctional therapy can do.",
+    "img": "/images/blog/tongue-thrust-in-children-hero.png",
+    "featured": false,
+    "faq": [
+      {
+        "q": "What is tongue thrust in children?",
+        "a": "Tongue thrust, also called reverse swallow, is when the tongue pushes forward against or between the front teeth during swallowing instead of pressing against the roof of the mouth. This pattern affects roughly 30-40% of children at some point, though most outgrow it naturally."
+      },
+      {
+        "q": "What causes tongue thrust in children?",
+        "a": "Causes can include enlarged tonsils or adenoids that make it hard to breathe through the nose, prolonged thumb sucking or pacifier use, mouth breathing habits, low tongue resting posture, and certain feeding patterns like extended bottle or sippy cup use beyond the recommended age."
+      },
+      {
+        "q": "What are the signs of tongue thrust?",
+        "a": "Common signs include the tongue visibly pushing forward during swallowing, an open bite (front teeth that don't meet), a lisp or other speech difficulties, drooling past infancy, open mouth posture at rest, and difficulty sealing the lips when swallowing."
+      },
+      {
+        "q": "Does tongue thrust go away on its own?",
+        "a": "Many children naturally transition out of infantile tongue thrust as they grow. However, when tongue thrust persists beyond age four to six, it may not resolve without intervention. Professional assessment can help determine whether treatment is needed."
+      },
+      {
+        "q": "How is tongue thrust treated?",
+        "a": "Tongue thrust is most commonly treated with myofunctional therapy, which uses exercises to retrain the swallowing pattern. The exercises focus on teaching the tongue to rest against the roof of the mouth and swallow without pushing against the teeth. In some cases, a removable appliance worn at night may be used alongside the exercises."
+      },
+      {
+        "q": "Can tongue thrust affect my child's speech?",
+        "a": "Yes. Tongue thrust often affects speech, particularly sounds that require the tongue to be in specific positions — like \"s\", \"z\", \"t\", \"d\", \"n\", and \"l\". A child with tongue thrust may have a frontal lisp or other articulation difficulties. Speech therapy and myofunctional therapy are sometimes used together."
+      },
+      {
+        "q": "At what age should tongue thrust be treated?",
+        "a": "Treatment is most commonly considered when tongue thrust persists beyond age six to seven. However, earlier assessment can be done if the pattern is affecting feeding, speech, or dental development. Your dentist can advise on the right timing based on your child's individual development."
+      }
+    ],
+    "content_type": "educational"
+  },
+  {
     "slug": "lm-activator-vs-invisalign",
     "title": "LM Activator vs Invisalign for Children: What's the Difference and Which Option Fits?",
     "categories": [
