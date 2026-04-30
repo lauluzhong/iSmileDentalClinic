@@ -2,6 +2,7 @@
 title: "Tongue Thrust in Children: Causes, Signs, and Treatment"
 date: 2026-04-30
 excerpt: "Tongue thrust in children — what causes it, how to spot the signs, and what treatment options like myofunctional therapy can do."
+img: "/images/blog/tongue-thrust-in-children-hero.png"
 content_type: educational
 categories:
   - Myofunctional Orthodontics
