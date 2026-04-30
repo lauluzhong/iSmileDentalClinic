@@ -5,34 +5,6 @@ import { Shield, CheckCircle, HelpCircle, Users } from 'lucide-react';
 import Button from '../../components/Button';
 
 const MyofunctionalOrthodontics = () => {
-    // Add Service schema for SEO
-    useEffect(() => {
-        const serviceSchema = {
-            "@context": "https://schema.org",
-            "@type": "MedicalProcedure",
-            "name": "MyofunctionalOrthodontics",
-            "description": "Professional dental treatment at iSmile Dental Clinic Petaling Jaya",
-            "provider": {
-                "@type": "Dentist",
-                "name": "iSmile Dental Clinic",
-                "url": "https://ismile.com.my/services/replace"
-            },
-            "areaServed": {
-                "@type": "Place",
-                "name": "Petaling Jaya, Selangor"
-            },
-            "url": "https://ismile.com.my/services/replace"
-        };
-        
-        const script = document.createElement('script');
-        script.type = 'application/ld+json';
-        script.innerHTML = JSON.stringify(serviceSchema);
-        document.head.appendChild(script);
-        
-        return () => {
-            document.head.removeChild(script);
-        };
-    }, []);
     const { openBooking } = useBooking();
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -69,24 +41,24 @@ const MyofunctionalOrthodontics = () => {
 
     const faqs = [
         {
-            "q": "Is it better than braces?",
-            "a": "It addresses the root cause (muscle patterns, breathing habits, oral posture) whereas braces only treat the symptoms (tooth position). In many cases, it can reduce or eliminate the need for future braces. Your dentist will assess and advise based on your child's specific situation."
+            "q": "What is myofunctional orthodontics and how does it work?",
+            "a": "Myofunctional orthodontics uses removable functional braces, typically worn at night, to address the root causes of jaw and teeth development issues. Instead of just moving teeth after they have already gone off course, this approach works on the muscle patterns, breathing habits, and oral posture that influence how the jaw develops. At iSmile Dental Clinic, each case starts with a thorough assessment covering medical history, developmental milestones, and an oral myofunctional evaluation."
         },
         {
-            "q": "What age is best to start?",
-            "a": "Ideally as soon as possible, while the jaw is still actively growing and habits are easier to retrain. Depending on the assessment conducted and appliance that is prescribed, the dentist will advise you on how best to guide your child's jaw growth and development."
+            "q": "What dental issues can myofunctional orthodontics address in children?",
+            "a": "The main focus areas include lip seal correction, training the tongue to rest on the roof of the mouth, establishing nasal breathing, and correcting swallowing patterns. The treatment also screens for mouth breathing and sleep-related breathing concerns that can affect facial growth and dental development. These patterns are evaluated during the initial assessment before any appliance is recommended."
         },
         {
-            "q": "What does my child have to do?",
-            "a": "Wear the appliance for 1 to 2 hours during the day (at home) and overnight while sleeping, plus perform daily 5-minute muscle exercises. We work with families on realistic expectations here."
+            "q": "What does myofunctional orthodontic treatment involve?",
+            "a": "The treatment follows a structured process: a thorough assessment of medical and developmental history, an oral myofunctional assessment, airway and sleep screening, customized appliance selection, monthly muscle exercise programs, and ongoing progress tracking with growth monitoring. The whole approach is designed to guide natural jaw development gradually, rather than force teeth into position."
         },
         {
-            "q": "How soon can we see results?",
-            "a": "Visible changes in oral habits, like lip seal and nasal breathing, can often be seen within around 6 months. Structural changes in the jaw take longer, typically 12 to 24 months, and your dentist will advise on the expected timeline for your child's case."
+            "q": "What types of appliances are used in myofunctional orthodontics?",
+            "a": "Several appliances may be used depending on the assessment findings, including expanders, mandibular advancers, maxillary protractors, munchees, and myofunctional appliances like the LM Activator. Braces or clear aligners may also be recommended later if needed. The dentist selects the appliance based on the child's growth stage and specific developmental needs identified during assessment."
         },
         {
-            "q": "Does my child need to wear it at school?",
-            "a": "No. The appliance is typically worn for only 1 to 2 hours during the day at home, plus overnight while sleeping."
+            "q": "At what age can children start myofunctional orthodontic treatment?",
+            "a": "Treatment typically works best while the jaw is still actively growing, which for many children means roughly between the ages of 5 and 12. The dentist will evaluate growth phase and developmental readiness during the initial consultation. Starting early may help the jaw develop in a way that creates more space for teeth and could reduce the need for extensive treatment later on."
         }
     ];
 
