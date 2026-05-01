@@ -118,7 +118,7 @@ Some patients may also be recommended a removable appliance, worn mainly at nigh
 
 ## Myofunctional Therapy at iSmile Dental Clinic
 
-At iSmile Dental Clinic in Damansara Jaya, myofunctional therapy is available as part of our children's dental and orthodontic care. Every pediatric check-up includes a basic myofunctional screening to assess breathing patterns and oral posture. If concerns are identified, the dentist will discuss whether myofunctional therapy may be helpful.
+At iSmile Dental Clinic in Damansara Jaya, [myofunctional orthodontic therapy](/services/children/myofunctional) is available as part of our children's dental and orthodontic care. Every pediatric check-up includes a basic myofunctional screening to assess breathing patterns and oral posture. If concerns are identified, the dentist will discuss whether myofunctional therapy may be helpful.
 
 ## Taking the Next Step
 

@@ -106,7 +106,7 @@ Adults can also benefit from myofunctional therapy in connection with orthodonti
 
 ## The iSmile Approach
 
-At iSmile Dental Clinic in Damansara Jaya, every pediatric check-up includes a basic myofunctional screening to assess breathing patterns and oral posture. If concerns are identified, the dentist will discuss how myofunctional therapy may fit into your child's overall treatment plan, whether before or after braces.
+At iSmile Dental Clinic in Damansara Jaya, every pediatric check-up includes a basic myofunctional screening to assess breathing patterns and oral posture. If concerns are identified, the dentist will discuss how [myofunctional orthodontic treatment](/services/children/myofunctional) may fit into your child's overall treatment plan, whether before or after braces.
 
 ## Taking the Next Step
 

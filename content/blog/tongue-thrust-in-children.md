@@ -110,7 +110,7 @@ Myofunctional therapy is the main approach used to correct tongue thrust. It inv
 - Strengthen the lip seal so the mouth stays closed at rest
 - Retrain the breathing pattern toward nasal breathing
 
-The exercises are practiced at home for a few minutes each day. Progress is monitored during follow-up visits, where the exercises are adjusted as needed. Most children respond well with consistent practice over several months.
+The exercises are practiced at home for a few minutes each day. Progress is monitored during follow-up visits, where the exercises are adjusted as needed. Most children respond well with consistent practice over several months. iSmile's [myofunctional orthodontics programme](/services/children/myofunctional) tailors these exercises to each child's specific needs.
 
 ### Removable Appliances
 
