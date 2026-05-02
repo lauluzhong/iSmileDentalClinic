@@ -125,9 +125,7 @@ For comprehensive dental care for your entire family, consider exploring:
 - [Orthodontic treatment options](https://ismile.com.my/services/straighten) - Teeth straightening for children and adults
 - [Emergency dental care](https://ismile.com.my/services) - Urgent dental treatment when needed
 
-For personalized family dental care in Damansara Jaya, schedule a consultation to discuss your family's specific needs and treatment preferences.
-
-Visit [iSmile Dental Clinic](https://ismile.com.my/) or [contact us](https://ismile.com.my/contact) to learn more.
+For personalized family dental care in Damansara Jaya, [schedule a consultation](https://ismile.com.my/contact) to discuss your family's specific needs and treatment preferences.
 
 ---
 

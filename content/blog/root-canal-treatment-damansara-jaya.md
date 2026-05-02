@@ -135,6 +135,4 @@ If you are experiencing tooth pain or have been told you might need a root canal
 
 Tooth pain should not be something you just put up with. Modern root canal treatment is a reliable way to relieve pain and protect your natural teeth. If you are in the Damansara Jaya or Petaling Jaya area and have concerns about a tooth, reaching out to a dental clinic is the best place to start.
 
-For more information about our dental services, visit our [dental services page](https://ismile.com.my/services) or explore [restorative care options](https://ismile.com.my/services/protect).
-
-Learn more about [iSmile Dental Clinic](https://ismile.com.my/) or [contact us](https://ismile.com.my/contact) to schedule a consultation.
+For [more information](https://ismile.com.my/) about our dental services, visit our [dental services page](https://ismile.com.my/services) or explore [restorative care options](https://ismile.com.my/services/protect).

@@ -116,6 +116,4 @@ If you are missing one or more teeth and would like to explore your tooth replac
 
 Losing a tooth does not mean you have to live with the gap. Dental implants offer a reliable option for replacing missing teeth and restoring function. If you are in the Damansara Jaya or Petaling Jaya area, a consultation can help you understand whether implants are the right choice for your needs.
 
-For more information, visit our [dental implant services page](https://ismile.com.my/services/replace/dental-implants) or explore [restorative care options](https://ismile.com.my/services).
-
-Learn more about [iSmile Dental Clinic](https://ismile.com.my/) and [contact us](https://ismile.com.my/contact) to book a consultation.
+For [more information](https://ismile.com.my/), visit our [dental implant services page](https://ismile.com.my/services/replace/dental-implants) or explore [restorative care options](https://ismile.com.my/services).

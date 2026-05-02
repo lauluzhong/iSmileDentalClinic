@@ -85,4 +85,4 @@ If you're looking for pediatric dental care in Damansara Jaya, consider these re
 - [Preventive dental care](https://ismile.com.my/services/protect) - Routine check-ups and maintenance for long-term oral health
 - [Your child's first dental visit](https://ismile.com.my/blog/your-childs-first-dental-visit) - What to expect during initial appointments
 
-For more information about our children's dental services in Damansara Jaya, visit [iSmile Dental Clinic](https://ismile.com.my/) or [contact us](https://ismile.com.my/contact) to schedule an appointment.
+For more information about our children's dental services in Damansara Jaya, visit our [Damansara Jaya location page](/services/locations/damansara-jaya) or [contact us](https://ismile.com.my/contact) to schedule an appointment.

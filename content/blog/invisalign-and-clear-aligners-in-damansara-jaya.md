@@ -82,4 +82,4 @@ If you're considering clear aligner treatment in Damansara Jaya, you might also 
 - [Cosmetic dentistry](https://ismile.com.my/services/enhance) - Smile enhancement treatments
 - [Our Damansara Jaya location](https://ismile.com.my/services/locations/damansara-jaya) - Convenient local dental care
 
-For personalized advice about orthodontic treatment options in Damansara Jaya, visit [iSmile Dental Clinic](https://ismile.com.my/) or [contact us](https://ismile.com.my/contact) to schedule a consultation.
+For personalized advice about orthodontic treatment options, [schedule a consultation](https://ismile.com.my/contact) with a dental professional who can assess your specific needs and goals.

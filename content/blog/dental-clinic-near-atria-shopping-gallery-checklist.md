@@ -93,4 +93,4 @@ If you're looking for dental care near Atria Shopping Gallery, consider explorin
 - [Our Damansara Jaya location](https://ismile.com.my/services/locations/damansara-jaya) - Clinic details and contact information for our local practice
 - [Orthodontic treatment options](https://ismile.com.my/services/straighten) - Teeth straightening approaches for children and adults
 
-For more information about dental services in the Damansara Jaya area, visit our [main website](https://ismile.com.my/) to explore available options or [contact us](https://ismile.com.my/contact) to discuss your dental care needs.
+For more information about dental services in the Damansara Jaya area, visit our [main website](https://ismile.com.my/) to explore available options and approach to patient care.
