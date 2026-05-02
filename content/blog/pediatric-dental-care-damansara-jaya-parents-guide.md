@@ -132,7 +132,7 @@ Pediatric dental care in Damansara Jaya focuses on establishing healthy habits f
 
 Remember that every child is unique, and their dental needs may vary. Your dental team can provide personalized guidance based on your child's specific situation and development.
 
-By starting dental care early and maintaining regular visits, you're helping to establish positive associations with dental health that can benefit your child throughout their life.
+By starting [dental care](https://ismile.com.my/) early and maintaining regular visits, you're helping to establish positive associations with dental health that can benefit your child throughout their life.
 
 ---
 

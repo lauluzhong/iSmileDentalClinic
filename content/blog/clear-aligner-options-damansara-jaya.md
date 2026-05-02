@@ -111,4 +111,4 @@ During your consultation, you can expect to cover:
 
 If you are considering clear aligners and live in the Damansara Jaya or Petaling Jaya area, a consultation is a good starting point. A dental professional can assess your teeth, discuss your goals, and help you understand what to expect from treatment.
 
-For more information, visit our [orthodontic services page](https://ismile.com.my/services/straighten) or explore [general dentistry services](https://ismile.com.my/services).
+For [more information](https://ismile.com.my/), visit our [orthodontic services page](https://ismile.com.my/services/straighten) or explore [general dentistry services](https://ismile.com.my/services).
