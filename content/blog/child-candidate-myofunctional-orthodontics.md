@@ -5,8 +5,8 @@ categories:
   - Orthodontics
 date: '2026-03-28'
 author: iSmile Dental Clinic
-excerpt: Wondering if your child might benefit from myofunctional orthodontics? Learn about the signs that indicate they could be a good candidate and what the assessment process involves.
-keywords: 'myofunctional orthodontics Malaysia, child orthodontic assessment, myobrace candidate, early orthodontic treatment, airway-focused orthodontics'
+excerpt: Wondering if your child might benefit from myofunctional orthodontics? This guide covers the signs, the assessment process, and what makes a good candidate.
+
 img: /images/blog/child-candidate-myofunctional-orthodontics.jpg
 tags:
   - Myofunctional Orthodontics
@@ -117,13 +117,23 @@ If you're wondering whether myofunctional orthodontics might help your child, th
 
 Sometimes just having a professional look at the situation can provide clarity, whether that leads to treatment now, monitoring for the future, or exploring other options. What matters most is finding the right path for your child's unique journey.
 
+### Learn More About Myofunctional Therapy
+
+If you want to go deeper on the different aspects of myofunctional care, these articles cover specific areas in more detail:
+
+- [Tongue Thrust in Children: Causes, Signs, and Treatment](/blog/tongue-thrust-in-children) — A closer look at one of the most common myofunctional patterns
+- [Signs Your Child Might Be a Mouth Breather](/blog/signs-child-mouth-breather) — Daytime and nighttime signs parents can watch for
+- [What Does Myofunctional Therapy Treat](/blog/myofunctional-therapy-treatment) — The full range of conditions myofunctional therapy addresses
+- [Myofunctional Therapy Before and After Braces](/blog/myofunctional-therapy-before-after-braces) — How myofunctional therapy fits into the orthodontic timeline
+- [Myofunctional Therapy Exercises for Kids at Home](/blog/myofunctional-therapy-exercises-kids-home) — Simple exercises to practice between visits
+
 ## Explore Related Dental Services
 
 If you're considering myofunctional orthodontics for your child, you might also want to learn about:
 
-- [Children's dental care](https://ismile.com.my/services/children) - Comprehensive pediatric dentistry services
-- [Myofunctional orthodontics](https://ismile.com.my/services/children/myofunctional) - Specialized treatment for oral habit correction
-- [Orthodontic treatment options](https://ismile.com.my/services/straighten) - Teeth straightening services for all ages
-- [Preventive dental care](https://ismile.com.my/services/protect) - Routine check-ups and oral health maintenance
+- [Children's dental care](https://ismile.com.my/services/children) — Comprehensive pediatric dentistry services
+- [Myofunctional orthodontics](https://ismile.com.my/services/children/myofunctional) — Specialized treatment for oral habit correction
+- [Orthodontic treatment options](https://ismile.com.my/services/straighten) — Teeth straightening services for all ages
+- [Preventive dental care](https://ismile.com.my/services/protect) — Routine check-ups and oral health maintenance
 
 For personalized advice about your child's oral development, schedule a consultation with a dental professional who can assess their specific needs.
