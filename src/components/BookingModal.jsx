@@ -38,6 +38,15 @@ const BookingModal = () => {
             };
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push(enrichEvent(eventData, ctaLocation));
+
+            // Conversion event
+            const conversionData = {
+                event: 'bookingmodalopenschedule',
+                booking_page: window.location.pathname,
+                booking_source_button: prefillData?.sourceButton || 'direct',
+                booking_cta_text: prefillData?.sourceButton || 'unknown'
+            };
+            window.dataLayer.push(enrichEvent(conversionData, ctaLocation));
         }
         if (!isBookingOpen) {
             hasOpenedRef.current = false;
@@ -126,6 +135,20 @@ ${formData.experience}${familySection}${notesSection}`;
         };
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push(enrichEvent(eventData, ctaLocation));
+
+        // Conversion event
+        const conversionData = {
+            event: 'whatsappsubmitclick',
+            whatsapp_page: currentPage,
+            whatsapp_cta_text: sourceButton,
+            form_name: formData.name,
+            form_has_experience: Boolean(formData.experience),
+            for_self: formData.forSelf,
+            for_child: formData.forChild,
+            child_age: formData.childAge || null,
+            for_other: formData.forOther
+        };
+        window.dataLayer.push(enrichEvent(conversionData, ctaLocation));
 
         await insertLead({
             name: formData.name,
