@@ -134,6 +134,8 @@ Remember that every child is unique, and their dental needs may vary. Your denta
 
 By starting dental care early and maintaining regular visits, you're helping to establish positive associations with dental health that can benefit your child throughout their life.
 
+Visit [iSmile Dental Clinic](https://ismile.com.my/) or [contact us](https://ismile.com.my/contact) to learn more about pediatric dental care.
+
 ---
 
 *This guide provides general information about pediatric dental care. For personalized advice regarding your child's specific dental needs, consult with a dental professional who can assess your child's individual situation.*

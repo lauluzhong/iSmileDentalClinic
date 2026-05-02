@@ -127,6 +127,8 @@ For comprehensive dental care for your entire family, consider exploring:
 
 For personalized family dental care in Damansara Jaya, schedule a consultation to discuss your family's specific needs and treatment preferences.
 
+Visit [iSmile Dental Clinic](https://ismile.com.my/) or [contact us](https://ismile.com.my/contact) to learn more.
+
 ---
 
 *At iSmile Dental Clinic Damansara Jaya, we're committed to providing complete, compassionate dental care for your entire family. Our team looks forward to helping you maintain healthy smiles at every stage of life.*

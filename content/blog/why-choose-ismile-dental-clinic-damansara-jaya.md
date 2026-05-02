@@ -118,4 +118,4 @@ For more practical information:
 - [Preventive dental care](https://ismile.com.my/services/protect) – Routine check-ups and maintenance
 - [Our complete services overview](https://ismile.com.my/services) – All the dental treatments we offer
 
-For personalized advice about dental care in Damansara Jaya, schedule a consultation to discuss your specific situation and questions.
+For personalized advice about dental care in Damansara Jaya, [contact us](https://ismile.com.my/contact) to schedule a consultation and discuss your specific situation.

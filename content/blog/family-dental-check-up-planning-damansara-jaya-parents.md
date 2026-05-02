@@ -134,3 +134,5 @@ For comprehensive dental care designed with families in mind, consider exploring
 - [Our Damansara Jaya location](https://ismile.com.my/services/locations/damansara-jaya) - Clinic details and contact information
 
 Taking a planned approach to family dental care can help ensure everyone gets the regular check-ups they need while fitting into your busy Damansara Jaya lifestyle.
+
+Visit [iSmile Dental Clinic](https://ismile.com.my/) or [get in touch](https://ismile.com.my/contact) to schedule your family's next dental check-up.
