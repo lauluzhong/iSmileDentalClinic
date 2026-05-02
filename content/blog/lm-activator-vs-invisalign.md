@@ -60,7 +60,7 @@ If your child is a teenager with mostly permanent teeth and straightforward crow
 
 Some children actually benefit from both phases: LM Activator first to correct habits during growth, followed by Invisalign to fine-tune tooth position once the jaw has matured. Your dentist can assess which approach makes the most sense for your child's specific situation.
 
-To learn more about our approach to pediatric orthodontics, visit our [myofunctional orthodontics](/services/children/myofunctional) page.
+To learn more about our approach to pediatric orthodontics, visit our [Myofunctional Orthodontics](/services/children/myofunctional) page.
 
 <p>If you're considering orthodontic treatment for your child, <a href="/contact">contact iSmile Dental Clinic</a> to schedule a consultation and discuss which option is right for their growing smile.</p>
 

@@ -97,4 +97,4 @@ If you're considering myofunctional orthodontics for your child, you might also 
 - [Clear aligner treatment](https://ismile.com.my/services/straighten) - Orthodontic options for older children and teenagers
 - [Preventive dental care](https://ismile.com.my/services/protect) - Routine check-ups and oral health maintenance
 
-Learn more about our [myofunctional orthodontics service](/services/children/myofunctional) and how early intervention can help your child's oral development. For personalised advice, schedule a consultation with a dental professional who can assess your child's specific needs.
+For personalized advice about your child's [oral development](/services/children/myofunctional), schedule a consultation with a dental professional who can assess their specific needs.

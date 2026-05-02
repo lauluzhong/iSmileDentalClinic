@@ -103,14 +103,14 @@ This is why tongue thrust is not just a swallowing issue — it is a dental deve
 
 ### Myofunctional Therapy
 
-Myofunctional therapy is the main approach used to correct tongue thrust. It involves a series of simple exercises that retrain the tongue and facial muscles. The goals are:
+[Myofunctional therapy](/services/children/myofunctional) is the main approach used to correct tongue thrust. It involves a series of simple exercises that retrain the tongue and facial muscles. The goals are:
 
 - Teach the tongue to rest against the roof of the mouth
 - Establish a correct swallowing pattern where the tongue pushes upward, not forward
 - Strengthen the lip seal so the mouth stays closed at rest
 - Retrain the breathing pattern toward nasal breathing
 
-The exercises are practiced at home for a few minutes each day. Progress is monitored during follow-up visits, where the exercises are adjusted as needed. Most children respond well with consistent practice over several months. iSmile's [myofunctional orthodontics programme](/services/children/myofunctional) tailors these exercises to each child's specific needs.
+The exercises are practiced at home for a few minutes each day. Progress is monitored during follow-up visits, where the exercises are adjusted as needed. Most children respond well with consistent practice over several months.
 
 ### Removable Appliances
 

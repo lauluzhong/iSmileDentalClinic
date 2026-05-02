@@ -130,7 +130,7 @@ If you have noticed one or more of these signs in your child, here is what you c
 
 ## Myofunctional Therapy for Mouth Breathing
 
-[Myofunctional orthodontic care](/services/children/myofunctional) is a non-invasive approach that retrains the muscles of the face and mouth. For children who mouth breathe, therapy focuses on:
+[Myofunctional therapy](/services/children/myofunctional) is a non-invasive approach that retrains the muscles of the face and mouth. For children who mouth breathe, therapy focuses on:
 
 - Establishing nasal breathing as the default pattern
 - Correcting tongue resting posture
