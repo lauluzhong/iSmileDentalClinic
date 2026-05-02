@@ -151,6 +151,71 @@ const MyofunctionalOrthodontics = () => {
                 </div>
             </section>
 
+            <section className="patient-stories-section section-padding" style={{ background: '#f0f4f8' }}>
+                <div className="container">
+                    <h2 className="text-center mb-5" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "15px" }}><Users size={32} /> What Parents Often Notice During Treatment</h2>
+                    
+                    <div className="story-grid">
+                        <div className="story-card glass-panel">
+                            <div className="story-number">01</div>
+                            <h4>The First Few Weeks</h4>
+                            <p>Most children adapt to wearing a removable appliance at night within the first couple of weeks. It is common for parents to notice their child settling into the routine quickly, much like getting used to wearing a retainer. The appliance becomes part of the bedtime routine, and most children take to it naturally.</p>
+                            <p className="story-note">One parent described it as similar to when her child first started wearing glasses — a bit of awareness at first, then it just becomes part of the day.</p>
+                        </div>
+
+                        <div className="story-card glass-panel">
+                            <div className="story-number">02</div>
+                            <h4>Changes Parents Spot First</h4>
+                            <p>The earliest changes are often visible in everyday moments. A child who used to breathe through their mouth while watching television starts keeping their lips closed without being reminded. The tongue stops pushing against the front teeth during swallowing. Parents sometimes notice these changes before the dentist does, because they see their child in relaxed, natural settings every day.</p>
+                            <p className="story-note">After a few months, many parents mention that their child's sleep seems calmer, or that they no longer hear that whistling sound when their child breathes at night.</p>
+                        </div>
+
+                        <div className="story-card glass-panel">
+                            <div className="story-number">03</div>
+                            <h4>Progress Over Time</h4>
+                            <p>As the muscles retrain and the jaw is guided into better alignment, changes become more noticeable. The facial profile may begin to look more balanced. Teeth that appeared crowded start finding their natural positions as the jaw develops more space. Speech may become clearer as tongue posture improves.</p>
+                            <p className="story-note">The pace varies from child to child. Some show noticeable changes within a few months, while for others the progress is more gradual. Follow-up appointments help track what is happening and adjust the approach as needed.</p>
+                        </div>
+
+                        <div className="story-card glass-panel">
+                            <div className="story-number">04</div>
+                            <h4>The Role of Consistency</h4>
+                            <p>The children who see the best results are those who wear their appliance consistently and practice the recommended exercises regularly. Parents play a key role here — helping their child build the habit and keeping the routine going. The exercises take only a few minutes a day and become easier as the child gets used to them.</p>
+                            <p className="story-note">Most families find that the routine becomes automatic after a few weeks. What felt like an effort at first becomes something the child does without thinking.</p>
+                        </div>
+                    </div>
+
+                    <p className="story-footer text-center mt-4" style={{ maxWidth: '700px', margin: '30px auto 0', opacity: 0.8 }}>
+                        Every child's journey is different. Some adapt quickly, others take more time. The most important factor is consistency — showing up, wearing the appliance, and doing the exercises as recommended.
+                    </p>
+                </div>
+            </section>
+
+            <section className="how-it-fits-section section-padding" style={{ background: 'white' }}>
+                <div className="container">
+                    <h2 className="text-center mb-5">How Myofunctional Orthodontics Fits Into Your Child's Care</h2>
+                    
+                    <div className="fits-grid">
+                        <div className="fits-item">
+                            <h4>As a standalone approach</h4>
+                            <p>For some children, myofunctional orthodontics is all they need. The appliance guides jaw development while the exercises retrain the muscles, and over time the teeth settle into better alignment on their own. This works best when the issues are caught early and the child has good growth potential.</p>
+                        </div>
+                        <div className="fits-item">
+                            <h4>As a first phase</h4>
+                            <p>In other cases, myofunctional treatment is the first phase of a longer orthodontic journey. The appliances create better conditions for the teeth and jaws to develop, which means that if braces or aligners are needed later, the treatment is often simpler and shorter than it would have been otherwise.</p>
+                        </div>
+                        <div className="fits-item">
+                            <h4>Alongside other children's dental care</h4>
+                            <p>Myofunctional orthodontics works alongside regular paediatric dentistry. Routine check-ups, cleanings, and preventive care continue as normal. The myofunctional approach fits into the broader picture of your child's dental health without disrupting other care.</p>
+                        </div>
+                        <div className="fits-item">
+                            <h4>Addressing habits, not just teeth</h4>
+                            <p>A key feature of this approach is that it addresses the underlying habits — mouth breathing, tongue thrust, incorrect swallowing — rather than focusing only on tooth position. This is why the results can be more stable over the long term. The habits that caused the problem in the first place are corrected, so the teeth have less reason to shift back.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section className="faq-section section-padding" style={{ background: '#f8f9fa' }}>
                 <div className="container">
                     <h2 className="text-center mb-5" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "15px" }}><HelpCircle size={32} /> Common Questions</h2>
@@ -217,6 +282,19 @@ const MyofunctionalOrthodontics = () => {
                     .faq-item p { font-size: 0.95rem; line-height: 1.5; }
                     
                     .section-padding { padding: 40px 0; }
+                    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
+                    .story-card { padding: 30px; background: white; border-radius: 20px; position: relative; }
+                    .story-number { font-family: 'Space Grotesk', sans-serif; font-weight: 800; color: var(--color-primary); font-size: 2rem; opacity: 0.3; margin-bottom: 10px; }
+                    .story-note { font-style: italic; opacity: 0.8; margin-top: 15px; border-left: 3px solid var(--color-primary); padding-left: 15px; font-size: 0.95rem; }
+                    .story-footer { font-size: 1.05rem; line-height: 1.6; }
+                    .fits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
+                    .fits-item { padding: 30px; background: #f8f9fa; border-radius: 20px; }
+                    .fits-item h4 { margin-bottom: 12px; color: var(--color-primary); }
+                }
+                @media (max-width: 768px) {
+                    .story-grid, .fits-grid { grid-template-columns: 1fr; gap: 20px; }
+                    .story-card { padding: 24px; }
+                    .fits-item { padding: 24px; }
                 }
             `}</style>
         </div>
