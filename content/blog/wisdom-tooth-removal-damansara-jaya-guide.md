@@ -131,4 +131,4 @@ The key is open communication with your dental team. Don't hesitate to ask quest
 
 Remember, addressing wisdom tooth issues proactively can prevent more significant problems down the line. Whether you're experiencing symptoms now or your dentist has recommended preventive removal, having the information you need makes the process much more manageable.
 
-If you're considering wisdom tooth removal in Damansara Jaya, start with a [consultation](https://ismile.com.my/contact). Your dentist can assess your specific situation and provide personalized guidance for your oral health journey.
+If you're considering wisdom tooth removal in Damansara Jaya, start with a consultation. Your dentist can assess your specific situation and provide personalized guidance for your oral health journey.
