@@ -1,5 +1,96 @@
 [
   {
+    "slug": "dental-crowns-malaysia",
+    "title": "Dental Crowns in Malaysia: What You Need to Know",
+    "categories": [
+      "Restorative Dentistry"
+    ],
+    "tags": [
+      "Restorative Dentistry"
+    ],
+    "date": "2026-05-02",
+    "img": "/images/blog/dental-crowns-malaysia-hero.jpg",
+    "excerpt": "Everything you need to know about dental crowns in Malaysia — when you might need one, what the procedure involves, how to care for it, and how long it typically lasts.",
+    "featured": false,
+    "faq": [
+      {
+        "q": "What is a dental crown?",
+        "a": "A dental crown is a custom-made cap that covers a damaged or weakened tooth from the gum line up. It restores the tooth's shape, size, strength, and appearance. Crowns are typically recommended when a tooth has been significantly weakened by decay, a large filling, or a root canal treatment."
+      },
+      {
+        "q": "Why might I need a dental crown?",
+        "a": "You might need a crown for a large cavity too big for a standard filling, a cracked or worn tooth from grinding or injury, after a root canal to protect the treated tooth, for a misshapen or discoloured tooth, or to anchor a dental bridge in place."
+      },
+      {
+        "q": "How long do dental crowns last?",
+        "a": "With proper care, dental crowns typically last between 5 and 15 years. The lifespan depends on materials used, oral hygiene habits, grinding or clenching patterns, and regular dental check-ups. Some metal crowns have been known to last 20 years or more."
+      },
+      {
+        "q": "Does getting a dental crown hurt?",
+        "a": "The procedure is performed under local anaesthesia, so you should not feel pain during the preparation or fitting. Some mild sensitivity after the anaesthesia wears off is common and usually subsides within a few days."
+      },
+      {
+        "q": "How do I care for a dental crown?",
+        "a": "Crowns need the same care as natural teeth — brushing twice daily, flossing around the gum line where the crown meets the tooth, and regular dental check-ups. Avoid chewing very hard foods on the crowned tooth and be mindful if you grind your teeth at night."
+      },
+      {
+        "q": "What is the difference between a crown and a filling?",
+        "a": "A filling repairs small to moderate areas of decay while preserving most of the original tooth structure. A crown covers the entire visible portion of the tooth and is used when the damage is too extensive for a filling to hold. Think of a filling as a patch and a crown as a helmet for the tooth."
+      },
+      {
+        "q": "Can a crown fall off?",
+        "a": "Crowns can loosen or come off, especially if the cement seal breaks or if there is decay underneath. If this happens, keep the crown safe and see your dentist promptly. The crown can often be re-cemented if it is still in good condition."
+      }
+    ],
+    "content_type": "educational"
+  },
+  {
+    "slug": "myofunctional-therapy-exercises-kids-home",
+    "title": "Myofunctional Therapy Exercises for Kids at Home",
+    "categories": [
+      "Myofunctional Orthodontics"
+    ],
+    "tags": [
+      "Myofunctional Orthodontics",
+      "Orthodontics"
+    ],
+    "date": "2026-05-01",
+    "img": "/images/blog/myofunctional-therapy-exercises-kids-home-hero.png",
+    "excerpt": "Simple myofunctional therapy exercises for kids to practice at home — tongue posture, swallow retraining, lip seal, and breathing exercises explained for parents.",
+    "featured": false,
+    "faq": [
+      {
+        "q": "What are myofunctional therapy exercises for kids?",
+        "a": "Myofunctional therapy exercises are simple movements designed to retrain the muscles of the mouth, tongue, and face. Common exercises include tongue posture drills (placing the tongue on the roof of the mouth), lip seal exercises, nasal breathing practice, and swallow retraining. They are typically done for a few minutes each day."
+      },
+      {
+        "q": "Can parents do myofunctional therapy exercises at home with their child?",
+        "a": "Yes, but the exercises should be prescribed and guided by a trained professional. A myofunctional therapist or dentist will assess your child's specific needs and provide a tailored set of exercises to practice at home. Following the prescribed program consistently is what produces results."
+      },
+      {
+        "q": "How long does it take for myofunctional exercises to work?",
+        "a": "Some children show early improvements in awareness and posture within a few weeks, while lasting habit changes typically take several months or longer. Results depend on the severity of the habits, how regularly the exercises are practiced, airway factors, and the child's age. Your dentist will monitor progress during follow-up visits."
+      },
+      {
+        "q": "How often should my child practice myofunctional exercises?",
+        "a": "Most exercise programs recommend practicing for about five to ten minutes, once or twice daily. Consistency matters more than duration — short, daily practice sessions are more effective than longer sessions done irregularly."
+      },
+      {
+        "q": "What is the first myofunctional exercise to teach a child?",
+        "a": "The most common starting exercise is teaching correct tongue resting posture — placing the tip of the tongue on the roof of the mouth, just behind the front teeth, with the entire tongue gently pressing upward. This is a key focus in many myofunctional therapy programs."
+      },
+      {
+        "q": "Can myofunctional exercises help with mouth breathing?",
+        "a": "They may help some children become more aware of nasal breathing. However, underlying causes of mouth breathing may need medical or airway evaluation, especially if a child snores, struggles to breathe through the nose, or breathes through the mouth frequently."
+      },
+      {
+        "q": "Are myofunctional therapy exercises for kids difficult?",
+        "a": "No, the exercises themselves are simple and designed to be accessible for children. The challenge is consistency — remembering to practice daily and integrating the new habits into everyday life. Making the exercises part of a daily routine, like after brushing teeth, helps."
+      }
+    ],
+    "content_type": "educational"
+  },
+  {
     "slug": "tongue-thrust-in-children",
     "title": "Tongue Thrust in Children: Causes, Signs, and Treatment",
     "categories": [
@@ -10,8 +101,8 @@
       "Orthodontics"
     ],
     "date": "2026-04-30",
-    "excerpt": "Tongue thrust in children — what causes it, how to spot the signs, and what treatment options like myofunctional therapy can do.",
     "img": "/images/blog/tongue-thrust-in-children-hero.png",
+    "excerpt": "Tongue thrust in children — what causes it, how to spot the signs, and what treatment options like myofunctional therapy can do.",
     "featured": false,
     "faq": [
       {
@@ -877,7 +968,7 @@
     ],
     "date": "2026-03-28",
     "img": "/images/blog/child-candidate-myofunctional-orthodontics.jpg",
-    "excerpt": "Wondering if your child might benefit from myofunctional orthodontics? Learn about the signs that indicate they could be a good candidate and what the assessment process involves.",
+    "excerpt": "Wondering if your child might benefit from myofunctional orthodontics? This guide covers the signs, the assessment process, and what makes a good candidate.",
     "featured": false,
     "faq": [
       {
@@ -1009,35 +1100,6 @@
       {
         "q": "Do cavities in baby teeth need to be filled?",
         "a": "Yes, cavities in baby teeth should be treated. Untreated decay can cause pain, infection, difficulty eating, and affect the developing permanent teeth underneath. Early treatment is simpler, less invasive, and helps prevent more serious problems later."
-      }
-    ],
-    "content_type": "educational"
-  },
-  {
-    "slug": "dental-crowns-malaysia",
-    "title": "Dental Crowns in Malaysia: What You Need to Know",
-    "categories": [
-      "Restorative"
-    ],
-    "tags": [
-      "Restorative Dentistry"
-    ],
-    "date": "2026-03-18",
-    "img": "/images/blog/dental-crowns-malaysia-hero.jpg",
-    "excerpt": "If your dentist has mentioned you need a dental crown, you probably have questions. Here is what you need to know about getting a crown in Malaysia.",
-    "featured": false,
-    "faq": [
-      {
-        "a": "A dental crown is a custom-made cap that covers a damaged or weakened tooth. It restores the tooth's shape, size, strength, and appearance. Crowns are typically recommended when a tooth has been significantly weakened by decay, a large filling, or a root canal treatment.",
-        "q": "What Is a Dental Crown?"
-      },
-      {
-        "a": "You might need a crown for a large cavity too big for a standard filling, a cracked or worn tooth from grinding or injury, after a root canal to protect the treated tooth, for a misshapen or discoloured tooth for cosmetic improvement, or to anchor a dental bridge in place.",
-        "q": "Why Might You Need a Crown?"
-      },
-      {
-        "a": "If you have a damaged or weakened tooth, a dental crown may be the key solution to restore your smile and protect your oral health. Speak with your dentist to discuss your options and find the right treatment plan for your needs.",
-        "q": "Is a Crown Right for You?"
       }
     ],
     "content_type": "educational"
