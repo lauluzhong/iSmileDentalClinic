@@ -1327,6 +1327,46 @@
     "content_type": "educational"
   },
   {
+    "slug": "early-orthodontic-assessment-children",
+    "title": "Early Orthodontic Assessment for Children",
+    "categories": [
+      "pediatric"
+    ],
+    "tags": [
+      "Pediatric Dentistry"
+    ],
+    "img": "/images/blog/early-orthodontic-assessment-children-hero.jpg",
+    "excerpt": "Understand why early orthodontic assessment helps identify bite issues before they become complex",
+    "featured": false,
+    "faq": [
+      {
+        "q": "What age should a child have their first orthodontic assessment?",
+        "a": "The Malaysian Dental Association and many orthodontic specialists recommend that children see a dentist for an orthodontic assessment around age 7. At this stage, the first permanent molars and incisors have usually come in, which makes it easier to spot developing issues with the bite, jaw alignment, and spacing."
+      },
+      {
+        "q": "What does an early orthodontic assessment involve?",
+        "a": "A typical assessment includes a visual examination of the teeth, jaw, and bite, a discussion of the child's oral habits (mouth breathing, thumb sucking, swallowing pattern), and sometimes a simple X-ray to see how the permanent teeth are developing below the gums. At iSmile Dental Clinic, the assessment also looks at breathing patterns and oral posture."
+      },
+      {
+        "q": "What problems can early orthodontic assessment catch?",
+        "a": "Early assessment can identify crowding, crossbites, open bites, jaw discrepancies, and habit-related issues like tongue thrust or mouth breathing. Detecting these early means treatment can be more conservative, and in some cases may prevent the need for more complex orthodontic work later."
+      },
+      {
+        "q": "Can early orthodontic treatment avoid braces later?",
+        "a": "In some cases, early intervention can reduce the amount of orthodontic treatment needed later or even avoid it entirely. However, each child's development is different. The goal of early assessment is to create the best possible conditions for the teeth and jaws to develop, not to guarantee a specific outcome."
+      },
+      {
+        "q": "Is my child too young for an orthodontic assessment?",
+        "a": "No. Even children with baby teeth can benefit from an early evaluation. Many bite issues relate to jaw growth patterns that start developing well before the permanent teeth arrive. A dentist trained in myofunctional orthodontics can spot early warning signs and recommend monitoring or simple interventions."
+      },
+      {
+        "q": "Does the assessment involve X-rays?",
+        "a": "If needed, your dentist may recommend a panoramic X-ray to see how the permanent teeth are positioned below the gums. This is a standard, low-dose procedure that helps the dentist understand the big picture. Not every child needs X-rays at the first assessment."
+      }
+    ],
+    "content_type": "educational"
+  },
+  {
     "slug": "mouth-breathing-in-children",
     "title": "Mouth Breathing in Children: When Is It a Dental Concern?",
     "categories": [
