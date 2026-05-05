@@ -3,9 +3,9 @@ title: Is Your Child a Good Candidate for Myofunctional Orthodontics?
 categories:
   - Kids & Growth
   - Orthodontics
-date: '2026-03-28'
+date: '2026-05-06'
 author: iSmile Dental Clinic
-excerpt: Wondering if your child might benefit from myofunctional orthodontics? This guide covers the signs, the assessment process, and what makes a good candidate.
+excerpt: Signs your child may benefit from myofunctional orthodontics — from mouth breathing and thumb sucking to crowded teeth. What to look for and how the assessment works.
 
 img: /images/blog/child-candidate-myofunctional-orthodontics.jpg
 tags:
@@ -43,9 +43,9 @@ The treatment often involves removable appliances (like the LM Activator) worn m
 
 Some signs are obvious. Others are subtler. Here's what to watch for:
 
-**Breathing patterns:** Does your child breathe through their mouth, especially at night or during concentration? Mouth breathing can affect jaw development and is a key indicator.
+**Breathing patterns:** Does your child breathe through their mouth, especially at night or during concentration? Mouth breathing can affect jaw development and is a key indicator. <a href="/blog/mouth-breathing-in-children">Learn more about mouth breathing in children</a> and when it becomes a dental concern.
 
-**Oral habits:** Thumb sucking, finger sucking, or prolonged pacifier use beyond toddler years. These habits put pressure on developing teeth and jaws.
+**Oral habits:** Thumb sucking, finger sucking, or prolonged pacifier use beyond toddler years. These habits put pressure on developing teeth and jaws. They often go hand in hand with other patterns — <a href="/blog/mouth-breathing-thumb-sucking-crowded-teeth">here is how mouth breathing, thumb sucking, and crowded teeth connect</a>.
 
 **Facial appearance:** A long, narrow face, dark circles under the eyes (sometimes called "allergic shiners"), or lips that don't close comfortably at rest.
 
@@ -65,7 +65,7 @@ Timing matters with this approach. The jaw is most responsive to guidance during
 
 That said, "ideal" doesn't mean "only." Some older children and even teenagers can benefit, especially if the underlying habits are still present. The key is assessing what's happening now, not just what happened years ago.
 
-Every child develops at their own pace. Some 8-year-olds have completed most of their jaw growth, while others are just getting started. That's why individual assessment matters more than calendar age.
+Every child develops at their own pace. Some 8-year-olds have completed most of their jaw growth, while others are just getting started. That's why individual assessment matters more than calendar age. If you are curious about the early signs, <a href="/blog/signs-child-early-orthodontic-assessment">this guide on signs your child may need early orthodontic assessment</a> goes into more detail.
 
 ## What Happens During a Myofunctional Orthodontic Assessment
 
@@ -126,6 +126,9 @@ If you want to go deeper on the different aspects of myofunctional care, these a
 - [What Does Myofunctional Therapy Treat](/blog/myofunctional-therapy-treatment) — The full range of conditions myofunctional therapy addresses
 - [Myofunctional Therapy Before and After Braces](/blog/myofunctional-therapy-before-after-braces) — How myofunctional therapy fits into the orthodontic timeline
 - [Myofunctional Therapy Exercises for Kids at Home](/blog/myofunctional-therapy-exercises-kids-home) — Simple exercises to practice between visits
+- [Mouth Breathing, Thumb Sucking, and Crowded Teeth](/blog/mouth-breathing-thumb-sucking-crowded-teeth) — How these common childhood patterns are connected
+- [Mouth Breathing in Children](/blog/mouth-breathing-in-children) — When to be concerned and what you can do
+- [Signs Your Child May Need Early Orthodontic Assessment](/blog/signs-child-early-orthodontic-assessment) — What parents should look out for during development
 
 ## Explore Related Dental Services
 
