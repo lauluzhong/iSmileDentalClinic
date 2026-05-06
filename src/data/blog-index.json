@@ -1,5 +1,44 @@
 [
   {
+    "slug": "child-candidate-myofunctional-orthodontics",
+    "title": "Is Your Child a Good Candidate for Myofunctional Orthodontics?",
+    "categories": [
+      "Kids & Growth",
+      "Orthodontics"
+    ],
+    "tags": [
+      "Myofunctional Orthodontics",
+      "Pediatric Dentistry"
+    ],
+    "date": "2026-05-06",
+    "img": "/images/blog/child-candidate-myofunctional-orthodontics.jpg",
+    "excerpt": "Signs your child may benefit from myofunctional orthodontics — from mouth breathing and thumb sucking to crowded teeth. What to look for and how the assessment works.",
+    "featured": false,
+    "faq": [
+      {
+        "q": "What causes children to need myofunctional orthodontics?",
+        "a": "Several factors can contribute: genetics play a role, but so do environmental factors like allergies that lead to mouth breathing, prolonged thumb sucking or pacifier use, certain swallowing patterns, and even diet (soft foods don't give jaws the workout they need to develop fully). Often it's a combination of factors rather than one single cause."
+      },
+      {
+        "q": "How does iSmile approach myofunctional orthodontic treatment?",
+        "a": "We start with a thorough assessment to understand your child's unique situation. If treatment is recommended, it typically involves a removable appliance worn during sleep and specific exercises to retrain oral muscles. We focus on creating better conditions for natural jaw development rather than forcing changes. Regular check-ins help us monitor progress and make adjustments as needed."
+      },
+      {
+        "q": "When should I consider myofunctional orthodontics for my child?",
+        "a": "Consider an assessment if you notice persistent mouth breathing, thumb sucking beyond age 4-5, snoring or restless sleep, crowded teeth, or speech concerns. Early evaluation (around age 6-8) can help identify issues before they become more complex, but it's never too late to address functional habits that might be affecting dental health."
+      },
+      {
+        "q": "How long does myofunctional orthodontic treatment typically take?",
+        "a": "Treatment duration varies based on your child's age, the specific issues being addressed, and how consistently recommendations are followed. Some children show improvement within months, while others may benefit from longer-term guidance through their growth years. Your dentist can provide a more personalized timeline after assessment."
+      },
+      {
+        "q": "Can myofunctional orthodontics replace traditional braces?",
+        "a": "Sometimes, but not always. For some children, myofunctional treatment alone can guide teeth into better positions. For others, it might be a first phase that makes any future orthodontic treatment simpler and shorter. The approach depends on your child's specific needs and growth pattern."
+      }
+    ],
+    "content_type": "educational"
+  },
+  {
     "slug": "lm-activator-vs-invisalign",
     "title": "LM Activator vs Invisalign for Children: How Each Works and Where Myofunctional Therapy Fits",
     "categories": [
@@ -995,45 +1034,6 @@
       }
     ],
     "content_type": "locality"
-  },
-  {
-    "slug": "child-candidate-myofunctional-orthodontics",
-    "title": "Is Your Child a Good Candidate for Myofunctional Orthodontics?",
-    "categories": [
-      "Kids & Growth",
-      "Orthodontics"
-    ],
-    "tags": [
-      "Myofunctional Orthodontics",
-      "Pediatric Dentistry"
-    ],
-    "date": "2026-03-28",
-    "img": "/images/blog/child-candidate-myofunctional-orthodontics.jpg",
-    "excerpt": "Wondering if your child might benefit from myofunctional orthodontics? This guide covers the signs, the assessment process, and what makes a good candidate.",
-    "featured": false,
-    "faq": [
-      {
-        "q": "What causes children to need myofunctional orthodontics?",
-        "a": "Several factors can contribute: genetics play a role, but so do environmental factors like allergies that lead to mouth breathing, prolonged thumb sucking or pacifier use, certain swallowing patterns, and even diet (soft foods don't give jaws the workout they need to develop fully). Often it's a combination of factors rather than one single cause."
-      },
-      {
-        "q": "How does iSmile approach myofunctional orthodontic treatment?",
-        "a": "We start with a thorough assessment to understand your child's unique situation. If treatment is recommended, it typically involves a removable appliance worn during sleep and specific exercises to retrain oral muscles. We focus on creating better conditions for natural jaw development rather than forcing changes. Regular check-ins help us monitor progress and make adjustments as needed."
-      },
-      {
-        "q": "When should I consider myofunctional orthodontics for my child?",
-        "a": "Consider an assessment if you notice persistent mouth breathing, thumb sucking beyond age 4-5, snoring or restless sleep, crowded teeth, or speech concerns. Early evaluation (around age 6-8) can help identify issues before they become more complex, but it's never too late to address functional habits that might be affecting dental health."
-      },
-      {
-        "q": "How long does myofunctional orthodontic treatment typically take?",
-        "a": "Treatment duration varies based on your child's age, the specific issues being addressed, and how consistently recommendations are followed. Some children show improvement within months, while others may benefit from longer-term guidance through their growth years. Your dentist can provide a more personalized timeline after assessment."
-      },
-      {
-        "q": "Can myofunctional orthodontics replace traditional braces?",
-        "a": "Sometimes, but not always. For some children, myofunctional treatment alone can guide teeth into better positions. For others, it might be a first phase that makes any future orthodontic treatment simpler and shorter. The approach depends on your child's specific needs and growth pattern."
-      }
-    ],
-    "content_type": "educational"
   },
   {
     "slug": "mouth-breathing-thumb-sucking-crowded-teeth",
