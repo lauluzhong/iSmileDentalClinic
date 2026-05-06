@@ -41,7 +41,7 @@ const BookingModal = () => {
 
             // Conversion event
             const conversionData = {
-                event: 'bookingmodalopenschedule',
+                event: 'booking_modal_open_schedule',
                 booking_page: window.location.pathname,
                 booking_source_button: prefillData?.sourceButton || 'direct',
                 booking_cta_text: prefillData?.sourceButton || 'unknown'

@@ -4,10 +4,94 @@ import path from 'path';
 const CONTENT_DIR = path.resolve('content/blog');
 const INDEX_PATH = path.resolve('src/data/blog-index.json');
 const SITEMAP_PATH = path.resolve('public/sitemap.xml');
+const ALWAYS_REQUIRED_FRONTMATTER_FIELDS = ['title', 'date'];
+const NEW_POST_REQUIRED_FRONTMATTER_FIELDS = ['title', 'excerpt', 'date', 'img', 'content_type'];
+const NEW_POST_FRONTMATTER_REQUIRED_FROM = '2026-05-04';
+
+function parseFrontmatter(raw) {
+  const match = raw.match(/^---\n([\s\S]*?)\n---/);
+  if (!match) return {};
+  const data = {};
+  const lines = match[1].split('\n');
+
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i];
+    const single = line.match(/^([A-Za-z_]+):\s*(.*)$/);
+    if (!single) continue;
+
+    const key = single[1];
+    const value = single[2].trim();
+    if (value) {
+      data[key] = value.replace(/^['"]|['"]$/g, '');
+      continue;
+    }
+
+    const list = [];
+    for (let j = i + 1; j < lines.length; j += 1) {
+      const item = lines[j].match(/^\s*-\s+(.+)$/);
+      if (item) {
+        list.push(item[1].trim().replace(/^['"]|['"]$/g, ''));
+      } else if (/^\S/.test(lines[j])) {
+        break;
+      }
+    }
+    if (list.length) data[key] = list;
+  }
+
+  return data;
+}
 
 function readSlugsFromContent() {
   const files = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.md'));
   return files.map(f => f.replace('.md', ''));
+}
+
+function hasFrontmatterValue(value) {
+  if (Array.isArray(value)) return value.length > 0;
+  return value !== undefined && value !== '';
+}
+
+function shouldUseNewPostContract(date) {
+  return /^\d{4}-\d{2}-\d{2}$/.test(date || '')
+    && date >= NEW_POST_FRONTMATTER_REQUIRED_FROM;
+}
+
+function validateFrontmatter() {
+  const files = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.md'));
+  const errors = [];
+
+  files.forEach(filename => {
+    const raw = fs.readFileSync(path.join(CONTENT_DIR, filename), 'utf-8');
+    const frontmatter = parseFrontmatter(raw);
+    const slug = filename.replace('.md', '');
+
+    ALWAYS_REQUIRED_FRONTMATTER_FIELDS.forEach(field => {
+      if (!hasFrontmatterValue(frontmatter[field])) {
+        errors.push(`${slug}: missing required frontmatter field "${field}"`);
+      }
+    });
+
+    if (frontmatter.date && !/^\d{4}-\d{2}-\d{2}$/.test(frontmatter.date)) {
+      errors.push(`${slug}: date must use YYYY-MM-DD`);
+    }
+
+    if (!shouldUseNewPostContract(frontmatter.date)) {
+      return;
+    }
+
+    NEW_POST_REQUIRED_FRONTMATTER_FIELDS.forEach(field => {
+      if (!hasFrontmatterValue(frontmatter[field])) {
+        errors.push(`${slug}: missing new-post frontmatter field "${field}"`);
+      }
+    });
+
+    const hasCategories = hasFrontmatterValue(frontmatter.categories) || hasFrontmatterValue(frontmatter.category);
+    if (!hasCategories) {
+      errors.push(`${slug}: missing category/categories frontmatter`);
+    }
+  });
+
+  return errors;
 }
 
 function readSlugsFromIndex() {
@@ -70,9 +154,14 @@ function main() {
     const contentSlugs = readSlugsFromContent();
     const indexSlugs = readSlugsFromIndex();
     const sitemapSlugs = readSlugsFromSitemap();
+    const frontmatterErrors = validateFrontmatter();
 
     const hasErrors = compareSets(contentSlugs, indexSlugs, sitemapSlugs);
-    process.exit(hasErrors ? 1 : 0);
+    if (frontmatterErrors.length > 0) {
+      console.error('\n❌ Frontmatter validation failed:');
+      frontmatterErrors.forEach(error => console.error(`- ${error}`));
+    }
+    process.exit(hasErrors || frontmatterErrors.length > 0 ? 1 : 0);
   } catch (error) {
     console.error('Validation failed:', error.message);
     process.exit(1);
