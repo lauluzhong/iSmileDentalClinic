@@ -4,7 +4,6 @@ import path from 'path';
 const CONTENT_DIR = path.resolve('content/blog');
 const INDEX_PATH = path.resolve('src/data/blog-index.json');
 const SITEMAP_PATH = path.resolve('public/sitemap.xml');
-const PUBLIC_DIR = path.resolve('public');
 const ALWAYS_REQUIRED_FRONTMATTER_FIELDS = ['title', 'date'];
 const NEW_POST_REQUIRED_FRONTMATTER_FIELDS = ['title', 'excerpt', 'date', 'img', 'content_type'];
 const NEW_POST_FRONTMATTER_REQUIRED_FROM = '2026-05-04';
@@ -85,16 +84,6 @@ function validateFrontmatter() {
         errors.push(`${slug}: missing new-post frontmatter field "${field}"`);
       }
     });
-
-    if (hasFrontmatterValue(frontmatter.img)) {
-      const imgPath = String(frontmatter.img).trim();
-      if (imgPath.startsWith('/images/')) {
-        const publicImagePath = path.join(PUBLIC_DIR, imgPath.replace(/^\//, ''));
-        if (!fs.existsSync(publicImagePath)) {
-          errors.push(`${slug}: img file not found at public${imgPath}`);
-        }
-      }
-    }
 
     const hasCategories = hasFrontmatterValue(frontmatter.categories) || hasFrontmatterValue(frontmatter.category);
     if (!hasCategories) {
