@@ -8,7 +8,7 @@ categories:
 tags:
   - Pediatric Dentistry
 parent_page: "/services/children/myofunctional"
-img: "/images/blog/mouth-breathing-thumb-sucking-crowded-teeth.png"
+img: "/images/blog/when-should-children-stop-sucking-thumb-hero.jpg"
 featured: false
 faq:
   - q: "When should children stop sucking their thumb?"
