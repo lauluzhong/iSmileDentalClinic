@@ -1,5 +1,42 @@
 [
   {
+    "slug": "when-should-children-stop-sucking-thumb",
+    "title": "When Should Children Stop Sucking Their Thumb",
+    "categories": [
+      "pediatric"
+    ],
+    "tags": [
+      "Pediatric Dentistry"
+    ],
+    "date": "2026-05-07",
+    "img": "/images/blog/mouth-breathing-thumb-sucking-crowded-teeth.png",
+    "excerpt": "Dental effects of prolonged thumb sucking and when parents should help children stop",
+    "featured": false,
+    "faq": [
+      {
+        "q": "When should children stop sucking their thumb?",
+        "a": "Most children stop on their own between ages 2 and 4. If the habit continues beyond age 4, it is worth monitoring more closely. Between ages 4 and 6, parents may want to start gentle encouragement toward stopping before the permanent front teeth begin to emerge."
+      },
+      {
+        "q": "What dental problems can thumb sucking cause?",
+        "a": "Prolonged thumb sucking can affect how the front teeth meet, causing them to slant outward or creating an open bite where the upper and lower front teeth do not touch. It can also narrow the upper jaw and affect tongue resting posture, which influences overall dental development and breathing patterns."
+      },
+      {
+        "q": "How can I help my child stop sucking their thumb?",
+        "a": "Positive reinforcement works better than pressure or punishment. Gentle reminders during daytime sucking, a bandage on the thumb as a physical reminder at night, praise for not sucking, and identifying triggers like tiredness or boredom can all help. Your dentist can also provide guidance on habit cessation approaches when needed."
+      },
+      {
+        "q": "When should I seek professional help for thumb sucking?",
+        "a": "If the habit continues past age 6 or is affecting the position of the permanent front teeth, a dental assessment is a good idea. The dentist can check whether the thumb sucking is influencing jaw development and discuss options for gentle habit management or early myofunctional guidance."
+      },
+      {
+        "q": "Can myofunctional therapy help with thumb sucking?",
+        "a": "Myofunctional therapy can help address the underlying muscle patterns that contribute to thumb sucking, such as low tongue posture or weak lip seal. It is often used alongside habit cessation approaches to retrain oral muscles and support healthy dental development."
+      }
+    ],
+    "content_type": "educational"
+  },
+  {
     "slug": "child-candidate-myofunctional-orthodontics",
     "title": "Is Your Child a Good Candidate for Myofunctional Orthodontics?",
     "categories": [
