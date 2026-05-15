@@ -109,7 +109,7 @@ For families who want a deeper understanding of how early habits influence denta
 
 ## When to Schedule the Follow-Up
 
-If everything goes well at the first visit (and it almost always does), the dentist will likely recommend a check-up every six months. Regular six-month visits keep your child familiar with the clinic and allow the dentist to track changes in growth and development.
+After the first visit, the dentist will likely recommend a check-up every six months if no urgent concerns are found. Regular six-month visits keep your child familiar with the clinic and allow the dentist to track changes in growth and development.
 
 If the dentist noticed anything worth monitoring — early signs of crowding, bite issues, or habits that could influence development — they may suggest a shorter interval or a follow-up assessment at a specific age.
 
