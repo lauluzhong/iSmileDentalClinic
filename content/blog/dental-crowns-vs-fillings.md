@@ -108,6 +108,6 @@ It is worth noting that a crown that lasts 12 years can be more cost-effective o
 
 If your dentist recommends a crown and you were expecting a filling, it is fair to ask why. A good dentist will explain their reasoning — the size of the damage, the risk of fracture, the expected lifespan.
 
-The reverse also happens: sometimes patients ask for a crown when a filling would be sufficient, thinking it is a stronger option. But removing healthy tooth structure unnecessarily is not ideal. Preserving natural tooth tissue is always the priority.
+The reverse also happens: sometimes patients ask for a crown when a filling would be sufficient, thinking it is a stronger option. But removing healthy tooth structure unnecessarily is often avoided when a simpler restoration can support the tooth predictably.
 
 For anyone considering options for restoring a damaged tooth, talking through the specifics with a restorative dental provider can help clarify the next step. Every tooth is different, and the right choice depends on your individual situation, not a general rule.
