@@ -76,9 +76,9 @@ Several factors go into the decision.
 
 **Location of the tooth.** Molars take more chewing force than front teeth. A large filling on a molar is more likely to crack over time, so crowns are more common on back teeth when the damage is significant.
 
-**Whether the tooth has had root canal treatment.** Root canal treatment removes the nerve and blood supply from the tooth, making it drier and more brittle over time. Crowns are almost always recommended for back teeth that have had root canal treatment.
+**Whether the tooth has had root canal treatment.** Root canal treatment removes the nerve and blood supply from the tooth, which can leave it more brittle over time. For many back teeth that have had root canal treatment, a crown may be one of the options discussed to help provide additional protection.
 
-**Existing cracks.** If a tooth has a visible crack, a filling will not stop it from spreading. A crown holds the tooth together and prevents the crack from travelling further down.
+**Existing cracks.** If a tooth has a visible crack, a filling may not be enough on its own. In some situations, a crown may help support the tooth and reduce the risk of the crack worsening, depending on how far the crack extends.
 
 **Your oral habits.** Grinding or clenching puts extra force on teeth. A dentist may recommend a crown over a filling for someone who grinds, just for the extra durability.
 
@@ -110,4 +110,4 @@ If your dentist recommends a crown and you were expecting a filling, it is fair 
 
 The reverse also happens: sometimes patients ask for a crown when a filling would be sufficient, thinking it is a stronger option. But removing healthy tooth structure unnecessarily is not ideal. Preserving natural tooth tissue is always the priority.
 
-For anyone considering options for restoring a damaged tooth, talking through the specifics with a restorative dental provider is the best next step. Every tooth is different, and the right choice depends on your individual situation, not a general rule.
+For anyone considering options for restoring a damaged tooth, talking through the specifics with a restorative dental provider can help clarify the next step. Every tooth is different, and the right choice depends on your individual situation, not a general rule.
