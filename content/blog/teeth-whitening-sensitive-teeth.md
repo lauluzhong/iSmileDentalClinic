@@ -53,7 +53,7 @@ Not all whitening methods are the same, and for sensitive teeth, the differences
 
 **Custom-fitted trays.** One of the overlooked causes of sensitivity is gel leaking onto the gums. Over-the-counter trays do not fit precisely, so the gel often touches soft tissue. A custom-fitted tray keeps the gel where it belongs — on the teeth — which reduces gum irritation and the overall sensitivity experience.
 
-The safest route for someone with known sensitivity is to have a dentist assess the teeth first. They can see whether there are underlying issues (worn enamel, exposed roots, cracks) that might need attention before whitening, and recommend a product and protocol suited to your specific situation.
+For someone with known sensitivity, a dental assessment before whitening can be a cautious place to start. A dentist can check for underlying issues such as worn enamel, exposed roots, or cracks, and recommend a product and protocol suited to your specific situation.
 
 ## Desensitising Before, During, and After
 
