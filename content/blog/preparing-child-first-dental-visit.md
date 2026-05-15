@@ -113,4 +113,4 @@ After the first visit, the dentist will likely recommend a check-up every six mo
 
 If the dentist noticed anything worth monitoring — early signs of crowding, bite issues, or habits that could influence development — they may suggest a shorter interval or a follow-up assessment at a specific age.
 
-Either way, the most important thing is that the first visit happens. After that, everything gets easier.
+Either way, the most important thing is that the first visit happens. After that, the next visit usually feels more familiar for both you and your child.
