@@ -94,7 +94,7 @@ During a consultation, the provider should give you a clear breakdown of the tot
 
 ## Choosing What Fits Your Situation
 
-The best orthodontic provider for you depends on your specific needs. Someone looking for minor cosmetic correction of a few teeth has different requirements from a parent seeking early intervention for a child with crowding and a narrow jaw.
+The most suitable orthodontic provider for you depends on your specific needs. Someone looking for minor cosmetic correction of a few teeth has different requirements from a parent seeking early intervention for a child with crowding and a narrow jaw.
 
 Here is a simple framework:
 
