@@ -37,6 +37,84 @@
     "content_type": "educational"
   },
   {
+    "slug": "teeth-whitening-sensitive-teeth",
+    "title": "Teeth Whitening for Sensitive Teeth",
+    "categories": [
+      "educational"
+    ],
+    "tags": [
+      "Cosmetic Dentistry"
+    ],
+    "date": "2026-05-09",
+    "img": "/images/blog/teeth-whitening-sensitive-teeth-hero.jpg",
+    "excerpt": "Safe teeth whitening options for people with sensitive teeth and how to minimize discomfort",
+    "featured": false,
+    "faq": [
+      {
+        "q": "Can I whiten my teeth if they are sensitive?",
+        "a": "Yes, you can. The key is choosing the right approach — lower concentration bleaching agents, shorter application times, and desensitising products used alongside treatment. A dentist can help you find a whitening method that works with your sensitivity level rather than against it."
+      },
+      {
+        "q": "Why do my teeth hurt when I use whitening products?",
+        "a": "Whitening agents open the pores of the enamel to reach deeper stains. If the enamel is thin, if there are exposed dentine tubules, or if the gums have receded, the bleaching gel can stimulate the nerve inside the tooth, causing a temporary sensitivity reaction. This usually subsides once treatment stops."
+      },
+      {
+        "q": "What is the safest whitening option for sensitive teeth?",
+        "a": "Professional supervised whitening with custom-fitted trays and lower-concentration gel is generally considered the safest option for sensitive teeth. The dentist can control the contact time, monitor your response, and add desensitising agents that are not available in over-the-counter products."
+      },
+      {
+        "q": "How can I reduce sensitivity during whitening treatments?",
+        "a": "Using a sensitivity toothpaste for two weeks before starting, applying a fluoride or potassium nitrate desensitising gel before and after whitening, keeping sessions short, and avoiding very cold or hot foods during treatment can all help reduce discomfort."
+      },
+      {
+        "q": "Is it better to whiten at home or at the dentist for sensitive teeth?",
+        "a": "For sensitive teeth, professional supervision is generally recommended. A dentist can assess the cause of your sensitivity before starting, choose the right product strength, and provide custom trays that reduce gel contact with gums — a common source of irritation with one-size-fits-all strips and trays."
+      }
+    ],
+    "content_type": "educational"
+  },
+  {
+    "slug": "preparing-child-first-dental-visit",
+    "title": "Preparing Your Child for Their First Dental Visit",
+    "categories": [
+      "pediatric"
+    ],
+    "tags": [
+      "Pediatric Dentistry"
+    ],
+    "date": "2026-05-08",
+    "img": "/images/dentist-child.png",
+    "excerpt": "Practical tips for parents to make their child's first dental visit positive and stress-free",
+    "featured": false,
+    "faq": [
+      {
+        "q": "When should I take my child for their first dental visit?",
+        "a": "The Malaysian Dental Association recommends a first visit by age 1 or within 6 months of the first tooth appearing. This early start helps children become comfortable at the clinic long before any treatment is needed and allows the dentist to spot any early concerns."
+      },
+      {
+        "q": "How do I prepare my child for their first dental appointment?",
+        "a": "Talk about it simply and positively beforehand. Use calm, everyday language — describe the visit as a chance to count teeth and check the smile. Read a children's book about visiting the dentist, avoid words like 'pain' or 'needle', and keep your own tone relaxed on the day itself."
+      },
+      {
+        "q": "What happens at a child's first dental visit?",
+        "a": "The first visit is usually a gentle introduction. The dentist may count the teeth, check the gums and bite, and look at how the jaws are developing. There is typically no treatment involved. The goal is simply for the child to meet the dentist, sit in the chair, and leave with a positive experience."
+      },
+      {
+        "q": "How do I handle a nervous or anxious child?",
+        "a": "Let your child sit on your lap during the examination if that helps. Bring a favourite comfort toy or blanket. Choose an appointment time when your child is usually well-rested and cooperative. If your child is very anxious, mention it when booking so the team can prepare a slower, more gentle approach."
+      },
+      {
+        "q": "What does the dentist check in a young child's mouth?",
+        "a": "The dentist looks at tooth development and eruption timing, checks for early signs of decay, examines the gums and soft tissues, and assesses bite alignment and jaw growth. In very young children, this may be a visual check only, with no instruments involved."
+      },
+      {
+        "q": "How often should my child see the dentist after the first visit?",
+        "a": "Most dentists recommend a check-up every six months for children. This regular schedule helps the child stay comfortable with visits, allows the dentist to monitor growth and development, and catches any small issues before they become bigger concerns."
+      }
+    ],
+    "content_type": "educational"
+  },
+  {
     "slug": "when-should-children-stop-sucking-thumb",
     "title": "When Should Children Stop Sucking Their Thumb",
     "categories": [
