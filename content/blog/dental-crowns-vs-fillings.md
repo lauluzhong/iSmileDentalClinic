@@ -8,7 +8,7 @@ categories:
 tags:
   - Restorative Dentistry
 parent_page: https://ismile.com.my/services/restorative
-img: /images/veneers_hero_1765825257935.png
+img: /images/blog/dental-crowns-vs-fillings-hero.jpg
 featured: false
 faq:
   - q: "What is the difference between a dental crown and a filling?"
