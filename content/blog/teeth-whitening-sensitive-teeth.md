@@ -8,7 +8,7 @@ categories:
 tags:
   - Cosmetic Dentistry
 parent_page: https://ismile.com.my/services/cosmetic
-img: /images/veneers_hero_1765825257935.png
+img: /images/blog/teeth-whitening-sensitive-teeth-hero.jpg
 featured: false
 faq:
   - q: "Can I whiten my teeth if they are sensitive?"
