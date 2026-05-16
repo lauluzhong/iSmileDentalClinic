@@ -37,6 +37,47 @@
     "content_type": "educational"
   },
   {
+    "slug": "preparing-child-first-dental-visit",
+    "title": "Preparing Your Child for Their First Dental Visit",
+    "categories": [
+      "pediatric"
+    ],
+    "tags": [
+      "Pediatric Dentistry"
+    ],
+    "date": "2026-05-08",
+    "img": "/images/dentist-child.png",
+    "excerpt": "Practical tips for parents to make their child's first dental visit positive and stress-free",
+    "featured": false,
+    "faq": [
+      {
+        "q": "When should I take my child for their first dental visit?",
+        "a": "The Malaysian Dental Association recommends a first visit by age 1 or within 6 months of the first tooth appearing. This early start helps children become comfortable at the clinic long before any treatment is needed and allows the dentist to spot any early concerns."
+      },
+      {
+        "q": "How do I prepare my child for their first dental appointment?",
+        "a": "Talk about it simply and positively beforehand. Use calm, everyday language — describe the visit as a chance to count teeth and check the smile. Read a children's book about visiting the dentist, avoid words like 'pain' or 'needle', and keep your own tone relaxed on the day itself."
+      },
+      {
+        "q": "What happens at a child's first dental visit?",
+        "a": "The first visit is usually a gentle introduction. The dentist may count the teeth, check the gums and bite, and look at how the jaws are developing. There is typically no treatment involved. The goal is simply for the child to meet the dentist, sit in the chair, and leave with a positive experience."
+      },
+      {
+        "q": "How do I handle a nervous or anxious child?",
+        "a": "Let your child sit on your lap during the examination if that helps. Bring a favourite comfort toy or blanket. Choose an appointment time when your child is usually well-rested and cooperative. If your child is very anxious, mention it when booking so the team can prepare a slower, more gentle approach."
+      },
+      {
+        "q": "What does the dentist check in a young child's mouth?",
+        "a": "The dentist looks at tooth development and eruption timing, checks for early signs of decay, examines the gums and soft tissues, and assesses bite alignment and jaw growth. In very young children, this may be a visual check only, with no instruments involved."
+      },
+      {
+        "q": "How often should my child see the dentist after the first visit?",
+        "a": "Most dentists recommend a check-up every six months for children. This regular schedule helps the child stay comfortable with visits, allows the dentist to monitor growth and development, and catches any small issues before they become bigger concerns."
+      }
+    ],
+    "content_type": "educational"
+  },
+  {
     "slug": "when-should-children-stop-sucking-thumb",
     "title": "When Should Children Stop Sucking Their Thumb",
     "categories": [
