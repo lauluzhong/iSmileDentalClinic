@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { X } from 'lucide-react';
 import { useBooking } from '../context/BookingContext';
 import Button from './Button';
@@ -26,32 +26,28 @@ const BookingModal = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitError, setSubmitError] = useState('');
 
+    const pushBookingEvent = useCallback((eventName, payload = {}, ctaLocation = prefillData?.sourceButton || 'unknown') => {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push(enrichEvent({
+            event: eventName,
+            booking_page: window.location.pathname,
+            booking_source_button: prefillData?.sourceButton || 'direct',
+            booking_cta_text: prefillData?.sourceButton || 'unknown',
+            ...payload
+        }, ctaLocation));
+    }, [prefillData]);
+
     useEffect(() => {
         if (isBookingOpen && !hasOpenedRef.current) {
             hasOpenedRef.current = true;
             const ctaLocation = prefillData?.sourceButton || 'unknown';
-            const eventData = {
-                event: 'booking_modal_open',
-                booking_page: window.location.pathname,
-                booking_source_button: prefillData?.sourceButton || 'direct',
-                booking_cta_text: prefillData?.sourceButton || 'unknown'
-            };
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push(enrichEvent(eventData, ctaLocation));
-
-            // Conversion event
-            const conversionData = {
-                event: 'booking_modal_open_schedule',
-                booking_page: window.location.pathname,
-                booking_source_button: prefillData?.sourceButton || 'direct',
-                booking_cta_text: prefillData?.sourceButton || 'unknown'
-            };
-            window.dataLayer.push(enrichEvent(conversionData, ctaLocation));
+            pushBookingEvent('booking_modal_open', {}, ctaLocation);
+            pushBookingEvent('booking_modal_open_schedule', {}, ctaLocation);
         }
         if (!isBookingOpen) {
             hasOpenedRef.current = false;
         }
-    }, [isBookingOpen, prefillData]);
+    }, [isBookingOpen, prefillData, pushBookingEvent]);
 
     useEffect(() => {
         if (isBookingOpen) {
@@ -122,33 +118,20 @@ Email: ${formData.email}
 ${formData.experience}${familySection}${notesSection}`;
 
         const ctaLocation = sourceButton;
-        const eventData = {
-            event: 'whatsapp_submit_click',
+        const safeEventPayload = {
             whatsapp_page: currentPage,
             whatsapp_cta_text: sourceButton,
-            form_name: formData.name,
             form_has_experience: Boolean(formData.experience),
+            form_has_email: Boolean(formData.email),
+            form_has_contact: Boolean(formData.contact),
             for_self: formData.forSelf,
             for_child: formData.forChild,
             child_age: formData.childAge || null,
             for_other: formData.forOther
         };
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push(enrichEvent(eventData, ctaLocation));
 
-        // Conversion event
-        const conversionData = {
-            event: 'whatsappsubmitclick',
-            whatsapp_page: currentPage,
-            whatsapp_cta_text: sourceButton,
-            form_name: formData.name,
-            form_has_experience: Boolean(formData.experience),
-            for_self: formData.forSelf,
-            for_child: formData.forChild,
-            child_age: formData.childAge || null,
-            for_other: formData.forOther
-        };
-        window.dataLayer.push(enrichEvent(conversionData, ctaLocation));
+        pushBookingEvent('booking_modal_form_filled', safeEventPayload, ctaLocation);
+        pushBookingEvent('whatsapp_submit_click', safeEventPayload, ctaLocation);
 
         await insertLead({
             name: formData.name,
@@ -165,6 +148,12 @@ ${formData.experience}${familySection}${notesSection}`;
             whatsapp_sent: true,
             timestamp: new Date().toISOString()
         });
+
+        pushBookingEvent('booking_confirmed', {
+            ...safeEventPayload,
+            lead_storage: 'supabase',
+            whatsapp_sent: true
+        }, ctaLocation);
 
         fetch('/api/booking-notification', {
             method: 'POST',
@@ -184,6 +173,7 @@ ${formData.experience}${familySection}${notesSection}`;
 
         const phoneNumber = '60163222135';
         window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+        pushBookingEvent('whatsapp_conversation_started', safeEventPayload, ctaLocation);
         closeBooking();
     };
 
