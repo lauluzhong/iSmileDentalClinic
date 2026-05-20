@@ -15,9 +15,9 @@ faq:
   - q: "What questions should I ask before starting orthodontic treatment in Petaling Jaya?"
     a: "Start by asking about the provider's training and experience, what treatment options are suitable for your specific case, estimated duration, what the retention plan looks like after active treatment ends, and how follow-up appointments are scheduled."
   - q: "How do I know if I need braces or aligners?"
-    a: "The right choice depends on the complexity of your case. Braces are generally effective for complex bite issues and significant crowding. Aligners may work well for mild to moderate spacing or crowding. A clinical assessment helps determine which approach fits your situation."
+    a: "The right choice depends on the complexity of your case. Braces can help manage a wide range of bite issues and crowding patterns. Aligners may work well for some mild to moderate spacing or crowding concerns. A clinical assessment helps determine which approach fits your situation."
   - q: "Is there an ideal time to start orthodontic treatment?"
-    a: "An orthodontic assessment by age 7 is recommended in Malaysia. This does not mean treatment starts that early — it gives the dentist a chance to monitor tooth development and jaw growth. Some issues benefit from early guidance, while others may be addressed once most adult teeth have come in."
+    a: "Many dentists and orthodontists suggest an assessment around age 7 so tooth development and jaw growth can be monitored. This does not mean treatment starts that early. Some children benefit from early guidance, while others may simply be reviewed until more adult teeth have come in."
   - q: "What happens during the first orthodontic consultation?"
     a: "The dentist will examine your teeth and jaws, take records such as photos or scans, discuss your concerns and goals, and outline possible treatment approaches. You can ask questions about each option, including what results to expect and what the process involves."
   - q: "What should I bring to an orthodontic consultation in Petaling Jaya?"
@@ -52,7 +52,7 @@ These questions clarify what is on the table and why.
 
 **What treatment options would work for my specific case?** A balanced consultation will discuss more than one approach if multiple options are viable, and explain the reasoning behind each.
 
-**How do braces and clear aligners compare for my needs?** Braces control tooth movement precisely and work for most types of cases. Aligners offer convenience and comfort but may not be suitable for complex bite issues or significant rotations. The right answer depends on your situation.
+**How do braces and clear aligners compare for my needs?** Braces can help manage a wide range of tooth-movement and bite concerns. Aligners may be more convenient for some patients, but they may not suit more complex bite issues or significant rotations. The right answer depends on your situation.
 
 **Do you offer early or growth-guided treatment for children?** For younger patients, some providers offer appliances that guide jaw development rather than simply straightening teeth. This can be relevant for children with crowding or jaw discrepancies.
 
