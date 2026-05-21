@@ -1,5 +1,43 @@
 [
   {
+    "slug": "clear-aligners-braces-questions-petaling-jaya",
+    "title": "Clear Aligners and Braces Questions for Petaling Jaya Patients",
+    "categories": [
+      "Orthodontics"
+    ],
+    "tags": [
+      "Clear Aligners",
+      "Orthodontics"
+    ],
+    "date": "2026-05-22",
+    "img": "/images/invisalign_hand.png",
+    "excerpt": "A patient-friendly guide to questions about clear aligners, braces, timing, and suitability before an orthodontic consultation in Petaling Jaya.",
+    "featured": false,
+    "faq": [
+      {
+        "q": "What is the difference between clear aligners and braces?",
+        "a": "Braces use fixed brackets and wires to move teeth, while aligners are removable transparent trays that are replaced every one to two weeks. Braces can address a wider range of orthodontic issues including complex bites, while aligners work well for mild to moderate crowding or spacing."
+      },
+      {
+        "q": "How do I know if I am a candidate for clear aligners or braces?",
+        "a": "Suitability depends on the complexity of your case. Straightforward crowding or spacing issues may respond well to aligners. Significant bite problems, severe rotations, or teeth that need vertical movement may need braces. A clinical assessment helps determine which approach fits your situation."
+      },
+      {
+        "q": "How long does treatment take with aligners compared to braces?",
+        "a": "Treatment duration varies depending on the complexity of the case and how consistently the appliances are worn. A consultation with the dentist provides a more accurate estimate based on your specific situation."
+      },
+      {
+        "q": "Are clear aligners more comfortable than braces?",
+        "a": "Aligners do not have brackets or wires, so they tend to cause less irritation to the cheeks and lips. Both appliances may cause temporary discomfort after adjustments, but this usually settles within a few days."
+      },
+      {
+        "q": "Can I eat normally with clear aligners?",
+        "a": "Aligners are removable, so you take them out before eating. This means no food restrictions during meals. With braces, sticky or hard foods are generally avoided to prevent damage to the brackets."
+      }
+    ],
+    "content_type": "locality"
+  },
+  {
     "slug": "how-to-choose-orthodontist-petaling-jaya",
     "title": "How to Choose an Orthodontist in Petaling Jaya",
     "categories": [
