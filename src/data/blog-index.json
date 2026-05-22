@@ -35,7 +35,8 @@
         "a": "The Malaysian Dental Association recommends an orthodontic assessment by age 7. This allows the dentist to identify early signs of crowding, bite issues, or jaw discrepancies while the child is still growing, when some problems can be more easily managed."
       }
     ],
-    "content_type": "locality"
+    "content_type": "locality",
+    "canonical_url": null
   },
   {
     "slug": "dental-crowns-vs-fillings",
@@ -72,7 +73,8 @@
         "a": "Crowns generally last longer than fillings. A well-made crown with good oral hygiene can last 10 to 15 years or more. A composite filling may need replacement every 5 to 7 years. However, crowns require more tooth preparation initially, so the choice depends on what the tooth needs."
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "teeth-whitening-sensitive-teeth",
@@ -109,7 +111,8 @@
         "a": "For sensitive teeth, professional supervision is generally recommended. A dentist can assess the cause of your sensitivity before starting, choose the right product strength, and provide custom trays that reduce gel contact with gums — a common source of irritation with one-size-fits-all strips and trays."
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "preparing-child-first-dental-visit",
@@ -150,7 +153,8 @@
         "a": "Most dentists recommend a check-up every six months for children. This regular schedule helps the child stay comfortable with visits, allows the dentist to monitor growth and development, and catches any small issues before they become bigger concerns."
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "when-should-children-stop-sucking-thumb",
@@ -187,7 +191,8 @@
         "a": "Myofunctional therapy can help address the underlying muscle patterns that contribute to thumb sucking, such as low tongue posture or weak lip seal. It is often used alongside habit cessation approaches to retrain oral muscles and support healthy dental development."
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "child-candidate-myofunctional-orthodontics",
@@ -226,7 +231,8 @@
         "a": "Sometimes, but not always. For some children, myofunctional treatment alone can guide teeth into better positions. For others, it might be a first phase that makes any future orthodontic treatment simpler and shorter. The approach depends on your child's specific needs and growth pattern."
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "dental-crowns-malaysia",
@@ -271,7 +277,8 @@
         "a": "Crowns can loosen or come off, especially if the cement seal breaks or if there is decay underneath. If this happens, keep the crown safe and see your dentist promptly. The crown can often be re-cemented if it is still in good condition."
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "lm-activator-vs-invisalign",
@@ -310,7 +317,8 @@
         "a": "LM Activator is designed for children whose jaws are still actively growing, typically younger children. Invisalign can be used for older children and teenagers once most permanent teeth have come through. Your dentist will evaluate your child growth stage and dental development during a consultation to determine the most suitable approach."
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "early-orthodontic-assessment-children",
@@ -351,7 +359,8 @@
         "a": "If needed, your dentist may recommend a panoramic X-ray to see how the permanent teeth are positioned below the gums. This is a standard, low-dose procedure that helps the dentist understand the big picture. Not every child needs X-rays at the first assessment."
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "myofunctional-therapy-exercises-kids-home",
@@ -397,7 +406,8 @@
         "a": "No, the exercises themselves are simple and designed to be accessible for children. The challenge is consistency — remembering to practice daily and integrating the new habits into everyday life. Making the exercises part of a daily routine, like after brushing teeth, helps."
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "tongue-thrust-in-children",
@@ -443,7 +453,8 @@
         "a": "Treatment is most commonly considered when tongue thrust persists beyond age six to seven. However, earlier assessment can be done if the pattern is affecting feeding, speech, or dental development. Your dentist can advise on the right timing based on your child's individual development."
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "myofunctional-therapy-before-after-braces",
@@ -489,7 +500,8 @@
         "a": "Yes. Adults who have completed orthodontic treatment but experience relapse or have persistent oral habits like tongue thrust may benefit from myofunctional therapy to help maintain their results."
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "signs-child-mouth-breather",
@@ -535,7 +547,8 @@
         "a": "Yes. Myofunctional therapy is one of the main approaches used to correct mouth breathing. It involves simple exercises that train the tongue and facial muscles to support nasal breathing and proper oral posture. Your dentist can assess whether myofunctional therapy is suitable for your child."
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "myofunctional-therapy-treatment",
@@ -581,7 +594,8 @@
         "a": "It can involve both. Myofunctional therapy primarily consists of exercises that retrain muscle function. In some cases, a removable device worn mainly at night may also be used to support proper tongue and jaw positioning while the exercises train the muscles."
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "dental-implant-consultation-damansara-jaya",
@@ -626,7 +640,8 @@
         "a": "Yes, dental implants can be used to replace a single missing tooth, multiple teeth, or support a full arch restoration. Your dentist will discuss the most appropriate approach during your consultation based on your needs."
       }
     ],
-    "content_type": "locality"
+    "content_type": "locality",
+    "canonical_url": null
   },
   {
     "slug": "clear-aligner-options-damansara-jaya",
@@ -671,7 +686,8 @@
         "a": "The cost of treatment depends on the complexity of your case, the system used, and the treatment duration. During your consultation, your dentist will discuss the financial aspects and help you understand what is involved."
       }
     ],
-    "content_type": "locality"
+    "content_type": "locality",
+    "canonical_url": "https://ismile.com.my/blog/invisalign-and-clear-aligners-in-damansara-jaya"
   },
   {
     "slug": "root-canal-treatment-damansara-jaya",
@@ -716,7 +732,8 @@
         "a": "Common signs include severe tooth pain, prolonged sensitivity to hot or cold, swelling near the affected tooth, a pimple-like bump on the gum, or discolouration of the tooth. If you're experiencing any of these, it's best to see a dentist for an evaluation."
       }
     ],
-    "content_type": "locality"
+    "content_type": "locality",
+    "canonical_url": null
   },
   {
     "slug": "pediatric-dental-care-damansara-jaya-parents-guide",
@@ -757,7 +774,8 @@
         "a": "Many dental clinics that work with children have approaches to help young patients feel more comfortable. This might include taking breaks during appointments, using positive reinforcement, and explaining procedures in age-appropriate language."
       }
     ],
-    "content_type": "locality"
+    "content_type": "locality",
+    "canonical_url": null
   },
   {
     "slug": "wisdom-tooth-removal-damansara-jaya-guide",
@@ -790,7 +808,8 @@
         "a": "Common signs include pain at the back of the mouth, swelling around the jaw, difficulty opening your mouth, or recurring infections. If you're experiencing any of these symptoms in Damansara Jaya, it's worth scheduling a dental assessment to check your wisdom teeth's position and health."
       }
     ],
-    "content_type": "locality"
+    "content_type": "locality",
+    "canonical_url": null
   },
   {
     "slug": "damansara-jaya-dental-visit-patient-checklist",
@@ -840,7 +859,8 @@
         "a": "Learning about your dental health should be a big part of the visit. The dentist should explain what they're finding in a way that makes sense, maybe showing you photos or scans so you can see what they see. They should talk about why they're suggesting certain treatments and how to keep your teeth healthy afterward. When you understand what's going on with your teeth and why certain approaches are recommended, you can make better decisions about your care."
       }
     ],
-    "content_type": "locality"
+    "content_type": "locality",
+    "canonical_url": null
   },
   {
     "slug": "dental-clinic-near-atria-shopping-gallery-checklist",
@@ -873,7 +893,8 @@
         "a": "Convenient location makes regular check-ups easier to maintain, reduces travel time for appointments, and can be important for follow-up visits. For families, having a clinic nearby means less disruption to daily routines when scheduling dental care for multiple family members."
       }
     ],
-    "content_type": "locality"
+    "content_type": "locality",
+    "canonical_url": null
   },
   {
     "slug": "family-dental-check-up-planning-damansara-jaya-parents",
@@ -902,7 +923,8 @@
         "a": "Keep things positive at home—read children's books about dentists, play pretend dentist with toys, and avoid mentioning any negative experiences you might have had. Morning appointments often work better because children are usually more rested. Let the clinic know ahead of time if your child gets nervous easily or has specific worries."
       }
     ],
-    "content_type": "locality"
+    "content_type": "locality",
+    "canonical_url": null
   },
   {
     "slug": "dental-implants-malaysia-explained",
@@ -935,7 +957,8 @@
         "q": "What Is Recovery Like After Dental Implant Surgery?"
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "why-choose-ismile-dental-clinic-damansara-jaya",
@@ -945,7 +968,8 @@
     "date": "2026-04-17",
     "featured": false,
     "faq": [],
-    "content_type": "locality"
+    "content_type": "locality",
+    "canonical_url": null
   },
   {
     "slug": "why-do-my-gums-bleed",
@@ -978,7 +1002,8 @@
         "q": "When Should You Seek Professional Help for Bleeding Gums?"
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "wisdom-tooth-surgery",
@@ -1011,7 +1036,8 @@
         "q": "When Should You Check In with Your Dentist About Wisdom Teeth?"
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "invisalign-and-clear-aligners-in-damansara-jaya",
@@ -1049,7 +1075,8 @@
         "a": "The main requirement is wearing aligners for the recommended daily duration. You also need to maintain good oral hygiene and attend scheduled check-up appointments. Your dental professional will discuss any specific considerations relevant to your treatment plan."
       }
     ],
-    "content_type": "locality"
+    "content_type": "locality",
+    "canonical_url": null
   },
   {
     "slug": "cosmetic-dentistry-at-ismile-damansara-jaya",
@@ -1062,7 +1089,8 @@
     "excerpt": "Explore cosmetic dentistry options at iSmile Dental Clinic in Damansara Jaya, including treatments that can help improve smile aesthetics with a personalised assessment.",
     "featured": false,
     "faq": [],
-    "content_type": "locality"
+    "content_type": "locality",
+    "canonical_url": null
   },
   {
     "slug": "pediatric-dentistry-damansara-jaya-our-approach-to-childrens-dental-health",
@@ -1104,7 +1132,8 @@
         "a": "Start by talking positively about dental care at home. Read children's books about visiting the dentist, play \"dentist\" with toys, and avoid sharing any negative dental experiences you might have had. Schedule morning appointments when children are typically well-rested, and let us know about any concerns beforehand. We're experienced with anxious patients and will work at your child's pace to build comfort and trust."
       }
     ],
-    "content_type": "locality"
+    "content_type": "locality",
+    "canonical_url": null
   },
   {
     "slug": "emergency-dental-care-damansara-jaya",
@@ -1140,7 +1169,8 @@
         "a": "Over-the-counter pain relievers, cold compresses on the outside of the cheek, and avoiding chewing on the affected side may help manage discomfort temporarily. However, these are temporary measures—you should still see a dentist as soon as possible."
       }
     ],
-    "content_type": "locality"
+    "content_type": "locality",
+    "canonical_url": null
   },
   {
     "slug": "myofunctional-orthodontics-malaysia",
@@ -1183,7 +1213,8 @@
         "a": "Treatment duration varies by child and the specific issues being addressed. Your dentist will provide a personalized timeline based on your child's assessment and progress."
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "family-dentistry-damansara-jaya-what-makes-ismile-different",
@@ -1223,7 +1254,8 @@
         "a": "We try to make things easier by scheduling family members one after another when possible—saves you multiple trips. Keeping everyone's records together helps us spot patterns and give advice that makes sense for the whole family. If several people need treatment around the same time, we can talk about timing and sequence so it's less disruptive to your routine. It's about fitting dental care into your life, not the other way around."
       }
     ],
-    "content_type": "locality"
+    "content_type": "locality",
+    "canonical_url": null
   },
   {
     "slug": "mouth-breathing-thumb-sucking-crowded-teeth",
@@ -1262,7 +1294,8 @@
         "a": "Yes, due to several factors: high allergy rates leading to nasal congestion, cultural acceptance of thumb sucking, humid climate contributing to respiratory issues, and dietary preferences for softer foods. These combine to create higher rates of mouth breathing and dental development issues in Malaysian children."
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "signs-child-early-orthodontic-assessment",
@@ -1296,7 +1329,8 @@
         "q": "What Early Intervention Options Are Available?"
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "2026-03-21-why-baby-teeth-matter",
@@ -1333,7 +1367,8 @@
         "a": "Yes, cavities in baby teeth should be treated. Untreated decay can cause pain, infection, difficulty eating, and affect the developing permanent teeth underneath. Early treatment is simpler, less invasive, and helps prevent more serious problems later."
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "invisalign-malaysia-explained",
@@ -1362,7 +1397,8 @@
         "q": "Is Invisalign Worth It?"
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "clear-aligners-vs-braces",
@@ -1388,7 +1424,8 @@
         "q": "When should a child have their first orthodontic assessment?"
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "root-canal-vs-extraction",
@@ -1422,7 +1459,8 @@
         "q": "When Should You Act Early on Tooth Pain?"
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "government-vs-private-braces",
@@ -1448,7 +1486,8 @@
         "q": "Why might private orthodontic care be worth the investment for families?"
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "clear-aligner-treatment-complexity",
@@ -1485,7 +1524,8 @@
         "a": "Extremely important. Clear aligners must be worn 20-22 hours daily to be effective. Inconsistent wear is the most common reason for extended treatment times or compromised results. Your commitment to wearing aligners as directed is crucial for achieving the planned outcome on schedule."
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "is-teeth-whitening-safe",
@@ -1518,7 +1558,8 @@
         "q": "What Should You Do Before Starting Teeth Whitening?"
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "composite-vs-porcelain-veneers",
@@ -1555,7 +1596,8 @@
         "a": "Care for veneers like natural teeth: brush twice daily with non-abrasive toothpaste, floss regularly, avoid biting hard objects, and wear a night guard if you grind your teeth. Regular dental check-ups (every 6 months) are essential. Porcelain veneers resist stains better, but both types benefit from avoiding excessive coffee, tea, red wine, and tobacco."
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "mouth-breathing-in-children",
@@ -1588,7 +1630,8 @@
         "q": "What Can Be Done About Mouth Breathing?"
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   },
   {
     "slug": "your-childs-first-dental-visit",
@@ -1621,6 +1664,7 @@
         "q": "Why Is It Important to Establish a 'Dental Home' Early?"
       }
     ],
-    "content_type": "educational"
+    "content_type": "educational",
+    "canonical_url": null
   }
 ]

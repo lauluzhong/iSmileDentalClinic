@@ -82,6 +82,7 @@ const blogIndex = files.map(filename => {
       featured: frontmatter.featured || false,
       faq: frontmatter.faq || [],
       content_type,
+      canonical_url: frontmatter.canonical_url || null,
       content: htmlContent
     })
   );
@@ -97,7 +98,8 @@ const blogIndex = files.map(filename => {
     excerpt: frontmatter.excerpt,
     featured: frontmatter.featured || false,
     faq: frontmatter.faq || [],
-    content_type
+    content_type,
+    canonical_url: frontmatter.canonical_url || null
   };
 });
 

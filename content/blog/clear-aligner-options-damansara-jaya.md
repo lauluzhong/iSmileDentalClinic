@@ -9,6 +9,7 @@ tags:
   - Clear Aligners
   - Orthodontics
 parent_page: https://ismile.com.my/services/straighten
+canonical_url: https://ismile.com.my/blog/invisalign-and-clear-aligners-in-damansara-jaya
 faq:
   - q: What clear aligner systems are available in Damansara Jaya?
     a: Several clear aligner systems are available, including well-known brands and alternatives. At iSmile Dental Clinic in Damansara Jaya, we offer Invisalign, Angel Aligner, and ClearSmile systems. Each system has its own features, and your dentist can help determine which option suits your needs.
