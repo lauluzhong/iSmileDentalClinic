@@ -84,7 +84,7 @@ const BlogPost = () => {
         </div>
     );
 
-    const canonicalUrl = `${SITE_URL}/blog/${slug}`;
+    const canonicalUrl = post.canonical_url || `${SITE_URL}/blog/${slug}`;
     const ogImage = post.img?.startsWith('http') ? post.img : `${SITE_URL}${post.img}`;
 
     return (
