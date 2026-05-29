@@ -74,7 +74,7 @@ These questions help set realistic expectations.
 
 If you are considering treatment for your child, these questions add a layer of relevance.
 
-**Is now the right time to start, or should we monitor and wait?** An early assessment does not always mean early treatment. In some cases, the plan is to check periodically until the right window opens.
+**Is this a stage where treatment might start, or is monitoring more appropriate?** An early assessment does not always mean early treatment. In some cases, the plan is to monitor growth and tooth development until a later review point is more suitable.
 
 **Does my child's breathing, oral habits, or swallowing pattern affect the treatment approach?** Oral habits like thumb sucking, mouth breathing, or tongue thrust can influence jaw development. A provider who considers these factors may discuss whether treatment should include habit support or broader growth-related review alongside tooth alignment.
 
