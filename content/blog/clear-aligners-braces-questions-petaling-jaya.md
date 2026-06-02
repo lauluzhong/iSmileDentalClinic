@@ -42,7 +42,7 @@ Both aligners and braces apply gentle pressure to move teeth into better positio
 
 **Am I a candidate for clear aligners, or do I need braces?** This depends on what needs to be corrected. If the concern is mild crowding or a small gap, aligners may be sufficient. If there is a deep bite, crossbite, or significant rotation, braces may be more predictable. Some patients are candidates for either option, and the choice comes down to preference and lifestyle.
 
-**Can children use clear aligners?** Yes, certain aligner systems are designed for younger patients whose permanent teeth are coming in. However, aligners require consistent wear, often around 20 to 22 hours per day, and the child needs to be responsible about removing them for eating and cleaning. For children who may not be ready for that routine, some families may find fixed appliances easier to supervise consistently.
+**Can children use clear aligners?** Yes, certain aligner systems are designed for younger patients whose permanent teeth are coming in. However, aligners require consistent wear, often around 20 to 22 hours per day, and the child needs to be responsible about removing them for eating and cleaning. For children who may not be ready for that routine, it can help to discuss with the dentist whether a fixed appliance or an aligner routine is more realistic for that child.
 
 **Are aligners or braces better for a child's growing jaw?** For children whose jaw development is still underway, some providers may recommend a combination approach — an expander or functional appliance first, followed by braces or aligners. This is something to discuss during a consultation.
 
