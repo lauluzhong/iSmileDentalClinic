@@ -13,7 +13,7 @@ img: /images/invisalign_hand.png
 featured: false
 faq:
   - q: "What is the difference between clear aligners and braces?"
-    a: "Braces use fixed brackets and wires to move teeth, while aligners are removable transparent trays that are replaced every one to two weeks. Braces can address a wide range of orthodontic issues, while aligners often suit mild to moderate crowding or spacing."
+    a: "Braces use fixed brackets and wires to move teeth, while aligners are removable transparent trays that are replaced every one to two weeks. Braces may be used for many orthodontic issues, while aligners often suit some mild to moderate crowding or spacing concerns."
   - q: "How do I know if I am a candidate for clear aligners or braces?"
     a: "Suitability depends on the complexity of your case. Straightforward crowding or spacing issues may respond well to aligners. Significant bite problems, severe rotations, or teeth that need vertical movement may need braces. A clinical assessment helps determine which approach fits your situation."
   - q: "How long does treatment take with aligners compared to braces?"
@@ -34,13 +34,13 @@ This guide answers the common questions patients ask when comparing these option
 
 Both aligners and braces apply gentle pressure to move teeth into better positions. The mechanics are different, and that affects what each option can address.
 
-**Braces** use brackets bonded to each tooth with an archwire running through them. The dentist adjusts the wire periodically to guide tooth movement. Braces can be used for a wide range of orthodontic issues, including simple straightening, complex bite correction, significant rotations, and cases where teeth need to move vertically as well as horizontally.
+**Braces** use brackets bonded to each tooth with an archwire running through them. The dentist adjusts the wire periodically to guide tooth movement. Braces may be used across many orthodontic situations, including simple straightening, complex bite correction, significant rotations, and cases where teeth need to move vertically as well as horizontally.
 
-**Clear aligners** are a series of transparent plastic trays made from digital scans of your teeth. Each tray moves the teeth slightly, and you switch to the next tray every one to two weeks. Aligners work well for mild to moderate crowding, spacing, and some bite issues. More complex cases may still be managed with aligners but may require additional attachments or elastics.
+**Clear aligners** are a series of transparent plastic trays made from digital scans of your teeth. Each tray moves the teeth slightly, and you switch to the next tray every one to two weeks. Aligners may suit some mild to moderate crowding, spacing, and bite issues. More complex cases may still be managed with aligners but may require additional attachments or elastics.
 
 ## Questions About Suitability
 
-**Am I a candidate for clear aligners, or do I need braces?** This depends on what needs to be corrected. If the concern is mild crowding or a small gap, aligners may be sufficient. If there is a deep bite, crossbite, or significant rotation, braces may be more predictable. Some patients are candidates for either option, and the choice comes down to preference and lifestyle.
+**Am I a candidate for clear aligners, or do I need braces?** This depends on what needs to be corrected. If the concern is mild crowding or a small gap, aligners may be sufficient. If there is a deep bite, crossbite, or significant rotation, braces may be a more predictable option in some cases. Some patients are candidates for either option, and the choice comes down to preference and lifestyle.
 
 **Can children use clear aligners?** Yes, certain aligner systems are designed for younger patients whose permanent teeth are coming in. However, aligners require consistent wear, often around 20 to 22 hours per day, and the child needs to be responsible about removing them for eating and cleaning. For children who may not be ready for that routine, it can help to discuss with the dentist whether a fixed appliance or an aligner routine is more realistic for that child.
 
