@@ -11,6 +11,7 @@ const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const COMPLIANCE_VALIDATOR_PATHS = [
   process.env.ISMILE_MARKETING_COMPLIANCE_VALIDATOR,
   path.resolve(SCRIPT_DIR, 'validate_marketing_compliance.py'),
+  '/home/ismile/.openclaw/workspace/scripts/validate_marketing_compliance.py',
   '/home/leroy/.openclaw/workspace/scripts/validate_marketing_compliance.py',
 ].filter(Boolean);
 const ALWAYS_REQUIRED_FRONTMATTER_FIELDS = ['title', 'date'];
