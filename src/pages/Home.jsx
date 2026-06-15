@@ -127,7 +127,6 @@ const Home = () => {
                     </div>
 
                     <div className="hero-visual">
-                            <span className="hero-frame-tag">Our patients, three generations deep</span>
                             <div className="hero-card" style={{ padding: 0, overflow: 'hidden' }}>
                                 <picture>
                                   <source type="image/avif" srcSet={`/images/family_hero_three_generations-480w.avif 480w, /images/family_hero_three_generations-768w.avif 768w, /images/family_hero_three_generations.avif 947w`} sizes="(max-width: 768px) 100vw, 50vw" />
@@ -136,10 +135,8 @@ const Home = () => {
                                   <img src={FAMILY_HERO} srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 947w`} sizes="(max-width: 768px) 100vw, 50vw" alt="Three generations of a family smiling together at iSmile Dental Clinic" width="947" height="1024" fetchPriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
                                 </picture>
                                 <motion.div className="hero-floating-badge" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}>
-                                    <span className="hero-badge-icon"><Users size={18} /></span>
                                     <div className="hero-badge-copy">
-                                        <strong>Grandparents to grandkids</strong>
-                                        <span>some families have trusted us for three generations</span>
+                                        <strong>Trusted by families across multiple generations</strong>
                                     </div>
                                 </motion.div>
                             </div>
