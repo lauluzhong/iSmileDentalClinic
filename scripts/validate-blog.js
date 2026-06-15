@@ -8,7 +8,11 @@ const INDEX_PATH = path.resolve('src/data/blog-index.json');
 const SITEMAP_PATH = path.resolve('public/sitemap.xml');
 const PUBLIC_DIR = path.resolve('public');
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
-const COMPLIANCE_VALIDATOR_PATH = path.resolve(SCRIPT_DIR, '../../scripts/validate_marketing_compliance.py');
+const COMPLIANCE_VALIDATOR_PATHS = [
+  process.env.ISMILE_MARKETING_COMPLIANCE_VALIDATOR,
+  path.resolve(SCRIPT_DIR, 'validate_marketing_compliance.py'),
+  '/home/leroy/.openclaw/workspace/scripts/validate_marketing_compliance.py',
+].filter(Boolean);
 const ALWAYS_REQUIRED_FRONTMATTER_FIELDS = ['title', 'date'];
 const NEW_POST_REQUIRED_FRONTMATTER_FIELDS = ['title', 'excerpt', 'date', 'img', 'content_type'];
 const NEW_POST_FRONTMATTER_REQUIRED_FROM = '2026-05-04';
@@ -89,13 +93,18 @@ function complianceTargets() {
   return new Set([...statusFiles, ...diffFiles]);
 }
 
+function complianceValidatorPath() {
+  return COMPLIANCE_VALIDATOR_PATHS.find(candidate => fs.existsSync(candidate)) || null;
+}
+
 function validateCompliance(filename, errors) {
-  if (!fs.existsSync(COMPLIANCE_VALIDATOR_PATH)) {
+  const validatorPath = complianceValidatorPath();
+  if (!validatorPath) {
     return;
   }
 
   const filePath = path.join(CONTENT_DIR, filename);
-  const result = spawnSync('python3', [COMPLIANCE_VALIDATOR_PATH, filePath], {
+  const result = spawnSync('python3', [validatorPath, filePath], {
     encoding: 'utf-8',
   });
 
