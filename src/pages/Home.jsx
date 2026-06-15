@@ -91,32 +91,50 @@ const Home = () => {
 
             {/* 1. Hero Section */}
             <section className="hero-section">
-                <div className="liquid-shape" style={{ top: '20%', left: '10%', width: '300px', height: '300px', background: 'var(--color-secondary)' }}></div>
-                <div className="liquid-shape animate-float" style={{ bottom: '10%', right: '5%', width: '400px', height: '400px', background: 'var(--color-primary)', animationDelay: '1s' }}></div>
-                <div className="liquid-shape" style={{ top: '40%', right: '30%', width: '200px', height: '200px', background: 'var(--color-accent)', filter: 'blur(60px)' }}></div>
+                <div className="liquid-shape" style={{ top: '12%', left: '6%', width: '340px', height: '340px', background: 'var(--color-secondary)' }}></div>
+                <div className="liquid-shape animate-float" style={{ bottom: '6%', right: '2%', width: '420px', height: '420px', background: 'var(--color-primary)', animationDelay: '1s' }}></div>
+                <div className="liquid-shape" style={{ top: '44%', right: '32%', width: '220px', height: '220px', background: 'var(--color-accent)', filter: 'blur(70px)' }}></div>
 
                 <div className="container hero-container">
                     <div className="hero-content">
-                        <Reveal><h1 className="hero-title">
-                            iSmile Dental Clinic Petaling Jaya <br />
-                            <span className="text-gradient">Dental Care for Every Generation</span>
+                        <Reveal><span className="pill-label hero-pill"><Heart size={14} /> Caring for families since 2006</span></Reveal>
+                        <Reveal delay={0.1}><h1 className="hero-title">
+                            Dental care for <span className="text-gradient">every generation</span>
                         </h1></Reveal>
                         <Reveal delay={0.2}><p className="hero-subtitle">
-                            iSmile Dental Clinic is a patient-centred dental clinic in Petaling Jaya, caring for children, adults, and families through every stage of life. We focus on clear explanations, thoughtful recommendations, and long-term oral health—so you can feel confident about the care you choose.
+                            iSmile is a patient-centred dental clinic in Petaling Jaya, caring for children, adults, and grandparents through every stage of life. Clear explanations, thoughtful recommendations, and long-term oral health—so you can feel confident about the care you choose.
                         </p></Reveal>
                         <FadeIn delay={0.4} className="hero-actions">
-                            <Button onClick={() => openBooking('', 'hero-cta')}>Schedule a Visit</Button>
+                            <Button onClick={() => openBooking('', 'hero-cta')}>Schedule a Visit <ArrowRight size={18} /></Button>
+                            <Link to="/about" className="hero-secondary-link">Meet our team <ArrowRight size={16} /></Link>
+                        </FadeIn>
+                        <FadeIn delay={0.5} className="hero-trust">
+                            <div className="hero-trust-item">
+                                <div className="hero-trust-stars">
+                                    {[...Array(5)].map((_, i) => <Star key={i} size={15} fill="#E0A500" color="#E0A500" />)}
+                                </div>
+                                <span><strong>4.9</strong> on Google · 76 reviews</span>
+                            </div>
+                            <span className="hero-trust-divider" />
+                            <div className="hero-trust-item"><strong>20+</strong> years of trusted care</div>
                         </FadeIn>
                     </div>
 
                     <div className="hero-visual">
-                            <div className="glass-panel hero-card" style={{ padding: 0, overflow: 'hidden', aspectRatio: '4/5' }}>
+                            <div className="hero-card" style={{ padding: 0, overflow: 'hidden' }}>
                                 <picture>
                                   <source type="image/avif" srcSet={`/images/family_hero_three_generations-480w.avif 480w, /images/family_hero_three_generations-768w.avif 768w, /images/family_hero_three_generations.avif 947w`} sizes="(max-width: 768px) 100vw, 50vw" />
                                   <source type="image/webp" srcSet={`/images/family_hero_three_generations-480w.webp 480w, /images/family_hero_three_generations-768w.webp 768w, ${FAMILY_HERO_WEBP} 947w`} sizes="(max-width: 768px) 100vw, 50vw" />
                                   <source type="image/jpeg" srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 947w`} sizes="(max-width: 768px) 100vw, 50vw" />
-                                  <img src={FAMILY_HERO} srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 947w`} sizes="(max-width: 768px) 100vw, 50vw" alt="Family dental care at iSmile Dental Clinic" width="947" height="1024" fetchPriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
+                                  <img src={FAMILY_HERO} srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 947w`} sizes="(max-width: 768px) 100vw, 50vw" alt="Three generations of a family smiling together at iSmile Dental Clinic" width="947" height="1024" fetchPriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
                                 </picture>
+                                <motion.div className="hero-floating-badge" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.5 }}>
+                                    <Users size={20} />
+                                    <div>
+                                        <strong>3–4 generations</strong>
+                                        <span>under one roof</span>
+                                    </div>
+                                </motion.div>
                             </div>
                     </div>
                 </div>
@@ -126,14 +144,17 @@ const Home = () => {
             <section className="section-padding services-bento-section">
                 <div className="container">
                     <div className="section-header text-center">
-                        <Reveal width="100%"><h2 className="section-title services-title">Comprehensive Care for <br className="mobile-break" /><span className="text-gradient">Every Stage of Life</span></h2></Reveal>
+                        <Reveal width="100%"><span className="pill-label">Our Services</span></Reveal>
+                        <Reveal width="100%"><h2 className="section-title services-title">Comprehensive care for <br className="mobile-break" /><span className="text-gradient">every stage of life</span></h2></Reveal>
+                        <Reveal width="100%"><p className="section-lead">From a child's first check-up to restoring a grandparent's smile—one trusted team for the whole family.</p></Reveal>
                     </div>
 
                     <div className="bento-grid">
                         {/* Card 1: Maintain & Repair */}
                         <MotionLink to="/services/protect" className="bento-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
                             <div className="card-top">
-                                <Shield size={32} className="card-icon" />
+                                <span className="card-icon-wrap"><Shield size={26} className="card-icon" /></span>
+                                <ArrowRight size={20} className="card-arrow" />
                             </div>
                             <div className="card-content">
                                 <span className="eyebrow">PROTECT & REPAIR</span>
@@ -145,7 +166,8 @@ const Home = () => {
                         {/* Card 2: Straighten Teeth */}
                         <MotionLink to="/services/straighten" className="bento-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
                             <div className="card-top">
-                                <Sparkles size={32} className="card-icon" />
+                                <span className="card-icon-wrap"><Sparkles size={26} className="card-icon" /></span>
+                                <ArrowRight size={20} className="card-arrow" />
                             </div>
                             <div className="card-content">
                                 <span className="eyebrow">STRAIGHTEN TEETH</span>
@@ -157,7 +179,8 @@ const Home = () => {
                         {/* Card 3: Replace Teeth */}
                         <MotionLink to="/services/replace" className="bento-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
                             <div className="card-top">
-                                <Smile size={32} className="card-icon" />
+                                <span className="card-icon-wrap"><Smile size={26} className="card-icon" /></span>
+                                <ArrowRight size={20} className="card-arrow" />
                             </div>
                             <div className="card-content">
                                 <span className="eyebrow">REPLACE TEETH</span>
@@ -169,7 +192,8 @@ const Home = () => {
                         {/* Card 4: Enhance Smile */}
                         <MotionLink to="/services/enhance" className="bento-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
                             <div className="card-top">
-                                <Star size={32} className="card-icon" />
+                                <span className="card-icon-wrap"><Star size={26} className="card-icon" /></span>
+                                <ArrowRight size={20} className="card-arrow" />
                             </div>
                             <div className="card-content">
                                 <span className="eyebrow">ENHANCE SMILE</span>
@@ -181,7 +205,8 @@ const Home = () => {
                         {/* Card 5: Children & Growth */}
                         <MotionLink to="/services/children" className="bento-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
                             <div className="card-top">
-                                <Users size={32} className="card-icon" />
+                                <span className="card-icon-wrap"><Users size={26} className="card-icon" /></span>
+                                <ArrowRight size={20} className="card-arrow" />
                             </div>
                             <div className="card-content">
                                 <span className="eyebrow">CHILDREN & GROWTH</span>
@@ -196,7 +221,10 @@ const Home = () => {
             {/* 3. Social Proof */}
             <section className="section-padding reviews-section">
                 <div className="container">
-                    <Reveal width="100%"><h2 className="section-title reviews-title text-center">Trusted by <span className="text-gradient">Families</span></h2></Reveal>
+                    <div className="section-header text-center">
+                        <Reveal width="100%"><span className="pill-label"><Star size={13} fill="#E0A500" color="#E0A500" /> 4.9 · 76 Google reviews</span></Reveal>
+                        <Reveal width="100%"><h2 className="section-title reviews-title text-center">Trusted by <span className="text-gradient">families</span></h2></Reveal>
+                    </div>
                     <div className="reviews-slider">
                         {[
                             {
@@ -338,24 +366,45 @@ const Home = () => {
             <style>{`
         /* General Hero & Section Styles */
         .mobile-break { display: none; }
-        .hero-section { min-height: 90vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 120px; }
-        .hero-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; position: relative; z-index: 2; }
-        .hero-title { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 20px; font-weight: 700; word-break: break-word; }
-        .hero-subtitle { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 30px; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.6; }
-        .hero-card { padding: 10px; position: relative; transform: rotate(-2deg); transition: transform 0.5s ease; width: 100%; max-width: 400px; margin: 0 auto; box-sizing: border-box; }
-        .hero-card:hover { transform: rotate(0deg) scale(1.02); }
-        .floating-badge { position: absolute; bottom: 40px; right: -20px; background: rgba(255, 255, 255, 0.9); padding: 10px 20px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); backdrop-filter: blur(10px); }
+        .hero-section { min-height: 92vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 140px; padding-bottom: 60px; }
+        .hero-container { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; position: relative; z-index: 2; }
+        .hero-content { text-align: left; }
+        .hero-pill { margin-bottom: 22px; }
+        .hero-title { font-size: var(--fs-display); line-height: 1.05; margin-bottom: 22px; font-weight: 700; letter-spacing: -0.03em; }
+        .hero-subtitle { font-size: var(--fs-lead); color: var(--color-text-slate); margin-bottom: 32px; max-width: 540px; line-height: 1.6; }
+        .hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+        .hero-secondary-link { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-heading); font-weight: 600; color: var(--color-primary-deep); font-size: 1rem; transition: gap 0.25s ease; }
+        .hero-secondary-link:hover { gap: 10px; color: var(--color-primary-teal); }
+        .hero-trust { display: flex; align-items: center; gap: 20px; margin-top: 36px; flex-wrap: wrap; color: var(--color-text-slate); font-size: 0.95rem; }
+        .hero-trust-item { display: flex; align-items: center; gap: 8px; }
+        .hero-trust-item strong { color: var(--color-text-charcoal); }
+        .hero-trust-stars { display: inline-flex; gap: 2px; }
+        .hero-trust-divider { width: 1px; height: 22px; background: rgba(16,42,51,0.12); }
+
+        .hero-visual { position: relative; }
+        .hero-card { position: relative; border-radius: 28px; overflow: hidden; aspect-ratio: 4/5; width: 100%; max-width: 440px; margin: 0 auto; box-shadow: var(--shadow-lg); transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); transform: rotate(-1.5deg); }
+        .hero-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(0,110,140,0.20) 100%); pointer-events: none; }
+        .hero-card:hover { transform: rotate(0deg) scale(1.015); }
+        .hero-floating-badge { position: absolute; bottom: 22px; left: 22px; z-index: 3; display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); padding: 12px 18px; border-radius: 16px; box-shadow: var(--shadow-md); color: var(--color-primary-deep); }
+        .hero-floating-badge > div { display: flex; flex-direction: column; line-height: 1.2; }
+        .hero-floating-badge strong { font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-text-charcoal); }
+        .hero-floating-badge span { font-size: 0.78rem; color: var(--color-text-grey); }
+
+        .section-header { margin-bottom: 56px; }
+        .section-header .pill-label { margin-bottom: 18px; }
+        .section-lead { font-size: var(--fs-lead); color: var(--color-text-slate); max-width: 620px; margin: 18px auto 0; line-height: 1.6; }
         
         /* Welcome Section & About Preview Section Redesign */
         .welcome-section, .about-preview { /* Use default background */ }
-        .welcome-container, .about-card-container { 
-            display: flex; 
-            align-items: stretch; 
-            min-height: 480px; 
-            border-radius: 40px; 
-            overflow: hidden; 
+        .welcome-container, .about-card-container {
+            display: flex;
+            align-items: stretch;
+            min-height: 480px;
+            border-radius: 32px;
+            overflow: hidden;
             background: #fff;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(16,42,51,0.05);
             margin: 0 auto;
         }
         .welcome-content-split, .about-content-split { 
@@ -365,20 +414,20 @@ const Home = () => {
             flex-direction: column; 
             justify-content: center;
         }
-        .welcome-headline, .about-headline { 
-            font-size: 2.5rem; 
-            font-weight: 700; 
-            line-height: 1.05; 
-            margin-bottom: 24px; 
-            color: #1D1D1F; 
-            letter-spacing: -0.02em;
+        .welcome-headline, .about-headline {
+            font-size: var(--fs-h2);
+            font-weight: 700;
+            line-height: 1.05;
+            margin-bottom: 24px;
+            color: var(--color-text-charcoal);
+            letter-spacing: -0.025em;
         }
-        .welcome-description, .about-description { 
-            font-size: 1.1rem; 
-            color: #424245; 
-            margin-bottom: 40px; 
-            max-width: 500px; 
-            line-height: 1.5; 
+        .welcome-description, .about-description {
+            font-size: var(--fs-lead);
+            color: var(--color-text-slate);
+            margin-bottom: 40px;
+            max-width: 500px;
+            line-height: 1.65;
         }
         .welcome-image-split, .about-image-split { 
             flex: 1.5; 
@@ -392,7 +441,7 @@ const Home = () => {
             object-fit: cover;
             object-position: center 20%;
         }
-        .section-title { margin-bottom: 60px; margin-top: 0; font-size: 2.5rem; font-weight: 700; line-height: 1.1; }
+        .section-title { margin-bottom: 0; margin-top: 0; font-size: var(--fs-h2); font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; }
         .dental-edu-header { margin-bottom: 30px; }
 
 
@@ -410,69 +459,101 @@ const Home = () => {
         .bento-card {
             background-color: #FFFFFF;
             border-radius: 24px;
-            padding: 24px;
+            padding: 28px 24px;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             overflow: hidden;
             text-decoration: none;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            border: 1px solid rgba(0,0,0,0.06);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease, border-color 0.5s ease;
+            border: 1px solid rgba(16,42,51,0.06);
+            box-shadow: var(--shadow-sm);
             position: relative;
-            min-height: 220px;
+            min-height: 240px;
+        }
+
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary-deep), var(--color-sky-blue));
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         .bento-card:hover {
-            transform: scale(1.01);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-            border-color: rgba(0,0,0,0.08);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(0,141,176,0.18);
         }
-
-        /* Removed individual grid column spans for 5x1 grid */
+        .bento-card:hover::before { opacity: 1; }
+        .bento-card:hover .card-icon-wrap { background: var(--color-primary-teal); color: #fff; transform: scale(1.05); }
+        .bento-card:hover .card-arrow { opacity: 1; transform: translateX(0); }
 
         .card-top {
-            margin-bottom: 24px;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
+
+        .card-icon-wrap {
+            width: 52px; height: 52px;
+            display: inline-flex; align-items: center; justify-content: center;
+            border-radius: 14px;
+            background: var(--color-tint-light);
+            color: var(--color-primary-deep);
+            transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+        }
+
+        .card-arrow { color: var(--color-primary-teal); opacity: 0; transform: translateX(-6px); transition: all 0.4s ease; }
 
         .card-icon {
             color: var(--color-primary);
-            stroke-width: 1.5px;
+            stroke-width: 1.6px;
             opacity: 0.9;
         }
 
         .eyebrow {
             display: block;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 700;
             letter-spacing: 0.1em;
-            color: #636e72;
-            margin-bottom: 8px;
+            color: var(--color-primary-deep);
+            margin-bottom: 10px;
             text-transform: uppercase;
         }
 
         .card-headline {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            color: #1D1D1F;
-            line-height: 1.2;
+            color: var(--color-text-charcoal);
+            line-height: 1.18;
             margin-bottom: 12px;
+            letter-spacing: -0.01em;
         }
 
         .card-body {
-            font-size: 0.9rem;
-            color: #636e72;
-            line-height: 1.4;
+            font-size: 0.92rem;
+            color: var(--color-text-slate);
+            line-height: 1.5;
         }
 
         /* Reviews */
-        .reviews-slider { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .review-card { 
-            padding: 30px; 
+        .reviews-slider { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
+        .review-card {
+            padding: 34px 30px;
             display: flex;
             flex-direction: column;
             position: relative;
+            background: #fff;
+            border: 1px solid rgba(16,42,51,0.06);
+            border-radius: 24px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease;
         }
+        .review-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
         .quote-icon {
             position: absolute;
             top: 20px;
@@ -480,13 +561,13 @@ const Home = () => {
             opacity: 0.5;
         }
         .review-text {
-            font-size: 0.9rem;
-            font-style: italic;
+            font-size: 0.95rem;
             margin-bottom: 25px;
-            color: var(--color-text-main);
+            color: var(--color-text-slate);
             flex: 1;
-            line-height: 1.5;
+            line-height: 1.65;
         }
+        .review-text strong { color: var(--color-text-charcoal); font-weight: 600; }
 
         .review-text p {
             margin-bottom: 12px;
@@ -566,16 +647,27 @@ const Home = () => {
             padding: 25px; /* Added padding to fix text clipping */
         }
         
-        .insight-content h4 {
-            margin-bottom: 10px;
-            font-size: 1.2rem;
+        .insight-card-large { box-shadow: var(--shadow-sm); transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease; }
+        .insight-card-large:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+        .insight-card-large .insight-image-large img { transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+        .insight-card-large:hover .insight-image-large img { transform: scale(1.05); }
+
+        .insight-content h3 {
+            margin-bottom: 12px;
+            font-size: 1.15rem;
+            line-height: 1.3;
         }
 
         .read-more-link {
-            font-size: 1rem;
-            color: var(--color-primary);
-            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--color-primary-deep);
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
+        .read-more-link::after { content: '→'; transition: transform 0.25s ease; }
+        .insight-card-large:hover .read-more-link::after { transform: translateX(4px); }
 
         /* ============================
            RESPONSIVE — TABLET (481–1024px)
@@ -591,10 +683,14 @@ const Home = () => {
             .hero-section { padding-top: 100px; text-align: center; min-height: auto; padding-bottom: 48px; }
             .hero-container { grid-template-columns: 1fr; gap: 32px; padding: 0 24px; }
             .hero-content { display: flex; flex-direction: column; align-items: center; order: 2; text-align: center; }
-            .hero-title { font-size: 2.25rem; line-height: 1.1; margin-bottom: 16px; text-align: center; }
-            .hero-subtitle { font-size: 1rem; margin-bottom: 28px; margin-top: 0; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.5; }
-            .hero-visual { order: 1; width: 100%; max-width: 280px; margin: 0 auto; }
-            .home-page .hero-card { transform: rotate(0); border-radius: 20px; aspect-ratio: 4/5; height: auto; }
+            .hero-title { font-size: 2.4rem; line-height: 1.08; margin-bottom: 16px; text-align: center; }
+            .hero-subtitle { font-size: 1rem; margin-bottom: 28px; margin-top: 0; max-width: 440px; margin-left: auto; margin-right: auto; line-height: 1.55; }
+            .hero-actions { justify-content: center; }
+            .hero-trust { justify-content: center; margin-top: 28px; }
+            .hero-visual { order: 1; width: 100%; max-width: 300px; margin: 0 auto; }
+            .home-page .hero-card { transform: rotate(0); border-radius: 22px; aspect-ratio: 4/5; height: auto; }
+            .section-header { margin-bottom: 36px; }
+            .section-lead { font-size: 1rem; margin-top: 14px; }
 
             /* Services — 2-col grid on tablet, not horizontal scroll */
             .bento-grid {
@@ -661,12 +757,19 @@ const Home = () => {
             .home-page .section-title { font-size: 1.6rem; margin-bottom: 1.25rem; line-height: 1.1; }
 
             /* Hero — compact to keep CTA near fold */
-            .hero-section { padding-top: 80px; padding-bottom: 32px; }
-            .hero-container { gap: 20px; padding: 0 16px; }
-            .hero-title { font-size: 1.75rem; line-height: 1.1; margin-bottom: 10px; }
-            .hero-subtitle { font-size: 0.9rem; margin-bottom: 20px; max-width: 300px; line-height: 1.4; }
-            .hero-visual { max-width: 200px; }
-            .home-page .hero-card { aspect-ratio: 4/5; border-radius: 16px; }
+            .hero-section { padding-top: 88px; padding-bottom: 32px; }
+            .hero-container { gap: 24px; padding: 0 16px; }
+            .hero-pill { margin-bottom: 14px; }
+            .hero-title { font-size: 2rem; line-height: 1.08; margin-bottom: 12px; }
+            .hero-subtitle { font-size: 0.95rem; margin-bottom: 22px; max-width: 360px; line-height: 1.5; }
+            .hero-actions { flex-direction: column; gap: 14px; width: 100%; max-width: 280px; }
+            .hero-actions .btn { width: 100%; }
+            .hero-trust { flex-direction: column; gap: 10px; }
+            .hero-trust-divider { display: none; }
+            .hero-visual { max-width: 250px; }
+            .home-page .hero-card { aspect-ratio: 4/5; border-radius: 18px; }
+            .hero-floating-badge { bottom: 14px; left: 14px; padding: 9px 13px; gap: 9px; }
+            .hero-floating-badge strong { font-size: 0.82rem; }
 
             /* Services — horizontal scroll carousel */
             .services-bento-section { position: relative; }

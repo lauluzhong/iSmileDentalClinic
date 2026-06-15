@@ -239,8 +239,8 @@ const About = () => {
                 }
 
                 .about-hero-container {
-                    background: linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 50%, #dcfce7 100%);
-                    padding-top: 120px;
+                    background: linear-gradient(135deg, #F0F7FF 0%, #E0F2FE 55%, #EAF7F0 100%);
+                    padding-top: 140px;
                 }
 
                 .about-hero {
@@ -336,9 +336,20 @@ const About = () => {
 
                 /* Founder Section Dark */
                 .founder-section-dark {
-                    background: #1a202c;
+                    background: linear-gradient(160deg, #0E2731 0%, #123B47 100%);
                     padding: 120px 0;
                     scroll-margin-top: 120px;
+                    position: relative;
+                    overflow: hidden;
+                }
+                .founder-section-dark::before {
+                    content: '';
+                    position: absolute;
+                    top: -120px; right: -120px;
+                    width: 420px; height: 420px;
+                    border-radius: 50%;
+                    background: radial-gradient(circle, rgba(0,141,176,0.35), transparent 70%);
+                    pointer-events: none;
                 }
 
                 .founder-card-dark {
@@ -346,6 +357,8 @@ const About = () => {
                     align-items: center;
                     gap: 60px;
                     color: white;
+                    position: relative;
+                    z-index: 1;
                 }
 
                 .founder-content {
@@ -417,26 +430,43 @@ const About = () => {
                     overflow: hidden;
                     display: flex;
                     flex-direction: column;
-                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                    border: 1px solid rgba(0,0,0,0.05);
+                    background: #fff;
+                    border-radius: 24px;
+                    box-shadow: var(--shadow-sm);
+                    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+                    border: 1px solid rgba(16,42,51,0.06);
                 }
 
                 .team-card:hover {
-                    transform: translateY(-10px);
-                    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+                    transform: translateY(-8px);
+                    box-shadow: var(--shadow-lg);
                 }
 
                 .team-photo {
                     height: 350px;
                     overflow: hidden;
+                    position: relative;
                 }
+
+                .team-photo::after {
+                    content: '';
+                    position: absolute;
+                    inset: auto 0 0 0;
+                    height: 40%;
+                    background: linear-gradient(180deg, transparent, rgba(0,110,140,0.10));
+                    opacity: 0;
+                    transition: opacity 0.4s ease;
+                }
+                .team-card:hover .team-photo::after { opacity: 1; }
 
                 .team-photo img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
                     object-position: center top;
+                    transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
                 }
+                .team-card:hover .team-photo img { transform: scale(1.04); }
 
                 .team-info {
                     padding: 30px;
