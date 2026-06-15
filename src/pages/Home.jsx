@@ -97,12 +97,18 @@ const Home = () => {
 
                 <div className="container hero-container">
                     <div className="hero-content">
-                        <Reveal><span className="pill-label hero-pill"><Heart size={14} /> Caring for families since 2006</span></Reveal>
+                        <Reveal>
+                            <span className="hero-eyebrow">
+                                <span className="hero-eyebrow-mark"><Heart size={13} /></span>
+                                <span className="hero-eyebrow-text">A family practice in Petaling Jaya</span>
+                                <span className="hero-eyebrow-year">Est. 2006</span>
+                            </span>
+                        </Reveal>
                         <Reveal delay={0.1}><h1 className="hero-title">
                             Dental care for <span className="text-gradient">every generation</span>
                         </h1></Reveal>
                         <Reveal delay={0.2}><p className="hero-subtitle">
-                            iSmile is a patient-centred dental clinic in Petaling Jaya, caring for children, adults, and grandparents through every stage of life. Clear explanations, thoughtful recommendations, and long-term oral health—so you can feel confident about the care you choose.
+                            From a child's first visit to a grandparent's new smile, iSmile is the dentist whole families stay with. Honest advice, gentle hands, and care that's looked after Petaling Jaya households for nearly two decades.
                         </p></Reveal>
                         <FadeIn delay={0.4} className="hero-actions">
                             <Button onClick={() => openBooking('', 'hero-cta')}>Schedule a Visit <ArrowRight size={18} /></Button>
@@ -121,6 +127,7 @@ const Home = () => {
                     </div>
 
                     <div className="hero-visual">
+                            <span className="hero-frame-tag">Our patients, three generations deep</span>
                             <div className="hero-card" style={{ padding: 0, overflow: 'hidden' }}>
                                 <picture>
                                   <source type="image/avif" srcSet={`/images/family_hero_three_generations-480w.avif 480w, /images/family_hero_three_generations-768w.avif 768w, /images/family_hero_three_generations.avif 947w`} sizes="(max-width: 768px) 100vw, 50vw" />
@@ -128,11 +135,11 @@ const Home = () => {
                                   <source type="image/jpeg" srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 947w`} sizes="(max-width: 768px) 100vw, 50vw" />
                                   <img src={FAMILY_HERO} srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 947w`} sizes="(max-width: 768px) 100vw, 50vw" alt="Three generations of a family smiling together at iSmile Dental Clinic" width="947" height="1024" fetchPriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
                                 </picture>
-                                <motion.div className="hero-floating-badge" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.5 }}>
-                                    <Users size={20} />
-                                    <div>
-                                        <strong>3–4 generations</strong>
-                                        <span>under one roof</span>
+                                <motion.div className="hero-floating-badge" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}>
+                                    <span className="hero-badge-icon"><Users size={18} /></span>
+                                    <div className="hero-badge-copy">
+                                        <strong>Grandparents to grandkids</strong>
+                                        <span>some families have trusted us for three generations</span>
                                     </div>
                                 </motion.div>
                             </div>
@@ -146,7 +153,7 @@ const Home = () => {
                     <div className="section-header text-center">
                         <Reveal width="100%"><span className="pill-label">Our Services</span></Reveal>
                         <Reveal width="100%"><h2 className="section-title services-title">Comprehensive care for <br className="mobile-break" /><span className="text-gradient">every stage of life</span></h2></Reveal>
-                        <Reveal width="100%"><p className="section-lead">From a child's first check-up to restoring a grandparent's smile—one trusted team for the whole family.</p></Reveal>
+                        <Reveal width="100%"><p className="section-lead">A child's first check-up. Braces in the teenage years. A grandparent's new smile. One team that knows your family and grows with it.</p></Reveal>
                     </div>
 
                     <div className="bento-grid">
@@ -369,7 +376,34 @@ const Home = () => {
         .hero-section { min-height: 92vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 140px; padding-bottom: 60px; }
         .hero-container { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; position: relative; z-index: 2; }
         .hero-content { text-align: left; }
-        .hero-pill { margin-bottom: 22px; }
+
+        /* Bespoke hero eyebrow — replaces the generic AI chip.
+           A thin keyline + small caps label + year, reading like editorial masthead type. */
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 12px;
+            margin-bottom: 26px;
+            padding: 0; background: none;
+        }
+        .hero-eyebrow-mark {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 26px; height: 26px; border-radius: 50%;
+            background: var(--color-primary-deep); color: #fff; flex-shrink: 0;
+        }
+        .hero-eyebrow-text {
+            font-family: var(--font-heading); font-weight: 600;
+            font-size: 0.82rem; letter-spacing: 0.04em;
+            color: var(--color-text-charcoal);
+        }
+        .hero-eyebrow-year {
+            position: relative; padding-left: 14px;
+            font-family: var(--font-heading); font-weight: 600;
+            font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+            color: var(--color-primary-deep);
+        }
+        .hero-eyebrow-year::before {
+            content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+            width: 1px; height: 14px; background: rgba(16,42,51,0.18);
+        }
         .hero-title { font-size: var(--fs-display); line-height: 1.05; margin-bottom: 22px; font-weight: 700; letter-spacing: -0.03em; }
         .hero-subtitle { font-size: var(--fs-lead); color: var(--color-text-slate); margin-bottom: 32px; max-width: 540px; line-height: 1.6; }
         .hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
@@ -381,14 +415,65 @@ const Home = () => {
         .hero-trust-stars { display: inline-flex; gap: 2px; }
         .hero-trust-divider { width: 1px; height: 22px; background: rgba(16,42,51,0.12); }
 
-        .hero-visual { position: relative; }
-        .hero-card { position: relative; border-radius: 28px; overflow: hidden; aspect-ratio: 4/5; width: 100%; max-width: 440px; margin: 0 auto; box-shadow: var(--shadow-lg); transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); transform: rotate(-1.5deg); }
-        .hero-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(0,110,140,0.20) 100%); pointer-events: none; }
-        .hero-card:hover { transform: rotate(0deg) scale(1.015); }
-        .hero-floating-badge { position: absolute; bottom: 22px; left: 22px; z-index: 3; display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); padding: 12px 18px; border-radius: 16px; box-shadow: var(--shadow-md); color: var(--color-primary-deep); }
-        .hero-floating-badge > div { display: flex; flex-direction: column; line-height: 1.2; }
-        .hero-floating-badge strong { font-family: var(--font-heading); font-size: 0.95rem; color: var(--color-text-charcoal); }
-        .hero-floating-badge span { font-size: 0.78rem; color: var(--color-text-grey); }
+        .hero-visual { position: relative; max-width: 460px; margin: 0 auto; }
+
+        /* Editorial frame tag — labels the photo as a real patient photo, de-emphasising the "stock" feel */
+        .hero-frame-tag {
+            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            z-index: 4; white-space: nowrap;
+            font-family: var(--font-heading); font-weight: 600;
+            font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase;
+            color: var(--color-primary-deep);
+            background: #fff; padding: 6px 14px; border-radius: 50px;
+            box-shadow: var(--shadow-sm); border: 1px solid rgba(0,141,176,0.14);
+        }
+
+        .hero-card {
+            position: relative; border-radius: 24px; overflow: hidden;
+            aspect-ratio: 4/5; width: 100%; max-width: 440px; margin: 0 auto;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+            transform: rotate(-1.25deg);
+            /* Crisp teal keyline so the frame reads as intentional/editorial, not a raw stock drop-in */
+            outline: 6px solid #fff; outline-offset: -6px;
+        }
+        /* Refined image treatment: a soft teal duotone wash + subtle grain so the photo
+           feels art-directed and on-brand rather than a generic AI/stock image. */
+        .hero-card picture, .hero-card img { display: block; width: 100%; height: 100%; }
+        .hero-card img { filter: contrast(1.04) saturate(0.92); }
+        .hero-card::before {
+            content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+            background:
+                linear-gradient(180deg, rgba(0,110,140,0.0) 38%, rgba(0,110,140,0.10) 72%, rgba(0,90,118,0.42) 100%),
+                linear-gradient(135deg, rgba(0,141,176,0.16) 0%, rgba(0,141,176,0.0) 45%);
+            mix-blend-mode: multiply;
+        }
+        .hero-card::after {
+            content: ''; position: absolute; inset: 0; z-index: 3; pointer-events: none; opacity: 0.45;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+            mix-blend-mode: overlay;
+        }
+        .hero-card:hover { transform: rotate(0deg) scale(1.012); }
+
+        /* Redesigned "generations" badge — elegant glass card with a divider + small-caps label */
+        .hero-floating-badge {
+            position: absolute; bottom: 18px; left: 18px; right: 18px; z-index: 5;
+            display: flex; align-items: center; gap: 14px;
+            background: rgba(255,255,255,0.82);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            padding: 14px 16px; border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,90,118,0.22);
+            border: 1px solid rgba(255,255,255,0.7);
+        }
+        .hero-badge-icon {
+            display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+            width: 40px; height: 40px; border-radius: 12px;
+            background: linear-gradient(135deg, var(--color-primary-deep), var(--color-primary-teal));
+            color: #fff;
+        }
+        .hero-badge-copy { display: flex; flex-direction: column; line-height: 1.28; min-width: 0; }
+        .hero-badge-copy strong { font-family: var(--font-heading); font-size: 0.92rem; color: var(--color-text-charcoal); }
+        .hero-badge-copy span { font-size: 0.74rem; color: var(--color-text-slate); }
 
         .section-header { margin-bottom: 56px; }
         .section-header .pill-label { margin-bottom: 18px; }
@@ -488,7 +573,9 @@ const Home = () => {
             border-color: rgba(0,141,176,0.18);
         }
         .bento-card:hover::before { opacity: 1; }
-        .bento-card:hover .card-icon-wrap { background: var(--color-primary-teal); color: #fff; transform: scale(1.05); }
+        .bento-card:hover .card-icon-wrap { background: var(--color-primary-teal); transform: scale(1.05); box-shadow: 0 8px 20px rgba(0,141,176,0.30); }
+        /* Keep the icon legible on hover: flip it to white so it stays visible on the teal chip */
+        .bento-card:hover .card-icon-wrap .card-icon { color: #fff; opacity: 1; }
         .bento-card:hover .card-arrow { opacity: 1; transform: translateX(0); }
 
         .card-top {
@@ -687,8 +774,9 @@ const Home = () => {
             .hero-subtitle { font-size: 1rem; margin-bottom: 28px; margin-top: 0; max-width: 440px; margin-left: auto; margin-right: auto; line-height: 1.55; }
             .hero-actions { justify-content: center; }
             .hero-trust { justify-content: center; margin-top: 28px; }
-            .hero-visual { order: 1; width: 100%; max-width: 300px; margin: 0 auto; }
-            .home-page .hero-card { transform: rotate(0); border-radius: 22px; aspect-ratio: 4/5; height: auto; }
+            .hero-eyebrow { justify-content: center; }
+            .hero-visual { order: 1; width: 100%; max-width: 320px; margin: 0 auto; }
+            .home-page .hero-card { transform: rotate(0); border-radius: 20px; aspect-ratio: 4/5; height: auto; outline-width: 5px; outline-offset: -5px; }
             .section-header { margin-bottom: 36px; }
             .section-lead { font-size: 1rem; margin-top: 14px; }
 
@@ -766,10 +854,15 @@ const Home = () => {
             .hero-actions .btn { width: 100%; }
             .hero-trust { flex-direction: column; gap: 10px; }
             .hero-trust-divider { display: none; }
-            .hero-visual { max-width: 250px; }
-            .home-page .hero-card { aspect-ratio: 4/5; border-radius: 18px; }
-            .hero-floating-badge { bottom: 14px; left: 14px; padding: 9px 13px; gap: 9px; }
-            .hero-floating-badge strong { font-size: 0.82rem; }
+            .hero-visual { max-width: 270px; }
+            .home-page .hero-card { aspect-ratio: 4/5; border-radius: 16px; }
+            .hero-eyebrow { gap: 8px; flex-wrap: wrap; row-gap: 4px; }
+            .hero-eyebrow-text { font-size: 0.76rem; }
+            .hero-frame-tag { font-size: 0.58rem; padding: 5px 11px; }
+            .hero-floating-badge { bottom: 12px; left: 12px; right: 12px; padding: 11px 12px; gap: 10px; }
+            .hero-badge-icon { width: 34px; height: 34px; }
+            .hero-badge-copy strong { font-size: 0.82rem; }
+            .hero-badge-copy span { font-size: 0.68rem; }
 
             /* Services — horizontal scroll carousel */
             .services-bento-section { position: relative; }
