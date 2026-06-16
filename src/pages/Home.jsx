@@ -132,7 +132,7 @@ const Home = () => {
                                   <source type="image/avif" srcSet={`/images/family_hero_three_generations-480w.avif 480w, /images/family_hero_three_generations-768w.avif 768w, /images/family_hero_three_generations.avif 947w`} sizes="(max-width: 768px) 100vw, 50vw" />
                                   <source type="image/webp" srcSet={`/images/family_hero_three_generations-480w.webp 480w, /images/family_hero_three_generations-768w.webp 768w, ${FAMILY_HERO_WEBP} 947w`} sizes="(max-width: 768px) 100vw, 50vw" />
                                   <source type="image/jpeg" srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 947w`} sizes="(max-width: 768px) 100vw, 50vw" />
-                                  <img src={FAMILY_HERO} srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 947w`} sizes="(max-width: 768px) 100vw, 50vw" alt="Three generations of a family smiling together at iSmile Dental Clinic" width="947" height="1024" fetchPriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
+                                  <img src={FAMILY_HERO} srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 947w`} sizes="(max-width: 768px) 100vw, 50vw" alt="Three generations of a family smiling together at iSmile Dental Clinic" width="947" height="576" fetchPriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }} />
                                 </picture>
                                 <motion.div className="hero-floating-badge" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}>
                                     <div className="hero-badge-copy">
@@ -427,26 +427,23 @@ const Home = () => {
 
         .hero-card {
             position: relative; border-radius: 24px; overflow: hidden;
-            aspect-ratio: 4/5; width: 100%; max-width: 440px; margin: 0 auto;
+            aspect-ratio: 16/11; width: 100%; max-width: 520px; margin: 0 auto;
             box-shadow: var(--shadow-lg);
             transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
             transform: rotate(-1.25deg);
             /* Crisp teal keyline so the frame reads as intentional/editorial, not a raw stock drop-in */
             outline: 6px solid #fff; outline-offset: -6px;
         }
-        /* Refined image treatment: a soft teal duotone wash + subtle grain so the photo
-           feels art-directed and on-brand rather than a generic AI/stock image. */
+        /* Keep the photo natural and warm — just a soft bottom shade for badge legibility
+           and a whisper of grain so it reads as art-directed, not a heavy teal duotone. */
         .hero-card picture, .hero-card img { display: block; width: 100%; height: 100%; }
-        .hero-card img { filter: contrast(1.04) saturate(0.92); }
+        .hero-card img { filter: saturate(0.98) contrast(1.02); }
         .hero-card::before {
             content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
-            background:
-                linear-gradient(180deg, rgba(0,110,140,0.0) 38%, rgba(0,110,140,0.10) 72%, rgba(0,90,118,0.42) 100%),
-                linear-gradient(135deg, rgba(0,141,176,0.16) 0%, rgba(0,141,176,0.0) 45%);
-            mix-blend-mode: multiply;
+            background: linear-gradient(180deg, rgba(0,90,118,0) 58%, rgba(0,90,118,0.20) 100%);
         }
         .hero-card::after {
-            content: ''; position: absolute; inset: 0; z-index: 3; pointer-events: none; opacity: 0.45;
+            content: ''; position: absolute; inset: 0; z-index: 3; pointer-events: none; opacity: 0.16;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
             mix-blend-mode: overlay;
         }
@@ -772,8 +769,8 @@ const Home = () => {
             .hero-actions { justify-content: center; }
             .hero-trust { justify-content: center; margin-top: 28px; }
             .hero-eyebrow { justify-content: center; }
-            .hero-visual { order: 1; width: 100%; max-width: 320px; margin: 0 auto; }
-            .home-page .hero-card { transform: rotate(0); border-radius: 20px; aspect-ratio: 4/5; height: auto; outline-width: 5px; outline-offset: -5px; }
+            .hero-visual { order: 1; width: 100%; max-width: 460px; margin: 0 auto; }
+            .home-page .hero-card { transform: rotate(0); border-radius: 20px; aspect-ratio: 16/11; height: auto; outline-width: 5px; outline-offset: -5px; }
             .section-header { margin-bottom: 36px; }
             .section-lead { font-size: 1rem; margin-top: 14px; }
 
@@ -851,8 +848,8 @@ const Home = () => {
             .hero-actions .btn { width: 100%; }
             .hero-trust { flex-direction: column; gap: 10px; }
             .hero-trust-divider { display: none; }
-            .hero-visual { max-width: 270px; }
-            .home-page .hero-card { aspect-ratio: 4/5; border-radius: 16px; }
+            .hero-visual { max-width: 100%; }
+            .home-page .hero-card { aspect-ratio: 16/11; border-radius: 16px; }
             .hero-eyebrow { gap: 8px; flex-wrap: wrap; row-gap: 4px; }
             .hero-eyebrow-text { font-size: 0.76rem; }
             .hero-frame-tag { font-size: 0.58rem; padding: 5px 11px; }
