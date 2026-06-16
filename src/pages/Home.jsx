@@ -769,7 +769,7 @@ const Home = () => {
             .hero-actions { justify-content: center; }
             .hero-trust { justify-content: center; margin-top: 28px; }
             .hero-eyebrow { justify-content: center; }
-            .hero-visual { order: 1; width: 100%; max-width: 460px; margin: 0 auto; }
+            .hero-visual { order: 1; width: 100%; max-width: 300px; margin: 0 auto; }
             .home-page .hero-card { transform: rotate(0); border-radius: 20px; aspect-ratio: 16/11; height: auto; outline-width: 5px; outline-offset: -5px; }
             .section-header { margin-bottom: 36px; }
             .section-lead { font-size: 1rem; margin-top: 14px; }
@@ -848,8 +848,10 @@ const Home = () => {
             .hero-actions .btn { width: 100%; }
             .hero-trust { flex-direction: column; gap: 10px; }
             .hero-trust-divider { display: none; }
-            .hero-visual { max-width: 100%; }
+            .hero-visual { max-width: 60%; }
             .home-page .hero-card { aspect-ratio: 16/11; border-radius: 16px; }
+            /* Photo is narrower now, so let the badge sit snug and wrap at the same font size */
+            .hero-floating-badge { left: 8px; right: 8px; bottom: 8px; padding: 9px 11px; }
             .hero-eyebrow { gap: 8px; flex-wrap: wrap; row-gap: 4px; }
             .hero-eyebrow-text { font-size: 0.76rem; }
             .hero-frame-tag { font-size: 0.58rem; padding: 5px 11px; }
