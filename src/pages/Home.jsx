@@ -851,15 +851,15 @@ const Home = () => {
             /* Match the photo width to the eyebrow line below it (heart icon → "EST. 2006") */
             .hero-visual { max-width: 320px; }
             .home-page .hero-card { aspect-ratio: 16/11; border-radius: 16px; }
-            /* Keep the badge on a single line at the same font, snug to the frame edges */
-            .hero-floating-badge { left: 8px; right: 8px; bottom: 8px; padding: 8px 10px; }
+            /* Keep the badge on a single line, centered with breathing room on both sides */
             .hero-badge-copy strong { white-space: nowrap; }
             .hero-eyebrow { gap: 8px; flex-wrap: wrap; row-gap: 4px; }
             .hero-eyebrow-text { font-size: 0.76rem; }
             .hero-frame-tag { font-size: 0.58rem; padding: 5px 11px; }
-            .hero-floating-badge { bottom: 12px; left: 12px; right: 12px; padding: 11px 12px; gap: 10px; }
+            .hero-floating-badge { bottom: 12px; left: 12px; right: 12px; padding: 10px 12px; gap: 10px; justify-content: center; }
             .hero-badge-icon { width: 34px; height: 34px; }
-            .hero-badge-copy strong { font-size: 0.82rem; }
+            .hero-badge-copy { align-items: center; text-align: center; }
+            .hero-badge-copy strong { font-size: 0.74rem; }
             .hero-badge-copy span { font-size: 0.68rem; }
 
             /* Services — horizontal scroll carousel */
