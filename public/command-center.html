@@ -36,7 +36,7 @@
   .cc-tag{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut);border-left:1px solid var(--line);padding-left:9px}
   .livepill{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--mut);border:1px solid var(--line);padding:4px 10px;border-radius:20px;margin-left:6px}
   .blip{width:8px;height:8px;border-radius:50%;background:var(--mut2)}
-  .blip.on{background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 1.8s infinite}
+  .blip.on{background:var(--amber);box-shadow:0 0 8px var(--amber);animation:pulse 1s infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
   .clock{margin-left:auto;font-size:12px;color:var(--mut)}
 
@@ -99,8 +99,7 @@
   .wf{background:var(--panel2);border:1px solid var(--line);border-radius:13px;padding:14px;margin-bottom:12px}
   .wf.running{border-color:rgba(255,179,71,.6);box-shadow:0 0 26px -8px var(--amber)}
   .wfh{display:flex;align-items:center;gap:11px;margin-bottom:12px}
-  .wfh .wav{width:38px;height:38px;border-radius:50%;overflow:hidden;background:var(--panel);border:2px solid var(--teal);flex:none}
-  .wfh .wav svg{width:38px;height:46px;margin-top:6px}
+  .wfh .wav{width:30px;height:30px;border-radius:8px;flex:none;image-rendering:pixelated;background:#0c1c29;border:1px solid var(--line)}
   .wfh .nm{font-weight:650;font-size:14px}
   .wfh .who{font-size:11px;color:var(--mut2)}
   .wfh .rt{margin-left:auto;text-align:right;font-size:10px;color:var(--mut2)}
@@ -114,33 +113,17 @@
   .wf.running .conn{background:linear-gradient(90deg,var(--teal-deep),var(--amber))}
   .conn::after{content:"▸";position:absolute;right:-4px;top:-11px;color:var(--mut2);font-size:13px}
 
-  /* ---- OFFICE with human characters ---- */
-  .floor{position:relative;background:repeating-linear-gradient(90deg,rgba(79,179,209,.05) 0 1px,transparent 1px 52px),repeating-linear-gradient(0deg,rgba(79,179,209,.05) 0 1px,transparent 1px 52px),linear-gradient(180deg,#0c1c29,#0a1722);border:1px solid var(--line);border-radius:16px;padding:18px 12px;overflow:hidden}
-  .floor::before{content:"";position:absolute;inset:0;background:radial-gradient(460px 220px at 50% -10%,rgba(79,179,209,.12),transparent 70%);pointer-events:none}
-  .desks{display:grid;grid-template-columns:repeat(auto-fill,minmax(126px,1fr));gap:14px 8px;position:relative;z-index:2}
-  .ws{display:flex;flex-direction:column;align-items:center}
-  .person{width:106px;max-width:100%;height:auto;overflow:visible}
-  .person .head,.person .eyes,.person .torso,.person .arms,.person .spark{transform-box:fill-box;transform-origin:center}
-  .person .head{animation:hbob 4.6s ease-in-out infinite}
-  @keyframes hbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.6px)}}
-  .person .eyes{animation:blink 5.6s infinite}
-  @keyframes blink{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.12)}}
-  .person .torso{animation:breathe 4.6s ease-in-out infinite}
-  @keyframes breathe{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.03)}}
-  .person .spark{opacity:0}
-  .ws.run .person .arms{animation:typ .5s steps(2,end) infinite}
-  @keyframes typ{0%{transform:translateY(0)}50%{transform:translateY(2.2px)}}
-  .ws.run .person .spark{opacity:1;animation:tw 1.2s infinite}
-  @keyframes tw{0%,100%{opacity:.4;transform:scale(.75) rotate(0)}50%{opacity:1;transform:scale(1.2) rotate(180deg)}}
-  .ws.run .person .screen{animation:scr 1s ease-in-out infinite}
-  @keyframes scr{0%,100%{fill:#16384a}50%{fill:#ffb347}}
-  .ws .nm{font-size:11px;font-weight:650;margin-top:2px}
-  .ws .ro{font-size:9px;color:var(--mut2);text-align:center;line-height:1.2;min-height:22px}
-  .ws .stt{font-size:8.5px;font-weight:700;letter-spacing:.3px;margin-top:2px}
-  .kanban{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:14px}
-  .kcol{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:10px}
-  .kcol h5{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--mut);margin-bottom:8px}
-  .kchip{font-size:11px;background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:4px 8px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+  /* office game */
+  .officewrap{display:grid;grid-template-columns:1.7fr 1fr;gap:12px}
+  @media(max-width:760px){.officewrap{grid-template-columns:1fr}}
+  .stage-c{background:#0a1722;border:1px solid var(--line);border-radius:14px;padding:8px;overflow:hidden}
+  #oc{width:100%;height:auto;image-rendering:pixelated;border-radius:8px;display:block}
+  .alog{background:#04101a;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-family:ui-monospace,Menlo,monospace;font-size:11px;line-height:1.65;max-height:340px;overflow:auto}
+  .alog .ttl{color:var(--teal);font-size:10px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:7px;position:sticky;top:0;background:#04101a}
+  .alog .ln .tm{color:var(--teal-deep)}.alog .ln .ok{color:var(--green)}.alog .ln .ai{color:var(--violet)}.alog .ln .run{color:var(--amber)}
+  .roster{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .rchip{display:flex;align-items:center;gap:6px;font-size:11px;background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:4px 9px}
+  .rchip.work{border-color:rgba(255,179,71,.55);color:var(--amber)}
 
   .grp{margin-bottom:18px}
   .grp .gdiv{font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--gold);margin-bottom:8px}
@@ -177,17 +160,20 @@
 
 <script>
 const PIN="242235";
-let RUNNING=[];   // workflow ids running right now (live status feed sets this). Empty = nothing running.
+const STATUS_URL="https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/status.json";
+let RUNNING=[];           // workflow/job ids running now (from live status feed)
+let JOBLAST={};           // jobid -> last run string
+let alogLines=[];         // office activity log
 
 const AGENTS={
-  edith:{name:"Edith",role:"Orchestrator",c:"#E6B43C",tr:{skin:"#f1c9a5",hair:"#3a2a1c",style:"bun",glasses:1,headset:1}},
-  seo:{name:"SEO",role:"Competitor intel",c:"#28e0a0",tr:{skin:"#e7b486",hair:"#211a14",style:"short"}},
-  content:{name:"Content",role:"Briefs · SEO rhythm",c:"#5db4ff",tr:{skin:"#f3d3b3",hair:"#5b3a22",style:"ponytail"}},
-  gbp:{name:"GBP",role:"Reviews · curation",c:"#4FB3D1",tr:{skin:"#dfa676",hair:"#141414",style:"bob"}},
-  analytics:{name:"Analytics",role:"GA4 · GSC",c:"#a78bfa",tr:{skin:"#f1c9a5",hair:"#46301f",style:"short",glasses:1}},
-  creative:{name:"Creative",role:"Imagery",c:"#ff7eb6",tr:{skin:"#e7b486",hair:"#d6479a",style:"curly"}},
-  engineer:{name:"Engineer",role:"Site PRs",c:"#8aa6b8",tr:{skin:"#d79e6c",hair:"#243140",style:"cap",headphones:1}},
-  reporting:{name:"Reporting",role:"Digest",c:"#00A0C6",tr:{skin:"#f3d3b3",hair:"#2c2018",style:"sidepart"}},
+  edith:{name:"Edith",role:"Orchestrator",c:"#E6B43C",skin:"#f1c9a5",hair:"#3a2a1c",cap:0},
+  seo:{name:"SEO",role:"Competitor intel",c:"#28e0a0",skin:"#e7b486",hair:"#211a14",cap:0},
+  content:{name:"Content",role:"Briefs · SEO",c:"#5db4ff",skin:"#f3d3b3",hair:"#5b3a22",cap:0},
+  gbp:{name:"GBP",role:"Reviews",c:"#4FB3D1",skin:"#dfa676",hair:"#141414",cap:0},
+  analytics:{name:"Analytics",role:"GA4 · GSC",c:"#a78bfa",skin:"#f1c9a5",hair:"#46301f",cap:0},
+  creative:{name:"Creative",role:"Imagery",c:"#ff7eb6",skin:"#e7b486",hair:"#d6479a",cap:0},
+  engineer:{name:"Engineer",role:"Site PRs",c:"#8aa6b8",skin:"#d79e6c",hair:"#243140",cap:1},
+  reporting:{name:"Reporting",role:"Digest",c:"#00A0C6",skin:"#f3d3b3",hair:"#2c2018",cap:0},
 };
 
 const ORG={
@@ -243,61 +229,36 @@ const MARKETING={
 };
 
 const LOG=[
- ["17 Jun","gbp","First GBP run — 88 reviews scanned, 27×2026+ all replied, 0 to post","ok"],
- ["17 Jun","seo","Competitor digest delivered → Telegram (Smile Doctor in myofunctional; SEPA most promotional)","ok"],
- ["17 Jun","edith","Lean loop scheduled — 5 crons (system cron, MYT). Standing by for next run.","ai"],
+ ["17 Jun","gbp","GBP run — 88 scanned, 27×2026+ all replied, 0 to post","ok"],
+ ["17 Jun","seo","Competitor digest delivered → Telegram","ok"],
+ ["17 Jun","edith","Lean loop scheduled — 5 crons, system cron, MYT","ai"],
 ];
 
 const sLabel={live:"LIVE",build:"BUILDING",plan:"PLANNED"};
 const sBadge={live:"b-live",build:"b-build",plan:"b-plan"};
 const sDot={live:"s-live",build:"s-build",plan:"s-plan"};
-function ag(id){return AGENTS[id]||{name:id,c:"#8aa6b8",tr:{skin:"#e7b486",hair:"#222",style:"short"}}}
+function ag(id){return AGENTS[id]||{name:id,c:"#8aa6b8",skin:"#e7b486",hair:"#222"}}
 function divStatus(d){const s=d.depts.map(x=>x.status);return s.includes("live")?"live":s.includes("build")?"build":"plan"}
 function isRunning(id){return RUNNING.includes(id)}
 function workflowOf(agentId){const w=MARKETING.workflows.find(w=>w.ag===agentId);return w?w.id:agentId}
 
-/* ---- human character (seated at desk) ---- */
-function hairPath(style,c){
-  if(style==="bun")return `<ellipse cx="56" cy="29" rx="7" ry="6" fill="${c}"/><path d="M40 46 q-1 -23 16 -23 q17 0 16 23 q-16 -9 -32 0z" fill="${c}"/>`;
-  if(style==="ponytail")return `<ellipse cx="75" cy="52" rx="5" ry="11" fill="${c}"/><path d="M40 46 q-1 -23 16 -23 q17 0 16 23 q-16 -9 -32 0z" fill="${c}"/>`;
-  if(style==="bob")return `<path d="M38 62 q-3 -38 18 -38 q21 0 18 38 q-5 -5 -8 -5 l0 -11 q-22 -6 -22 11 l0 5 q-3 0 -6 0z" fill="${c}"/>`;
-  if(style==="curly")return `<g fill="${c}"><circle cx="44" cy="38" r="7"/><circle cx="51" cy="30" r="8"/><circle cx="61" cy="30" r="8"/><circle cx="69" cy="38" r="7"/><circle cx="42" cy="47" r="5"/><circle cx="71" cy="47" r="5"/></g>`;
-  if(style==="cap")return `<path d="M39 45 q-1 -19 17 -19 q18 0 17 19z" fill="${c}"/><path d="M37 45 q18 -3 34 0 q9 0 13 4 l-47 0z" fill="${c}"/>`;
-  if(style==="sidepart")return `<path d="M40 46 q-1 -23 16 -23 q17 0 16 23 q-7 -11 -20 -8 q-9 2 -12 8z" fill="${c}"/>`;
-  return `<path d="M40 46 q-1 -23 16 -23 q17 0 16 23 q-7 -10 -16 -10 q-9 0 -16 10z" fill="${c}"/>`;
-}
-function person(a){
-  const t=a.tr||{skin:"#e7b486",hair:"#222",style:"short"};
-  const glasses=t.glasses?`<g stroke="#26323a" stroke-width="1.8" fill="none"><rect x="44" y="45" width="11" height="9" rx="3"/><rect x="57" y="45" width="11" height="9" rx="3"/><line x1="55" y1="49" x2="57" y2="49"/></g>`:"";
-  const headset=t.headset?`<path d="M39 45 a17 17 0 0 1 34 0" fill="none" stroke="#2a3742" stroke-width="2.6"/><rect x="35.5" y="45" width="5.5" height="10" rx="2.5" fill="#2a3742"/><rect x="71" y="45" width="5.5" height="10" rx="2.5" fill="#2a3742"/><path d="M41 55 q-3 4 1 8" fill="none" stroke="#2a3742" stroke-width="1.8"/>`:"";
-  const headphones=t.headphones?`<path d="M37 46 a19 19 0 0 1 38 0" fill="none" stroke="#11202c" stroke-width="3.4"/><rect x="32.5" y="45" width="8" height="14" rx="4" fill="#11202c"/><rect x="71.5" y="45" width="8" height="14" rx="4" fill="#11202c"/>`:"";
-  return `<svg viewBox="0 0 112 120" class="person" aria-hidden="true">
-    <rect x="35" y="66" width="42" height="42" rx="9" fill="#102433"/>
-    <g class="arms"><path d="M41 86 q-9 7 -3 18" stroke="${a.c}" stroke-width="8.5" fill="none" stroke-linecap="round"/><path d="M71 86 q9 7 3 18" stroke="${a.c}" stroke-width="8.5" fill="none" stroke-linecap="round"/></g>
-    <path class="torso" d="M37 104 q-1 -36 19 -36 q20 0 19 36z" fill="${a.c}"/>
-    <rect x="51" y="58" width="10" height="13" rx="3" fill="${t.skin}"/>
-    <g class="head">
-      <ellipse cx="56" cy="46" rx="16.5" ry="17.5" fill="${t.skin}"/>
-      ${hairPath(t.style,t.hair)}
-      <g class="eyes"><circle cx="50" cy="48" r="1.9" fill="#283139"/><circle cx="62" cy="48" r="1.9" fill="#283139"/></g>
-      <path d="M52 55 q4 3 8 0" stroke="#c07e69" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-      ${glasses}${headset}${headphones}
-    </g>
-    <rect x="18" y="103" width="76" height="9" rx="3" fill="#0c2030" stroke="#1e3848"/>
-    <rect x="63" y="90" width="23" height="16" rx="2" fill="#091821" stroke="#1e3848"/>
-    <rect class="screen" x="65" y="92" width="19" height="10" rx="1" fill="#16384a"/>
-    <text class="spark" x="80" y="20" font-size="14" fill="#E6B43C">✦</text>
-  </svg>`;
+/* small pixel avatar (for workflow headers) */
+function avatarDataURL(a){
+  const c=document.createElement("canvas");c.width=20;c.height=20;const x=c.getContext("2d");
+  x.imageSmoothingEnabled=false;
+  drawPerson(x,10,17,a,0,false,1.0);
+  return c.toDataURL();
 }
 
 function render(){
+  if(window.__officeStop){window.__officeStop();window.__officeStop=null;}
   const v=document.getElementById("view"),h=location.hash.replace("#","")||"org";
-  document.getElementById("livecount").textContent=RUNNING.length?RUNNING.length+" running":"standby";
+  document.getElementById("livecount").textContent=RUNNING.length?RUNNING.length+" working":"standby";
   document.getElementById("blip").className="blip"+(RUNNING.length?" on":"");
   if(h==="org")v.innerHTML=viewOrg();
   else if(h.startsWith("dept/"))v.innerHTML=viewDept(h.split("/")[1]);
   else if(h==="workflows")v.innerHTML=viewWorkflows();
-  else if(h==="agents")v.innerHTML=viewAgents();
+  else if(h==="agents"){v.innerHTML=viewAgents();initOffice();}
   else if(h==="initiatives")v.innerHTML=viewInits();
   else v.innerHTML=viewOrg();
   paintTabs(h);window.scrollTo(0,0);
@@ -308,37 +269,18 @@ function paintTabs(h){
 }
 
 function nbDept(d){
-  const run=isRunning(d.id);
-  const cls=run?"run":(d.status==="live"?"live":"");
-  const dot=run?"s-run":sDot[d.status];
-  return `<div class="nb dept ${cls}" onclick="location.hash='dept/${d.id}'">
-    <div class="nbt"><span class="sdot ${dot}"></span>${d.n}</div>
-    <div class="nbo">👤 ${d.o}</div>
-    <div class="cnt">${d.inits.length?d.inits.length+' initiative'+(d.inits.length>1?'s':''):'—'} · ${run?'RUNNING':sLabel[d.status]}</div>
-  </div>`;
+  const run=isRunning(d.id);const cls=run?"run":(d.status==="live"?"live":"");const dot=run?"s-run":sDot[d.status];
+  return `<div class="nb dept ${cls}" onclick="location.hash='dept/${d.id}'"><div class="nbt"><span class="sdot ${dot}"></span>${d.n}</div><div class="nbo">👤 ${d.o}</div><div class="cnt">${d.inits.length?d.inits.length+' initiative'+(d.inits.length>1?'s':''):'—'} · ${run?'RUNNING':sLabel[d.status]}</div></div>`;
 }
 function viewOrg(){
-  const divs=ORG.divisions.map(dv=>{
-    const ds=divStatus(dv);
-    const depts=dv.depts.map(d=>`<li>${nbDept(d)}</li>`).join("");
-    return `<li><div class="nb div"><div class="nbt"><span class="sdot ${sDot[ds]}"></span>${dv.n}</div><div class="nbo">👤 ${dv.o}</div></div><ul>${depts}</ul></li>`;
-  }).join("");
+  const divs=ORG.divisions.map(dv=>{const ds=divStatus(dv);const depts=dv.depts.map(d=>`<li>${nbDept(d)}</li>`).join("");
+    return `<li><div class="nb div"><div class="nbt"><span class="sdot ${sDot[ds]}"></span>${dv.n}</div><div class="nbo">👤 ${dv.o}</div></div><ul>${depts}</ul></li>`;}).join("");
   return `<div class="h">Organisation — live org chart</div>
-   <div class="chart"><div class="tree"><ul><li>
-     <div class="nb dir">${ORG.directors}</div>
-     <ul><li>
-       <div class="nb ceo"><div class="nbt">${ORG.ceo.t}</div><div class="nbo">👤 ${ORG.ceo.o} — end-to-end accountability</div></div>
-       <ul>${divs}</ul>
-     </li></ul>
-   </li></ul></div></div>
-   <div class="legend">
-     <span><span class="sdot s-live"></span> Live</span>
-     <span><span class="sdot s-run"></span> Running now</span>
-     <span><span class="sdot s-build"></span> Building</span>
-     <span><span class="sdot s-plan"></span> Planned</span>
-   </div>
+   <div class="chart"><div class="tree"><ul><li><div class="nb dir">${ORG.directors}</div>
+     <ul><li><div class="nb ceo"><div class="nbt">${ORG.ceo.t}</div><div class="nbo">👤 ${ORG.ceo.o} — end-to-end accountability</div></div><ul>${divs}</ul></li></ul></li></ul></div></div>
+   <div class="legend"><span><span class="sdot s-live"></span> Live</span><span><span class="sdot s-run"></span> Running now</span><span><span class="sdot s-build"></span> Building</span><span><span class="sdot s-plan"></span> Planned</span></div>
    <div class="h" style="margin-top:22px">Activity log</div>${termHTML()}
-   <div class="foot">Tap a department to open it. Branding &amp; Marketing is fully wired (the Edith/OpenClaw system); other departments light up as we connect them (CRM extraction, financial dashboard, OpenDent). A node glows amber only while its cron is actually running — driven by a live status feed (phase 2).</div>`;
+   <div class="foot">Tap a department to open it. Branding &amp; Marketing is fully wired; others light up as we connect them. A node glows amber while its cron is actually running — fed live from the status feed.</div>`;
 }
 function termHTML(){return `<div class="term">`+LOG.map(([t,a,m,c])=>`<div><span class="tm">[${t}]</span> <span class="ai">${ag(a).name}</span> <span class="${c}">${m}</span></div>`).join("")+`</div>`}
 
@@ -346,78 +288,174 @@ function findDept(id){let f=null;ORG.divisions.forEach(dv=>dv.depts.forEach(d=>{
 function viewDept(id){
   const d=findDept(id);if(!d)return `<div class="back" onclick="location.hash='org'">‹ back</div>Not found.`;
   const run=isRunning(id);
-  let b=`<div class="back" onclick="location.hash='org'">‹ Org chart</div>
-    <div class="title">${d.n} <span class="badge ${run?'b-active':sBadge[d.status]}">${run?'RUNNING':sLabel[d.status]}</span></div>
-    <div class="subt">${d.div} · 👤 ${d.o}</div>`;
+  let b=`<div class="back" onclick="location.hash='org'">‹ Org chart</div><div class="title">${d.n} <span class="badge ${run?'b-active':sBadge[d.status]}">${run?'RUNNING':sLabel[d.status]}</span></div><div class="subt">${d.div} · 👤 ${d.o}</div>`;
   if(id==="branding"){b+=marketingDetail();}
-  else if(d.inits.length){
-    b+=`<div class="card"><div class="h" style="margin:0 0 10px">Initiatives</div>`+
-      d.inits.map(i=>`<div class="irow"><span class="sdot ${sDot[i.status]}"></span><div class="it">${i.n}<div class="ino">${i.note||''}</div></div><span class="badge ${sBadge[i.status]}">${sLabel[i.status]}</span></div>`).join("")+
-      `<div class="foot">Not yet wired into the live agent system. When connected, its agents, crons & workflows appear here and the node glows on the org chart.</div></div>`;
-  } else {
-    b+=`<div class="card"><div class="foot" style="margin:0">No active initiatives in INITIATIVES.md for this department yet.</div></div>`;
-  }
+  else if(d.inits.length){b+=`<div class="card"><div class="h" style="margin:0 0 10px">Initiatives</div>`+d.inits.map(i=>`<div class="irow"><span class="sdot ${sDot[i.status]}"></span><div class="it">${i.n}<div class="ino">${i.note||''}</div></div><span class="badge ${sBadge[i.status]}">${sLabel[i.status]}</span></div>`).join("")+`<div class="foot">Not yet wired into the live agent system.</div></div>`;}
+  else{b+=`<div class="card"><div class="foot" style="margin:0">No active initiatives in INITIATIVES.md for this department yet.</div></div>`;}
   return b;
 }
 function marketingDetail(){
-  const pipe=MARKETING.pipeline.map((s,i)=>{
-    const nodes=s.nodes.map(([t,a])=>`<div class="n">${t}${a?`<br><span class="ag" style="background:${ag(a).c}">${ag(a).name}</span>`:''}</div>`).join("");
-    return `<div class="stage"><h4>${s.h}</h4>${nodes}</div>${i<3?'<div class="ar">▸</div>':''}`;
-  }).join("");
-  return `<div class="h" style="margin-top:18px">The system — Edith / OpenClaw (live)</div>
-    <div class="card"><div class="h" style="margin:0 0 8px">4-stage pipeline</div><div class="pipe">${pipe}</div></div>
-    <div class="card" style="margin-top:12px"><div class="h" style="margin:0 0 8px">Workflows — open the Workflows tab for full node graphs</div>
-      ${MARKETING.workflows.slice(0,2).map(wfHTML).join("")}</div>`;
+  const pipe=MARKETING.pipeline.map((s,i)=>{const nodes=s.nodes.map(([t,a])=>`<div class="n">${t}${a?`<br><span class="ag" style="background:${ag(a).c}">${ag(a).name}</span>`:''}</div>`).join("");
+    return `<div class="stage"><h4>${s.h}</h4>${nodes}</div>${i<3?'<div class="ar">▸</div>':''}`;}).join("");
+  return `<div class="h" style="margin-top:18px">The system — Edith / OpenClaw (live)</div><div class="card"><div class="h" style="margin:0 0 8px">4-stage pipeline</div><div class="pipe">${pipe}</div></div>
+    <div class="card" style="margin-top:12px"><div class="h" style="margin:0 0 8px">Workflows — see the Workflows tab</div>${MARKETING.workflows.slice(0,2).map(wfHTML).join("")}</div>`;
 }
 
 function wfHTML(w){
   const run=isRunning(w.id);
-  const nodes=w.nodes.map((nd,i)=>{
-    const t=nd[0],gate=nd[1]; const on=run&&!gate;
-    return `<div class="node ${on?'on':''} ${gate?'gate':''}"><div class="nt">${t}</div><div class="nd">${gate?'approval gate':(run?'running':'idle')}</div></div>${i<w.nodes.length-1?'<div class="conn"></div>':''}`;
-  }).join("");
-  const a=ag(w.ag);
-  return `<div class="wf ${run?'running':''}">
-    <div class="wfh"><div class="wav">${person(a)}</div>
-      <div><div class="nm">${w.nm}</div><div class="who">${a.name} agent</div></div>
-      <div class="rt">${run?'<span style="color:var(--amber)">● RUNNING</span>':'idle'}<br>next: ${w.sch}</div></div>
-    <div class="nodes">${nodes}</div></div>`;
+  const nodes=w.nodes.map((nd,i)=>{const t=nd[0],gate=nd[1];const on=run&&!gate;return `<div class="node ${on?'on':''} ${gate?'gate':''}"><div class="nt">${t}</div><div class="nd">${gate?'approval gate':(run?'running':'idle')}</div></div>${i<w.nodes.length-1?'<div class="conn"></div>':''}`;}).join("");
+  const a=ag(w.ag);const last=JOBLAST[w.id]?('last: '+JOBLAST[w.id]):'';
+  return `<div class="wf ${run?'running':''}"><div class="wfh"><img class="wav" src="${avatarDataURL(a)}" alt=""><div><div class="nm">${w.nm}</div><div class="who">${a.name} agent</div></div><div class="rt">${run?'<span style="color:var(--amber)">● RUNNING</span>':'idle'}<br>next: ${w.sch}${last?'<br>'+last:''}</div></div><div class="nodes">${nodes}</div></div>`;
 }
-function viewWorkflows(){
-  return `<div class="h">Workflows</div>
-   <div class="subt">Each workflow is owned by one agent. Nodes light up <b>only while the cron is actually running</b> — right now ${RUNNING.length?RUNNING.length+' running':'nothing is running (all idle, waiting for their next scheduled time)'}.</div>
-   ${MARKETING.workflows.map(wfHTML).join("")}`;
-}
+function viewWorkflows(){return `<div class="h">Workflows</div><div class="subt">Each workflow is owned by one agent. Nodes light up <b>only while the cron is actually running</b> — right now ${RUNNING.length?RUNNING.length+' running':'nothing is running (idle, waiting for next scheduled time)'}.</div>${MARKETING.workflows.map(wfHTML).join("")}`;}
 
+/* ---------------- OFFICE (top-down pixel game) ---------------- */
 function viewAgents(){
-  const order=["edith","seo","content","gbp","analytics","creative","engineer","reporting"];
-  const desks=order.map(id=>{const a=ag(id),run=isRunning(workflowOf(id));
-    return `<div class="ws ${run?'run':''}">${person(a)}<div class="nm">${a.name}</div><div class="ro">${a.role}</div><div class="stt" style="color:${run?'var(--amber)':'var(--mut2)'}">${run?'● WORKING':'AT DESK'}</div></div>`;
-  }).join("");
-  const standby=order.filter(id=>!isRunning(workflowOf(id)));
-  const running=order.filter(id=>isRunning(workflowOf(id)));
-  const kchips=ids=>ids.length?ids.map(id=>`<div class="kchip"><span class="sdot ${isRunning(workflowOf(id))?'s-run':'s-plan'}"></span>${ag(id).name}</div>`).join(""):'<div class="foot" style="margin:0">—</div>';
   return `<div class="h">The office</div>
-   <div class="subt">Each agent sits at their own desk — breathing and blinking at rest, and typing with a glowing screen + ✦ spark when their cron actually runs. Right now: ${running.length?running.length+' working':'everyone is at their desk on standby'} (they wake on their cron times).</div>
-   <div class="floor"><div class="desks">${desks}</div></div>
-   <div class="kanban"><div class="kcol"><h5>At desk</h5>${kchips(standby)}</div><div class="kcol"><h5>Working now</h5>${kchips(running)}</div><div class="kcol"><h5>Done today</h5><div class="kchip"><span class="sdot s-live"></span>GBP · reviews</div><div class="kchip"><span class="sdot s-live"></span>SEO · digest</div></div></div>
-   ${termHTML()}`;
+   <div class="subt">A top-down view of the team's office. Agents sit at their desks; when a cron fires, that agent's screen glows and they get to work. Between runs they idle, stretch, and wander to the lounge. Live-driven by the status feed.</div>
+   <div class="officewrap">
+     <div class="stage-c"><canvas id="oc" width="352" height="276"></canvas>
+       <div class="roster" id="roster"></div>
+     </div>
+     <div class="alog"><div class="ttl">● Activity log</div><div id="alogbody"></div></div>
+   </div>`;
+}
+const SEATS=[ // desk x,y (top-left of desk) for 8 agents
+ {dx:26,dy:54},{dx:104,dy:54},{dx:182,dy:54},{dx:260,dy:54},
+ {dx:26,dy:120},{dx:104,dy:120},{dx:182,dy:120},{dx:260,dy:120}
+];
+const ORDER=["edith","seo","content","gbp","analytics","creative","engineer","reporting"];
+function px(ctx,x,y,w,h,c){ctx.fillStyle=c;ctx.fillRect(x|0,y|0,w,h);}
+function drawPerson(ctx,cx,by,a,frame,working,sc){ // cx center, by feet bottom
+  sc=sc||1; const s=v=>v*sc;
+  // shadow
+  ctx.fillStyle="rgba(0,0,0,.28)";ctx.beginPath();ctx.ellipse(cx,by,s(6),s(2.2),0,0,7);ctx.fill();
+  const legA=frame===1?-1:0, legB=frame===1?0:-1;
+  px(ctx,cx-s(3),by-s(4)+legA,s(2.4),s(4),"#22303a");
+  px(ctx,cx+s(0.6),by-s(4)+legB,s(2.4),s(4),"#22303a");
+  // body
+  px(ctx,cx-s(4),by-s(11),s(8),s(7),a.c);
+  // arms
+  px(ctx,cx-s(5.2),by-s(10),s(1.6),s(5),a.c);px(ctx,cx+s(3.6),by-s(10),s(1.6),s(5),a.c);
+  // head
+  px(ctx,cx-s(3.4),by-s(17),s(6.8),s(6.4),a.skin);
+  // hair
+  px(ctx,cx-s(3.8),by-s(18),s(7.6),s(2.6),a.hair);
+  px(ctx,cx-s(3.8),by-s(16),s(1.4),s(3),a.hair);px(ctx,cx+s(2.4),by-s(16),s(1.4),s(3),a.hair);
+  if(a.cap){px(ctx,cx-s(4),by-s(18.4),s(8),s(2.2),"#1c2b38");px(ctx,cx-s(4),by-s(16.6),s(9.5),s(1.3),"#1c2b38");}
+  // eyes
+  px(ctx,cx-s(2),by-s(13.5),s(1.2),s(1.4),"#283139");px(ctx,cx+s(1),by-s(13.5),s(1.2),s(1.4),"#283139");
+  if(working){ // spark
+    ctx.fillStyle="#ffd87a";ctx.font=(7*sc|0)+"px sans-serif";ctx.fillText("✦",cx+s(4),by-s(18));
+  }
+}
+function drawRoom(ctx){
+  const W=352,H=276;
+  // floor
+  px(ctx,0,0,W,H,"#0e2230");
+  for(let y=18;y<H;y+=22)for(let x=0;x<W;x+=22){ctx.fillStyle=(((x+y)/22)%2)?"#102836":"#0e2230";ctx.fillRect(x,y,22,22);}
+  // top wall
+  px(ctx,0,0,W,18,"#0a1722");px(ctx,0,16,W,2,"#1e3848");
+  // wall: iSmile board, window, clock
+  px(ctx,30,4,70,10,"#0c3346");ctx.fillStyle="#4FB3D1";ctx.font="7px sans-serif";ctx.fillText("iSmile",36,12);
+  px(ctx,150,4,46,10,"#13384a");px(ctx,151,5,44,8,"#1d4d63");
+  ctx.fillStyle="#0a1722";ctx.beginPath();ctx.arc(312,9,6,0,7);ctx.fill();ctx.strokeStyle="#4FB3D1";ctx.lineWidth=1;ctx.beginPath();ctx.arc(312,9,6,0,7);ctx.stroke();
+  px(ctx,311,5,1,4,"#cfe8f0");px(ctx,312,9,3,1,"#cfe8f0");
+  // desks
+  for(const s of SEATS){
+    px(ctx,s.dx,s.dy,46,15,"#173247");px(ctx,s.dx,s.dy,46,2,"#21455d"); // desk
+    // monitor
+    px(ctx,s.dx+17,s.dy-9,12,9,"#0a1620");
+  }
+  // lounge bottom-left: rug, sofas, table, plant
+  px(ctx,12,196,120,68,"#11303f");
+  px(ctx,16,200,90,14,"#274a5e");px(ctx,16,200,14,52,"#274a5e"); // L sofa
+  ctx.fillStyle="#15384a";ctx.beginPath();ctx.arc(78,236,11,0,7);ctx.fill(); // coffee table
+  px(ctx,116,244,5,12,"#2f5a3a");ctx.fillStyle="#3f7a4e";ctx.beginPath();ctx.arc(118,242,7,0,7);ctx.fill(); // plant
+  // meeting bottom-right: table + stools
+  ctx.fillStyle="#173247";ctx.beginPath();ctx.ellipse(258,224,40,22,0,0,7);ctx.fill();ctx.strokeStyle="#21455d";ctx.stroke();
+  for(const a of [[218,224],[298,224],[258,200],[258,248]]){ctx.fillStyle="#21455d";ctx.beginPath();ctx.arc(a[0],a[1],5,0,7);ctx.fill();}
+  // water cooler top-right
+  px(ctx,330,30,10,16,"#1b4055");px(ctx,332,26,6,6,"#2f6f8c");
+}
+function initOffice(){
+  const cv=document.getElementById("oc");if(!cv)return;const ctx=cv.getContext("2d");ctx.imageSmoothingEnabled=false;
+  // build actors
+  const actors=ORDER.map((id,i)=>{const s=SEATS[i];const sx=s.dx+23, sy=s.dy+28;
+    return {id,a:ag(id),home:{x:sx,y:sy},x:sx,y:sy,tx:sx,ty:sy,state:"sit",t:0,frame:0,ft:0};});
+  const waypoints=[{x:60,y:230},{x:258,y:224},{x:335,y:52},{x:120,y:236}];
+  let raf,wanderTimer,running=true,fc=0;
+  function setRoster(){
+    const r=document.getElementById("roster");if(!r)return;
+    r.innerHTML=ORDER.map(id=>{const w=isRunning(workflowOf(id));return `<div class="rchip ${w?'work':''}"><span class="sdot ${w?'s-run':'s-plan'}"></span>${ag(id).name} · ${w?'working':'idle'}</div>`;}).join("");
+  }
+  function pushLog(txt,cls){alogLines.unshift({t:new Date().toLocaleTimeString("en-GB",{timeZone:"Asia/Kuala_Lumpur",hour:"2-digit",minute:"2-digit"}),m:txt,c:cls||"ai"});alogLines=alogLines.slice(0,40);paintLog();}
+  function paintLog(){const b=document.getElementById("alogbody");if(!b)return;
+    const base=LOG.map(l=>({t:l[0],m:ag(l[1]).name+" — "+l[2],c:l[3]}));
+    b.innerHTML=alogLines.concat(base).slice(0,40).map(l=>`<div class="ln"><span class="tm">[${l.t}]</span> <span class="${l.c}">${l.m}</span></div>`).join("");}
+  window.__officePaintLog=paintLog;window.__officeSetRoster=setRoster;
+  paintLog();setRoster();
+  // ambient wander
+  wanderTimer=setInterval(()=>{
+    const idle=actors.filter(o=>o.state==="sit"&&!isRunning(workflowOf(o.id)));
+    if(idle.length&&Math.random()<0.6){const o=idle[Math.random()*idle.length|0];const w=waypoints[Math.random()*waypoints.length|0];o.state="walk";o.tx=w.x;o.ty=w.y;o.back=false;}
+  },4200);
+  function step(){
+    ctx.clearRect(0,0,352,276);drawRoom(ctx);
+    fc++;
+    // monitors glow for working
+    for(let i=0;i<ORDER.length;i++){const id=ORDER[i],s=SEATS[i];const w=isRunning(workflowOf(id));
+      ctx.fillStyle=w?(fc%30<15?"#ffb347":"#ffd08a"):"#16384a";ctx.fillRect(s.dx+18,s.dy-8,10,7);}
+    // actors
+    const sorted=actors.slice().sort((p,q)=>p.y-q.y);
+    for(const o of sorted){
+      const w=isRunning(workflowOf(o.id));
+      if(w&&o.state!=="sit"){o.state="walk";o.tx=o.home.x;o.ty=o.home.y;o.back=true;}
+      if(o.state==="walk"){
+        const dx=o.tx-o.x,dy=o.ty-o.y,d=Math.hypot(dx,dy);
+        if(d<1.2){o.x=o.tx;o.y=o.ty;
+          if(o.back||(o.tx===o.home.x&&o.ty===o.home.y)){o.state="sit";}
+          else{o.state="pause";o.t=fc+90;}
+        }else{const sp=0.7;o.x+=dx/d*sp;o.y+=dy/d*sp;o.ft++;if(o.ft%8===0)o.frame^=1;}
+      } else if(o.state==="pause"){ if(fc>o.t){o.state="walk";o.tx=o.home.x;o.ty=o.home.y;o.back=true;} o.frame=0;}
+      else { o.frame=0; if(w&&fc%24<12)o.frame=2; } // working tiny bob handled via frame? keep sit
+      // working glow ring
+      if(w){ctx.fillStyle="rgba(255,179,71,.16)";ctx.beginPath();ctx.arc(o.x,o.y-8,12,0,7);ctx.fill();}
+      drawPerson(ctx,o.x,o.y,o.a,o.frame,w,1.0);
+    }
+    if(running)raf=requestAnimationFrame(step);
+  }
+  step();
+  window.__officeStop=function(){running=false;cancelAnimationFrame(raf);clearInterval(wanderTimer);window.__officePaintLog=null;window.__officeSetRoster=null;};
 }
 
 function viewInits(){
   let html="";
-  ORG.divisions.forEach(dv=>{
-    const depts=dv.depts.filter(d=>d.inits.length);
-    if(!depts.length)return;
+  ORG.divisions.forEach(dv=>{const depts=dv.depts.filter(d=>d.inits.length);if(!depts.length)return;
     html+=`<div class="grp"><div class="gdiv">${dv.n}</div>`;
-    depts.forEach(d=>{
-      html+=`<div class="gdept"><span class="sdot ${sDot[d.status]}"></span>${d.n}</div>`;
-      d.inits.forEach(i=>{html+=`<div class="irow"><span class="sdot ${sDot[i.status]}"></span><div class="it">${i.n}<div class="ino">${i.note||''}</div></div><span class="badge ${sBadge[i.status]}">${sLabel[i.status]}</span></div>`;});
-    });
-    html+=`</div>`;
-  });
-  return `<div class="h">Initiatives — by hierarchy</div>
-    <div class="subt">Sourced only from INITIATIVES.md (the live engagement tracker). Grouped Division → Department. Updatable via Telegram once the bot write-path is wired.</div>${html}`;
+    depts.forEach(d=>{html+=`<div class="gdept"><span class="sdot ${sDot[d.status]}"></span>${d.n}</div>`;
+      d.inits.forEach(i=>{html+=`<div class="irow"><span class="sdot ${sDot[i.status]}"></span><div class="it">${i.n}<div class="ino">${i.note||''}</div></div><span class="badge ${sBadge[i.status]}">${sLabel[i.status]}</span></div>`;});});
+    html+=`</div>`;});
+  return `<div class="h">Initiatives — by hierarchy</div><div class="subt">Sourced only from INITIATIVES.md. Grouped Division → Department. Updatable via Telegram once the bot write-path is wired.</div>${html}`;
+}
+
+/* ---------- live status polling ---------- */
+async function poll(){
+  try{
+    const r=await fetch(STATUS_URL+"?t="+Date.now(),{cache:"no-store"});
+    if(!r.ok)return;const d=await r.json();
+    const prev=RUNNING.slice();
+    RUNNING=d.running||[];
+    JOBLAST={};Object.keys(d.jobs||{}).forEach(k=>{JOBLAST[k]=d.jobs[k].last;});
+    document.getElementById("livecount").textContent=RUNNING.length?RUNNING.length+" working":"standby";
+    document.getElementById("blip").className="blip"+(RUNNING.length?" on":"");
+    // log changes into office log
+    RUNNING.filter(x=>!prev.includes(x)).forEach(x=>{const w=MARKETING.workflows.find(w=>w.id===x);if(window.__officePaintLog){alogLines.unshift({t:new Date().toLocaleTimeString("en-GB",{timeZone:"Asia/Kuala_Lumpur",hour:"2-digit",minute:"2-digit"}),m:(w?ag(w.ag).name:x)+" started "+(w?w.nm:x),c:"run"});window.__officePaintLog();}});
+    prev.filter(x=>!RUNNING.includes(x)).forEach(x=>{const w=MARKETING.workflows.find(w=>w.id===x);if(window.__officePaintLog){alogLines.unshift({t:new Date().toLocaleTimeString("en-GB",{timeZone:"Asia/Kuala_Lumpur",hour:"2-digit",minute:"2-digit"}),m:(w?ag(w.ag).name:x)+" finished",c:"ok"});window.__officePaintLog();}});
+    if(window.__officeSetRoster)window.__officeSetRoster();
+    const h=location.hash.replace("#","")||"org";
+    if(h!=="agents"&&JSON.stringify(prev)!==JSON.stringify(RUNNING))render(); // refresh glow on other views
+  }catch(e){}
 }
 
 let entered="";
@@ -425,12 +463,10 @@ function paintPin(){document.getElementById("pin").innerHTML=Array.from({length:
 function key(n){
   if(n==="del"){entered=entered.slice(0,-1);paintPin();return}
   if(entered.length>=6)return;entered+=n;paintPin();
-  if(entered.length===6){
-    if(entered===PIN){try{localStorage.setItem("ismile_cc","1")}catch(e){}unlock();}
-    else{document.getElementById("err").textContent="Wrong PIN";setTimeout(()=>{entered="";paintPin();document.getElementById("err").textContent=""},700);}
-  }
+  if(entered.length===6){if(entered===PIN){try{localStorage.setItem("ismile_cc","1")}catch(e){}unlock();}
+    else{document.getElementById("err").textContent="Wrong PIN";setTimeout(()=>{entered="";paintPin();document.getElementById("err").textContent=""},700);}}
 }
-function unlock(){document.getElementById("lock").style.display="none";document.getElementById("app").style.display="block";if(!location.hash)location.hash="org";render()}
+function unlock(){document.getElementById("lock").style.display="none";document.getElementById("app").style.display="block";if(!location.hash)location.hash="org";render();poll();setInterval(poll,20000);}
 function buildPad(){const pad=document.getElementById("pad");["1","2","3","4","5","6","7","8","9","blank","0","del"].forEach(k=>{const b=document.createElement("button");if(k==="blank"){b.className="blank";b.disabled=true}else if(k==="del"){b.textContent="⌫";b.onclick=()=>key("del")}else{b.textContent=k;b.onclick=()=>key(k)}pad.appendChild(b)});paintPin();}
 
 buildPad();
