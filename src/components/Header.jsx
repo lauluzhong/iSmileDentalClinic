@@ -6,6 +6,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Button from './Button';
 const logo = '/logo.png';
 const logoWebP = '/logo.webp';
+// Tightly-cropped wordmark (no transparent padding) — used on mobile so the logo reads larger
+const logoTight = '/logo-tight.png';
+const logoTightWebP = '/logo-tight.webp';
 
 const Header = () => {
     const { openBooking } = useBooking();
@@ -138,6 +141,8 @@ const Header = () => {
                         }}
                     >
                         <picture>
+                          <source media="(max-width: 1024px)" type="image/webp" srcSet={logoTightWebP} />
+                          <source media="(max-width: 1024px)" type="image/png" srcSet={logoTight} />
                           <source type="image/webp" srcSet={logoWebP} />
                           <source type="image/png" srcSet={logo} />
                           <img className="site-logo-img" src={logo} alt="iSmile Dental Clinic" width="500" height="500" loading="eager" decoding="async" style={{ height: '110px', width: 'auto', transition: 'height 0.3s ease' }} />
@@ -586,14 +591,17 @@ const Header = () => {
                 box-shadow: var(--glass-shadow);
                 border-radius: 50px;
                 margin: 0 16px;
-                padding: 0 20px;
-                height: 54px;
+                padding: 0 18px;
+                height: 60px;
                 position: relative;
                 justify-content: space-between !important;
             }
             .header.scrolled .header-container {
                 margin: 0 16px;
-                height: 50px;
+                height: 54px;
+            }
+            .header.scrolled .logo-link img {
+                height: 40px !important;
             }
             
             .logo-link {
@@ -601,7 +609,7 @@ const Header = () => {
                 transform: none !important;
             }
             .logo-link img {
-                height: 32px !important;
+                height: 44px !important;
                 width: auto !important;
                 object-fit: contain;
                 background: transparent;

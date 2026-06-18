@@ -50,3 +50,4 @@ uploaded_image_*.png
 uploaded_image_*.jpg
 test.txt
 .vite/
+.claude/

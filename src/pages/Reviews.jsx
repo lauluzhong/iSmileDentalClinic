@@ -4,6 +4,15 @@ import { Star, Quote } from 'lucide-react';
 import Button from '../components/Button';
 import { Reveal, FadeIn } from '../components/Reveal';
 
+const GoogleG = () => (
+    <svg width="13" height="13" viewBox="0 0 48 48" aria-hidden="true" style={{ flexShrink: 0 }}>
+        <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/>
+        <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/>
+        <path fill="#FBBC05" d="M11.69 28.18c-.44-1.32-.69-2.73-.69-4.18s.25-2.86.69-4.18v-5.7H4.34A21.99 21.99 0 0 0 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z"/>
+        <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/>
+    </svg>
+);
+
 const reviewsList = [
     {
         text: (
@@ -102,36 +111,40 @@ const Reviews = () => {
                 <meta name="description" content="Read genuine patient reviews for iSmile Dental Clinic in Damansara Jaya. See why families trust us for gentle, professional dental care." />
                 <link rel="canonical" href="https://ismile.com.my/reviews" />
             </Helmet>
-            <div className="reviews-hero-gradient" style={{
-                background: 'linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 50%, #dcfce7 100%)',
-                paddingTop: '180px',
-                paddingBottom: '80px',
-                textAlign: 'center'
-            }}>
+            <div className="reviews-hero-gradient">
                 <div className="container">
                     <Reveal width="100%">
-                        <h1 className="hero-title" style={{
-                            fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                            fontWeight: 800,
-                            color: 'var(--color-text-charcoal)',
-                            letterSpacing: '-0.02em',
-                            marginBottom: '20px'
-                        }}>
-                            Stories From <span className="text-gradient">Our Community</span>
+                        <span className="pill-label" style={{ marginBottom: '22px' }}><Star size={13} fill="#E0A500" color="#E0A500" /> 4.9 average · 76 Google reviews</span>
+                    </Reveal>
+                    <Reveal width="100%">
+                        <h1 className="reviews-hero-title">
+                            Stories from <span className="text-gradient">our community</span>
                         </h1>
                     </Reveal>
 
                     <Reveal delay={0.2} width="100%">
-                        <p className="hero-subtitle" style={{
-                            fontSize: '1.2rem',
-                            color: 'var(--color-text-muted)',
-                            maxWidth: '800px',
-                            margin: '0 auto',
-                            lineHeight: '1.6',
-                            fontWeight: 500
-                        }}>
-                            Real People. Real Stories. Real Transformation.
+                        <p className="reviews-hero-subtitle">
+                            Real families, real stories. Some have trusted us for over two decades—here's what they have to say.
                         </p>
+                    </Reveal>
+
+                    <Reveal delay={0.3} width="100%">
+                        <div className="reviews-stats">
+                            <div className="reviews-stat">
+                                <span className="reviews-stat-num">4.9<span className="reviews-stat-unit">/5</span></span>
+                                <span className="reviews-stat-label">Google rating</span>
+                            </div>
+                            <span className="reviews-stat-divider" />
+                            <div className="reviews-stat">
+                                <span className="reviews-stat-num">76+</span>
+                                <span className="reviews-stat-label">Verified reviews</span>
+                            </div>
+                            <span className="reviews-stat-divider" />
+                            <div className="reviews-stat">
+                                <span className="reviews-stat-num">20+</span>
+                                <span className="reviews-stat-label">Years of care</span>
+                            </div>
+                        </div>
                     </Reveal>
                 </div>
             </div>
@@ -145,11 +158,11 @@ const Reviews = () => {
                                 {[...Array(review.rating)].map((_, i) => <Star key={i} size={16} fill="#FFD700" color="#FFD700" />)}
                             </div>
                             <div className="review-body">{review.text}</div>
-                            <div className="review-footer" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                            <div className="review-footer">
                                 <img src={review.avatar} alt={review.author} loading="lazy" width="50" height="50" style={{ width: '50px', height: '50px', borderRadius: '50%', objectFit: 'cover' }} />
                                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                                     <strong>{review.author}</strong>
-                                    <span className="review-type">{review.type}</span>
+                                    <span className="review-type"><GoogleG /> Verified Google review</span>
                                 </div>
                             </div>
                         </FadeIn>
@@ -164,23 +177,70 @@ const Reviews = () => {
             </div>
 
             <style>{`
+        .reviews-hero-gradient {
+            background: linear-gradient(135deg, #F0F7FF 0%, #E0F2FE 55%, #EAF7F0 100%);
+            padding-top: 180px;
+            padding-bottom: 90px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .reviews-hero-title {
+            font-size: clamp(2.4rem, 1.6rem + 3.4vw, 4rem);
+            font-weight: 800;
+            color: var(--color-text-charcoal);
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            line-height: 1.05;
+        }
+        .reviews-hero-subtitle {
+            font-size: var(--fs-lead);
+            color: var(--color-text-slate);
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .reviews-stats {
+            display: inline-flex;
+            align-items: center;
+            gap: 36px;
+            margin-top: 44px;
+            padding: 22px 40px;
+            background: rgba(255,255,255,0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.7);
+            border-radius: 24px;
+            box-shadow: var(--shadow-md);
+        }
+        .reviews-stat { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+        .reviews-stat-num { font-family: var(--font-heading); font-size: 2rem; font-weight: 800; color: var(--color-primary-deep); line-height: 1; letter-spacing: -0.02em; }
+        .reviews-stat-unit { font-size: 1rem; color: var(--color-text-grey); font-weight: 600; }
+        .reviews-stat-label { font-size: 0.82rem; color: var(--color-text-slate); font-weight: 500; }
+        .reviews-stat-divider { width: 1px; height: 44px; background: rgba(16,42,51,0.12); }
+
         .reviews-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            gap: 28px;
         }
 
         .review-card-large {
-            padding: 30px;
+            padding: 34px 30px;
             position: relative;
             display: flex;
             flex-direction: column;
+            background: #fff;
+            border: 1px solid rgba(16,42,51,0.06);
+            border-radius: 24px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease;
         }
+        .review-card-large:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
 
         .quote-icon {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 24px;
+            right: 26px;
             opacity: 0.5;
         }
 
@@ -191,13 +251,13 @@ const Reviews = () => {
         }
 
         .review-body {
-            font-size: 0.9rem;
-            font-style: italic;
-            margin-bottom: 25px;
-            color: var(--color-text-main);
+            font-size: 0.96rem;
+            margin-bottom: 24px;
+            color: var(--color-text-slate);
             flex: 1;
-            line-height: 1.5;
+            line-height: 1.65;
         }
+        .review-body strong { color: var(--color-text-charcoal); font-weight: 600; }
 
         .review-body p {
             margin-bottom: 12px;
@@ -206,32 +266,45 @@ const Reviews = () => {
         .review-body p:last-child {
             margin-bottom: 0;
         }
-        
+
         .review-footer {
-            display: flex;
-            flex-direction: column;
-            border-top: 1px solid rgba(0,0,0,0.05);
-            padding-top: 15px;
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center;
+            gap: 14px;
+            border-top: 1px solid rgba(16,42,51,0.07);
+            padding-top: 18px;
         }
+        .review-footer strong { color: var(--color-text-charcoal); font-family: var(--font-heading); }
 
         .review-type {
-            font-size: 0.8rem;
-            color: var(--color-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.78rem;
+            color: var(--color-text-grey);
+            margin-top: 2px;
         }
         @media (max-width: 1024px) {
+            .reviews-hero-gradient { padding-top: 140px; padding-bottom: 60px; }
             .reviews-grid { grid-template-columns: 1fr; gap: 20px; }
-            .review-card-large { 
-                padding: 24px; 
+            .review-card-large {
+                padding: 26px 24px;
                 border-radius: 20px;
                 margin-left: 8px;
                 margin-right: 8px;
                 width: auto;
             }
-            .hero-title { font-size: 2.5rem; }
-            .hero-subtitle { font-size: 1rem; margin-top: 15px; }
-            /* Adjust inline styles via class overrides if possible, or assume parent handles some */
+            .reviews-hero-subtitle { font-size: 1rem; }
+            .reviews-stats { gap: 20px; padding: 18px 22px; margin-top: 32px; flex-wrap: wrap; justify-content: center; }
+            .reviews-stat-num { font-size: 1.6rem; }
+        }
+        @media (max-width: 480px) {
+            .reviews-stats { gap: 14px; padding: 16px; border-radius: 20px; }
+            .reviews-stat-divider { display: none; }
+            .reviews-stat { flex: 0 0 calc(33% - 10px); }
+            .reviews-stat-num { font-size: 1.4rem; }
+            .reviews-stat-label { font-size: 0.72rem; }
         }
       `}</style>
         </div>
