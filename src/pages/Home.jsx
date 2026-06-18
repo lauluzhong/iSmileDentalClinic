@@ -767,7 +767,7 @@ const Home = () => {
             .hero-title { font-size: 2.4rem; line-height: 1.08; margin-bottom: 16px; text-align: center; }
             .hero-subtitle { font-size: 1rem; margin-bottom: 28px; margin-top: 0; max-width: 440px; margin-left: auto; margin-right: auto; line-height: 1.55; }
             .hero-actions { justify-content: center; }
-            .hero-trust { justify-content: center; margin-top: 28px; }
+            .hero-trust { display: none; }
             .hero-eyebrow { justify-content: center; }
             .hero-visual { order: 1; width: 100%; max-width: 320px; margin: 0 auto; }
             .home-page .hero-card { transform: rotate(0); border-radius: 20px; aspect-ratio: 16/11; height: auto; outline-width: 5px; outline-offset: -5px; }
