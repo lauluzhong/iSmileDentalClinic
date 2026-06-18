@@ -1,11 +1,28 @@
 {
-  "updated": "2026-06-17 06:00 MYT",
-  "running": [],
+  "updated": "2026-06-18 18:41 MYT",
+  "running": [
+    "competitor_watch"
+  ],
   "jobs": {
-    "gbp_reply": {"state":"idle","last":"2026-06-17 06:00 MYT"},
-    "competitor_watch": {"state":"idle","last":"2026-06-17 06:00 MYT"},
-    "review_curation": {"state":"idle","last":"—"},
-    "seo_outcome": {"state":"idle","last":"—"},
-    "weekly_digest": {"state":"idle","last":"—"}
+    "gbp_reply": {
+      "state": "idle",
+      "last": "2026-06-17 06:00 MYT"
+    },
+    "competitor_watch": {
+      "state": "running",
+      "last": "2026-06-17 06:00 MYT"
+    },
+    "review_curation": {
+      "state": "idle",
+      "last": "\u2014"
+    },
+    "seo_outcome": {
+      "state": "idle",
+      "last": "\u2014"
+    },
+    "weekly_digest": {
+      "state": "idle",
+      "last": "\u2014"
+    }
   }
 }
