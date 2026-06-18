@@ -1,0 +1,11 @@
+{
+  "updated": "2026-06-17 06:00 MYT",
+  "running": [],
+  "jobs": {
+    "gbp_reply": {"state":"idle","last":"2026-06-17 06:00 MYT"},
+    "competitor_watch": {"state":"idle","last":"2026-06-17 06:00 MYT"},
+    "review_curation": {"state":"idle","last":"—"},
+    "seo_outcome": {"state":"idle","last":"—"},
+    "weekly_digest": {"state":"idle","last":"—"}
+  }
+}
