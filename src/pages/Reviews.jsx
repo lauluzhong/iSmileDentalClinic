@@ -96,6 +96,35 @@ const reviewsList = [
         avatar: "/images/reviews/karen_lam.png"
     },
     {
+        text: (
+            <>
+                <p>
+                    "The only dental clinic I trust for my family with <strong>2 young kids</strong>.
+                    An experienced team of dentists who are <strong>kind and caring</strong>,
+                    very <strong>clean and comfortable environment</strong> too."
+                </p>
+            </>
+        ),
+        author: "Lydia Ng",
+        rating: 5,
+        avatar: "/images/reviews/patient.svg",
+        type: "Verified Google Review"
+    },
+    {
+        text: (
+            <>
+                <p>
+                    "My trusted dental clinic all the time for <strong>myself and my family</strong>.
+                    I greatly appreciate your care, everything you have done for us. Thank you."
+                </p>
+            </>
+        ),
+        author: "Sook Yeen Lee",
+        rating: 5,
+        avatar: "/images/reviews/patient.svg",
+        type: "Verified Google Review"
+    },
+    {
         text: "Appreciate reminder of appointments, nice and clean and bright reception area and of course excellent dental services.",
         author: "Wee Min Lee",
         rating: 5,
