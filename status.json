@@ -1,8 +1,6 @@
 {
-  "updated": "2026-06-21 12:30 MYT",
-  "running": [
-    "review_curation"
-  ],
+  "updated": "2026-06-21 12:33 MYT",
+  "running": [],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -13,8 +11,8 @@
       "last": "2026-06-21 12:02 MYT"
     },
     "review_curation": {
-      "state": "running",
-      "last": "\u2014"
+      "state": "idle",
+      "last": "2026-06-21 12:33 MYT"
     },
     "seo_outcome": {
       "state": "idle",
