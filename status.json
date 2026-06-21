@@ -1,6 +1,8 @@
 {
-  "updated": "2026-06-21 12:33 MYT",
-  "running": [],
+  "updated": "2026-06-22 00:00 MYT",
+  "running": [
+    "weekly_digest"
+  ],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -19,7 +21,7 @@
       "last": "\u2014"
     },
     "weekly_digest": {
-      "state": "idle",
+      "state": "running",
       "last": "\u2014"
     }
   }
