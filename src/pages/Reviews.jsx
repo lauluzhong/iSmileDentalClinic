@@ -107,7 +107,7 @@ const reviewsList = [
         ),
         author: "Lydia Ng",
         rating: 5,
-        avatar: "/images/reviews/patient.svg",
+        avatar: "/images/reviews/lydia_ng.jpg",
         type: "Verified Google Review"
     },
     {
