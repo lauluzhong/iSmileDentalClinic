@@ -6,16 +6,20 @@
   <title>iSmile Analytics Dashboard</title>
   <style>
     :root {
-      --bg: #0f1117;
-      --card: #1a1d27;
-      --border: #2a2d3a;
-      --text: #e8eaf0;
-      --muted: #8b8fa3;
-      --teal: #4fa3c2;
-      --green: #3ecf8e;
-      --amber: #f59e0b;
-      --red: #ef4444;
-      --purple: #a78bfa;
+      /* White theme — matched to the margin dashboard (Initiative 4) */
+      --bg: #F4F8FA;
+      --surface-2: #F9FBFC;
+      --card: #FFFFFF;
+      --border: #E4ECF0;
+      --text: #10212A;
+      --muted: #7C939E;
+      --teal: #00A0C6;
+      --teal-d: #0B7E9C;
+      --green: #1D9E75;
+      --amber: #BA7517;
+      --red: #D8503A;
+      --purple: #9a6cf0;
+      --shadow: 0 1px 2px rgba(16,33,42,.06), 0 4px 14px rgba(16,33,42,.05);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -63,19 +67,20 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 20px;
+      box-shadow: var(--shadow);
     }
     .summary-card .label { color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
     .summary-card .value { font-size: 2rem; font-weight: 700; color: var(--teal); }
     .summary-card .sub { color: var(--muted); font-size: 0.8rem; margin-top: 4px; }
     .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; margin-bottom: 32px; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; box-shadow: var(--shadow); }
     .card h2 { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
     .card .muted { color: var(--muted); font-size: 0.8rem; }
     table { width: 100%; border-collapse: collapse; }
     th { text-align: left; color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 8px 12px; border-bottom: 1px solid var(--border); }
     td { padding: 10px 12px; font-size: 0.875rem; border-bottom: 1px solid var(--border); color: var(--text); }
     tr:last-child td { border-bottom: none; }
-    tr:hover td { background: rgba(255,255,255,0.03); }
+    tr:hover td { background: var(--surface-2); }
     .num { text-align: right; font-variant-numeric: tabular-nums; }
     .bar-cell { display: flex; align-items: center; gap: 8px; }
     .bar-bg { flex: 1; height: 4px; background: var(--border); border-radius: 2px; }
@@ -83,7 +88,7 @@
     .funnel { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
     .funnel-step { display: flex; align-items: center; gap: 16px; }
     .funnel-label { min-width: 180px; font-size: 0.875rem; color: var(--muted); }
-    .funnel-bar { flex: 1; height: 36px; background: var(--card); border-radius: 6px; overflow: hidden; position: relative; display: flex; align-items: center; }
+    .funnel-bar { flex: 1; height: 36px; background: var(--border); border-radius: 6px; overflow: hidden; position: relative; display: flex; align-items: center; }
     .funnel-fill { height: 100%; border-radius: 6px; display: flex; align-items: center; padding: 0 12px; font-size: 0.8rem; font-weight: 600; white-space: nowrap; }
     .funnel-count { font-size: 0.8rem; color: var(--muted); min-width: 60px; text-align: right; }
     .source-row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
@@ -112,6 +117,7 @@
 <body>
   <div class="header">
     <div>
+      <a href="/dashboard" class="page-link" style="display:inline-block;margin-bottom:6px">‹ Command Center</a>
       <h1>🦷 iSmile Analytics Dashboard</h1>
       <div class="meta" id="meta">Loading...</div>
     </div>
