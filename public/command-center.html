@@ -7,14 +7,18 @@
 <title>iSmile · Command Center</title>
 <style>
   :root{
-    --teal:#4FB3D1; --teal2:#00A0C6; --teal-deep:#0a5a72; --gold:#E6B43C;
-    --bg:#081119; --bg2:#0d1b27; --panel:#0f2030; --panel2:#13283b;
-    --line:#1e3848; --ink:#eaf6fb; --mut:#8aa6b8; --mut2:#5d7b8e;
-    --green:#28e0a0; --amber:#ffb347; --violet:#a78bfa; --pink:#ff7eb6; --red:#ff6b6b; --blue:#5db4ff;
+    /* ---- iSmile PM-Board light theme (teal palette, Linear/Height style) ---- */
+    --teal:#4FB3D1; --teal2:#00A0C6; --teal-deep:#0a6480; --gold:#b8860b;
+    --teal-bg:#E8F6FB;
+    --bg:#f5f8fa; --bg2:#eef3f6; --panel:#ffffff; --panel2:#f7fafc;
+    --line:#e4ebef; --ink:#13242e; --mut:#465863; --mut2:#7c909c;
+    --green:#1fab78; --amber:#e07a3f; --violet:#9a6cf0; --pink:#d6479a; --red:#e0524a; --blue:#2b8fd6;
+    --shadow:0 1px 2px rgba(19,36,46,.06),0 2px 8px rgba(19,36,46,.05);
+    --shadow-h:0 4px 14px rgba(19,36,46,.12),0 1px 3px rgba(19,36,46,.08);
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
   html,body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
-  body{min-height:100vh;background:radial-gradient(1200px 600px at 80% -10%,rgba(0,160,198,.10),transparent 60%),radial-gradient(900px 500px at -10% 110%,rgba(167,139,250,.07),transparent 55%),var(--bg)}
+  body{min-height:100vh;background:radial-gradient(1200px 600px at 80% -10%,rgba(0,160,198,.07),transparent 60%),radial-gradient(900px 500px at -10% 110%,rgba(154,108,240,.05),transparent 55%),var(--bg)}
   a{color:inherit;text-decoration:none}
 
   #lock{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--bg);gap:16px}
@@ -31,7 +35,7 @@
   #lock .err{color:var(--red);font-size:12.5px;height:16px}
 
   #app{display:none;min-height:100vh;padding-bottom:80px}
-  header.top{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:12px;padding:11px 16px;background:rgba(8,17,25,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  header.top{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:12px;padding:11px 16px;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
   .brandimg{height:24px;width:auto}
   .cc-tag{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut);border-left:1px solid var(--line);padding-left:9px}
   .livepill{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--mut);border:1px solid var(--line);padding:4px 10px;border-radius:20px;margin-left:6px}
@@ -40,7 +44,7 @@
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
   .clock{margin-left:auto;font-size:12px;color:var(--mut)}
 
-  nav.tabs{position:fixed;bottom:0;left:0;right:0;z-index:40;display:flex;background:rgba(10,24,34,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+  nav.tabs{position:fixed;bottom:0;left:0;right:0;z-index:40;display:flex;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);box-shadow:0 -2px 10px rgba(19,36,46,.04)}
   nav.tabs button{flex:1;background:none;border:none;color:var(--mut2);padding:10px 4px 11px;font-size:10.5px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px}
   nav.tabs button .ic{font-size:18px}
   nav.tabs button.active{color:var(--teal)}
@@ -74,7 +78,7 @@
   .nb{display:inline-block;background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:9px 12px;min-width:128px;max-width:178px;text-align:left;position:relative;transition:.15s}
   .nb .nbt{font-size:12px;font-weight:650;display:flex;align-items:center;gap:6px;line-height:1.25}
   .nb .nbo{font-size:10px;color:var(--mut2);margin-top:4px}
-  .nb.ceo{background:linear-gradient(180deg,#123244,#0d2233);border-color:var(--teal-deep);min-width:210px}
+  .nb.ceo{background:linear-gradient(180deg,#E8F6FB,#d6eef6);border-color:var(--teal);min-width:210px}
   .nb.ceo .nbt{color:var(--teal);font-size:13px}
   .nb.dir{background:transparent;border-style:dashed;min-width:0;color:var(--mut)}
   .nb.div{border-color:rgba(230,180,60,.35)}
@@ -118,8 +122,8 @@
   @media(max-width:760px){.officewrap{grid-template-columns:1fr}}
   .stage-c{background:#0a1722;border:1px solid var(--line);border-radius:14px;padding:8px;overflow:hidden}
   #oc{width:100%;height:auto;image-rendering:pixelated;border-radius:8px;display:block}
-  .alog{background:#04101a;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-family:ui-monospace,Menlo,monospace;font-size:11px;line-height:1.65;max-height:340px;overflow:auto}
-  .alog .ttl{color:var(--teal);font-size:10px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:7px;position:sticky;top:0;background:#04101a}
+  .alog{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-family:ui-monospace,Menlo,monospace;font-size:11px;line-height:1.65;max-height:340px;overflow:auto;box-shadow:var(--shadow)}
+  .alog .ttl{color:var(--teal-deep);font-size:10px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:7px;position:sticky;top:0;background:var(--panel2)}
   .alog .ln .tm{color:var(--teal-deep)}.alog .ln .ok{color:var(--green)}.alog .ln .ai{color:var(--violet)}.alog .ln .run{color:var(--amber)}
   .roster{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
   .rchip{display:flex;align-items:center;gap:6px;font-size:11px;background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:4px 9px}
@@ -132,9 +136,111 @@
   .irow .it{font-size:13px;flex:1}
   .irow .it .ino{font-size:11px;color:var(--mut2);margin-top:2px}
 
-  .term{background:#04101a;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-family:ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.7;max-height:200px;overflow:auto;margin-top:14px}
+  .term{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-family:ui-monospace,Menlo,monospace;font-size:11.5px;line-height:1.7;max-height:200px;overflow:auto;margin-top:14px;box-shadow:var(--shadow)}
   .term .tm{color:var(--teal-deep)}.term .ok{color:var(--green)}.term .ai{color:var(--violet)}
   .foot{color:var(--mut2);font-size:11px;margin-top:22px;line-height:1.6}
+
+  /* ============ KANBAN BOARD (Initiatives tab) — ported from iSmile PM-Board ============ */
+  :root{
+    --kb-blocked:#e07a3f; --kb-blocked-bg:#fdf0e8;
+    --kb-active:#00A0C6;  --kb-active-bg:#E8F6FB;
+    --kb-review:#9a6cf0;  --kb-review-bg:#f1ecfd;
+    --kb-done:#1fab78;    --kb-done-bg:#e8f7f1;
+    --kb-line2:#eef3f6; --kb-radius:14px;
+  }
+  .kb-seg{display:inline-flex;background:var(--kb-line2);border-radius:11px;padding:3px;gap:2px;margin-bottom:14px}
+  .kb-seg button{border:none;background:none;font-size:12.5px;font-weight:600;color:var(--mut);padding:7px 15px;border-radius:8px;cursor:pointer;transition:.15s;display:flex;align-items:center;gap:6px}
+  .kb-seg button.on{background:var(--panel);color:var(--teal-deep);box-shadow:var(--shadow)}
+  .kb-seg svg{width:14px;height:14px}
+  .kb-kpis{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+  .kb-kpi{flex:1;min-width:120px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px 15px;box-shadow:var(--shadow)}
+  .kb-kpi .n{font-size:24px;font-weight:800;letter-spacing:-1px;line-height:1}
+  .kb-kpi .l{font-size:11px;color:var(--mut2);margin-top:5px;text-transform:uppercase;letter-spacing:.5px;font-weight:600}
+  .kb-kpi.blocked .n{color:var(--kb-blocked)} .kb-kpi.active .n{color:var(--kb-active)}
+  .kb-kpi.review .n{color:var(--kb-review)} .kb-kpi.done .n{color:var(--kb-done)} .kb-kpi.gate .n{color:var(--teal-deep)}
+  .kb-board{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:start}
+  @media(max-width:1000px){.kb-board{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:620px){.kb-board{grid-template-columns:1fr}}
+  .kb-col{display:flex;flex-direction:column;gap:11px;min-width:0}
+  .kb-colhead{display:flex;align-items:center;gap:9px;padding:4px 4px 2px}
+  .kb-colhead .swatch{width:10px;height:10px;border-radius:3px;flex:none}
+  .kb-colhead .name{font-size:13px;font-weight:700;letter-spacing:.2px;color:var(--ink)}
+  .kb-colhead .count{font-size:11.5px;font-weight:700;color:var(--mut2);background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:1px 9px}
+  .kb-colhead .sub{font-size:10.5px;color:var(--mut2);margin-left:auto;font-weight:500}
+  .kb-col.blocked .swatch{background:var(--kb-blocked)} .kb-col.active .swatch{background:var(--kb-active)}
+  .kb-col.review .swatch{background:var(--kb-review)} .kb-col.done .swatch{background:var(--kb-done)}
+  .kb-lane{display:flex;flex-direction:column;gap:11px;min-height:40px;padding:3px;border-radius:14px}
+  .kb-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--kb-radius);padding:14px;box-shadow:var(--shadow);cursor:pointer;transition:transform .14s,box-shadow .14s,border-color .14s;position:relative;overflow:hidden}
+  .kb-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-h);border-color:var(--teal)}
+  .kb-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--mut2)}
+  .kb-card.s-blocked::before{background:var(--kb-blocked)} .kb-card.s-active::before{background:var(--kb-active)}
+  .kb-card.s-review::before{background:var(--kb-review)} .kb-card.s-done::before{background:var(--kb-done)}
+  .kb-ctop{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+  .kb-cid{font-size:11px;font-weight:800;color:var(--teal2);background:var(--teal-bg);border-radius:6px;padding:1px 7px;letter-spacing:.3px}
+  .kb-chip{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;padding:2px 8px;border-radius:20px;margin-left:auto}
+  .kb-chip.blocked{background:var(--kb-blocked-bg);color:var(--kb-blocked)}
+  .kb-chip.active{background:var(--kb-active-bg);color:var(--teal-deep)}
+  .kb-chip.review{background:var(--kb-review-bg);color:var(--kb-review)}
+  .kb-chip.done{background:var(--kb-done-bg);color:var(--kb-done)}
+  .kb-ctitle{font-size:14.5px;font-weight:700;line-height:1.3;letter-spacing:-.2px;color:var(--ink)}
+  .kb-cmeta{display:flex;align-items:center;gap:7px;margin-top:10px;flex-wrap:wrap}
+  .kb-owner{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--mut);font-weight:600}
+  .kb-av{width:19px;height:19px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:800;color:#fff;flex:none}
+  .kb-next{margin-top:11px;background:var(--kb-line2);border-radius:9px;padding:8px 10px;font-size:12px;line-height:1.4;color:var(--mut)}
+  .kb-next .lbl{display:flex;align-items:center;gap:5px;font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--teal-deep);margin-bottom:3px}
+  .kb-next .lbl svg{width:11px;height:11px}
+  .kb-flags{display:flex;flex-direction:column;gap:5px;margin-top:9px}
+  .kb-flag{display:flex;align-items:flex-start;gap:6px;font-size:11px;line-height:1.35;border-radius:8px;padding:6px 8px}
+  .kb-flag svg{width:12px;height:12px;flex:none;margin-top:1px}
+  .kb-flag.block{background:var(--kb-blocked-bg);color:#9c4d1f}
+  .kb-flag.gate{background:#fdf8ec;color:#8a6d1e}
+  .kb-flag.dep{background:#eef3f6;color:var(--mut)}
+  .kb-ogroup{margin-bottom:26px}
+  .kb-ogroup-head{display:flex;align-items:center;gap:11px;margin:0 2px 13px}
+  .kb-ogroup-head .kb-av{width:30px;height:30px;border-radius:9px;font-size:12px}
+  .kb-ogroup-head .nm{font-size:16px;font-weight:800;letter-spacing:-.3px;color:var(--ink)}
+  .kb-ogroup-head .role{font-size:11.5px;color:var(--mut2);font-weight:500}
+  .kb-ogroup-head .tally{margin-left:auto;font-size:11px;color:var(--mut2);display:flex;gap:8px;flex-wrap:wrap}
+  .kb-ogroup-head .tally span{display:inline-flex;align-items:center;gap:4px}
+  .kb-ogroup-head .tdot{width:7px;height:7px;border-radius:50%}
+  .kb-ocards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:13px}
+  .kb-hidden{display:none!important}
+  /* detail modal */
+  .kb-overlay{position:fixed;inset:0;z-index:80;background:rgba(19,36,46,.42);backdrop-filter:blur(3px);display:none;align-items:flex-start;justify-content:center;padding:40px 18px;overflow-y:auto}
+  .kb-overlay.show{display:flex}
+  .kb-modal{background:var(--panel);border-radius:18px;max-width:640px;width:100%;box-shadow:0 24px 60px rgba(19,36,46,.3);animation:kbpop .2s ease;overflow:hidden}
+  @keyframes kbpop{from{transform:translateY(10px) scale(.98);opacity:0}to{transform:none;opacity:1}}
+  .kb-mhead{padding:22px 24px 18px;border-bottom:1px solid var(--line);position:relative}
+  .kb-mhead .strip{position:absolute;left:0;top:0;bottom:0;width:4px}
+  .kb-mhead .kb-ctop{margin-bottom:10px}
+  .kb-mtitle{font-size:21px;font-weight:800;letter-spacing:-.5px;line-height:1.2;padding-right:30px;color:var(--ink)}
+  .kb-mwhy{font-size:13px;color:var(--mut);line-height:1.5;margin-top:9px}
+  .kb-mclose{position:absolute;top:18px;right:18px;width:30px;height:30px;border-radius:9px;border:1px solid var(--line);background:var(--panel);cursor:pointer;font-size:17px;color:var(--mut2);display:flex;align-items:center;justify-content:center}
+  .kb-mclose:hover{background:var(--kb-line2);color:var(--ink)}
+  .kb-mbody{padding:18px 24px 24px}
+  .kb-mgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+  .kb-mfact{background:var(--bg);border:1px solid var(--line);border-radius:11px;padding:11px 13px}
+  .kb-mfact .k{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--mut2);font-weight:700;margin-bottom:4px}
+  .kb-mfact .v{font-size:13px;font-weight:600;color:var(--ink);line-height:1.35;display:flex;align-items:center;gap:6px}
+  .kb-msec{margin-top:18px}
+  .kb-msec h4{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--teal-deep);font-weight:800;margin-bottom:9px;display:flex;align-items:center;gap:6px}
+  .kb-msec h4 svg{width:13px;height:13px}
+  .kb-tasklist{display:flex;flex-direction:column;gap:6px}
+  .kb-task{display:flex;align-items:flex-start;gap:9px;font-size:13px;line-height:1.45;color:var(--mut);padding:8px 11px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+  .kb-task .box{width:16px;height:16px;border-radius:5px;border:1.5px solid var(--mut2);flex:none;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px}
+  .kb-task.done{color:var(--mut2)}
+  .kb-task.done .box{background:var(--kb-done);border-color:var(--kb-done);color:#fff}
+  .kb-task.done .txt{text-decoration:line-through;text-decoration-color:var(--mut2)}
+  .kb-task.now{border-color:var(--teal);background:var(--teal-bg)}
+  .kb-task.now .box{border-color:var(--teal2);border-style:dashed}
+  .kb-mnote{font-size:12.5px;line-height:1.6;color:var(--mut);background:var(--bg);border:1px solid var(--line);border-radius:11px;padding:13px 15px}
+  .kb-mnote b{color:var(--ink)}
+  .kb-pillrow{display:flex;flex-wrap:wrap;gap:6px}
+  .kb-deppill{font-size:11.5px;font-weight:600;padding:5px 10px;border-radius:8px;background:var(--kb-line2);color:var(--mut);display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+  .kb-deppill:hover{background:var(--teal-bg);color:var(--teal-deep)}
+  .kb-legend{display:flex;flex-wrap:wrap;gap:16px;align-items:center;font-size:11.5px;color:var(--mut2);margin-bottom:14px}
+  .kb-legend .it{display:inline-flex;align-items:center;gap:6px}
+  .kb-legend .sw{width:10px;height:10px;border-radius:3px}
 </style>
 </head>
 <body>
@@ -429,14 +535,251 @@ function initOffice(){
   window.__officeStop=function(){running=false;cancelAnimationFrame(raf);clearInterval(wanderTimer);window.__officePaintLog=null;window.__officeSetRoster=null;};
 }
 
+/* ============================================================
+   KANBAN BOARD — Initiatives tab. Ported from iSmile-PM-Board.html.
+   Single source of truth: KB_INITIATIVES (from INITIATIVES.md, 22 Jun 2026).
+   status: blocked | active | review | done
+   ============================================================ */
+const KB_OWNERS={
+  "Lu Zhong":    {init:"LZ", role:"Owner / CEO",                color:"#00A0C6"},
+  "Claude":      {init:"CL", role:"Build & analysis",          color:"#9a6cf0"},
+  "Code Capsule":{init:"CC", role:"Outsourced vendor",         color:"#e07a3f"},
+  "Intern":      {init:"IN", role:"CRM scoring & data",        color:"#1fab78"},
+  "Edith":       {init:"ED", role:"Marketing agent (OpenClaw)",color:"#b8860b"}
+};
+const KB_STATUS={
+  blocked:{label:"Blocked / Waiting",sub:"needs an unblock",color:"var(--kb-blocked)"},
+  active: {label:"Active",           sub:"work in motion",   color:"var(--kb-active)"},
+  review: {label:"In Review / Gate", sub:"verifying outcome",color:"var(--kb-review)"},
+  done:   {label:"Done",             sub:"shipped",          color:"var(--kb-done)"}
+};
+const KB_INITIATIVES=[
+  {id:"1",title:"OpenDent ↔ AutoCount + E-Invoicing",status:"active",owner:"Code Capsule",coOwner:"Lu Zhong (sponsor)",
+   why:"LHDN e-invoicing is mandatory Jan 2027 — the non-negotiable trigger. AutoCount does the upward LHDN reporting. This is the data backbone everything else (dashboard, locum, recall ROI) plugs into.",
+   next:"Confirm hardware installed & demo integration tested; specify Tailscale for the remote tunnel.",
+   gate:"Contract SIGNED 22 Jun 2026. Payment gated: RM10k over 3 months, released against UAT milestones (RM3.5k + RM3.5k + RM3k).",
+   deps:[],blockedOn:null,
+   timeline:"~2 months buy-to-live (2wk demo+test → live), then 1–2 days for the remote tunnel.",
+   tasks:[
+     {t:"Vendor engaged (Code Capsule) + scope agreed",done:true},
+     {t:"Contract signed — 22 Jun 2026",done:true},
+     {t:"Hardware procured & installed",done:false,now:true},
+     {t:"Demo integration built & UAT-tested (gate 1: RM3.5k)",done:false},
+     {t:"Go-live + LHDN reporting verified (gate 2: RM3.5k)",done:false},
+     {t:"Remote tunnel (Tailscale) stood up (gate 3: RM3k)",done:false}
+   ],
+   note:"Opportunistic add-ons in scope: digital WhatsApp receipts, payroll SaaS, procurement, inventory module. Share Code Capsule's SOW with Claude once received."},
+  {id:"2",title:"CRM Reactivation Cold-Calling",status:"active",owner:"Lu Zhong",coOwner:"Claude (SQL/analysis)",
+   why:"The only near-term revenue lever. Retention game: warm lapsed families fill idle chairs cheaply (~170 idle chair-hours/month). Lu Zhong's personal focus.",
+   next:"Work the warm call list: >12mo high-value families (phone is spam-safe, WhatsApp isn't) + clicked-no-reply hot segment.",
+   gate:null,deps:["7"],blockedOn:null,
+   timeline:"Calls intended to start within days. Loop: Claude writes SQL → Lu Zhong runs in OpenDent → uploads → process vs CRM rules.",
+   tasks:[
+     {t:"CRM v2 scoring model reviewed & approved (Trust30/Household30/Reactivation30/Advocacy10)",done:true},
+     {t:"Family + production SQL delivered & run (9,545 households validated, prod RM36.86m ✓)",done:true},
+     {t:"MASTER base table built & enriched locally (19,117 patients / 10,849 families)",done:true},
+     {t:"Reactivation dashboard + segmented call list generated",done:true},
+     {t:"Hand to intern; fold AddrNote relationship clues into household resolution",done:false,now:true},
+     {t:"Coordinate with auto-recall (#7) to avoid double-touch on 12–36mo segment",done:false}
+   ],
+   note:"<b>Warm pools:</b> 2,677 reactivatable families (RM13.8m lifetime); <b>869 sweet-spot</b> (12–36mo lapsed, RM5.24m) = the priority list; 5,954 cold (≥84mo, ~5% odds) = skip. Empirical curve: ~95% reactivate at 0–12mo → 37% at 60–84mo → 5% cold. <b>⚠️ Incident 16 Jun:</b> a correlated-subquery master query locked the clinic — RULE: set-based queries only on OpenDent."},
+  {id:"3",title:"Automated Locum Calculation",status:"active",owner:"Claude",coOwner:"Branch manager (rules)",
+   why:"Today 100% manual (branch manager). Also the per-doctor margin input the dashboard (#4) needs. Vision: locum computed per line / per transaction / per payment, not monthly.",
+   next:"Build the formula-driven Excel calculator now that the deduction rule set is in hand.",
+   gate:null,deps:[],blockedOn:null,
+   timeline:"Reference workbooks studied (lab −% and X-ray carve-outs legible; PPE dropped). Locum rules now received.",
+   tasks:[
+     {t:"Reference workbooks studied (lab/X-ray carve-outs legible)",done:true},
+     {t:"Branch manager's full deduction rule set received",done:true},
+     {t:"Build per-line editable formula-driven Excel calculator",done:false,now:true},
+     {t:"Reconciliation pass against a known month",done:false}
+   ],
+   note:"Builds on the dashboard + lab-cost data. Authoritative steps live in <b>Financials/03_Locum Calculation/LOCUM Calculation Steps.docx</b>. Was blocked on the rule write-up — now unblocked."},
+  {id:"4",title:"Data-Visibility Dashboard",status:"blocked",owner:"Claude",coOwner:"Code Capsule (DB tunnel)",
+   why:"See per-transaction profitability live: customer → appt → production → payment → profit. Daily, drill-down, per-doctor, attrition. Deterministic SQL + BI (no LLM under the numbers).",
+   next:"Prototype on data exports first while waiting for the live tunnel; do the data-quality assessment.",
+   gate:null,deps:["1"],
+   blockedOn:"#1 go-live — needs the OpenDent↔AutoCount integration live + the Tailscale tunnel before live data flows.",
+   timeline:"Sequence: #1 live → data-quality assessment → prototype on exports → host Metabase on the on-prem server.",
+   tasks:[
+     {t:"Architecture agreed: SQL + Metabase on-prem, AI only as an attention-routing/cleaning layer on top",done:true},
+     {t:"#1 integration live (blocker)",done:false},
+     {t:"Data-quality assessment (prerequisite)",done:false},
+     {t:"Prototype on exports → host BI on server",done:false}
+   ],
+   note:"Remote access via Tailscale. \"Intelligence\" sits on top as a scheduled job for (a) attention-routing and (b) cleaning dirty free-text — never under the numbers."},
+  {id:"5",title:"CX & Physical Space",status:"blocked",owner:"Lu Zhong",coOwner:null,
+   why:"As families return, the arrival experience must justify the premium. CX is stagnating / team too comfortable. The first visit back is the moment of truth for a reactivated patient.",
+   next:"Scope it out properly — define the arrival experience and kids'-area plan.",
+   gate:null,deps:[],
+   blockedOn:"Not yet scoped — loose / to be developed. Lower priority than the revenue levers.",
+   timeline:"Loose. Couple-hundred-RM kids' area + better perceived-wait experience are the seed ideas.",
+   tasks:[
+     {t:"Seed ideas captured (modest kids' area, manage perceived wait)",done:true},
+     {t:"Scope the arrival experience properly",done:false,now:true}
+   ],
+   note:"Ideas: modest kids' area (~few hundred RM); \"mirror-in-a-lift\" trick = manage <b>perceived</b> wait, not just actual wait."},
+  {id:"6",title:"Marketing Agent Vehicle (Contabo / Edith)",status:"review",owner:"Edith",coOwner:"Lu Zhong (truth sign-off)",
+   why:"Repurposed OpenClaw → a lean, truth-gated loop: reply to Google reviews, curate family reviews onto the site, competitor watch, light outcome-anchored SEO. Cost is tiny (DeepSeek V4 + cheap VPS) so 'good-enough' is net-positive.",
+   next:"Watch one clean week of autonomous runs → then decommission the old Hostinger VPS.",
+   gate:"Truth gate: cosmetic/curation/intel = autonomous + notify; anything touching claims/prices/credentials/clinical facts must pass truth checks or queue for approval.",
+   deps:[],blockedOn:null,
+   timeline:"LIVE & autonomous on Contabo since 17 Jun. 5 cron jobs installed (no sudo, no gateway). Loop proven end-to-end (intel digest delivered to Telegram).",
+   tasks:[
+     {t:"Migrated Hostinger → Contabo (clean rebuild, user 'ismile')",done:true},
+     {t:"Legacy fat apparatus purged (16 crons archived); lean loop scaffolded",done:true},
+     {t:"Competitor watch live — 17 PJ clinics baselined; Firehose tap live",done:true},
+     {t:"Chrome installed no-sudo; GitHub PAT installed (PRs unblocked)",done:true},
+     {t:"5 lean crons installed; intel digest delivered to Telegram",done:true},
+     {t:"Queue-only safety test of GBP-reply job (must not auto-post on first run)",done:false,now:true},
+     {t:"Watch one clean week → decommission Hostinger",done:false},
+     {t:"Rotate credentials (GitHub PAT + Firehose key + API keys + root pw)",done:false}
+   ],
+   note:"<b>Edith = the `main` agent</b> (Director of Digital Growth) on DeepSeek V4, hub-and-spoke with 7 specialists. Truth file = <b>memory/governance/ismile-fact-sheet.md</b>. Optional remaining: Google Places API key for competitor ratings. Audit lesson: optimize for outcomes, not motion (old loop = 47 blog posts, 0 conversions)."},
+  {id:"7",title:"Automated Recall + ROI Attribution",status:"active",owner:"Code Capsule",coOwner:"Claude (attribution)",
+   why:"Existing WhatsApp recall (6/9/12mo, ~RM0.061/msg from the landline) needs daily-volume visibility + real conversion/ROI. Today Lu Zhong manually cross-refs OpenDent appointments to attribute recall→booking.",
+   next:"Access the recall mini-CRM DB via the Code Capsule tunnel; build the phone→PatNum attribution join.",
+   gate:null,deps:["4"],blockedOn:null,
+   timeline:"System live (Code Capsule, on-prem). Attribution funnel folds into the dashboard (#4).",
+   tasks:[
+     {t:"Recall measured (snapshot Apr–Jun): ~706 messaged",done:true},
+     {t:"Funnel attribution method built (phone→PatNum bridge via master)",done:true},
+     {t:"Access recall mini-CRM DB via Code Capsule tunnel",done:false,now:true},
+     {t:"016 number Meta approval (sends currently from landline)",done:false},
+     {t:"Holdout test (~15% withhold) for true causal incrementality",done:false}
+   ],
+   note:"<b>⚠️ Corrected figure:</b> individual conversion is <b>5.9%</b> (42/706 targeted persons booked/visited) — matches Lu Zhong's 5–6% instinct. The earlier <b>18% \"family ripple\" is RETRACTED as confounded</b> (~95% coincidental — active patients who'd book anyway). Realised: 28 visited → RM8,430 + 12 future. Incrementality NOT yet isolated — needs the holdout. Webhook log is phone-keyed (no name) so individual attribution on shared phones (~31%) is a heuristic."}
+];
+const KB_ICON={
+  next:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+  block:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M5.5 5.5l13 13"/></svg>',
+  gate:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg>',
+  dep:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17H7a5 5 0 0 1 0-10h2M15 7h2a5 5 0 0 1 0 10h-2M8 12h8"/></svg>',
+  task:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M3 12l3 3 8-8"/></svg>',
+  note:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12l-4 4H4z"/><path d="M16 20v-4h4"/></svg>'
+};
+let KB_VIEW="status";
+function kbAv(owner){const o=KB_OWNERS[owner]||{init:"?",color:"#7c909c"};return `<span class="kb-av" style="background:${o.color}">${o.init}</span>`;}
+function kbById(id){return KB_INITIATIVES.find(i=>i.id===id);}
+function kbCardHTML(it){
+  const s=it.status;let flags="";
+  if(it.blockedOn) flags+=`<div class="kb-flag block">${KB_ICON.block}<span>${it.blockedOn}</span></div>`;
+  if(it.gate)      flags+=`<div class="kb-flag gate">${KB_ICON.gate}<span>${it.gate}</span></div>`;
+  if(it.deps&&it.deps.length){
+    const names=it.deps.map(d=>{const x=kbById(d);return x?`#${x.id} ${x.title.split(/[—(]/)[0].trim()}`:`#${d}`;}).join(" · ");
+    if(!it.blockedOn) flags+=`<div class="kb-flag dep">${KB_ICON.dep}<span>Depends on ${names}</span></div>`;
+  }
+  return `<div class="kb-card s-${s}" data-kbid="${it.id}">
+    <div class="kb-ctop"><span class="kb-cid">#${it.id}</span><span class="kb-chip ${s}">${KB_STATUS[s].label.split(" / ")[0]}</span></div>
+    <div class="kb-ctitle">${it.title}</div>
+    <div class="kb-cmeta"><span class="kb-owner">${kbAv(it.owner)}${it.owner}</span></div>
+    <div class="kb-next"><div class="lbl">${KB_ICON.next} Next action</div>${it.next}</div>
+    ${flags?`<div class="kb-flags">${flags}</div>`:""}
+  </div>`;
+}
+function kbKpisHTML(){
+  const c=s=>KB_INITIATIVES.filter(i=>i.status===s).length;
+  const gates=KB_INITIATIVES.filter(i=>i.gate).length;
+  const k=[{cls:"blocked",n:c("blocked"),l:"Blocked / Waiting"},{cls:"active",n:c("active"),l:"Active"},
+    {cls:"review",n:c("review"),l:"In Review / Gate"},{cls:"done",n:c("done"),l:"Done"},{cls:"gate",n:gates,l:"Have a Gate"}];
+  return k.map(x=>`<div class="kb-kpi ${x.cls}"><div class="n">${x.n}</div><div class="l">${x.l}</div></div>`).join("");
+}
+function kbLegendHTML(){
+  return Object.entries(KB_STATUS).map(([k,v])=>`<span class="it"><span class="sw" style="background:${v.color}"></span>${v.label}</span>`).join("")
+    +`<span class="it" style="margin-left:auto;color:var(--mut2)">Tap any card for full detail →</span>`;
+}
+function kbStatusHTML(){
+  const cols=["blocked","active","review","done"];
+  return cols.map(s=>{
+    const items=KB_INITIATIVES.filter(i=>i.status===s);
+    return `<div class="kb-col ${s}"><div class="kb-colhead"><span class="swatch"></span><span class="name">${KB_STATUS[s].label}</span><span class="count">${items.length}</span><span class="sub">${KB_STATUS[s].sub}</span></div>
+      <div class="kb-lane">${items.map(kbCardHTML).join("")||`<div style="font-size:12px;color:var(--mut2);padding:14px 4px">— nothing here —</div>`}</div></div>`;
+  }).join("");
+}
+function kbOwnerHTML(){
+  return Object.keys(KB_OWNERS).map(name=>{
+    const items=KB_INITIATIVES.filter(i=>i.owner===name);if(!items.length)return "";
+    const o=KB_OWNERS[name];
+    const tally=["blocked","active","review","done"].map(s=>{const n=items.filter(i=>i.status===s).length;
+      return n?`<span><span class="tdot" style="background:${KB_STATUS[s].color}"></span>${n} ${s}</span>`:"";}).join("");
+    return `<div class="kb-ogroup"><div class="kb-ogroup-head"><span class="kb-av" style="background:${o.color}">${o.init}</span>
+      <div><div class="nm">${name}</div><div class="role">${o.role}</div></div><div class="tally">${tally}</div></div>
+      <div class="kb-ocards">${items.map(kbCardHTML).join("")}</div></div>`;
+  }).join("");
+}
+function kbOpenModal(id){
+  const it=kbById(id);if(!it)return;const s=it.status;
+  const owners=`${kbAv(it.owner)} ${it.owner}`+(it.coOwner?`<span style="color:var(--mut2);font-weight:500"> · ${it.coOwner}</span>`:"");
+  const tasks=it.tasks.map(t=>{const cls=t.done?"done":(t.now?"now":"");const box=t.done?"✓":(t.now?"▸":"");
+    return `<div class="kb-task ${cls}"><span class="box">${box}</span><span class="txt">${t.t}</span></div>`;}).join("");
+  const depPills=(it.deps&&it.deps.length)
+    ?`<div class="kb-msec"><h4>${KB_ICON.dep} Dependencies</h4><div class="kb-pillrow">${
+        it.deps.map(d=>{const x=kbById(d);return `<span class="kb-deppill" data-kbgo="${d}">${kbAv(x?x.owner:'')}#${d} ${x?x.title.split(/[—(]/)[0].trim():''}</span>`;}).join("")
+      }</div></div>`:"";
+  document.getElementById("kbModal").innerHTML=`
+    <div class="kb-mhead"><div class="strip" style="background:${KB_STATUS[s].color}"></div>
+      <button class="kb-mclose" onclick="kbCloseModal()">✕</button>
+      <div class="kb-ctop"><span class="kb-cid">#${it.id}</span><span class="kb-chip ${s}">${KB_STATUS[s].label}</span></div>
+      <div class="kb-mtitle">${it.title}</div><div class="kb-mwhy">${it.why}</div></div>
+    <div class="kb-mbody">
+      <div class="kb-mgrid">
+        <div class="kb-mfact"><div class="k">Owner</div><div class="v">${owners}</div></div>
+        <div class="kb-mfact"><div class="k">Status</div><div class="v"><span style="width:8px;height:8px;border-radius:50%;background:${KB_STATUS[s].color};display:inline-block"></span>${KB_STATUS[s].label}</div></div>
+      </div>
+      <div class="kb-msec"><h4>${KB_ICON.next} The one next action</h4><div class="kb-mnote" style="background:var(--teal-bg);border-color:var(--teal)"><b>${it.next}</b></div></div>
+      ${it.blockedOn?`<div class="kb-msec"><h4>${KB_ICON.block} Blocked on</h4><div class="kb-mnote" style="background:var(--kb-blocked-bg);border-color:#f3d3bd">${it.blockedOn}</div></div>`:""}
+      ${it.gate?`<div class="kb-msec"><h4>${KB_ICON.gate} Gate / Milestone</h4><div class="kb-mnote" style="background:#fdf8ec;border-color:#efe0b0">${it.gate}</div></div>`:""}
+      ${depPills}
+      <div class="kb-msec"><h4>${KB_ICON.task} Checklist</h4><div class="kb-tasklist">${tasks}</div></div>
+      <div class="kb-msec"><h4>⏱ Timeline / where it's at</h4><div class="kb-mnote">${it.timeline}</div></div>
+      ${it.note?`<div class="kb-msec"><h4>${KB_ICON.note} Context</h4><div class="kb-mnote">${it.note}</div></div>`:""}
+    </div>`;
+  document.getElementById("kbOverlay").classList.add("show");document.body.style.overflow="hidden";
+}
+function kbCloseModal(){const o=document.getElementById("kbOverlay");if(o)o.classList.remove("show");document.body.style.overflow="";}
+function kbSetView(v){
+  KB_VIEW=v;
+  document.querySelectorAll("#kbToggle button").forEach(b=>b.classList.toggle("on",b.getAttribute("data-kbview")===v));
+  document.getElementById("kbStatusView").classList.toggle("kb-hidden",v!=="status");
+  document.getElementById("kbOwnerView").classList.toggle("kb-hidden",v!=="owner");
+}
+/* one-time global wiring for kanban cards + modal */
+let KB_WIRED=false;
+function kbWire(){
+  if(KB_WIRED)return;KB_WIRED=true;
+  document.body.addEventListener("click",e=>{
+    const card=e.target.closest(".kb-card");
+    if(card&&!e.target.closest(".kb-overlay")){kbOpenModal(card.getAttribute("data-kbid"));return;}
+    const tgl=e.target.closest("#kbToggle button");
+    if(tgl){kbSetView(tgl.getAttribute("data-kbview"));return;}
+  });
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")kbCloseModal();});
+}
 function viewInits(){
-  let html="";
-  ORG.divisions.forEach(dv=>{const depts=dv.depts.filter(d=>d.inits.length);if(!depts.length)return;
-    html+=`<div class="grp"><div class="gdiv">${dv.n}</div>`;
-    depts.forEach(d=>{html+=`<div class="gdept"><span class="sdot ${sDot[d.status]}"></span>${d.n}</div>`;
-      d.inits.forEach(i=>{html+=`<div class="irow"><span class="sdot ${sDot[i.status]}"></span><div class="it">${i.n}<div class="ino">${i.note||''}</div></div><span class="badge ${sBadge[i.status]}">${sLabel[i.status]}</span></div>`;});});
-    html+=`</div>`;});
-  return `<div class="h">Initiatives — by hierarchy</div><div class="subt">Sourced only from INITIATIVES.md. Grouped Division → Department. Updatable via Telegram once the bot write-path is wired.</div>${html}`;
+  setTimeout(()=>{
+    kbWire();
+    let ov=document.getElementById("kbOverlay");
+    if(!ov){ov=document.createElement("div");ov.className="kb-overlay";ov.id="kbOverlay";
+      ov.innerHTML='<div class="kb-modal" id="kbModal"></div>';
+      ov.addEventListener("click",e=>{
+        if(e.target.id==="kbOverlay")kbCloseModal();
+        const pill=e.target.closest("[data-kbgo]");
+        if(pill){const id=pill.getAttribute("data-kbgo");kbCloseModal();setTimeout(()=>kbOpenModal(id),120);}
+      });
+      document.body.appendChild(ov);
+    }
+    kbSetView(KB_VIEW);
+  },0);
+  return `<div class="h">Initiatives — project board</div>
+   <div class="subt">The 7 active initiatives from INITIATIVES.md (22 Jun 2026). Swimlanes by status, or toggle to group by owner. Tap any card for the full next-action, gate, checklist &amp; context.</div>
+   <div class="kb-seg" id="kbToggle">
+     <button data-kbview="status" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="18" rx="1"/><rect x="14" y="3" width="7" height="11" rx="1"/></svg>By Status</button>
+     <button data-kbview="owner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="3"/><path d="M3 21v-1a5 5 0 0 1 5-5h2"/><circle cx="17" cy="9" r="2.5"/><path d="M14 21v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1"/></svg>By Owner</button>
+   </div>
+   <div class="kb-kpis">${kbKpisHTML()}</div>
+   <div class="kb-legend">${kbLegendHTML()}</div>
+   <div id="kbStatusView" class="kb-board">${kbStatusHTML()}</div>
+   <div id="kbOwnerView" class="kb-hidden">${kbOwnerHTML()}</div>`;
 }
 
 /* ---------- live status polling ---------- */
