@@ -818,8 +818,10 @@ function key(n){
 function unlock(){document.getElementById("lock").style.display="none";document.getElementById("app").style.display="block";if(!location.hash)location.hash="org";render();poll();setInterval(poll,20000);}
 function buildPad(){const pad=document.getElementById("pad");["1","2","3","4","5","6","7","8","9","blank","0","del"].forEach(k=>{const b=document.createElement("button");if(k==="blank"){b.className="blank";b.disabled=true}else if(k==="del"){b.textContent="⌫";b.onclick=()=>key("del")}else{b.textContent=k;b.onclick=()=>key(k)}pad.appendChild(b)});paintPin();}
 
-buildPad();
-try{if(localStorage.getItem("ismile_cc")==="1")unlock();}catch(e){}
+/* Access is enforced server-side by Vercel middleware (HTTP Basic Auth on /dashboard
+   and all sub-resources). The old client-side PIN pad is retired to avoid a double
+   prompt; reveal the app directly once the page is served. */
+unlock();
 window.addEventListener("hashchange",render);
 setInterval(()=>{const c=document.getElementById("clock");if(c)c.textContent=new Date().toLocaleString("en-GB",{timeZone:"Asia/Kuala_Lumpur",hour:"2-digit",minute:"2-digit",day:"2-digit",month:"short"})+" MYT"},1000);
 </script>

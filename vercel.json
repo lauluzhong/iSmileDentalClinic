@@ -1,10 +1,6 @@
 {
   "rewrites": [
     {
-      "source": "/dashboard",
-      "destination": "/command-center.html"
-    },
-    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
