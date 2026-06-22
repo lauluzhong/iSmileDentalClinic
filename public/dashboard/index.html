@@ -367,6 +367,7 @@ function render(){
   else if(h==="agents"){v.innerHTML=viewAgents();initOffice();}
   else if(h==="initiatives")v.innerHTML=viewInits();
   else if(h==="margin")v.innerHTML=viewMargin();
+  else if(h==="analytics")v.innerHTML=viewAnalytics();
   else v.innerHTML=viewOrg();
   paintTabs(h);window.scrollTo(0,0);
 }
@@ -378,7 +379,13 @@ function paintTabs(h){
 function viewMargin(){
   return `<div class="h">Practice — margin &amp; efficiency</div>
    <div class="subt">Live margin, transactions and chair-time efficiency. Source: OpenDent. Full dashboard embedded below.</div>
-   <iframe src="/dashboards/margin-dashboard.html" title="Margin &amp; Efficiency dashboard" style="width:100%;height:calc(100vh - 140px);border:0;border-radius:12px;background:var(--panel)"></iframe>`;
+   <iframe src="/dashboard/margin" title="Margin &amp; Efficiency dashboard" style="width:100%;height:calc(100vh - 140px);border:0;border-radius:12px;background:var(--panel)"></iframe>`;
+}
+function viewAnalytics(){
+  return `<div class="back" onclick="location.hash='dept/branding'">‹ Branding &amp; Marketing</div>
+   <div class="h">Website analytics</div>
+   <div class="subt">Legacy traffic dashboard (GA4) — sessions, sources, funnels, CTA events. Parked under Branding &amp; Marketing.</div>
+   <iframe src="/dashboard/analytics" title="Website analytics dashboard" style="width:100%;height:calc(100vh - 140px);border:0;border-radius:12px;background:var(--panel)"></iframe>`;
 }
 function nbDept(d){
   const run=isRunning(d.id);const cls=run?"run":(d.status==="live"?"live":"");const dot=run?"s-run":sDot[d.status];
@@ -410,7 +417,8 @@ function marketingDetail(){
   const pipe=MARKETING.pipeline.map((s,i)=>{const nodes=s.nodes.map(([t,a])=>`<div class="n">${t}${a?`<br><span class="ag" style="background:${ag(a).c}">${ag(a).name}</span>`:''}</div>`).join("");
     return `<div class="stage"><h4>${s.h}</h4>${nodes}</div>${i<3?'<div class="ar">▸</div>':''}`;}).join("");
   return `<div class="h" style="margin-top:18px">The system — Edith / OpenClaw (live)</div><div class="card"><div class="h" style="margin:0 0 8px">4-stage pipeline</div><div class="pipe">${pipe}</div></div>
-    <div class="card" style="margin-top:12px"><div class="h" style="margin:0 0 8px">Workflows — see the Workflows tab</div>${MARKETING.workflows.slice(0,2).map(wfHTML).join("")}</div>`;
+    <div class="card" style="margin-top:12px"><div class="h" style="margin:0 0 8px">Workflows — see the Workflows tab</div>${MARKETING.workflows.slice(0,2).map(wfHTML).join("")}</div>
+    <div class="card" style="margin-top:12px;cursor:pointer" onclick="location.hash='analytics'"><div class="h" style="margin:0 0 4px">📊 Website analytics →</div><div class="foot" style="margin:0">GA4 traffic dashboard — sessions, sources, conversion funnel, CTA events. Opens the live analytics view.</div></div>`;
 }
 
 function wfHTML(w){
