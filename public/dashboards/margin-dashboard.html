@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iSmile · Transaction Profitability Dashboard</title>
+<style>
+  :root{
+    --teal:#00A0C6; --teal-2:#4FB3D1; --teal-d:#0B7E9C; --teal-dd:#075E74;
+    --ink:#10212A; --ink-2:#46606C; --ink-3:#7C939E;
+    --line:#E4ECF0; --line-2:#D2DEE4;
+    --bg:#F4F8FA; --surface:#FFFFFF; --surface-2:#F9FBFC;
+    --pos:#1D9E75; --pos-bg:#E5F5EF; --neg:#D8503A; --neg-bg:#FBEBE7;
+    --warn:#BA7517; --warn-bg:#FAEEDA;
+    --funnel-1:#E1F3F8; --funnel-2:#D2ECF3; --funnel-3:#C2E5EE; --funnel-4:#B0DDE9;
+    --radius:10px; --radius-lg:14px;
+    --shadow:0 1px 2px rgba(16,33,42,.06), 0 4px 14px rgba(16,33,42,.05);
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:"SF Mono",ui-monospace,"Roboto Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.5;}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
+  a{color:var(--teal-d);text-decoration:none;}
+
+  /* Top bar */
+  .topbar{background:var(--surface);border-bottom:1px solid var(--line);padding:0 20px;position:sticky;top:0;z-index:50;}
+  .topbar-in{max-width:1480px;margin:0 auto;display:flex;align-items:center;gap:18px;height:60px;}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:600;font-size:16px;letter-spacing:-.2px;}
+  .logo{width:30px;height:30px;border-radius:8px;background:var(--teal);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:15px;}
+  .brand small{display:block;font-weight:400;font-size:11px;color:var(--ink-3);letter-spacing:0;}
+  .tabs{display:flex;gap:4px;margin-left:8px;}
+  .tab{appearance:none;border:0;background:transparent;font:inherit;font-size:13.5px;font-weight:500;color:var(--ink-2);padding:8px 14px;border-radius:8px;cursor:pointer;display:flex;align-items:center;gap:7px;}
+  .tab:hover{background:var(--surface-2);color:var(--ink);}
+  .tab.active{background:var(--teal);color:#fff;}
+  .tab .i{font-size:15px;}
+  .topbar-right{margin-left:auto;display:flex;align-items:center;gap:14px;color:var(--ink-3);font-size:12px;}
+  .pill-sample{background:var(--warn-bg);color:var(--warn);font-weight:600;font-size:11px;padding:4px 9px;border-radius:20px;letter-spacing:.2px;}
+
+  .wrap{max-width:1480px;margin:0 auto;padding:22px 20px 60px;}
+  .view{display:none;}
+  .view.active{display:block;}
+
+  /* Section heading */
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 14px;flex-wrap:wrap;}
+  .sec-head h1{margin:0;font-size:19px;font-weight:600;letter-spacing:-.3px;}
+  .sec-head p{margin:3px 0 0;color:var(--ink-2);font-size:13px;max-width:640px;}
+  .window-badge{align-self:flex-end;background:var(--teal);color:#fff;font-size:12px;font-weight:600;padding:6px 12px;border-radius:8px;white-space:nowrap;}
+  .window-badge .wl{opacity:.8;font-weight:500;margin-right:5px;}
+
+  /* Funnel ribbon */
+  .funnel{display:flex;align-items:stretch;gap:0;margin:0 0 16px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);}
+  .fstep{flex:1;padding:10px 12px;background:var(--surface);border-right:1px solid var(--line);position:relative;min-width:0;}
+  .fstep:last-child{border-right:0;}
+  .fstep .fl{font-size:10.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink-3);font-weight:600;margin-bottom:3px;display:flex;align-items:center;gap:5px;}
+  .fstep .fv{font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .fstep.s1{background:var(--funnel-1);} .fstep.s2{background:var(--funnel-2);}
+  .fstep.s3{background:var(--funnel-3);} .fstep.s4{background:var(--funnel-4);}
+  .fstep.final{background:var(--teal);} .fstep.final .fl{color:rgba(255,255,255,.85);} .fstep.final .fv{color:#fff;font-size:14px;}
+  .fstep .arrow{position:absolute;right:-7px;top:50%;transform:translateY(-50%);z-index:2;color:var(--teal-d);font-size:13px;}
+
+  /* Toolbar / filters */
+  .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 14px;}
+  .field{display:flex;flex-direction:column;gap:3px;}
+  .field label{font-size:10.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--ink-3);font-weight:600;}
+  select,input[type=search]{font:inherit;font-size:13px;padding:7px 10px;border:1px solid var(--line-2);border-radius:8px;background:var(--surface);color:var(--ink);min-width:130px;height:34px;}
+  input[type=search]{min-width:190px;}
+  select:focus,input:focus{outline:0;border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,160,198,.15);}
+  .btn{font:inherit;font-size:12.5px;font-weight:500;padding:7px 12px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2);border-radius:8px;cursor:pointer;height:34px;display:inline-flex;align-items:center;gap:6px;}
+  .btn:hover{border-color:var(--teal);color:var(--teal-d);}
+  .filter-note{margin-left:auto;font-size:12px;color:var(--ink-3);align-self:flex-end;padding-bottom:7px;}
+  .chip{display:inline-flex;align-items:center;gap:6px;background:var(--teal);color:#fff;font-size:12px;font-weight:500;padding:5px 10px;border-radius:20px;}
+  .chip b{font-weight:600;} .chip button{border:0;background:transparent;color:#fff;cursor:pointer;font-size:14px;line-height:1;padding:0;}
+
+  /* Table */
+  .tcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden;}
+  .tscroll{overflow-x:auto;}
+  table.tx{border-collapse:collapse;width:100%;font-size:12.5px;min-width:1180px;}
+  table.tx thead th{position:sticky;top:0;background:var(--surface-2);border-bottom:2px solid var(--line-2);text-align:left;padding:9px 11px;font-size:10.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--ink-2);font-weight:700;white-space:nowrap;cursor:pointer;user-select:none;z-index:5;}
+  table.tx thead th .grp{display:block;font-size:8.5px;color:var(--ink-3);font-weight:600;letter-spacing:.5px;margin-bottom:2px;}
+  table.tx thead th.num,table.tx td.num{text-align:right;font-variant-numeric:tabular-nums;}
+  table.tx thead th .sortcaret{opacity:.3;font-size:9px;margin-left:3px;}
+  table.tx thead th.sorted .sortcaret{opacity:1;color:var(--teal-d);}
+  table.tx thead th.col-final{background:var(--teal);color:#fff;}
+  table.tx thead th.col-final .grp{color:rgba(255,255,255,.8);}
+  table.tx tbody td{padding:9px 11px;border-bottom:1px solid var(--line);white-space:nowrap;vertical-align:middle;}
+  table.tx tbody tr:hover td{background:var(--surface-2);}
+  table.tx tbody tr.alt td{}
+  td.col-final{background:rgba(0,160,198,.06);font-weight:700;color:var(--ink);border-left:2px solid rgba(0,160,198,.25);border-right:2px solid rgba(0,160,198,.25);}
+  table.tx tbody tr:hover td.col-final{background:rgba(0,160,198,.11);}
+
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums;}
+  .pt-name{font-weight:600;color:var(--ink);}
+  .sub{display:block;font-size:11px;color:var(--ink-3);font-weight:400;}
+  .tier{display:inline-block;font-size:9.5px;font-weight:700;padding:1px 6px;border-radius:5px;letter-spacing:.3px;vertical-align:1px;margin-left:4px;}
+  .tier.c1{background:#EEEDFE;color:#3C3489;} .tier.c2{background:#E1F5EE;color:#0F6E56;}
+  .tier.c3{background:#FAEEDA;color:#854F0B;} .tier.c4{background:#F1EFE8;color:#5F5E5A;}
+  .badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;}
+  .badge.show{background:var(--pos-bg);color:var(--pos);} .badge.noshow{background:var(--neg-bg);color:var(--neg);}
+  .doc{display:inline-flex;align-items:center;gap:7px;}
+  .dot{width:8px;height:8px;border-radius:50%;flex:none;}
+  .cm-pct{display:inline-block;font-size:10.5px;font-weight:700;padding:1px 6px;border-radius:5px;margin-left:5px;}
+  .pos{color:var(--pos);} .neg{color:var(--neg);}
+  .cm-pct.good{background:var(--pos-bg);color:var(--pos);} .cm-pct.mid{background:var(--warn-bg);color:var(--warn);} .cm-pct.bad{background:var(--neg-bg);color:var(--neg);}
+
+  tfoot td{padding:11px;border-top:2px solid var(--line-2);background:var(--surface-2);font-weight:700;font-size:12.5px;white-space:nowrap;}
+  tfoot td.num{text-align:right;font-variant-numeric:tabular-nums;}
+  tfoot td.col-final{background:var(--teal);color:#fff;}
+  .recon{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow);margin-top:14px;padding:16px 18px;}
+  .recon h3{margin:0 0 4px;font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px;}
+  .recon p{margin:0 0 12px;font-size:12.5px;color:var(--ink-2);}
+  .recon-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--line);border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);}
+  .recon-grid .cell{background:var(--surface);padding:12px 14px;}
+  .recon-grid .cell .l{font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.4px;font-weight:600;margin-bottom:4px;}
+  .recon-grid .cell .v{font-size:18px;font-weight:700;font-variant-numeric:tabular-nums;}
+  .recon-grid .cell.match{background:var(--pos-bg);} .recon-grid .cell.match .v{color:var(--pos);}
+
+  /* Summary view */
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:0 0 18px;}
+  .kpi{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:15px 16px;}
+  .kpi .kl{font-size:11.5px;color:var(--ink-3);font-weight:600;text-transform:uppercase;letter-spacing:.4px;display:flex;align-items:center;gap:6px;margin-bottom:7px;}
+  .kpi .kl .ki{width:22px;height:22px;border-radius:6px;background:var(--funnel-1);color:var(--teal-d);display:flex;align-items:center;justify-content:center;font-size:13px;}
+  .kpi .kv{font-size:26px;font-weight:700;letter-spacing:-.5px;font-variant-numeric:tabular-nums;line-height:1.1;}
+  .kpi .kv small{font-size:14px;font-weight:600;color:var(--ink-3);}
+  .kpi .ks{font-size:11.5px;color:var(--ink-2);margin-top:5px;}
+  .kpi.accent{background:var(--teal);} .kpi.accent .kl,.kpi.accent .ks{color:rgba(255,255,255,.85);}
+  .kpi.accent .kl .ki{background:rgba(255,255,255,.2);color:#fff;} .kpi.accent .kv{color:#fff;}
+
+  .grid2{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;margin-bottom:14px;}
+  @media (max-width:1000px){.grid2{grid-template-columns:1fr;}}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:16px 18px;}
+  .panel h3{margin:0 0 2px;font-size:14px;font-weight:600;}
+  .panel .ph-sub{font-size:12px;color:var(--ink-3);margin:0 0 14px;}
+  .panel h3 .hint{font-size:11px;font-weight:400;color:var(--ink-3);float:right;}
+
+  .bar-row{display:grid;grid-template-columns:120px 1fr 78px;align-items:center;gap:10px;padding:7px 0;cursor:pointer;border-radius:6px;}
+  .bar-row:hover{background:var(--surface-2);}
+  .bar-row .brl{font-size:12.5px;font-weight:500;display:flex;align-items:center;gap:7px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .bar-track{height:22px;background:var(--surface-2);border-radius:5px;position:relative;overflow:hidden;}
+  .bar-fill{position:absolute;left:0;top:0;bottom:0;border-radius:5px;display:flex;align-items:center;}
+  .bar-fill .blabel{font-size:10.5px;font-weight:700;color:#fff;padding-left:8px;white-space:nowrap;}
+  .bar-row .brv{text-align:right;font-size:12.5px;font-weight:700;font-variant-numeric:tabular-nums;}
+  .bar-row .brv small{display:block;font-size:10.5px;font-weight:500;color:var(--ink-3);}
+
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11.5px;color:var(--ink-2);margin-top:6px;}
+  .legend span{display:flex;align-items:center;gap:5px;}
+  .lg-sq{width:10px;height:10px;border-radius:3px;}
+
+  .daily{display:flex;align-items:flex-end;gap:6px;height:150px;padding-top:8px;}
+  .dbar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px;min-width:0;}
+  .dbar .stack{width:100%;max-width:34px;display:flex;flex-direction:column;border-radius:4px 4px 0 0;overflow:hidden;}
+  .dbar .seg-prod{background:var(--funnel-3);} .dbar .seg-margin{background:var(--teal);}
+  .dbar .dlab{font-size:10px;color:var(--ink-3);white-space:nowrap;}
+  .dbar:hover .stack{outline:2px solid var(--teal-d);outline-offset:1px;}
+
+  table.mini{width:100%;border-collapse:collapse;font-size:12.5px;}
+  table.mini th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.4px;color:var(--ink-3);font-weight:700;padding:6px 8px;border-bottom:1px solid var(--line);}
+  table.mini th.num,table.mini td.num{text-align:right;font-variant-numeric:tabular-nums;}
+  table.mini td{padding:7px 8px;border-bottom:1px solid var(--line);}
+  table.mini tr:hover td{background:var(--surface-2);cursor:pointer;}
+
+  .note{font-size:11.5px;color:var(--ink-3);margin-top:12px;line-height:1.6;border-top:1px dashed var(--line-2);padding-top:10px;}
+  .note b{color:var(--ink-2);font-weight:600;}
+  .ti{font-family:inherit;} /* placeholder */
+</style>
+</head>
+<body>
+<h2 class="sr-only">iSmile transaction-level profitability dashboard prototype with a left-to-right margin funnel and a higher-level summary view, using sample data.</h2>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <div class="brand">
+      <span class="logo">iS</span>
+      <span>iSmile · Profitability<small>Transaction-level margin & locum recon</small></span>
+    </div>
+    <div class="tabs">
+      <button class="tab active" data-view="tx" id="tab-tx"><span class="i">⊞</span> Transactions</button>
+      <button class="tab" data-view="summary" id="tab-summary"><span class="i">◫</span> Summary</button>
+      <button class="tab" data-view="efficiency" id="tab-efficiency"><span class="i">◷</span> Efficiency</button>
+    </div>
+    <div class="topbar-right">
+      <span class="pill-sample" id="data-pill">REAL DATA · loading…</span>
+      <span>Jun 2026</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ====================== TRANSACTION VIEW ====================== -->
+  <section class="view active" id="view-tx">
+    <div class="sec-head">
+      <div>
+        <h1>Transaction ledger — appointment → true margin</h1>
+        <p>One row per production line. Read it left → right: every transaction flows from the booking down to the <b>true margin</b> on the far right. The totals row is what the GM reconciles against the monthly locum calc.</p>
+      </div>
+    </div>
+
+    <!-- left→right funnel ribbon (totals of current filter) -->
+    <div class="funnel" id="funnel" aria-label="Left to right margin funnel"></div>
+
+    <div class="toolbar">
+      <div class="field"><label>From</label><input type="date" id="f-from"></div>
+      <div class="field"><label>To</label><input type="date" id="f-to"></div>
+      <div class="field"><label>Quick range</label><select id="f-preset">
+        <option value="all">All data</option>
+        <option value="mtd">This month</option>
+        <option value="last">Last month</option>
+        <option value="qtd">Quarter to date</option>
+        <option value="ytd">Year to date</option>
+      </select></div>
+      <div class="field"><label>Doctor</label><select id="f-doctor"></select></div>
+      <div class="field"><label>Procedure category</label><select id="f-cat"></select></div>
+      <div class="field"><label>Burn basis</label><select id="f-dep">
+        <option value="loaded">Incl. depreciation (RM160/hr)</option>
+        <option value="exdep">Cash burn ex-dep (RM119/hr)</option>
+      </select></div>
+      <div class="field"><label>Duration source</label><select id="f-show">
+        <option value="">All visits</option><option value="show">Real appt duration</option><option value="noshow">Estimated duration</option>
+      </select></div>
+      <div class="field"><label>Search patient / procedure</label><input type="search" id="f-search" placeholder="e.g. Tan, implant…"></div>
+      <button class="btn" id="f-clear">↺ Reset</button>
+      <span class="filter-note" id="filter-note"></span>
+    </div>
+
+    <div class="tcard">
+      <div class="tscroll">
+        <table class="tx" id="tx-table">
+          <thead><tr id="tx-head"></tr></thead>
+          <tbody id="tx-body"></tbody>
+          <tfoot id="tx-foot"></tfoot>
+        </table>
+      </div>
+    </div>
+
+    <!-- GM reconciliation strip -->
+    <div class="recon">
+      <h3>◷ GM month-end reconciliation</h3>
+      <p>The sum of the locum-payout column ties out to the branch manager's monthly locum calc. True margin = contribution − locum − <b>burn</b> (chair-time × hourly fixed-cost rate). Production & collection are real (DailyP&I 2026); lab cost is a category estimate; durations are real where matched (★ = estimated).</p>
+      <div class="recon-grid" id="recon-grid"></div>
+    </div>
+
+    <div class="note" id="tx-note"></div>
+  </section>
+
+  <!-- ====================== SUMMARY VIEW ====================== -->
+  <section class="view" id="view-summary">
+    <div class="sec-head">
+      <div>
+        <h1>Practice profitability — higher-level view</h1>
+        <p>Where the margin comes from and where it leaks. Click any doctor, category, or day to drill into the filtered transaction ledger.</p>
+      </div>
+      <div class="window-badge" id="window-badge" title="Active date window — change it in the ledger's From/To filter"></div>
+    </div>
+
+    <div class="kpis" id="kpis"></div>
+
+    <div class="grid2">
+      <div class="panel">
+        <h3>True margin by doctor <span class="hint">click to drill</span></h3>
+        <p class="ph-sub">Production vs. what's left after lab, locum & chair-time burn.</p>
+        <div id="bars-doctor"></div>
+        <div class="legend">
+          <span><span class="lg-sq" style="background:var(--teal)"></span> True margin (RM)</span>
+          <span><span class="lg-sq" style="background:var(--funnel-3)"></span> bar width = production</span>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Margin leak by procedure category <span class="hint">click to drill</span></h3>
+        <p class="ph-sub">Margin % after all deductions — the case-mix lever.</p>
+        <div id="bars-cat"></div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="panel">
+        <h3>Daily trend</h3>
+        <p class="ph-sub">Production (light) with true margin (teal) stacked inside — June working days.</p>
+        <div class="daily" id="daily"></div>
+        <div class="legend">
+          <span><span class="lg-sq" style="background:var(--funnel-3)"></span> production</span>
+          <span><span class="lg-sq" style="background:var(--teal)"></span> true margin</span>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Locum payout by doctor</h3>
+        <p class="ph-sub">Tier %, payout, and payout as a share of production.</p>
+        <table class="mini" id="locum-table">
+          <thead><tr><th>Doctor</th><th>Tier</th><th class="num">Payout</th><th class="num">% of prod.</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="note" id="sum-note"></div>
+  </section>
+
+  <!-- ====================== EFFICIENCY VIEW ====================== -->
+  <section class="view" id="view-efficiency">
+    <div class="sec-head">
+      <div>
+        <h1>Chair-hour efficiency</h1>
+        <p>True margin earned per hour of chair time — the case-mix &amp; utilisation lever. Same hour in the same chair, very different money.</p>
+      </div>
+      <div class="window-badge" id="window-badge-eff"></div>
+    </div>
+    <div class="kpis" id="eff-kpis"></div>
+    <div class="grid2">
+      <div class="panel">
+        <h3>True margin per chair-hour — by doctor <span class="hint">sorted</span></h3>
+        <p class="ph-sub">RM of true margin earned per hour of chair time. The spread is the story.</p>
+        <div id="eff-bars-doctor"></div>
+      </div>
+      <div class="panel">
+        <h3>True margin per chair-hour — by procedure <span class="hint">case mix</span></h3>
+        <p class="ph-sub">Which kind of work actually pays for the chair time.</p>
+        <div id="eff-bars-cat"></div>
+      </div>
+    </div>
+    <div class="tcard">
+      <div class="tscroll">
+        <table class="tx" id="eff-table">
+          <thead><tr>
+            <th>Doctor</th><th class="num">Chair-hrs</th><th class="num">Production / hr</th>
+            <th class="num">Locum / hr</th><th class="num">Burn / hr</th>
+            <th class="num col-final">True margin / hr</th><th class="num">True margin</th>
+          </tr></thead>
+          <tbody id="eff-body"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="note" id="eff-note"></div>
+  </section>
+</div>
+
+<script src="margin-data.js"></script>
+<script>
+/* ============================================================
+   iSmile Transaction Profitability Dashboard — UI PROTOTYPE
+   SAMPLE DATA. Locum + margin computed from raw inputs in JS so
+   every column is internally consistent with the locum rules.
+   Live data later arrives via the Code Capsule DB tunnel.
+   ============================================================ */
+
+/* ---- Doctors: tier %, 10%-exempt flag, colour ---- */
+const DOCTORS = {
+  'Dr Yeoh':     {tier:0.50, exempt10:true,  color:'#534AB7'},
+  'Dr Joan':     {tier:0.50, exempt10:true,  color:'#1D9E75'},
+  'Dr Ong':      {tier:0.45, exempt10:false, color:'#00A0C6'},
+  'Dr Amy':      {tier:0.45, exempt10:false, color:'#D85A30'},
+  'Dr Ling':     {tier:0.45, exempt10:false, color:'#D4537E'},
+  'Dr Mah':      {tier:0.45, exempt10:false, color:'#BA7517'},
+  'Dr Priscilla':{tier:0.40, exempt10:false, color:'#378ADD'},
+  'Dr Azelia':   {tier:0.40, exempt10:false, color:'#888780'}
+};
+
+/* ---- X-ray sharing add-back (RM) by type ---- */
+const XRAY_ADDBACK = {none:0, intraoral:30, opg:75, ceph:75, cbct:165};
+
+/* ---- REAL DATA from the clinic's own exports (build_margin_data.py) ----
+   window.MARGIN_DATA.visits = real DailyP&I 2026 visits (production + collection),
+   grouped patient+date, with REAL appointment durations where matched (else a
+   category default). Burn is the true fixed cost prorated PER VISIT by chair-
+   time — a 60-min visit bears 60 min of burn, NOT per production line.
+   Burn rate: RM160/chair-hour loaded (incl. depreciation) or RM119/hr cash
+   (ex-dep) — toggled in the UI. Lab cost is a category ESTIMATE (real per-case
+   lab invoices aren't digitised yet). */
+const MD = window.MARGIN_DATA;
+const BURN = {loaded: MD.meta.burnLoaded, exdep: MD.meta.burnExDep};
+let BURN_RATE = BURN.loaded;                 // RM per chair-hour
+function buildRow(v){
+  const production=v.production, lab=v.lab;
+  const contribution=production-lab;
+  const locum=v.locum;
+  const burn=v.dur/60*BURN_RATE;             // duration-prorated fixed burn
+  const trueMargin=contribution-locum-burn;
+  return {date:v.date, patient:v.patient, proc:v.proc, cat:v.cat, doctor:v.doctor,
+    production, lab, contribution, contribPct:production?contribution/production:0,
+    locum, dur:v.dur, burn, trueMargin, matched:v.matched, showed:true,
+    color:(DOCTORS[v.doctor]||{}).color||'#888'};
+}
+let ROWS = MD.visits.map(buildRow);
+function rebuildRows(){ ROWS = MD.visits.map(buildRow); }
+
+/* ---- Raw sample transactions ----
+   Fields are the *inputs*; margin columns are derived below.
+   collection = patient paid this line; upfront = deposit utilised;
+   med/xrayFee = pass-through deductions; lab = lab invoice;
+   xrayType drives the locum X-ray sharing add-back.            */
+const RAW = [
+  // date, patient, tier(c1-c4 CRM), showed, procedure, category, doctor, collection, upfront, med, xrayFee, lab, xrayType
+  ['2026-06-02','Tan Wei Ming','c1',true ,'Implant fixture #46','Implant','Dr Yeoh',6500,0,0,0,1850,'cbct'],
+  ['2026-06-02','Lim Siew Lan','c2',true ,'Zirconia crown #16','Crown','Dr Ong',2400,0,0,0,540,'intraoral'],
+  ['2026-06-02','Nurul Aisyah','c3',true ,'Composite filling x2','Filling','Dr Amy',420,0,30,0,0,'none'],
+  ['2026-06-02','Goh Family — Ethan','c2',true ,'Scaling & polish','Cleaning','Dr Priscilla',200,0,0,0,0,'none'],
+  ['2026-06-03','Raj Kumar','c1',true ,'Invisalign start','Ortho','Dr Joan',9500,0,0,0,1200,'opg'],
+  ['2026-06-03','Chong Mei Yee','c2',false,'RCT review','Endo','Dr Ling',0,0,0,0,0,'none'],
+  ['2026-06-03','Sarah Abdullah','c3',true ,'Scaling & polish','Cleaning','Dr Amy',200,0,0,0,0,'none'],
+  ['2026-06-03','Wong Kok Wai','c2',true ,'Implant crown #36','Implant','Dr Yeoh',3200,1000,0,0,720,'intraoral'],
+  ['2026-06-04','Lee Hui Min','c1',true ,'Veneer x4','Cosmetic','Dr Ong',8800,0,0,0,2100,'intraoral'],
+  ['2026-06-04','Devi Nair','c4',true ,'Extraction #38','Surgery','Dr Mah',650,0,40,30,0,'intraoral'],
+  ['2026-06-04','Tan Wei Ming','c1',true ,'Scaling & polish','Cleaning','Dr Priscilla',200,0,0,0,0,'none'],
+  ['2026-06-05','Ismail Hassan','c2',false,'Crown prep #26','Crown','Dr Ong',0,0,0,0,0,'none'],
+  ['2026-06-05','Foo Family — Cheryl','c2',true ,'Composite filling','Filling','Dr Azelia',250,0,0,0,0,'none'],
+  ['2026-06-05','Kavitha Rao','c1',true ,'Ortho adjustment','Ortho','Dr Joan',350,0,0,0,0,'none'],
+  ['2026-06-05','Chan Boon Hooi','c3',true ,'Zirconia crown #25','Crown','Dr Ling',2400,0,0,0,560,'intraoral'],
+  ['2026-06-09','Yap Sue Ann','c1',true ,'Implant fixture #15','Implant','Dr Yeoh',6500,0,0,0,1850,'cbct'],
+  ['2026-06-09','Hafiz Rahman','c3',true ,'Scaling & polish','Cleaning','Dr Amy',200,0,0,0,0,'none'],
+  ['2026-06-09','Ong Family — Daniel','c2',true ,'Sealant x4','Filling','Dr Priscilla',320,0,0,0,0,'none'],
+  ['2026-06-10','Liew Chee Keong','c2',true ,'Denture (acrylic)','Prosth','Dr Mah',1800,0,0,0,650,'none'],
+  ['2026-06-10','Priya Suresh','c1',true ,'Whitening (in-chair)','Cosmetic','Dr Ong',1500,0,0,0,180,'none'],
+  ['2026-06-10','Tan Family — Joyce','c2',true ,'Scaling & polish','Cleaning','Dr Azelia',200,0,0,0,0,'none'],
+  ['2026-06-11','Mohan Das','c2',true ,'RCT molar #46','Endo','Dr Ling',1400,0,0,0,0,'intraoral'],
+  ['2026-06-11','Cheah Li Wen','c1',true ,'Invisalign refinement','Ortho','Dr Joan',2800,0,0,0,400,'none'],
+  ['2026-06-11','Siti Khadijah','c3',false,'Filling review','Filling','Dr Amy',0,0,0,0,0,'none'],
+  ['2026-06-12','Loh Family — Marcus','c2',true ,'Extraction #16','Surgery','Dr Mah',550,0,40,30,0,'intraoral'],
+  ['2026-06-12','Vincent Teoh','c1',true ,'Implant fixture #26','Implant','Dr Yeoh',6500,0,0,0,1850,'cbct'],
+  ['2026-06-12','Aminah Yusof','c3',true ,'Scaling & polish','Cleaning','Dr Priscilla',200,0,0,0,0,'none'],
+  ['2026-06-16','Khoo Family — Adeline','c1',true ,'Zirconia crown #36','Crown','Dr Ong',2400,0,0,0,540,'intraoral'],
+  ['2026-06-16','Bala Krishnan','c2',true ,'Scaling & polish','Cleaning','Dr Amy',200,0,0,0,0,'none'],
+  ['2026-06-16','Ng Family — Sophia','c2',true ,'Ortho start','Ortho','Dr Joan',9500,0,0,0,1200,'opg'],
+  ['2026-06-17','Tan Wei Ming','c1',true ,'Implant crown #46','Implant','Dr Yeoh',3300,0,0,0,720,'intraoral'],
+  ['2026-06-17','Chua Beng Hock','c3',true ,'Composite filling x3','Filling','Dr Ling',680,0,30,0,0,'none'],
+  ['2026-06-17','Fatimah Zahra','c2',true ,'Scaling & polish','Cleaning','Dr Azelia',200,0,0,0,0,'none'],
+  ['2026-06-18','Wee Family — Brandon','c2',true ,'Sealant + fluoride','Filling','Dr Priscilla',280,0,0,0,0,'none'],
+  ['2026-06-18','Suresh Menon','c1',true ,'Veneer x2','Cosmetic','Dr Ong',4400,0,0,0,1050,'intraoral'],
+  ['2026-06-18','Lau Family — Grace','c2',true ,'Scaling & polish','Cleaning','Dr Amy',200,0,0,0,0,'none'],
+  ['2026-06-19','Hidayah Omar','c3',true ,'RCT premolar #24','Endo','Dr Ling',1100,0,0,0,0,'intraoral'],
+  ['2026-06-19','Tham Wai Kit','c1',true ,'Implant fixture #36','Implant','Dr Yeoh',6500,0,0,0,1850,'cbct'],
+  ['2026-06-19','Carmen Lai','c2',true ,'Denture repair','Prosth','Dr Mah',450,0,0,0,120,'none']
+];
+
+/* ---- Derive every margin column per the locum rules ---- */
+function computeRow(r){
+  const [date,patient,tier,showed,proc,cat,doctor,collection,upfront,med,xrayFee,lab,xrayType]=r;
+  const d = DOCTORS[doctor];
+  const production = collection + upfront;          // what was produced/recognised
+  // Locum "profit" base for this line:
+  // Profit = collection + upfront utilised − med − xray fee − (10% on charges, post-Aug2024, unless exempt) − lab
+  const grossCharges = collection + upfront;
+  const tenPct = d.exempt10 ? 0 : grossCharges * 0.10;   // all sample dates are post-Aug 2024
+  const profitBase = grossCharges - med - xrayFee - tenPct - lab;
+  const xrayShare = XRAY_ADDBACK[xrayType] || 0;
+  const locum = profitBase > 0 ? (profitBase * d.tier + (showed ? xrayShare : 0)) : 0;
+  // Contribution margin = production − lab − pass-through (med + xray fee). (Pre-locum, pre-overhead.)
+  const contribution = production - lab - med - xrayFee;
+  const contribPct = production > 0 ? contribution / production : 0;
+  // Overhead allocation: chair-minutes × real RM/min (true fixed-cost basis)
+  const overhead = showed ? durationFor(cat) * RM_PER_CHAIR_MIN : 0;
+  const trueMargin = contribution - locum - overhead;
+  return {date,patient,tier,showed,proc,cat,doctor,production,lab,med,xrayFee,upfront,
+          contribution,contribPct,locum,overhead,trueMargin,tenPct,color:d.color};
+}
+/* ROWS now built from real MARGIN_DATA above; legacy RAW/computeRow unused. */
+
+/* ---- Formatting helpers ---- */
+const rm  = v => 'RM ' + Math.round(v).toLocaleString('en-MY');
+const rm0 = v => Math.round(v).toLocaleString('en-MY');
+const pct = v => (v*100).toFixed(0) + '%';
+const pct1= v => (v*100).toFixed(1) + '%';
+const TIER_LABEL = {c1:'C1',c2:'C2',c3:'C3',c4:'C4'};
+const dlabel = ds => { const d=new Date(ds); return d.getDate()+'/'+(d.getMonth()+1); };
+
+/* ---- Column definitions (left → right funnel order) ---- */
+const COLS = [
+  {k:'date',  grp:'',           h:'Date',         num:false, sort:r=>r.date},
+  {k:'patient',grp:'Customer',  h:'Patient',      num:false, sort:r=>r.patient},
+  {k:'proc',  grp:'Booking',    h:'Procedure',    num:false, sort:r=>r.proc},
+  {k:'doctor',grp:'Provider',   h:'Doctor',       num:false, sort:r=>r.doctor},
+  {k:'production',grp:'Production',h:'Production', num:true,  sort:r=>r.production},
+  {k:'lab',   grp:'Est. cost',  h:'Lab est.',     num:true,  sort:r=>r.lab},
+  {k:'contribution',grp:'Margin',h:'Contribution',num:true,  sort:r=>r.contribution},
+  {k:'dur',   grp:'Chair-time', h:'Mins',         num:true,  sort:r=>r.dur},
+  {k:'burn',  grp:'− Burn',     h:'Burn',         num:true,  sort:r=>r.burn},
+  {k:'locum', grp:'− Locum',    h:'Locum',        num:true,  sort:r=>r.locum},
+  {k:'trueMargin',grp:'→ Bottom line',h:'True margin',num:true,sort:r=>r.trueMargin, final:true}
+];
+
+/* ---- State ---- */
+const DATA_MIN = ROWS.reduce((m,r)=>r.date<m?r.date:m, ROWS[0].date);
+const DATA_MAX = ROWS.reduce((m,r)=>r.date>m?r.date:m, ROWS[0].date);
+let state = {from:DATA_MIN,to:DATA_MAX,doctor:'',cat:'',show:'',search:'',sortKey:'date',sortDir:1};
+
+/* ---- Filtering ---- */
+function filtered(){
+  return ROWS.filter(r=>{
+    if(state.from && r.date<state.from) return false;
+    if(state.to && r.date>state.to) return false;
+    if(state.doctor && r.doctor!==state.doctor) return false;
+    if(state.cat && r.cat!==state.cat) return false;
+    if(state.show==='show' && !r.matched) return false;
+    if(state.show==='noshow' && r.matched) return false;
+    if(state.search){
+      const q=state.search.toLowerCase();
+      if(!(r.patient.toLowerCase().includes(q)||r.proc.toLowerCase().includes(q)||r.doctor.toLowerCase().includes(q)||r.cat.toLowerCase().includes(q))) return false;
+    }
+    return true;
+  }).sort((a,b)=>{
+    const col=COLS.find(c=>c.k===state.sortKey)||COLS[0];
+    let av=col.sort(a),bv=col.sort(b);
+    if(av<bv) return -1*state.sortDir; if(av>bv) return 1*state.sortDir; return 0;
+  });
+}
+
+/* ---- Render funnel ribbon (totals of current filter) ---- */
+function renderFunnel(rows){
+  const t = totals(rows);
+  const steps = [
+    {cls:'s1', l:'Visits',       i:'▸', v:rows.length+' · '+Math.round(t.dur/60)+'h chair'},
+    {cls:'s1', l:'Production',   i:'▸', v:rm(t.production)},
+    {cls:'s2', l:'− Lab (est.)', i:'▸', v:rm(t.lab)},
+    {cls:'s3', l:'Contribution', i:'▸', v:rm(t.contribution)+' ('+pct(t.production?t.contribution/t.production:0)+')'},
+    {cls:'s4', l:'− Locum',      i:'▸', v:rm(t.locum)},
+    {cls:'s4', l:'− Burn',       i:'▸', v:rm(t.burn)},
+    {cls:'final', l:'True margin', i:'', v:rm(t.trueMargin)+' ('+pct(t.production?t.trueMargin/t.production:0)+')'}
+  ];
+  document.getElementById('funnel').innerHTML = steps.map((s,i)=>`
+    <div class="fstep ${s.cls}">
+      <div class="fl">${s.l}</div>
+      <div class="fv">${s.v}</div>
+      ${i<steps.length-1?'<span class="arrow">➜</span>':''}
+    </div>`).join('');
+}
+
+function totals(rows){
+  const t={production:0,lab:0,contribution:0,locum:0,burn:0,dur:0,trueMargin:0,shows:0};
+  rows.forEach(r=>{t.production+=r.production;t.lab+=r.lab;
+    t.contribution+=r.contribution;t.locum+=r.locum;t.burn+=r.burn;t.dur+=r.dur;
+    t.trueMargin+=r.trueMargin;t.shows++;});
+  return t;
+}
+
+/* ---- Render table ---- */
+function cmClass(p){ return p>=0.6?'good':p>=0.35?'mid':'bad'; }
+function renderTable(){
+  const rows = filtered();
+  // head
+  document.getElementById('tx-head').innerHTML = COLS.map(c=>{
+    const sorted = state.sortKey===c.k;
+    const caret = sorted ? (state.sortDir>0?'▲':'▼') : '↕';
+    return `<th class="${c.num?'num':''} ${c.final?'col-final':''} ${sorted?'sorted':''}" data-k="${c.k}">
+      ${c.grp?`<span class="grp">${c.grp}</span>`:'<span class="grp">&nbsp;</span>'}${c.h}<span class="sortcaret">${caret}</span></th>`;
+  }).join('');
+
+  // body
+  document.getElementById('tx-body').innerHTML = rows.map(r=>{
+    return `<tr>
+      <td class="mono">${dlabel(r.date)}</td>
+      <td><span class="pt-name">${r.patient}</span></td>
+      <td>${r.proc}<span class="sub">${r.cat}</span></td>
+      <td><span class="doc"><span class="dot" style="background:${r.color}"></span>${r.doctor}</span></td>
+      <td class="num mono">${r.production?rm0(r.production):'—'}</td>
+      <td class="num mono">${r.lab?rm0(r.lab):'—'}</td>
+      <td class="num mono">${rm0(r.contribution)}<span class="cm-pct ${cmClass(r.contribPct)}">${r.production?pct(r.contribPct):'–'}</span></td>
+      <td class="num mono" title="${r.matched?'real appointment duration':'estimated (no appt match)'}">${r.dur}${r.matched?'':'<span style="color:var(--warn)">*</span>'}</td>
+      <td class="num mono">${rm0(r.burn)}</td>
+      <td class="num mono">${r.locum?rm0(r.locum):'—'}</td>
+      <td class="num mono col-final ${r.trueMargin<0?'neg':''}">${r.trueMargin<0?'−':''}${rm0(Math.abs(r.trueMargin))}</td>
+    </tr>`;
+  }).join('') || `<tr><td colspan="${COLS.length}" style="text-align:center;color:var(--ink-3);padding:30px">No visits match these filters.</td></tr>`;
+
+  // foot
+  const t = totals(rows);
+  document.getElementById('tx-foot').innerHTML = `<tr>
+    <td colspan="4">TOTALS · ${rows.length} visits</td>
+    <td class="num">${rm0(t.production)}</td>
+    <td class="num">${rm0(t.lab)}</td>
+    <td class="num">${rm0(t.contribution)}</td>
+    <td class="num">${Math.round(t.dur/60)}h</td>
+    <td class="num">${rm0(t.burn)}</td>
+    <td class="num">${rm0(t.locum)}</td>
+    <td class="num col-final">${rm0(t.trueMargin)}</td>
+  </tr>`;
+
+  renderFunnel(rows);
+  renderRecon(rows);
+  // filter note
+  document.getElementById('filter-note').innerHTML =
+    (state.doctor||state.cat||state.show||state.search)
+      ? `<span class="chip">Filtered: <b>${rows.length}</b> of ${ROWS.length} lines <button id="chip-clear">✕</button></span>`
+      : `Showing all <b>${ROWS.length}</b> lines`;
+  const cc=document.getElementById('chip-clear'); if(cc) cc.onclick=resetFilters;
+}
+
+/* ---- GM reconciliation strip ---- */
+function renderRecon(rows){
+  const t=totals(rows);
+  const cells=[
+    {l:'Σ Production', v:rm(t.production)},
+    {l:'Σ Lab cost', v:rm(t.lab)},
+    {l:'Σ Contribution margin', v:rm(t.contribution)},
+    {l:'Σ Locum payout (recon target)', v:rm(t.locum)},
+    {l:'Σ Burn (chair-time)', v:rm(t.burn)},
+    {l:'Σ True margin', v:rm(t.trueMargin), match:true}
+  ];
+  document.getElementById('recon-grid').innerHTML = cells.map(c=>`
+    <div class="cell ${c.match?'match':''}"><div class="l">${c.l}</div><div class="v">${c.v}</div></div>`).join('');
+}
+
+/* ============ SUMMARY VIEW ============ */
+function groupBy(keyFn, data){
+  const m={};
+  (data||ROWS).forEach(r=>{const k=keyFn(r); (m[k]=m[k]||[]).push(r);});
+  return m;
+}
+// Rows inside the active date window (drives the whole summary view).
+function windowed(){
+  return ROWS.filter(r=>(!state.from||r.date>=state.from)&&(!state.to||r.date<=state.to));
+}
+const dpretty = ds => { const d=new Date(ds); return d.toLocaleDateString('en-MY',{day:'numeric',month:'short',year:'numeric'}); };
+function renderSummary(){
+  const WIN=windowed();
+  const t=totals(WIN);
+  // active-window badge
+  document.getElementById('window-badge').innerHTML =
+    `<span class="wl">Window</span>${dpretty(state.from)} → ${dpretty(state.to)}`;
+  // KPIs
+  const kpis=[
+    {l:'Total production', i:'▦', v:rm(t.production), s:ROWS.length+' lines · '+t.shows+' showed'},
+    {l:'Total true margin', i:'◆', v:rm(t.trueMargin), s:pct(t.trueMargin/t.production)+' of production', accent:true},
+    {l:'Contribution margin', i:'◇', v:pct1(t.contribution/t.production), s:rm(t.contribution)+' before locum & burn'},
+    {l:'Locum % of production', i:'◷', v:pct1(t.locum/t.production), s:rm(t.locum)+' total payout'}
+  ];
+  document.getElementById('kpis').innerHTML = kpis.map(k=>`
+    <div class="kpi ${k.accent?'accent':''}">
+      <div class="kl"><span class="ki">${k.i}</span>${k.l}</div>
+      <div class="kv">${k.v}</div>
+      <div class="ks">${k.s}</div>
+    </div>`).join('');
+
+  // Bars by doctor (width = production, label = true margin)
+  const byDoc = groupBy(r=>r.doctor, WIN);
+  const docAgg = Object.entries(byDoc).map(([d,rs])=>({d,...totals(rs),color:DOCTORS[d].color}))
+    .sort((a,b)=>b.production-a.production);
+  const maxProd = Math.max(...docAgg.map(x=>x.production));
+  document.getElementById('bars-doctor').innerHTML = docAgg.map(x=>{
+    const w=(x.production/maxProd*100).toFixed(1);
+    const mw=(x.trueMargin/x.production*100); // margin share inside the bar
+    return `<div class="bar-row" data-doctor="${x.d}">
+      <div class="brl"><span class="dot" style="background:${x.color}"></span>${x.d}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${w}%;background:var(--funnel-3)">
+        <div class="bar-fill" style="width:${Math.max(0,mw)}%;background:var(--teal)"></div>
+        <span class="blabel" style="color:var(--teal-dd);position:relative;z-index:2">${rm0(x.production)}</span>
+      </div></div>
+      <div class="brv">${rm0(x.trueMargin)}<small>${pct(x.trueMargin/x.production)} mgn</small></div>
+    </div>`;
+  }).join('');
+
+  // Bars by category (margin %)
+  const byCat = groupBy(r=>r.cat, WIN);
+  const catAgg = Object.entries(byCat).map(([c,rs])=>({c,...totals(rs)}))
+    .map(x=>({...x,mpct:x.production?x.trueMargin/x.production:0}))
+    .sort((a,b)=>b.production-a.production);
+  document.getElementById('bars-cat').innerHTML = catAgg.map(x=>{
+    const w=Math.max(2,Math.min(100,x.mpct*100*1.4)); // scale for visibility
+    const col = x.mpct>=0.45?'var(--pos)':x.mpct>=0.25?'var(--warn)':'var(--neg)';
+    return `<div class="bar-row" data-cat="${x.c}">
+      <div class="brl">${x.c}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${w}%;background:${col}">
+        <span class="blabel">${pct(x.mpct)}</span></div></div>
+      <div class="brv">${rm0(x.trueMargin)}<small>${rm0(x.production)} prod</small></div>
+    </div>`;
+  }).join('');
+
+  // Daily trend
+  const byDay = groupBy(r=>r.date, WIN);
+  const days = Object.keys(byDay).sort();
+  const dayAgg = days.map(d=>({d,...totals(byDay[d])}));
+  const maxD = Math.max(...dayAgg.map(x=>x.production));
+  document.getElementById('daily').innerHTML = dayAgg.map(x=>{
+    const ph=(x.production/maxD*130).toFixed(0);
+    const mh=(Math.max(0,x.trueMargin)/maxD*130).toFixed(0);
+    return `<div class="dbar" data-date="${x.d}" title="${dlabel(x.d)}: prod ${rm(x.production)}, margin ${rm(x.trueMargin)}">
+      <div class="stack" style="height:${ph}px">
+        <div class="seg-prod" style="height:${ph-mh}px"></div>
+        <div class="seg-margin" style="height:${mh}px"></div>
+      </div>
+      <div class="dlab">${dlabel(x.d)}</div>
+    </div>`;
+  }).join('');
+
+  // Locum table
+  document.querySelector('#locum-table tbody').innerHTML = docAgg
+    .sort((a,b)=>b.locum-a.locum).map(x=>{
+    const d=DOCTORS[x.d];
+    return `<tr data-doctor="${x.d}">
+      <td><span class="doc"><span class="dot" style="background:${x.color}"></span>${x.d}</span></td>
+      <td>${pct(d.tier)}${d.exempt10?' · no-10%':''}</td>
+      <td class="num mono">${rm0(x.locum)}</td>
+      <td class="num mono">${pct(x.production?x.locum/x.production:0)}</td>
+    </tr>`;
+  }).join('');
+
+  // notes
+  const months = 6, burnMo = totals(windowed()).burn; // current-window burn
+  document.getElementById('sum-note').innerHTML =
+    `<b>Data provenance.</b> Production is <b>real</b> from OpenDent (${MD.meta.visits} visits, ${MD.meta.period[0]}→${MD.meta.period[1]}; total collection RM${rm0(MD.meta.totalCollection)} ≈ production, a good cross-check). `+
+    `A <b>visit = one appointment</b> (AptNum); its production lines are grouped, so chair-time is counted once. `+
+    `<b>Burn</b> = appointment duration × RM${BURN_RATE}/hour ${BURN_RATE===BURN.loaded?'(loaded, incl. depreciation)':'(cash, ex-depreciation)'} — <b>${MD.meta.durCoverage}% real durations</b> from the OpenDent appointment join (rest ★ estimated). `+
+    `<b>⚠ Read the bottom line carefully:</b> this burn is only the chair-time these 8 doctors actually billed (~RM${rm0(BURN_RATE*2239/months)}/mo of the clinic's ~RM118,000/mo total fixed overhead). The unrecovered ~RM58k/mo is <b>under-absorbed overhead — idle chairs + support/admin time</b>, i.e. the "fill empty chairs" lever. So practice-level true margin here is BEFORE that under-absorption; charging full overhead lands the clinic near break-even (consistent with the P&L). `+
+    `<b>Lab cost = %-of-production estimate</b> (real per-case lab pending EIV/AutoCount). Per-visit locum is a production proxy; authoritative = monthly collection-based calc.`;
+
+  // drill handlers
+  document.querySelectorAll('[data-doctor]').forEach(el=>el.onclick=()=>drill({doctor:el.dataset.doctor}));
+  document.querySelectorAll('[data-cat]').forEach(el=>el.onclick=()=>drill({cat:el.dataset.cat}));
+  document.querySelectorAll('[data-date]').forEach(el=>el.onclick=()=>{ state.search=''; switchView('tx'); /* date drill: filter via search on dd not ideal; use doctor/cat */ });
+}
+
+/* ---- Drill from summary into filtered table ---- */
+function drill(f){
+  resetFilters(true);
+  if(f.doctor){state.doctor=f.doctor; document.getElementById('f-doctor').value=f.doctor;}
+  if(f.cat){state.cat=f.cat; document.getElementById('f-cat').value=f.cat;}
+  switchView('tx');
+  renderTable();
+}
+
+/* ---- View switching ---- */
+/* ============ EFFICIENCY VIEW — true margin per chair-hour ============ */
+function renderEfficiency(){
+  const W = windowed();
+  document.getElementById('window-badge-eff').innerHTML =
+    `<span class="wl">Window</span>${dpretty(state.from)} → ${dpretty(state.to)}`;
+
+  const byDoc = groupBy(r=>r.doctor, W);
+  const docs = Object.entries(byDoc).map(([d,rs])=>{
+    const t=totals(rs), h=t.dur/60;
+    return {d, h, tm:t.trueMargin, visits:rs.length, color:(DOCTORS[d]||{}).color||'#888',
+      mph:h?t.trueMargin/h:0, pph:h?t.production/h:0, lph:h?t.locum/h:0, bph:h?t.burn/h:0};
+  }).filter(x=>x.h>0).sort((a,b)=>b.mph-a.mph);
+  const maxM = Math.max(1,...docs.map(x=>Math.abs(x.mph)));
+  document.getElementById('eff-bars-doctor').innerHTML = docs.map(x=>{
+    const neg=x.mph<0, w=Math.max(2,Math.abs(x.mph)/maxM*100);
+    return `<div class="bar-row" data-doctor="${x.d}">
+      <div class="brl"><span class="dot" style="background:${x.color}"></span>${x.d}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${w}%;background:${neg?'var(--neg)':'var(--teal)'}">
+        <span class="blabel" style="color:#fff;position:relative;z-index:2">RM${rm0(x.mph)}/h</span></div></div>
+      <div class="brv">${x.h.toFixed(0)}h<small>${x.visits} visits</small></div></div>`;
+  }).join('');
+
+  const byCat = groupBy(r=>r.cat, W);
+  const cats = Object.entries(byCat).map(([c,rs])=>{
+    const t=totals(rs), h=t.dur/60;
+    return {c, h, tm:t.trueMargin, mph:h?t.trueMargin/h:0};
+  }).filter(x=>x.h>0).sort((a,b)=>b.mph-a.mph);
+  const maxC = Math.max(1,...cats.map(x=>Math.abs(x.mph)));
+  document.getElementById('eff-bars-cat').innerHTML = cats.map(x=>{
+    const neg=x.mph<0, w=Math.max(2,Math.abs(x.mph)/maxC*100);
+    const col=neg?'var(--neg)':x.mph>=300?'var(--pos)':x.mph>=100?'var(--warn)':'var(--funnel-3)';
+    return `<div class="bar-row" data-cat="${x.c}">
+      <div class="brl">${x.c}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${w}%;background:${col}">
+        <span class="blabel">RM${rm0(x.mph)}/h</span></div></div>
+      <div class="brv">${rm0(x.tm)}<small>${x.h.toFixed(0)}h</small></div></div>`;
+  }).join('');
+
+  document.getElementById('eff-body').innerHTML = docs.map(x=>`
+    <tr data-doctor="${x.d}">
+      <td><span class="doc"><span class="dot" style="background:${x.color}"></span>${x.d}</span></td>
+      <td class="num mono">${x.h.toFixed(0)}</td>
+      <td class="num mono">${rm0(x.pph)}</td>
+      <td class="num mono">${rm0(x.lph)}</td>
+      <td class="num mono">${rm0(x.bph)}</td>
+      <td class="num mono col-final ${x.mph<0?'neg':''}">${x.mph<0?'−':''}RM${rm0(Math.abs(x.mph))}</td>
+      <td class="num mono">${rm0(x.tm)}</td></tr>`).join('');
+
+  const all=totals(W), H=all.dur/60, best=docs[0], worst=docs[docs.length-1];
+  const k=[
+    {l:'Avg true margin / chair-hr', v:'RM'+rm0(H?all.trueMargin/H:0), s:H.toFixed(0)+' chair-hrs in window', accent:true},
+    {l:'Most efficient', v:best?best.d.replace('Dr ',''):'—', s:best?'RM'+rm0(best.mph)+'/chair-hr':''},
+    {l:'Least efficient', v:worst?worst.d.replace('Dr ',''):'—', s:worst?'RM'+rm0(worst.mph)+'/chair-hr':''},
+    {l:'Top-vs-bottom spread', v:(best&&worst&&worst.mph>0)?Math.round(best.mph/worst.mph)+'×':'—', s:'true margin per chair-hr'}
+  ];
+  document.getElementById('eff-kpis').innerHTML = k.map(x=>`
+    <div class="kpi ${x.accent?'accent':''}">
+      <div class="kl"><span class="ki">◷</span>${x.l}</div>
+      <div class="kv">${x.v}</div><div class="ks">${x.s}</div></div>`).join('');
+
+  document.getElementById('eff-note').innerHTML =
+    `<b>Why this matters.</b> A chair-hour is the clinic's scarcest resource. <i>Production/hr</i> is raw throughput; <i>true-margin/hr</i> is what actually reaches the bottom line after locum & burn. `+
+    `A specialist doing implants can earn many times the true margin per chair-hour of high-volume low-value work — so the two levers are <b>case-mix</b> (steer chair-time toward higher-margin work) and <b>utilisation</b> (fill idle chairs). `+
+    `Same caveats as Summary: burn uses ${MD.meta.durCoverage}% real durations; lab is a %-of-production estimate.`;
+
+  document.querySelectorAll('#view-efficiency [data-doctor]').forEach(el=>el.onclick=()=>drill({doctor:el.dataset.doctor}));
+  document.querySelectorAll('#view-efficiency [data-cat]').forEach(el=>el.onclick=()=>drill({cat:el.dataset.cat}));
+}
+
+function switchView(v){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.view===v));
+  document.getElementById('view-tx').classList.toggle('active',v==='tx');
+  document.getElementById('view-summary').classList.toggle('active',v==='summary');
+  document.getElementById('view-efficiency').classList.toggle('active',v==='efficiency');
+  if(v==='efficiency') renderEfficiency();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ---- Filters wiring ---- */
+function initFilters(){
+  const fd=document.getElementById('f-doctor');
+  fd.innerHTML='<option value="">All doctors</option>'+Object.keys(DOCTORS).map(d=>`<option>${d}</option>`).join('');
+  const cats=[...new Set(ROWS.map(r=>r.cat))].sort();
+  const fc=document.getElementById('f-cat');
+  fc.innerHTML='<option value="">All categories</option>'+cats.map(c=>`<option>${c}</option>`).join('');
+
+  // date-window controls
+  const ff=document.getElementById('f-from'), ft=document.getElementById('f-to');
+  ff.min=ft.min=DATA_MIN; ff.max=ft.max=DATA_MAX; ff.value=state.from; ft.value=state.to;
+  ff.onchange=e=>{state.from=e.target.value; document.getElementById('f-preset').value='all'; renderAll();};
+  ft.onchange=e=>{state.to=e.target.value; document.getElementById('f-preset').value='all'; renderAll();};
+  document.getElementById('f-preset').onchange=e=>{applyPreset(e.target.value);};
+
+  fd.onchange=e=>{state.doctor=e.target.value;renderTable();};
+  fc.onchange=e=>{state.cat=e.target.value;renderTable();};
+  document.getElementById('f-show').onchange=e=>{state.show=e.target.value;renderTable();};
+  document.getElementById('f-search').oninput=e=>{state.search=e.target.value;renderTable();};
+  document.getElementById('f-clear').onclick=()=>resetFilters();
+  // depreciation / burn-basis toggle → recompute burn on every row
+  document.getElementById('f-dep').onchange=e=>{
+    BURN_RATE = e.target.value==='exdep' ? BURN.exdep : BURN.loaded;
+    rebuildRows(); renderAll();
+  };
+  // data-provenance pill
+  document.getElementById('data-pill').textContent =
+    `REAL DATA · ${MD.meta.period[0]}→${MD.meta.period[1]} · ${MD.meta.visits} visits`;
+}
+// Re-render both the ledger and the summary (date window affects both).
+function renderAll(){ renderTable(); renderSummary(); renderEfficiency(); }
+// Presets are anchored to the latest data date (acts as "today" for the demo).
+function applyPreset(p){
+  const max=new Date(DATA_MAX); let from=DATA_MIN, to=DATA_MAX;
+  const iso=d=>d.toISOString().slice(0,10);
+  if(p==='mtd'){ from=iso(new Date(max.getFullYear(),max.getMonth(),1)); to=DATA_MAX; }
+  else if(p==='last'){ from=iso(new Date(max.getFullYear(),max.getMonth()-1,1)); to=iso(new Date(max.getFullYear(),max.getMonth(),0)); }
+  else if(p==='qtd'){ const q=Math.floor(max.getMonth()/3)*3; from=iso(new Date(max.getFullYear(),q,1)); to=DATA_MAX; }
+  else if(p==='ytd'){ from=iso(new Date(max.getFullYear(),0,1)); to=DATA_MAX; }
+  state.from=from; state.to=to;
+  document.getElementById('f-from').value=from; document.getElementById('f-to').value=to;
+  renderAll();
+}
+function resetFilters(silent){
+  state.from=DATA_MIN;state.to=DATA_MAX;state.doctor='';state.cat='';state.show='';state.search='';
+  document.getElementById('f-from').value=DATA_MIN;
+  document.getElementById('f-to').value=DATA_MAX;
+  document.getElementById('f-preset').value='all';
+  document.getElementById('f-doctor').value='';
+  document.getElementById('f-cat').value='';
+  document.getElementById('f-show').value='';
+  document.getElementById('f-search').value='';
+  if(!silent) renderAll();
+}
+
+/* ---- Sorting (header click) ---- */
+function initSort(){
+  document.getElementById('tx-head').addEventListener('click',e=>{
+    const th=e.target.closest('th'); if(!th) return;
+    const k=th.dataset.k;
+    if(state.sortKey===k) state.sortDir*=-1; else {state.sortKey=k; state.sortDir=1;}
+    renderTable();
+  });
+}
+
+/* ---- Tabs ---- */
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>switchView(t.dataset.view));
+
+/* ---- Init ---- */
+initFilters();
+initSort();
+renderTable();
+renderSummary();
+</script>
+</body>
+</html>
