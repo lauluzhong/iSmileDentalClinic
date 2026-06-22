@@ -366,14 +366,20 @@ function render(){
   else if(h==="workflows")v.innerHTML=viewWorkflows();
   else if(h==="agents"){v.innerHTML=viewAgents();initOffice();}
   else if(h==="initiatives")v.innerHTML=viewInits();
+  else if(h==="margin")v.innerHTML=viewMargin();
   else v.innerHTML=viewOrg();
   paintTabs(h);window.scrollTo(0,0);
 }
 function paintTabs(h){
-  const t=[["org","🏛️","Org"],["workflows","🔀","Workflows"],["agents","👥","Office"],["initiatives","📋","Initiatives"]];
+  const t=[["org","🏛️","Org"],["workflows","🔀","Workflows"],["agents","👥","Office"],["initiatives","📋","Initiatives"],["margin","📈","Practice"]];
   document.getElementById("tabs").innerHTML=t.map(([k,i,l])=>`<button class="${h===k||(k==='org'&&h.startsWith('dept/'))?'active':''}" onclick="location.hash='${k}'"><span class="ic">${i}</span>${l}</button>`).join("");
 }
 
+function viewMargin(){
+  return `<div class="h">Practice — margin &amp; efficiency</div>
+   <div class="subt">Live margin, transactions and chair-time efficiency. Source: OpenDent. Full dashboard embedded below.</div>
+   <iframe src="/dashboards/margin-dashboard.html" title="Margin &amp; Efficiency dashboard" style="width:100%;height:calc(100vh - 140px);border:0;border-radius:12px;background:var(--panel)"></iframe>`;
+}
 function nbDept(d){
   const run=isRunning(d.id);const cls=run?"run":(d.status==="live"?"live":"");const dot=run?"s-run":sDot[d.status];
   return `<div class="nb dept ${cls}" onclick="location.hash='dept/${d.id}'"><div class="nbt"><span class="sdot ${dot}"></span>${d.n}</div><div class="nbo">👤 ${d.o}</div><div class="cnt">${d.inits.length?d.inits.length+' initiative'+(d.inits.length>1?'s':''):'—'} · ${run?'RUNNING':sLabel[d.status]}</div></div>`;
