@@ -168,6 +168,36 @@
 <body>
 <h2 class="sr-only">iSmile transaction-level profitability dashboard prototype with a left-to-right margin funnel and a higher-level summary view, using sample data.</h2>
 
+<!-- PIN gate: matches the Command Center (same origin → seamless inside the iframe). -->
+<div id="cc-lock" style="position:fixed;inset:0;z-index:9999;background:var(--bg,#F4F8FA);display:flex;align-items:center;justify-content:center;font-family:var(--font,-apple-system,Segoe UI,Roboto,sans-serif)">
+  <div style="text-align:center;max-width:300px;width:90%">
+    <div style="font-size:15px;font-weight:600;color:var(--ink,#10212A)">iSmile · Profitability</div>
+    <div style="font-size:13px;color:var(--ink-3,#7C939E);margin-top:4px">Enter 6-digit PIN to view</div>
+    <div id="cc-dots" style="display:flex;gap:10px;justify-content:center;margin:18px 0 4px"></div>
+    <div id="cc-err" style="height:16px;font-size:12px;color:var(--neg,#D8503A)"></div>
+    <div id="cc-pad" style="display:grid;grid-template-columns:repeat(3,64px);gap:10px;justify-content:center;margin-top:10px"></div>
+  </div>
+</div>
+<script>
+(function(){
+  var PIN="242235", entered="";
+  function dots(){var d=document.getElementById("cc-dots");if(!d)return;d.innerHTML="";for(var i=0;i<6;i++){var s=document.createElement("span");s.style.cssText="width:13px;height:13px;border-radius:50%;display:inline-block;border:1.5px solid #0B7E9C;"+(i<entered.length?"background:#00A0C6;border-color:#00A0C6;":"");d.appendChild(s);}}
+  function reveal(){var l=document.getElementById("cc-lock");if(l)l.style.display="none";window.__ccUnlocked=true;if(typeof window.__ccBoot==="function")window.__ccBoot();}
+  function key(n){
+    if(n==="del"){entered=entered.slice(0,-1);dots();return;}
+    if(entered.length>=6)return; entered+=n; dots();
+    if(entered.length===6){
+      if(entered===PIN){try{localStorage.setItem("ismile_cc","1");}catch(e){} reveal();}
+      else{var er=document.getElementById("cc-err");if(er)er.textContent="Wrong PIN";setTimeout(function(){entered="";dots();if(er)er.textContent="";},700);}
+    }
+  }
+  function pad(){var p=document.getElementById("cc-pad");if(!p)return;["1","2","3","4","5","6","7","8","9","","0","del"].forEach(function(k){var b=document.createElement("button");b.type="button";b.style.cssText="height:54px;font-size:18px;border:1px solid #D2DEE4;background:#fff;border-radius:10px;cursor:pointer;color:#10212A";if(k===""){b.style.visibility="hidden";b.disabled=true;}else if(k==="del"){b.textContent="⌫";b.onclick=function(){key("del");};}else{b.textContent=k;b.onclick=function(){key(k);};}p.appendChild(b);});}
+  pad();dots();
+  document.addEventListener("keydown",function(e){if(document.getElementById("cc-lock").style.display==="none")return;if(e.key>="0"&&e.key<="9")key(e.key);else if(e.key==="Backspace")key("del");});
+  try{if(localStorage.getItem("ismile_cc")==="1")reveal();}catch(e){}
+})();
+</script>
+
 <div class="topbar">
   <div class="topbar-in">
     <div class="brand">
@@ -863,11 +893,10 @@ function initSort(){
 /* ---- Tabs ---- */
 document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>switchView(t.dataset.view));
 
-/* ---- Init ---- */
-initFilters();
-initSort();
-renderTable();
-renderSummary();
+/* ---- Init (gated: render only once the PIN gate is unlocked) ---- */
+function __ccBoot(){ initFilters(); initSort(); renderTable(); renderSummary(); }
+window.__ccBoot=__ccBoot;
+if(window.__ccUnlocked) __ccBoot();
 </script>
 </body>
 </html>
