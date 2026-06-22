@@ -122,10 +122,64 @@ function validateCompliance(filename, errors) {
   errors.push(`${filename.replace('.md', '')}: marketing compliance failed: ${output || 'unknown validator error'}`);
 }
 
+function readIndexPosts() {
+  const data = JSON.parse(fs.readFileSync(INDEX_PATH, 'utf-8'));
+  return new Map(data.map(post => [post.slug, post]));
+}
+
+function indexComplianceSnippet(post) {
+  const faqLines = Array.isArray(post.faq)
+    ? post.faq.flatMap(item => [item?.q ? `FAQ: ${item.q}` : '', item?.a ? `Answer: ${item.a}` : ''])
+    : [];
+
+  return [
+    post.title ? `Title: ${post.title}` : '',
+    post.excerpt ? `Excerpt: ${post.excerpt}` : '',
+    ...faqLines,
+  ]
+    .filter(Boolean)
+    .join('\n');
+}
+
+function validateIndexCompliance(filename, indexPosts, errors) {
+  const validatorPath = complianceValidatorPath();
+  if (!validatorPath) {
+    return;
+  }
+
+  const slug = filename.replace('.md', '');
+  const post = indexPosts.get(slug);
+  if (!post) {
+    return;
+  }
+
+  const snippet = indexComplianceSnippet(post);
+  if (!snippet) {
+    return;
+  }
+
+  const result = spawnSync('python3', [validatorPath, '--text', snippet], {
+    encoding: 'utf-8',
+  });
+
+  if (result.status === 0) {
+    return;
+  }
+
+  const output = [result.stdout, result.stderr]
+    .filter(Boolean)
+    .join('\n')
+    .trim()
+    .replace(/\s+/g, ' ');
+
+  errors.push(`${slug}: blog-index marketing compliance failed: ${output || 'unknown validator error'}`);
+}
+
 function validateFrontmatter() {
   const files = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.md'));
   const errors = [];
   const complianceFiles = complianceTargets();
+  const indexPosts = readIndexPosts();
 
   files.forEach(filename => {
     const raw = fs.readFileSync(path.join(CONTENT_DIR, filename), 'utf-8');
@@ -169,6 +223,7 @@ function validateFrontmatter() {
 
     if (complianceFiles.has(filename)) {
       validateCompliance(filename, errors);
+      validateIndexCompliance(filename, indexPosts, errors);
     }
   });
 
