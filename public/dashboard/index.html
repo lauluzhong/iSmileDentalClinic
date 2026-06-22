@@ -267,6 +267,8 @@
 <script>
 const PIN="242235";
 const STATUS_URL="https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/status.json";
+const RECALL_URL="https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/recall.json";
+let RECALL=null;          // recall funnel snapshot (from the Contabo recall cron)
 let RUNNING=[];           // workflow/job ids running now (from live status feed)
 let JOBLAST={};           // jobid -> last run string
 let alogLines=[];         // office activity log
@@ -381,6 +383,20 @@ function viewMargin(){
    <div class="subt">Live margin, transactions and chair-time efficiency. Source: OpenDent. Full dashboard embedded below.</div>
    <iframe src="/dashboard/margin" title="Margin &amp; Efficiency dashboard" style="width:100%;height:calc(100vh - 140px);border:0;border-radius:12px;background:var(--panel)"></iframe>`;
 }
+function recallPanel(){
+  if(!RECALL){return `<div class="card"><div class="h" style="margin:0 0 6px">📨 Recall funnel</div><div class="foot" style="margin:0">Loading the latest funnel from the recall mini-CRM…</div></div>`;}
+  const c=RECALL.cumulative||{},m=RECALL.this_month||{};
+  const n=v=>(v==null?'—':Number(v).toLocaleString());
+  const row=(label,val)=>`<div class="irow"><div class="it">${label}</div><span class="badge b-active">${n(val)}</span></div>`;
+  return `<div class="card" style="margin-bottom:12px">
+    <div class="h" style="margin:0 0 4px">📨 Recall funnel <span class="badge" style="background:#eaf3f7;color:#0B7E9C">as of ${RECALL.as_of}</span></div>
+    <div class="foot" style="margin:0 0 10px">Live from the WhatsApp recall webhooks (redirect.ismile.com.my), published daily by the Contabo recall cron.</div>
+    <div class="subt" style="margin:0 0 4px;font-weight:600">Cumulative (all-time)</div>
+    ${row("Sent",c.sent)}${row("Delivered",c.delivered)}${row("Read",c.read)}${row("Failed",c.failed)}${row("Clicks",c.clicks)}${row("Replies",c.replies)}
+    <div class="subt" style="margin:12px 0 4px;font-weight:600">This month</div>
+    ${row("Sent",m.sent)}${row("Clicks",m.clicks)}${row("Replies",m.replies)}
+    <div class="foot" style="margin:10px 0 0">⚠️ Funnel counts only. Conversion % is deliberately NOT shown here — it requires the latest OpenDent booking export and would drift down falsely if reported live.</div></div>`;
+}
 function viewAnalytics(){
   return `<div class="back" onclick="location.hash='dept/branding'">‹ Branding &amp; Marketing</div>
    <div class="h">Website analytics</div>
@@ -408,6 +424,7 @@ function viewDept(id){
   const d=findDept(id);if(!d)return `<div class="back" onclick="location.hash='org'">‹ back</div>Not found.`;
   const run=isRunning(id);
   let b=`<div class="back" onclick="location.hash='org'">‹ Org chart</div><div class="title">${d.n} <span class="badge ${run?'b-active':sBadge[d.status]}">${run?'RUNNING':sLabel[d.status]}</span></div><div class="subt">${d.div} · 👤 ${d.o}</div>`;
+  if(id==="crm"){b+=recallPanel();}
   if(id==="branding"){b+=marketingDetail();}
   else if(d.inits.length){b+=`<div class="card"><div class="h" style="margin:0 0 10px">Initiatives</div>`+d.inits.map(i=>`<div class="irow"><span class="sdot ${sDot[i.status]}"></span><div class="it">${i.n}<div class="ino">${i.note||''}</div></div><span class="badge ${sBadge[i.status]}">${sLabel[i.status]}</span></div>`).join("")+`<div class="foot">Not yet wired into the live agent system.</div></div>`;}
   else{b+=`<div class="card"><div class="foot" style="margin:0">No active initiatives in INITIATIVES.md for this department yet.</div></div>`;}
@@ -823,7 +840,14 @@ function key(n){
   if(entered.length===6){if(entered===PIN){try{localStorage.setItem("ismile_cc","1")}catch(e){}unlock();}
     else{document.getElementById("err").textContent="Wrong PIN";setTimeout(()=>{entered="";paintPin();document.getElementById("err").textContent=""},700);}}
 }
-function unlock(){document.getElementById("lock").style.display="none";document.getElementById("app").style.display="block";if(!location.hash)location.hash="org";render();poll();setInterval(poll,20000);}
+function unlock(){document.getElementById("lock").style.display="none";document.getElementById("app").style.display="block";if(!location.hash)location.hash="org";render();poll();setInterval(poll,20000);fetchRecall();setInterval(fetchRecall,300000);}
+async function fetchRecall(){
+  try{
+    const r=await fetch(RECALL_URL+"?t="+Date.now(),{cache:"no-store"});
+    if(!r.ok)return;RECALL=await r.json();
+    if(location.hash.replace("#","")==="dept/crm")render(); // refresh if currently viewing CRM
+  }catch(e){}
+}
 function buildPad(){const pad=document.getElementById("pad");["1","2","3","4","5","6","7","8","9","blank","0","del"].forEach(k=>{const b=document.createElement("button");if(k==="blank"){b.className="blank";b.disabled=true}else if(k==="del"){b.textContent="⌫";b.onclick=()=>key("del")}else{b.textContent=k;b.onclick=()=>key(k)}pad.appendChild(b)});paintPin();}
 
 /* Access is enforced server-side by Vercel middleware (HTTP Basic Auth on /dashboard
