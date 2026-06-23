@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-23 12:15 MYT",
+  "updated": "2026-06-24 00:37 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -77,7 +77,7 @@
       "owner": "Lu Zhong",
       "coOwner": "Claude (SQL/analysis)",
       "why": "The only near-term revenue lever. Retention game: warm lapsed families fill idle chairs cheaply (~170 idle chair-hours/month). Lu Zhong's personal focus.",
-      "next": "Build the prioritized call list from ENRICHED v2: high-ticket families + daytime-reachable individuals (retired / homemakers). Intern identifying low-hanging fruit; owner meets him Wed AM 24 Jun.",
+      "next": "Call list BUILT 23 Jun (CRM/Reactivation Call List 2026.xlsx \u2014 3 ranked groups, 1,156 targets: Families 261 / DaytimeRetired 433 / IndependentHighValue 462; recall+appt flags per member). Hand to intern; owner meets him 24 Jun to pick low-hanging fruit \u2192 start calling. Open: clicked-no-reply de-confliction; fold in CRM v2 scores.",
       "gate": null,
       "deps": [
         "7"
@@ -120,7 +120,7 @@
       "owner": "Claude",
       "coOwner": "Branch manager (rules)",
       "why": "Today 100% manual (branch manager). Also the per-doctor margin input the dashboard (#4) needs. Vision: locum computed per line / per transaction / per payment, not monthly.",
-      "next": "Owner picks the .exe build path \u2192 hand the GM the standalone tool. Await GM's rule confirms + 5 past-month workbooks for the 6-month backtest.",
+      "next": "GM CONFIRMED rules 23 Jun (10% procedure-specific \u2014 Damon charged, aligners/appliances exempt; volume rule = production \u226555k \u2192 whole-month 50%). Model-A input RESOLVED (single P&I upload). Still: owner picks the .exe build path; lock the X-ray per-film sharing rule; GM to send 5 past-month workbooks + a sample P&L-by-Dr export for the full 6-month backtest.",
       "gate": null,
       "deps": [],
       "blockedOn": null,
