@@ -1,0 +1,314 @@
+{
+  "updated": "2026-06-23 11:11 MYT",
+  "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
+  "owners": {
+    "Lu Zhong": {
+      "init": "LZ",
+      "role": "Owner / CEO",
+      "color": "#00A0C6"
+    },
+    "Claude": {
+      "init": "CL",
+      "role": "Build & analysis",
+      "color": "#9a6cf0"
+    },
+    "Code Capsule": {
+      "init": "CC",
+      "role": "Outsourced vendor",
+      "color": "#e07a3f"
+    },
+    "Intern": {
+      "init": "IN",
+      "role": "CRM scoring & data",
+      "color": "#1fab78"
+    },
+    "Edith": {
+      "init": "ED",
+      "role": "Marketing agent (OpenClaw)",
+      "color": "#b8860b"
+    }
+  },
+  "initiatives": [
+    {
+      "id": "1",
+      "title": "OpenDent \u2194 AutoCount + E-Invoicing",
+      "status": "active",
+      "owner": "Code Capsule",
+      "coOwner": "Lu Zhong (sponsor)",
+      "why": "LHDN e-invoicing is mandatory Jan 2027 \u2014 the non-negotiable trigger. AutoCount does the upward LHDN reporting. This is the data backbone everything else (dashboard, locum, recall ROI) plugs into.",
+      "next": "Confirm hardware installed & demo integration tested; specify Tailscale for the remote tunnel.",
+      "gate": "Contract SIGNED 22 Jun 2026. Payment gated: RM10k over 3 months, released against UAT milestones (RM3.5k + RM3.5k + RM3k).",
+      "deps": [],
+      "blockedOn": null,
+      "timeline": "~2 months buy-to-live (2wk demo+test \u2192 live), then 1\u20132 days for the remote tunnel.",
+      "tasks": [
+        {
+          "t": "Vendor engaged (Code Capsule) + scope agreed",
+          "done": true
+        },
+        {
+          "t": "Contract signed \u2014 22 Jun 2026",
+          "done": true
+        },
+        {
+          "t": "Hardware procured & installed",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Demo integration built & UAT-tested (gate 1: RM3.5k)",
+          "done": false
+        },
+        {
+          "t": "Go-live + LHDN reporting verified (gate 2: RM3.5k)",
+          "done": false
+        },
+        {
+          "t": "Remote tunnel (Tailscale) stood up (gate 3: RM3k)",
+          "done": false
+        }
+      ],
+      "note": "Opportunistic add-ons in scope: digital WhatsApp receipts, payroll SaaS, procurement, inventory module. Share Code Capsule's SOW with Claude once received."
+    },
+    {
+      "id": "2",
+      "title": "CRM Reactivation Cold-Calling",
+      "status": "active",
+      "owner": "Lu Zhong",
+      "coOwner": "Claude (SQL/analysis)",
+      "why": "The only near-term revenue lever. Retention game: warm lapsed families fill idle chairs cheaply (~170 idle chair-hours/month). Lu Zhong's personal focus.",
+      "next": "Build the prioritized call list from ENRICHED v2: high-ticket families + daytime-reachable individuals (retired / homemakers). Intern identifying low-hanging fruit; owner meets him Wed AM 24 Jun.",
+      "gate": null,
+      "deps": [
+        "7"
+      ],
+      "blockedOn": null,
+      "timeline": "Calls intended to start within days. Loop: Claude writes SQL \u2192 Lu Zhong runs in OpenDent \u2192 uploads \u2192 process vs CRM rules.",
+      "tasks": [
+        {
+          "t": "CRM v2 scoring model reviewed & approved (Trust30/Household30/Reactivation30/Advocacy10)",
+          "done": true
+        },
+        {
+          "t": "Family + production SQL delivered & run (9,545 households validated, prod RM36.86m \u2713)",
+          "done": true
+        },
+        {
+          "t": "MASTER base table built & enriched locally (19,117 patients / 10,849 families)",
+          "done": true
+        },
+        {
+          "t": "ENRICHED v2 rebuilt (provider-by-visit-dates + ProcedureBlend)",
+          "done": true
+        },
+        {
+          "t": "Build the prioritized call list (high-ticket families + daytime-reachable individuals)",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Coordinate with auto-recall (#7) to avoid double-touch on 12\u201336mo segment",
+          "done": false
+        }
+      ],
+      "note": "<b>Warm pools:</b> 2,677 reactivatable families (RM13.8m lifetime); <b>869 sweet-spot</b> (12\u201336mo lapsed, RM5.24m) = the priority list; 5,954 cold (\u226584mo, ~5% odds) = skip. <b>\u26a0\ufe0f Incident 16 Jun:</b> a correlated-subquery master query locked the clinic \u2014 RULE: set-based queries only on OpenDent."
+    },
+    {
+      "id": "3",
+      "title": "Automated Locum Calculation",
+      "status": "review",
+      "owner": "Claude",
+      "coOwner": "Branch manager (rules)",
+      "why": "Today 100% manual (branch manager). Also the per-doctor margin input the dashboard (#4) needs. Vision: locum computed per line / per transaction / per payment, not monthly.",
+      "next": "Owner picks the .exe build path \u2192 hand the GM the standalone tool. Await GM's rule confirms + 5 past-month workbooks for the 6-month backtest.",
+      "gate": null,
+      "deps": [],
+      "blockedOn": null,
+      "timeline": "Calculator BUILT + VALIDATED (all 8 doctors' Apr-2026 LOCUM to the cent). Excel claim-sheet generator + localhost prototype + Windows .exe packaging done.",
+      "tasks": [
+        {
+          "t": "Branch manager's full deduction rule set received",
+          "done": true
+        },
+        {
+          "t": "Calculator built & validated (8/8 doctors to the cent)",
+          "done": true
+        },
+        {
+          "t": "Excel claim-sheet generator (live formulas) built",
+          "done": true
+        },
+        {
+          "t": "Standalone Windows .exe packaged (PyInstaller + CI)",
+          "done": true
+        },
+        {
+          "t": "Owner picks .exe build path \u2192 hand GM the tool",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "6-month backtest (needs Jan/Feb/Mar input workbooks)",
+          "done": false
+        },
+        {
+          "t": "GM confirms rules (ortho 10%-exemption Ling-only? volume rule wording)",
+          "done": false
+        }
+      ],
+      "note": "100% deterministic arithmetic \u2014 NO LLM, offline. Volume rule: production \u2265 RM55k \u2192 whole month at 50%. Ortho/Invisalign 10%-exemption is Dr LING's deal (corrected \u2014 not Mah). GM write-up sent; awaiting answers + workbooks."
+    },
+    {
+      "id": "4",
+      "title": "Data-Visibility Dashboard",
+      "status": "review",
+      "owner": "Claude",
+      "coOwner": "Code Capsule (DB tunnel)",
+      "why": "See per-transaction profitability live: customer \u2192 appt \u2192 production \u2192 payment \u2192 profit. Daily, drill-down, per-doctor, attrition. Deterministic SQL + BI (no LLM under the numbers).",
+      "next": "Digitise per-case lab cost (post-#1); automate regen when fresh OpenDent exports land; owner review of layout.",
+      "gate": null,
+      "deps": [
+        "1"
+      ],
+      "blockedOn": null,
+      "timeline": "BUILT on REAL data, LIVE & gated at ismile.com.my/dashboard/margin. Per-visit true margin = contribution \u2212 locum \u2212 burn. Chair-hour efficiency tab live.",
+      "tasks": [
+        {
+          "t": "Architecture agreed: SQL + Metabase on-prem, AI only as attention/cleaning layer",
+          "done": true
+        },
+        {
+          "t": "Real-data build from OpenDent exports (1,654\u20133,165 visits)",
+          "done": true
+        },
+        {
+          "t": "True-burn model + chair-hour efficiency tab + time-window filter",
+          "done": true
+        },
+        {
+          "t": "Baked into Command Center, LIVE & gated (/dashboard/margin)",
+          "done": true
+        },
+        {
+          "t": "Digitise per-case lab (post-#1) + automate regen",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "#1 integration live for fully-live feed",
+          "done": false
+        }
+      ],
+      "note": "Headline: Yeoh RM1,508/chair-h vs Mah RM6/chair-h = 237\u00d7 spread. Burn recovers ~RM60k/mo of ~RM118k/mo overhead; the ~RM58k/mo unrecovered = idle-chair cost = the fill-chairs lever."
+    },
+    {
+      "id": "5",
+      "title": "CX & Physical Space",
+      "status": "blocked",
+      "owner": "Lu Zhong",
+      "coOwner": null,
+      "why": "As families return, the arrival experience must justify the premium. CX is stagnating / team too comfortable. The first visit back is the moment of truth for a reactivated patient.",
+      "next": "Lu Zhong answers the 6 open questions + greenlights the ~RM500\u20131k process-first Phase 1.",
+      "gate": null,
+      "deps": [],
+      "blockedOn": "Awaiting owner: answer 6 scope questions + greenlight Phase 1.",
+      "timeline": "SCOPED (CX-Scope.md): highest-leverage near-zero-cost wins are front-desk recognition + rebook-at-checkout, not fixtures. 4\u20136 week Phase 1 with a week-6 decision gate.",
+      "tasks": [
+        {
+          "t": "Reactivated-patient journey mapped + interventions costed (CX-Scope.md)",
+          "done": true
+        },
+        {
+          "t": "Owner answers 6 questions + greenlights Phase 1",
+          "done": false,
+          "now": true
+        }
+      ],
+      "note": "Quick wins (<~RM1k): front-desk recognition, rebook-at-checkout. \"Mirror-in-a-lift\" trick = manage <b>perceived</b> wait, not just actual wait."
+    },
+    {
+      "id": "6",
+      "title": "Marketing Agent Vehicle (Contabo / Edith)",
+      "status": "active",
+      "owner": "Edith",
+      "coOwner": "Lu Zhong (truth sign-off)",
+      "why": "Repurposed OpenClaw \u2192 a lean, truth-gated loop: reply to Google reviews, curate family reviews onto the site, competitor watch, light outcome-anchored SEO. Cost is tiny (DeepSeek V4 + cheap VPS) so 'good-enough' is net-positive.",
+      "next": "Command Center now fully live-wired (initiatives + activity + workflows). Watch one clean week \u2192 decommission Hostinger.",
+      "gate": "Truth gate: cosmetic/curation/intel = autonomous + notify; anything touching claims/prices/credentials/clinical facts must pass truth checks or queue for approval.",
+      "deps": [],
+      "blockedOn": null,
+      "timeline": "LIVE & autonomous on Contabo since 17 Jun. 6 cron jobs installed (no sudo, no gateway). Loop proven end-to-end.",
+      "tasks": [
+        {
+          "t": "Migrated Hostinger \u2192 Contabo (clean rebuild, user 'ismile')",
+          "done": true
+        },
+        {
+          "t": "Lean loop scaffolded; legacy fat apparatus purged",
+          "done": true
+        },
+        {
+          "t": "Competitor watch live (17 PJ clinics); Firehose tap live",
+          "done": true
+        },
+        {
+          "t": "Chrome no-sudo + GitHub PAT installed; 6 lean crons live",
+          "done": true
+        },
+        {
+          "t": "Command Center fully live-wired (initiatives + activity + workflows)",
+          "done": true
+        },
+        {
+          "t": "Watch one clean week \u2192 decommission Hostinger",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Rotate credentials (GitHub PAT + Firehose key + API keys + root pw)",
+          "done": false
+        }
+      ],
+      "note": "<b>Edith = the `main` agent</b> (Director of Digital Growth) on DeepSeek V4, hub-and-spoke with 7 specialists. Truth file = <b>memory/governance/ismile-fact-sheet.md</b>. Audit lesson: optimize for outcomes, not motion."
+    },
+    {
+      "id": "7",
+      "title": "Automated Recall + ROI Attribution",
+      "status": "active",
+      "owner": "Code Capsule",
+      "coOwner": "Claude (attribution)",
+      "why": "Existing WhatsApp recall (6/9/12mo, ~RM0.061/msg from the landline) needs daily-volume visibility + real conversion/ROI. Today Lu Zhong manually cross-refs OpenDent appointments to attribute recall\u2192booking.",
+      "next": "Holdout test (~15% withhold) for true causal incrementality \u2014 the one thing that would prove ROI.",
+      "gate": null,
+      "deps": [
+        "4"
+      ],
+      "blockedOn": null,
+      "timeline": "Funnel LIVE: daily Contabo cron scrapes the mini-CRM \u2192 publishes recall.json \u2192 Command Center CRM panel. Analytically complete.",
+      "tasks": [
+        {
+          "t": "Recall measured: ~706 messaged, 5.9% individual conversion",
+          "done": true
+        },
+        {
+          "t": "Funnel attribution method built (phone\u2192PatNum bridge)",
+          "done": true
+        },
+        {
+          "t": "Recall funnel LIVE (daily cron \u2192 recall.json \u2192 dashboard)",
+          "done": true
+        },
+        {
+          "t": "Holdout test (~15% withhold) for causal incrementality",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "016 number Meta approval (sends currently from landline)",
+          "done": false
+        }
+      ],
+      "note": "<b>\u26a0\ufe0f Corrected figure:</b> individual conversion is <b>5.9%</b> (42/706). The earlier <b>18% \"family ripple\" is RETRACTED as confounded</b> (~95% coincidental). Realised: 28 visited \u2192 RM8,430. Incrementality NOT yet isolated \u2014 needs the holdout."
+    }
+  ]
+}
