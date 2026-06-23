@@ -268,10 +268,14 @@
 const PIN="242235";
 const STATUS_URL="https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/status.json";
 const RECALL_URL="https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/recall.json";
+const INITIATIVES_URL="https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/initiatives.json";
+const ACTIVITY_URL="https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/activity.json";
 let RECALL=null;          // recall funnel snapshot (from the Contabo recall cron)
 let RUNNING=[];           // workflow/job ids running now (from live status feed)
 let JOBLAST={};           // jobid -> last run string
-let alogLines=[];         // office activity log
+let JOBSTATE={};          // jobid -> full {state,last} from status feed (drives data-driven workflows)
+let alogLines=[];         // office activity log (live runtime blips, newest first)
+let ACTIVITY=[];          // rolling activity feed fetched from activity.json (the persistent history)
 
 const AGENTS={
   edith:{name:"Edith",role:"Orchestrator",c:"#E6B43C",skin:"#f1c9a5",hair:"#3a2a1c",cap:0},
@@ -329,12 +333,31 @@ const MARKETING={
   ],
   workflows:[
     {id:"gbp_reply",nm:"Reply to Google review",ag:"gbp",sch:"Daily 06:00 MYT",nodes:[["Pull new reviews"],["Classify"],["Draft per rules"],["Humanizer"],["Truth-guard"],["Auto-post 5★ / queue"],["Telegram notify"]]},
+    {id:"gen_initiatives",nm:"Publish initiatives board",ag:"edith",sch:"Daily 06:15 MYT",nodes:[["Read store"],["Build initiatives.json"],["→ status branch"],["Dashboard renders live"]]},
     {id:"competitor_watch",nm:"Competitor watch",ag:"seo",sch:"Sun 06:00 MYT",nodes:[["competitor_watch.py"],["firehose_pull.py"],["Diff vs last week"],["Topic-focus + promos"],["Synthesise digest"],["→ vault"],["Telegram Boss"]]},
     {id:"review_curation",nm:"Curate review → site",ag:"engineer",sch:"Sun 06:30 MYT",nodes:[["Pick genuine review"],["Draft site block"],["Open PR"],["Telegram link"],["Boss approves",1]]},
     {id:"seo_outcome",nm:"Light-SEO outcome",ag:"analytics",sch:"Monthly 1st 07:00",nodes:[["Pull GSC+GA4"],["30/60-day deltas"],["Continue/iterate/kill"],["Telegram verdict"]]},
+    {id:"recall_funnel",nm:"Recall funnel refresh",ag:"analytics",sch:"Daily 07:30 MYT",nodes:[["Scrape mini-CRM"],["Count funnel"],["→ recall.json (status branch)"],["Analytics interprets"],["Telegram Boss"]]},
     {id:"weekly_digest",nm:"Weekly digest",ag:"reporting",sch:"Sun 18:00 MYT",nodes:[["Gather outputs"],["Compose"],["Queued approvals"],["Telegram Boss"]]},
   ]
 };
+
+/* Build the workflow list DATA-DRIVEN from the live cron set (status.json jobs).
+   Any job in the live feed that has a baked spec uses it; any NEW cron the box gains
+   shows up automatically as a generic workflow card (so the list grows itself). */
+function liveWorkflows(){
+  const baked=MARKETING.workflows, byId={};baked.forEach(w=>byId[w.id]=w);
+  const liveIds=Object.keys(JOBSTATE||{});
+  if(!liveIds.length) return baked.slice();
+  const out=[];
+  // keep baked order first (for the jobs that exist live), then append unknown live jobs
+  baked.forEach(w=>{ if(byId[w.id]) out.push(w); });
+  liveIds.forEach(id=>{
+    if(byId[id]) return; // already included
+    out.push({id,nm:id.replace(/_/g," ").replace(/\b\w/g,c=>c.toUpperCase()),ag:"edith",sch:"cron (see VPS)",nodes:[["Run cron"],["Do work"],["Publish / notify"]]});
+  });
+  return out;
+}
 
 const LOG=[
  ["17 Jun","gbp","GBP run — 88 scanned, 27×2026+ all replied, 0 to post","ok"],
@@ -365,8 +388,7 @@ function render(){
   document.getElementById("blip").className="blip"+(RUNNING.length?" on":"");
   if(h==="org")v.innerHTML=viewOrg();
   else if(h.startsWith("dept/"))v.innerHTML=viewDept(h.split("/")[1]);
-  else if(h==="workflows")v.innerHTML=viewWorkflows();
-  else if(h==="agents"){v.innerHTML=viewAgents();initOffice();}
+  else if(h==="workflows"||h==="agents"){v.innerHTML=viewAgents();initOffice();} // merged Office + Workflows
   else if(h==="initiatives")v.innerHTML=viewInits();
   else if(h==="margin")v.innerHTML=viewMargin();
   else if(h==="analytics")v.innerHTML=viewAnalytics();
@@ -374,8 +396,8 @@ function render(){
   paintTabs(h);window.scrollTo(0,0);
 }
 function paintTabs(h){
-  const t=[["org","🏛️","Org"],["workflows","🔀","Workflows"],["agents","👥","Office"],["initiatives","📋","Initiatives"],["margin","📈","Practice"]];
-  document.getElementById("tabs").innerHTML=t.map(([k,i,l])=>`<button class="${h===k||(k==='org'&&h.startsWith('dept/'))?'active':''}" onclick="location.hash='${k}'"><span class="ic">${i}</span>${l}</button>`).join("");
+  const t=[["org","🏛️","Org"],["agents","👥","Office"],["initiatives","📋","Initiatives"],["margin","📈","Practice"]];
+  document.getElementById("tabs").innerHTML=t.map(([k,i,l])=>`<button class="${h===k||(k==='org'&&h.startsWith('dept/'))||(k==='agents'&&h==='workflows')?'active':''}" onclick="location.hash='${k}'"><span class="ic">${i}</span>${l}</button>`).join("");
 }
 
 function viewMargin(){
@@ -444,7 +466,7 @@ function wfHTML(w){
   const a=ag(w.ag);const last=JOBLAST[w.id]?('last: '+JOBLAST[w.id]):'';
   return `<div class="wf ${run?'running':''}"><div class="wfh"><img class="wav" src="${avatarDataURL(a)}" alt=""><div><div class="nm">${w.nm}</div><div class="who">${a.name} agent</div></div><div class="rt">${run?'<span style="color:var(--amber)">● RUNNING</span>':'idle'}<br>next: ${w.sch}${last?'<br>'+last:''}</div></div><div class="nodes">${nodes}</div></div>`;
 }
-function viewWorkflows(){return `<div class="h">Workflows</div><div class="subt">Each workflow is owned by one agent. Nodes light up <b>only while the cron is actually running</b> — right now ${RUNNING.length?RUNNING.length+' running':'nothing is running (idle, waiting for next scheduled time)'}.</div>${MARKETING.workflows.map(wfHTML).join("")}`;}
+function viewWorkflows(){return `<div class="h">Workflows</div><div class="subt">One card per live cron on the VPS (the list is driven by the status feed, so new crons appear here automatically). Nodes light up <b>only while the cron is actually running</b> — right now ${RUNNING.length?RUNNING.length+' running':'nothing is running (idle, waiting for next scheduled time)'}.</div>${liveWorkflows().map(wfHTML).join("")}`;}
 
 /* ---------------- OFFICE (top-down pixel game) ---------------- */
 function viewAgents(){
@@ -455,7 +477,10 @@ function viewAgents(){
        <div class="roster" id="roster"></div>
      </div>
      <div class="alog"><div class="ttl">● Activity log</div><div id="alogbody"></div></div>
-   </div>`;
+   </div>
+   <div class="h" style="margin-top:22px">Workflows</div>
+   <div class="subt">One card per live cron on the VPS — the same signal that moves the characters above lights these up. The list is driven by the status feed, so new crons appear automatically. Right now ${RUNNING.length?RUNNING.length+' running':'nothing is running (idle, waiting for the next scheduled time)'}.</div>
+   ${liveWorkflows().map(wfHTML).join("")}`;
 }
 const SEATS=[ // desk x,y (top-left of desk) for 8 agents
  {dx:26,dy:54},{dx:104,dy:54},{dx:182,dy:54},{dx:260,dy:54},
@@ -528,8 +553,11 @@ function initOffice(){
   }
   function pushLog(txt,cls){alogLines.unshift({t:new Date().toLocaleTimeString("en-GB",{timeZone:"Asia/Kuala_Lumpur",hour:"2-digit",minute:"2-digit"}),m:txt,c:cls||"ai"});alogLines=alogLines.slice(0,40);paintLog();}
   function paintLog(){const b=document.getElementById("alogbody");if(!b)return;
-    const base=LOG.map(l=>({t:l[0],m:ag(l[1]).name+" — "+l[2],c:l[3]}));
-    b.innerHTML=alogLines.concat(base).slice(0,40).map(l=>`<div class="ln"><span class="tm">[${l.t}]</span> <span class="${l.c}">${l.m}</span></div>`).join("");}
+    // Live runtime blips (this session) on top, then the persistent rolling feed from activity.json,
+    // then the baked LOG as a last-resort fallback only if the feed hasn't loaded.
+    const feed=ACTIVITY.length?ACTIVITY.map(e=>({t:e.ts,m:ag(e.agent).name+" — "+(e.job||"")+" "+(e.event||"")+(e.result?" · "+e.result:""),c:e.event==="started"?"run":(e.event==="finished"?"ok":"ai")}))
+                              :LOG.map(l=>({t:l[0],m:ag(l[1]).name+" — "+l[2],c:l[3]}));
+    b.innerHTML=alogLines.concat(feed).slice(0,40).map(l=>`<div class="ln"><span class="tm">[${l.t}]</span> <span class="${l.c}">${l.m}</span></div>`).join("");}
   window.__officePaintLog=paintLog;window.__officeSetRoster=setRoster;
   paintLog();setRoster();
   // ambient wander
@@ -571,7 +599,10 @@ function initOffice(){
    Single source of truth: KB_INITIATIVES (from INITIATIVES.md, 22 Jun 2026).
    status: blocked | active | review | done
    ============================================================ */
-const KB_OWNERS={
+/* KB_OWNERS / KB_INITIATIVES are the BAKED FALLBACK. At runtime they are overwritten by
+   the live initiatives.json fetched from the status branch (regenerated by a Contabo cron
+   from the canonical store) — so status changes need NO website PR. See fetchInitiatives(). */
+let KB_OWNERS={
   "Lu Zhong":    {init:"LZ", role:"Owner / CEO",                color:"#00A0C6"},
   "Claude":      {init:"CL", role:"Build & analysis",          color:"#9a6cf0"},
   "Code Capsule":{init:"CC", role:"Outsourced vendor",         color:"#e07a3f"},
@@ -584,7 +615,7 @@ const KB_STATUS={
   review: {label:"In Review / Gate", sub:"verifying outcome",color:"var(--kb-review)"},
   done:   {label:"Done",             sub:"shipped",          color:"var(--kb-done)"}
 };
-const KB_INITIATIVES=[
+let KB_INITIATIVES=[
   {id:"1",title:"OpenDent ↔ AutoCount + E-Invoicing",status:"active",owner:"Code Capsule",coOwner:"Lu Zhong (sponsor)",
    why:"LHDN e-invoicing is mandatory Jan 2027 — the non-negotiable trigger. AutoCount does the upward LHDN reporting. This is the data backbone everything else (dashboard, locum, recall ROI) plugs into.",
    next:"Confirm hardware installed & demo integration tested; specify Tailscale for the remote tunnel.",
@@ -820,6 +851,7 @@ async function poll(){
     if(!r.ok)return;const d=await r.json();
     const prev=RUNNING.slice();
     RUNNING=d.running||[];
+    JOBSTATE=d.jobs||{};
     JOBLAST={};Object.keys(d.jobs||{}).forEach(k=>{JOBLAST[k]=d.jobs[k].last;});
     document.getElementById("livecount").textContent=RUNNING.length?RUNNING.length+" working":"standby";
     document.getElementById("blip").className="blip"+(RUNNING.length?" on":"");
@@ -840,12 +872,29 @@ function key(n){
   if(entered.length===6){if(entered===PIN){try{localStorage.setItem("ismile_cc","1")}catch(e){}unlock();}
     else{document.getElementById("err").textContent="Wrong PIN";setTimeout(()=>{entered="";paintPin();document.getElementById("err").textContent=""},700);}}
 }
-function unlock(){document.getElementById("lock").style.display="none";document.getElementById("app").style.display="block";if(!location.hash)location.hash="org";render();poll();setInterval(poll,20000);fetchRecall();setInterval(fetchRecall,300000);}
+function unlock(){document.getElementById("lock").style.display="none";document.getElementById("app").style.display="block";if(!location.hash)location.hash="org";render();poll();setInterval(poll,20000);fetchRecall();setInterval(fetchRecall,300000);fetchInitiatives();setInterval(fetchInitiatives,300000);fetchActivity();setInterval(fetchActivity,60000);}
 async function fetchRecall(){
   try{
     const r=await fetch(RECALL_URL+"?t="+Date.now(),{cache:"no-store"});
     if(!r.ok)return;RECALL=await r.json();
     if(location.hash.replace("#","")==="dept/crm")render(); // refresh if currently viewing CRM
+  }catch(e){}
+}
+async function fetchInitiatives(){
+  try{
+    const r=await fetch(INITIATIVES_URL+"?t="+Date.now(),{cache:"no-store"});
+    if(!r.ok)return;const d=await r.json();
+    if(Array.isArray(d.initiatives)&&d.initiatives.length){KB_INITIATIVES=d.initiatives;}
+    if(d.owners&&Object.keys(d.owners).length){KB_OWNERS=d.owners;}
+    if(location.hash.replace("#","")==="initiatives")render(); // refresh board if viewing it
+  }catch(e){}
+}
+async function fetchActivity(){
+  try{
+    const r=await fetch(ACTIVITY_URL+"?t="+Date.now(),{cache:"no-store"});
+    if(!r.ok)return;const d=await r.json();
+    if(Array.isArray(d.entries))ACTIVITY=d.entries;
+    if(window.__officePaintLog)window.__officePaintLog(); // refresh the office activity panel
   }catch(e){}
 }
 function buildPad(){const pad=document.getElementById("pad");["1","2","3","4","5","6","7","8","9","blank","0","del"].forEach(k=>{const b=document.createElement("button");if(k==="blank"){b.className="blank";b.disabled=true}else if(k==="del"){b.textContent="⌫";b.onclick=()=>key("del")}else{b.textContent=k;b.onclick=()=>key(k)}pad.appendChild(b)});paintPin();}
