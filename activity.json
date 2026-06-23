@@ -5,6 +5,13 @@
       "ts": "2026-06-23 11:12 MYT",
       "agent": "edith",
       "job": "command_center",
+      "event": "finished",
+      "result": "live-wired: initiatives + activity feeds"
+    },
+    {
+      "ts": "2026-06-23 11:12 MYT",
+      "agent": "edith",
+      "job": "command_center",
       "event": "started",
       "result": ""
     }
