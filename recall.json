@@ -1,19 +1,19 @@
 {
-  "as_of": "2026-06-23",
+  "as_of": "2026-06-24",
   "source": "redirect.ismile.com.my/admin/webhook/webhooklog",
   "note": "Event counts, not distinct patients. STATUS rows are per-message callbacks. Conversion is NOT here -- report only as-of last OpenDent upload.",
   "cumulative": {
-    "total": 7305,
-    "sent": 2571,
-    "delivered": 3000,
-    "read": 984,
-    "failed": 210,
+    "total": 7476,
+    "sent": 2643,
+    "delivered": 3078,
+    "read": 993,
+    "failed": 219,
     "clicks": 72,
-    "replies": 468
+    "replies": 471
   },
   "this_month": {
-    "sent": 1851,
+    "sent": 1923,
     "clicks": 47,
-    "replies": 318
+    "replies": 321
   }
 }
