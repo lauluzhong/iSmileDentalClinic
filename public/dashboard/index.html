@@ -142,6 +142,7 @@
 
   /* ============ KANBAN BOARD (Initiatives tab) — ported from iSmile PM-Board ============ */
   :root{
+    --kb-planned:#8a98a3; --kb-planned-bg:#eef2f4;
     --kb-blocked:#e07a3f; --kb-blocked-bg:#fdf0e8;
     --kb-active:#00A0C6;  --kb-active-bg:#E8F6FB;
     --kb-review:#9a6cf0;  --kb-review-bg:#f1ecfd;
@@ -157,8 +158,8 @@
   .kb-kpi .n{font-size:24px;font-weight:800;letter-spacing:-1px;line-height:1}
   .kb-kpi .l{font-size:11px;color:var(--mut2);margin-top:5px;text-transform:uppercase;letter-spacing:.5px;font-weight:600}
   .kb-kpi.blocked .n{color:var(--kb-blocked)} .kb-kpi.active .n{color:var(--kb-active)}
-  .kb-kpi.review .n{color:var(--kb-review)} .kb-kpi.done .n{color:var(--kb-done)} .kb-kpi.gate .n{color:var(--teal-deep)}
-  .kb-board{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:start}
+  .kb-kpi.review .n{color:var(--kb-review)} .kb-kpi.done .n{color:var(--kb-done)} .kb-kpi.gate .n{color:var(--teal-deep)} .kb-kpi.planned .n{color:var(--kb-planned)}
+  .kb-board{display:grid;grid-template-columns:repeat(5,1fr);gap:13px;align-items:start}
   @media(max-width:1000px){.kb-board{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:620px){.kb-board{grid-template-columns:1fr}}
   .kb-col{display:flex;flex-direction:column;gap:11px;min-width:0}
@@ -168,13 +169,13 @@
   .kb-colhead .count{font-size:11.5px;font-weight:700;color:var(--mut2);background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:1px 9px}
   .kb-colhead .sub{font-size:10.5px;color:var(--mut2);margin-left:auto;font-weight:500}
   .kb-col.blocked .swatch{background:var(--kb-blocked)} .kb-col.active .swatch{background:var(--kb-active)}
-  .kb-col.review .swatch{background:var(--kb-review)} .kb-col.done .swatch{background:var(--kb-done)}
+  .kb-col.review .swatch{background:var(--kb-review)} .kb-col.done .swatch{background:var(--kb-done)} .kb-col.planned .swatch{background:var(--kb-planned)}
   .kb-lane{display:flex;flex-direction:column;gap:11px;min-height:40px;padding:3px;border-radius:14px}
   .kb-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--kb-radius);padding:14px;box-shadow:var(--shadow);cursor:pointer;transition:transform .14s,box-shadow .14s,border-color .14s;position:relative;overflow:hidden}
   .kb-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-h);border-color:var(--teal)}
   .kb-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--mut2)}
   .kb-card.s-blocked::before{background:var(--kb-blocked)} .kb-card.s-active::before{background:var(--kb-active)}
-  .kb-card.s-review::before{background:var(--kb-review)} .kb-card.s-done::before{background:var(--kb-done)}
+  .kb-card.s-review::before{background:var(--kb-review)} .kb-card.s-done::before{background:var(--kb-done)} .kb-card.s-planned::before{background:var(--kb-planned)}
   .kb-ctop{display:flex;align-items:center;gap:8px;margin-bottom:8px}
   .kb-cid{font-size:11px;font-weight:800;color:var(--teal2);background:var(--teal-bg);border-radius:6px;padding:1px 7px;letter-spacing:.3px}
   .kb-chip{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;padding:2px 8px;border-radius:20px;margin-left:auto}
@@ -182,6 +183,7 @@
   .kb-chip.active{background:var(--kb-active-bg);color:var(--teal-deep)}
   .kb-chip.review{background:var(--kb-review-bg);color:var(--kb-review)}
   .kb-chip.done{background:var(--kb-done-bg);color:var(--kb-done)}
+  .kb-chip.planned{background:var(--kb-planned-bg);color:var(--kb-planned)}
   .kb-ctitle{font-size:14.5px;font-weight:700;line-height:1.3;letter-spacing:-.2px;color:var(--ink)}
   .kb-cmeta{display:flex;align-items:center;gap:7px;margin-top:10px;flex-wrap:wrap}
   .kb-owner{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--mut);font-weight:600}
@@ -241,6 +243,46 @@
   .kb-legend{display:flex;flex-wrap:wrap;gap:16px;align-items:center;font-size:11.5px;color:var(--mut2);margin-bottom:14px}
   .kb-legend .it{display:inline-flex;align-items:center;gap:6px}
   .kb-legend .sw{width:10px;height:10px;border-radius:3px}
+
+  /* ---- Strategy board: view toggle (Matrix / Kanban / Month) ---- */
+  .iv-seg{display:inline-flex;gap:2px;background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:3px;margin:2px 0 16px}
+  .iv-seg button{border:none;background:none;color:var(--mut);font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:.15s}
+  .iv-seg button.on{background:var(--teal);color:#fff;box-shadow:0 1px 4px rgba(0,160,198,.3)}
+  .iv-note{font-size:11.5px;color:var(--mut2);margin-bottom:12px;line-height:1.5}
+
+  /* ---- Matrix view ---- */
+  .iv-matrix-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px}
+  .iv-matrix{display:grid;grid-template-columns:104px repeat(6,minmax(158px,1fr));gap:9px;min-width:1080px}
+  .iv-head{font-size:11.5px;font-weight:800;color:var(--ink);text-align:center;padding:6px 6px;line-height:1.25;border-bottom:2px solid var(--teal);align-self:end}
+  .iv-corner{}
+  .iv-rowlab{font-size:11.5px;font-weight:800;color:#fff;border-radius:10px;padding:10px 8px;display:flex;align-items:center;line-height:1.2;text-align:left}
+  .iv-rowlab.iv-revenue{background:#1fab78}.iv-rowlab.iv-cost{background:#e07a3f}.iv-rowlab.iv-efficiency{background:#5a78b0}
+  .iv-cell{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:7px;display:flex;flex-direction:column;gap:7px;min-height:64px}
+  .iv-empty{color:var(--kb-line2);font-size:18px;text-align:center;margin:auto;font-weight:700}
+  .iv-card{background:var(--bg);border:1px solid var(--line);border-left:3px solid var(--mut2);border-radius:9px;padding:8px 9px;cursor:pointer;transition:.13s;position:relative}
+  .iv-card:hover{transform:translateY(-1px);box-shadow:var(--shadow-h);border-color:var(--teal)}
+  .iv-card.s-planned{border-left-color:var(--kb-planned)}.iv-card.s-blocked{border-left-color:var(--kb-blocked)}
+  .iv-card.s-active{border-left-color:var(--kb-active)}.iv-card.s-review{border-left-color:var(--kb-review)}.iv-card.s-done{border-left-color:var(--kb-done)}
+  .iv-ctop{display:flex;align-items:center;gap:6px;margin-bottom:3px}
+  .iv-cid{font-size:9.5px;font-weight:800;color:var(--teal2)}
+  .iv-dot{width:7px;height:7px;border-radius:50%;flex:none}
+  .iv-ct{font-size:12px;font-weight:700;line-height:1.25;color:var(--ink)}
+
+  /* ---- Month view ---- */
+  .mo-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px}
+  .mo-grid{display:grid;grid-template-columns:212px repeat(12,minmax(36px,1fr));gap:0;min-width:1000px;font-size:11px}
+  .mo-h{text-align:center;font-weight:800;color:var(--mut);padding:6px 0 7px;border-bottom:2px solid var(--teal);position:relative}
+  .mo-h .mo-yr{display:block;font-size:8.5px;color:var(--mut2);font-weight:700}
+  .mo-h.mo-now{color:var(--teal-deep)}
+  .mo-lab{font-size:12px;font-weight:600;color:var(--ink);padding:9px 10px 9px 2px;display:flex;align-items:center;gap:6px;border-bottom:1px solid var(--line);cursor:pointer;line-height:1.2}
+  .mo-lab:hover{color:var(--teal-deep)}
+  .mo-row{display:contents}
+  .mo-cell{border-bottom:1px solid var(--line);border-left:1px dashed var(--kb-line2);min-height:38px;display:flex;align-items:center;justify-content:center}
+  .mo-cell.on{position:relative}
+  .mo-cell.on::before{content:"";position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);height:15px;background:var(--bar);opacity:.85}
+  .mo-cell.start.on::before{left:4px;border-radius:8px 0 0 8px}
+  .mo-cell.end.on::before{right:4px;border-radius:0 8px 8px 0}
+  .mo-cell .ar{position:relative;z-index:1;color:#fff;font-weight:900;font-size:11px}
 </style>
 </head>
 <body>
@@ -610,107 +652,571 @@ let KB_OWNERS={
   "Edith":       {init:"ED", role:"Marketing agent (OpenClaw)",color:"#b8860b"}
 };
 const KB_STATUS={
+  planned:{label:"Planned / Backlog",sub:"not started",color:"var(--kb-planned)"},
   blocked:{label:"Blocked / Waiting",sub:"needs an unblock",color:"var(--kb-blocked)"},
   active: {label:"Active",           sub:"work in motion",   color:"var(--kb-active)"},
   review: {label:"In Review / Gate", sub:"verifying outcome",color:"var(--kb-review)"},
   done:   {label:"Done",             sub:"shipped",          color:"var(--kb-done)"}
 };
 let KB_INITIATIVES=[
-  {id:"1",title:"OpenDent ↔ AutoCount + E-Invoicing",status:"active",owner:"Code Capsule",coOwner:"Lu Zhong (sponsor)",
-   why:"LHDN e-invoicing is mandatory Jan 2027 — the non-negotiable trigger. AutoCount does the upward LHDN reporting. This is the data backbone everything else (dashboard, locum, recall ROI) plugs into.",
-   next:"Confirm hardware installed & demo integration tested; specify Tailscale for the remote tunnel.",
-   gate:"Contract SIGNED 22 Jun 2026. Payment gated: RM10k over 3 months, released against UAT milestones (RM3.5k + RM3.5k + RM3k).",
-   deps:[],blockedOn:null,
-   timeline:"~2 months buy-to-live (2wk demo+test → live), then 1–2 days for the remote tunnel.",
-   tasks:[
-     {t:"Vendor engaged (Code Capsule) + scope agreed",done:true},
-     {t:"Contract signed — 22 Jun 2026",done:true},
-     {t:"Hardware procured & installed",done:false,now:true},
-     {t:"Demo integration built & UAT-tested (gate 1: RM3.5k)",done:false},
-     {t:"Go-live + LHDN reporting verified (gate 2: RM3.5k)",done:false},
-     {t:"Remote tunnel (Tailscale) stood up (gate 3: RM3k)",done:false}
-   ],
-   note:"Opportunistic add-ons in scope: digital WhatsApp receipts, payroll SaaS, procurement, inventory module. Share Code Capsule's SOW with Claude once received."},
-  {id:"2",title:"CRM Reactivation Cold-Calling",status:"active",owner:"Lu Zhong",coOwner:"Claude (SQL/analysis)",
-   why:"The only near-term revenue lever. Retention game: warm lapsed families fill idle chairs cheaply (~170 idle chair-hours/month). Lu Zhong's personal focus.",
-   next:"Work the warm call list: >12mo high-value families (phone is spam-safe, WhatsApp isn't) + clicked-no-reply hot segment.",
-   gate:null,deps:["7"],blockedOn:null,
-   timeline:"Calls intended to start within days. Loop: Claude writes SQL → Lu Zhong runs in OpenDent → uploads → process vs CRM rules.",
-   tasks:[
-     {t:"CRM v2 scoring model reviewed & approved (Trust30/Household30/Reactivation30/Advocacy10)",done:true},
-     {t:"Family + production SQL delivered & run (9,545 households validated, prod RM36.86m ✓)",done:true},
-     {t:"MASTER base table built & enriched locally (19,117 patients / 10,849 families)",done:true},
-     {t:"Reactivation dashboard + segmented call list generated",done:true},
-     {t:"Hand to intern; fold AddrNote relationship clues into household resolution",done:false,now:true},
-     {t:"Coordinate with auto-recall (#7) to avoid double-touch on 12–36mo segment",done:false}
-   ],
-   note:"<b>Warm pools:</b> 2,677 reactivatable families (RM13.8m lifetime); <b>869 sweet-spot</b> (12–36mo lapsed, RM5.24m) = the priority list; 5,954 cold (≥84mo, ~5% odds) = skip. Empirical curve: ~95% reactivate at 0–12mo → 37% at 60–84mo → 5% cold. <b>⚠️ Incident 16 Jun:</b> a correlated-subquery master query locked the clinic — RULE: set-based queries only on OpenDent."},
-  {id:"3",title:"Automated Locum Calculation",status:"active",owner:"Claude",coOwner:"Branch manager (rules)",
-   why:"Today 100% manual (branch manager). Also the per-doctor margin input the dashboard (#4) needs. Vision: locum computed per line / per transaction / per payment, not monthly.",
-   next:"Build the formula-driven Excel calculator now that the deduction rule set is in hand.",
-   gate:null,deps:[],blockedOn:null,
-   timeline:"Reference workbooks studied (lab −% and X-ray carve-outs legible; PPE dropped). Locum rules now received.",
-   tasks:[
-     {t:"Reference workbooks studied (lab/X-ray carve-outs legible)",done:true},
-     {t:"Branch manager's full deduction rule set received",done:true},
-     {t:"Build per-line editable formula-driven Excel calculator",done:false,now:true},
-     {t:"Reconciliation pass against a known month",done:false}
-   ],
-   note:"Builds on the dashboard + lab-cost data. Authoritative steps live in <b>Financials/03_Locum Calculation/LOCUM Calculation Steps.docx</b>. Was blocked on the rule write-up — now unblocked."},
-  {id:"4",title:"Data-Visibility Dashboard",status:"blocked",owner:"Claude",coOwner:"Code Capsule (DB tunnel)",
-   why:"See per-transaction profitability live: customer → appt → production → payment → profit. Daily, drill-down, per-doctor, attrition. Deterministic SQL + BI (no LLM under the numbers).",
-   next:"Prototype on data exports first while waiting for the live tunnel; do the data-quality assessment.",
-   gate:null,deps:["1"],
-   blockedOn:"#1 go-live — needs the OpenDent↔AutoCount integration live + the Tailscale tunnel before live data flows.",
-   timeline:"Sequence: #1 live → data-quality assessment → prototype on exports → host Metabase on the on-prem server.",
-   tasks:[
-     {t:"Architecture agreed: SQL + Metabase on-prem, AI only as an attention-routing/cleaning layer on top",done:true},
-     {t:"#1 integration live (blocker)",done:false},
-     {t:"Data-quality assessment (prerequisite)",done:false},
-     {t:"Prototype on exports → host BI on server",done:false}
-   ],
-   note:"Remote access via Tailscale. \"Intelligence\" sits on top as a scheduled job for (a) attention-routing and (b) cleaning dirty free-text — never under the numbers."},
-  {id:"5",title:"CX & Physical Space",status:"blocked",owner:"Lu Zhong",coOwner:null,
-   why:"As families return, the arrival experience must justify the premium. CX is stagnating / team too comfortable. The first visit back is the moment of truth for a reactivated patient.",
-   next:"Scope it out properly — define the arrival experience and kids'-area plan.",
-   gate:null,deps:[],
-   blockedOn:"Not yet scoped — loose / to be developed. Lower priority than the revenue levers.",
-   timeline:"Loose. Couple-hundred-RM kids' area + better perceived-wait experience are the seed ideas.",
-   tasks:[
-     {t:"Seed ideas captured (modest kids' area, manage perceived wait)",done:true},
-     {t:"Scope the arrival experience properly",done:false,now:true}
-   ],
-   note:"Ideas: modest kids' area (~few hundred RM); \"mirror-in-a-lift\" trick = manage <b>perceived</b> wait, not just actual wait."},
-  {id:"6",title:"Marketing Agent Vehicle (Contabo / Edith)",status:"review",owner:"Edith",coOwner:"Lu Zhong (truth sign-off)",
-   why:"Repurposed OpenClaw → a lean, truth-gated loop: reply to Google reviews, curate family reviews onto the site, competitor watch, light outcome-anchored SEO. Cost is tiny (DeepSeek V4 + cheap VPS) so 'good-enough' is net-positive.",
-   next:"Watch one clean week of autonomous runs → then decommission the old Hostinger VPS.",
-   gate:"Truth gate: cosmetic/curation/intel = autonomous + notify; anything touching claims/prices/credentials/clinical facts must pass truth checks or queue for approval.",
-   deps:[],blockedOn:null,
-   timeline:"LIVE & autonomous on Contabo since 17 Jun. 5 cron jobs installed (no sudo, no gateway). Loop proven end-to-end (intel digest delivered to Telegram).",
-   tasks:[
-     {t:"Migrated Hostinger → Contabo (clean rebuild, user 'ismile')",done:true},
-     {t:"Legacy fat apparatus purged (16 crons archived); lean loop scaffolded",done:true},
-     {t:"Competitor watch live — 17 PJ clinics baselined; Firehose tap live",done:true},
-     {t:"Chrome installed no-sudo; GitHub PAT installed (PRs unblocked)",done:true},
-     {t:"5 lean crons installed; intel digest delivered to Telegram",done:true},
-     {t:"Queue-only safety test of GBP-reply job (must not auto-post on first run)",done:false,now:true},
-     {t:"Watch one clean week → decommission Hostinger",done:false},
-     {t:"Rotate credentials (GitHub PAT + Firehose key + API keys + root pw)",done:false}
-   ],
-   note:"<b>Edith = the `main` agent</b> (Director of Digital Growth) on DeepSeek V4, hub-and-spoke with 7 specialists. Truth file = <b>memory/governance/ismile-fact-sheet.md</b>. Optional remaining: Google Places API key for competitor ratings. Audit lesson: optimize for outcomes, not motion (old loop = 47 blog posts, 0 conversions)."},
-  {id:"7",title:"Automated Recall + ROI Attribution",status:"active",owner:"Code Capsule",coOwner:"Claude (attribution)",
-   why:"Existing WhatsApp recall (6/9/12mo, ~RM0.061/msg from the landline) needs daily-volume visibility + real conversion/ROI. Today Lu Zhong manually cross-refs OpenDent appointments to attribute recall→booking.",
-   next:"Access the recall mini-CRM DB via the Code Capsule tunnel; build the phone→PatNum attribution join.",
-   gate:null,deps:["4"],blockedOn:null,
-   timeline:"System live (Code Capsule, on-prem). Attribution funnel folds into the dashboard (#4).",
-   tasks:[
-     {t:"Recall measured (snapshot Apr–Jun): ~706 messaged",done:true},
-     {t:"Funnel attribution method built (phone→PatNum bridge via master)",done:true},
-     {t:"Access recall mini-CRM DB via Code Capsule tunnel",done:false,now:true},
-     {t:"016 number Meta approval (sends currently from landline)",done:false},
-     {t:"Holdout test (~15% withhold) for true causal incrementality",done:false}
-   ],
-   note:"<b>⚠️ Corrected figure:</b> individual conversion is <b>5.9%</b> (42/706 targeted persons booked/visited) — matches Lu Zhong's 5–6% instinct. The earlier <b>18% \"family ripple\" is RETRACTED as confounded</b> (~95% coincidental — active patients who'd book anyway). Realised: 28 visited → RM8,430 + 12 future. Incrementality NOT yet isolated — needs the holdout. Webhook log is phone-keyed (no name) so individual attribution on shared phones (~31%) is a heuristic."}
+  {
+    "id": "1",
+    "title": "OpenDent ↔ AutoCount + E-Invoicing",
+    "status": "active",
+    "owner": "Code Capsule",
+    "coOwner": "Lu Zhong (sponsor)",
+    "why": "LHDN e-invoicing is mandatory Jan 2027 — the non-negotiable trigger. AutoCount does the upward LHDN reporting. This is the data backbone everything else (dashboard, locum, recall ROI) plugs into.",
+    "next": "Confirm hardware installed & demo integration tested; specify Tailscale for the remote tunnel.",
+    "gate": "Contract SIGNED 22 Jun 2026. Payment gated: RM10k over 3 months, released against UAT milestones (RM3.5k + RM3.5k + RM3k).",
+    "deps": [],
+    "blockedOn": null,
+    "timeline": "~2 months buy-to-live (2wk demo+test → live), then 1–2 days for the remote tunnel.",
+    "tasks": [
+      {
+        "t": "Vendor engaged (Code Capsule) + scope agreed",
+        "done": true
+      },
+      {
+        "t": "Contract signed — 22 Jun 2026",
+        "done": true
+      },
+      {
+        "t": "Hardware procured & installed",
+        "done": false,
+        "now": true
+      },
+      {
+        "t": "Demo integration built & UAT-tested (gate 1: RM3.5k)",
+        "done": false
+      },
+      {
+        "t": "Go-live + LHDN reporting verified (gate 2: RM3.5k)",
+        "done": false
+      },
+      {
+        "t": "Remote tunnel (Tailscale) stood up (gate 3: RM3k)",
+        "done": false
+      }
+    ],
+    "note": "Opportunistic add-ons in scope: digital WhatsApp receipts, payroll SaaS, procurement, inventory module. Share Code Capsule's SOW with Claude once received.",
+    "dept": "tech",
+    "lens": "efficiency",
+    "startMonth": "2026-06",
+    "endMonth": "2026-09",
+    "ongoing": false
+  },
+  {
+    "id": "2",
+    "title": "CRM Reactivation Cold-Calling",
+    "status": "active",
+    "owner": "Lu Zhong",
+    "coOwner": "Claude (SQL/analysis)",
+    "why": "The only near-term revenue lever. Retention game: warm lapsed families fill idle chairs cheaply (~170 idle chair-hours/month). Lu Zhong's personal focus.",
+    "next": "Call list BUILT 23 Jun (CRM/Reactivation Call List 2026.xlsx — 3 ranked groups, 1,156 targets: Families 261 / DaytimeRetired 433 / IndependentHighValue 462; recall+appt flags per member). Hand to intern; owner meets him 24 Jun to pick low-hanging fruit → start calling. Open: clicked-no-reply de-confliction; fold in CRM v2 scores.",
+    "gate": null,
+    "deps": [
+      "7"
+    ],
+    "blockedOn": null,
+    "timeline": "Calls intended to start within days. Loop: Claude writes SQL → Lu Zhong runs in OpenDent → uploads → process vs CRM rules.",
+    "tasks": [
+      {
+        "t": "CRM v2 scoring model reviewed & approved (Trust30/Household30/Reactivation30/Advocacy10)",
+        "done": true
+      },
+      {
+        "t": "Family + production SQL delivered & run (9,545 households validated, prod RM36.86m ✓)",
+        "done": true
+      },
+      {
+        "t": "MASTER base table built & enriched locally (19,117 patients / 10,849 families)",
+        "done": true
+      },
+      {
+        "t": "ENRICHED v2 rebuilt (provider-by-visit-dates + ProcedureBlend)",
+        "done": true
+      },
+      {
+        "t": "Build the prioritized call list (high-ticket families + daytime-reachable individuals)",
+        "done": false,
+        "now": true
+      },
+      {
+        "t": "Coordinate with auto-recall (#7) to avoid double-touch on 12–36mo segment",
+        "done": false
+      }
+    ],
+    "note": "<b>Warm pools:</b> 2,677 reactivatable families (RM13.8m lifetime); <b>869 sweet-spot</b> (12–36mo lapsed, RM5.24m) = the priority list; 5,954 cold (≥84mo, ~5% odds) = skip. <b>⚠️ Incident 16 Jun:</b> a correlated-subquery master query locked the clinic — RULE: set-based queries only on OpenDent.",
+    "dept": "crm",
+    "lens": "revenue",
+    "startMonth": "2026-06",
+    "endMonth": "2026-06",
+    "ongoing": true
+  },
+  {
+    "id": "3",
+    "title": "Automated Locum Calculation",
+    "status": "review",
+    "owner": "Claude",
+    "coOwner": "Branch manager (rules)",
+    "why": "Today 100% manual (branch manager). Also the per-doctor margin input the dashboard (#4) needs. Vision: locum computed per line / per transaction / per payment, not monthly.",
+    "next": "GM CONFIRMED rules 23 Jun (10% procedure-specific — Damon charged, aligners/appliances exempt; volume rule = production ≥55k → whole-month 50%). Model-A input RESOLVED (single P&I upload). Still: owner picks the .exe build path; lock the X-ray per-film sharing rule; GM to send 5 past-month workbooks + a sample P&L-by-Dr export for the full 6-month backtest.",
+    "gate": null,
+    "deps": [],
+    "blockedOn": null,
+    "timeline": "Calculator BUILT + VALIDATED (all 8 doctors' Apr-2026 LOCUM to the cent). Excel claim-sheet generator + localhost prototype + Windows .exe packaging done.",
+    "tasks": [
+      {
+        "t": "Branch manager's full deduction rule set received",
+        "done": true
+      },
+      {
+        "t": "Calculator built & validated (8/8 doctors to the cent)",
+        "done": true
+      },
+      {
+        "t": "Excel claim-sheet generator (live formulas) built",
+        "done": true
+      },
+      {
+        "t": "Standalone Windows .exe packaged (PyInstaller + CI)",
+        "done": true
+      },
+      {
+        "t": "Owner picks .exe build path → hand GM the tool",
+        "done": false,
+        "now": true
+      },
+      {
+        "t": "6-month backtest (needs Jan/Feb/Mar input workbooks)",
+        "done": false
+      },
+      {
+        "t": "GM confirms rules (ortho 10%-exemption Ling-only? volume rule wording)",
+        "done": false
+      }
+    ],
+    "note": "100% deterministic arithmetic — NO LLM, offline. Volume rule: production ≥ RM55k → whole month at 50%. Ortho/Invisalign 10%-exemption is Dr LING's deal (corrected — not Mah). GM write-up sent; awaiting answers + workbooks.",
+    "dept": "finance",
+    "lens": "efficiency",
+    "startMonth": "2026-06",
+    "endMonth": "2026-08",
+    "ongoing": false
+  },
+  {
+    "id": "4",
+    "title": "Data-Visibility Dashboard",
+    "status": "review",
+    "owner": "Claude",
+    "coOwner": "Code Capsule (DB tunnel)",
+    "why": "See per-transaction profitability live: customer → appt → production → payment → profit. Daily, drill-down, per-doctor, attrition. Deterministic SQL + BI (no LLM under the numbers).",
+    "next": "Digitise per-case lab cost (post-#1); automate regen when fresh OpenDent exports land; owner review of layout.",
+    "gate": null,
+    "deps": [
+      "1"
+    ],
+    "blockedOn": null,
+    "timeline": "BUILT on REAL data, LIVE & gated at ismile.com.my/dashboard/margin. Per-visit true margin = contribution − locum − burn. Chair-hour efficiency tab live.",
+    "tasks": [
+      {
+        "t": "Architecture agreed: SQL + Metabase on-prem, AI only as attention/cleaning layer",
+        "done": true
+      },
+      {
+        "t": "Real-data build from OpenDent exports (1,654–3,165 visits)",
+        "done": true
+      },
+      {
+        "t": "True-burn model + chair-hour efficiency tab + time-window filter",
+        "done": true
+      },
+      {
+        "t": "Baked into Command Center, LIVE & gated (/dashboard/margin)",
+        "done": true
+      },
+      {
+        "t": "Digitise per-case lab (post-#1) + automate regen",
+        "done": false,
+        "now": true
+      },
+      {
+        "t": "#1 integration live for fully-live feed",
+        "done": false
+      }
+    ],
+    "note": "Headline: Yeoh RM1,508/chair-h vs Mah RM6/chair-h = 237× spread. Burn recovers ~RM60k/mo of ~RM118k/mo overhead; the ~RM58k/mo unrecovered = idle-chair cost = the fill-chairs lever.",
+    "dept": "tech",
+    "lens": "efficiency",
+    "startMonth": "2026-08",
+    "endMonth": "2026-11",
+    "ongoing": false
+  },
+  {
+    "id": "5",
+    "title": "CX & Physical Space",
+    "status": "blocked",
+    "owner": "Lu Zhong",
+    "coOwner": null,
+    "why": "As families return, the arrival experience must justify the premium. CX is stagnating / team too comfortable. The first visit back is the moment of truth for a reactivated patient.",
+    "next": "Lu Zhong answers the 6 open questions + greenlights the ~RM500–1k process-first Phase 1.",
+    "gate": null,
+    "deps": [],
+    "blockedOn": "Awaiting owner: answer 6 scope questions + greenlight Phase 1.",
+    "timeline": "SCOPED (CX-Scope.md): highest-leverage near-zero-cost wins are front-desk recognition + rebook-at-checkout, not fixtures. 4–6 week Phase 1 with a week-6 decision gate.",
+    "tasks": [
+      {
+        "t": "Reactivated-patient journey mapped + interventions costed (CX-Scope.md)",
+        "done": true
+      },
+      {
+        "t": "Owner answers 6 questions + greenlights Phase 1",
+        "done": false,
+        "now": true
+      }
+    ],
+    "note": "Quick wins (<~RM1k): front-desk recognition, rebook-at-checkout. \"Mirror-in-a-lift\" trick = manage <b>perceived</b> wait, not just actual wait.",
+    "dept": "crm",
+    "lens": "revenue",
+    "startMonth": "2026-07",
+    "endMonth": "2026-09",
+    "ongoing": true
+  },
+  {
+    "id": "6",
+    "title": "Marketing Agent Vehicle (Contabo / Edith)",
+    "status": "active",
+    "owner": "Edith",
+    "coOwner": "Lu Zhong (truth sign-off)",
+    "why": "Repurposed OpenClaw → a lean, truth-gated loop: reply to Google reviews, curate family reviews onto the site, competitor watch, light outcome-anchored SEO. Cost is tiny (DeepSeek V4 + cheap VPS) so 'good-enough' is net-positive.",
+    "next": "Command Center now fully live-wired (initiatives + activity + workflows). Watch one clean week → decommission Hostinger.",
+    "gate": "Truth gate: cosmetic/curation/intel = autonomous + notify; anything touching claims/prices/credentials/clinical facts must pass truth checks or queue for approval.",
+    "deps": [],
+    "blockedOn": null,
+    "timeline": "LIVE & autonomous on Contabo since 17 Jun. 6 cron jobs installed (no sudo, no gateway). Loop proven end-to-end.",
+    "tasks": [
+      {
+        "t": "Migrated Hostinger → Contabo (clean rebuild, user 'ismile')",
+        "done": true
+      },
+      {
+        "t": "Lean loop scaffolded; legacy fat apparatus purged",
+        "done": true
+      },
+      {
+        "t": "Competitor watch live (17 PJ clinics); Firehose tap live",
+        "done": true
+      },
+      {
+        "t": "Chrome no-sudo + GitHub PAT installed; 6 lean crons live",
+        "done": true
+      },
+      {
+        "t": "Command Center fully live-wired (initiatives + activity + workflows)",
+        "done": true
+      },
+      {
+        "t": "Watch one clean week → decommission Hostinger",
+        "done": false,
+        "now": true
+      },
+      {
+        "t": "Rotate credentials (GitHub PAT + Firehose key + API keys + root pw)",
+        "done": false
+      }
+    ],
+    "note": "<b>Edith = the `main` agent</b> (Director of Digital Growth) on DeepSeek V4, hub-and-spoke with 7 specialists. Truth file = <b>memory/governance/ismile-fact-sheet.md</b>. Audit lesson: optimize for outcomes, not motion.",
+    "dept": "growth",
+    "lens": "revenue",
+    "startMonth": "2026-06",
+    "endMonth": "2026-06",
+    "ongoing": true
+  },
+  {
+    "id": "7",
+    "title": "Automated Recall + ROI Attribution",
+    "status": "active",
+    "owner": "Code Capsule",
+    "coOwner": "Claude (attribution)",
+    "why": "Existing WhatsApp recall (6/9/12mo, ~RM0.061/msg from the landline) needs daily-volume visibility + real conversion/ROI. Today Lu Zhong manually cross-refs OpenDent appointments to attribute recall→booking.",
+    "next": "Holdout test (~15% withhold) for true causal incrementality — the one thing that would prove ROI.",
+    "gate": null,
+    "deps": [
+      "4"
+    ],
+    "blockedOn": null,
+    "timeline": "Funnel LIVE: daily Contabo cron scrapes the mini-CRM → publishes recall.json → Command Center CRM panel. Analytically complete.",
+    "tasks": [
+      {
+        "t": "Recall measured: ~706 messaged, 5.9% individual conversion",
+        "done": true
+      },
+      {
+        "t": "Funnel attribution method built (phone→PatNum bridge)",
+        "done": true
+      },
+      {
+        "t": "Recall funnel LIVE (daily cron → recall.json → dashboard)",
+        "done": true
+      },
+      {
+        "t": "Holdout test (~15% withhold) for causal incrementality",
+        "done": false,
+        "now": true
+      },
+      {
+        "t": "016 number Meta approval (sends currently from landline)",
+        "done": false
+      }
+    ],
+    "note": "<b>⚠️ Corrected figure:</b> individual conversion is <b>5.9%</b> (42/706). The earlier <b>18% \"family ripple\" is RETRACTED as confounded</b> (~95% coincidental). Realised: 28 visited → RM8,430. Incrementality NOT yet isolated — needs the holdout.",
+    "dept": "crm",
+    "lens": "revenue",
+    "startMonth": "2026-06",
+    "endMonth": "2026-06",
+    "ongoing": true
+  },
+  {
+    "id": "8",
+    "title": "Physio Referral Partnership",
+    "status": "planned",
+    "owner": "Lu Zhong",
+    "coOwner": null,
+    "dept": "growth",
+    "lens": "revenue",
+    "startMonth": "2026-07",
+    "endMonth": "2026-09",
+    "ongoing": false,
+    "why": "A physiotherapist the family uses closely; his primary market is independent elderly. Many may live in PJ without a regular dentist — a warm, trust-based B2B referral channel into exactly the demographic we want.",
+    "next": "Lu Zhong to meet the physio: gauge how many of his patients are PJ-based, whether they attend a dentist, and appetite for a mutual referral arrangement.",
+    "gate": null,
+    "deps": [],
+    "blockedOn": null,
+    "timeline": "Idea stage. Explore → small pilot if the PJ/dental overlap is real.",
+    "tasks": [
+      {
+        "t": "Meet the physio; assess PJ overlap + dental gap",
+        "done": false,
+        "now": true
+      },
+      {
+        "t": "Define a simple mutual-referral arrangement",
+        "done": false
+      },
+      {
+        "t": "Pilot + track referrals in (needs #10 front-desk tracking)",
+        "done": false
+      }
+    ],
+    "note": "Premium, trust-based — clinician-to-clinician, not paid lead-gen. Pairs with the elderly/retiree CRM segment."
+  },
+  {
+    "id": "9",
+    "title": "Referral Engine (CX-driven, opt-in)",
+    "status": "planned",
+    "owner": "Lu Zhong",
+    "coOwner": "Parents (the calls)",
+    "dept": "crm",
+    "lens": "revenue",
+    "startMonth": "2026-07",
+    "endMonth": "2026-10",
+    "ongoing": true,
+    "why": "We're a premium, trust-based practice — referrals must be earned through experience, not bought (no MLM, no discounts; the segment isn't price-sensitive). A great end-to-end experience makes referral automatic.",
+    "next": "One-time CRM pull of the most loyal / high-frequency / complex-case patients → Lu Zhong & his parents personally call and pilot the program.",
+    "gate": "Premium-positioning gate: rewards = goodwill (e.g. RM50 NGO food voucher per successful referral), never clinic discounts.",
+    "deps": [
+      "10"
+    ],
+    "blockedOn": null,
+    "timeline": "Three stages: (1) CX so good referral is automatic → (2) the referral → (3) post-referral thank-you. Builds on the CX initiative (#5).",
+    "tasks": [
+      {
+        "t": "One-time: identify loyal / high-frequency / high-value / complex-case patients",
+        "done": false,
+        "now": true
+      },
+      {
+        "t": "Personal calls by Lu Zhong / parents (esp. dad — mum served most of them)",
+        "done": false
+      },
+      {
+        "t": "Design post-referral thank-you (text and/or RM50 NGO food voucher)",
+        "done": false
+      },
+      {
+        "t": "Decide if an opt-in program is needed; pilot with the loyal cohort",
+        "done": false
+      }
+    ],
+    "note": "Box 1 = Customer Experience (pre/in/post-visit + physical space = #5). Box 2 = the referral. Box 3 = thank the referrer when their referral shows up + produces. NGO voucher = food money for them + goodwill/moral gain (clinic invests in an NGO)."
+  },
+  {
+    "id": "10",
+    "title": "Front-Desk Referral Tracking",
+    "status": "planned",
+    "owner": "Lu Zhong",
+    "coOwner": "Front desk",
+    "dept": "crm",
+    "lens": "efficiency",
+    "startMonth": "2026-07",
+    "endMonth": "2026-07",
+    "ongoing": true,
+    "why": "Front desk doesn't currently capture 'who referred you?' at onboarding, so referrals are invisible and unrewardable. This is the measurement layer the referral engine needs.",
+    "next": "Add a 'referred by?' question to intake/onboarding and a simple way to log it in OpenDent/CRM.",
+    "gate": null,
+    "deps": [],
+    "blockedOn": null,
+    "timeline": "Quick win; prerequisite for referral attribution (#9) and the physio channel (#8).",
+    "tasks": [
+      {
+        "t": "Add 'how did you hear about us / referred by?' to intake",
+        "done": false,
+        "now": true
+      },
+      {
+        "t": "Log referrer so it's queryable",
+        "done": false
+      }
+    ],
+    "note": "Without this we can't measure referral ROI or thank referrers. Front-desk executed; serves CRM/Retention."
+  },
+  {
+    "id": "11",
+    "title": "Extend Operating Hours",
+    "status": "planned",
+    "owner": "Lu Zhong",
+    "coOwner": null,
+    "dept": "clinical",
+    "lens": "revenue",
+    "startMonth": "2026-08",
+    "endMonth": "2026-10",
+    "ongoing": false,
+    "why": "Raises the hard 762-chair-hour/month capacity ceiling — the one lever that lifts the cap. Also serves the 'can't come during working hours' churn segment and may open new markets.",
+    "next": "Model the economics: which extra slots, staffing/locum cost, expected fill from the can't-come-in-hours segment.",
+    "gate": null,
+    "deps": [],
+    "blockedOn": null,
+    "timeline": "Decision Q3 → phased implementation Q4 if the economics work.",
+    "tasks": [
+      {
+        "t": "Size the can't-make-working-hours demand (from CRM calls + recall replies)",
+        "done": false,
+        "now": true
+      },
+      {
+        "t": "Model staffing/locum cost vs expected fill",
+        "done": false
+      },
+      {
+        "t": "Pilot an evening / weekend block",
+        "done": false
+      }
+    ],
+    "note": "Capacity insight: today ~554/762 chair-hrs used (~73%); maxing hours alone caps ~RM367k/mo — extending hours lifts the ceiling itself. Pairs with CRM/retention (families lost to working-hours conflict)."
+  },
+  {
+    "id": "12",
+    "title": "New Oral Surgeon (specialist hire)",
+    "status": "planned",
+    "owner": "Lu Zhong",
+    "coOwner": "People & Competence (the hire)",
+    "dept": "clinical",
+    "lens": "revenue",
+    "startMonth": "2026-07",
+    "endMonth": "2026-10",
+    "ongoing": false,
+    "why": "A specialist would bill at the Yeoh/Joan tier (high RM/chair-hour — implants/surgery) = the value-per-hour / case-mix lever, the only way past the capacity cap. A surgeon is already considering joining.",
+    "next": "Progress the conversation; define terms (locum tier, sessions, the surgical-case pipeline).",
+    "gate": null,
+    "deps": [],
+    "blockedOn": null,
+    "timeline": "Recruiting now → onboard Q3/Q4. People & Competence owns the hire; Clinical owns deployment.",
+    "tasks": [
+      {
+        "t": "Progress discussions with the interested surgeon",
+        "done": false,
+        "now": true
+      },
+      {
+        "t": "Agree terms (tier, sessions)",
+        "done": false
+      },
+      {
+        "t": "Onboard + route surgical/implant cases to him",
+        "done": false
+      }
+    ],
+    "note": "Revenue impact is clinical (case-mix / value-per-hour); the action is a People & Competence hire. Specialist tier ≈ Yeoh/Joan."
+  },
+  {
+    "id": "13",
+    "title": "Procurement & Inventory Tracking",
+    "status": "planned",
+    "owner": "Code Capsule",
+    "coOwner": "Lu Zhong",
+    "dept": "finance",
+    "lens": "cost",
+    "startMonth": "2026-09",
+    "endMonth": "2026-11",
+    "ongoing": false,
+    "why": "Today procurement is ad-hoc, paper-bound — no PO, no item count, no per-product or per-lab breakdown. Once AutoCount lands we can track inventory + procurement → per-case lab costing (feeds the margin dashboard + cost levers).",
+    "next": "After #1 go-live, stand up the AutoCount procurement/inventory module and define the SKUs/labs to track.",
+    "gate": null,
+    "deps": [
+      "1"
+    ],
+    "blockedOn": "#1 AutoCount/OpenDent integration must be live (data access).",
+    "timeline": "Starts after #1 go-live (~Sep). Builds the cost-visibility side.",
+    "tasks": [
+      {
+        "t": "#1 integration live (blocker)",
+        "done": false
+      },
+      {
+        "t": "Configure procurement/inventory module + SKUs/labs",
+        "done": false
+      },
+      {
+        "t": "Per-case lab costing → margin dashboard",
+        "done": false
+      }
+    ],
+    "note": "Cost lever: ~50/50 lab vs sundries today, untracked. Real value = per-case lab-cost traceability."
+  },
+  {
+    "id": "14",
+    "title": "Accounts Payable Analytics",
+    "status": "planned",
+    "owner": "Code Capsule",
+    "coOwner": "Lu Zhong",
+    "dept": "finance",
+    "lens": "cost",
+    "startMonth": "2026-09",
+    "endMonth": "2026-11",
+    "ongoing": false,
+    "why": "From the AutoCount AP/payroll module — turns payables into analyzable cost data (vendor spend, payroll, per-category). Part of the governance / cost-control layer.",
+    "next": "After #1, wire the AP/payroll module and define the AP analytics views.",
+    "gate": null,
+    "deps": [
+      "1"
+    ],
+    "blockedOn": "#1 AutoCount integration live.",
+    "timeline": "After #1 go-live. Finance & Governance owned.",
+    "tasks": [
+      {
+        "t": "#1 integration live (blocker)",
+        "done": false
+      },
+      {
+        "t": "AP/payroll module configured",
+        "done": false
+      },
+      {
+        "t": "AP analytics views (vendor / payroll / category spend)",
+        "done": false
+      }
+    ],
+    "note": "Pairs with procurement (#13) on the cost-visibility side. From the AutoCount HR/AP module (RM755/yr)."
+  }
 ];
 const KB_ICON={
   next:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
@@ -742,7 +1248,7 @@ function kbCardHTML(it){
 function kbKpisHTML(){
   const c=s=>KB_INITIATIVES.filter(i=>i.status===s).length;
   const gates=KB_INITIATIVES.filter(i=>i.gate).length;
-  const k=[{cls:"blocked",n:c("blocked"),l:"Blocked / Waiting"},{cls:"active",n:c("active"),l:"Active"},
+  const k=[{cls:"planned",n:c("planned"),l:"Planned"},{cls:"blocked",n:c("blocked"),l:"Blocked / Waiting"},{cls:"active",n:c("active"),l:"Active"},
     {cls:"review",n:c("review"),l:"In Review / Gate"},{cls:"done",n:c("done"),l:"Done"},{cls:"gate",n:gates,l:"Have a Gate"}];
   return k.map(x=>`<div class="kb-kpi ${x.cls}"><div class="n">${x.n}</div><div class="l">${x.l}</div></div>`).join("");
 }
@@ -751,7 +1257,7 @@ function kbLegendHTML(){
     +`<span class="it" style="margin-left:auto;color:var(--mut2)">Tap any card for full detail →</span>`;
 }
 function kbStatusHTML(){
-  const cols=["blocked","active","review","done"];
+  const cols=["planned","blocked","active","review","done"];
   return cols.map(s=>{
     const items=KB_INITIATIVES.filter(i=>i.status===s);
     return `<div class="kb-col ${s}"><div class="kb-colhead"><span class="swatch"></span><span class="name">${KB_STATUS[s].label}</span><span class="count">${items.length}</span><span class="sub">${KB_STATUS[s].sub}</span></div>
@@ -762,7 +1268,7 @@ function kbOwnerHTML(){
   return Object.keys(KB_OWNERS).map(name=>{
     const items=KB_INITIATIVES.filter(i=>i.owner===name);if(!items.length)return "";
     const o=KB_OWNERS[name];
-    const tally=["blocked","active","review","done"].map(s=>{const n=items.filter(i=>i.status===s).length;
+    const tally=["planned","blocked","active","review","done"].map(s=>{const n=items.filter(i=>i.status===s).length;
       return n?`<span><span class="tdot" style="background:${KB_STATUS[s].color}"></span>${n} ${s}</span>`:"";}).join("");
     return `<div class="kb-ogroup"><div class="kb-ogroup-head"><span class="kb-av" style="background:${o.color}">${o.init}</span>
       <div><div class="nm">${name}</div><div class="role">${o.role}</div></div><div class="tally">${tally}</div></div>
@@ -810,31 +1316,45 @@ let KB_WIRED=false;
 function kbWire(){
   if(KB_WIRED)return;KB_WIRED=true;
   document.body.addEventListener("click",e=>{
-    const card=e.target.closest(".kb-card");
+    const card=e.target.closest("[data-kbid]");
     if(card&&!e.target.closest(".kb-overlay")){kbOpenModal(card.getAttribute("data-kbid"));return;}
     const tgl=e.target.closest("#kbToggle button");
     if(tgl){kbSetView(tgl.getAttribute("data-kbview"));return;}
   });
   document.addEventListener("keydown",e=>{if(e.key==="Escape")kbCloseModal();});
 }
+function ensureOverlay(){
+  if(document.getElementById("kbOverlay"))return;
+  const ov=document.createElement("div");ov.className="kb-overlay";ov.id="kbOverlay";
+  ov.innerHTML='<div class="kb-modal" id="kbModal"></div>';
+  ov.addEventListener("click",e=>{
+    if(e.target.id==="kbOverlay")kbCloseModal();
+    const pill=e.target.closest("[data-kbgo]");
+    if(pill){const id=pill.getAttribute("data-kbgo");kbCloseModal();setTimeout(()=>kbOpenModal(id),120);}
+  });
+  document.body.appendChild(ov);
+}
+
+/* ---- Strategy board: 3 toggle-able views (Matrix / Kanban / Month) ---- */
+const IV_DEPTS=[["growth","Growth & Acquisition"],["crm","CRM & Retention"],["clinical","Clinical & Operational Delivery"],["people","People & Competence"],["finance","Finance & Governance"],["tech","Technology & Data"]];
+const IV_LENSES=[["revenue","Revenue ↑"],["cost","Cost ↓"],["efficiency","Efficiency / Compliance"]];
+let INIT_TAB=(function(){try{return localStorage.getItem("ismile_iv")||"matrix"}catch(e){return "matrix"}})();
+function setInitTab(t){INIT_TAB=t;try{localStorage.setItem("ismile_iv",t)}catch(e){}render();}
+
 function viewInits(){
-  setTimeout(()=>{
-    kbWire();
-    let ov=document.getElementById("kbOverlay");
-    if(!ov){ov=document.createElement("div");ov.className="kb-overlay";ov.id="kbOverlay";
-      ov.innerHTML='<div class="kb-modal" id="kbModal"></div>';
-      ov.addEventListener("click",e=>{
-        if(e.target.id==="kbOverlay")kbCloseModal();
-        const pill=e.target.closest("[data-kbgo]");
-        if(pill){const id=pill.getAttribute("data-kbgo");kbCloseModal();setTimeout(()=>kbOpenModal(id),120);}
-      });
-      document.body.appendChild(ov);
-    }
-    kbSetView(KB_VIEW);
-  },0);
-  return `<div class="h">Initiatives — project board</div>
-   <div class="subt">The 7 active initiatives from INITIATIVES.md (22 Jun 2026). Swimlanes by status, or toggle to group by owner. Tap any card for the full next-action, gate, checklist &amp; context.</div>
-   <div class="kb-seg" id="kbToggle">
+  setTimeout(()=>{kbWire();ensureOverlay();if(INIT_TAB==="kanban")kbSetView(KB_VIEW);},0);
+  const seg=`<div class="h">Strategy Board — initiatives</div>
+   <div class="subt">Every initiative as a card, three ways to look at it. Live from the Contabo store (agent-updatable, no PR). Tap any card for the full detail.</div>
+   <div class="iv-seg">
+     <button class="${INIT_TAB==="matrix"?"on":""}" onclick="setInitTab('matrix')">▦ Matrix</button>
+     <button class="${INIT_TAB==="kanban"?"on":""}" onclick="setInitTab('kanban')">▤ Kanban</button>
+     <button class="${INIT_TAB==="month"?"on":""}" onclick="setInitTab('month')">📅 Month</button>
+   </div>`;
+  const body=INIT_TAB==="kanban"?kanbanHTML():INIT_TAB==="month"?monthHTML():matrixHTML();
+  return seg+body;
+}
+function kanbanHTML(){
+  return `<div class="kb-seg" id="kbToggle">
      <button data-kbview="status" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="18" rx="1"/><rect x="14" y="3" width="7" height="11" rx="1"/></svg>By Status</button>
      <button data-kbview="owner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="3"/><path d="M3 21v-1a5 5 0 0 1 5-5h2"/><circle cx="17" cy="9" r="2.5"/><path d="M14 21v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1"/></svg>By Owner</button>
    </div>
@@ -842,6 +1362,42 @@ function viewInits(){
    <div class="kb-legend">${kbLegendHTML()}</div>
    <div id="kbStatusView" class="kb-board">${kbStatusHTML()}</div>
    <div id="kbOwnerView" class="kb-hidden">${kbOwnerHTML()}</div>`;
+}
+function ivMiniCard(it){
+  const col=(KB_STATUS[it.status]||{}).color||"#999";
+  return `<div class="iv-card s-${it.status}" data-kbid="${it.id}">
+    <div class="iv-ctop"><span class="iv-cid">#${it.id}</span><span class="iv-dot" style="background:${col}"></span></div>
+    <div class="iv-ct">${it.title}</div></div>`;
+}
+function matrixHTML(){
+  const cell=(d,l)=>KB_INITIATIVES.filter(i=>(i.dept||"")===d&&(i.lens||"")===l);
+  let grid=`<div class="iv-corner" style="min-height:0"></div>`+IV_DEPTS.map(([k,l])=>`<div class="iv-head">${l}</div>`).join("");
+  IV_LENSES.forEach(([lk,ll])=>{
+    grid+=`<div class="iv-rowlab iv-${lk}">${ll}</div>`;
+    IV_DEPTS.forEach(([dk])=>{const items=cell(dk,lk);
+      grid+=`<div class="iv-cell">${items.length?items.map(ivMiniCard).join(""):'<div class="iv-empty">·</div>'}</div>`;});
+  });
+  return `<div class="iv-note">Department (columns) × objective (rows). Empty cells show where there's no initiative yet — a coverage gap, on purpose.</div>
+    <div class="iv-matrix-wrap"><div class="iv-matrix">${grid}</div></div>`;
+}
+function monthHTML(){
+  const base=new Date();base.setDate(1);
+  const months=[];for(let i=0;i<12;i++){const d=new Date(base.getFullYear(),base.getMonth()+i,1);
+    months.push({key:d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0"),lab:d.toLocaleString("en-GB",{month:"short"}),yr:d.getFullYear(),jan:d.getMonth()===0});}
+  const idx=k=>months.findIndex(m=>m.key===k);
+  const its=KB_INITIATIVES.slice().sort((a,b)=>((a.startMonth||"9999")+String(a.id).padStart(3,"0")).localeCompare((b.startMonth||"9999")+String(b.id).padStart(3,"0")));
+  const head=`<div class="mo-lab" style="cursor:default"></div>`+months.map((m,i)=>`<div class="mo-h ${i===0?"mo-now":""}">${m.lab}${(m.jan||i===0)?`<span class="mo-yr">${m.yr}</span>`:""}</div>`).join("");
+  const rows=its.map(it=>{
+    let s=idx(it.startMonth||"");if(s<0)s=0;
+    let e=it.ongoing?11:idx(it.endMonth||it.startMonth||"");if(e<0)e=s;if(e<s)e=s;
+    const col=(KB_STATUS[it.status]||{}).color||"#999";
+    let cells="";
+    for(let i=0;i<12;i++){const on=i>=s&&i<=e;const cls=on?("on"+(i===s?" start":"")+((i===e&&!it.ongoing)?" end":"")):"";
+      cells+=`<div class="mo-cell ${cls}" ${on?`style="--bar:${col}"`:""}>${(it.ongoing&&i===11&&on)?'<span class="ar">→</span>':""}</div>`;}
+    return `<div class="mo-row"><div class="mo-lab" data-kbid="${it.id}"><span class="iv-cid">#${it.id}</span> ${it.title}</div>${cells}</div>`;
+  }).join("");
+  return `<div class="iv-note">Rolling 12-month plan — which month each initiative lands in. Bars = active span, → = ongoing/BAU. Conceptual; rebase anytime by editing the store.</div>
+    <div class="mo-wrap"><div class="mo-grid">${head}${rows}</div></div>`;
 }
 
 /* ---------- live status polling ---------- */
