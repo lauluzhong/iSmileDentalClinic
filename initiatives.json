@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-24 16:42 MYT",
+  "updated": "2026-06-24 17:08 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -110,6 +110,15 @@
           "t": "Build the prioritized call list (high-ticket families + daytime-reachable individuals)",
           "done": false,
           "now": true
+        },
+        {
+          "t": "Intern working: CRM reactivation call list + high-ticket referral engine list",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Lists complete \u2192 Lu presents to GM \u2192 gate Elaine-as-caller \u2192 trigger calls",
+          "done": false
         },
         {
           "t": "Coordinate with auto-recall (#7) to avoid double-touch on 12\u201336mo segment",
@@ -348,23 +357,27 @@
     {
       "id": "8",
       "title": "Physio Referral Partnership",
-      "status": "planned",
+      "status": "active",
       "owner": "Lu Zhong",
       "coOwner": null,
       "dept": "growth",
       "lens": "revenue",
-      "startMonth": "2026-07",
+      "startMonth": "2026-06",
       "endMonth": "2026-09",
       "ongoing": false,
       "why": "A physiotherapist the family uses closely; his primary market is independent elderly. Many may live in PJ without a regular dentist \u2014 a warm, trust-based B2B referral channel into exactly the demographic we want.",
-      "next": "Lu Zhong to meet the physio: gauge how many of his patients are PJ-based, whether they attend a dentist, and appetite for a mutual referral arrangement.",
+      "next": "Lu Zhong contacted Asher (The Physio Room owner) via text. Awaiting reply \u2192 progress to a meeting or the proposal.",
       "gate": null,
       "deps": [],
       "blockedOn": null,
-      "timeline": "Idea stage. Explore \u2192 small pilot if the PJ/dental overlap is real.",
+      "timeline": "First contact made 24 Jun. Follow-up depends on Asher's reply.",
       "tasks": [
         {
-          "t": "Meet the physio; assess PJ overlap + dental gap",
+          "t": "Lu texted Asher (The Physio Room) \u2014 initial referral sent",
+          "done": true
+        },
+        {
+          "t": "Follow up: gauge PJ patient overlap + mutual referral appetite",
           "done": false,
           "now": true
         },
@@ -382,22 +395,22 @@
     {
       "id": "9",
       "title": "Referral Engine (CX-driven, opt-in)",
-      "status": "planned",
+      "status": "active",
       "owner": "Lu Zhong",
-      "coOwner": "Parents (the calls)",
+      "coOwner": "Intern (list prep), Elaine (calls)",
       "dept": "crm",
       "lens": "revenue",
-      "startMonth": "2026-07",
+      "startMonth": "2026-06",
       "endMonth": "2026-10",
       "ongoing": true,
       "why": "We're a premium, trust-based practice \u2014 referrals must be earned through experience, not bought (no MLM, no discounts; the segment isn't price-sensitive). A great end-to-end experience makes referral automatic.",
-      "next": "One-time CRM pull of the most loyal / high-frequency / complex-case patients \u2192 Lu Zhong & his parents personally call and pilot the program.",
+      "next": "Intern compiling the high-ticket value list. When ready \u2192 Lu presents to GM \u2192 gate Elaine-as-caller \u2192 trigger calls.",
       "gate": "Premium-positioning gate: rewards = goodwill (e.g. RM50 NGO food voucher per successful referral), never clinic discounts.",
       "deps": [
         "10"
       ],
       "blockedOn": null,
-      "timeline": "Three stages: (1) CX so good referral is automatic \u2192 (2) the referral \u2192 (3) post-referral thank-you. Builds on the CX initiative (#5).",
+      "timeline": "Three stages: (1) CX so good referral is automatic \u2192 (2) the referral \u2192 (3) post-referral thank-you. Intern building list now.",
       "tasks": [
         {
           "t": "One-time: identify loyal / high-frequency / high-value / complex-case patients",
@@ -405,7 +418,12 @@
           "now": true
         },
         {
-          "t": "Personal calls by Lu Zhong / parents (esp. dad \u2014 mum served most of them)",
+          "t": "Intern building the high-ticket referral engine list",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Lists complete \u2192 Lu presents to GM \u2192 gate Elaine-as-caller \u2192 trigger",
           "done": false
         },
         {
