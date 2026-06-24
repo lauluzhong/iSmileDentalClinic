@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-24 12:15 MYT",
+  "updated": "2026-06-24 14:40 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -68,7 +68,12 @@
           "done": false
         }
       ],
-      "note": "Opportunistic add-ons in scope: digital WhatsApp receipts, payroll SaaS, procurement, inventory module. Share Code Capsule's SOW with Claude once received."
+      "note": "Opportunistic add-ons in scope: digital WhatsApp receipts, payroll SaaS, procurement, inventory module. Share Code Capsule's SOW with Claude once received.",
+      "dept": "tech",
+      "lens": "efficiency",
+      "startMonth": "2026-06",
+      "endMonth": "2026-09",
+      "ongoing": false
     },
     {
       "id": "2",
@@ -111,7 +116,12 @@
           "done": false
         }
       ],
-      "note": "<b>Warm pools:</b> 2,677 reactivatable families (RM13.8m lifetime); <b>869 sweet-spot</b> (12\u201336mo lapsed, RM5.24m) = the priority list; 5,954 cold (\u226584mo, ~5% odds) = skip. <b>\u26a0\ufe0f Incident 16 Jun:</b> a correlated-subquery master query locked the clinic \u2014 RULE: set-based queries only on OpenDent."
+      "note": "<b>Warm pools:</b> 2,677 reactivatable families (RM13.8m lifetime); <b>869 sweet-spot</b> (12\u201336mo lapsed, RM5.24m) = the priority list; 5,954 cold (\u226584mo, ~5% odds) = skip. <b>\u26a0\ufe0f Incident 16 Jun:</b> a correlated-subquery master query locked the clinic \u2014 RULE: set-based queries only on OpenDent.",
+      "dept": "crm",
+      "lens": "revenue",
+      "startMonth": "2026-06",
+      "endMonth": "2026-06",
+      "ongoing": true
     },
     {
       "id": "3",
@@ -156,7 +166,12 @@
           "done": false
         }
       ],
-      "note": "100% deterministic arithmetic \u2014 NO LLM, offline. Volume rule: production \u2265 RM55k \u2192 whole month at 50%. Ortho/Invisalign 10%-exemption is Dr LING's deal (corrected \u2014 not Mah). GM write-up sent; awaiting answers + workbooks."
+      "note": "100% deterministic arithmetic \u2014 NO LLM, offline. Volume rule: production \u2265 RM55k \u2192 whole month at 50%. Ortho/Invisalign 10%-exemption is Dr LING's deal (corrected \u2014 not Mah). GM write-up sent; awaiting answers + workbooks.",
+      "dept": "finance",
+      "lens": "efficiency",
+      "startMonth": "2026-06",
+      "endMonth": "2026-08",
+      "ongoing": false
     },
     {
       "id": "4",
@@ -199,7 +214,12 @@
           "done": false
         }
       ],
-      "note": "Headline: Yeoh RM1,508/chair-h vs Mah RM6/chair-h = 237\u00d7 spread. Burn recovers ~RM60k/mo of ~RM118k/mo overhead; the ~RM58k/mo unrecovered = idle-chair cost = the fill-chairs lever."
+      "note": "Headline: Yeoh RM1,508/chair-h vs Mah RM6/chair-h = 237\u00d7 spread. Burn recovers ~RM60k/mo of ~RM118k/mo overhead; the ~RM58k/mo unrecovered = idle-chair cost = the fill-chairs lever.",
+      "dept": "tech",
+      "lens": "efficiency",
+      "startMonth": "2026-08",
+      "endMonth": "2026-11",
+      "ongoing": false
     },
     {
       "id": "5",
@@ -224,7 +244,12 @@
           "now": true
         }
       ],
-      "note": "Quick wins (<~RM1k): front-desk recognition, rebook-at-checkout. \"Mirror-in-a-lift\" trick = manage <b>perceived</b> wait, not just actual wait."
+      "note": "Quick wins (<~RM1k): front-desk recognition, rebook-at-checkout. \"Mirror-in-a-lift\" trick = manage <b>perceived</b> wait, not just actual wait.",
+      "dept": "crm",
+      "lens": "revenue",
+      "startMonth": "2026-07",
+      "endMonth": "2026-09",
+      "ongoing": true
     },
     {
       "id": "6",
@@ -269,7 +294,12 @@
           "done": false
         }
       ],
-      "note": "<b>Edith = the `main` agent</b> (Director of Digital Growth) on DeepSeek V4, hub-and-spoke with 7 specialists. Truth file = <b>memory/governance/ismile-fact-sheet.md</b>. Audit lesson: optimize for outcomes, not motion."
+      "note": "<b>Edith = the `main` agent</b> (Director of Digital Growth) on DeepSeek V4, hub-and-spoke with 7 specialists. Truth file = <b>memory/governance/ismile-fact-sheet.md</b>. Audit lesson: optimize for outcomes, not motion.",
+      "dept": "growth",
+      "lens": "revenue",
+      "startMonth": "2026-06",
+      "endMonth": "2026-06",
+      "ongoing": true
     },
     {
       "id": "7",
@@ -308,7 +338,254 @@
           "done": false
         }
       ],
-      "note": "<b>\u26a0\ufe0f Corrected figure:</b> individual conversion is <b>5.9%</b> (42/706). The earlier <b>18% \"family ripple\" is RETRACTED as confounded</b> (~95% coincidental). Realised: 28 visited \u2192 RM8,430. Incrementality NOT yet isolated \u2014 needs the holdout."
+      "note": "<b>\u26a0\ufe0f Corrected figure:</b> individual conversion is <b>5.9%</b> (42/706). The earlier <b>18% \"family ripple\" is RETRACTED as confounded</b> (~95% coincidental). Realised: 28 visited \u2192 RM8,430. Incrementality NOT yet isolated \u2014 needs the holdout.",
+      "dept": "crm",
+      "lens": "revenue",
+      "startMonth": "2026-06",
+      "endMonth": "2026-06",
+      "ongoing": true
+    },
+    {
+      "id": "8",
+      "title": "Physio Referral Partnership",
+      "status": "planned",
+      "owner": "Lu Zhong",
+      "coOwner": null,
+      "dept": "growth",
+      "lens": "revenue",
+      "startMonth": "2026-07",
+      "endMonth": "2026-09",
+      "ongoing": false,
+      "why": "A physiotherapist the family uses closely; his primary market is independent elderly. Many may live in PJ without a regular dentist \u2014 a warm, trust-based B2B referral channel into exactly the demographic we want.",
+      "next": "Lu Zhong to meet the physio: gauge how many of his patients are PJ-based, whether they attend a dentist, and appetite for a mutual referral arrangement.",
+      "gate": null,
+      "deps": [],
+      "blockedOn": null,
+      "timeline": "Idea stage. Explore \u2192 small pilot if the PJ/dental overlap is real.",
+      "tasks": [
+        {
+          "t": "Meet the physio; assess PJ overlap + dental gap",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Define a simple mutual-referral arrangement",
+          "done": false
+        },
+        {
+          "t": "Pilot + track referrals in (needs #10 front-desk tracking)",
+          "done": false
+        }
+      ],
+      "note": "Premium, trust-based \u2014 clinician-to-clinician, not paid lead-gen. Pairs with the elderly/retiree CRM segment."
+    },
+    {
+      "id": "9",
+      "title": "Referral Engine (CX-driven, opt-in)",
+      "status": "planned",
+      "owner": "Lu Zhong",
+      "coOwner": "Parents (the calls)",
+      "dept": "crm",
+      "lens": "revenue",
+      "startMonth": "2026-07",
+      "endMonth": "2026-10",
+      "ongoing": true,
+      "why": "We're a premium, trust-based practice \u2014 referrals must be earned through experience, not bought (no MLM, no discounts; the segment isn't price-sensitive). A great end-to-end experience makes referral automatic.",
+      "next": "One-time CRM pull of the most loyal / high-frequency / complex-case patients \u2192 Lu Zhong & his parents personally call and pilot the program.",
+      "gate": "Premium-positioning gate: rewards = goodwill (e.g. RM50 NGO food voucher per successful referral), never clinic discounts.",
+      "deps": [
+        "10"
+      ],
+      "blockedOn": null,
+      "timeline": "Three stages: (1) CX so good referral is automatic \u2192 (2) the referral \u2192 (3) post-referral thank-you. Builds on the CX initiative (#5).",
+      "tasks": [
+        {
+          "t": "One-time: identify loyal / high-frequency / high-value / complex-case patients",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Personal calls by Lu Zhong / parents (esp. dad \u2014 mum served most of them)",
+          "done": false
+        },
+        {
+          "t": "Design post-referral thank-you (text and/or RM50 NGO food voucher)",
+          "done": false
+        },
+        {
+          "t": "Decide if an opt-in program is needed; pilot with the loyal cohort",
+          "done": false
+        }
+      ],
+      "note": "Box 1 = Customer Experience (pre/in/post-visit + physical space = #5). Box 2 = the referral. Box 3 = thank the referrer when their referral shows up + produces. NGO voucher = food money for them + goodwill/moral gain (clinic invests in an NGO)."
+    },
+    {
+      "id": "10",
+      "title": "Front-Desk Referral Tracking",
+      "status": "planned",
+      "owner": "Lu Zhong",
+      "coOwner": "Front desk",
+      "dept": "crm",
+      "lens": "efficiency",
+      "startMonth": "2026-07",
+      "endMonth": "2026-07",
+      "ongoing": true,
+      "why": "Front desk doesn't currently capture 'who referred you?' at onboarding, so referrals are invisible and unrewardable. This is the measurement layer the referral engine needs.",
+      "next": "Add a 'referred by?' question to intake/onboarding and a simple way to log it in OpenDent/CRM.",
+      "gate": null,
+      "deps": [],
+      "blockedOn": null,
+      "timeline": "Quick win; prerequisite for referral attribution (#9) and the physio channel (#8).",
+      "tasks": [
+        {
+          "t": "Add 'how did you hear about us / referred by?' to intake",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Log referrer so it's queryable",
+          "done": false
+        }
+      ],
+      "note": "Without this we can't measure referral ROI or thank referrers. Front-desk executed; serves CRM/Retention."
+    },
+    {
+      "id": "11",
+      "title": "Extend Operating Hours",
+      "status": "planned",
+      "owner": "Lu Zhong",
+      "coOwner": null,
+      "dept": "clinical",
+      "lens": "revenue",
+      "startMonth": "2026-08",
+      "endMonth": "2026-10",
+      "ongoing": false,
+      "why": "Raises the hard 762-chair-hour/month capacity ceiling \u2014 the one lever that lifts the cap. Also serves the 'can't come during working hours' churn segment and may open new markets.",
+      "next": "Model the economics: which extra slots, staffing/locum cost, expected fill from the can't-come-in-hours segment.",
+      "gate": null,
+      "deps": [],
+      "blockedOn": null,
+      "timeline": "Decision Q3 \u2192 phased implementation Q4 if the economics work.",
+      "tasks": [
+        {
+          "t": "Size the can't-make-working-hours demand (from CRM calls + recall replies)",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Model staffing/locum cost vs expected fill",
+          "done": false
+        },
+        {
+          "t": "Pilot an evening / weekend block",
+          "done": false
+        }
+      ],
+      "note": "Capacity insight: today ~554/762 chair-hrs used (~73%); maxing hours alone caps ~RM367k/mo \u2014 extending hours lifts the ceiling itself. Pairs with CRM/retention (families lost to working-hours conflict)."
+    },
+    {
+      "id": "12",
+      "title": "New Oral Surgeon (specialist hire)",
+      "status": "planned",
+      "owner": "Lu Zhong",
+      "coOwner": "People & Competence (the hire)",
+      "dept": "clinical",
+      "lens": "revenue",
+      "startMonth": "2026-07",
+      "endMonth": "2026-10",
+      "ongoing": false,
+      "why": "A specialist would bill at the Yeoh/Joan tier (high RM/chair-hour \u2014 implants/surgery) = the value-per-hour / case-mix lever, the only way past the capacity cap. A surgeon is already considering joining.",
+      "next": "Progress the conversation; define terms (locum tier, sessions, the surgical-case pipeline).",
+      "gate": null,
+      "deps": [],
+      "blockedOn": null,
+      "timeline": "Recruiting now \u2192 onboard Q3/Q4. People & Competence owns the hire; Clinical owns deployment.",
+      "tasks": [
+        {
+          "t": "Progress discussions with the interested surgeon",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Agree terms (tier, sessions)",
+          "done": false
+        },
+        {
+          "t": "Onboard + route surgical/implant cases to him",
+          "done": false
+        }
+      ],
+      "note": "Revenue impact is clinical (case-mix / value-per-hour); the action is a People & Competence hire. Specialist tier \u2248 Yeoh/Joan."
+    },
+    {
+      "id": "13",
+      "title": "Procurement & Inventory Tracking",
+      "status": "planned",
+      "owner": "Code Capsule",
+      "coOwner": "Lu Zhong",
+      "dept": "finance",
+      "lens": "cost",
+      "startMonth": "2026-09",
+      "endMonth": "2026-11",
+      "ongoing": false,
+      "why": "Today procurement is ad-hoc, paper-bound \u2014 no PO, no item count, no per-product or per-lab breakdown. Once AutoCount lands we can track inventory + procurement \u2192 per-case lab costing (feeds the margin dashboard + cost levers).",
+      "next": "After #1 go-live, stand up the AutoCount procurement/inventory module and define the SKUs/labs to track.",
+      "gate": null,
+      "deps": [
+        "1"
+      ],
+      "blockedOn": "#1 AutoCount/OpenDent integration must be live (data access).",
+      "timeline": "Starts after #1 go-live (~Sep). Builds the cost-visibility side.",
+      "tasks": [
+        {
+          "t": "#1 integration live (blocker)",
+          "done": false
+        },
+        {
+          "t": "Configure procurement/inventory module + SKUs/labs",
+          "done": false
+        },
+        {
+          "t": "Per-case lab costing \u2192 margin dashboard",
+          "done": false
+        }
+      ],
+      "note": "Cost lever: ~50/50 lab vs sundries today, untracked. Real value = per-case lab-cost traceability."
+    },
+    {
+      "id": "14",
+      "title": "Accounts Payable Analytics",
+      "status": "planned",
+      "owner": "Code Capsule",
+      "coOwner": "Lu Zhong",
+      "dept": "finance",
+      "lens": "cost",
+      "startMonth": "2026-09",
+      "endMonth": "2026-11",
+      "ongoing": false,
+      "why": "From the AutoCount AP/payroll module \u2014 turns payables into analyzable cost data (vendor spend, payroll, per-category). Part of the governance / cost-control layer.",
+      "next": "After #1, wire the AP/payroll module and define the AP analytics views.",
+      "gate": null,
+      "deps": [
+        "1"
+      ],
+      "blockedOn": "#1 AutoCount integration live.",
+      "timeline": "After #1 go-live. Finance & Governance owned.",
+      "tasks": [
+        {
+          "t": "#1 integration live (blocker)",
+          "done": false
+        },
+        {
+          "t": "AP/payroll module configured",
+          "done": false
+        },
+        {
+          "t": "AP analytics views (vendor / payroll / category spend)",
+          "done": false
+        }
+      ],
+      "note": "Pairs with procurement (#13) on the cost-visibility side. From the AutoCount HR/AP module (RM755/yr)."
     }
   ]
 }
