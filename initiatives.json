@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-24 14:40 MYT",
+  "updated": "2026-06-24 16:42 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -586,6 +586,48 @@
         }
       ],
       "note": "Pairs with procurement (#13) on the cost-visibility side. From the AutoCount HR/AP module (RM755/yr)."
+    },
+    {
+      "id": "15",
+      "title": "Legal \u2014 Contracts, Handbook & Doctor Agreements",
+      "status": "active",
+      "owner": "Lu Zhong",
+      "coOwner": "External legal counsel",
+      "why": "Doctors currently have NO contract. Redraft all employee contracts, refresh the employee handbook, and move doctors onto contractor agreements (NOT employees) so they do not fall under an employment relationship. Reduces employment/legal risk and locks the doctor-engagement model.",
+      "next": "Legal counsel drafting now. In-flight: (1) all employee contracts redone, (2) employee handbook updated, (3) doctor contractor agreements + a doctor policy as an appendix, (4) Elaine moved off front desk to a Customer Relationship Manager role.",
+      "gate": null,
+      "deps": [],
+      "blockedOn": null,
+      "timeline": "In progress \u2014 external legal person engaged.",
+      "tasks": [
+        {
+          "t": "Redraft all employee contracts",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Update the employee handbook",
+          "done": false
+        },
+        {
+          "t": "Doctor contractor agreements (contractor, not employee)",
+          "done": false
+        },
+        {
+          "t": "Doctor policy attached as an appendix to the agreement",
+          "done": false
+        },
+        {
+          "t": "Redesign Elaine\u2019s JD: front desk \u2192 Customer Relationship Manager",
+          "done": false
+        }
+      ],
+      "note": "Doctors sign a CONTRACTOR agreement (not employment) to avoid employee classification; the doctor policy rides as an appendix. Elaine \u2014 with iSmile since inception, known to long-standing patients as the front face \u2014 shifts off front desk (age making front-desk load heavy) into a CRM Manager role: she becomes the caller for the high-value CRM reactivation list (ties to the CRM Reactivation initiative). Home = Finance & Governance (legal/compliance); also a People & HR initiative.",
+      "dept": "finance",
+      "lens": "efficiency",
+      "startMonth": "2026-06",
+      "endMonth": "2026-09",
+      "ongoing": false
     }
   ]
 }
