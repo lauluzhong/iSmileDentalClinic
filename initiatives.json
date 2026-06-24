@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-24 17:08 MYT",
+  "updated": "2026-06-24 18:09 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -500,40 +500,6 @@
         }
       ],
       "note": "Capacity insight: today ~554/762 chair-hrs used (~73%); maxing hours alone caps ~RM367k/mo \u2014 extending hours lifts the ceiling itself. Pairs with CRM/retention (families lost to working-hours conflict)."
-    },
-    {
-      "id": "12",
-      "title": "New Oral Surgeon (specialist hire)",
-      "status": "planned",
-      "owner": "Lu Zhong",
-      "coOwner": "People & Competence (the hire)",
-      "dept": "clinical",
-      "lens": "revenue",
-      "startMonth": "2026-07",
-      "endMonth": "2026-10",
-      "ongoing": false,
-      "why": "A specialist would bill at the Yeoh/Joan tier (high RM/chair-hour \u2014 implants/surgery) = the value-per-hour / case-mix lever, the only way past the capacity cap. A surgeon is already considering joining.",
-      "next": "Progress the conversation; define terms (locum tier, sessions, the surgical-case pipeline).",
-      "gate": null,
-      "deps": [],
-      "blockedOn": null,
-      "timeline": "Recruiting now \u2192 onboard Q3/Q4. People & Competence owns the hire; Clinical owns deployment.",
-      "tasks": [
-        {
-          "t": "Progress discussions with the interested surgeon",
-          "done": false,
-          "now": true
-        },
-        {
-          "t": "Agree terms (tier, sessions)",
-          "done": false
-        },
-        {
-          "t": "Onboard + route surgical/implant cases to him",
-          "done": false
-        }
-      ],
-      "note": "Revenue impact is clinical (case-mix / value-per-hour); the action is a People & Competence hire. Specialist tier \u2248 Yeoh/Joan."
     },
     {
       "id": "13",
