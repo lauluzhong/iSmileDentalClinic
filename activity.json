@@ -5,6 +5,13 @@
       "ts": "2026-06-25 12:00 MYT",
       "agent": "gbp",
       "job": "gbp_reply",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-06-25 12:00 MYT",
+      "agent": "gbp",
+      "job": "gbp_reply",
       "event": "started",
       "result": ""
     },
