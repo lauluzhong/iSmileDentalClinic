@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-25 13:25 MYT",
+  "updated": "2026-06-25 13:28 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -604,7 +604,7 @@
         }
       ],
       "note": "AutoCount's digital receipting is an add-on from the existing contract. Eliminates a paper process, creates a searchable record, and is required for full e-invoicing compliance.",
-      "dept": "finance",
+      "dept": "clinical",
       "lens": "efficiency",
       "startMonth": "2026-09",
       "endMonth": "2026-10",
