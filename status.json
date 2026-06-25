@@ -1,6 +1,8 @@
 {
-  "updated": "2026-06-25 12:00 MYT",
-  "running": [],
+  "updated": "2026-06-25 13:30 MYT",
+  "running": [
+    "recall_funnel"
+  ],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -23,7 +25,7 @@
       "last": "2026-06-22 00:02 MYT"
     },
     "recall_funnel": {
-      "state": "idle",
+      "state": "running",
       "last": "2026-06-24 13:30 MYT"
     }
   }
