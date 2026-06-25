@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-25 12:15 MYT",
+  "updated": "2026-06-25 13:25 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -573,6 +573,45 @@
     },
     {
       "id": "15",
+      "title": "Automated Receipts (digital from AutoCount)",
+      "status": "planned",
+      "owner": "Code Capsule",
+      "coOwner": "Lu Zhong",
+      "why": "Digitise receipting \u2014 AutoCount sends digital WhatsApp/email receipts instead of paper. Feeds into the AP pipeline, eliminates manual filing, and is a compliance prerequisite for LHDN e-invoicing.",
+      "next": "After #1 go-live, configure the digital receipt module in AutoCount.",
+      "gate": null,
+      "deps": [
+        "1"
+      ],
+      "blockedOn": "#1 AutoCount/OpenDent integration must be live.",
+      "timeline": "After #1 go-live (~Q3). Quick win once the data backbone is in.",
+      "tasks": [
+        {
+          "t": "#1 integration live (blocker)",
+          "done": false
+        },
+        {
+          "t": "Configure AutoCount digital receipt module",
+          "done": false
+        },
+        {
+          "t": "Test WhatsApp/email receipt delivery",
+          "done": false
+        },
+        {
+          "t": "Go live \u2014 stop printing paper receipts",
+          "done": false
+        }
+      ],
+      "note": "AutoCount's digital receipting is an add-on from the existing contract. Eliminates a paper process, creates a searchable record, and is required for full e-invoicing compliance.",
+      "dept": "finance",
+      "lens": "efficiency",
+      "startMonth": "2026-09",
+      "endMonth": "2026-10",
+      "ongoing": false
+    },
+    {
+      "id": "16",
       "title": "Legal \u2014 Contracts, Handbook & Doctor Agreements",
       "status": "active",
       "owner": "Lu Zhong",
@@ -602,7 +641,7 @@
           "done": false
         },
         {
-          "t": "Redesign Elaine\u2019s JD: front desk \u2192 Customer Relationship Manager",
+          "t": "Redesign Elaine's JD: front desk \u2192 Customer Relationship Manager",
           "done": false
         }
       ],
