@@ -1,13 +1,15 @@
 {
-  "updated": "2026-06-27 13:30 MYT",
-  "running": [],
+  "updated": "2026-06-28 11:48 MYT",
+  "running": [
+    "competitor_watch"
+  ],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
       "last": "2026-06-27 12:00 MYT"
     },
     "competitor_watch": {
-      "state": "idle",
+      "state": "running",
       "last": "2026-06-21 12:02 MYT"
     },
     "review_curation": {
