@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-06-27",
+  "as_of": "2026-06-28",
   "source": "redirect.ismile.com.my/admin/webhook/webhooklog",
   "note": "Event counts, not distinct patients. STATUS rows are per-message callbacks. Conversion is NOT here -- report only as-of last OpenDent upload.",
   "cumulative": {
