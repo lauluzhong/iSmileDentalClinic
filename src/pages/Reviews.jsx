@@ -114,6 +114,25 @@ const reviewsList = [
         text: (
             <>
                 <p>
+                    "Family visit to iSmile is a must each time we are back here in Malaysia.
+                    Saw <strong>Dr. Jean</strong>, <strong>Dr. Ling</strong> and <strong>Dr. Mah</strong>.
+                    Love the ambience each time."
+                </p>
+                <p>
+                    "Friendly receptionist and nurses too.
+                    <strong>Trustworthy dentist</strong> you can definitely rely on for healthy dental care :)"
+                </p>
+            </>
+        ),
+        author: "Sze Yoong",
+        rating: 5,
+        avatar: "/images/reviews/patient.svg",
+        type: "Verified Google Review"
+    },
+    {
+        text: (
+            <>
+                <p>
                     "My trusted dental clinic all the time for <strong>myself and my family</strong>.
                     I greatly appreciate your care, everything you have done for us. Thank you."
                 </p>
