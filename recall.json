@@ -18,17 +18,17 @@
   },
   "conversion": {
     "available": true,
-    "appt_export": "DailyP&I month of June (Dated 29 June 2026).xls",
+    "appt_export": "Appointments 2026 dated 29 June 2026.xls",
     "appt_range": [
-      null,
-      null
+      "2026-01-01",
+      "2026-12-31"
     ],
     "sent_total": 767,
     "matured_cohort": 574,
     "resolved_to_patient": 544,
-    "booked_within_window": 0,
-    "booked_anytime": 0,
-    "conversion_pct": 0.0,
+    "booked_within_window": 40,
+    "booked_anytime": 42,
+    "conversion_pct": 7.4,
     "mature_days": 21,
     "attrib_window_days": 90
   }
