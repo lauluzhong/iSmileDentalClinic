@@ -5,6 +5,13 @@
       "ts": "2026-06-29 17:56 MYT",
       "agent": "analytics",
       "job": "recall_funnel",
+      "event": "started",
+      "result": ""
+    },
+    {
+      "ts": "2026-06-29 17:56 MYT",
+      "agent": "analytics",
+      "job": "recall_funnel",
       "event": "finished",
       "result": "ok"
     },
@@ -273,13 +280,6 @@
       "job": "gbp_reply",
       "event": "finished",
       "result": "ok"
-    },
-    {
-      "ts": "2026-06-23 12:00 MYT",
-      "agent": "gbp",
-      "job": "gbp_reply",
-      "event": "started",
-      "result": ""
     }
   ]
 }
