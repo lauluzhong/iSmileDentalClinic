@@ -1,8 +1,7 @@
 {
-  "updated": "2026-06-29 17:55 MYT",
+  "updated": "2026-06-29 17:56 MYT",
   "running": [
-    "review_curation",
-    "recall_funnel"
+    "review_curation"
   ],
   "jobs": {
     "gbp_reply": {
@@ -26,8 +25,8 @@
       "last": "2026-06-29 00:02 MYT"
     },
     "recall_funnel": {
-      "state": "running",
-      "last": "2026-06-29 17:46 MYT"
+      "state": "idle",
+      "last": "2026-06-29 17:56 MYT"
     }
   }
 }
