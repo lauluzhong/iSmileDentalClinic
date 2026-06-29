@@ -3,17 +3,17 @@
   "source": "redirect.ismile.com.my/admin/webhook/webhooklog",
   "note": "Event counts, not distinct patients. STATUS rows are per-message callbacks. Conversion is NOT here -- report only as-of last OpenDent upload.",
   "cumulative": {
-    "total": 7939,
+    "total": 7940,
     "sent": 2817,
     "delivered": 3273,
     "read": 1050,
     "failed": 240,
-    "clicks": 73,
+    "clicks": 74,
     "replies": 486
   },
   "this_month": {
     "sent": 2097,
-    "clicks": 48,
+    "clicks": 49,
     "replies": 336
   }
 }
