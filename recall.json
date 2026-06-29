@@ -1,7 +1,7 @@
 {
   "as_of": "2026-06-29",
   "source": "redirect.ismile.com.my/admin/webhook/webhooklog",
-  "note": "Event counts, not distinct patients. STATUS rows are per-message callbacks. Conversion is NOT here -- report only as-of last OpenDent upload.",
+  "note": "Funnel = event counts (per-message callbacks), not distinct patients. Conversion = matured-cohort recall->appointment rate (correlation, not proven causal lift); as-of the latest OpenDent export only.",
   "cumulative": {
     "total": 7949,
     "sent": 2817,
@@ -15,5 +15,21 @@
     "sent": 2097,
     "clicks": 49,
     "replies": 336
+  },
+  "conversion": {
+    "available": true,
+    "appt_export": "DailyP&I month of June (Dated 29 June 2026).xls",
+    "appt_range": [
+      null,
+      null
+    ],
+    "sent_total": 767,
+    "matured_cohort": 574,
+    "resolved_to_patient": 544,
+    "booked_within_window": 0,
+    "booked_anytime": 0,
+    "conversion_pct": 0.0,
+    "mature_days": 21,
+    "attrib_window_days": 90
   }
 }
