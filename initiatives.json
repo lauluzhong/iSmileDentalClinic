@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-01 12:15 MYT",
+  "updated": "2026-07-01 23:02 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -80,15 +80,15 @@
       "title": "CRM Reactivation Cold-Calling",
       "status": "active",
       "owner": "Lu Zhong",
-      "coOwner": "Claude (SQL/analysis)",
+      "coOwner": "Claude (SQL/analysis), Elaine (caller)",
       "why": "The only near-term revenue lever. Retention game: warm lapsed families fill idle chairs cheaply (~170 idle chair-hours/month). Lu Zhong's personal focus.",
-      "next": "Call list BUILT 23 Jun (CRM/Reactivation Call List 2026.xlsx \u2014 3 ranked groups, 1,156 targets: Families 261 / DaytimeRetired 433 / IndependentHighValue 462; recall+appt flags per member). Hand to intern; owner meets him 24 Jun to pick low-hanging fruit \u2192 start calling. Open: clicked-no-reply de-confliction; fold in CRM v2 scores.",
+      "next": "LIVE: Elaine (redeployed front-desk -> CRM caller) has received her three print call lists (Families 83 / Retirees 33 / VIP 56, appointment-cleaned) and STARTED CALLING on 1 Jul 2026. Next: decide who keys her daily call outcomes back in so the ranked list auto-refreshes (no double-calling).",
       "gate": null,
       "deps": [
         "7"
       ],
       "blockedOn": null,
-      "timeline": "Calls intended to start within days. Loop: Claude writes SQL \u2192 Lu Zhong runs in OpenDent \u2192 uploads \u2192 process vs CRM rules.",
+      "timeline": "Calling STARTED 1 Jul 2026. Elaine works 3 ranked print lists at her own discretion on timing (~20 dials/day target); outcomes keyed back in -> list refreshes to the next names.",
       "tasks": [
         {
           "t": "CRM v2 scoring model reviewed & approved (Trust30/Household30/Reactivation30/Advocacy10)",
@@ -123,6 +123,10 @@
         {
           "t": "Coordinate with auto-recall (#7) to avoid double-touch on 12\u201336mo segment",
           "done": false
+        },
+        {
+          "t": "Elaine received 3 print call lists + STARTED CALLING (1 Jul 2026)",
+          "done": true
         }
       ],
       "note": "<b>Warm pools:</b> 2,677 reactivatable families (RM13.8m lifetime); <b>869 sweet-spot</b> (12\u201336mo lapsed, RM5.24m) = the priority list; 5,954 cold (\u226584mo, ~5% odds) = skip. <b>\u26a0\ufe0f Incident 16 Jun:</b> a correlated-subquery master query locked the clinic \u2014 RULE: set-based queries only on OpenDent.",
