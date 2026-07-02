@@ -3,17 +3,17 @@
   "source": "redirect.ismile.com.my/admin/webhook/webhooklog",
   "note": "Funnel = event counts (per-message callbacks), not distinct patients. Conversion = matured-cohort recall->appointment rate (correlation, not proven causal lift); as-of the latest OpenDent export only.",
   "cumulative": {
-    "total": 8462,
+    "total": 8469,
     "sent": 2982,
-    "delivered": 3519,
+    "delivered": 3525,
     "read": 1122,
     "failed": 261,
-    "clicks": 74,
+    "clicks": 75,
     "replies": 504
   },
   "this_month": {
     "sent": 99,
-    "clicks": 0,
+    "clicks": 1,
     "replies": 9
   },
   "conversion": {
