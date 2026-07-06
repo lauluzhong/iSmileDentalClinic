@@ -3,6 +3,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Smartphone } from 'lucide-react';
 import Button from './Button';
+import reviewStats from '../data/review-stats.json';
 
 const logo = '/logo.png';
 const logoWebP = '/logo.webp';
@@ -77,9 +78,9 @@ const Footer = () => {
                                 <div className="stars">
                                     <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                                 </div>
-                                <span className="rating-text">4.9</span>
+                                <span className="rating-text">{reviewStats.rating}</span>
                             </div>
-                            <p className="reviews-count">76 reviews</p>
+                            <p className="reviews-count">{reviewStats.count} reviews</p>
                             <p className="write-review">Write a review →</p>
                         </div>
 

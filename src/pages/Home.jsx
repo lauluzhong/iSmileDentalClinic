@@ -6,6 +6,7 @@ import Button from '../components/Button';
 import { Helmet } from 'react-helmet-async';
 import { Reveal, FadeIn } from '../components/Reveal';
 import { motion } from 'framer-motion';
+import reviewStats from '../data/review-stats.json';
 
 // Updated Image Paths
 const FAMILY_HERO = "/images/family_hero_three_generations.jpg";
@@ -119,7 +120,7 @@ const Home = () => {
                                 <div className="hero-trust-stars">
                                     {[...Array(5)].map((_, i) => <Star key={i} size={15} fill="#E0A500" color="#E0A500" />)}
                                 </div>
-                                <span><strong>4.9</strong> on Google · 76 reviews</span>
+                                <span><strong>{reviewStats.rating}</strong> on Google · {reviewStats.count} reviews</span>
                             </div>
                             <span className="hero-trust-divider" />
                             <div className="hero-trust-item"><strong>20+</strong> years of trusted care</div>
@@ -226,7 +227,7 @@ const Home = () => {
             <section className="section-padding reviews-section">
                 <div className="container">
                     <div className="section-header text-center">
-                        <Reveal width="100%"><span className="pill-label"><Star size={13} fill="#E0A500" color="#E0A500" /> 4.9 · 76 Google reviews</span></Reveal>
+                        <Reveal width="100%"><span className="pill-label"><Star size={13} fill="#E0A500" color="#E0A500" /> {reviewStats.rating} · {reviewStats.count} Google reviews</span></Reveal>
                         <Reveal width="100%"><h2 className="section-title reviews-title text-center">Trusted by <span className="text-gradient">families</span></h2></Reveal>
                     </div>
                     <div className="reviews-slider">
