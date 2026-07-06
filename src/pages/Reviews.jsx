@@ -3,6 +3,7 @@ import React from 'react';
 import { Star, Quote } from 'lucide-react';
 import Button from '../components/Button';
 import { Reveal, FadeIn } from '../components/Reveal';
+import reviewStats from '../data/review-stats.json';
 
 const GoogleG = () => (
     <svg width="13" height="13" viewBox="0 0 48 48" aria-hidden="true" style={{ flexShrink: 0 }}>
@@ -198,7 +199,7 @@ const Reviews = () => {
             <div className="reviews-hero-gradient">
                 <div className="container">
                     <Reveal width="100%">
-                        <span className="pill-label" style={{ marginBottom: '22px' }}><Star size={13} fill="#E0A500" color="#E0A500" /> 4.9 average · 76 Google reviews</span>
+                        <span className="pill-label" style={{ marginBottom: '22px' }}><Star size={13} fill="#E0A500" color="#E0A500" /> {reviewStats.rating} average · {reviewStats.count} Google reviews</span>
                     </Reveal>
                     <Reveal width="100%">
                         <h1 className="reviews-hero-title">
@@ -215,12 +216,12 @@ const Reviews = () => {
                     <Reveal delay={0.3} width="100%">
                         <div className="reviews-stats">
                             <div className="reviews-stat">
-                                <span className="reviews-stat-num">4.9<span className="reviews-stat-unit">/5</span></span>
+                                <span className="reviews-stat-num">{reviewStats.rating}<span className="reviews-stat-unit">/5</span></span>
                                 <span className="reviews-stat-label">Google rating</span>
                             </div>
                             <span className="reviews-stat-divider" />
                             <div className="reviews-stat">
-                                <span className="reviews-stat-num">76+</span>
+                                <span className="reviews-stat-num">{reviewStats.count}+</span>
                                 <span className="reviews-stat-label">Verified reviews</span>
                             </div>
                             <span className="reviews-stat-divider" />
