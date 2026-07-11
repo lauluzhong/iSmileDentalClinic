@@ -5,6 +5,13 @@
       "ts": "2026-07-11 12:20 MYT",
       "agent": "engineer",
       "job": "review_stats_sync",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-07-11 12:20 MYT",
+      "agent": "engineer",
+      "job": "review_stats_sync",
       "event": "started",
       "result": ""
     },
@@ -273,13 +280,6 @@
       "job": "review_curation",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-07-05 12:01 MYT",
-      "agent": "seo",
-      "job": "competitor_watch",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
