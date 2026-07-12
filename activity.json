@@ -3,6 +3,13 @@
   "entries": [
     {
       "ts": "2026-07-12 12:01 MYT",
+      "agent": "seo",
+      "job": "competitor_watch",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-07-12 12:01 MYT",
       "agent": "gbp",
       "job": "gbp_reply",
       "event": "finished",
@@ -273,13 +280,6 @@
       "job": "gbp_reply",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-07-06 00:01 MYT",
-      "agent": "edith",
-      "job": "weekly_digest",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
