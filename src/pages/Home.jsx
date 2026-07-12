@@ -293,6 +293,34 @@ const Home = () => {
                                 type: "Patient",
                                 avatar: AVATAR_BENNY_WEBP,
                                 rating: 5
+                            },
+                            {
+                                text: (
+                                    <>
+                                        <p>
+                                            "The only dental clinic I trust for my family with <strong>2 young kids</strong>.
+                                            An experienced team of dentists who are <strong>kind and caring</strong>,
+                                            very <strong>clean and comfortable environment</strong> too."
+                                        </p>
+                                    </>
+                                ),
+                                author: "Lydia Ng",
+                                type: "Patient",
+                                avatar: "/images/reviews/lydia_ng.jpg",
+                                rating: 5
+                            },
+                            {
+                                text: (
+                                    <>
+                                        <p>
+                                            "Brilliant doctors in this establishment. Very caring and good with children."
+                                        </p>
+                                    </>
+                                ),
+                                author: "Gayatri Raja Mohan",
+                                type: "Patient",
+                                avatar: "/images/reviews/patient.svg",
+                                rating: 5
                             }
                         ].map((review, i) => (
                             <div key={i} className="glass-panel review-card">

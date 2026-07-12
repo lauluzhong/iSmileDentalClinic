@@ -115,6 +115,19 @@ const reviewsList = [
         text: (
             <>
                 <p>
+                    "Brilliant doctors in this establishment. Very caring and good with children."
+                </p>
+            </>
+        ),
+        author: "Gayatri Raja Mohan",
+        rating: 5,
+        avatar: "/images/reviews/patient.svg",
+        type: "Verified Google Review"
+    },
+    {
+        text: (
+            <>
+                <p>
                     "Family visit to iSmile is a must each time we are back here in Malaysia.
                     Saw <strong>Dr. Jean</strong>, <strong>Dr. Ling</strong> and <strong>Dr. Mah</strong>.
                     Love the ambience each time."
