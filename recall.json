@@ -1,7 +1,9 @@
 {
-  "as_of": "2026-07-12",
+  "as_of": "2026-07-18",
   "source": "redirect.ismile.com.my/admin/webhook/webhooklog",
   "note": "Funnel = event counts (per-message callbacks), not distinct patients. Conversion = matured-cohort recall->appointment rate (correlation, not proven causal lift); as-of the latest OpenDent export only.",
+  "funnel_live": false,
+  "funnel_as_of": "2026-07-12",
   "cumulative": {
     "total": 9442,
     "sent": 3321,
@@ -24,12 +26,13 @@
       "2026-12-31"
     ],
     "sent_total": 767,
-    "matured_cohort": 743,
-    "resolved_to_patient": 709,
-    "booked_within_window": 48,
-    "booked_anytime": 51,
-    "conversion_pct": 6.8,
+    "matured_cohort": 767,
+    "resolved_to_patient": 729,
+    "booked_within_window": 49,
+    "booked_anytime": 52,
+    "conversion_pct": 6.7,
     "mature_days": 21,
     "attrib_window_days": 90
-  }
+  },
+  "funnel_error": "SSL cert expired/invalid on redirect.ismile.com.my"
 }
