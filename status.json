@@ -1,7 +1,6 @@
 {
-  "updated": "2026-07-19 12:00 MYT",
+  "updated": "2026-07-19 12:01 MYT",
   "running": [
-    "competitor_watch",
     "review_curation"
   ],
   "jobs": {
@@ -10,8 +9,8 @@
       "last": "2026-07-19 12:00 MYT"
     },
     "competitor_watch": {
-      "state": "running",
-      "last": "2026-07-12 12:01 MYT"
+      "state": "idle",
+      "last": "2026-07-19 12:01 MYT"
     },
     "review_curation": {
       "state": "running",
