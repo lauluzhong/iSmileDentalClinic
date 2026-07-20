@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-20 12:15 MYT",
+  "updated": "2026-07-20 13:14 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -780,6 +780,467 @@
         }
       ],
       "note": "The framing matters more than the number: the X-ray unit is a <b>licensed clinic asset</b> (AELB licence sits with the clinic, not the practitioner), so sharing its revenue is a policy applied to everyone \u2014 not a cut to one person. That is why it goes first. ~RM63k/yr recovered \u2248 funds the front-desk + DSA roles."
+    },
+    {
+      "id": "19",
+      "title": "Front-of-House SOP, Training & Bench",
+      "status": "active",
+      "owner": "Lu Zhong",
+      "coOwner": "Emily (GM), Joanna",
+      "dept": "people",
+      "lens": "efficiency",
+      "startMonth": "2026-07",
+      "endMonth": "2026-11",
+      "ongoing": false,
+      "why": "The clinic has no SOP for issuing letters to patients \u2014 medical certificates, referral letters, insurance reports, quotations. Nobody had ever said whose job it was, and that gap caused real friction between a doctor and the office. It is a symptom of a bigger one: a whole class of routine patient-facing admin has never been assigned or trained, so it defaults to whoever feels responsible, usually a doctor. The rule should be simple \u2014 the doctor supplies the clinical judgement, the front desk produces the document, the message and the follow-through.",
+      "next": "Write the letters SOP first (small, and it is the one that caused the friction), then the escalation matrix. Set the dates for moving Erincy to the front desk.",
+      "gate": "Capacity before capability \u2014 the desk cannot take on harder work while it is one person deep. Build the bench first, then load it.",
+      "deps": [
+        "1",
+        "15"
+      ],
+      "blockedOn": null,
+      "timeline": "Bench Jul\u2013Aug \u2192 P1 SOPs written Aug \u2192 ONE combined training block Sep\u2013Oct timed to digital receipts go-live (#15) \u2192 P2 SOPs and first competency review Nov.",
+      "tasks": [
+        {
+          "t": "Scope written \u2014 ~25 front-of-house duties mapped, P1 vs P2",
+          "done": true
+        },
+        {
+          "t": "Letters SOP: templates, request path, turnaround, sign-off, filing, register",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Move Erincy to the front desk alongside Joanna, with a competency checklist",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Escalation matrix \u2014 what the desk answers vs what needs a doctor",
+          "done": false
+        },
+        {
+          "t": "Answer bank \u2014 the 30\u201340 most common questions, approved once by a doctor",
+          "done": false
+        },
+        {
+          "t": "Combined front-desk training, timed to digital receipts",
+          "done": false
+        },
+        {
+          "t": "Ruth rotated in",
+          "done": false
+        }
+      ],
+      "note": "Merges the two front-of-house items raised on 20 Jul \u2014 the SOP gap and the upskilling/bench \u2014 because they are the same problem."
+    },
+    {
+      "id": "20",
+      "title": "Locum Payment Date \u2014 define & document",
+      "status": "active",
+      "owner": "Lu Zhong",
+      "coOwner": "Emily (GM), Lydia (wording)",
+      "dept": "finance",
+      "lens": "efficiency",
+      "startMonth": "2026-08",
+      "endMonth": "2026-11",
+      "ongoing": false,
+      "why": "Locum used to be paid on the 7th; it has been the 10th for three years. The office has been faultlessly consistent \u2014 the grievance is that the change was never explained. Moving back to the 7th costs the clinic about RM60 a month in working capital, so this is not a money decision at all. It is purely a question of whether the numbers can be known and approved by then.",
+      "next": "Emily logs the timestamps T0\u2013T7 for the August, September and October closes. Decide 7th vs 10th with observed data on the table, then write it into the contractor agreement.",
+      "gate": "Set the committed date at the 90th percentile of observed completion, rounded to the next business day \u2014 not the average. A payment date is a promise; set it where it holds in a bad month.",
+      "deps": [
+        "3",
+        "16",
+        "21"
+      ],
+      "blockedOn": null,
+      "timeline": "Measure the Aug/Sep/Oct closes \u2192 decide in November \u2192 into the contractor agreement.",
+      "tasks": [
+        {
+          "t": "Map the Day 1\u2192Day 7 critical path",
+          "done": true
+        },
+        {
+          "t": "Finding: the constraint is the lab invoices, not the office's effort \u2014 everything internal is ready by Day 2",
+          "done": true
+        },
+        {
+          "t": "Log T0\u2013T7 for the Aug / Sep / Oct closes",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Ask the labs to invoice by the 1st\u20132nd",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Issue a per-doctor statement with every payment \u2014 do this now, regardless of the date",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Decide 7th vs 10th and write it into the agreement",
+          "done": false
+        }
+      ],
+      "note": "Most likely history: nobody decided to move it. Doctor count and lab volume grew, the manual reconciliation grew with them, and the date followed the constraint \u2014 which is exactly why there was nothing to communicate."
+    },
+    {
+      "id": "21",
+      "title": "Supplier Register & Comms Takeover",
+      "status": "active",
+      "owner": "Lu Zhong",
+      "coOwner": "Emily (GM)",
+      "dept": "finance",
+      "lens": "cost",
+      "startMonth": "2026-07",
+      "endMonth": "2026-10",
+      "ongoing": false,
+      "why": "Supplier communication and payment should sit with the office, not the doctors \u2014 both to free clinical time and because doctor-mediated invoices arrive late. One supplier offers cashback for payment within about two days of invoice, and we routinely miss it because the invoice reaches the team after the window has closed. That is a pure, uncontested loss. Before anything can be taken over, we need to know the full universe of who we buy from and how each relationship actually runs today.",
+      "next": "Fill in the register: every supplier a row \u2014 who liaises, who gets the invoice, who approves, who pays, the terms, and whether the terms are documented anywhere.",
+      "gate": "Anything left as Unknown is itself a finding, not a blank.",
+      "deps": [
+        "1"
+      ],
+      "blockedOn": null,
+      "timeline": "Register built and seeded. Fill it Jul\u2013Aug, agree target owners Sep, hand over the relationships Sep\u2013Oct.",
+      "tasks": [
+        {
+          "t": "Supplier register workbook built and seeded",
+          "done": true
+        },
+        {
+          "t": "Complete every row \u2014 liaison, invoicing, approval, payment, terms",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Add the dental sundries and consumables suppliers \u2014 the largest cost line, not yet on the register at all",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Document the payment terms for each supplier in one place",
+          "done": false
+        },
+        {
+          "t": "Name the target owner in the office for each relationship",
+          "done": false
+        },
+        {
+          "t": "Hand over the relationships and tell the suppliers where to send invoices",
+          "done": false
+        }
+      ],
+      "note": "Feeds AP analytics and the procurement/inventory work once the data backbone lands."
+    },
+    {
+      "id": "22",
+      "title": "Supplier Rebates & Benefits Policy",
+      "status": "review",
+      "owner": "Lu Zhong",
+      "coOwner": "Lydia (ethics position), Emily",
+      "dept": "finance",
+      "lens": "cost",
+      "startMonth": "2026-07",
+      "endMonth": "2026-09",
+      "ongoing": false,
+      "why": "Suppliers give us more than goods \u2014 early-payment cashback, volume discounts, seasonal promotions, free units, sponsored courses. Today there is no rule about who those benefits belong to, which means every case is a negotiation. A rule you have to argue about each time is not a rule.",
+      "next": "Confirm the mechanics with the office, get the ethics position confirmed, then communicate it and fold it into the contractor agreement.",
+      "gate": "The benefit follows the cost and the risk. Whoever bore the thing that earned the rebate, gets the rebate.",
+      "deps": [
+        "16",
+        "21"
+      ],
+      "blockedOn": null,
+      "timeline": "Draft written. Confirm the mechanics and the ethics position, then communicate.",
+      "tasks": [
+        {
+          "t": "Policy drafted \u2014 three buckets, with a worked example table",
+          "done": true
+        },
+        {
+          "t": "Key insight captured: cost-linked rebates are ALREADY shared, because lab and material costs are deducted before the doctor's share",
+          "done": true
+        },
+        {
+          "t": "Confirm rebates are actually booked against the cost line in the month they relate to \u2014 the policy fails quietly if they are not",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Legal to confirm the ethics and inducement position",
+          "done": false
+        },
+        {
+          "t": "Communicate to the doctors, leading with the good news",
+          "done": false
+        },
+        {
+          "t": "Fold into the contractor agreement",
+          "done": false
+        }
+      ],
+      "note": "Cash-flow-earned benefits are the clinic's outright. Case-cost-earned benefits reduce the cost line and reach the doctors automatically \u2014 paying them on top would be double-counting. Personal benefits are declared and logged."
+    },
+    {
+      "id": "23",
+      "title": "Invisalign Invoice Verification \u2014 off the doctor",
+      "status": "planned",
+      "owner": "Lu Zhong",
+      "coOwner": "Emily (GM)",
+      "dept": "finance",
+      "lens": "cost",
+      "startMonth": "2026-08",
+      "endMonth": "2026-10",
+      "ongoing": false,
+      "why": "A doctor personally checks every aligner invoice to make sure we were billed correctly. The right question is what she is checking it against \u2014 and the answer exposes the design flaw: she is reconstructing the truth at month end from knowledge only she holds. Verification belongs with the office, in line with the direction that all supplier communication and invoicing sits with management.",
+      "next": "Get the office read access to the supplier's case portal and the current price and tier agreement, then start a case log.",
+      "gate": "Capture the truth when it is created, not months later. The doctor confirms the case at the moment it is ordered \u2014 thirty seconds \u2014 and the office verifies the invoice against that log with no doctor involved.",
+      "deps": [
+        "21",
+        "22"
+      ],
+      "blockedOn": null,
+      "timeline": "Access and price list Aug \u2192 case log running Sep \u2192 first office-run verification Oct. Automated matching later.",
+      "tasks": [
+        {
+          "t": "Get the office read access to the case portal",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Obtain the current price list and volume-tier agreement",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Start the case log \u2014 case ID, patient, doctor, product, date, refinements",
+          "done": false
+        },
+        {
+          "t": "First month verified by the office, checked alongside the doctor",
+          "done": false
+        },
+        {
+          "t": "Automated invoice-to-case matching to flag discrepancies",
+          "done": false
+        }
+      ],
+      "note": "Volume-tier pricing on aligners is a cost-line rebate under the rebates policy."
+    },
+    {
+      "id": "24",
+      "title": "AI Clinical Note Transcription",
+      "status": "planned",
+      "owner": "Lu Zhong",
+      "coOwner": "Claude (build)",
+      "dept": "tech",
+      "lens": "efficiency",
+      "startMonth": "2026-08",
+      "endMonth": "2026-11",
+      "ongoing": false,
+      "why": "Doctors spend real chair time typing the patient conversation into notes. That time is the most expensive time in the building, and the task is now genuinely easy to automate: record the conversation, transcribe it, and format it into the clinic's own note style.",
+      "next": "Get a sample of existing notes so the output can be matched to how the doctors already write. A handful of examples is almost certainly enough \u2014 no model training required.",
+      "gate": "Two non-negotiables: patient consent for recording, and the doctor reviews and approves before anything enters the clinical record. Never auto-write.",
+      "deps": [],
+      "blockedOn": null,
+      "timeline": "Short term: a handheld device in the room. Medium term: a fixed microphone per surgery, with patients matched by timestamp against the appointment book.",
+      "tasks": [
+        {
+          "t": "Collect sample notes to learn the output format",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Add recording consent to the intake and consent form",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Prototype: recording \u2192 transcription \u2192 formatted note",
+          "done": false
+        },
+        {
+          "t": "Trial in one surgery with doctor review before saving",
+          "done": false
+        },
+        {
+          "t": "Fixed microphone per room, matched to the appointment book by timestamp",
+          "done": false
+        }
+      ],
+      "note": "Run the model locally so no patient audio or clinical text leaves the premises \u2014 the privacy-safe answer and the easiest one to defend to the doctors."
+    },
+    {
+      "id": "25",
+      "title": "Patient Conversation Context for Doctors",
+      "status": "planned",
+      "owner": "Lu Zhong",
+      "coOwner": "Joanna, Emily",
+      "dept": "clinical",
+      "lens": "efficiency",
+      "startMonth": "2026-07",
+      "endMonth": "2026-09",
+      "ongoing": false,
+      "why": "When a patient arrives having asked something technical by message beforehand, the doctor needs that context. The agreed short-term fix is to put the messaging app on a surgery computer for the upstairs doctors \u2014 recorded here so it gets re-examined rather than quietly becoming permanent.",
+      "next": "Confirm the placement, then decide whether the shared computer is the right long-term answer or an interim.",
+      "gate": "The messaging app is a channel; the patient record is the system of record. Context should reach the doctor where they already look.",
+      "deps": [
+        "19"
+      ],
+      "blockedOn": null,
+      "timeline": "Interim placement now. Target state \u2014 front desk logs the substance onto the appointment note \u2014 lands with the front-of-house SOP.",
+      "tasks": [
+        {
+          "t": "Confirm placement \u2014 the lab space opposite the rooms on each floor, so no doctor is advantaged or disadvantaged",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Check the linked-device limit \u2014 it cannot go on every doctor's machine",
+          "done": false
+        },
+        {
+          "t": "Front desk logs the substance of message exchanges onto the appointment note",
+          "done": false
+        },
+        {
+          "t": "Review after a month: is the shared computer still needed?",
+          "done": false
+        }
+      ],
+      "note": "A shared computer is a workaround. The real fix is the front-of-house SOP, which puts the context into the record."
+    },
+    {
+      "id": "26",
+      "title": "DSA Training Programme",
+      "status": "planned",
+      "owner": "Lu Zhong",
+      "coOwner": "Senior DSAs (to confirm)",
+      "dept": "people",
+      "lens": "efficiency",
+      "startMonth": "2026-08",
+      "endMonth": "2026-12",
+      "ongoing": false,
+      "why": "There is no structured training for the dental surgery assistants. The doctors already run a quarterly get-together where they teach each other what they have learned \u2014 the same model would work chairside, and running it is a real ownership opportunity for the senior assistants rather than a chore.",
+      "next": "Confirm who runs it, then draft the competency matrix and the first session.",
+      "gate": "A competency matrix per assistant, a quarterly session, and a sign-off \u2014 so it feeds the staff scorecard rather than being a one-off.",
+      "deps": [
+        "19"
+      ],
+      "blockedOn": null,
+      "timeline": "Design Aug\u2013Sep \u2192 first session Q4 2026 \u2192 quarterly thereafter.",
+      "tasks": [
+        {
+          "t": "Confirm who leads it",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Draft the competency matrix",
+          "done": false
+        },
+        {
+          "t": "Design the first session",
+          "done": false
+        },
+        {
+          "t": "Run the first quarterly session",
+          "done": false
+        },
+        {
+          "t": "Fold competencies into the staff scorecard",
+          "done": false
+        }
+      ],
+      "note": "The hybrid front-desk / chairside staff should have their chairside and front-desk competencies on one sheet."
+    },
+    {
+      "id": "27",
+      "title": "New Doctor \u2014 capacity & case-mix hire",
+      "status": "planned",
+      "owner": "Lu Zhong",
+      "coOwner": "Dr Ong",
+      "dept": "clinical",
+      "lens": "revenue",
+      "startMonth": "2026-07",
+      "endMonth": "2026-12",
+      "ongoing": false,
+      "why": "Our own margin data shows a very wide spread in value produced per chair-hour between doctors \u2014 one clinician generates several hundred times the true margin per hour of another. Business as usual will not close the gap in time. A clinician who can arrive and immediately deliver higher-value procedures, and bring patients with them, is the case-mix lever \u2014 the only route past the capacity ceiling other than extending hours.",
+      "next": "Open the conversation with the candidate already identified.",
+      "gate": "Look for someone who can produce from early on, not someone who needs the clinic to build their book for them.",
+      "deps": [],
+      "blockedOn": null,
+      "timeline": "Conversation now. Terms would ride on the contractor agreement.",
+      "tasks": [
+        {
+          "t": "Open the conversation",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Agree what a strong first year looks like, in chair-hours and case mix",
+          "done": false
+        },
+        {
+          "t": "Terms via the contractor agreement",
+          "done": false
+        }
+      ],
+      "note": "Sits alongside the specialist-surgeon conversation already on the board \u2014 both are the same lever."
+    },
+    {
+      "id": "28",
+      "title": "Recall Campaign Expansion \u2014 cold blast & post-visit follow-up",
+      "status": "blocked",
+      "owner": "Lu Zhong",
+      "coOwner": "Code Capsule",
+      "dept": "crm",
+      "lens": "revenue",
+      "startMonth": "2026-08",
+      "endMonth": "2026-10",
+      "ongoing": false,
+      "why": "The recall system was built with more triggers than the six, nine and twelve-month recalls we actually switched on. Turning the others on is the cheapest top-line lever available, and the P&L trajectory says business as usual will not close the gap. Messaging even ten thousand lapsed patients costs on the order of RM3,000.",
+      "next": "Get the recall link certificate renewed first. Then draft the cold blast and amend the follow-up message.",
+      "gate": "Do not launch anything while the recall link is broken \u2014 blasting the whole base into a browser security warning is worse than not blasting at all.",
+      "deps": [
+        "7",
+        "2"
+      ],
+      "blockedOn": "Recall link certificate expired 13 Jul \u2014 vendor to renew",
+      "timeline": "Certificate first. Then the post-visit follow-up amendment (fast, free), then the cold blast.",
+      "tasks": [
+        {
+          "t": "Vendor renews the expired certificate on the recall link",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Amend the post-appointment follow-up to also ask for a Google review \u2014 no reward, just that it helps others find us",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Draft the cold reactivation blast, with a bring-the-family angle",
+          "done": false
+        },
+        {
+          "t": "De-conflict against the reactivation call lists so nobody gets both",
+          "done": false
+        },
+        {
+          "t": "Send, then measure honestly \u2014 correlation is not proven lift",
+          "done": false
+        },
+        {
+          "t": "Birthday messages \u2014 de-prioritised",
+          "done": false
+        }
+      ],
+      "note": "Birthday trigger de-prioritised by the owner. The review ask moves a lever that already feeds the website automatically."
     }
   ]
 }
