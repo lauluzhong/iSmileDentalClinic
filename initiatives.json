@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-21 09:39 MYT",
+  "updated": "2026-07-21 10:11 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -36,11 +36,11 @@
       "owner": "Code Capsule",
       "coOwner": "Lu Zhong (sponsor)",
       "why": "LHDN e-invoicing is mandatory Jan 2027 \u2014 the non-negotiable trigger. AutoCount does the upward LHDN reporting. This is the data backbone everything else (dashboard, locum, recall ROI) plugs into.",
-      "next": "Confirm hardware installed & demo integration tested; specify Tailscale for the remote tunnel.",
+      "next": "Complete the one-week parallel run on live data, log and investigate every discrepancy, then confirm the go-live date and the remote tunnel (Tailscale).",
       "gate": "Contract SIGNED 22 Jun 2026. Payment gated: RM10k over 3 months, released against UAT milestones (RM3.5k + RM3.5k + RM3k).",
       "deps": [],
       "blockedOn": null,
-      "timeline": "~2 months buy-to-live (2wk demo+test \u2192 live), then 1\u20132 days for the remote tunnel.",
+      "timeline": "Demo passed. The server is now at the clinic running on LIVE data in parallel with the current system for a week; any discrepancy gets investigated. Clear read by end of July.",
       "tasks": [
         {
           "t": "Vendor engaged (Code Capsule) + scope agreed",
@@ -51,20 +51,28 @@
           "done": true
         },
         {
-          "t": "Hardware procured & installed",
+          "t": "Hardware procured, installed and moved to the clinic",
+          "done": true
+        },
+        {
+          "t": "Demo integration built and passed",
+          "done": true
+        },
+        {
+          "t": "One-week parallel run on live data \u2014 reconcile against the current system",
           "done": false,
           "now": true
         },
         {
-          "t": "Demo integration built & UAT-tested (gate 1: RM3.5k)",
+          "t": "Investigate any discrepancies from the parallel run",
           "done": false
         },
         {
-          "t": "Go-live + LHDN reporting verified (gate 2: RM3.5k)",
+          "t": "Go-live + LHDN reporting verified",
           "done": false
         },
         {
-          "t": "Remote tunnel (Tailscale) stood up (gate 3: RM3k)",
+          "t": "Remote tunnel (Tailscale) stood up",
           "done": false
         }
       ],
@@ -78,17 +86,17 @@
     {
       "id": "2",
       "title": "CRM Reactivation Cold-Calling",
-      "status": "active",
+      "status": "blocked",
       "owner": "Lu Zhong",
       "coOwner": "Claude (SQL/analysis), Elaine (caller), Owner's brother (CRM owner)",
       "why": "The only near-term revenue lever. Retention game: warm lapsed families fill idle chairs cheaply (~170 idle chair-hours/month). Lu Zhong's personal focus.",
-      "next": "Owner's brother now owns the CRM (handed over 7 Jul with a share-ready pack + plain-English guide). Open decision with him: who keys Elaine's daily call outcomes back in so the ranked list refreshes.",
+      "next": "Decide who actually makes the calls and when. Options: give Elaine a protected, rostered block instead of fitting it around the desk; move it to someone else; or bring in a part-timer purely to dial. 172 warm, ranked names are sitting idle.",
       "gate": null,
       "deps": [
         "7"
       ],
-      "blockedOn": null,
-      "timeline": "Calling STARTED 1 Jul 2026 \u2014 Elaine works 3 ranked print lists (Families 83 / Retirees 33 / VIP 56) at her own discretion on timing, ~20 dials/day target. CRM handed to owner's brother 7 Jul.",
+      "blockedOn": "Caller capacity \u2014 Elaine has made one call and has not had the time since. The lists are built and clean; nobody is working them.",
+      "timeline": "Lists built, printed and handed over. Calling STARTED 1 Jul but has STALLED \u2014 one call made. The constraint is caller time, not data. CRM ownership sits with the owner's brother since 7 Jul.",
       "tasks": [
         {
           "t": "CRM v2 scoring model reviewed & approved (Trust30/Household30/Reactivation30/Advocacy10)",
@@ -107,20 +115,24 @@
           "done": true
         },
         {
-          "t": "Elaine received all 3 sets and STARTED CALLING \u2014 1 Jul",
+          "t": "Elaine received all 3 sets and started calling \u2014 1 Jul",
           "done": true
         },
         {
-          "t": "CRM handed over to owner\u2019s brother (pack + guide) \u2014 7 Jul",
+          "t": "CRM handed over to the owner's brother (pack + guide) \u2014 7 Jul",
           "done": true
         },
         {
-          "t": "Decide who keys daily call outcomes back in (keeps the list fresh)",
+          "t": "\u26a0\ufe0f Calling has stalled \u2014 decide who dials, in a protected time block",
           "done": false,
           "now": true
         },
         {
-          "t": "Daily cron refresh: auto-serve \"the next 20 to call\"",
+          "t": "Decide who keys the call outcomes back in, once calling resumes",
+          "done": false
+        },
+        {
+          "t": "Daily refresh: auto-serve \"the next 20 to call\"",
           "done": false
         }
       ],
@@ -270,7 +282,7 @@
       "owner": "Edith",
       "coOwner": "Lu Zhong (truth sign-off)",
       "why": "Repurposed OpenClaw \u2192 a lean, truth-gated loop: reply to Google reviews, curate family reviews onto the site, competitor watch, light outcome-anchored SEO. Cost is tiny (DeepSeek V4 + cheap VPS) so 'good-enough' is net-positive.",
-      "next": "Decide whether to decommission the old Hostinger VPS, and rotate the deferred credentials (recall admin password, Firehose key, API keys, root password).",
+      "next": "Rotate the deferred credentials \u2014 recall admin password, Firehose key, API keys and the root password. The old Hostinger box is now switched off.",
       "gate": "Truth gate: cosmetic/curation/intel = autonomous + notify; anything touching claims/prices/credentials/clinical facts must pass truth checks or queue for approval.",
       "deps": [],
       "blockedOn": null,
@@ -297,13 +309,13 @@
           "done": true
         },
         {
-          "t": "Watch one clean week \u2192 decommission Hostinger",
-          "done": false,
-          "now": true
+          "t": "Old Hostinger VPS decommissioned",
+          "done": true
         },
         {
           "t": "Rotate credentials (GitHub PAT + Firehose key + API keys + root pw)",
-          "done": false
+          "done": false,
+          "now": true
         },
         {
           "t": "Two-way Telegram live \u2014 owner paired to the agent (24 Jun)",
@@ -401,60 +413,63 @@
     {
       "id": "8",
       "title": "Physio Referral Partnership",
-      "status": "active",
+      "status": "planned",
       "owner": "Lu Zhong",
       "coOwner": null,
       "dept": "growth",
       "lens": "revenue",
-      "startMonth": "2026-06",
-      "endMonth": "2026-09",
+      "startMonth": "2026-12",
+      "endMonth": "2027-02",
       "ongoing": false,
-      "why": "A physiotherapist the family uses closely; his primary market is independent elderly. Many may live in PJ without a regular dentist \u2014 a warm, trust-based B2B referral channel into exactly the demographic we want.",
-      "next": "Lu Zhong contacted Asher (The Physio Room owner) via text. Awaiting reply \u2192 progress to a meeting or the proposal.",
+      "why": "A physiotherapist the family uses closely; his primary market is independent elderly in PJ. Reframed 21 Jul: not a standing referral pipeline \u2014 a seasonal goodwill channel into exactly the demographic we want.",
+      "next": "Nothing to chase now. Revisit around December so the card and the offer are ready before the CNY hamper run.",
       "gate": null,
       "deps": [],
       "blockedOn": null,
-      "timeline": "First contact made 24 Jun. Follow-up depends on Asher's reply.",
+      "timeline": "REFRAMED 21 Jul \u2014 this is not going to be business-as-usual referral traffic. The realistic version is seasonal: an iSmile card inside the hampers he gives out at Chinese New Year.",
       "tasks": [
         {
-          "t": "Lu texted Asher (The Physio Room) \u2014 initial referral sent",
+          "t": "Lu texted Asher (The Physio Room) \u2014 initial contact made 24 Jun",
           "done": true
         },
         {
-          "t": "Follow up: gauge PJ patient overlap + mutual referral appetite",
-          "done": false,
-          "now": true
+          "t": "Reframed: seasonal goodwill, not a BAU referral pipeline",
+          "done": true
         },
         {
-          "t": "Define a simple mutual-referral arrangement",
+          "t": "Dec: design the iSmile card that goes into the CNY hampers",
           "done": false
         },
         {
-          "t": "Pilot + track referrals in (needs #10 front-desk tracking)",
+          "t": "Agree the reciprocal gesture \u2014 what we do for his patients in return",
+          "done": false
+        },
+        {
+          "t": "Track anyone who arrives from it (needs #10 front-desk referral tracking)",
           "done": false
         }
       ],
-      "note": "Premium, trust-based \u2014 clinician-to-clinician, not paid lead-gen. Pairs with the elderly/retiree CRM segment."
+      "note": "Premium, trust-based \u2014 clinician-to-clinician, never paid lead-gen. The clinical overlap (jaw pain, posture, airway/myofunctional) is still the honest hook if a closer partnership ever makes sense."
     },
     {
       "id": "9",
       "title": "Referral Engine (CX-driven, opt-in)",
       "status": "active",
       "owner": "Lu Zhong",
-      "coOwner": "Intern (list prep), Elaine (calls)",
+      "coOwner": "Lu Zheng (owner's brother \u2014 CRM & list owner)",
       "dept": "crm",
       "lens": "revenue",
       "startMonth": "2026-06",
       "endMonth": "2026-10",
       "ongoing": true,
       "why": "We're a premium, trust-based practice \u2014 referrals must be earned through experience, not bought (no MLM, no discounts; the segment isn't price-sensitive). A great end-to-end experience makes referral automatic.",
-      "next": "Intern compiling the high-ticket value list. When ready \u2192 Lu presents to GM \u2192 gate Elaine-as-caller \u2192 trigger calls.",
+      "next": "Lu Zheng completes the high-value list. Then it needs a caller \u2014 the same constraint that has stalled #2, so solve that first.",
       "gate": "Premium-positioning gate: rewards = goodwill (e.g. RM50 NGO food voucher per successful referral), never clinic discounts.",
       "deps": [
         "10"
       ],
       "blockedOn": null,
-      "timeline": "Three stages: (1) CX so good referral is automatic \u2192 (2) the referral \u2192 (3) post-referral thank-you. Intern building list now.",
+      "timeline": "Three stages: (1) CX so good referral is automatic \u2192 (2) the referral \u2192 (3) post-referral thank-you. The high-value list has moved from the intern to the owner's brother, who is working on it now.",
       "tasks": [
         {
           "t": "One-time: identify loyal / high-frequency / high-value / complex-case patients",
@@ -462,7 +477,7 @@
           "now": true
         },
         {
-          "t": "Intern building the high-ticket referral engine list",
+          "t": "Lu Zheng building the high-value referral list (moved off the intern)",
           "done": false,
           "now": true
         },
@@ -661,11 +676,11 @@
       "owner": "Lu Zhong",
       "coOwner": "Lydia (counsel)",
       "why": "Doctors had NO contract at all, and the employee paperwork was 20 years old. Redraft the employment terms, refresh the handbook, and move doctors onto contractor agreements (not employees) so the classification, the locum mechanics and the procurement rules are all written down.",
-      "next": "Lydia's line-by-line review of the doctor contractor agreement (first cut + counsel cover memo are with her). Then: get Erincy's contract to PDF and signed.",
+      "next": "Wait on Lydia's mark-up of the contractor agreement and Emily's handbook comments, then run the all-staff handbook sign-off.",
       "gate": null,
       "deps": [],
       "blockedOn": null,
-      "timeline": "Major progress 14 Jul. All contract docs now organised under one tracker with a playbook and a controlled vocabulary. Doctor agreement first cut done \u2192 with counsel.",
+      "timeline": "Erincy's contract is signed. The doctor contractor agreement is with Lydia for line-by-line review, and Emily is reviewing the 2026 Handbook before it goes to all staff.",
       "tasks": [
         {
           "t": "All contract docs organised (status tracker + playbook + governance/terminology standard)",
@@ -680,7 +695,7 @@
           "done": true
         },
         {
-          "t": "New-hire contract built (Erincy, dated to her 7 Jul start)",
+          "t": "New-hire contract built and SIGNED (Erincy, started 7 Jul)",
           "done": true
         },
         {
@@ -688,17 +703,21 @@
           "done": true
         },
         {
-          "t": "Lydia's line-by-line review of the doctor agreement",
+          "t": "Lydia's line-by-line review of the doctor agreement \u2014 in progress",
           "done": false,
           "now": true
         },
         {
-          "t": "Erincy contract \u2192 PDF \u2192 signed",
+          "t": "Emily reviewing the 2026 Handbook \u2014 in progress",
           "done": false,
           "now": true
         },
         {
           "t": "All staff sign the 2026 Handbook",
+          "done": false
+        },
+        {
+          "t": "Elaine's revised job description, once her CRM role is settled",
           "done": false
         }
       ],
@@ -721,11 +740,11 @@
       "endMonth": "2026-12",
       "ongoing": false,
       "why": "The annual reward round is the single biggest discretionary cost decision of the year and the main retention lever on a team we cannot afford to lose. It is funded from reserves, not from the year\u2019s earnings \u2014 so it has to be timed and framed deliberately.",
-      "next": "Hold the one-to-ones: pro-rate the under-1-year staff, and settle the two open individual cases.",
+      "next": "Finalise the individual bonus amounts with Dr Ong, pay with the July salary, then hold the one-to-ones for the under-one-year staff.",
       "gate": "Funded from reserves (2026 economic baseline is roughly break-even) \u2014 so the round is a deliberate draw, not a distribution of profit.",
       "deps": [],
       "blockedOn": null,
-      "timeline": "ANNOUNCED 12 Jul by Dr Ong, framed on the 20th anniversary. One-month bonus PULLED FORWARD to July (paid with July salary); increment moved to YEAR END. One-to-ones follow.",
+      "timeline": "ANNOUNCED 12 Jul by Dr Ong, framed on the 20th anniversary. The one-month bonus is paid with the July salary at month end \u2014 the amounts are being finalised with Dr Ong now. Increment moved to year end.",
       "tasks": [
         {
           "t": "20-year payroll history + increment tracker rebuilt",
@@ -740,7 +759,7 @@
           "done": true
         },
         {
-          "t": "Pay the one-month bonus with July salary",
+          "t": "Finalise the individual amounts with Dr Ong and pay with the July salary (month end)",
           "done": false,
           "now": true
         },
