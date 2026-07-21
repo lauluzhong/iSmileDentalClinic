@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-21 10:11 MYT",
+  "updated": "2026-07-21 10:15 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -356,7 +356,7 @@
       "owner": "Code Capsule",
       "coOwner": "Claude (attribution)",
       "why": "Existing WhatsApp recall (6/9/12mo, ~RM0.061/msg from the landline) needs daily-volume visibility + real conversion/ROI. Today Lu Zhong manually cross-refs OpenDent appointments to attribute recall\u2192booking.",
-      "next": "Confirm the vendor fixed the certificate AUTO-renewal rather than just reissuing it \u2014 it lapsed silently at the 90-day mark and the next expiry is 16 Oct. Then refresh the appointment export so conversion stops being measured off the 29 June snapshot.",
+      "next": "Refresh the OpenDent appointment export so booking conversion stops being measured off the 29 June snapshot. The certificate is renewed and the vendor has now automated it.",
       "gate": null,
       "deps": [
         "4"
@@ -393,9 +393,8 @@
           "done": true
         },
         {
-          "t": "Confirm the certificate now auto-renews \u2014 the vendor's automation is what failed, and the next expiry is 16 Oct",
-          "done": false,
-          "now": true
+          "t": "Vendor added a cron job to auto-renew the recall-link certificate (confirmed 21 Jul) \u2014 the 16 Oct expiry is the real test",
+          "done": true
         },
         {
           "t": "Fresh appointment export so booking conversion moves off the 29 June snapshot",
@@ -1254,7 +1253,7 @@
         "2"
       ],
       "blockedOn": null,
-      "timeline": "UNBLOCKED 18 Jul \u2014 the recall link certificate is renewed (valid to 16 Oct). Post-visit follow-up amendment first (fast, free), then the cold blast.",
+      "timeline": "UNBLOCKED 18 Jul \u2014 the recall link certificate is renewed (valid to 16 Oct) and the vendor has automated the renewal. Post-visit follow-up amendment first (fast, free), then the cold blast.",
       "tasks": [
         {
           "t": "Vendor renewed the expired certificate on the recall link \u2014 18 Jul, valid to 16 Oct",
@@ -1282,8 +1281,8 @@
           "done": false
         },
         {
-          "t": "Confirm the certificate auto-renews before the next expiry \u2014 the automation is what failed",
-          "done": false
+          "t": "Certificate auto-renewal automated by the vendor (cron added, confirmed 21 Jul)",
+          "done": true
         }
       ],
       "note": "Birthday trigger de-prioritised by the owner. The review ask moves a lever that already feeds the website automatically."
