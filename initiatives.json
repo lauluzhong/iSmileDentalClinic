@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-21 12:15 MYT",
+  "updated": "2026-07-21 18:56 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -879,7 +879,7 @@
     },
     {
       "id": "20",
-      "title": "Locum Payment Date \u2014 define & document",
+      "title": "Locum Invoice Crossover & Payment Date",
       "status": "active",
       "owner": "Lu Zhong",
       "coOwner": "Emily (GM), Lydia (wording)",
@@ -888,32 +888,42 @@
       "startMonth": "2026-08",
       "endMonth": "2026-11",
       "ongoing": false,
-      "why": "Locum used to be paid on the 7th; it has been the 10th for three years. The office has been faultlessly consistent \u2014 the grievance is that the change was never explained. Moving back to the 7th costs the clinic about RM60 a month in working capital, so this is not a money decision at all. It is purely a question of whether the numbers can be known and approved by then.",
-      "next": "Emily logs the timestamps T0\u2013T7 for the August, September and October closes. Decide 7th vs 10th with observed data on the table, then write it into the contractor agreement.",
-      "gate": "Set the committed date at the 90th percentile of observed completion, rounded to the next business day \u2014 not the average. A payment date is a promise; set it where it holds in a bad month.",
+      "why": "Emily clarified that the calculation components are not complex. The real constraint is lab-invoice crossover: lab cost is not final at PO because rebates and credits are only recognised on the invoice, and the latest invoice can arrive about 10 days after PO. Tail-end invoices that miss cutoff are currently deducted in the following month. The risk is assigning every invoice once, to the right doctor and source month, at the source month's effective locum rate.",
+      "next": "For three closes, log PO-to-invoice timing, rebates and every carry-forward. Model three methods: pay on the 15th for a clean close; use a deliberate one-month lab lag with source-month rate tracking; or retain the current cutoff with a formal digital carry-forward ledger. Then choose the method and contractual payment date.",
+      "gate": "No omitted or double deductions. Use invoice truth for rebates. Every late lab cost must retain its source case, doctor, production month and the 45%/50% rate created by that month's RM55k production threshold.",
       "deps": [
         "3",
         "16",
         "21"
       ],
       "blockedOn": null,
-      "timeline": "Measure the Aug/Sep/Oct closes \u2192 decide in November \u2192 into the contractor agreement.",
+      "timeline": "Measure three closes \u2192 compare the three methods \u2192 decide the convention and payment date \u2192 document it.",
       "tasks": [
         {
-          "t": "Map the Day 1\u2192Day 7 critical path",
+          "t": "Emily clarification: the formula is simple; invoice timing and month crossover are the real constraint",
           "done": true
         },
         {
-          "t": "Finding: the constraint is the lab invoices, not the office's effort \u2014 everything internal is ready by Day 2",
+          "t": "Finding: rebates and credits are only final on invoice; the latest invoice may arrive about 10 days after PO",
           "done": true
         },
         {
-          "t": "Log T0\u2013T7 for the Aug / Sep / Oct closes",
+          "t": "Log PO\u2192invoice timing, rebates and every late-invoice carry-forward for three closes",
           "done": false,
           "now": true
         },
         {
-          "t": "Ask the labs to invoice by the 1st\u20132nd",
+          "t": "Model Option 1 \u2014 pay on the 15th and eliminate routine monthly contra/carry-forward",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Model Option 2 \u2014 one-month lab lag, preserving each source month's production threshold and effective rate",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Model Option 3 \u2014 current cutoff with a formal digital carry-forward ledger",
           "done": false,
           "now": true
         },
@@ -923,11 +933,11 @@
           "now": true
         },
         {
-          "t": "Decide 7th vs 10th and write it into the agreement",
+          "t": "Choose the calculation convention and payment date, then write both into the agreement",
           "done": false
         }
       ],
-      "note": "Most likely history: nobody decided to move it. Doctor count and lab volume grew, the manual reconciliation grew with them, and the date followed the constraint \u2014 which is exactly why there was nothing to communicate."
+      "note": "Digital calculation can reduce Emily's work, but it does not by itself solve invoice crossover. A one-month lag is only safe if late deductions retain the originating month's rate; otherwise the RM55k whole-month volume rule can price the cost incorrectly."
     },
     {
       "id": "21",
@@ -941,16 +951,20 @@
       "endMonth": "2026-10",
       "ongoing": false,
       "why": "Supplier communication and payment should sit with the office, not the doctors \u2014 both to free clinical time and because doctor-mediated invoices arrive late. One supplier offers cashback for payment within about two days of invoice, and we routinely miss it because the invoice reaches the team after the window has closed. That is a pure, uncontested loss. Before anything can be taken over, we need to know the full universe of who we buy from and how each relationship actually runs today.",
-      "next": "Fill in the register: every supplier a row \u2014 who liaises, who gets the invoice, who approves, who pays, the terms, and whether the terms are documented anywhere.",
+      "next": "Emily is actively populating the register. Complete the supplier map, then use it to decide which relationships management takes over, the new communication route for each supplier, and where payment terms or rebate mechanics should be renegotiated.",
       "gate": "Anything left as Unknown is itself a finding, not a blank.",
       "deps": [
         "1"
       ],
       "blockedOn": null,
-      "timeline": "Register built and seeded. Fill it Jul\u2013Aug, agree target owners Sep, hand over the relationships Sep\u2013Oct.",
+      "timeline": "Emily filling the register now \u2192 identify takeover and negotiation targets \u2192 agree office owners \u2192 hand over supplier communications.",
       "tasks": [
         {
           "t": "Supplier register workbook built and seeded",
+          "done": true
+        },
+        {
+          "t": "Lu briefed Emily; she has started populating the supplier register",
           "done": true
         },
         {
@@ -964,11 +978,12 @@
           "now": true
         },
         {
-          "t": "Document the payment terms for each supplier in one place",
-          "done": false
+          "t": "Identify which supplier communications must move to management and name the target office owner",
+          "done": false,
+          "now": true
         },
         {
-          "t": "Name the target owner in the office for each relationship",
+          "t": "Identify and negotiate payment-term, invoice-timing and rebate opportunities",
           "done": false
         },
         {
@@ -976,7 +991,7 @@
           "done": false
         }
       ],
-      "note": "Feeds AP analytics and the procurement/inventory work once the data backbone lands."
+      "note": "The register is the navigation map: it tells management whom to liaise with, which doctor-mediated relationships to take over, and where negotiated terms can improve cash flow or stop rebates being missed."
     },
     {
       "id": "22",
