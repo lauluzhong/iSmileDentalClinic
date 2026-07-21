@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-20 13:14 MYT",
+  "updated": "2026-07-21 09:39 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -270,11 +270,11 @@
       "owner": "Edith",
       "coOwner": "Lu Zhong (truth sign-off)",
       "why": "Repurposed OpenClaw \u2192 a lean, truth-gated loop: reply to Google reviews, curate family reviews onto the site, competitor watch, light outcome-anchored SEO. Cost is tiny (DeepSeek V4 + cheap VPS) so 'good-enough' is net-positive.",
-      "next": "Watch one clean week of the 8-job loop \u2192 decommission the old Hostinger VPS. Deferred: rotate credentials (RECALL_PASS / Firehose key / root pw).",
+      "next": "Decide whether to decommission the old Hostinger VPS, and rotate the deferred credentials (recall admin password, Firehose key, API keys, root password).",
       "gate": "Truth gate: cosmetic/curation/intel = autonomous + notify; anything touching claims/prices/credentials/clinical facts must pass truth checks or queue for approval.",
       "deps": [],
       "blockedOn": null,
-      "timeline": "LIVE & autonomous on Contabo since 17 Jun. Now 8 cron jobs (no sudo, no gateway). Two-way Telegram live since 24 Jun. Loop proven end-to-end.",
+      "timeline": "LIVE & autonomous on Contabo since 17 Jun. Now 9 cron jobs including a daily self-check watchdog. Two-way Telegram live since 24 Jun on a persistent, self-healing gateway. Loop proven end-to-end.",
       "tasks": [
         {
           "t": "Migrated Hostinger \u2192 Contabo (clean rebuild, user 'ismile')",
@@ -314,16 +314,23 @@
           "done": true
         },
         {
-          "t": "Watch one clean week \u2192 decommission Hostinger",
-          "done": false,
-          "now": true
+          "t": "Daily watchdog live \u2014 checks every job's last success, disk and stuck processes; alerts only when something is wrong (18 Jul)",
+          "done": true
         },
         {
-          "t": "Rotate credentials (deferred)",
-          "done": false
+          "t": "Notification noise fixed \u2014 each job now sends exactly one message, with a clear OK / STALE / FAIL header (18 Jul)",
+          "done": true
+        },
+        {
+          "t": "Website analytics fixed \u2014 the real booking, WhatsApp and form events now count as conversions; the old placeholder goals never fired (18 Jul)",
+          "done": true
+        },
+        {
+          "t": "Design and engineering workspaces restored from the legacy archive \u2014 website-editing capability confirmed working after the migration (18 Jul)",
+          "done": true
         }
       ],
-      "note": "<b>Edith = the `main` agent</b> (Director of Digital Growth) on DeepSeek V4, hub-and-spoke with 7 specialists. Truth file = <b>memory/governance/ismile-fact-sheet.md</b>. Audit lesson: optimize for outcomes, not motion. <b>Site review stats now self-update</b>: a daily 06:20 cron pulls the Google Business Profile API and commits the count/rating (live 89 \u00b7 4.8) \u2014 review TEXT still goes through a PR for sign-off.",
+      "note": "<b>Edith = the `main` agent</b> (Director of Digital Growth) on DeepSeek V4, hub-and-spoke with 7 specialists. Truth file = <b>memory/governance/ismile-fact-sheet.md</b>. Audit lesson: optimize for outcomes, not motion. <b>Site review stats now self-update</b>: a daily 06:20 cron pulls the Google Business Profile API and commits the count/rating (live 90 \u00b7 4.8) \u2014 review TEXT still goes through a PR for sign-off.",
       "dept": "growth",
       "lens": "revenue",
       "startMonth": "2026-06",
@@ -337,13 +344,13 @@
       "owner": "Code Capsule",
       "coOwner": "Claude (attribution)",
       "why": "Existing WhatsApp recall (6/9/12mo, ~RM0.061/msg from the landline) needs daily-volume visibility + real conversion/ROI. Today Lu Zhong manually cross-refs OpenDent appointments to attribute recall\u2192booking.",
-      "next": "Holdout test (~15% withhold) for true causal incrementality \u2014 the one thing that would prove ROI.",
+      "next": "Confirm the vendor fixed the certificate AUTO-renewal rather than just reissuing it \u2014 it lapsed silently at the 90-day mark and the next expiry is 16 Oct. Then refresh the appointment export so conversion stops being measured off the 29 June snapshot.",
       "gate": null,
       "deps": [
         "4"
       ],
       "blockedOn": null,
-      "timeline": "Funnel LIVE: daily Contabo cron scrapes the mini-CRM \u2192 publishes recall.json \u2192 Command Center CRM panel. Analytically complete.",
+      "timeline": "Funnel LIVE and refreshing daily again after the 13\u201318 Jul link outage. The box scrapes the recall system, computes booking conversion, and publishes to the Command Center CRM panel.",
       "tasks": [
         {
           "t": "Recall measured: ~706 messaged, 5.9% individual conversion",
@@ -358,16 +365,33 @@
           "done": true
         },
         {
-          "t": "Holdout test (~15% withhold) for causal incrementality",
-          "done": false,
-          "now": true
+          "t": "Holdout test (~15% withhold) for causal incrementality \u2014 DE-PRIORITISED by the owner, parked",
+          "done": false
         },
         {
           "t": "016 number Meta approval (sends currently from landline)",
           "done": false
+        },
+        {
+          "t": "Booking conversion built \u2014 matured-cohort recall\u2192appointment rate, now published daily with the funnel",
+          "done": true
+        },
+        {
+          "t": "Recall link was down 13\u201318 Jul (expired certificate). Found, vendor renewed it, and the silent-failure bug behind it patched \u2014 the report now says plainly when data is stale",
+          "done": true
+        },
+        {
+          "t": "Confirm the certificate now auto-renews \u2014 the vendor's automation is what failed, and the next expiry is 16 Oct",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Fresh appointment export so booking conversion moves off the 29 June snapshot",
+          "done": false,
+          "now": true
         }
       ],
-      "note": "<b>\u26a0\ufe0f Corrected figure:</b> individual conversion is <b>5.9%</b> (42/706). The earlier <b>18% \"family ripple\" is RETRACTED as confounded</b> (~95% coincidental). Realised: 28 visited \u2192 RM8,430. Incrementality NOT yet isolated \u2014 needs the holdout.",
+      "note": "<b>\u26a0\ufe0f Corrected figure:</b> individual conversion is <b>5.9%</b> (42/706). The earlier <b>18% \"family ripple\" is RETRACTED as confounded</b> (~95% coincidental). <b>Latest (20 Jul):</b> matured-cohort booking conversion <b>6.7%</b> (49 of 729 recalled patients booked within 90 days) on 3,618 messages sent to date. Still correlation, not proven lift \u2014 the holdout that would prove it is parked.",
       "dept": "crm",
       "lens": "revenue",
       "startMonth": "2026-06",
@@ -1195,7 +1219,7 @@
     {
       "id": "28",
       "title": "Recall Campaign Expansion \u2014 cold blast & post-visit follow-up",
-      "status": "blocked",
+      "status": "planned",
       "owner": "Lu Zhong",
       "coOwner": "Code Capsule",
       "dept": "crm",
@@ -1204,19 +1228,18 @@
       "endMonth": "2026-10",
       "ongoing": false,
       "why": "The recall system was built with more triggers than the six, nine and twelve-month recalls we actually switched on. Turning the others on is the cheapest top-line lever available, and the P&L trajectory says business as usual will not close the gap. Messaging even ten thousand lapsed patients costs on the order of RM3,000.",
-      "next": "Get the recall link certificate renewed first. Then draft the cold blast and amend the follow-up message.",
+      "next": "Amend the post-appointment follow-up message to also ask for a Google review, then draft the cold reactivation blast and de-conflict it against the call lists.",
       "gate": "Do not launch anything while the recall link is broken \u2014 blasting the whole base into a browser security warning is worse than not blasting at all.",
       "deps": [
         "7",
         "2"
       ],
-      "blockedOn": "Recall link certificate expired 13 Jul \u2014 vendor to renew",
-      "timeline": "Certificate first. Then the post-visit follow-up amendment (fast, free), then the cold blast.",
+      "blockedOn": null,
+      "timeline": "UNBLOCKED 18 Jul \u2014 the recall link certificate is renewed (valid to 16 Oct). Post-visit follow-up amendment first (fast, free), then the cold blast.",
       "tasks": [
         {
-          "t": "Vendor renews the expired certificate on the recall link",
-          "done": false,
-          "now": true
+          "t": "Vendor renewed the expired certificate on the recall link \u2014 18 Jul, valid to 16 Oct",
+          "done": true
         },
         {
           "t": "Amend the post-appointment follow-up to also ask for a Google review \u2014 no reward, just that it helps others find us",
@@ -1237,6 +1260,10 @@
         },
         {
           "t": "Birthday messages \u2014 de-prioritised",
+          "done": false
+        },
+        {
+          "t": "Confirm the certificate auto-renews before the next expiry \u2014 the automation is what failed",
           "done": false
         }
       ],
