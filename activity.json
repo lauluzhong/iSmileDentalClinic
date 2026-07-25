@@ -5,6 +5,13 @@
       "ts": "2026-07-25 12:00 MYT",
       "agent": "gbp",
       "job": "gbp_reply",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-07-25 12:00 MYT",
+      "agent": "gbp",
+      "job": "gbp_reply",
       "event": "started",
       "result": ""
     },
@@ -273,13 +280,6 @@
       "job": "review_stats_sync",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-07-19 12:01 MYT",
-      "agent": "seo",
-      "job": "competitor_watch",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
