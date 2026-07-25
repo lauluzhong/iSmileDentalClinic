@@ -1,6 +1,13 @@
 {
-  "updated": "2026-07-24 13:30 MYT",
+  "updated": "2026-07-25 12:00 MYT",
   "entries": [
+    {
+      "ts": "2026-07-25 12:00 MYT",
+      "agent": "gbp",
+      "job": "gbp_reply",
+      "event": "started",
+      "result": ""
+    },
     {
       "ts": "2026-07-24 13:30 MYT",
       "agent": "analytics",
@@ -271,13 +278,6 @@
       "ts": "2026-07-19 12:01 MYT",
       "agent": "seo",
       "job": "competitor_watch",
-      "event": "finished",
-      "result": "ok"
-    },
-    {
-      "ts": "2026-07-19 12:00 MYT",
-      "agent": "gbp",
-      "job": "gbp_reply",
       "event": "finished",
       "result": "ok"
     }
