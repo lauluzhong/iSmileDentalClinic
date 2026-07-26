@@ -148,16 +148,15 @@ const reviewsList = [
         text: (
             <>
                 <p>
-                    "<strong>Dr Amy</strong> is the most amazing and gentle dentist. She has been
-                    our <strong>family dentist for more than 10 years</strong>.
+                    "They have been my <strong>go-to dentist for me and my kids</strong> for many years.
                 </p>
                 <p>
-                    Elaine is a really friendly and efficient in manning the front desk of the clinic.
-                    Always welcoming every patient with her <strong>warm smile</strong> 🥰"
+                    Dr Mah has been giving me <strong>kind and detailed advice</strong> to help me with my periodontal disease.
+                    Thank you, iSmile. 😊"
                 </p>
             </>
         ),
-        author: "Christina Phang",
+        author: "Tan Bee Wah",
         rating: 5,
         avatar: "/images/reviews/patient.svg",
         type: "Verified Google Review"
@@ -166,16 +165,16 @@ const reviewsList = [
         text: (
             <>
                 <p>
-                    "They have been my <strong>go-to dentist for me and my kids</strong> for many years.
-                    <strong>Dr. Mah</strong> have been giving me kind and detailed advices to help me
-                    with my periodontal disease."
+                    "Dr Amy is the <strong>most amazing and gentle dentist</strong>. She has been our
+                    <strong>family dentist for more than 10 years</strong>.
                 </p>
                 <p>
-                    "Thank you, iSmile.😊😊"
+                    Elaine is a really friendly and efficient front desk staff. Always welcoming every
+                    patient with her warm smile 🥰"
                 </p>
             </>
         ),
-        author: "Tan Bee Wah",
+        author: "Christina Phang",
         rating: 5,
         avatar: "/images/reviews/patient.svg",
         type: "Verified Google Review"
