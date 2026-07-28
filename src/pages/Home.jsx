@@ -9,6 +9,17 @@ import { motion, useReducedMotion } from 'framer-motion';
 import reviewStats from '../data/review-stats.json';
 
 // Updated Image Paths
+// The mobile hero is a full-bleed PORTRAIT box, but this photo is LANDSCAPE
+// (947x576), so object-fit:cover scales it to match the box HEIGHT — about 2.8x
+// magnification. `sizes` only describes layout *width*, so a truthful "100vw"
+// has the browser pick the 768w file for a 375px slot and the result is visibly
+// soft. Overstating the slot compensates for the cover magnification so the
+// largest variant (947w) gets chosen. ~8KB more in AVIF.
+// NOTE: 947x576 is the largest source we have; even at 947w the hero is still
+// upscaled ~2.8x on a full-screen mobile hero. A sharp result needs a
+// higher-resolution portrait crop, not a code change.
+const HERO_SIZES = "(max-width: 768px) 150vw, 50vw";
+
 const FAMILY_HERO = "/images/family_hero_three_generations.jpg";
 const FAMILY_HERO_WEBP = "/images/family_hero_three_generations.webp";
 const GUM_IMG = "/images/blog/concerned_person_brushing.png";
@@ -133,10 +144,10 @@ const Home = () => {
                     <div className="hero-visual">
                             <div className="hero-card" style={{ padding: 0, overflow: 'hidden' }}>
                                 <picture>
-                                  <source type="image/avif" srcSet={`/images/family_hero_three_generations-480w.avif 480w, /images/family_hero_three_generations-768w.avif 768w, /images/family_hero_three_generations.avif 947w`} sizes="(max-width: 768px) 100vw, 50vw" />
-                                  <source type="image/webp" srcSet={`/images/family_hero_three_generations-480w.webp 480w, /images/family_hero_three_generations-768w.webp 768w, ${FAMILY_HERO_WEBP} 947w`} sizes="(max-width: 768px) 100vw, 50vw" />
-                                  <source type="image/jpeg" srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 947w`} sizes="(max-width: 768px) 100vw, 50vw" />
-                                  <img src={FAMILY_HERO} srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 947w`} sizes="(max-width: 768px) 100vw, 50vw" alt="Three generations of a family smiling together at iSmile Dental Clinic" width="947" height="576" fetchPriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }} />
+                                  <source type="image/avif" srcSet={`/images/family_hero_three_generations-480w.avif 480w, /images/family_hero_three_generations-768w.avif 768w, /images/family_hero_three_generations.avif 947w`} sizes={HERO_SIZES} />
+                                  <source type="image/webp" srcSet={`/images/family_hero_three_generations-480w.webp 480w, /images/family_hero_three_generations-768w.webp 768w, ${FAMILY_HERO_WEBP} 947w`} sizes={HERO_SIZES} />
+                                  <source type="image/jpeg" srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 947w`} sizes={HERO_SIZES} />
+                                  <img src={FAMILY_HERO} srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 947w`} sizes={HERO_SIZES} alt="Three generations of a family smiling together at iSmile Dental Clinic" width="947" height="576" fetchPriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }} />
                                 </picture>
                                 <div className="hero-floating-badge">
                                     <div className="hero-badge-copy">
