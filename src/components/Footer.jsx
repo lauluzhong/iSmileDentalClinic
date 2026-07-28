@@ -392,38 +392,45 @@ const Footer = () => {
         }
 
         @media (max-width: 1024px) {
-            /* Extra bottom padding so the sticky action bar never covers footer content */
-            .footer { padding: 40px 0 calc(40px + 76px + env(safe-area-inset-bottom)); }
+            /* Compact, consistently LEFT-ALIGNED accordion footer.
+               Bottom padding = just enough to clear the floating action bar. */
+            .footer { padding: 28px 0 calc(84px + env(safe-area-inset-bottom)); }
             .footer-copyright { font-size: 0.85rem; }
-            .footer-grid { 
-                grid-template-columns: 1fr; 
+            .footer-grid {
+                grid-template-columns: 1fr;
                 gap: 0;
             }
-            .branding-col { text-align: center; align-items: center; padding: 0 0 16px; border-bottom: 1px solid #f1f5f9; margin-bottom: 16px; }
-            .footer-logo img { height: 100px !important; width: auto !important; margin-bottom: 0px; }
-            .footer-desc { margin: 8px auto 16px; font-size: 0.85rem; }
-            
-            .footer-col { border-bottom: 1px solid #f1f5f9; padding: 16px 0; }
+            .branding-col { text-align: left; align-items: flex-start; padding: 0 0 12px; border-bottom: 1px solid #f1f5f9; margin-bottom: 8px; }
+            .footer-logo img { height: 90px !important; width: auto !important; margin-bottom: 0px; }
+            .footer-desc { margin: 6px 0 12px; font-size: 0.85rem; max-width: none; }
+            .google-reviews-badge { text-align: left; margin-bottom: 12px; padding: 12px 14px; }
+            .google-rating-row { justify-content: flex-start; }
+
+            .footer-col { border-bottom: 1px solid #f1f5f9; padding: 6px 0; }
             .footer-heading { margin-bottom: 0; font-size: 1rem; }
-            
-            .footer-accordion-header { padding: 8px 16px; margin: 0 -16px; }
+
+            .footer-accordion-header { padding: 8px 0; margin: 0; }
             .accordion-icon { display: block; }
-            
-            .accordion-content { 
-                max-height: 0; 
-                overflow: hidden; 
-                transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+
+            .accordion-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
                 opacity: 0;
-                padding: 0 16px;
+                padding: 0;
             }
-            .accordion-content.show { 
-                max-height: 500px; 
-                opacity: 1; 
-                padding: 16px 16px 24px; 
+            .accordion-content.show {
+                max-height: 500px;
+                opacity: 1;
+                padding: 8px 0 16px;
             }
 
-            .cta-col { grid-column: span 1; border-bottom: none; padding-top: 40px; }
-            .direction-buttons { flex-direction: row; justify-content: center; transform: scale(0.95); margin-top: 5px; }
+            .cta-col { grid-column: span 1; border-bottom: none; padding-top: 14px; text-align: left; }
+            .cta-col .footer-heading { margin-bottom: 12px; }
+            .phone-block { justify-content: flex-start; margin-bottom: 12px; }
+            .footer-social { text-align: left; }
+            .social-icons-row { justify-content: flex-start; }
+            .direction-buttons { flex-direction: row; justify-content: flex-start; transform: none; margin-top: 5px; }
             .direction-btn { width: 140px !important; }
         }
       `}</style>

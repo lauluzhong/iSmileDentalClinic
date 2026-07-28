@@ -59,20 +59,23 @@ const StickyActionBar = () => {
                     display: none;
                 }
                 @media (max-width: 1024px) {
+                    /* Floating pill container — inset from the edges, matching the
+                       site's pill design language (not a full-bleed edge bar) */
                     .sticky-action-bar {
                         position: fixed;
-                        bottom: 0;
-                        left: 0;
-                        right: 0;
+                        left: 12px;
+                        right: 12px;
+                        bottom: calc(10px + env(safe-area-inset-bottom));
                         z-index: 1500;
                         display: flex;
-                        gap: 8px;
-                        padding: 10px 12px;
-                        padding-bottom: calc(10px + env(safe-area-inset-bottom));
-                        background: rgba(255, 255, 255, 0.94);
-                        backdrop-filter: blur(10px);
-                        -webkit-backdrop-filter: blur(10px);
-                        border-top: 1px solid rgba(16, 42, 51, 0.08);
+                        gap: 6px;
+                        padding: 8px;
+                        border-radius: 26px;
+                        background: rgba(255, 255, 255, 0.88);
+                        backdrop-filter: blur(12px);
+                        -webkit-backdrop-filter: blur(12px);
+                        border: 1px solid rgba(16, 42, 51, 0.08);
+                        box-shadow: 0 10px 30px rgba(16, 42, 51, 0.18);
                     }
                     .sab-btn {
                         flex: 1;
@@ -84,8 +87,8 @@ const StickyActionBar = () => {
                         font-weight: 600;
                         font-size: 0.9rem;
                         line-height: 1;
-                        border-radius: 14px;
-                        padding: 13px 0;
+                        border-radius: 18px;
+                        padding: 12px 0;
                         border: 1.5px solid rgba(16, 42, 51, 0.12);
                         background: #fff;
                         color: var(--color-text-charcoal);
