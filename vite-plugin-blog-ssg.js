@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { SERVICE_CATEGORIES, SERVICE_SPECIALTIES } from './src/data/serviceSeo.js';
+import { CORE_PAGES } from './src/data/corePagesSeo.js';
 
 const SITE_URL = 'https://ismile.com.my';
 
@@ -194,8 +195,11 @@ export default function blogSSG() {
         const post = JSON.parse(fs.readFileSync(contentPath, 'utf-8'));
         const canonicalUrl = SITE_URL + '/blog/' + slug;
         const ogImage = post.img && post.img.startsWith('http') ? post.img : SITE_URL + post.img;
+        // seo_title/seo_description are SERP-only overrides; the on-page <h1>
+        // and listing blurb keep using title/excerpt.
         const safeTitle = escapeHtml(post.title);
-        const safeExcerpt = escapeHtml(post.excerpt || '');
+        const safeSeoTitle = escapeHtml(post.seo_title || post.title);
+        const safeExcerpt = escapeHtml(post.seo_description || post.excerpt || '');
         const safeCategory = escapeHtml((post.categories && post.categories[0]) || post.category || '');
         const articleSection = post.categories ? post.categories.join(', ') : (post.category || '');
 
@@ -246,7 +250,7 @@ export default function blogSSG() {
         const scriptTag = entryScript ? '  <script type="module" src="' + entryScript + '"><\/script>' : '';
 
         const html = buildPage({
-          title: safeTitle + ' | iSmile Dental Clinic',
+          title: safeSeoTitle + ' | iSmile Dental Clinic',
           ogTitle: safeTitle,
           description: safeExcerpt,
           canonicalUrl,
@@ -438,6 +442,83 @@ export default function blogSSG() {
         serviceGenerated++;
       }
       console.log('[blog-ssg] ✓ Generated ' + serviceGenerated + ' service pages.');
+
+      // ── Core pages ───────────────────────────────────────────────────────
+      // /contact, /faq, /reviews, /about, /blog had the same problem as the
+      // service pages: SPA shell only, so no crawlable content and (per the
+      // audit) react-helmet's meta never applied. Content: src/data/corePagesSeo.js
+      let coreGenerated = 0;
+      for (const page of CORE_PAGES) {
+        const canonicalUrl = SITE_URL + '/' + page.path;
+        const safeTitle = escapeHtml(fillStats(page.title));
+        const safeDescription = escapeHtml(fillStats(page.description));
+
+        const jsonLd = [];
+        const flatFaqs = (page.faqSections || []).flatMap(s => s.questions);
+        if (flatFaqs.length) {
+          jsonLd.push(JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": flatFaqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
+            }))
+          }));
+        }
+        jsonLd.push(JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
+            { "@type": "ListItem", "position": 2, "name": page.h1, "item": canonicalUrl }
+          ]
+        }));
+
+        const parts = [
+          '    <h1>' + escapeHtml(fillStats(page.h1)) + '</h1>',
+          '    <p>' + escapeHtml(fillStats(page.intro)) + '</p>',
+        ];
+
+        if (page.facts) {
+          parts.push('    <ul>' +
+            page.facts.map(f => '<li>' + escapeHtml(fillStats(f)) + '</li>').join('') +
+            '</ul>');
+        }
+
+        for (const section of page.faqSections || []) {
+          parts.push('    <section><h2>' + escapeHtml(section.category) + '</h2>' +
+            section.questions.map(f => '<h3>' + escapeHtml(f.q) + '</h3><p>' +
+                                        escapeHtml(f.a) + '</p>').join('') +
+            '</section>');
+        }
+
+        // Link every post from /blog so crawlers can reach the ones the audit
+        // found as "Discovered — currently not indexed" / never crawled.
+        if (page.listsBlogIndex) {
+          parts.push('    <ul>' + blogIndex.map(p =>
+            '<li><a href="/blog/' + p.slug + '">' + escapeHtml(p.title) + '</a></li>'
+          ).join('') + '</ul>');
+        }
+
+        const html = buildPage({
+          title: safeTitle,
+          description: safeDescription,
+          canonicalUrl,
+          ogType: 'website',
+          ogImage: SITE_URL + '/logo.png',
+          jsonLd,
+          body: parts.join('\n'),
+          cssLink: entryCss ? '  <link rel="stylesheet" href="' + entryCss + '" />' : '',
+          scriptTag: entryScript ? '  <script type="module" src="' + entryScript + '"><\/script>' : '',
+        });
+
+        const outDir = path.resolve(distDir, page.path);
+        fs.mkdirSync(outDir, { recursive: true });
+        fs.writeFileSync(path.resolve(outDir, 'index.html'), html, 'utf-8');
+        coreGenerated++;
+      }
+      console.log('[blog-ssg] ✓ Generated ' + coreGenerated + ' core pages.');
     }
   };
 }

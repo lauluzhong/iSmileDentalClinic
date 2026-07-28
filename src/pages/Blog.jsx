@@ -4,6 +4,9 @@ import { Link, useSearchParams } from 'react-router-dom';
 import Button from '../components/Button';
 import { Reveal, FadeIn } from '../components/Reveal';
 import blogIndex from '../data/blog-index.json';
+import { CORE_PAGES } from '../data/corePagesSeo';
+import { fillStats } from '../data/serviceSeo';
+import reviewStats from '../data/review-stats.json';
 const educationalPosts = blogIndex.filter(post => post.content_type === 'educational');
 
 const POSTS_PER_PAGE = 12;
@@ -15,6 +18,9 @@ const formatDate = (isoDate) => {
 };
 
 const Blog = () => {
+    // Meta comes from src/data/corePagesSeo.js, the same source the build
+    // uses to prerender this page — so the two cannot drift.
+    const seo = CORE_PAGES.find(p => p.path === 'blog');
     const [searchParams, setSearchParams] = useSearchParams();
     const currentPage = parseInt(searchParams.get('page') || '1', 10);
     const activeCategory = searchParams.get('category') || 'All';
@@ -141,8 +147,8 @@ const Blog = () => {
     return (
         <div className="blog-page">
             <Helmet>
-                <title>Dental Health Blog & Advice | iSmile Dental Clinic Petaling Jaya</title>
-                <meta name="description" content="Practical dental advice for Petaling Jaya families. Read about children's dentistry, orthodontics, oral surgery, and preventive care from experienced dental practitioners." />
+                <title>{fillStats(seo.title, reviewStats)}</title>
+                <meta name="description" content={fillStats(seo.description, reviewStats)} />
                 <link rel="canonical" href={`https://ismile.com.my/blog${currentPage > 1 ? `?page=${currentPage}` : ''}`} />
             </Helmet>
             <div className="blog-hero-gradient" style={{

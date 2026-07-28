@@ -86,6 +86,10 @@ const blogIndex = files.map(filename => {
       date,
       img: frontmatter.img,
       excerpt: frontmatter.excerpt,
+      // Optional SERP-only overrides: tune the <title>/description shown in
+      // search without changing the visible article heading or listing blurb.
+      seo_title: frontmatter.seo_title || null,
+      seo_description: frontmatter.seo_description || null,
       featured: frontmatter.featured || false,
       faq: frontmatter.faq || [],
       content_type,
@@ -103,6 +107,8 @@ const blogIndex = files.map(filename => {
     date,
     img: frontmatter.img,
     excerpt: frontmatter.excerpt,
+    seo_title: frontmatter.seo_title || null,
+    seo_description: frontmatter.seo_description || null,
     featured: frontmatter.featured || false,
     faq: frontmatter.faq || [],
     content_type,

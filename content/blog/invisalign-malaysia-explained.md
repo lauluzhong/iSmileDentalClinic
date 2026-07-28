@@ -1,4 +1,6 @@
 ---
+seo_title: "Invisalign in Malaysia: How Clear Aligners Actually Work"
+seo_description: "How Invisalign works in Malaysia, what clear aligners can and can't fix, and how to tell if they suit your case — explained by a Petaling Jaya dental clinic."
 categories:
   - Orthodontics
 date: '2026-03-16'

@@ -1,4 +1,6 @@
 ---
+seo_title: "Emergency Dentist in Damansara Jaya, PJ — What to Do Now"
+seo_description: "Severe toothache, swelling or a knocked-out tooth? What counts as a dental emergency, the first steps to take, and how we aim to see urgent cases same-day."
 title: "Emergency Dental Care in Damansara Jaya: What to Expect"
 date: 2026-04-08
 excerpt: "Guide to emergency dental care in Damansara Jaya: recognizing dental emergencies, what to expect during urgent visits, and immediate steps to take for tooth pain, injuries, or swelling."
