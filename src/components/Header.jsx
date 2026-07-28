@@ -42,9 +42,13 @@ const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Transparent brand-on-photo header state — Home immersive hero only
-    // (CSS scopes it to <=1024px; desktop and other pages are unaffected)
+    // Mobile header states (CSS scopes both to <=1024px; desktop unaffected):
+    // - immersive: transparent bar, white logo on the photo — ONLY on pages with
+    //   a dark hero behind the header (currently just Home), before scrolling.
+    // - collapsed: once scrolled past the hero/top, the whole bar disappears and
+    //   only a small floating frosted burger chip remains top-right (all pages).
     const isImmersive = location.pathname === '/' && !pastHero;
+    const isCollapsed = location.pathname === '/' ? pastHero : isScrolled;
 
     const navLinks = [
         { name: 'Home', path: '/' },
@@ -137,7 +141,7 @@ const Header = () => {
     const activeSubmenuData = navLinks.find(link => link.name === activeSubmenu);
 
     return (
-        <header className={`header ${isScrolled ? 'scrolled' : ''} ${isDarkPage ? 'header-dark' : ''} ${isImmersive ? 'header-immersive' : ''}`}>
+        <header className={`header ${isScrolled ? 'scrolled' : ''} ${isDarkPage ? 'header-dark' : ''} ${isImmersive ? 'header-immersive' : ''} ${isCollapsed ? 'header-collapsed' : ''}`}>
             <div className="container header-container">
                 <div className="header-left">
                     <Link
@@ -630,6 +634,43 @@ const Header = () => {
                 -webkit-backdrop-filter: blur(6px);
                 color: #fff;
             }
+
+            /* Consistency rule: the white-on-photo treatment belongs ONLY to
+               dark-hero pages (Home immersive). Service/specialty pages have a
+               light bar on mobile, so the burger must stay dark there. */
+            .header-dark .mobile-toggle {
+                color: var(--color-text-charcoal) !important;
+            }
+
+            /* Collapsed state (scrolled, all pages): the bar disappears entirely —
+               only a small floating frosted burger chip stays top-right. The header
+               ignores pointer events except for the chip and the open menu. */
+            .logo-link { transition: opacity 0.3s ease; }
+            .header.header-collapsed { pointer-events: none; }
+            .header.header-collapsed .mobile-nav-overlay { pointer-events: auto; }
+            .header.header-collapsed .header-container {
+                background: transparent;
+                border-color: transparent;
+                box-shadow: none;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
+            .header.header-collapsed .logo-link {
+                opacity: 0;
+                pointer-events: none;
+            }
+            .header.header-collapsed .mobile-toggle {
+                pointer-events: auto;
+                width: 44px;
+                height: 44px;
+                padding: 0;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.85);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                box-shadow: 0 4px 14px rgba(16, 42, 51, 0.18);
+                color: var(--color-text-charcoal) !important;
+            }
             .header.scrolled .header-container {
                 margin: 0 16px;
                 height: 54px;
@@ -657,8 +698,10 @@ const Header = () => {
                 margin-left: 0 !important;
                 background: rgba(255,255,255,0.1);
                 border-radius: 12px;
-                padding: 8px;
-                transition: background 0.35s ease, color 0.35s ease;
+                width: 40px;
+                height: 40px;
+                padding: 0;
+                transition: background 0.35s ease, color 0.35s ease, width 0.3s ease, height 0.3s ease, border-radius 0.3s ease, box-shadow 0.35s ease;
             }
             .mobile-nav-overlay {
                 background: rgba(255, 255, 255, 0.98);
