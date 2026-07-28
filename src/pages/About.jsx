@@ -113,11 +113,13 @@ const About = () => {
                 <section id="journey" className="journey-section">
                     <div className="container">
                         <Reveal><h2 className="section-title">Our Journey So Far</h2></Reveal>
-                        {/* One reveal on the whole rail, not per card: the cards sit
-                            inside a horizontal scroller, so whileInView never fires for
-                            the off-screen third card and (once:true) it stays at
-                            opacity 0 forever. */}
-                        <FadeIn>
+                        {/* The cards render statically — no scroll reveal on them.
+                            They used to be per-card FadeIns, but whileInView never fires
+                            for a card sitting outside a horizontal scroller, so the third
+                            one stayed at opacity 0 forever. Wrapping the whole rail in one
+                            FadeIn would fix that while making a single missed trigger hide
+                            the entire section, so the content simply doesn't depend on an
+                            animation to be visible. The heading above keeps its Reveal. */}
                         <div className="journey-grid">
                             <div className="journey-card">
                                 <div className="journey-year">2006</div>
@@ -138,7 +140,6 @@ const About = () => {
                                 <p>We are evolving into a modern, digitally-driven clinic for families — combining advanced technology, personalised care, and a continued commitment to delivering dentistry with excellence, accuracy, and heart.</p>
                             </div>
                         </div>
-                        </FadeIn>
                     </div>
                 </section>
             </div>
