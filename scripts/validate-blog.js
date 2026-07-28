@@ -1,10 +1,19 @@
 import fs from 'fs';
 import path from 'path';
+import { spawnSync } from 'child_process';
+import { fileURLToPath } from 'url';
 
 const CONTENT_DIR = path.resolve('content/blog');
 const INDEX_PATH = path.resolve('src/data/blog-index.json');
 const SITEMAP_PATH = path.resolve('public/sitemap.xml');
 const PUBLIC_DIR = path.resolve('public');
+const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
+const COMPLIANCE_VALIDATOR_PATHS = [
+  process.env.ISMILE_MARKETING_COMPLIANCE_VALIDATOR,
+  path.resolve(SCRIPT_DIR, 'validate_marketing_compliance.py'),
+  '/home/ismile/.openclaw/workspace/scripts/validate_marketing_compliance.py',
+  '/home/leroy/.openclaw/workspace/scripts/validate_marketing_compliance.py',
+].filter(Boolean);
 const ALWAYS_REQUIRED_FRONTMATTER_FIELDS = ['title', 'date'];
 const NEW_POST_REQUIRED_FRONTMATTER_FIELDS = ['title', 'excerpt', 'date', 'img', 'content_type'];
 const NEW_POST_FRONTMATTER_REQUIRED_FROM = '2026-05-04';
@@ -57,9 +66,120 @@ function shouldUseNewPostContract(date) {
     && date >= NEW_POST_FRONTMATTER_REQUIRED_FROM;
 }
 
+function runGit(args) {
+  const result = spawnSync('git', args, { encoding: 'utf-8' });
+  if (result.status !== 0) {
+    return '';
+  }
+  return result.stdout.trim();
+}
+
+function complianceTargets() {
+  const statusOutput = runGit(['status', '--short', '--', 'content/blog']);
+  const statusFiles = statusOutput
+    .split('\n')
+    .map(line => line.trim())
+    .filter(Boolean)
+    .map(line => line.replace(/^[A-Z?]+\s+/, ''))
+    .filter(file => file.endsWith('.md'))
+    .map(file => path.basename(file));
+
+  const diffOutput = runGit(['diff', '--name-only', 'origin/main...HEAD', '--', 'content/blog']);
+  const diffFiles = diffOutput
+    .split('\n')
+    .map(line => line.trim())
+    .filter(file => file.endsWith('.md'))
+    .map(file => path.basename(file));
+
+  return new Set([...statusFiles, ...diffFiles]);
+}
+
+function complianceValidatorPath() {
+  return COMPLIANCE_VALIDATOR_PATHS.find(candidate => fs.existsSync(candidate)) || null;
+}
+
+function validateCompliance(filename, errors) {
+  const validatorPath = complianceValidatorPath();
+  if (!validatorPath) {
+    return;
+  }
+
+  const filePath = path.join(CONTENT_DIR, filename);
+  const result = spawnSync('python3', [validatorPath, filePath], {
+    encoding: 'utf-8',
+  });
+
+  if (result.status === 0) {
+    return;
+  }
+
+  const output = [result.stdout, result.stderr]
+    .filter(Boolean)
+    .join('\n')
+    .trim()
+    .replace(/\s+/g, ' ');
+
+  errors.push(`${filename.replace('.md', '')}: marketing compliance failed: ${output || 'unknown validator error'}`);
+}
+
+function readIndexPosts() {
+  const data = JSON.parse(fs.readFileSync(INDEX_PATH, 'utf-8'));
+  return new Map(data.map(post => [post.slug, post]));
+}
+
+function indexComplianceSnippet(post) {
+  const faqLines = Array.isArray(post.faq)
+    ? post.faq.flatMap(item => [item?.q ? `FAQ: ${item.q}` : '', item?.a ? `Answer: ${item.a}` : ''])
+    : [];
+
+  return [
+    post.title ? `Title: ${post.title}` : '',
+    post.excerpt ? `Excerpt: ${post.excerpt}` : '',
+    ...faqLines,
+  ]
+    .filter(Boolean)
+    .join('\n');
+}
+
+function validateIndexCompliance(filename, indexPosts, errors) {
+  const validatorPath = complianceValidatorPath();
+  if (!validatorPath) {
+    return;
+  }
+
+  const slug = filename.replace('.md', '');
+  const post = indexPosts.get(slug);
+  if (!post) {
+    return;
+  }
+
+  const snippet = indexComplianceSnippet(post);
+  if (!snippet) {
+    return;
+  }
+
+  const result = spawnSync('python3', [validatorPath, '--text', snippet], {
+    encoding: 'utf-8',
+  });
+
+  if (result.status === 0) {
+    return;
+  }
+
+  const output = [result.stdout, result.stderr]
+    .filter(Boolean)
+    .join('\n')
+    .trim()
+    .replace(/\s+/g, ' ');
+
+  errors.push(`${slug}: blog-index marketing compliance failed: ${output || 'unknown validator error'}`);
+}
+
 function validateFrontmatter() {
   const files = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.md'));
   const errors = [];
+  const complianceFiles = complianceTargets();
+  const indexPosts = readIndexPosts();
 
   files.forEach(filename => {
     const raw = fs.readFileSync(path.join(CONTENT_DIR, filename), 'utf-8');
@@ -99,6 +219,11 @@ function validateFrontmatter() {
     const hasCategories = hasFrontmatterValue(frontmatter.categories) || hasFrontmatterValue(frontmatter.category);
     if (!hasCategories) {
       errors.push(`${slug}: missing category/categories frontmatter`);
+    }
+
+    if (complianceFiles.has(filename)) {
+      validateCompliance(filename, errors);
+      validateIndexCompliance(filename, indexPosts, errors);
     }
   });
 
