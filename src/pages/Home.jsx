@@ -794,8 +794,12 @@ const Home = () => {
             .hero-visual { position: absolute; inset: 0; max-width: none; margin: 0; z-index: 1; }
             .home-page .hero-card { position: absolute; inset: 0; height: 100%; max-width: none; aspect-ratio: auto; transform: none; border-radius: 0; outline: none; box-shadow: none; }
             .home-page .hero-card img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; filter: none; }
-            /* Option A shade — light at the top, dark at the bottom for text contrast */
-            .home-page .hero-card::before { background: linear-gradient(180deg, rgba(15,35,50,0.30) 0%, rgba(15,35,50,0.05) 35%, rgba(13,42,58,0.86) 88%); }
+            /* Option A shade — light at the top, dark at the bottom for text
+               contrast. The portrait crop shows the whole frame vertically, which
+               puts the family's bare feet across the bottom ~20%; the shade now
+               reaches full opacity by 78% so the legs dissolve into the brand
+               navy around shin height instead of ending in toes. */
+            .home-page .hero-card::before { background: linear-gradient(180deg, rgba(15,35,50,0.30) 0%, rgba(15,35,50,0.05) 32%, rgba(13,42,58,0.42) 56%, rgba(13,42,58,0.88) 70%, rgba(13,42,58,1) 78%); }
             .home-page .hero-card::after { display: none; }
             .hero-floating-badge { display: none; }
             .hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; min-height: 100vh; min-height: 100svh; padding: 110px 22px calc(76px + env(safe-area-inset-bottom)); text-align: left; }
