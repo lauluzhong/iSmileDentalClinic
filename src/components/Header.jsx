@@ -13,6 +13,7 @@ const logoTightWebP = '/logo-tight.webp';
 const Header = () => {
     const { openBooking } = useBooking();
     const [isScrolled, setIsScrolled] = useState(false);
+    const [pastHero, setPastHero] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
     const [activeSubmenu, setActiveSubmenu] = useState(null);
@@ -27,14 +28,27 @@ const Header = () => {
     };
     const isDarkPage = location.pathname.startsWith('/services/') && !isScrolled;
 
-    // Handle scroll effect for glass header
+    // Handle scroll effect for glass header.
+    // pastHero tracks whether we've scrolled beyond ~the immersive Home hero
+    // (mobile): below the threshold the header sits transparent on the photo,
+    // past it the frosted pill fades back in.
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
+            setPastHero(window.scrollY > window.innerHeight * 0.72);
         };
-        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // Mobile header states (CSS scopes both to <=1024px; desktop unaffected):
+    // - immersive: transparent bar, white logo on the photo — ONLY on pages with
+    //   a dark hero behind the header (currently just Home), before scrolling.
+    // - collapsed: once scrolled past the hero/top, the whole bar disappears and
+    //   only a small floating frosted burger chip remains top-right (all pages).
+    const isImmersive = location.pathname === '/' && !pastHero;
+    const isCollapsed = location.pathname === '/' ? pastHero : isScrolled;
 
     const navLinks = [
         { name: 'Home', path: '/' },
@@ -127,7 +141,7 @@ const Header = () => {
     const activeSubmenuData = navLinks.find(link => link.name === activeSubmenu);
 
     return (
-        <header className={`header ${isScrolled ? 'scrolled' : ''} ${isDarkPage ? 'header-dark' : ''}`}>
+        <header className={`header ${isScrolled ? 'scrolled' : ''} ${isDarkPage ? 'header-dark' : ''} ${isImmersive ? 'header-immersive' : ''} ${isCollapsed ? 'header-collapsed' : ''}`}>
             <div className="container header-container">
                 <div className="header-left">
                     <Link
@@ -208,7 +222,7 @@ const Header = () => {
 
                 {/* Action Button */}
                 <div className="header-actions">
-                    <Button data-analytics-click="header-booking" onClick={() => openBooking('', 'header-desktop')}>Schedule a Visit</Button>
+                    <Button data-analytics-click="header-booking" onClick={() => openBooking('', 'header-desktop')}>Book a Visit</Button>
                 </div>
 
                 {/* Mobile Menu Toggle */}
@@ -269,7 +283,7 @@ const Header = () => {
                                                 </li>
                                             ))}
                                             <li style={{ marginTop: '20px' }}>
-                                                <Button data-analytics-click="mobile-header-booking" onClick={() => { openBooking('', 'header-mobile'); handleMobileMenuClose(); }} style={{ width: '100%', fontSize: '1rem', padding: '12px' }}>Schedule a Visit</Button>
+                                                <Button data-analytics-click="mobile-header-booking" onClick={() => { openBooking('', 'header-mobile'); handleMobileMenuClose(); }} style={{ width: '100%', fontSize: '1rem', padding: '12px' }}>Book a Visit</Button>
                                             </li>
                                         </ul>
                                     </motion.div>
@@ -595,6 +609,67 @@ const Header = () => {
                 height: 60px;
                 position: relative;
                 justify-content: space-between !important;
+                transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, height 0.3s ease;
+            }
+
+            /* Immersive state (Home hero, mobile): no pill — brand sits directly on the photo.
+               Same container box/height in both states, so the swap never causes a layout jump. */
+            .header.header-immersive .header-container {
+                background: transparent;
+                border-color: transparent;
+                box-shadow: none;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
+            .logo-link img {
+                transition: filter 0.35s ease, height 0.3s ease !important;
+            }
+            .header.header-immersive .logo-link img {
+                filter: brightness(0) invert(1) drop-shadow(0 1px 6px rgba(10, 30, 45, 0.35));
+                height: 52px !important;
+            }
+            .header.header-immersive .mobile-toggle {
+                background: rgba(255, 255, 255, 0.22);
+                backdrop-filter: blur(6px);
+                -webkit-backdrop-filter: blur(6px);
+                color: #fff;
+            }
+
+            /* Consistency rule: the white-on-photo treatment belongs ONLY to
+               dark-hero pages (Home immersive). Service/specialty pages have a
+               light bar on mobile, so the burger must stay dark there. */
+            .header-dark .mobile-toggle {
+                color: var(--color-text-charcoal) !important;
+            }
+
+            /* Collapsed state (scrolled, all pages): the bar disappears entirely —
+               only a small floating frosted burger chip stays top-right. The header
+               ignores pointer events except for the chip and the open menu. */
+            .logo-link { transition: opacity 0.3s ease; }
+            .header.header-collapsed { pointer-events: none; }
+            .header.header-collapsed .mobile-nav-overlay { pointer-events: auto; }
+            .header.header-collapsed .header-container {
+                background: transparent;
+                border-color: transparent;
+                box-shadow: none;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
+            .header.header-collapsed .logo-link {
+                opacity: 0;
+                pointer-events: none;
+            }
+            .header.header-collapsed .mobile-toggle {
+                pointer-events: auto;
+                width: 44px;
+                height: 44px;
+                padding: 0;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.85);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                box-shadow: 0 4px 14px rgba(16, 42, 51, 0.18);
+                color: var(--color-text-charcoal) !important;
             }
             .header.scrolled .header-container {
                 margin: 0 16px;
@@ -623,7 +698,10 @@ const Header = () => {
                 margin-left: 0 !important;
                 background: rgba(255,255,255,0.1);
                 border-radius: 12px;
-                padding: 8px;
+                width: 40px;
+                height: 40px;
+                padding: 0;
+                transition: background 0.35s ease, color 0.35s ease, width 0.3s ease, height 0.3s ease, border-radius 0.3s ease, box-shadow 0.35s ease;
             }
             .mobile-nav-overlay {
                 background: rgba(255, 255, 255, 0.98);

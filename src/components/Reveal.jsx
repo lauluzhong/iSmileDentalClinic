@@ -1,30 +1,25 @@
-import React, { useEffect, useRef, useState } from "react";
-import { motion, useInView, useAnimation } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 
+// Scroll-reveal helpers.
+// Tamed per mobile redesign: short durations (<=0.4s), small y-offsets,
+// trigger once, and fully respect prefers-reduced-motion (render visible
+// immediately, no opacity-0 start).
 export const Reveal = ({ children, width = "100%", delay = 0 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const mainControls = useAnimation();
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const isInView = useInView(ref, { once: true, margin: "0px 0px -40px 0px" });
+  const prefersReducedMotion = useReducedMotion();
 
-  useEffect(() => {
-    if (isInView) {
-      mainControls.start("visible");
-      const timer = setTimeout(() => setHasAnimated(true), (delay + 0.5) * 1000);
-      return () => clearTimeout(timer);
-    }
-  }, [isInView, mainControls, delay]);
+  if (prefersReducedMotion) {
+    return <div style={{ width }}>{children}</div>;
+  }
 
   return (
-    <div ref={ref} style={{ position: "relative", width, overflow: hasAnimated ? "visible" : "hidden" }}>
+    <div ref={ref} style={{ position: "relative", width }}>
       <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 75 },
-          visible: { opacity: 1, y: 0 },
-        }}
-        initial="hidden"
-        animate={mainControls}
-        transition={{ duration: 0.5, delay: delay }}
+        initial={{ opacity: 0, y: 24 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+        transition={{ duration: 0.4, delay, ease: "easeOut" }}
       >
         {children}
       </motion.div>
@@ -32,13 +27,19 @@ export const Reveal = ({ children, width = "100%", delay = 0 }) => {
   );
 };
 
-export const FadeIn = ({ children, delay = 0, duration = 0.5, className = "" }) => {
+export const FadeIn = ({ children, delay = 0, duration = 0.35, className = "" }) => {
+  const prefersReducedMotion = useReducedMotion();
+
+  if (prefersReducedMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: duration, delay: delay, ease: "easeOut" }}
+      viewport={{ once: true, margin: "0px 0px -40px 0px" }}
+      transition={{ duration: Math.min(duration, 0.4), delay, ease: "easeOut" }}
       className={className}
     >
       {children}

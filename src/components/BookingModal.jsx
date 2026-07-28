@@ -89,8 +89,8 @@ const BookingModal = () => {
         setSubmitError('');
         setIsSubmitting(true);
 
-        if (!formData.name || !formData.email || !formData.contact) {
-            setSubmitError('Please fill in all required fields marked with *');
+        if (!formData.name || !formData.contact) {
+            setSubmitError('Please fill in your name and contact number');
             setIsSubmitting(false);
             return;
         }
@@ -109,11 +109,11 @@ const BookingModal = () => {
             ? `\n\nAdditional notes:\n${formData.additionalNotes.trim()}`
             : '';
 
+        const emailLine = formData.email ? `\nEmail: ${formData.email}` : '';
         const message = `Hi iSmile Dental Clinic, I'd like to schedule a visit.
 
 Name: ${formData.name}
-Contact: ${formData.contact}
-Email: ${formData.email}
+Contact: ${formData.contact}${emailLine}
 
 ${formData.experience}${familySection}${notesSection}`;
 
@@ -135,7 +135,7 @@ ${formData.experience}${familySection}${notesSection}`;
 
         await insertLead({
             name: formData.name,
-            email: formData.email,
+            email: formData.email || '',
             contact: formData.contact,
             experience: formData.experience,
             for_self: formData.forSelf,
@@ -160,7 +160,7 @@ ${formData.experience}${familySection}${notesSection}`;
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 name: formData.name,
-                email: formData.email,
+                email: formData.email || '',
                 contact: formData.contact,
                 experience: formData.experience,
                 sourceButton,
@@ -214,7 +214,7 @@ ${formData.experience}${familySection}${notesSection}`;
                     </div>
 
                     <div className="form-group">
-                        <label>Email *</label>
+                        <label>Email (optional)</label>
                         <input
                             data-analytics-focus="booking-field"
                             type="email"
@@ -222,7 +222,6 @@ ${formData.experience}${familySection}${notesSection}`;
                             value={formData.email}
                             onChange={handleChange}
                             placeholder="email@example.com"
-                            required
                         />
                     </div>
 
@@ -406,6 +405,28 @@ ${formData.experience}${familySection}${notesSection}`;
                     margin: 0;
                     font-size: 0.9rem;
                 }
+                /* Mobile: a real centered popup, not a full-screen sheet —
+                   rounded corners visible top AND bottom, dimmed backdrop all
+                   around, internal scroll for overflow. */
+                @media (max-width: 640px) {
+                    .modal-overlay { padding: 32px 18px; }
+                    .modal-content {
+                        max-height: 85vh;
+                        max-height: 85svh;
+                        padding: 24px 20px 22px;
+                        border-radius: 24px;
+                    }
+                    .modal-title { font-size: 1.3rem; margin: 0 20px 10px; }
+                    .close-btn { top: 12px; right: 12px; }
+                    .booking-form { gap: 14px; }
+                    .form-group { gap: 6px; }
+                    .form-group input, .form-group textarea, .form-group select {
+                        padding: 10px 14px;
+                        font-size: 16px; /* also prevents iOS focus zoom */
+                    }
+                    .form-group textarea { min-height: 0; }
+                }
+
                 @keyframes fadeIn {
                     from { opacity: 0; }
                     to { opacity: 1; }

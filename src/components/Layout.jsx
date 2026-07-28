@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import StickyActionBar from './StickyActionBar';
 import { useLocation } from 'react-router-dom';
 
 const Layout = ({ children }) => {
@@ -18,6 +19,7 @@ const Layout = ({ children }) => {
                 {children}
             </main>
             <Footer />
+            <StickyActionBar />
         </div>
     );
 };
