@@ -90,8 +90,8 @@ const MyofunctionalOrthodontics = () => {
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Myofunctional Orthodontics for Children Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Myofunctional orthodontic treatment for children in Damansara Jaya, Petaling Jaya. Early intervention for healthy jaw development & natural teeth alignment." />
+                <title>Myofunctional Orthodontics for Kids, PJ | iSmile</title>
+                <meta name="description" content="Early orthodontic treatment for children in Damansara Jaya, Petaling Jaya — guiding jaw development & teeth alignment at a family clinic. WhatsApp us to book." />
                 <link rel="canonical" href="https://ismile.com.my/services/children/myofunctional" />
             </Helmet>
 

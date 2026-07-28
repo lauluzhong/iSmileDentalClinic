@@ -191,8 +191,8 @@ const Reviews = () => {
     return (
         <div className="reviews-page">
             <Helmet>
-                <title>Patient Reviews | iSmile Dental Clinic Petaling Jaya</title>
-                <meta name="description" content="Read genuine patient reviews for iSmile Dental Clinic in Damansara Jaya. See why families trust us for gentle, professional dental care." />
+                <title>iSmile Reviews — 4.8★ Dentist in Petaling Jaya</title>
+                <meta name="description" content="Rated 4.8★ from 91 Google reviews. See what patients say about iSmile Dental Clinic in Damansara Jaya, Petaling Jaya — then WhatsApp us to book." />
                 <link rel="canonical" href="https://ismile.com.my/reviews" />
             </Helmet>
             <div className="reviews-hero-gradient">

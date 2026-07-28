@@ -16,13 +16,19 @@ export default function blogSSG() {
       const root = process.cwd();
       const distDir = path.resolve(root, 'dist');
 
+      // Single source of truth for the Google review count/rating —
+      // kept in sync with the live GBP figures by the review_stats_sync cron.
+      const reviewStats = JSON.parse(
+        fs.readFileSync(path.resolve(root, 'src/data/review-stats.json'), 'utf-8')
+      );
+
       // Location pages to generate
       const locationPages = [
         {
           slug: 'damansara-jaya',
           path: 'services/locations/damansara-jaya',
-          title: 'Dentist in Damansara Jaya | iSmile Dental Clinic',
-          description: 'Your trusted family dentist in Damansara Jaya. Comprehensive dental care with a gentle touch.',
+          title: 'Dentist in Damansara Jaya, PJ | iSmile Dental Clinic',
+          description: 'Family dentist in Damansara Jaya, Petaling Jaya — check-ups, braces, implants & kids\' dentistry since 2006. Open Mon–Sat. WhatsApp us to book.',
           address: {
             streetAddress: '75 & 75A, Jalan SS 22/23',
             addressLocality: 'Damansara Jaya, Petaling Jaya',
@@ -41,8 +47,8 @@ export default function blogSSG() {
           ],
           telephone: '+6016-322-2135',
           rating: {
-            ratingValue: '4.8',
-            reviewCount: '84'
+            ratingValue: String(reviewStats.rating),
+            reviewCount: String(reviewStats.count)
           }
         }
       ];
@@ -250,8 +256,8 @@ export default function blogSSG() {
           "priceRange": "$$",
           "url": canonicalUrl,
           "sameAs": [
-            "https://www.facebook.com/ismiledentalclinic",
-            "https://www.instagram.com/ismiledentalclinic"
+            "https://www.facebook.com/share/18RSFR4Zww/?mibextid=wwXIfr",
+            "https://www.instagram.com/ismiledentalclinicmy"
           ]
         });
 

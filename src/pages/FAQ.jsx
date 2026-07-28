@@ -106,8 +106,8 @@ const FAQ = () => {
     return (
         <div className="page-container faq-page">
             <Helmet>
-                <title>Dental FAQ | iSmile Dental Clinic Petaling Jaya</title>
-                <meta name="description" content="Answers to common dental questions about treatments, appointments, payments & children's care at iSmile Clinic, Damansara Jaya, Petaling Jaya." />
+                <title>Dentist FAQs — Petaling Jaya | iSmile Dental Clinic</title>
+                <meta name="description" content="Answers to common questions about appointments, payments, kids' visits & treatments at iSmile Dental Clinic, Damansara Jaya. WhatsApp us if you need more help." />
                 <link rel="canonical" href="https://ismile.com.my/faq" />
             </Helmet>
             <div className="container section-padding faq-container">

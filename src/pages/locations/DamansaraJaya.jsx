@@ -22,7 +22,7 @@ const DamansaraJaya = () => {
     },
     {
       q: "What are your clinic hours in Damansara Jaya?",
-      a: "We are open Monday to Friday from 9:00 AM to 6:00 PM, and Saturday from 9:00 AM to 1:00 PM. We are closed on Sundays and public holidays. Emergency dental services are available during clinic hours."
+      a: "We are open Monday to Friday from 9:30 AM to 5:30 PM, and Saturday from 9:30 AM to 3:30 PM. We are closed on Sundays and public holidays. Emergency dental services are available during clinic hours."
     },
     {
       q: "Do you accept walk-ins at your Damansara Jaya clinic?",
@@ -45,13 +45,13 @@ const DamansaraJaya = () => {
   return (
     <div className="location-page">
       <Helmet>
-        <title>Dentist in Damansara Jaya | iSmile Dental Clinic</title>
-        <meta name="description" content="Your trusted family dentist in Damansara Jaya. Comprehensive dental care with a gentle touch." />
+        <title>Dentist in Damansara Jaya, PJ | iSmile Dental Clinic</title>
+        <meta name="description" content="Family dentist in Damansara Jaya, Petaling Jaya — check-ups, braces, implants & kids' dentistry since 2006. Open Mon–Sat. WhatsApp us to book." />
         <link rel="canonical" href="https://ismile.com.my/services/locations/damansara-jaya" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ismile.com.my/services/locations/damansara-jaya" />
-        <meta property="og:title" content="Dentist in Damansara Jaya | iSmile Dental Clinic" />
-        <meta property="og:description" content="Your trusted family dentist in Damansara Jaya. Comprehensive dental care with a gentle touch." />
+        <meta property="og:title" content="Dentist in Damansara Jaya, PJ | iSmile Dental Clinic" />
+        <meta property="og:description" content="Family dentist in Damansara Jaya, Petaling Jaya — check-ups, braces, implants & kids' dentistry since 2006. Open Mon–Sat. WhatsApp us to book." />
         <meta property="og:image" content="https://ismile.com.my/logo.png" />
       </Helmet>
 
@@ -77,8 +77,7 @@ const DamansaraJaya = () => {
             <div className="loc-about-grid">
               <div>
                 <h2 className="loc-section-title">About Our Damansara Jaya Clinic</h2>
-                <p className="loc-section-desc" style={{ marginBottom: '16px' }}>Located in the vibrant neighbourhood of Damansara Jaya, our clinic is designed to offer a welcoming, stress-free environment for patients of all ages. We understand that visiting the dentist can be anxiety-inducing, which is why we prioritise patient comfort and clear communication.</p>
-                <p className="loc-section-desc">Our clinic is equipped with modern dental technology, including digital X‑rays, intraoral scanners, and sterilisation protocols that meet the highest international standards. We serve families across Petaling Jaya with everything from routine check-ups to advanced restorative and cosmetic treatments.</p>
+                <p className="loc-section-desc">From our clinic in Damansara Jaya, we serve families across Petaling Jaya with everything from routine check-ups to restorative and cosmetic treatments — using modern equipment like digital X‑rays and intraoral scanners, and taking the time to explain every option clearly.</p>
               </div>
               <div className="loc-about-highlights">
                 <div className="loc-highlight">
@@ -190,7 +189,7 @@ const DamansaraJaya = () => {
                   </div>
                 </div>
                 <div className="loc-review-stars">★★★★★</div>
-                <p className="loc-review-text">"I've been coming to iSmile Dental Clinic for my checkups and have always had a great experience. The front desk is friendly, and Dr. Jean Ong is incredibly thorough and attentive. Be sure to book an appointment ahead of time because slots fill up quickly. There is also reserved parking spots in front of the clinic, but if those are full, you can park at Atria Mall and walk over. Overall, it's a clean, professional clinic with excellent service. I'd definitely return and highly recommend it for any dental care!"</p>
+                <p className="loc-review-text">"The front desk is friendly, and Dr. Jean Ong is incredibly thorough and attentive."</p>
               </div>
             </div>
             <div className="loc-reviews-cta">

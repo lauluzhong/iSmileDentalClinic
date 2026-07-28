@@ -94,8 +94,8 @@ const About = () => {
     return (
         <div className="about-page">
             <Helmet>
-                <title>About iSmile Dental Clinic Petaling Jaya | Your Family Dentist</title>
-                <meta name="description" content="Meet the experienced dental team at iSmile Clinic in Damansara Jaya. 7 specialists in general, restorative & cosmetic dentistry serving Petaling Jaya families." />
+                <title>About iSmile — Family Dental Clinic in Petaling Jaya</title>
+                <meta name="description" content="Meet the team at iSmile Dental Clinic, Damansara Jaya — a family practice caring for Petaling Jaya smiles since 2006. WhatsApp us to book a visit." />
                 <link rel="canonical" href="https://ismile.com.my/about" />
             </Helmet>
             <div className="about-hero-container">

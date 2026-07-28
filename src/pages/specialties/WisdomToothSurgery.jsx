@@ -118,8 +118,8 @@ const WisdomToothSurgery = () => {
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Wisdom Tooth Surgery Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Safe, gentle wisdom tooth extraction at iSmile Clinic, Damansara Jaya. Expert surgical removal of impacted wisdom teeth to prevent pain & crowding." />
+                <title>Wisdom Tooth Removal in Petaling Jaya | iSmile</title>
+                <meta name="description" content="Wisdom tooth surgery at iSmile Damansara Jaya, PJ — removal of impacted wisdom teeth by our clinic team. Open Mon–Sat. WhatsApp us to book." />
                 <link rel="canonical" href="https://ismile.com.my/services/protect/wisdom-tooth" />
             </Helmet>
 

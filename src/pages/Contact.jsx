@@ -27,8 +27,8 @@ const Contact = () => {
     return (
         <div className="contact-page">
             <Helmet>
-                <title>Contact iSmile Dental Clinic in Damansara Jaya, Petaling Jaya</title>
-                <meta name="description" content="Book your dental visit at our Damansara Jaya clinic near Atria Shopping Gallery. Easy appointment booking by phone, WhatsApp, or online form." />
+                <title>Contact Our Dental Clinic in Petaling Jaya | iSmile</title>
+                <meta name="description" content="Find iSmile Dental Clinic at 75 & 75A Jalan SS 22/23, Damansara Jaya, PJ. Open Mon–Fri 9:30am–5:30pm, Sat 9:30am–3:30pm. Call or WhatsApp us to book." />
                 <link rel="canonical" href="https://ismile.com.my/contact" />
             </Helmet>
             <div className="container section-padding" style={{ paddingTop: '180px' }}>

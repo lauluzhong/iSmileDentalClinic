@@ -61,13 +61,13 @@ const ServiceHub = () => {
 
     // SEO data for each service category
     const seoData = {
-        protect: { title: "Protect & Repair Dental Services Petaling Jaya | iSmile Dental Clinic", desc: "Preventive & restorative dental care in Petaling Jaya. Root canal, wisdom tooth surgery & more.", canonical: "https://ismile.com.my/services/protect" },
-        straighten: { title: "Straighten Teeth Petaling Jaya | iSmile Dental Clinic", desc: "Orthodontic treatments in Petaling Jaya. Clear aligners & braces for adults & teens.", canonical: "https://ismile.com.my/services/straighten" },
-        replace: { title: "Replace Missing Teeth Petaling Jaya | iSmile Dental Clinic", desc: "Dental implants & dentures in Petaling Jaya. Restore your smile with lasting results.", canonical: "https://ismile.com.my/services/replace" },
-        enhance: { title: "Enhance Your Smile Petaling Jaya | iSmile Dental Clinic", desc: "Cosmetic dentistry in Petaling Jaya. Teeth whitening, veneers & smile makeovers.", canonical: "https://ismile.com.my/services/enhance" },
-        children: { title: "Children's Dentistry Petaling Jaya | iSmile Dental Clinic", desc: "Gentle dental care for children & teens in Petaling Jaya. First visits & preventive care.", canonical: "https://ismile.com.my/services/children" }
+        protect: { title: "Root Canal & Wisdom Tooth Surgery, PJ | iSmile", desc: "Protect & repair your teeth at iSmile Damansara Jaya, Petaling Jaya — check-ups, root canal treatment & wisdom tooth surgery. WhatsApp us to book.", canonical: "https://ismile.com.my/services/protect" },
+        straighten: { title: "Braces & Clear Aligners in Petaling Jaya | iSmile", desc: "Straighten your teeth at our Damansara Jaya clinic — braces & clear aligners for adults and teens. Rated 4.8★ on Google. WhatsApp us to book.", canonical: "https://ismile.com.my/services/straighten" },
+        replace: { title: "Dental Implants & Dentures in Petaling Jaya | iSmile", desc: "Replace missing teeth at iSmile Damansara Jaya — implants, bridges & dentures from a family practice serving PJ since 2006. WhatsApp us to book.", canonical: "https://ismile.com.my/services/replace" },
+        enhance: { title: "Teeth Whitening & Veneers in Petaling Jaya | iSmile", desc: "Cosmetic dentistry at our Damansara Jaya clinic — teeth whitening, veneers & smile makeovers. Rated 4.8★ from 91 Google reviews. WhatsApp us to book.", canonical: "https://ismile.com.my/services/enhance" },
+        children: { title: "Children's Dentistry in Petaling Jaya | iSmile", desc: "Children's dental care in Damansara Jaya, PJ — first visits, check-ups & preventive care from a family practice since 2006. WhatsApp us to book.", canonical: "https://ismile.com.my/services/children" }
     };
-    const seo = seoData[category] || { title: "Dental Services Petaling Jaya | iSmile Dental Clinic", desc: "Comprehensive dental services in Petaling Jaya for the whole family.", canonical: "https://ismile.com.my/services" };
+    const seo = seoData[category] || { title: "Dental Services in Petaling Jaya | iSmile Dental Clinic", desc: "Comprehensive family dental care in Damansara Jaya, Petaling Jaya — from check-ups to implants. WhatsApp us to book.", canonical: "https://ismile.com.my/services" };
 
     return (
         <div className="service-hub">
