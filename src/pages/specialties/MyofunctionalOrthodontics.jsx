@@ -3,6 +3,8 @@ import { useBooking } from '../../context/BookingContext';
 import React, { useEffect } from 'react';
 import { Shield, CheckCircle, HelpCircle, Users } from 'lucide-react';
 import Button from '../../components/Button';
+import { specialtyFor, fillStats } from '../../data/serviceSeo';
+import reviewStats from '../../data/review-stats.json';
 
 const MyofunctionalOrthodontics = () => {
     const { openBooking } = useBooking();
@@ -39,28 +41,9 @@ const MyofunctionalOrthodontics = () => {
         };
     }, []);
 
-    const faqs = [
-        {
-            "q": "What is myofunctional orthodontics and how does it work?",
-            "a": "Myofunctional orthodontics uses removable functional braces, typically worn at night, to address the root causes of jaw and teeth development issues. Instead of just moving teeth after they have already gone off course, this approach works on the muscle patterns, breathing habits, and oral posture that influence how the jaw develops. At iSmile Dental Clinic, each case starts with a thorough assessment covering medical history, developmental milestones, and an oral myofunctional evaluation."
-        },
-        {
-            "q": "What dental issues can myofunctional orthodontics address in children?",
-            "a": "The main focus areas include lip seal correction, training the tongue to rest on the roof of the mouth, establishing nasal breathing, and correcting swallowing patterns. The treatment also screens for mouth breathing and sleep-related breathing concerns that can affect facial growth and dental development. These patterns are evaluated during the initial assessment before any appliance is recommended."
-        },
-        {
-            "q": "What does myofunctional orthodontic treatment involve?",
-            "a": "The treatment follows a structured process: a thorough assessment of medical and developmental history, an oral myofunctional assessment, airway and sleep screening, customized appliance selection, monthly muscle exercise programs, and ongoing progress tracking with growth monitoring. The whole approach is designed to guide natural jaw development gradually, rather than force teeth into position."
-        },
-        {
-            "q": "What types of appliances are used in myofunctional orthodontics?",
-            "a": "Several appliances may be used depending on the assessment findings, including expanders, mandibular advancers, maxillary protractors, munchees, and myofunctional appliances like the LM Activator. Braces or clear aligners may also be recommended later if needed. The dentist selects the appliance based on the child's growth stage and specific developmental needs identified during assessment."
-        },
-        {
-            "q": "At what age can children start myofunctional orthodontic treatment?",
-            "a": "Treatment typically works best while the jaw is still actively growing, which for many children means roughly between the ages of 5 and 12. The dentist will evaluate growth phase and developmental readiness during the initial consultation. Starting early may help the jaw develop in a way that creates more space for teeth and could reduce the need for extensive treatment later on."
-        }
-    ];
+    const seo = specialtyFor('MyofunctionalOrthodontics');
+    // Copy lives in src/data/serviceSeo.js so the prerendered HTML matches.
+    const faqs = seo.faqs.map(f => ({ q: fillStats(f.q, reviewStats), a: fillStats(f.a, reviewStats) }));
 
     // Add FAQ schema for SEO
     useEffect(() => {
@@ -90,9 +73,9 @@ const MyofunctionalOrthodontics = () => {
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Myofunctional Orthodontics for Kids, PJ | iSmile</title>
-                <meta name="description" content="Early orthodontic treatment for children in Damansara Jaya, Petaling Jaya — guiding jaw development & teeth alignment at a family clinic. WhatsApp us to book." />
-                <link rel="canonical" href="https://ismile.com.my/services/children/myofunctional" />
+                <title>{fillStats(seo.title, reviewStats)}</title>
+                <meta name="description" content={fillStats(seo.description, reviewStats)} />
+                <link rel="canonical" href={seo.canonical} />
             </Helmet>
 
             <div className="tech-hero">

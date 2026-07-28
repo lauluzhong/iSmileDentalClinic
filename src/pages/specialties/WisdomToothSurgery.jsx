@@ -3,6 +3,8 @@ import { useBooking } from '../../context/BookingContext';
 import React, { useEffect } from 'react';
 import { Shield, CheckCircle, HelpCircle } from 'lucide-react';
 import Button from '../../components/Button';
+import { specialtyFor, fillStats } from '../../data/serviceSeo';
+import reviewStats from '../../data/review-stats.json';
 
 const WisdomToothSurgery = () => {
     // Add Service schema for SEO
@@ -67,28 +69,9 @@ const WisdomToothSurgery = () => {
         };
     }, []);
 
-    const faqs = [
-        {
-            q: "Why is surgery required instead of a normal extraction?",
-            a: "Impacted wisdom teeth are trapped in the jawbone or gums, requiring surgical access. Unlike simple extractions, surgery involves careful tissue management and often sectioning the tooth for a minimally invasive removal."
-        },
-        {
-            q: "What is the recovery timeline?",
-            a: "Initial healing and closure of the site take 3-5 days. While most patients return to normal activities within a week, full tissue recovery typically takes about 2 weeks."
-        },
-        {
-            q: "What is 'Dry Socket'?",
-            a: "Dry socket is a condition where the protective blood clot dislodges before healing. At iSmile, we use advanced suturing techniques and 'A-PRF' (Platelet-Rich Fibrin) from your own blood to significantly minimize this risk."
-        },
-        {
-            q: "Can I have multiple wisdom teeth removed at once?",
-            a: "Yes, it is common to remove all four wisdom teeth in a single session to minimize the overall recovery period. Factors like position and complexity are considered to ensure your procedure is as smooth and comfortable as possible."
-        },
-        {
-            q: "When can I eat normally again?",
-            a: "You can start with soft foods after 24 hours. Most patients return to their regular diet within 7-10 days as the extraction sites heal."
-        }
-    ];
+    const seo = specialtyFor('WisdomToothSurgery');
+    // Copy lives in src/data/serviceSeo.js so the prerendered HTML matches.
+    const faqs = seo.faqs.map(f => ({ q: fillStats(f.q, reviewStats), a: fillStats(f.a, reviewStats) }));
 
     // Add FAQ schema for SEO
     useEffect(() => {
@@ -118,9 +101,9 @@ const WisdomToothSurgery = () => {
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Wisdom Tooth Removal in Petaling Jaya | iSmile</title>
-                <meta name="description" content="Wisdom tooth surgery at iSmile Damansara Jaya, PJ — removal of impacted wisdom teeth by our clinic team. Open Mon–Sat. WhatsApp us to book." />
-                <link rel="canonical" href="https://ismile.com.my/services/protect/wisdom-tooth" />
+                <title>{fillStats(seo.title, reviewStats)}</title>
+                <meta name="description" content={fillStats(seo.description, reviewStats)} />
+                <link rel="canonical" href={seo.canonical} />
             </Helmet>
 
             <div className="tech-hero">
