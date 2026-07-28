@@ -113,26 +113,32 @@ const About = () => {
                 <section id="journey" className="journey-section">
                     <div className="container">
                         <Reveal><h2 className="section-title">Our Journey So Far</h2></Reveal>
+                        {/* One reveal on the whole rail, not per card: the cards sit
+                            inside a horizontal scroller, so whileInView never fires for
+                            the off-screen third card and (once:true) it stays at
+                            opacity 0 forever. */}
+                        <FadeIn>
                         <div className="journey-grid">
-                            <FadeIn className="journey-card">
+                            <div className="journey-card">
                                 <div className="journey-year">2006</div>
                                 <h3>Where We Began</h3>
                                 <div className="journey-divider"></div>
                                 <p>Founded in 2006 by Dr. Jean in Damansara Uptown, iSmile began with a simple belief: dentistry should feel personal, honest, and compassionate. Our early commitment to family care and trust continues to guide everything we do today.</p>
-                            </FadeIn>
-                            <FadeIn className="journey-card">
+                            </div>
+                            <div className="journey-card">
                                 <div className="journey-year">2022</div>
                                 <h3>Where We Are Now</h3>
                                 <div className="journey-divider"></div>
                                 <p>In 2022, we moved to Damansara Jaya into a purpose-built clinic designed to enhance comfort and clinical quality. Today, we welcome families with expanded services, stronger facilities, and a growing patient community.</p>
-                            </FadeIn>
-                            <FadeIn className="journey-card">
+                            </div>
+                            <div className="journey-card">
                                 <div className="journey-year">Today</div>
                                 <h3>Where We’re Going</h3>
                                 <div className="journey-divider"></div>
                                 <p>We are evolving into a modern, digitally-driven clinic for families — combining advanced technology, personalised care, and a continued commitment to delivering dentistry with excellence, accuracy, and heart.</p>
-                            </FadeIn>
+                            </div>
                         </div>
+                        </FadeIn>
                     </div>
                 </section>
             </div>
@@ -575,7 +581,9 @@ const About = () => {
                         font-size: 1rem;
                         line-height: 1.5;
                     }
-                    .journey-section { padding-bottom: 60px; }
+                    /* 60px minus the 32px of extra bottom padding the grid now
+                       carries for its shadow, so the visual rhythm is unchanged. */
+                    .journey-section { padding-bottom: 28px; }
                     /* Journey — horizontal left-to-right swipe carousel on mobile
                        (scroll-snap, ~85%-wide cards with a peek of the next) */
                     .journey-grid {
@@ -584,7 +592,12 @@ const About = () => {
                         scroll-snap-type: x mandatory;
                         gap: 14px;
                         margin: 0 -16px;
-                        padding: 4px 16px 12px;
+                        /* overflow-x:auto forces overflow-y to compute to auto, so this
+                           box clips vertically. The cards carry a 0 10px 30px shadow
+                           (~40px of bleed), so the bottom padding must clear it or the
+                           shadow gets sliced into a hard full-width line across the
+                           section. Top padding likewise clears the -2px hover lift. */
+                        padding: 6px 16px 44px;
                         scrollbar-width: none;
                         -ms-overflow-style: none;
                     }
