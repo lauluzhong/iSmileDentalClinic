@@ -13,6 +13,7 @@ const logoTightWebP = '/logo-tight.webp';
 const Header = () => {
     const { openBooking } = useBooking();
     const [isScrolled, setIsScrolled] = useState(false);
+    const [pastHero, setPastHero] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
     const [activeSubmenu, setActiveSubmenu] = useState(null);
@@ -27,14 +28,23 @@ const Header = () => {
     };
     const isDarkPage = location.pathname.startsWith('/services/') && !isScrolled;
 
-    // Handle scroll effect for glass header
+    // Handle scroll effect for glass header.
+    // pastHero tracks whether we've scrolled beyond ~the immersive Home hero
+    // (mobile): below the threshold the header sits transparent on the photo,
+    // past it the frosted pill fades back in.
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
+            setPastHero(window.scrollY > window.innerHeight * 0.72);
         };
-        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // Transparent brand-on-photo header state — Home immersive hero only
+    // (CSS scopes it to <=1024px; desktop and other pages are unaffected)
+    const isImmersive = location.pathname === '/' && !pastHero;
 
     const navLinks = [
         { name: 'Home', path: '/' },
@@ -127,7 +137,7 @@ const Header = () => {
     const activeSubmenuData = navLinks.find(link => link.name === activeSubmenu);
 
     return (
-        <header className={`header ${isScrolled ? 'scrolled' : ''} ${isDarkPage ? 'header-dark' : ''}`}>
+        <header className={`header ${isScrolled ? 'scrolled' : ''} ${isDarkPage ? 'header-dark' : ''} ${isImmersive ? 'header-immersive' : ''}`}>
             <div className="container header-container">
                 <div className="header-left">
                     <Link
@@ -595,6 +605,30 @@ const Header = () => {
                 height: 60px;
                 position: relative;
                 justify-content: space-between !important;
+                transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, height 0.3s ease;
+            }
+
+            /* Immersive state (Home hero, mobile): no pill — brand sits directly on the photo.
+               Same container box/height in both states, so the swap never causes a layout jump. */
+            .header.header-immersive .header-container {
+                background: transparent;
+                border-color: transparent;
+                box-shadow: none;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
+            .logo-link img {
+                transition: filter 0.35s ease, height 0.3s ease !important;
+            }
+            .header.header-immersive .logo-link img {
+                filter: brightness(0) invert(1) drop-shadow(0 1px 6px rgba(10, 30, 45, 0.35));
+                height: 52px !important;
+            }
+            .header.header-immersive .mobile-toggle {
+                background: rgba(255, 255, 255, 0.22);
+                backdrop-filter: blur(6px);
+                -webkit-backdrop-filter: blur(6px);
+                color: #fff;
             }
             .header.scrolled .header-container {
                 margin: 0 16px;
@@ -624,6 +658,7 @@ const Header = () => {
                 background: rgba(255,255,255,0.1);
                 border-radius: 12px;
                 padding: 8px;
+                transition: background 0.35s ease, color 0.35s ease;
             }
             .mobile-nav-overlay {
                 background: rgba(255, 255, 255, 0.98);

@@ -291,7 +291,7 @@ const Home = () => {
                             </div>
                         ))}
                     </div>
-                    <div className="text-center" style={{ marginTop: '60px' }}>
+                    <div className="text-center reviews-more-row">
                         <Link to="/reviews" className="btn-link">See More Reviews <ArrowRight size={16} /></Link>
                     </div>
                 </div>
@@ -690,6 +690,7 @@ const Home = () => {
             gap: 4px;
         }
         .btn-link { color: var(--color-primary); font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
+        .reviews-more-row { margin-top: 60px; }
 
         /* About */
         .split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
@@ -769,8 +770,9 @@ const Home = () => {
             .desktop-only { display: none; }
             .mobile-break { display: inline; }
 
-            .section-padding { padding: 48px 0; }
-            .home-page .section-title { font-size: 2rem; margin-bottom: 1.5rem; line-height: 1.1; }
+            /* Compact mobile rhythm: ~32px section padding (≈64px between sections on tablet) */
+            .section-padding { padding: 32px 0; }
+            .home-page .section-title { font-size: 2rem; margin-bottom: 0.75rem; line-height: 1.1; }
 
             /* ---- Hero — Option A immersive full-bleed (photo as background) ---- */
             .hero-section { position: relative; padding: 0; min-height: 100vh; min-height: 100svh; display: block; text-align: left; overflow: hidden; }
@@ -783,7 +785,7 @@ const Home = () => {
             .home-page .hero-card::before { background: linear-gradient(180deg, rgba(15,35,50,0.30) 0%, rgba(15,35,50,0.05) 35%, rgba(13,42,58,0.86) 88%); }
             .home-page .hero-card::after { display: none; }
             .hero-floating-badge { display: none; }
-            .hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; min-height: 100vh; min-height: 100svh; padding: 110px 22px calc(88px + env(safe-area-inset-bottom)); text-align: left; }
+            .hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; min-height: 100vh; min-height: 100svh; padding: 110px 22px calc(76px + env(safe-area-inset-bottom)); text-align: left; }
             .hero-eyebrow { display: none; }
             .hero-subtitle-desktop { display: none; }
             .hero-subtitle-mobile { display: block; }
@@ -799,8 +801,9 @@ const Home = () => {
             /* One white pill CTA on the photo */
             .hero-actions .btn { background: #fff; color: var(--color-primary-deep); box-shadow: 0 12px 30px rgba(10,35,50,0.35); }
             .hero-secondary-link { display: none; }
-            .section-header { margin-bottom: 36px; }
-            .section-lead { font-size: 1rem; margin-top: 14px; }
+            .section-header { margin-bottom: 22px; }
+            .section-header .pill-label { margin-bottom: 10px; }
+            .section-lead { font-size: 1rem; margin-top: 10px; }
 
             /* Services — 2-col grid on tablet, not horizontal scroll */
             .bento-grid {
@@ -825,21 +828,22 @@ const Home = () => {
 
             /* Welcome — stacked but with larger image */
             .welcome-container, .about-card-container { flex-direction: column; border-radius: 28px; }
-            .welcome-content-split, .about-content-split { padding: 40px 32px; text-align: center; align-items: center; }
-            .welcome-headline, .about-headline { font-size: 2rem; margin-bottom: 16px; }
-            .welcome-description, .about-description { font-size: 0.95rem; margin-bottom: 28px; line-height: 1.5; }
+            .welcome-content-split, .about-content-split { padding: 28px 24px; text-align: center; align-items: center; }
+            .welcome-headline, .about-headline { font-size: 2rem; margin-bottom: 12px; }
+            .welcome-description, .about-description { font-size: 0.95rem; margin-bottom: 20px; line-height: 1.5; }
             .welcome-image-split, .about-image-split { height: 320px; border-radius: 0 0 28px 28px; }
 
             /* Reviews — 2 visible on tablet */
-            .reviews-slider { 
+            .reviews-slider {
                 display: flex;
                 overflow-x: auto;
                 scroll-snap-type: x mandatory;
                 gap: 16px;
                 margin: 0;
-                padding: 20px 8px 40px 8px;
+                padding: 8px 8px 12px 8px;
                 scrollbar-width: none;
             }
+            .reviews-more-row { margin-top: 12px; }
             .reviews-slider::-webkit-scrollbar { display: none; }
             .review-card { 
                 flex: 0 0 calc(50% - 12px);
@@ -850,7 +854,8 @@ const Home = () => {
             .review-text { font-size: 0.95rem; margin-bottom: 16px; }
 
             /* Dental Education — header centered for consistency */
-            .dental-edu-header { margin-bottom: 16px; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+            .dental-edu-header { margin-bottom: 12px; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+            .horizontal-scroll-mask { padding: 8px 0 12px; }
             .horizontal-track-simple { gap: 20px; padding: 0 16px; }
             .insight-card-large { width: 320px; border-radius: 20px; }
             .insight-image-large { height: 200px; }
@@ -863,8 +868,11 @@ const Home = () => {
            RESPONSIVE — PHONE (≤480px)
            ============================ */
         @media (max-width: 480px) {
-            .section-padding { padding: 40px 0; }
-            .home-page .section-title { font-size: 1.6rem; margin-bottom: 1.25rem; line-height: 1.1; }
+            /* Phone rhythm: 24px section padding ≈ 48px between sections */
+            .section-padding { padding: 24px 0; }
+            .home-page .section-title { font-size: 1.6rem; margin-bottom: 0.5rem; line-height: 1.1; }
+            .section-header { margin-bottom: 18px; }
+            .reviews-more-row { margin-top: 8px; }
 
             /* Hero — immersive layout already applies at ≤1024px; phone type tweaks only */
             .hero-title { font-size: 2.1rem; line-height: 1.12; margin-bottom: 10px; }
@@ -878,9 +886,9 @@ const Home = () => {
 
             /* Welcome — taller image for better visual impact */
             .welcome-container, .about-card-container { border-radius: 20px; }
-            .welcome-content-split, .about-content-split { padding: 28px 20px; }
-            .welcome-headline, .about-headline { font-size: 1.6rem; margin-bottom: 12px; }
-            .welcome-description, .about-description { font-size: 0.88rem; margin-bottom: 20px; }
+            .welcome-content-split, .about-content-split { padding: 24px 18px; }
+            .welcome-headline, .about-headline { font-size: 1.6rem; margin-bottom: 10px; }
+            .welcome-description, .about-description { font-size: 0.88rem; margin-bottom: 16px; }
             .welcome-image-split, .about-image-split { height: 260px; border-radius: 0 0 20px 20px; }
 
             /* Reviews — full-width swipe */
