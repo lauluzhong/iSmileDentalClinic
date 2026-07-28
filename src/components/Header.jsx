@@ -67,7 +67,7 @@ const Header = () => {
             dropdown: [
                 { label: "Featured Services" },
                 { name: 'Myofunctional Orthodontics', path: '/services/children/myofunctional' },
-                { name: 'Clear Aligners (Invisalign)', path: '/services/straighten/clear-aligners' },
+                { name: 'Clear Aligners', path: '/services/straighten/clear-aligners' },
                 { name: 'Dental Implants', path: '/services/replace/dental-implants' },
                 { name: 'Crowns & Bridges', path: '/services/protect/root-canal' },
                 { name: 'Cosmetic Dentistry', path: '/services/enhance/cosmetic-dentistry' },
