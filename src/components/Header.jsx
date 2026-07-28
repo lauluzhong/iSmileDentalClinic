@@ -1,7 +1,7 @@
 import { useBooking } from '../context/BookingContext';
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
-import { ChevronDown, ChevronRight, ChevronLeft, Menu, X, Phone } from 'lucide-react';
+import { ChevronDown, ChevronRight, Menu, X, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from './Button';
 const logo = '/logo.png';
@@ -232,7 +232,19 @@ const Header = () => {
                 </div>
 
                 {/* Mobile Menu Toggle */}
-                <div className="mobile-toggle" onClick={() => mobileMenuOpen ? handleMobileMenuClose() : setMobileMenuOpen(true)}>
+                {/* Opening always resets to the top-level list. The close handler
+                    clears it too, but only after a 300ms delay (so the submenu
+                    doesn't visibly snap back mid-close) — without this, tapping
+                    the burger again inside that window reopened the submenu, and
+                    with no Back button that was a dead end. */}
+                <div className="mobile-toggle" onClick={() => {
+                    if (mobileMenuOpen) {
+                        handleMobileMenuClose();
+                    } else {
+                        setActiveSubmenu(null);
+                        setMobileMenuOpen(true);
+                    }
+                }}>
                     {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </div>
             </div>
@@ -267,8 +279,8 @@ const Header = () => {
                                                             onClick={() => setActiveSubmenu(link.name)}
                                                             style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}
                                                         >
-                                                            <span style={{ fontWeight: '600', fontSize: '1.2rem', color: '#1e293b' }}>{link.name}</span>
-                                                            <ChevronRight size={20} color="#94a3b8" />
+                                                            <span style={{ fontWeight: '600', fontSize: '1.05rem', color: '#1e293b' }}>{link.name}</span>
+                                                            <ChevronRight size={18} color="#94a3b8" />
                                                         </div>
                                                     ) : (
                                                         <Link
@@ -281,16 +293,15 @@ const Header = () => {
                                                                 }
                                                                 handleMobileMenuClose();
                                                             }}
-                                                            style={{ display: 'block', fontWeight: '600', fontSize: '1.2rem', color: '#1e293b' }}
+                                                            style={{ display: 'block', fontWeight: '600', fontSize: '1.05rem', color: '#1e293b' }}
                                                         >
                                                             {link.name}
                                                         </Link>
                                                     )}
                                                 </li>
                                             ))}
-                                            <li style={{ marginTop: '20px' }}>
-                                                <Button data-analytics-click="mobile-header-booking" onClick={() => { openBooking('', 'header-mobile'); handleMobileMenuClose(); }} style={{ width: '100%', fontSize: '1rem', padding: '12px' }}>Book a Visit</Button>
-                                            </li>
+                                            {/* No Book a Visit here — the sticky action bar carries
+                                                one at all times on mobile, so this was a duplicate. */}
                                         </ul>
                                     </motion.div>
                                 ) : (
@@ -302,11 +313,6 @@ const Header = () => {
                                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
                                         className="mobile-menu-slide"
                                     >
-                                        <div className="mobile-submenu-header" onClick={() => setActiveSubmenu(null)}>
-                                            <ChevronLeft size={20} />
-                                            <span>Back</span>
-                                        </div>
-
                                         {activeSubmenuData?.path ? (
                                             <Link
                                                 to={activeSubmenuData.path}
@@ -328,7 +334,7 @@ const Header = () => {
                                         <ul className="mobile-nav-list">
                                             {activeSubmenuData?.dropdown?.filter(item => !item.divider).map((subItem) => (
                                                 subItem.label ? (
-                                                    <li key={subItem.label} className="mobile-nav-item" style={{ paddingTop: '16px' }}>
+                                                    <li key={subItem.label} className="mobile-nav-item" style={{ paddingTop: '10px' }}>
                                                         <span style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#94a3b8' }}>
                                                             {subItem.label}
                                                         </span>
@@ -338,7 +344,7 @@ const Header = () => {
                                                         <span
                                                             onClick={() => handleDropdownClick(activeSubmenuData.path, subItem.hash || subItem.path)}
                                                             className="mobile-nav-link-header"
-                                                            style={{ fontWeight: '500', color: '#475569', fontSize: '1.1rem' }}
+                                                            style={{ fontWeight: '500', color: '#475569', fontSize: '1rem' }}
                                                         >
                                                             {subItem.name}
                                                         </span>
@@ -515,9 +521,11 @@ const Header = () => {
             top: 80px;
             left: 20px;
             right: 20px;
-            bottom: 20px; /* Take up more vertical space */
+            /* Height follows the menu; it only scrolls when the longest
+               submenu outgrows the screen. */
+            max-height: calc(100vh - 100px);
             background: rgba(248, 250, 252, 0.95);
-            padding: 24px;
+            padding: 20px;
             border-radius: 16px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             display: flex;
@@ -528,18 +536,22 @@ const Header = () => {
         .mobile-nav-viewport {
             position: relative;
             width: 100%;
-            height: 100%;
+            height: auto;
+            max-height: 100%;
             overflow-y: auto; /* Scrollable if needed */
             overflow-x: hidden;
+            /* Both slides share one grid cell so they can overlap during the
+               transition without being absolutely positioned — that lets the
+               panel take its height from the menu instead of always stretching
+               to the bottom of the screen. AnimatePresence mode="popLayout"
+               takes the outgoing slide out of flow, so the height tracks the
+               incoming one. */
+            display: grid;
         }
-        
-        /* The slide requires absolute positioning to overlap during transition */
+
         .mobile-menu-slide {
             width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
+            grid-area: 1 / 1;
             display: flex;
             flex-direction: column;
             background: rgba(248, 250, 252, 0); /* Transparent */
@@ -551,40 +563,29 @@ const Header = () => {
             margin: 0;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 2px;
         }
-        
+
         .mobile-nav-item {
             border-bottom: 1px solid rgba(0,0,0,0.05);
-            padding-bottom: 12px;
+            padding-bottom: 4px;
         }
         .mobile-nav-item:last-child { border-bottom: none; }
 
         .mobile-nav-link-header {
-            padding: 8px 0;
+            padding: 7px 0;
             cursor: pointer;
             width: 100%;
             display: block;
         }
-        
-        .mobile-submenu-header {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 20px;
-            cursor: pointer;
-            color: #64748b;
-            font-weight: 500;
-            font-size: 0.95rem;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-        
+
         .mobile-submenu-title {
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 800;
             color: var(--color-primary);
-            margin-bottom: 24px;
+            margin-bottom: 14px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
             line-height: 1.1;
         }
 
@@ -718,9 +719,8 @@ const Header = () => {
                 border-radius: 32px;
                 border: 1px solid rgba(255,255,255,1);
                 top: 80px;
-                bottom: 20px;
                 box-shadow: 0 20px 60px -10px rgba(0,0,0,0.15);
-                padding: 24px;
+                padding: 20px;
             }
         }
       `}</style>
