@@ -89,8 +89,8 @@ const BookingModal = () => {
         setSubmitError('');
         setIsSubmitting(true);
 
-        if (!formData.name || !formData.email || !formData.contact) {
-            setSubmitError('Please fill in all required fields marked with *');
+        if (!formData.name || !formData.contact) {
+            setSubmitError('Please fill in your name and contact number');
             setIsSubmitting(false);
             return;
         }
@@ -109,11 +109,11 @@ const BookingModal = () => {
             ? `\n\nAdditional notes:\n${formData.additionalNotes.trim()}`
             : '';
 
+        const emailLine = formData.email ? `\nEmail: ${formData.email}` : '';
         const message = `Hi iSmile Dental Clinic, I'd like to schedule a visit.
 
 Name: ${formData.name}
-Contact: ${formData.contact}
-Email: ${formData.email}
+Contact: ${formData.contact}${emailLine}
 
 ${formData.experience}${familySection}${notesSection}`;
 
@@ -135,7 +135,7 @@ ${formData.experience}${familySection}${notesSection}`;
 
         await insertLead({
             name: formData.name,
-            email: formData.email,
+            email: formData.email || '',
             contact: formData.contact,
             experience: formData.experience,
             for_self: formData.forSelf,
@@ -160,7 +160,7 @@ ${formData.experience}${familySection}${notesSection}`;
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 name: formData.name,
-                email: formData.email,
+                email: formData.email || '',
                 contact: formData.contact,
                 experience: formData.experience,
                 sourceButton,
@@ -214,7 +214,7 @@ ${formData.experience}${familySection}${notesSection}`;
                     </div>
 
                     <div className="form-group">
-                        <label>Email *</label>
+                        <label>Email (optional)</label>
                         <input
                             data-analytics-focus="booking-field"
                             type="email"
@@ -222,7 +222,6 @@ ${formData.experience}${familySection}${notesSection}`;
                             value={formData.email}
                             onChange={handleChange}
                             placeholder="email@example.com"
-                            required
                         />
                     </div>
 
