@@ -4,8 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, Star, Heart, Shield, Sparkles, Smile, Users, Quote } from 'lucide-react';
 import Button from '../components/Button';
 import { Helmet } from 'react-helmet-async';
-import { Reveal, FadeIn } from '../components/Reveal';
-import { motion } from 'framer-motion';
+import { Reveal } from '../components/Reveal';
+import { motion, useReducedMotion } from 'framer-motion';
 import reviewStats from '../data/review-stats.json';
 
 // Updated Image Paths
@@ -41,6 +41,7 @@ import blogIndex from '../data/blog-index.json';
 const Home = () => {
     const { openBooking } = useBooking();
     const navigate = useNavigate();
+    const prefersReducedMotion = useReducedMotion();
 
     // Get the specific blog posts in the requested order
     // Updated 2026-03-28: Feature newest posts covering priority topics
@@ -85,8 +86,8 @@ const Home = () => {
     return (
         <div className="home-page" style={{ background: 'linear-gradient(180deg, #FFFFFF 0%, #eff6ff 100%)', minHeight: '100vh' }}>
             <Helmet>
-                <title>iSmile Dental Clinic Petaling Jaya | Family Dentist in Damansara Jaya</title>
-                <meta name="description" content="iSmile Dental Clinic in Damansara Jaya, Petaling Jaya — gentle, patient-centred dental care for children, adults & families. Book your visit today." />
+                <title>Family Dentist Damansara Jaya, PJ | iSmile Dental Clinic</title>
+                <meta name="description" content="Family dental clinic in Damansara Jaya, Petaling Jaya since 2006. Check-ups, braces, implants & kids' dentistry. Rated 4.8★ from 91 Google reviews. WhatsApp us to book." />
                 <link rel="canonical" href="https://ismile.com.my/" />
             </Helmet>
 
@@ -97,25 +98,27 @@ const Home = () => {
                 <div className="liquid-shape" style={{ top: '44%', right: '32%', width: '220px', height: '220px', background: 'var(--color-accent)', filter: 'blur(70px)' }}></div>
 
                 <div className="container hero-container">
+                    {/* Hero content renders statically — above-the-fold copy must never start at opacity 0 */}
                     <div className="hero-content">
-                        <Reveal>
-                            <span className="hero-eyebrow">
-                                <span className="hero-eyebrow-mark"><Heart size={13} /></span>
-                                <span className="hero-eyebrow-text">A family practice in Petaling Jaya</span>
-                                <span className="hero-eyebrow-year">Est. 2006</span>
-                            </span>
-                        </Reveal>
-                        <Reveal delay={0.1}><h1 className="hero-title">
+                        <span className="hero-eyebrow">
+                            <span className="hero-eyebrow-mark"><Heart size={13} /></span>
+                            <span className="hero-eyebrow-text">A family practice in Petaling Jaya</span>
+                            <span className="hero-eyebrow-year">Est. 2006</span>
+                        </span>
+                        <h1 className="hero-title">
                             Dental care for <span className="text-gradient">every generation</span>
-                        </h1></Reveal>
-                        <Reveal delay={0.2}><p className="hero-subtitle">
+                        </h1>
+                        <p className="hero-subtitle hero-subtitle-desktop">
                             From a child's first visit to a grandparent's new smile, iSmile is the dentist whole families stay with. Honest advice, gentle hands, and care that's looked after Petaling Jaya households for nearly two decades.
-                        </p></Reveal>
-                        <FadeIn delay={0.4} className="hero-actions">
-                            <Button onClick={() => openBooking('', 'hero-cta')}>Schedule a Visit <ArrowRight size={18} /></Button>
+                        </p>
+                        <p className="hero-subtitle hero-subtitle-mobile">
+                            The family dentist Petaling Jaya households have stayed with since 2006.
+                        </p>
+                        <div className="hero-actions">
+                            <Button onClick={() => openBooking('', 'hero-cta')}>Book a Visit <ArrowRight size={18} /></Button>
                             <Link to="/about" className="hero-secondary-link">Meet our team <ArrowRight size={16} /></Link>
-                        </FadeIn>
-                        <FadeIn delay={0.5} className="hero-trust">
+                        </div>
+                        <div className="hero-trust">
                             <div className="hero-trust-item">
                                 <div className="hero-trust-stars">
                                     {[...Array(5)].map((_, i) => <Star key={i} size={15} fill="#E0A500" color="#E0A500" />)}
@@ -124,7 +127,7 @@ const Home = () => {
                             </div>
                             <span className="hero-trust-divider" />
                             <div className="hero-trust-item"><strong>20+</strong> years of trusted care</div>
-                        </FadeIn>
+                        </div>
                     </div>
 
                     <div className="hero-visual">
@@ -135,11 +138,11 @@ const Home = () => {
                                   <source type="image/jpeg" srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 947w`} sizes="(max-width: 768px) 100vw, 50vw" />
                                   <img src={FAMILY_HERO} srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 947w`} sizes="(max-width: 768px) 100vw, 50vw" alt="Three generations of a family smiling together at iSmile Dental Clinic" width="947" height="576" fetchPriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }} />
                                 </picture>
-                                <motion.div className="hero-floating-badge" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}>
+                                <div className="hero-floating-badge">
                                     <div className="hero-badge-copy">
                                         <strong>Trusted by families across multiple generations</strong>
                                     </div>
-                                </motion.div>
+                                </div>
                             </div>
                     </div>
                 </div>
@@ -156,7 +159,7 @@ const Home = () => {
 
                     <div className="bento-grid">
                         {/* Card 1: Maintain & Repair */}
-                        <MotionLink to="/services/protect" className="bento-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+                        <MotionLink to="/services/protect" className="bento-card" initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -40px 0px" }} transition={{ duration: 0.35, ease: "easeOut" }}>
                             <div className="card-top">
                                 <span className="card-icon-wrap"><Shield size={26} className="card-icon" /></span>
                                 <ArrowRight size={20} className="card-arrow" />
@@ -169,7 +172,7 @@ const Home = () => {
                         </MotionLink>
 
                         {/* Card 2: Straighten Teeth */}
-                        <MotionLink to="/services/straighten" className="bento-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+                        <MotionLink to="/services/straighten" className="bento-card" initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -40px 0px" }} transition={{ duration: 0.35, ease: "easeOut" }}>
                             <div className="card-top">
                                 <span className="card-icon-wrap"><Sparkles size={26} className="card-icon" /></span>
                                 <ArrowRight size={20} className="card-arrow" />
@@ -182,7 +185,7 @@ const Home = () => {
                         </MotionLink>
 
                         {/* Card 3: Replace Teeth */}
-                        <MotionLink to="/services/replace" className="bento-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+                        <MotionLink to="/services/replace" className="bento-card" initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -40px 0px" }} transition={{ duration: 0.35, ease: "easeOut" }}>
                             <div className="card-top">
                                 <span className="card-icon-wrap"><Smile size={26} className="card-icon" /></span>
                                 <ArrowRight size={20} className="card-arrow" />
@@ -195,7 +198,7 @@ const Home = () => {
                         </MotionLink>
 
                         {/* Card 4: Enhance Smile */}
-                        <MotionLink to="/services/enhance" className="bento-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+                        <MotionLink to="/services/enhance" className="bento-card" initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -40px 0px" }} transition={{ duration: 0.35, ease: "easeOut" }}>
                             <div className="card-top">
                                 <span className="card-icon-wrap"><Star size={26} className="card-icon" /></span>
                                 <ArrowRight size={20} className="card-arrow" />
@@ -208,7 +211,7 @@ const Home = () => {
                         </MotionLink>
 
                         {/* Card 5: Children & Growth */}
-                        <MotionLink to="/services/children" className="bento-card" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+                        <MotionLink to="/services/children" className="bento-card" initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -40px 0px" }} transition={{ duration: 0.35, ease: "easeOut" }}>
                             <div className="card-top">
                                 <span className="card-icon-wrap"><Users size={26} className="card-icon" /></span>
                                 <ArrowRight size={20} className="card-arrow" />
@@ -219,6 +222,22 @@ const Home = () => {
                                 <p className="card-body">Early intervention and gentle dental paediatric care to keep your child's smile on track.</p>
                             </div>
                         </MotionLink>
+                    </div>
+
+                    {/* Mobile chip grid (Option A) — replaces the swipe carousel on phones */}
+                    <div className="chip-grid">
+                        {[
+                            { to: '/services/protect', label: 'Check-ups & cleaning', Icon: Shield },
+                            { to: '/services/straighten', label: 'Braces & aligners', Icon: Sparkles },
+                            { to: '/services/replace', label: 'Implants & dentures', Icon: Smile },
+                            { to: '/services/enhance', label: 'Veneers & whitening', Icon: Star },
+                            { to: '/services/children', label: 'Children & growing smiles', Icon: Users }
+                        ].map(({ to, label, Icon }) => (
+                            <Link key={to} to={to} className="service-chip">
+                                <span className="service-chip-icon"><Icon size={18} /></span>
+                                {label}
+                            </Link>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -233,62 +252,22 @@ const Home = () => {
                     <div className="reviews-slider">
                         {[
                             {
-                                text: (
-                                    <>
-                                        <p>
-                                            "I have been a patient of iSmile for <strong>over a decade</strong>.
-                                            The dental professionals there are <strong>truly professional and caring</strong>.
-                                        </p>
-                                        <p>
-                                            My <strong>fear of being in the dentist chair has been completely removed</strong> by the
-                                            <strong>gentle care</strong> I received. I also appreciate their cooperation with my
-                                            orthodontist, from the time iSmile was still in Uptown.
-                                        </p>
-                                        <p>
-                                            My family’s dental health is <strong>securely in the hands of iSmile</strong>."
-                                        </p>
-                                    </>
-                                ),
+                                // One-line pulls, verbatim from each patient's full Google review (full text on /reviews)
+                                text: "My fear of being in the dentist chair has been completely removed by the gentle care I received.",
                                 author: "Mike Ngui",
                                 type: "Patient",
                                 avatar: AVATAR_MIKE_WEBP,
                                 rating: 5
                             },
                             {
-                                text: (
-                                    <>
-                                        <p>
-                                            "My regular dental clinic of <strong>over a decade</strong>, with <strong>trustworthy dentists</strong>,
-                                            assistants and receptionists who work diligently with so much <strong>care and love</strong> for
-                                            every single one of their patients.
-                                        </p>
-                                        <p>
-                                            I've referred multiple family members here since I first came, because I know they
-                                            will <strong>always be in good hands</strong> here at iSmile. The environment is also
-                                            inviting, clean and calming. <strong>Highly recommended.</strong>"
-                                        </p>
-                                    </>
-                                ),
+                                text: "I've referred multiple family members here since I first came, because I know they will always be in good hands here at iSmile.",
                                 author: "Kah Mun Hew",
                                 type: "Patient",
                                 avatar: AVATAR_KAH_MUN_WEBP,
                                 rating: 5
                             },
                             {
-                                text: (
-                                    <>
-                                        <p>
-                                            "Have been to my fair share of dentists. Above all, I appreciate iSmile's <strong>professional care</strong>
-                                            and <strong>'customer first' attitude</strong>. They would prescribe but also would listen to
-                                            concerns and also <strong>see the situation holistically</strong>.
-                                        </p>
-                                        <p>
-                                            It's good they <strong>track records and my dental history</strong> in their system so that
-                                            whoever attends to you will have a clear picture. Appreciated <strong>Dr Jean and Dr Mah</strong>
-                                            very much for their <strong>gentle and thorough care</strong>."
-                                        </p>
-                                    </>
-                                ),
+                                text: "Above all, I appreciate iSmile's professional care and 'customer first' attitude.",
                                 author: "Benny Kong",
                                 type: "Patient",
                                 avatar: AVATAR_BENNY_WEBP,
@@ -300,13 +279,14 @@ const Home = () => {
                                 <div className="review-stars">
                                     {[...Array(review.rating)].map((_, i) => <Star key={i} size={16} fill="#FFD700" color="#FFD700" />)}
                                 </div>
-                                <div className="review-text">{review.text}</div>
+                                <div className="review-text"><p>“{review.text}”</p></div>
                                 <div className="review-author">
                                     <img src={review.avatar} alt={review.author} loading="lazy" width="40" height="40" style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }} />
                                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                                         <strong>{review.author}</strong>
                                         <span className="review-type">{review.type}</span>
                                     </div>
+                                    <Link to="/reviews" className="review-more">Full review <ArrowRight size={14} /></Link>
                                 </div>
                             </div>
                         ))}
@@ -404,6 +384,8 @@ const Home = () => {
         }
         .hero-title { font-size: var(--fs-display); line-height: 1.05; margin-bottom: 22px; font-weight: 700; letter-spacing: -0.03em; }
         .hero-subtitle { font-size: var(--fs-lead); color: var(--color-text-slate); margin-bottom: 32px; max-width: 540px; line-height: 1.6; }
+        /* Short mobile subline (Option A) — swapped in below 1024px */
+        .hero-subtitle-mobile { display: none; }
         .hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
         .hero-secondary-link { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-heading); font-weight: 600; color: var(--color-primary-deep); font-size: 1rem; transition: gap 0.25s ease; }
         .hero-secondary-link:hover { gap: 10px; color: var(--color-primary-teal); }
@@ -622,6 +604,24 @@ const Home = () => {
             line-height: 1.5;
         }
 
+        /* Mobile services chip grid (Option A) — hidden on desktop/tablet */
+        .chip-grid { display: none; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .service-chip {
+            display: flex; align-items: center; gap: 10px;
+            background: #fff; border: 1px solid rgba(16,42,51,0.08);
+            border-radius: 16px; padding: 13px 12px;
+            font-family: var(--font-heading); font-weight: 600;
+            font-size: 0.9rem; line-height: 1.2;
+            color: var(--color-text-charcoal);
+            box-shadow: var(--shadow-sm);
+        }
+        .service-chip:last-child { grid-column: 1 / -1; }
+        .service-chip-icon {
+            flex: none; width: 34px; height: 34px; border-radius: 10px;
+            background: var(--color-tint-light); color: var(--color-primary-deep);
+            display: flex; align-items: center; justify-content: center;
+        }
+
         /* Reviews */
         .reviews-slider { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
         .review-card {
@@ -666,11 +666,22 @@ const Home = () => {
             padding-top: 15px;
         }
         .review-type {
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             color: var(--color-secondary);
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
+        .review-more {
+            margin-left: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-primary-deep);
+            white-space: nowrap;
+        }
+        .review-more:hover { color: var(--color-primary-teal); }
         .review-stars { 
             color: #FFD700; 
             margin-bottom: 15px; 
@@ -761,17 +772,33 @@ const Home = () => {
             .section-padding { padding: 48px 0; }
             .home-page .section-title { font-size: 2rem; margin-bottom: 1.5rem; line-height: 1.1; }
 
-            /* Hero — stacked but with more breathing room */
-            .hero-section { padding-top: 100px; text-align: center; min-height: auto; padding-bottom: 48px; }
-            .hero-container { grid-template-columns: 1fr; gap: 32px; padding: 0 24px; }
-            .hero-content { display: flex; flex-direction: column; align-items: center; order: 2; text-align: center; }
-            .hero-title { font-size: 2.4rem; line-height: 1.08; margin-bottom: 16px; text-align: center; }
-            .hero-subtitle { font-size: 1rem; margin-bottom: 28px; margin-top: 0; max-width: 440px; margin-left: auto; margin-right: auto; line-height: 1.55; }
-            .hero-actions { justify-content: center; }
-            .hero-trust { display: none; }
-            .hero-eyebrow { justify-content: center; }
-            .hero-visual { order: 1; width: 100%; max-width: 320px; margin: 0 auto; }
-            .home-page .hero-card { transform: rotate(0); border-radius: 20px; aspect-ratio: 16/11; height: auto; outline-width: 5px; outline-offset: -5px; }
+            /* ---- Hero — Option A immersive full-bleed (photo as background) ---- */
+            .hero-section { position: relative; padding: 0; min-height: 100vh; min-height: 100svh; display: block; text-align: left; overflow: hidden; }
+            .hero-section .liquid-shape { display: none; }
+            .hero-container { display: block; padding: 0; max-width: none; }
+            .hero-visual { position: absolute; inset: 0; max-width: none; margin: 0; z-index: 1; }
+            .home-page .hero-card { position: absolute; inset: 0; height: 100%; max-width: none; aspect-ratio: auto; transform: none; border-radius: 0; outline: none; box-shadow: none; }
+            .home-page .hero-card img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; filter: none; }
+            /* Option A shade — light at the top, dark at the bottom for text contrast */
+            .home-page .hero-card::before { background: linear-gradient(180deg, rgba(15,35,50,0.30) 0%, rgba(15,35,50,0.05) 35%, rgba(13,42,58,0.86) 88%); }
+            .home-page .hero-card::after { display: none; }
+            .hero-floating-badge { display: none; }
+            .hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; min-height: 100vh; min-height: 100svh; padding: 110px 22px calc(88px + env(safe-area-inset-bottom)); text-align: left; }
+            .hero-eyebrow { display: none; }
+            .hero-subtitle-desktop { display: none; }
+            .hero-subtitle-mobile { display: block; }
+            /* Trust line — restored and moved above the headline, per the mock */
+            .hero-trust { display: flex; order: -1; margin: 0 0 12px; gap: 10px; color: rgba(255,255,255,0.95); font-size: 0.85rem; }
+            .hero-trust-item strong { color: #fff; }
+            .hero-trust-divider { display: none; }
+            .hero-trust .hero-trust-item:last-of-type { display: none; }
+            .hero-title { font-size: 2.35rem; line-height: 1.12; margin-bottom: 10px; color: #fff; }
+            .hero-title .text-gradient { background: none; -webkit-background-clip: initial; background-clip: initial; -webkit-text-fill-color: #fff; color: #fff; }
+            .hero-subtitle { font-size: 1rem; color: rgba(255,255,255,0.92); margin: 0 0 18px; max-width: 420px; line-height: 1.55; }
+            .hero-actions { gap: 14px; }
+            /* One white pill CTA on the photo */
+            .hero-actions .btn { background: #fff; color: var(--color-primary-deep); box-shadow: 0 12px 30px rgba(10,35,50,0.35); }
+            .hero-secondary-link { display: none; }
             .section-header { margin-bottom: 36px; }
             .section-lead { font-size: 1rem; margin-top: 14px; }
 
@@ -792,7 +819,7 @@ const Home = () => {
             }
             .card-headline { font-size: 1.1rem; line-height: 1.2; margin-bottom: 8px; }
             .card-body { font-size: 0.85rem; line-height: 1.4; opacity: 0.85; }
-            .eyebrow { margin-bottom: 6px; font-size: 0.7rem; }
+            .eyebrow { margin-bottom: 6px; font-size: 0.8125rem; }
             .card-top { margin-bottom: 16px; }
             .card-icon { width: 28px; height: 28px; }
 
@@ -820,7 +847,7 @@ const Home = () => {
                 padding: 24px; 
                 border-radius: 20px; 
             }
-            .review-text { font-size: 0.85rem; margin-bottom: 16px; }
+            .review-text { font-size: 0.95rem; margin-bottom: 16px; }
 
             /* Dental Education — header centered for consistency */
             .dental-edu-header { margin-bottom: 16px; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
@@ -828,7 +855,7 @@ const Home = () => {
             .insight-card-large { width: 320px; border-radius: 20px; }
             .insight-image-large { height: 200px; }
             .insight-content { padding: 20px; }
-            .insight-content h4 { font-size: 1rem; line-height: 1.3; margin-bottom: 6px; }
+            .insight-content h3 { font-size: 1rem; line-height: 1.3; margin-bottom: 6px; }
             .read-more-link { font-size: 0.9rem; }
         }
 
@@ -839,65 +866,15 @@ const Home = () => {
             .section-padding { padding: 40px 0; }
             .home-page .section-title { font-size: 1.6rem; margin-bottom: 1.25rem; line-height: 1.1; }
 
-            /* Hero — compact to keep CTA near fold */
-            .hero-section { padding-top: 88px; padding-bottom: 32px; }
-            .hero-container { gap: 24px; padding: 0 16px; }
-            .hero-pill { margin-bottom: 14px; }
-            .hero-title { font-size: 2rem; line-height: 1.08; margin-bottom: 12px; }
-            .hero-subtitle { font-size: 0.95rem; margin-bottom: 22px; max-width: 360px; line-height: 1.5; }
-            .hero-actions { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 12px; width: auto; max-width: none; }
-            .hero-actions .btn { width: auto; padding-left: 22px; padding-right: 22px; }
-            .hero-trust { flex-direction: column; gap: 10px; }
-            .hero-trust-divider { display: none; }
-            /* Match the photo width to the eyebrow line below it (heart icon → "EST. 2006") */
-            .hero-visual { max-width: 320px; }
-            .home-page .hero-card { aspect-ratio: 16/11; border-radius: 16px; }
-            /* Keep the badge on a single line, centered with breathing room on both sides */
-            .hero-badge-copy strong { white-space: nowrap; }
-            .hero-eyebrow { gap: 8px; flex-wrap: wrap; row-gap: 4px; }
-            .hero-eyebrow-text { font-size: 0.76rem; }
-            .hero-frame-tag { font-size: 0.58rem; padding: 5px 11px; }
-            .hero-floating-badge { bottom: 12px; left: 12px; right: 12px; padding: 10px 12px; gap: 10px; justify-content: center; }
-            .hero-badge-icon { width: 34px; height: 34px; }
-            .hero-badge-copy { align-items: center; text-align: center; }
-            .hero-badge-copy strong { font-size: 0.74rem; }
-            .hero-badge-copy span { font-size: 0.68rem; }
+            /* Hero — immersive layout already applies at ≤1024px; phone type tweaks only */
+            .hero-title { font-size: 2.1rem; line-height: 1.12; margin-bottom: 10px; }
+            .hero-subtitle { font-size: 1rem; max-width: 340px; }
+            .hero-content { padding-left: 18px; padding-right: 18px; }
+            .hero-actions .btn { width: auto; padding: 14px 24px; }
 
-            /* Services — horizontal scroll carousel */
-            .services-bento-section { position: relative; }
-            .bento-grid {
-                display: flex;
-                overflow-x: auto;
-                overflow-y: hidden;
-                scroll-snap-type: x mandatory;
-                scrollbar-width: none;
-                -ms-overflow-style: none;
-                gap: 12px;
-                margin: 0 -16px;
-                padding: 0 16px 20px 16px;
-                width: calc(100% + 32px);
-                mask-image: linear-gradient(to right, black calc(100% - 30px), transparent 100%);
-                -webkit-mask-image: linear-gradient(to right, black calc(100% - 30px), transparent 100%);
-            }
-            .bento-grid::-webkit-scrollbar { display: none; }
-            .bento-card {
-                flex: 0 0 75%;
-                scroll-snap-align: center;
-                min-height: 170px;
-                aspect-ratio: auto; 
-                padding: 20px;
-                border-radius: 18px;
-            }
-            .bento-card:last-child {
-                grid-column: unset;
-                max-width: unset;
-                margin: unset;
-            }
-            .card-headline { font-size: 1.05rem; line-height: 1.2; margin-bottom: 6px; }
-            .card-body { font-size: 0.8rem; line-height: 1.35; opacity: 0.85; }
-            .eyebrow { margin-bottom: 4px; font-size: 0.65rem; }
-            .card-top { margin-bottom: 14px; }
-            .card-icon { width: 26px; height: 26px; }
+            /* Services — Option A chip grid replaces the swipe carousel */
+            .bento-grid { display: none; }
+            .chip-grid { display: grid; }
 
             /* Welcome — taller image for better visual impact */
             .welcome-container, .about-card-container { border-radius: 20px; }
@@ -913,7 +890,7 @@ const Home = () => {
                 padding: 20px; 
                 border-radius: 18px; 
             }
-            .review-text { font-size: 0.82rem; margin-bottom: 14px; }
+            .review-text { font-size: 0.95rem; margin-bottom: 14px; }
 
             /* Dental Education */
             .dental-edu-header { flex-direction: column; align-items: center; gap: 6px; text-align: center; }
@@ -921,8 +898,8 @@ const Home = () => {
             .insight-card-large { width: 240px; border-radius: 16px; }
             .insight-image-large { height: 140px; }
             .insight-content { padding: 14px; }
-            .insight-content h4 { font-size: 0.9rem; line-height: 1.3; margin-bottom: 4px; }
-            .read-more-link { font-size: 0.82rem; }
+            .insight-content h3 { font-size: 0.95rem; line-height: 1.3; margin-bottom: 4px; }
+            .read-more-link { font-size: 0.85rem; }
         }
 
       `}</style>

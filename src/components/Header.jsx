@@ -208,7 +208,7 @@ const Header = () => {
 
                 {/* Action Button */}
                 <div className="header-actions">
-                    <Button data-analytics-click="header-booking" onClick={() => openBooking('', 'header-desktop')}>Schedule a Visit</Button>
+                    <Button data-analytics-click="header-booking" onClick={() => openBooking('', 'header-desktop')}>Book a Visit</Button>
                 </div>
 
                 {/* Mobile Menu Toggle */}
@@ -269,7 +269,7 @@ const Header = () => {
                                                 </li>
                                             ))}
                                             <li style={{ marginTop: '20px' }}>
-                                                <Button data-analytics-click="mobile-header-booking" onClick={() => { openBooking('', 'header-mobile'); handleMobileMenuClose(); }} style={{ width: '100%', fontSize: '1rem', padding: '12px' }}>Schedule a Visit</Button>
+                                                <Button data-analytics-click="mobile-header-booking" onClick={() => { openBooking('', 'header-mobile'); handleMobileMenuClose(); }} style={{ width: '100%', fontSize: '1rem', padding: '12px' }}>Book a Visit</Button>
                                             </li>
                                         </ul>
                                     </motion.div>
