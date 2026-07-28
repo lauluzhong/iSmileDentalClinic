@@ -91,8 +91,8 @@ const CosmeticDentistry = () => {
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Cosmetic Dentistry Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Transform your smile with cosmetic dentistry at iSmile Clinic, Damansara Jaya. Ceramic & composite veneers, smile design, and full mouth rehabilitation." />
+                <title>Cosmetic Dentist in Petaling Jaya | iSmile Dental Clinic</title>
+                <meta name="description" content="Veneers, smile design & full mouth rehabilitation at iSmile Damansara Jaya — a family clinic serving Petaling Jaya since 2006. WhatsApp us to book." />
                 <link rel="canonical" href="https://ismile.com.my/services/enhance/cosmetic-dentistry" />
             </Helmet>
 

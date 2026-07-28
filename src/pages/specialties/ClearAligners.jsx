@@ -91,8 +91,8 @@ const ClearAligners = () => {
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Clear Aligners Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Straighten your teeth discreetly with clear aligners (Invisalign / Angel / ClearSmile) at iSmile Clinic, Damansara Jaya. Custom plans for adults & teens." />
+                <title>Clear Aligners in Petaling Jaya | iSmile Dental Clinic</title>
+                <meta name="description" content="Invisalign & clear aligners at our Damansara Jaya clinic — discreet teeth straightening for adults & teens. Rated 4.8★ on Google. WhatsApp us to book." />
                 <link rel="canonical" href="https://ismile.com.my/services/straighten/clear-aligners" />
             </Helmet>
 

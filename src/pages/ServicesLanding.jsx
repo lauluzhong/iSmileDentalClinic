@@ -83,8 +83,8 @@ const ServicesLanding = () => {
     return (
         <div className="services-landing">
             <Helmet>
-                <title>Dental Care in Petaling Jaya | iSmile Dental Clinic Services</title>
-                <meta name="description" content="Find gentle dental services in Petaling Jaya for your whole family. From children's dentistry to wisdom tooth removal, we offer comprehensive care with a reassuring approach." />
+                <title>Dental Services in Petaling Jaya | iSmile Dental Clinic</title>
+                <meta name="description" content="Explore our dental services in Petaling Jaya — check-ups, braces & clear aligners, implants, whitening & kids' dentistry in Damansara Jaya. WhatsApp us to book." />
                 <link rel="canonical" href="https://ismile.com.my/services" />
             </Helmet>
 

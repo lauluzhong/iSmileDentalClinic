@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/2015/:path*",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

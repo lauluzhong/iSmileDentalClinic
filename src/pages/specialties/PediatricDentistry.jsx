@@ -91,8 +91,8 @@ const PediatricDentistry = () => {
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Pediatric Dentistry Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Gentle dental care for children in Damansara Jaya, Petaling Jaya. First dental visits, fissure sealants, fluoride treatment & child-friendly care." />
+                <title>Kids' Dentist in Petaling Jaya | iSmile Dental Clinic</title>
+                <meta name="description" content="Gentle children's dentistry in Damansara Jaya — first visits, fissure sealants & fluoride treatment. Family practice since 2006. WhatsApp us to book." />
                 <link rel="canonical" href="https://ismile.com.my/services/children/pediatric-dentistry" />
             </Helmet>
 
