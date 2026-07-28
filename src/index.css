@@ -60,8 +60,13 @@
     --section-padding: 40px;
     --fs-h1: 32px;
     --fs-h2: 24px;
-    --fs-body: 14px;
+    /* Mobile readability floor: body text never below 16px */
+    --fs-body: 16px;
     --lh-tight: 1.05;
+  }
+
+  body {
+    font-size: var(--fs-body);
   }
 }
 

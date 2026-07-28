@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Smartphone } from 'lucide-react';
 import Button from './Button';
 import reviewStats from '../data/review-stats.json';
+import { enrichEvent } from '../lib/attribution';
 
 const logo = '/logo.png';
 const logoWebP = '/logo.webp';
@@ -154,11 +155,22 @@ const Footer = () => {
                         <h4 className="footer-heading">Contact</h4>
                         <div className="phone-block">
                             <Smartphone size={20} className="phone-icon" />
-                            <a href="tel:+60163222135" className="phone-link">+60163222135</a>
+                            <a
+                                href="tel:+60163222135"
+                                className="phone-link"
+                                onClick={() => {
+                                    window.dataLayer = window.dataLayer || [];
+                                    window.dataLayer.push(enrichEvent({
+                                        event: 'phone_click',
+                                        phone_number: '+60163222135',
+                                        link_url: 'tel:+60163222135'
+                                    }, 'footer'));
+                                }}
+                            >+60163222135</a>
                         </div>
                         <p className="cta-desc">Ready to schedule your visit?</p>
                         <div className="mt-4">
-                            <Button data-analytics-click="footer-booking" style={{ padding: '12px 40px', boxShadow: '0 4px 15px rgba(79, 163, 194, 0.3)' }} onClick={() => openBooking('', 'footer-cta')}>Get in Touch</Button>
+                            <Button data-analytics-click="footer-booking" style={{ padding: '12px 40px', boxShadow: '0 4px 15px rgba(79, 163, 194, 0.3)' }} onClick={() => openBooking('', 'footer-cta')}>Book a Visit</Button>
                         </div>
                         
                         {/* Social Media Links */}
@@ -380,7 +392,9 @@ const Footer = () => {
         }
 
         @media (max-width: 1024px) {
-            .footer { padding: 40px 0; }
+            /* Extra bottom padding so the sticky action bar never covers footer content */
+            .footer { padding: 40px 0 calc(40px + 76px + env(safe-area-inset-bottom)); }
+            .footer-copyright { font-size: 0.85rem; }
             .footer-grid { 
                 grid-template-columns: 1fr; 
                 gap: 0;
