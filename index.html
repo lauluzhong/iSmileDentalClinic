@@ -10,8 +10,9 @@
   <link rel="canonical" href="https://ismile.com.my/" />
 
   <!-- LCP Hero Image Preload -->
-  <link rel="preload" as="image" href="/images/family_hero_three_generations-480w.webp" imagesrcset="/images/family_hero_three_generations-480w.webp 480w, /images/family_hero_three_generations-768w.webp 768w, /images/family_hero_three_generations.webp 947w" imagesizes="(max-width: 768px) 100vw, 50vw" type="image/webp" fetchpriority="high">
-  <link rel="preload" as="image" href="/images/family_hero_three_generations-480w.avif" imagesrcset="/images/family_hero_three_generations-480w.avif 480w, /images/family_hero_three_generations-768w.avif 768w, /images/family_hero_three_generations.avif 947w" imagesizes="(max-width: 768px) 100vw, 50vw" type="image/avif" fetchpriority="high">
+  <!-- Hero preload must mirror the <picture> art direction, or phones fetch the desktop landscape crop and then discard it. -->
+  <link rel="preload" as="image" media="(max-width: 768px)" href="/images/family_hero_three_generations_portrait-480w.avif" imagesrcset="/images/family_hero_three_generations_portrait-480w.avif 480w, /images/family_hero_three_generations_portrait-768w.avif 768w, /images/family_hero_three_generations_portrait.avif 1024w" imagesizes="(max-width: 768px) 150vw, 50vw" type="image/avif" fetchpriority="high">
+  <link rel="preload" as="image" media="(min-width: 769px)" href="/images/family_hero_three_generations-480w.avif" imagesrcset="/images/family_hero_three_generations-480w.avif 480w, /images/family_hero_three_generations-768w.avif 768w, /images/family_hero_three_generations.avif 1024w" imagesizes="50vw" type="image/avif" fetchpriority="high">
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />

@@ -14,6 +14,46 @@ const GoogleG = () => (
     </svg>
 );
 
+// Reviewers who have no profile photo get initials on a brand-tinted tile rather
+// than a generic silhouette. Deterministic: the same name always picks the same
+// tint, so the avatar is stable across renders and reorderings.
+// Charcoal on the three lighter brand tints — 6.6:1, 10.5:1 and 13.2:1, so all
+// clear WCAG AA. White on these fails (down to 1.5:1), hence the dark text.
+const AVATAR_TINTS = [
+    'var(--color-sky-blue)',
+    'var(--color-pastel-blue)',
+    'var(--color-tint-blue)',
+];
+
+// First + last initial, so "Sook Yeen Lee" reads SL rather than colliding with
+// "Sze Yoong" at SY.
+const initialsOf = (name) => {
+    const parts = name.split(/\s+/).filter(Boolean);
+    if (!parts.length) return '';
+    const picked = parts.length === 1 ? [parts[0]] : [parts[0], parts[parts.length - 1]];
+    return picked.map((w) => w[0].toUpperCase()).join('');
+};
+
+const InitialsAvatar = ({ name, size = 50 }) => {
+    const tint = AVATAR_TINTS[
+        [...name].reduce((a, c) => a + c.charCodeAt(0), 0) % AVATAR_TINTS.length
+    ];
+    return (
+        <div
+            aria-hidden="true"
+            style={{
+                width: size, height: size, borderRadius: '50%',
+                background: tint, color: 'var(--color-text-charcoal)', flexShrink: 0,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontFamily: 'var(--font-heading)', fontWeight: 600,
+                fontSize: size * 0.38, letterSpacing: '0.02em', lineHeight: 1,
+            }}
+        >
+            {initialsOf(name)}
+        </div>
+    );
+};
+
 const reviewsList = [
     {
         text: (
@@ -127,7 +167,6 @@ const reviewsList = [
         ),
         author: "Sze Yoong",
         rating: 5,
-        avatar: "/images/reviews/patient.svg",
         type: "Verified Google Review"
     },
     {
@@ -141,7 +180,6 @@ const reviewsList = [
         ),
         author: "Sook Yeen Lee",
         rating: 5,
-        avatar: "/images/reviews/patient.svg",
         type: "Verified Google Review"
     },
     {
@@ -158,7 +196,6 @@ const reviewsList = [
         ),
         author: "Tan Bee Wah",
         rating: 5,
-        avatar: "/images/reviews/patient.svg",
         type: "Verified Google Review"
     },
     {
@@ -176,7 +213,7 @@ const reviewsList = [
         ),
         author: "Christina Phang",
         rating: 5,
-        avatar: "/images/reviews/patient.svg",
+        avatar: "/images/reviews/christina_phang.jpg",
         type: "Verified Google Review"
     },
     {
@@ -243,7 +280,11 @@ const Reviews = () => {
                             </div>
                             <div className="review-body">{review.text}</div>
                             <div className="review-footer">
-                                <img src={review.avatar} alt={review.author} loading="lazy" width="50" height="50" style={{ width: '50px', height: '50px', borderRadius: '50%', objectFit: 'cover' }} />
+                                {review.avatar ? (
+                                    <img src={review.avatar} alt={review.author} loading="lazy" width="50" height="50" style={{ width: '50px', height: '50px', borderRadius: '50%', objectFit: 'cover' }} />
+                                ) : (
+                                    <InitialsAvatar name={review.author} />
+                                )}
                                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                                     <strong>{review.author}</strong>
                                     <span className="review-type"><GoogleG /> Verified Google review</span>
