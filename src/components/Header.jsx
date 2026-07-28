@@ -521,9 +521,10 @@ const Header = () => {
             top: 80px;
             left: 20px;
             right: 20px;
-            /* Height follows the menu; it only scrolls when the longest
-               submenu outgrows the screen. */
-            max-height: calc(100vh - 100px);
+            /* Fixed height for every menu: from under the burger down to just
+               above the sticky action bar. Short menus leave the lower part of
+               the panel blank; long ones (Our Services) scroll inside it. */
+            bottom: calc(84px + env(safe-area-inset-bottom));
             background: rgba(248, 250, 252, 0.95);
             padding: 20px;
             border-radius: 16px;
@@ -536,17 +537,16 @@ const Header = () => {
         .mobile-nav-viewport {
             position: relative;
             width: 100%;
-            height: auto;
-            max-height: 100%;
+            height: 100%;
+            min-height: 0;
             overflow-y: auto; /* Scrollable if needed */
             overflow-x: hidden;
             /* Both slides share one grid cell so they can overlap during the
-               transition without being absolutely positioned — that lets the
-               panel take its height from the menu instead of always stretching
-               to the bottom of the screen. AnimatePresence mode="popLayout"
-               takes the outgoing slide out of flow, so the height tracks the
-               incoming one. */
+               transition without being absolutely positioned. The row grows to
+               the taller of the two, so a long submenu scrolls inside this box
+               rather than spilling under the sticky action bar. */
             display: grid;
+            align-content: start;
         }
 
         .mobile-menu-slide {
@@ -719,6 +719,7 @@ const Header = () => {
                 border-radius: 32px;
                 border: 1px solid rgba(255,255,255,1);
                 top: 80px;
+                bottom: calc(84px + env(safe-area-inset-bottom));
                 box-shadow: 0 20px 60px -10px rgba(0,0,0,0.15);
                 padding: 20px;
             }
