@@ -826,12 +826,13 @@ const Home = () => {
             .card-top { margin-bottom: 16px; }
             .card-icon { width: 28px; height: 28px; }
 
-            /* Welcome — stacked but with larger image */
-            .welcome-container, .about-card-container { flex-direction: column; border-radius: 28px; }
-            .welcome-content-split, .about-content-split { padding: 28px 24px; text-align: center; align-items: center; }
-            .welcome-headline, .about-headline { font-size: 2rem; margin-bottom: 12px; }
-            .welcome-description, .about-description { font-size: 0.95rem; margin-bottom: 20px; line-height: 1.5; }
-            .welcome-image-split, .about-image-split { height: 320px; border-radius: 0 0 28px 28px; }
+            /* Welcome — no card wrapper on mobile: content sits directly on the
+               page background, photo keeps rounded corners */
+            .welcome-container { flex-direction: column; background: transparent; box-shadow: none; border: none; border-radius: 0; min-height: 0; }
+            .welcome-content-split { padding: 0; text-align: center; align-items: center; }
+            .welcome-headline { font-size: 2rem; margin-bottom: 12px; }
+            .welcome-description { font-size: 0.95rem; margin-bottom: 20px; line-height: 1.5; }
+            .welcome-image-split { height: 320px; flex: none; width: 100%; border-radius: 24px; overflow: hidden; margin-top: 24px; }
 
             /* Reviews — 2 visible on tablet */
             .reviews-slider {
@@ -884,12 +885,10 @@ const Home = () => {
             .bento-grid { display: none; }
             .chip-grid { display: grid; }
 
-            /* Welcome — taller image for better visual impact */
-            .welcome-container, .about-card-container { border-radius: 20px; }
-            .welcome-content-split, .about-content-split { padding: 24px 18px; }
-            .welcome-headline, .about-headline { font-size: 1.6rem; margin-bottom: 10px; }
-            .welcome-description, .about-description { font-size: 0.88rem; margin-bottom: 16px; }
-            .welcome-image-split, .about-image-split { height: 260px; border-radius: 0 0 20px 20px; }
+            /* Welcome — card already removed at <=1024px; phone-size tweaks */
+            .welcome-headline { font-size: 1.6rem; margin-bottom: 10px; }
+            .welcome-description { font-size: 0.88rem; margin-bottom: 16px; }
+            .welcome-image-split { height: 260px; border-radius: 20px; margin-top: 20px; }
 
             /* Reviews — full-width swipe */
             .review-card { 

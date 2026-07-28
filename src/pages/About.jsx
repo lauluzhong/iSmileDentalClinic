@@ -228,7 +228,7 @@ const About = () => {
                         <p style={{ color: 'var(--color-text-muted)', marginBottom: '30px', maxWidth: '600px', margin: '0 auto 30px', lineHeight: 1.6 }}>
                             We'd love to meet you and your family. Schedule a visit to see how we can care for your smile.
                         </p>
-                        <Button onClick={() => openBooking('', 'about-page-cta')}>Schedule a Visit</Button>
+                        <Button onClick={() => openBooking('', 'about-page-cta')}>Book a Visit</Button>
                     </FadeIn>
                 </div>
             </section>
@@ -576,11 +576,26 @@ const About = () => {
                         line-height: 1.5;
                     }
                     .journey-section { padding-bottom: 60px; }
+                    /* Journey — horizontal left-to-right swipe carousel on mobile
+                       (scroll-snap, ~85%-wide cards with a peek of the next) */
                     .journey-grid {
-                        grid-template-columns: 1fr;
-                        gap: 20px;
+                        display: flex;
+                        overflow-x: auto;
+                        scroll-snap-type: x mandatory;
+                        gap: 14px;
+                        margin: 0 -16px;
+                        padding: 4px 16px 12px;
+                        scrollbar-width: none;
+                        -ms-overflow-style: none;
                     }
-                    .journey-card { padding: 24px; border-radius: 20px; }
+                    .journey-grid::-webkit-scrollbar { display: none; }
+                    .journey-card {
+                        flex: 0 0 85%;
+                        max-width: 85%;
+                        scroll-snap-align: center;
+                        padding: 24px;
+                        border-radius: 20px;
+                    }
                     .journey-year { font-size: 1rem; }
                     .journey-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
                     .journey-card p { font-size: 0.95rem; line-height: 1.6; }
