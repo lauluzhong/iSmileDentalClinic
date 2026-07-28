@@ -1,7 +1,7 @@
 import { useBooking } from '../context/BookingContext';
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
-import { ChevronDown, ChevronRight, Menu, X, Phone } from 'lucide-react';
+import { ChevronDown, ChevronRight, ChevronLeft, Menu, X, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from './Button';
 const logo = '/logo.png';
@@ -313,23 +313,35 @@ const Header = () => {
                                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
                                         className="mobile-menu-slide"
                                     >
-                                        {activeSubmenuData?.path ? (
-                                            <Link
-                                                to={activeSubmenuData.path}
-                                                className="mobile-submenu-title"
-                                                onClick={() => {
-                                                    handleMobileMenuClose();
-                                                    scrollToTop();
-                                                }}
-                                                style={{ display: 'block', textDecoration: 'none' }}
+                                        {/* Back sits on the title's own line as an arrow, so it
+                                            reads as "go back" without pushing every item down a row. */}
+                                        <div className="mobile-submenu-head">
+                                            {activeSubmenuData?.path ? (
+                                                <Link
+                                                    to={activeSubmenuData.path}
+                                                    className="mobile-submenu-title"
+                                                    onClick={() => {
+                                                        handleMobileMenuClose();
+                                                        scrollToTop();
+                                                    }}
+                                                    style={{ display: 'block', textDecoration: 'none' }}
+                                                >
+                                                    {activeSubmenu}
+                                                </Link>
+                                            ) : (
+                                                <div className="mobile-submenu-title">
+                                                    {activeSubmenu}
+                                                </div>
+                                            )}
+                                            <button
+                                                type="button"
+                                                className="mobile-submenu-back"
+                                                aria-label="Back to main menu"
+                                                onClick={() => setActiveSubmenu(null)}
                                             >
-                                                {activeSubmenu}
-                                            </Link>
-                                        ) : (
-                                            <div className="mobile-submenu-title">
-                                                {activeSubmenu}
-                                            </div>
-                                        )}
+                                                <ChevronLeft size={20} />
+                                            </button>
+                                        </div>
 
                                         <ul className="mobile-nav-list">
                                             {activeSubmenuData?.dropdown?.filter(item => !item.divider).map((subItem) => (
@@ -579,15 +591,41 @@ const Header = () => {
             display: block;
         }
 
+        /* Title row: page title on the left, back arrow on the right. The rule
+           lives on the row so the arrow sits inside it rather than adding a row. */
+        .mobile-submenu-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 14px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
         .mobile-submenu-title {
             font-size: 1.6rem;
             font-weight: 800;
             color: var(--color-primary);
-            margin-bottom: 14px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid rgba(0,0,0,0.08);
             line-height: 1.1;
         }
+
+        .mobile-submenu-back {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(16, 42, 51, 0.10);
+            background: #f1f5f9;
+            color: #64748b;
+            cursor: pointer;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .mobile-submenu-back:active { background: #e2e8f0; }
 
         @media (max-width: 1024px) {
             .desktop-nav, .header-actions {
