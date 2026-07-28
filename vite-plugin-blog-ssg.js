@@ -116,6 +116,25 @@ export default function blogSSG() {
           "articleSection": articleSection
         });
 
+        // The React FAQ block renders as an accordion, so the answers only exist
+        // once JS runs. Mirror them into the pre-rendered HTML (plain text + a
+        // FAQPage graph) so crawlers that don't execute JS still read them.
+        const faq = Array.isArray(post.faq) ? post.faq : [];
+        const faqJsonLd = faq.length ? JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faq.map(f => ({
+            "@type": "Question",
+            "name": f.q,
+            "acceptedAnswer": { "@type": "Answer", "text": f.a }
+          }))
+        }) : '';
+        const faqHtml = faq.length
+          ? '    <section><h2>Frequently Asked Questions</h2>' +
+            faq.map(f => '<h3>' + escapeHtml(f.q) + '</h3><p>' + escapeHtml(f.a) + '</p>').join('') +
+            '</section>'
+          : '';
+
         const cssLink = entryCss ? '  <link rel="stylesheet" href="' + entryCss + '" />' : '';
         const imgTag = post.img ? '    <img src="' + escapeHtml(post.img) + '" alt="' + safeTitle + '" style="max-width:100%;height:auto;border-radius:12px;margin:20px 0" />' : '';
         const categorySpan = safeCategory ? ' &middot; ' + safeCategory : '';
@@ -161,6 +180,7 @@ export default function blogSSG() {
           '',
           '  <!-- BlogPosting JSON-LD -->',
           '  <script type="application/ld+json">' + jsonLd + '<\/script>',
+          faqJsonLd ? '  <!-- FAQPage JSON-LD -->\n  <script type="application/ld+json">' + faqJsonLd + '<\/script>' : '',
           '',
           '  <!-- Google Tag Manager -->',
           '  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({\'gtm.start\':',
@@ -182,6 +202,7 @@ export default function blogSSG() {
           '    <p><time datetime="' + post.date + '">' + formatDate(post.date) + '</time>' + categorySpan + '</p>',
           imgTag,
           '    <div>' + (post.content || '') + '</div>',
+          faqHtml,
           '  </article>',
           '',
           '  <!-- React SPA mount point -->',

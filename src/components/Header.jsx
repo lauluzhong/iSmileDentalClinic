@@ -89,6 +89,7 @@ const Header = () => {
         { name: 'Our Reviews', path: '/reviews' },
         { name: 'Learning Centre', path: '/blog' },
         { name: 'Contact', path: '/contact' },
+        { name: 'FAQ', path: '/faq' },
     ];
 
     const handleDropdownClick = (path, hashOrPath) => {
