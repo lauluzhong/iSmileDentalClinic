@@ -120,7 +120,7 @@ const reviewsList = [
                     Love the ambience each time."
                 </p>
                 <p>
-                    "Friendly receptionist and nurses too.
+                    "Friendly receptionist and nurses too.{" "}
                     <strong>Trustworthy dentist</strong> you can definitely rely on for healthy dental care :)"
                 </p>
             </>
