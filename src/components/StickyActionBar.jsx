@@ -102,7 +102,6 @@ const StickyActionBar = () => {
                         background: #F0FBF4;
                     }
                     .sab-book {
-                        flex: 1.3;
                         background: linear-gradient(135deg, var(--color-primary-deep) 0%, var(--color-primary-teal) 100%);
                         border-color: var(--color-primary-teal);
                         color: #fff;

@@ -42,13 +42,19 @@ const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Mobile header states (CSS scopes both to <=1024px; desktop unaffected):
-    // - immersive: transparent bar, white logo on the photo — ONLY on pages with
-    //   a dark hero behind the header (currently just Home), before scrolling.
-    // - collapsed: once scrolled past the hero/top, the whole bar disappears and
-    //   only a small floating frosted burger chip remains top-right (all pages).
-    const isImmersive = location.pathname === '/' && !pastHero;
+    // Mobile header states (CSS scopes both to <=1024px; desktop unaffected).
+    // Every page gets the same two-state treatment; the only per-page variable
+    // is whether what sits behind the header is dark:
+    // - immersive: white logo + translucent chip, for pages whose hero runs
+    //   dark right up to the top edge (Home, and the /services/<category> hubs —
+    //   NOT the specialty pages under them, which open on a light strip).
+    // - collapsed: once scrolled, the logo fades out and only a small floating
+    //   frosted circular burger chip remains top-right (all pages).
+    const pathSegments = location.pathname.split('/').filter(Boolean);
+    const hasDarkHero = location.pathname === '/' ||
+        (pathSegments[0] === 'services' && pathSegments.length === 2);
     const isCollapsed = location.pathname === '/' ? pastHero : isScrolled;
+    const isImmersive = hasDarkHero && !isCollapsed;
 
     const navLinks = [
         { name: 'Home', path: '/' },
@@ -226,7 +232,19 @@ const Header = () => {
                 </div>
 
                 {/* Mobile Menu Toggle */}
-                <div className="mobile-toggle" onClick={() => mobileMenuOpen ? handleMobileMenuClose() : setMobileMenuOpen(true)}>
+                {/* Opening always resets to the top-level list. The close handler
+                    clears it too, but only after a 300ms delay (so the submenu
+                    doesn't visibly snap back mid-close) — without this, tapping
+                    the burger again inside that window reopened the submenu, and
+                    with no Back button that was a dead end. */}
+                <div className="mobile-toggle" onClick={() => {
+                    if (mobileMenuOpen) {
+                        handleMobileMenuClose();
+                    } else {
+                        setActiveSubmenu(null);
+                        setMobileMenuOpen(true);
+                    }
+                }}>
                     {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </div>
             </div>
@@ -261,8 +279,8 @@ const Header = () => {
                                                             onClick={() => setActiveSubmenu(link.name)}
                                                             style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}
                                                         >
-                                                            <span style={{ fontWeight: '600', fontSize: '1.2rem', color: '#1e293b' }}>{link.name}</span>
-                                                            <ChevronRight size={20} color="#94a3b8" />
+                                                            <span style={{ fontWeight: '600', fontSize: '1.05rem', color: '#1e293b' }}>{link.name}</span>
+                                                            <ChevronRight size={18} color="#94a3b8" />
                                                         </div>
                                                     ) : (
                                                         <Link
@@ -275,16 +293,15 @@ const Header = () => {
                                                                 }
                                                                 handleMobileMenuClose();
                                                             }}
-                                                            style={{ display: 'block', fontWeight: '600', fontSize: '1.2rem', color: '#1e293b' }}
+                                                            style={{ display: 'block', fontWeight: '600', fontSize: '1.05rem', color: '#1e293b' }}
                                                         >
                                                             {link.name}
                                                         </Link>
                                                     )}
                                                 </li>
                                             ))}
-                                            <li style={{ marginTop: '20px' }}>
-                                                <Button data-analytics-click="mobile-header-booking" onClick={() => { openBooking('', 'header-mobile'); handleMobileMenuClose(); }} style={{ width: '100%', fontSize: '1rem', padding: '12px' }}>Book a Visit</Button>
-                                            </li>
+                                            {/* No Book a Visit here — the sticky action bar carries
+                                                one at all times on mobile, so this was a duplicate. */}
                                         </ul>
                                     </motion.div>
                                 ) : (
@@ -296,33 +313,40 @@ const Header = () => {
                                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
                                         className="mobile-menu-slide"
                                     >
-                                        <div className="mobile-submenu-header" onClick={() => setActiveSubmenu(null)}>
-                                            <ChevronLeft size={20} />
-                                            <span>Back</span>
-                                        </div>
-
-                                        {activeSubmenuData?.path ? (
-                                            <Link
-                                                to={activeSubmenuData.path}
-                                                className="mobile-submenu-title"
-                                                onClick={() => {
-                                                    handleMobileMenuClose();
-                                                    scrollToTop();
-                                                }}
-                                                style={{ display: 'block', textDecoration: 'none' }}
+                                        {/* Back sits on the title's own line as an arrow, so it
+                                            reads as "go back" without pushing every item down a row. */}
+                                        <div className="mobile-submenu-head">
+                                            {activeSubmenuData?.path ? (
+                                                <Link
+                                                    to={activeSubmenuData.path}
+                                                    className="mobile-submenu-title"
+                                                    onClick={() => {
+                                                        handleMobileMenuClose();
+                                                        scrollToTop();
+                                                    }}
+                                                    style={{ display: 'block', textDecoration: 'none' }}
+                                                >
+                                                    {activeSubmenu}
+                                                </Link>
+                                            ) : (
+                                                <div className="mobile-submenu-title">
+                                                    {activeSubmenu}
+                                                </div>
+                                            )}
+                                            <button
+                                                type="button"
+                                                className="mobile-submenu-back"
+                                                aria-label="Back to main menu"
+                                                onClick={() => setActiveSubmenu(null)}
                                             >
-                                                {activeSubmenu}
-                                            </Link>
-                                        ) : (
-                                            <div className="mobile-submenu-title">
-                                                {activeSubmenu}
-                                            </div>
-                                        )}
+                                                <ChevronLeft size={20} />
+                                            </button>
+                                        </div>
 
                                         <ul className="mobile-nav-list">
                                             {activeSubmenuData?.dropdown?.filter(item => !item.divider).map((subItem) => (
                                                 subItem.label ? (
-                                                    <li key={subItem.label} className="mobile-nav-item" style={{ paddingTop: '16px' }}>
+                                                    <li key={subItem.label} className="mobile-nav-item" style={{ paddingTop: '10px' }}>
                                                         <span style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#94a3b8' }}>
                                                             {subItem.label}
                                                         </span>
@@ -332,7 +356,7 @@ const Header = () => {
                                                         <span
                                                             onClick={() => handleDropdownClick(activeSubmenuData.path, subItem.hash || subItem.path)}
                                                             className="mobile-nav-link-header"
-                                                            style={{ fontWeight: '500', color: '#475569', fontSize: '1.1rem' }}
+                                                            style={{ fontWeight: '500', color: '#475569', fontSize: '1rem' }}
                                                         >
                                                             {subItem.name}
                                                         </span>
@@ -509,9 +533,12 @@ const Header = () => {
             top: 80px;
             left: 20px;
             right: 20px;
-            bottom: 20px; /* Take up more vertical space */
+            /* Fixed height for every menu: from under the burger down to just
+               above the sticky action bar. Short menus leave the lower part of
+               the panel blank; long ones (Our Services) scroll inside it. */
+            bottom: calc(84px + env(safe-area-inset-bottom));
             background: rgba(248, 250, 252, 0.95);
-            padding: 24px;
+            padding: 20px;
             border-radius: 16px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             display: flex;
@@ -523,17 +550,20 @@ const Header = () => {
             position: relative;
             width: 100%;
             height: 100%;
+            min-height: 0;
             overflow-y: auto; /* Scrollable if needed */
             overflow-x: hidden;
+            /* Both slides share one grid cell so they can overlap during the
+               transition without being absolutely positioned. The row grows to
+               the taller of the two, so a long submenu scrolls inside this box
+               rather than spilling under the sticky action bar. */
+            display: grid;
+            align-content: start;
         }
-        
-        /* The slide requires absolute positioning to overlap during transition */
+
         .mobile-menu-slide {
             width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
+            grid-area: 1 / 1;
             display: flex;
             flex-direction: column;
             background: rgba(248, 250, 252, 0); /* Transparent */
@@ -545,42 +575,57 @@ const Header = () => {
             margin: 0;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 2px;
         }
-        
+
         .mobile-nav-item {
             border-bottom: 1px solid rgba(0,0,0,0.05);
-            padding-bottom: 12px;
+            padding-bottom: 4px;
         }
         .mobile-nav-item:last-child { border-bottom: none; }
 
         .mobile-nav-link-header {
-            padding: 8px 0;
+            padding: 7px 0;
             cursor: pointer;
             width: 100%;
             display: block;
         }
-        
-        .mobile-submenu-header {
+
+        /* Title row: page title on the left, back arrow on the right. The rule
+           lives on the row so the arrow sits inside it rather than adding a row. */
+        .mobile-submenu-head {
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin-bottom: 20px;
-            cursor: pointer;
-            color: #64748b;
-            font-weight: 500;
-            font-size: 0.95rem;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 14px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
         }
-        
+
         .mobile-submenu-title {
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 800;
             color: var(--color-primary);
-            margin-bottom: 24px;
             line-height: 1.1;
         }
+
+        .mobile-submenu-back {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(16, 42, 51, 0.10);
+            background: #f1f5f9;
+            color: #64748b;
+            cursor: pointer;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .mobile-submenu-back:active { background: #e2e8f0; }
 
         @media (max-width: 1024px) {
             .desktop-nav, .header-actions {
@@ -603,29 +648,24 @@ const Header = () => {
                    !important to beat .header.scrolled, same as the two above. */
                 box-shadow: none !important;
             }
+            /* One mobile header treatment for every page (the Home one): there is
+               no bar. The container is a transparent layout box — the logo sits
+               directly on the page, and the only chrome is the floating burger
+               chip on the right, which morphs from rounded-rect to circle once
+               the page scrolls. Previously only Home got this and every other
+               page rendered a frosted pill with the logo trapped inside it. */
             .header-container {
-                background: var(--glass-bg);
-                backdrop-filter: var(--glass-blur);
-                -webkit-backdrop-filter: var(--glass-blur);
-                border: 1px solid var(--glass-border);
-                box-shadow: var(--glass-shadow);
-                border-radius: 50px;
+                background: transparent;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                border: none;
+                box-shadow: none;
                 margin: 0 16px;
-                padding: 0 18px;
+                padding: 0 4px;
                 height: 60px;
                 position: relative;
                 justify-content: space-between !important;
-                transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, height 0.3s ease;
-            }
-
-            /* Immersive state (Home hero, mobile): no pill — brand sits directly on the photo.
-               Same container box/height in both states, so the swap never causes a layout jump. */
-            .header.header-immersive .header-container {
-                background: transparent;
-                border-color: transparent;
-                box-shadow: none;
-                backdrop-filter: none;
-                -webkit-backdrop-filter: none;
+                transition: height 0.3s ease;
             }
             .logo-link img {
                 transition: filter 0.35s ease, height 0.3s ease !important;
@@ -638,13 +678,14 @@ const Header = () => {
                 background: rgba(255, 255, 255, 0.22);
                 backdrop-filter: blur(6px);
                 -webkit-backdrop-filter: blur(6px);
+                box-shadow: none;
                 color: #fff;
             }
 
-            /* Consistency rule: the white-on-photo treatment belongs ONLY to
-               dark-hero pages (Home immersive). Service/specialty pages have a
-               light bar on mobile, so the burger must stay dark there. */
-            .header-dark .mobile-toggle {
+            /* .header-dark is a desktop concern (white nav links over the dark
+               services hero). On mobile the burger's colour is decided by the
+               immersive/collapsed state above, so neutralise it here. */
+            .header:not(.header-immersive) .mobile-toggle {
                 color: var(--color-text-charcoal) !important;
             }
 
@@ -654,13 +695,6 @@ const Header = () => {
             .logo-link { transition: opacity 0.3s ease; }
             .header.header-collapsed { pointer-events: none; }
             .header.header-collapsed .mobile-nav-overlay { pointer-events: auto; }
-            .header.header-collapsed .header-container {
-                background: transparent;
-                border-color: transparent;
-                box-shadow: none;
-                backdrop-filter: none;
-                -webkit-backdrop-filter: none;
-            }
             .header.header-collapsed .logo-link {
                 opacity: 0;
                 pointer-events: none;
@@ -697,15 +731,22 @@ const Header = () => {
                 display: block;
             }
             
+            /* Unscrolled chip: a rounded-rect frosted square that reads on the
+               light page backgrounds of the non-Home pages. Home's immersive
+               rule below re-tints it for the photo. */
             .mobile-toggle {
                 display: flex !important;
                 align-items: center;
                 justify-content: center;
                 margin-left: 0 !important;
-                background: rgba(255,255,255,0.1);
-                border-radius: 12px;
-                width: 40px;
-                height: 40px;
+                background: rgba(255, 255, 255, 0.85);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                box-shadow: 0 4px 14px rgba(16, 42, 51, 0.14);
+                color: var(--color-text-charcoal);
+                border-radius: 14px;
+                width: 44px;
+                height: 44px;
                 padding: 0;
                 transition: background 0.35s ease, color 0.35s ease, width 0.3s ease, height 0.3s ease, border-radius 0.3s ease, box-shadow 0.35s ease;
             }
@@ -716,9 +757,9 @@ const Header = () => {
                 border-radius: 32px;
                 border: 1px solid rgba(255,255,255,1);
                 top: 80px;
-                bottom: 20px;
+                bottom: calc(84px + env(safe-area-inset-bottom));
                 box-shadow: 0 20px 60px -10px rgba(0,0,0,0.15);
-                padding: 24px;
+                padding: 20px;
             }
         }
       `}</style>

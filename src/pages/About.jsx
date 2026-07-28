@@ -180,14 +180,18 @@ const About = () => {
                     <div className="team-grid">
                         {doctors.map((doc, index) => (
                             <div key={index} className="glass-panel team-card">
-                                <div className="team-photo">
-                                    {doc.img && <img
-                                        src={doc.img}
-                                        alt={doc.name}
-                                        loading="lazy"
-                                    />}
-                                </div>
-                                <div className="team-info">
+                                {/* photo + name/role/years are wrapped together so the
+                                    mobile breakpoint can lay them out side by side.
+                                    On desktop the wrapper is display:contents, so the
+                                    card is the same stacked photo-over-text as before. */}
+                                <div className="team-card-head">
+                                    <div className="team-photo">
+                                        {doc.img && <img
+                                            src={doc.img}
+                                            alt={doc.name}
+                                            loading="lazy"
+                                        />}
+                                    </div>
                                     <div className="team-header-top">
                                         <h3>{doc.name}</h3>
                                         <div className="team-role">{doc.role}</div>
@@ -195,7 +199,8 @@ const About = () => {
                                             <div><Award size={14} /> {doc.years}</div>
                                         </div>
                                     </div>
-
+                                </div>
+                                <div className="team-info">
                                     <div className="team-body-content">
                                         <p className="team-bio">{doc.bio}</p>
 
@@ -475,8 +480,14 @@ const About = () => {
                 }
                 .team-card:hover .team-photo img { transform: scale(1.04); }
 
+                /* Desktop/tablet: the wrapper dissolves so photo and header sit
+                   as direct children of the card, exactly as they used to. */
+                .team-card-head {
+                    display: contents;
+                }
+
                 .team-info {
-                    padding: 30px;
+                    padding: 0 30px 30px;
                     flex: 1;
                     display: flex;
                     flex-direction: column;
@@ -484,6 +495,7 @@ const About = () => {
 
                 .team-header-top {
                     min-height: 120px;
+                    padding: 30px 30px 0;
                 }
 
                 .team-info h3 {
@@ -628,7 +640,8 @@ const About = () => {
                     }
                     .team-card { border-radius: 20px; }
                     
-                    .team-info { padding: 20px; }
+                    .team-info { padding: 0 20px 20px; }
+                    .team-header-top { padding: 20px 20px 0; }
                     .team-info h3 { font-size: 1.3rem; }
                     .team-role { font-size: 0.75rem; }
                     .team-bio { font-size: 0.9rem; }
@@ -639,9 +652,43 @@ const About = () => {
                     .team-grid {
                         grid-template-columns: 1fr;
                     }
-                    .team-photo {
-                         height: 280px;
+
+                    /* Phones: the portraits are 2:3 originals, so the old
+                       full-width 280px-tall box cropped them to a letterbox —
+                       chins and shoulders were sliced off. Here the photo
+                       becomes a portrait-shaped thumbnail beside the name, which
+                       keeps the whole face and makes eight doctors scannable
+                       instead of eight screens of scrolling. */
+                    .team-card-head {
+                        display: flex;
+                        align-items: center;
+                        gap: 16px;
+                        padding: 16px 16px 4px;
                     }
+                    .team-photo {
+                        flex: 0 0 116px;
+                        width: 116px;
+                        height: auto;
+                        aspect-ratio: 3 / 4;
+                        border-radius: 16px;
+                    }
+                    .team-photo img {
+                        object-position: center 12%;
+                    }
+                    .team-header-top {
+                        min-height: 0;
+                        padding: 0;
+                    }
+                    /* tighter tracking so long titles like "Founder & Dental
+                       Surgeon, BDS (Malaya)" don't run to three lines */
+                    .team-role { margin-bottom: 8px; letter-spacing: 0.6px; }
+                    .team-meta { margin-bottom: 0; }
+                    .team-info { padding: 16px; }
+                    /* the min-height only existed to align cards across grid
+                       columns; at one column it is just a gap */
+                    .team-languages { min-height: 0; padding-top: 16px; }
+                    .team-bio { margin-bottom: 16px; }
+                    .team-specialties { margin-bottom: 16px; }
                 }
             `}</style>
         </div>
