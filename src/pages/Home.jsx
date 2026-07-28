@@ -9,6 +9,16 @@ import { motion, useReducedMotion } from 'framer-motion';
 import reviewStats from '../data/review-stats.json';
 
 // Updated Image Paths
+// Hero art direction. The mobile hero is a full-bleed PORTRAIT box; the desktop
+// hero is a LANDSCAPE card. Serving one landscape file to both meant object-fit
+// cover magnified it ~2.8x on phones AND cropped to 30% of its width, which cut
+// both grandparents out of a "three generations" photo. Mobile now gets the
+// portrait master and desktop a landscape crop of the same shot.
+// `sizes` describes layout WIDTH only, so it under-requests for a cover-cropped
+// portrait box; overstating the mobile slot makes the browser pick the largest
+// variant instead of the 768w one.
+const HERO_SIZES = "(max-width: 768px) 150vw, 50vw";
+
 const FAMILY_HERO = "/images/family_hero_three_generations.jpg";
 const FAMILY_HERO_WEBP = "/images/family_hero_three_generations.webp";
 const GUM_IMG = "/images/blog/concerned_person_brushing.png";
@@ -133,10 +143,13 @@ const Home = () => {
                     <div className="hero-visual">
                             <div className="hero-card" style={{ padding: 0, overflow: 'hidden' }}>
                                 <picture>
-                                  <source type="image/avif" srcSet={`/images/family_hero_three_generations-480w.avif 480w, /images/family_hero_three_generations-768w.avif 768w, /images/family_hero_three_generations.avif 947w`} sizes="(max-width: 768px) 100vw, 50vw" />
-                                  <source type="image/webp" srcSet={`/images/family_hero_three_generations-480w.webp 480w, /images/family_hero_three_generations-768w.webp 768w, ${FAMILY_HERO_WEBP} 947w`} sizes="(max-width: 768px) 100vw, 50vw" />
-                                  <source type="image/jpeg" srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 947w`} sizes="(max-width: 768px) 100vw, 50vw" />
-                                  <img src={FAMILY_HERO} srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 947w`} sizes="(max-width: 768px) 100vw, 50vw" alt="Three generations of a family smiling together at iSmile Dental Clinic" width="947" height="576" fetchPriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }} />
+                                  <source media="(max-width: 768px)" type="image/avif" srcSet={`/images/family_hero_three_generations_portrait-480w.avif 480w, /images/family_hero_three_generations_portrait-768w.avif 768w, /images/family_hero_three_generations_portrait.avif 1024w`} sizes={HERO_SIZES} />
+                                  <source media="(max-width: 768px)" type="image/webp" srcSet={`/images/family_hero_three_generations_portrait-480w.webp 480w, /images/family_hero_three_generations_portrait-768w.webp 768w, /images/family_hero_three_generations_portrait.webp 1024w`} sizes={HERO_SIZES} />
+                                  <source media="(max-width: 768px)" type="image/jpeg" srcSet={`/images/family_hero_three_generations_portrait-480w.jpg 480w, /images/family_hero_three_generations_portrait-768w.jpg 768w, /images/family_hero_three_generations_portrait.jpg 1024w`} sizes={HERO_SIZES} />
+                                  <source type="image/avif" srcSet={`/images/family_hero_three_generations-480w.avif 480w, /images/family_hero_three_generations-768w.avif 768w, /images/family_hero_three_generations.avif 1024w`} sizes={HERO_SIZES} />
+                                  <source type="image/webp" srcSet={`/images/family_hero_three_generations-480w.webp 480w, /images/family_hero_three_generations-768w.webp 768w, ${FAMILY_HERO_WEBP} 1024w`} sizes={HERO_SIZES} />
+                                  <source type="image/jpeg" srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 1024w`} sizes={HERO_SIZES} />
+                                  <img src={FAMILY_HERO} srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 1024w`} sizes={HERO_SIZES} alt="Three generations of a family smiling together at iSmile Dental Clinic" width="1024" height="624" fetchPriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }} />
                                 </picture>
                                 <div className="hero-floating-badge">
                                     <div className="hero-badge-copy">
