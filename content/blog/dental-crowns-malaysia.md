@@ -1,4 +1,5 @@
 ---
+seo_description: "What dental crowns are, when they are needed, and the material options available in Malaysia — explained by a Petaling Jaya family clinic."
 title: "Dental Crowns in Malaysia: What You Need to Know"
 date: 2026-05-06
 excerpt: "A dental crown can feel like a big step. Here is what the procedure actually involves, what factors influence cost, what it feels like at each stage, and how to make yours last."

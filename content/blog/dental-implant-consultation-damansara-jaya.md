@@ -1,4 +1,5 @@
 ---
+seo_title: "Dental Implant Consultation in Damansara Jaya"
 title: "Dental Implant Consultation in Damansara Jaya: What to Expect"
 date: 2026-04-25
 excerpt: "A detailed guide to the dental implant consultation process in Damansara Jaya, covering assessment, planning, and what questions to ask."

@@ -1,4 +1,5 @@
 ---
+seo_title: "Composite vs Porcelain Veneers: Which Makes Sense?"
 title: 'Composite vs Porcelain Veneers: Which Smile Makeover Makes Sense?'
 categories:
   - Cosmetic

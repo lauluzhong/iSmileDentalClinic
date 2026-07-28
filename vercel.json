@@ -4,6 +4,16 @@
       "source": "/2015/:path*",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/2015/:path*/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2026-03-21-why-baby-teeth-matter",
+      "destination": "/blog/why-baby-teeth-matter",
+      "permanent": true
     }
   ],
   "rewrites": [

@@ -1,4 +1,6 @@
 ---
+seo_title: "Myofunctional Orthodontics: A Guide for Malaysian Parents"
+seo_description: "How myofunctional orthodontics addresses mouth breathing, tongue posture and jaw development in children — a guide for Klang Valley parents."
 title: "Myofunctional Orthodontics: What Malaysian Parents Need to Know"
 date: 2026-04-07
 img: "/images/blog/myofunctional-orthodontics-malaysia-hero.jpg"

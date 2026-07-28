@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { SERVICE_CATEGORIES, SERVICE_SPECIALTIES } from './src/data/serviceSeo.js';
 import { CORE_PAGES } from './src/data/corePagesSeo.js';
+import { relatedServices } from './src/data/blogServiceLinks.js';
 
 const SITE_URL = 'https://ismile.com.my';
 
@@ -238,6 +239,13 @@ export default function blogSSG() {
             "acceptedAnswer": { "@type": "Answer", "text": f.a }
           }))
         }) : '';
+        const relatedHtml = (() => {
+          const svcs = relatedServices(post.categories);
+          if (!svcs.length) return '';
+          return '    <section><h2>Related treatments</h2><ul>' +
+            svcs.map(v => '<li><a href="' + v.path + '">' + escapeHtml(v.label) + '</a></li>').join('') +
+            '</ul></section>';
+        })();
         const faqHtml = faq.length
           ? '    <section><h2>Frequently Asked Questions</h2>' +
             faq.map(f => '<h3>' + escapeHtml(f.q) + '</h3><p>' + escapeHtml(f.a) + '</p>').join('') +
@@ -266,6 +274,7 @@ export default function blogSSG() {
             '    <p><time datetime="' + post.date + '">' + formatDate(post.date) + '</time>' + categorySpan + '</p>',
             imgTag,
             '    <div>' + (post.content || '') + '</div>',
+            relatedHtml,
             faqHtml,
           ].filter(Boolean).join('\n'),
           cssLink,
