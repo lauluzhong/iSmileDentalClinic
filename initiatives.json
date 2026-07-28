@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-28 11:15 MYT",
+  "updated": "2026-07-28 11:45 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -506,8 +506,8 @@
     },
     {
       "id": "10",
-      "title": "Front-Desk Referral Tracking",
-      "status": "planned",
+      "title": "Patient Onboarding Form & Referral Capture",
+      "status": "active",
       "owner": "Lu Zhong",
       "coOwner": "Front desk",
       "dept": "crm",
@@ -515,25 +515,42 @@
       "startMonth": "2026-07",
       "endMonth": "2026-07",
       "ongoing": true,
-      "why": "Front desk doesn't currently capture 'who referred you?' at onboarding, so referrals are invisible and unrewardable. This is the measurement layer the referral engine needs.",
-      "next": "First understand how a new patient is onboarded today \u2014 is it a paper form? \u2014 then digitise it, with the referral question built in.",
-      "gate": null,
-      "deps": [],
+      "why": "The registration form has asked 'who referred you to our practice' since 2022 \u2014 and it also captures occupation. Neither reaches OpenDental in any form we can query, so the answers die on the paper. We have never been able to measure where patients come from, not because we do not ask, but because the answer never survives the walk from the clipboard to the database.",
+      "next": "Redesign the form content first \u2014 add the channel question, proper consent tick boxes, contact preference and emergency contact \u2014 then ship a pre-arrival digital version so referral source and occupation start landing somewhere queryable.",
+      "gate": "Fix the capture before the re-typing. A front desk re-keying twenty fields costs minutes; four years of unusable referral data has cost us every conversation about where our patients actually come from.",
+      "deps": [
+        "1",
+        "19"
+      ],
       "blockedOn": null,
       "timeline": "Quick win; prerequisite for referral attribution (#9) and the physio channel (#8).",
       "tasks": [
         {
-          "t": "Document the current new-patient onboarding process and obtain the current form",
+          "t": "Obtain and analyse the current registration form",
+          "done": true
+        },
+        {
+          "t": "Redesign the form \u2014 channel question, consent boxes, contact preference, emergency contact, anxiety flag",
           "done": false,
           "now": true
         },
         {
-          "t": "Add 'how did you hear about us / referred by?' to intake",
+          "t": "Legal review of the consent wording \u2014 it gates the marketing blast and the recording",
           "done": false,
           "now": true
         },
         {
-          "t": "Log referrer so it's queryable",
+          "t": "Ship a pre-arrival digital form so referral source and occupation become queryable",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Ask the vendor about OpenDental's own patient forms and its API at the next checkpoint",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Decide the no-retyping end state \u2014 native forms or API",
           "done": false
         }
       ],
@@ -1138,7 +1155,9 @@
       "why": "Doctors spend real chair time typing the patient conversation into notes. That time is the most expensive time in the building, and the task is now genuinely easy to automate: record the conversation, transcribe it, and format it into the clinic's own note style.",
       "next": "Get a sample of existing notes so the output can be matched to how the doctors already write. A handful of examples is almost certainly enough \u2014 no model training required.",
       "gate": "Two non-negotiables: patient consent for recording, and the doctor reviews and approves before anything enters the clinical record. Never auto-write.",
-      "deps": [],
+      "deps": [
+        "10"
+      ],
       "blockedOn": null,
       "timeline": "Short term: a handheld device in the room. Medium term: a fixed microphone per surgery, with patients matched by timestamp against the appointment book.",
       "tasks": [
@@ -1148,7 +1167,7 @@
           "now": true
         },
         {
-          "t": "Add recording consent to the intake and consent form",
+          "t": "Recording consent \u2014 folded into the onboarding form redesign",
           "done": false,
           "now": true
         },
@@ -1288,7 +1307,7 @@
     {
       "id": "28",
       "title": "Recall Campaign Expansion \u2014 cold blast & post-visit follow-up",
-      "status": "planned",
+      "status": "active",
       "owner": "Lu Zhong",
       "coOwner": "Code Capsule",
       "dept": "crm",
@@ -1297,7 +1316,7 @@
       "endMonth": "2026-10",
       "ongoing": false,
       "why": "The recall system was built with more triggers than the six, nine and twelve-month recalls we actually switched on. Turning the others on is the cheapest top-line lever available, and the P&L trajectory says business as usual will not close the gap. Messaging even ten thousand lapsed patients costs on the order of RM3,000.",
-      "next": "Decide the sending number rather than keep waiting on the mobile approval, then ship the review ask \u2014 it needs only a direct review link and no redirect.",
+      "next": "Decision taken: send from the landline. Brief the vendor, then ship the review ask \u2014 it needs only a direct review link and no redirect.",
       "gate": "Do not launch anything while the recall link is broken \u2014 blasting the whole base into a browser security warning is worse than not blasting at all.",
       "deps": [
         "7",
@@ -1307,7 +1326,11 @@
       "timeline": "UNBLOCKED 18 Jul \u2014 the recall link certificate is renewed (valid to 16 Oct) and the vendor has automated the renewal. Post-visit follow-up amendment first (fast, free), then the cold blast.",
       "tasks": [
         {
-          "t": "Decide: send from the landline now rather than wait further on the mobile number approval",
+          "t": "Decision taken \u2014 send from the landline now; stop waiting on the mobile approval",
+          "done": true
+        },
+        {
+          "t": "Brief the vendor to send the post-appointment message from the landline",
           "done": false,
           "now": true
         },
