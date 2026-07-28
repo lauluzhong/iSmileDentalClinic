@@ -23,7 +23,7 @@ const reviewsList = [
                     The dental professionals there are <strong>truly professional and caring</strong>.
                 </p>
                 <p>
-                    My <strong>fear of being in the dentist chair has been completely removed</strong> by the
+                    My <strong>fear of being in the dentist chair has been completely removed</strong> by the{" "}
                     <strong>gentle care</strong> I received. I also appreciate their cooperation with my
                     orthodontist, from the time iSmile was still in Uptown.
                 </p>
@@ -65,7 +65,7 @@ const reviewsList = [
                 </p>
                 <p>
                     It's good they <strong>track records and my dental history</strong> in their system so that
-                    whoever attends to you will have a clear picture. Appreciated <strong>Dr Jean and Dr Mah</strong>
+                    whoever attends to you will have a clear picture. Appreciated <strong>Dr Jean and Dr Mah</strong>{" "}
                     very much for their <strong>gentle and thorough care</strong>."
                 </p>
             </>
@@ -120,7 +120,7 @@ const reviewsList = [
                     Love the ambience each time."
                 </p>
                 <p>
-                    "Friendly receptionist and nurses too.
+                    "Friendly receptionist and nurses too.{" "}
                     <strong>Trustworthy dentist</strong> you can definitely rely on for healthy dental care :)"
                 </p>
             </>
@@ -165,7 +165,7 @@ const reviewsList = [
         text: (
             <>
                 <p>
-                    "Dr Amy is the <strong>most amazing and gentle dentist</strong>. She has been our
+                    "Dr Amy is the <strong>most amazing and gentle dentist</strong>. She has been our{" "}
                     <strong>family dentist for more than 10 years</strong>.
                 </p>
                 <p>
