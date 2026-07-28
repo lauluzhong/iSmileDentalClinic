@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-28 11:45 MYT",
+  "updated": "2026-07-28 11:59 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -516,41 +516,56 @@
       "endMonth": "2026-07",
       "ongoing": true,
       "why": "The registration form has asked 'who referred you to our practice' since 2022 \u2014 and it also captures occupation. Neither reaches OpenDental in any form we can query, so the answers die on the paper. We have never been able to measure where patients come from, not because we do not ask, but because the answer never survives the walk from the clipboard to the database.",
-      "next": "Redesign the form content first \u2014 add the channel question, proper consent tick boxes, contact preference and emergency contact \u2014 then ship a pre-arrival digital version so referral source and occupation start landing somewhere queryable.",
-      "gate": "Fix the capture before the re-typing. A front desk re-keying twenty fields costs minutes; four years of unusable referral data has cost us every conversation about where our patients actually come from.",
+      "next": "Take the vendor question list to the next checkpoint \u2014 the two answers that decide everything are whether the pre-arrival web form is sold to a Malaysian practice at all, and whether our version needs upgrading first. Separately and urgently: get counsel to confirm we have a lawful basis to message the existing patient base, because that affects an operation already running.",
+      "gate": "Fix the capture before the re-typing. And do not let the hardest consent question \u2014 audio recording \u2014 hold up the other ninety per cent of the form.",
       "deps": [
         "1",
         "19"
       ],
       "blockedOn": null,
-      "timeline": "Quick win; prerequisite for referral attribution (#9) and the physio channel (#8).",
+      "timeline": "Research complete: journey design, form specification and software feasibility all written. Next gate is the vendor conversation, then counsel.",
       "tasks": [
         {
           "t": "Obtain and analyse the current registration form",
           "done": true
         },
         {
-          "t": "Redesign the form \u2014 channel question, consent boxes, contact preference, emergency contact, anxiety flag",
+          "t": "Design the end-to-end journey \u2014 booking through to the chair, with draft wording",
+          "done": true
+        },
+        {
+          "t": "Specify the redesigned form \u2014 every field, mandatory or optional, with consent drafted",
+          "done": true
+        },
+        {
+          "t": "Research what the practice software can natively do",
+          "done": true
+        },
+        {
+          "t": "\u26a0\ufe0f Counsel: do we have a lawful basis to message the existing patient base? This is live",
           "done": false,
           "now": true
         },
         {
-          "t": "Legal review of the consent wording \u2014 it gates the marketing blast and the recording",
+          "t": "Vendor: is the pre-arrival web form available to us, and does our version need upgrading?",
           "done": false,
           "now": true
         },
         {
-          "t": "Ship a pre-arrival digital form so referral source and occupation become queryable",
+          "t": "Decide how to store the national ID number \u2014 it is our strongest duplicate-catching key and has no native home",
           "done": false,
           "now": true
         },
         {
-          "t": "Ask the vendor about OpenDental's own patient forms and its API at the next checkpoint",
-          "done": false,
-          "now": true
+          "t": "Counsel review of the consent wording",
+          "done": false
         },
         {
-          "t": "Decide the no-retyping end state \u2014 native forms or API",
+          "t": "Record the two-week baseline before changing anything",
+          "done": false
+        },
+        {
+          "t": "Pilot with new adult patients, then decide",
           "done": false
         }
       ],
