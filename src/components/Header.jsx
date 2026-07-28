@@ -42,13 +42,19 @@ const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Mobile header states (CSS scopes both to <=1024px; desktop unaffected):
-    // - immersive: transparent bar, white logo on the photo — ONLY on pages with
-    //   a dark hero behind the header (currently just Home), before scrolling.
-    // - collapsed: once scrolled past the hero/top, the whole bar disappears and
-    //   only a small floating frosted burger chip remains top-right (all pages).
-    const isImmersive = location.pathname === '/' && !pastHero;
+    // Mobile header states (CSS scopes both to <=1024px; desktop unaffected).
+    // Every page gets the same two-state treatment; the only per-page variable
+    // is whether what sits behind the header is dark:
+    // - immersive: white logo + translucent chip, for pages whose hero runs
+    //   dark right up to the top edge (Home, and the /services/<category> hubs —
+    //   NOT the specialty pages under them, which open on a light strip).
+    // - collapsed: once scrolled, the logo fades out and only a small floating
+    //   frosted circular burger chip remains top-right (all pages).
+    const pathSegments = location.pathname.split('/').filter(Boolean);
+    const hasDarkHero = location.pathname === '/' ||
+        (pathSegments[0] === 'services' && pathSegments.length === 2);
     const isCollapsed = location.pathname === '/' ? pastHero : isScrolled;
+    const isImmersive = hasDarkHero && !isCollapsed;
 
     const navLinks = [
         { name: 'Home', path: '/' },
@@ -603,29 +609,24 @@ const Header = () => {
                    !important to beat .header.scrolled, same as the two above. */
                 box-shadow: none !important;
             }
+            /* One mobile header treatment for every page (the Home one): there is
+               no bar. The container is a transparent layout box — the logo sits
+               directly on the page, and the only chrome is the floating burger
+               chip on the right, which morphs from rounded-rect to circle once
+               the page scrolls. Previously only Home got this and every other
+               page rendered a frosted pill with the logo trapped inside it. */
             .header-container {
-                background: var(--glass-bg);
-                backdrop-filter: var(--glass-blur);
-                -webkit-backdrop-filter: var(--glass-blur);
-                border: 1px solid var(--glass-border);
-                box-shadow: var(--glass-shadow);
-                border-radius: 50px;
+                background: transparent;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                border: none;
+                box-shadow: none;
                 margin: 0 16px;
-                padding: 0 18px;
+                padding: 0 4px;
                 height: 60px;
                 position: relative;
                 justify-content: space-between !important;
-                transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, height 0.3s ease;
-            }
-
-            /* Immersive state (Home hero, mobile): no pill — brand sits directly on the photo.
-               Same container box/height in both states, so the swap never causes a layout jump. */
-            .header.header-immersive .header-container {
-                background: transparent;
-                border-color: transparent;
-                box-shadow: none;
-                backdrop-filter: none;
-                -webkit-backdrop-filter: none;
+                transition: height 0.3s ease;
             }
             .logo-link img {
                 transition: filter 0.35s ease, height 0.3s ease !important;
@@ -638,13 +639,14 @@ const Header = () => {
                 background: rgba(255, 255, 255, 0.22);
                 backdrop-filter: blur(6px);
                 -webkit-backdrop-filter: blur(6px);
+                box-shadow: none;
                 color: #fff;
             }
 
-            /* Consistency rule: the white-on-photo treatment belongs ONLY to
-               dark-hero pages (Home immersive). Service/specialty pages have a
-               light bar on mobile, so the burger must stay dark there. */
-            .header-dark .mobile-toggle {
+            /* .header-dark is a desktop concern (white nav links over the dark
+               services hero). On mobile the burger's colour is decided by the
+               immersive/collapsed state above, so neutralise it here. */
+            .header:not(.header-immersive) .mobile-toggle {
                 color: var(--color-text-charcoal) !important;
             }
 
@@ -654,13 +656,6 @@ const Header = () => {
             .logo-link { transition: opacity 0.3s ease; }
             .header.header-collapsed { pointer-events: none; }
             .header.header-collapsed .mobile-nav-overlay { pointer-events: auto; }
-            .header.header-collapsed .header-container {
-                background: transparent;
-                border-color: transparent;
-                box-shadow: none;
-                backdrop-filter: none;
-                -webkit-backdrop-filter: none;
-            }
             .header.header-collapsed .logo-link {
                 opacity: 0;
                 pointer-events: none;
@@ -697,15 +692,22 @@ const Header = () => {
                 display: block;
             }
             
+            /* Unscrolled chip: a rounded-rect frosted square that reads on the
+               light page backgrounds of the non-Home pages. Home's immersive
+               rule below re-tints it for the photo. */
             .mobile-toggle {
                 display: flex !important;
                 align-items: center;
                 justify-content: center;
                 margin-left: 0 !important;
-                background: rgba(255,255,255,0.1);
-                border-radius: 12px;
-                width: 40px;
-                height: 40px;
+                background: rgba(255, 255, 255, 0.85);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                box-shadow: 0 4px 14px rgba(16, 42, 51, 0.14);
+                color: var(--color-text-charcoal);
+                border-radius: 14px;
+                width: 44px;
+                height: 44px;
                 padding: 0;
                 transition: background 0.35s ease, color 0.35s ease, width 0.3s ease, height 0.3s ease, border-radius 0.3s ease, box-shadow 0.35s ease;
             }
