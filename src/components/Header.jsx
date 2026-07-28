@@ -596,6 +596,12 @@ const Header = () => {
                 padding: 10px 0;
                 background: transparent !important;
                 backdrop-filter: none !important;
+                /* .header.scrolled also sets a box-shadow. On mobile the bar itself
+                   is transparent, so that shadow had nothing to sit under and read
+                   as a faint full-width line hanging in mid-air at the header's
+                   bottom edge — a ghost of a nav bar that isn't drawn. Needs
+                   !important to beat .header.scrolled, same as the two above. */
+                box-shadow: none !important;
             }
             .header-container {
                 background: var(--glass-bg);
