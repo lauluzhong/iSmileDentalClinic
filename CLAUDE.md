@@ -76,6 +76,30 @@ Each page sets its own title/description via React Helmet. Schema.org JSON-LD st
 
 ## Key Patterns
 
+### Whitespace in prose JSX (patient reviews, testimonials, body copy)
+
+JSX **strips any whitespace that contains a newline**. When wrapping part of a
+sentence in `<strong>`/`<em>`/`<a>`, a line break at the boundary silently
+deletes the space:
+
+```jsx
+// WRONG — renders "ourfamily dentist"
+She has been our
+<strong>family dentist for more than 10 years</strong>
+
+// RIGHT
+She has been our{" "}
+<strong>family dentist for more than 10 years</strong>
+```
+
+The same applies in reverse, when a line ends in `</strong>` and the next line
+starts with a word. Rule: if a line break falls between a word and an inline
+tag, end the line with `{" "}`.
+
+**When transcribing real Google reviews, the text is quoted verbatim — never
+"correct" it. If the rendered page shows a run-together word, assume it is this
+JSX whitespace bug, not a typo in the review, and fix the markup.**
+
 - Specialty pages live in `src/pages/specialties/` and are individually routed
 - The `Reveal` component (`src/components/Reveal.jsx`) handles scroll-triggered fade-in animations
 - Header has complex mobile navigation with sliding submenus (Framer Motion)
