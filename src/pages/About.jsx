@@ -4,6 +4,9 @@ import React from 'react';
 import { Award } from 'lucide-react';
 import Button from '../components/Button';
 import { Reveal, FadeIn } from '../components/Reveal';
+import { CORE_PAGES } from '../data/corePagesSeo';
+import { fillStats } from '../data/serviceSeo';
+import reviewStats from '../data/review-stats.json';
 
 const doctors = [
     {
@@ -89,13 +92,16 @@ const doctors = [
 ];
 
 const About = () => {
+    // Meta comes from src/data/corePagesSeo.js, the same source the build
+    // uses to prerender this page — so the two cannot drift.
+    const seo = CORE_PAGES.find(p => p.path === 'about');
     const { openBooking } = useBooking();
 
     return (
         <div className="about-page">
             <Helmet>
-                <title>About iSmile — Family Dental Clinic in Petaling Jaya</title>
-                <meta name="description" content="Meet the team at iSmile Dental Clinic, Damansara Jaya — a family practice caring for Petaling Jaya smiles since 2006. WhatsApp us to book a visit." />
+                <title>{fillStats(seo.title, reviewStats)}</title>
+                <meta name="description" content={fillStats(seo.description, reviewStats)} />
                 <link rel="canonical" href="https://ismile.com.my/about" />
             </Helmet>
             <div className="about-hero-container">

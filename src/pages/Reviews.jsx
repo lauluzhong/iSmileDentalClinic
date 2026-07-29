@@ -4,6 +4,8 @@ import { Star, Quote } from 'lucide-react';
 import Button from '../components/Button';
 import { Reveal, FadeIn } from '../components/Reveal';
 import reviewStats from '../data/review-stats.json';
+import { CORE_PAGES } from '../data/corePagesSeo';
+import { fillStats } from '../data/serviceSeo';
 
 const GoogleG = () => (
     <svg width="13" height="13" viewBox="0 0 48 48" aria-hidden="true" style={{ flexShrink: 0 }}>
@@ -225,11 +227,14 @@ const reviewsList = [
 ];
 
 const Reviews = () => {
+    // Meta comes from src/data/corePagesSeo.js, the same source the build
+    // uses to prerender this page — so the two cannot drift.
+    const seo = CORE_PAGES.find(p => p.path === 'reviews');
     return (
         <div className="reviews-page">
             <Helmet>
-                <title>iSmile Reviews — 4.8★ Dentist in Petaling Jaya</title>
-                <meta name="description" content="Rated 4.8★ from 91 Google reviews. See what patients say about iSmile Dental Clinic in Damansara Jaya, Petaling Jaya — then WhatsApp us to book." />
+                <title>{fillStats(seo.title, reviewStats)}</title>
+                <meta name="description" content={fillStats(seo.description, reviewStats)} />
                 <link rel="canonical" href="https://ismile.com.my/reviews" />
             </Helmet>
             <div className="reviews-hero-gradient">

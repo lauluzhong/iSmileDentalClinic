@@ -3,8 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { Reveal, FadeIn } from '../components/Reveal';
 import { HelpCircle, Info, CreditCard, User, Droplets, Calendar, Users, ChevronDown } from 'lucide-react';
 import { enrichEvent } from '../lib/attribution';
+import { CORE_PAGES } from '../data/corePagesSeo';
+import { fillStats } from '../data/serviceSeo';
+import reviewStats from '../data/review-stats.json';
 
 const FAQ = () => {
+    // Meta comes from src/data/corePagesSeo.js, the same source the build
+    // uses to prerender this page — so the two cannot drift.
+    const seo = CORE_PAGES.find(p => p.path === 'faq');
     const [openItems, setOpenItems] = useState({});
 
     const toggleItem = (key) => {
@@ -106,8 +112,8 @@ const FAQ = () => {
     return (
         <div className="page-container faq-page">
             <Helmet>
-                <title>Dentist FAQs — Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Answers to common questions about appointments, payments, kids' visits & treatments at iSmile Dental Clinic, Damansara Jaya. WhatsApp us if you need more help." />
+                <title>{fillStats(seo.title, reviewStats)}</title>
+                <meta name="description" content={fillStats(seo.description, reviewStats)} />
                 <link rel="canonical" href="https://ismile.com.my/faq" />
             </Helmet>
             <div className="container section-padding faq-container">
