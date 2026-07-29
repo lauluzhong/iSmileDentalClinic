@@ -1,4 +1,5 @@
 ---
+seo_title: "Your Child's First Dental Visit: Making It Positive"
 categories:
   - Kids & Growth
 date: '2024-11-28'

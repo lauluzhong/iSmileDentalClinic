@@ -3,6 +3,8 @@ import { useBooking } from '../../context/BookingContext';
 import React, { useEffect } from 'react';
 import { Shield, CheckCircle, HelpCircle, Users } from 'lucide-react';
 import Button from '../../components/Button';
+import { specialtyFor, fillStats } from '../../data/serviceSeo';
+import reviewStats from '../../data/review-stats.json';
 
 const PediatricDentistry = () => {
     const { openBooking } = useBooking();
@@ -40,28 +42,9 @@ const PediatricDentistry = () => {
         };
     }, []);
 
-    const faqs = [
-        {
-            "q": "When should my child have their first dental visit?",
-            "a": "We typically recommend around age 1, or within 6 months of the first tooth appearing. Early visits help your child become comfortable with the dental environment and allow us to monitor growth and development from the start."
-        },
-        {
-            "q": "Are baby teeth really that important?",
-            "a": "Yes. Baby teeth hold space for adult teeth, guide proper chewing and speech development, and affect your child's confidence. Untreated decay in baby teeth can also lead to infection and may affect developing adult teeth underneath."
-        },
-        {
-            "q": "What are fissure sealants?",
-            "a": "Fissure sealants are thin protective coatings applied to the chewing surfaces of back teeth where cavities commonly form. They fill in the grooves and pits, creating a smoother surface that is easier to clean and protected from plaque and food particles."
-        },
-        {
-            "q": "Is fluoride treatment safe for children?",
-            "a": "Yes. Professionally applied topical fluoride strengthens tooth enamel and makes it more resistant to cavities. We use age-appropriate concentrations that are both safe and effective for your child's developmental stage."
-        },
-        {
-            "q": "How can I help my child feel comfortable at the dentist?",
-            "a": "Start young, keep conversations positive, and avoid using words like pain or shot. At iSmile, we create a fun, judgment-free environment where children learn to see dental visits as a normal part of staying healthy."
-        }
-    ];
+    const seo = specialtyFor('PediatricDentistry');
+    // Copy lives in src/data/serviceSeo.js so the prerendered HTML matches.
+    const faqs = seo.faqs.map(f => ({ q: fillStats(f.q, reviewStats), a: fillStats(f.a, reviewStats) }));
 
     // Add FAQ schema for SEO
     useEffect(() => {
@@ -91,9 +74,9 @@ const PediatricDentistry = () => {
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Kids' Dentist in Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Gentle children's dentistry in Damansara Jaya — first visits, fissure sealants & fluoride treatment. Family practice since 2006. WhatsApp us to book." />
-                <link rel="canonical" href="https://ismile.com.my/services/children/pediatric-dentistry" />
+                <title>{fillStats(seo.title, reviewStats)}</title>
+                <meta name="description" content={fillStats(seo.description, reviewStats)} />
+                <link rel="canonical" href={seo.canonical} />
             </Helmet>
 
             <div className="tech-hero">

@@ -1,7 +1,114 @@
 import fs from 'fs';
 import path from 'path';
+import { SERVICE_CATEGORIES, SERVICE_SPECIALTIES } from './src/data/serviceSeo.js';
+import { CORE_PAGES } from './src/data/corePagesSeo.js';
+import { relatedServices } from './src/data/blogServiceLinks.js';
 
 const SITE_URL = 'https://ismile.com.my';
+
+const GTM_HEAD = [
+  '  <!-- Google Tag Manager -->',
+  '  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({\'gtm.start\':',
+  '  new Date().getTime(),event:\'gtm.js\'});var f=d.getElementsByTagName(s)[0],',
+  '  j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=',
+  '  \'https://www.googletagmanager.com/gtm.js?id=\'+i+dl;f.parentNode.insertBefore(j,f);',
+  '  })(window,document,\'script\',\'dataLayer\',\'GTM-NR9PQ2H7\');<\/script>',
+  '  <!-- End Google Tag Manager -->',
+].join('\n');
+
+const GTM_BODY = [
+  '  <!-- Google Tag Manager (noscript) -->',
+  '  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NR9PQ2H7"',
+  '  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>',
+  '  <!-- End Google Tag Manager (noscript) -->',
+].join('\n');
+
+// Strips the pre-rendered block once React has mounted, so crawlers get static
+// content while users get the SPA.
+const HYDRATION_SWAP = [
+  '  <script>',
+  '    (function(){',
+  '      var o=new MutationObserver(function(){',
+  '        var r=document.getElementById(\'root\');',
+  '        if(r&&r.children.length>0){',
+  '          var s=document.getElementById(\'ssg-content\');',
+  '          if(s)s.remove();',
+  '          o.disconnect();',
+  '        }',
+  '      });',
+  '      var r=document.getElementById(\'root\');',
+  '      if(r)o.observe(r,{childList:true});',
+  '    })();',
+  '  <\/script>',
+].join('\n');
+
+/**
+ * Assemble one pre-rendered page. Shared by blog posts, location pages and
+ * service pages so the head/GTM/hydration boilerplate lives in exactly one place.
+ */
+function buildPage({ title, ogTitle, description, canonicalUrl, ogType, ogImage,
+                     extraMeta = [], jsonLd = [], body, cssLink, scriptTag }) {
+  // Social cards use the bare headline; only <title> carries the site suffix.
+  const social = ogTitle || title;
+  return [
+    '<!doctype html>',
+    '<html lang="en">',
+    '<head>',
+    '  <meta charset="UTF-8" />',
+    '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />',
+    '  <meta name="facebook-domain-verification" content="76cn9giu5poxaecud7uc1atvnejnjc" />',
+    '',
+    '  <title>' + title + '</title>',
+    '  <meta name="description" content="' + description + '" />',
+    '  <link rel="canonical" href="' + canonicalUrl + '" />',
+    '',
+    '  <!-- Open Graph / Facebook -->',
+    '  <meta property="og:type" content="' + ogType + '" />',
+    '  <meta property="og:url" content="' + canonicalUrl + '" />',
+    '  <meta property="og:title" content="' + social + '" />',
+    '  <meta property="og:description" content="' + description + '" />',
+    '  <meta property="og:image" content="' + ogImage + '" />',
+    '  <meta property="og:site_name" content="iSmile Dental Clinic" />',
+    ...extraMeta,
+    '',
+    '  <!-- Twitter Card -->',
+    '  <meta name="twitter:card" content="summary_large_image" />',
+    '  <meta name="twitter:title" content="' + social + '" />',
+    '  <meta name="twitter:description" content="' + description + '" />',
+    '  <meta name="twitter:image" content="' + ogImage + '" />',
+    '',
+    '  <!-- Fonts -->',
+    '  <link rel="preconnect" href="https://fonts.googleapis.com">',
+    '  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
+    '  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">',
+    '',
+    '  <link rel="icon" type="image/png" href="/favicon.png" />',
+    '  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />',
+    '  <link rel="manifest" href="/manifest.json" />',
+    cssLink,
+    '',
+    ...jsonLd.map(j => '  <script type="application/ld+json">' + j + '<\/script>'),
+    '',
+    GTM_HEAD,
+    '</head>',
+    '<body>',
+    GTM_BODY,
+    '',
+    '  <!-- Pre-rendered content for SEO — removed once React mounts -->',
+    '  <article id="ssg-content" style="max-width:800px;margin:80px auto;padding:0 20px;font-family:Inter,system-ui,sans-serif">',
+    body,
+    '  </article>',
+    '',
+    '  <!-- React SPA mount point -->',
+    '  <div id="root"></div>',
+    scriptTag,
+    '',
+    '  <!-- Remove static content once React renders into #root -->',
+    HYDRATION_SWAP,
+    '</body>',
+    '</html>',
+  ].filter(Boolean).join('\n');
+}
 
 /**
  * Vite plugin that generates static HTML files for each blog post at build time.
@@ -89,8 +196,11 @@ export default function blogSSG() {
         const post = JSON.parse(fs.readFileSync(contentPath, 'utf-8'));
         const canonicalUrl = SITE_URL + '/blog/' + slug;
         const ogImage = post.img && post.img.startsWith('http') ? post.img : SITE_URL + post.img;
+        // seo_title/seo_description are SERP-only overrides; the on-page <h1>
+        // and listing blurb keep using title/excerpt.
         const safeTitle = escapeHtml(post.title);
-        const safeExcerpt = escapeHtml(post.excerpt || '');
+        const safeSeoTitle = escapeHtml(post.seo_title || post.title);
+        const safeExcerpt = escapeHtml(post.seo_description || post.excerpt || '');
         const safeCategory = escapeHtml((post.categories && post.categories[0]) || post.category || '');
         const articleSection = post.categories ? post.categories.join(', ') : (post.category || '');
 
@@ -129,6 +239,13 @@ export default function blogSSG() {
             "acceptedAnswer": { "@type": "Answer", "text": f.a }
           }))
         }) : '';
+        const relatedHtml = (() => {
+          const svcs = relatedServices(post.categories);
+          if (!svcs.length) return '';
+          return '    <section><h2>Related treatments</h2><ul>' +
+            svcs.map(v => '<li><a href="' + v.path + '">' + escapeHtml(v.label) + '</a></li>').join('') +
+            '</ul></section>';
+        })();
         const faqHtml = faq.length
           ? '    <section><h2>Frequently Asked Questions</h2>' +
             faq.map(f => '<h3>' + escapeHtml(f.q) + '</h3><p>' + escapeHtml(f.a) + '</p>').join('') +
@@ -140,93 +257,29 @@ export default function blogSSG() {
         const categorySpan = safeCategory ? ' &middot; ' + safeCategory : '';
         const scriptTag = entryScript ? '  <script type="module" src="' + entryScript + '"><\/script>' : '';
 
-        const html = [
-          '<!doctype html>',
-          '<html lang="en">',
-          '<head>',
-          '  <meta charset="UTF-8" />',
-          '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />',
-          '  <meta name="facebook-domain-verification" content="76cn9giu5poxaecud7uc1atvnejnjc" />',
-          '',
-          '  <title>' + safeTitle + ' | iSmile Dental Clinic</title>',
-          '  <meta name="description" content="' + safeExcerpt + '" />',
-          '  <link rel="canonical" href="' + canonicalUrl + '" />',
-          '',
-          '  <!-- Open Graph / Facebook -->',
-          '  <meta property="og:type" content="article" />',
-          '  <meta property="og:url" content="' + canonicalUrl + '" />',
-          '  <meta property="og:title" content="' + safeTitle + '" />',
-          '  <meta property="og:description" content="' + safeExcerpt + '" />',
-          '  <meta property="og:image" content="' + ogImage + '" />',
-          '  <meta property="og:site_name" content="iSmile Dental Clinic" />',
-          '  <meta property="article:published_time" content="' + post.date + '" />',
-          '  <meta property="article:section" content="' + safeCategory + '" />',
-          '',
-          '  <!-- Twitter Card -->',
-          '  <meta name="twitter:card" content="summary_large_image" />',
-          '  <meta name="twitter:title" content="' + safeTitle + '" />',
-          '  <meta name="twitter:description" content="' + safeExcerpt + '" />',
-          '  <meta name="twitter:image" content="' + ogImage + '" />',
-          '',
-          '  <!-- Fonts -->',
-          '  <link rel="preconnect" href="https://fonts.googleapis.com">',
-          '  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
-          '  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">',
-          '',
-          '  <link rel="icon" type="image/png" href="/favicon.png" />',
-          '  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />',
-          '  <link rel="manifest" href="/manifest.json" />',
+        const html = buildPage({
+          title: safeSeoTitle + ' | iSmile Dental Clinic',
+          ogTitle: safeTitle,
+          description: safeExcerpt,
+          canonicalUrl,
+          ogType: 'article',
+          ogImage,
+          extraMeta: [
+            '  <meta property="article:published_time" content="' + post.date + '" />',
+            '  <meta property="article:section" content="' + safeCategory + '" />',
+          ],
+          jsonLd: faqJsonLd ? [jsonLd, faqJsonLd] : [jsonLd],
+          body: [
+            '    <h1>' + safeTitle + '</h1>',
+            '    <p><time datetime="' + post.date + '">' + formatDate(post.date) + '</time>' + categorySpan + '</p>',
+            imgTag,
+            '    <div>' + (post.content || '') + '</div>',
+            relatedHtml,
+            faqHtml,
+          ].filter(Boolean).join('\n'),
           cssLink,
-          '',
-          '  <!-- BlogPosting JSON-LD -->',
-          '  <script type="application/ld+json">' + jsonLd + '<\/script>',
-          faqJsonLd ? '  <!-- FAQPage JSON-LD -->\n  <script type="application/ld+json">' + faqJsonLd + '<\/script>' : '',
-          '',
-          '  <!-- Google Tag Manager -->',
-          '  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({\'gtm.start\':',
-          '  new Date().getTime(),event:\'gtm.js\'});var f=d.getElementsByTagName(s)[0],',
-          '  j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=',
-          '  \'https://www.googletagmanager.com/gtm.js?id=\'+i+dl;f.parentNode.insertBefore(j,f);',
-          '  })(window,document,\'script\',\'dataLayer\',\'GTM-NR9PQ2H7\');<\/script>',
-          '  <!-- End Google Tag Manager -->',
-          '</head>',
-          '<body>',
-          '  <!-- Google Tag Manager (noscript) -->',
-          '  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NR9PQ2H7"',
-          '  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>',
-          '  <!-- End Google Tag Manager (noscript) -->',
-          '',
-          '  <!-- Pre-rendered blog content for SEO — removed once React mounts -->',
-          '  <article id="ssg-content" style="max-width:800px;margin:80px auto;padding:0 20px;font-family:Inter,system-ui,sans-serif">',
-          '    <h1>' + safeTitle + '</h1>',
-          '    <p><time datetime="' + post.date + '">' + formatDate(post.date) + '</time>' + categorySpan + '</p>',
-          imgTag,
-          '    <div>' + (post.content || '') + '</div>',
-          faqHtml,
-          '  </article>',
-          '',
-          '  <!-- React SPA mount point -->',
-          '  <div id="root"></div>',
           scriptTag,
-          '',
-          '  <!-- Remove static content once React renders into #root -->',
-          '  <script>',
-          '    (function(){',
-          '      var o=new MutationObserver(function(){',
-          '        var r=document.getElementById(\'root\');',
-          '        if(r&&r.children.length>0){',
-          '          var s=document.getElementById(\'ssg-content\');',
-          '          if(s)s.remove();',
-          '          o.disconnect();',
-          '        }',
-          '      });',
-          '      var r=document.getElementById(\'root\');',
-          '      if(r)o.observe(r,{childList:true});',
-          '    })();',
-          '  <\/script>',
-          '</body>',
-          '</html>'
-        ].join('\n');
+        });
 
         const outDir = path.resolve(distDir, 'blog', slug);
         fs.mkdirSync(outDir, { recursive: true });
@@ -285,90 +338,23 @@ export default function blogSSG() {
         const cssLink = entryCss ? '  <link rel="stylesheet" href="' + entryCss + '" />' : '';
         const scriptTag = entryScript ? '  <script type="module" src="' + entryScript + '"><\/script>' : '';
 
-        const html = [
-          '<!doctype html>',
-          '<html lang="en">',
-          '<head>',
-          '  <meta charset="UTF-8" />',
-          '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />',
-          '  <meta name="facebook-domain-verification" content="76cn9giu5poxaecud7uc1atvnejnjc" />',
-          '',
-          '  <title>' + safeTitle + '</title>',
-          '  <meta name="description" content="' + safeDescription + '" />',
-          '  <link rel="canonical" href="' + canonicalUrl + '" />',
-          '',
-          '  <!-- Open Graph / Facebook -->',
-          '  <meta property="og:type" content="website" />',
-          '  <meta property="og:url" content="' + canonicalUrl + '" />',
-          '  <meta property="og:title" content="' + safeTitle + '" />',
-          '  <meta property="og:description" content="' + safeDescription + '" />',
-          '  <meta property="og:image" content="' + SITE_URL + '/logo.png" />',
-          '  <meta property="og:site_name" content="iSmile Dental Clinic" />',
-          '',
-          '  <!-- Twitter Card -->',
-          '  <meta name="twitter:card" content="summary_large_image" />',
-          '  <meta name="twitter:title" content="' + safeTitle + '" />',
-          '  <meta name="twitter:description" content="' + safeDescription + '" />',
-          '  <meta name="twitter:image" content="' + SITE_URL + '/logo.png" />',
-          '',
-          '  <!-- Fonts -->',
-          '  <link rel="preconnect" href="https://fonts.googleapis.com">',
-          '  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
-          '  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">',
-          '',
-          '  <link rel="icon" type="image/png" href="/favicon.png" />',
-          '  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />',
-          '  <link rel="manifest" href="/manifest.json" />',
+        const html = buildPage({
+          title: safeTitle,
+          description: safeDescription,
+          canonicalUrl,
+          ogType: 'website',
+          ogImage: SITE_URL + '/logo.png',
+          jsonLd: [jsonLd],
+          body: [
+            '    <h1>' + safeTitle + '</h1>',
+            '    <p>' + safeDescription + '</p>',
+            '    <address>' + safeAddress + '</address>',
+            '    <p>Phone: ' + safeTelephone + '</p>',
+            '    <p>Hours: ' + location.openingHours.join(', ') + '</p>',
+          ].join('\n'),
           cssLink,
-          '',
-          '  <!-- LocalBusiness JSON-LD -->',
-          '  <script type="application/ld+json">' + jsonLd + '<\/script>',
-          '',
-          '  <!-- Google Tag Manager -->',
-          '  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({\'gtm.start\':',
-          '  new Date().getTime(),event:\'gtm.js\'});var f=d.getElementsByTagName(s)[0],',
-          '  j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=',
-          '  \'https://www.googletagmanager.com/gtm.js?id=\'+i+dl;f.parentNode.insertBefore(j,f);',
-          '  })(window,document,\'script\',\'dataLayer\',\'GTM-NR9PQ2H7\');<\/script>',
-          '  <!-- End Google Tag Manager -->',
-          '</head>',
-          '<body>',
-          '  <!-- Google Tag Manager (noscript) -->',
-          '  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NR9PQ2H7"',
-          '  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>',
-          '  <!-- End Google Tag Manager (noscript) -->',
-          '',
-          '  <!-- Pre-rendered location content for SEO — removed once React mounts -->',
-          '  <article id="ssg-content" style="max-width:800px;margin:80px auto;padding:0 20px;font-family:Inter,system-ui,sans-serif">',
-          '    <h1>' + safeTitle + '</h1>',
-          '    <p>' + safeDescription + '</p>',
-          '    <address>' + safeAddress + '</address>',
-          '    <p>Phone: ' + safeTelephone + '</p>',
-          '    <p>Hours: ' + location.openingHours.join(', ') + '</p>',
-          '  </article>',
-          '',
-          '  <!-- React SPA mount point -->',
-          '  <div id="root"></div>',
           scriptTag,
-          '',
-          '  <!-- Remove static content once React renders into #root -->',
-          '  <script>',
-          '    (function(){',
-          '      var o=new MutationObserver(function(){',
-          '        var r=document.getElementById(\'root\');',
-          '        if(r&&r.children.length>0){',
-          '          var s=document.getElementById(\'ssg-content\');',
-          '          if(s)s.remove();',
-          '          o.disconnect();',
-          '        }',
-          '      });',
-          '      var r=document.getElementById(\'root\');',
-          '      if(r)o.observe(r,{childList:true});',
-          '    })();',
-          '  <\/script>',
-          '</body>',
-          '</html>'
-        ].join('\n');
+        });
 
         const outDir = path.resolve(distDir, location.path);
         fs.mkdirSync(outDir, { recursive: true });
@@ -380,6 +366,168 @@ export default function blogSSG() {
         console.log('[blog-ssg] ✓ Generated ' + locationGenerated + ' location pages.');
       }
 
+      // ── Service pages ────────────────────────────────────────────────────
+      // Without these, every /services/* URL served the bare SPA shell: Google
+      // saw a duplicate of the homepage, and AI crawlers (which don't run JS)
+      // saw nothing at all. Copy comes from src/data/serviceSeo.js, which the
+      // React pages also read, so the static and rendered versions can't drift.
+      const fillStats = (str) => str
+        .replace(/\$\{RATING\}/g, String(reviewStats.rating))
+        .replace(/\$\{COUNT\}/g, String(reviewStats.count));
+
+      let serviceGenerated = 0;
+      for (const page of [...SERVICE_CATEGORIES, ...SERVICE_SPECIALTIES]) {
+        const canonicalUrl = page.canonical || SITE_URL + '/' + page.path;
+        const safeTitle = escapeHtml(fillStats(page.title));
+        const safeDescription = escapeHtml(fillStats(page.description));
+        const faqs = page.faqs || [];
+
+        const jsonLd = [JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "MedicalProcedure",
+          "name": fillStats(page.h1 || page.title),
+          "description": fillStats(page.description),
+          "provider": {
+            "@type": "Dentist",
+            "name": "iSmile Dental Clinic",
+            "url": SITE_URL
+          },
+          "areaServed": { "@type": "Place", "name": "Petaling Jaya, Selangor" },
+          "url": canonicalUrl
+        })];
+
+        if (faqs.length) {
+          jsonLd.push(JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(f => ({
+              "@type": "Question",
+              "name": fillStats(f.q),
+              "acceptedAnswer": { "@type": "Answer", "text": fillStats(f.a) }
+            }))
+          }));
+        }
+
+        // Breadcrumbs — the audit found none site-wide.
+        const crumbs = page.path.split('/');
+        jsonLd.push(JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": crumbs.map((_, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": crumbs[i].replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
+            "item": SITE_URL + '/' + crumbs.slice(0, i + 1).join('/')
+          }))
+        }));
+
+        const body = [
+          '    <h1>' + escapeHtml(fillStats(page.h1 || page.title)) + '</h1>',
+          page.lead ? '    <p>' + escapeHtml(fillStats(page.lead)) + '</p>' : '',
+          '    <p>' + safeDescription + '</p>',
+          faqs.length
+            ? '    <section><h2>Frequently Asked Questions</h2>' +
+              faqs.map(f => '<h3>' + escapeHtml(fillStats(f.q)) + '</h3><p>' +
+                            escapeHtml(fillStats(f.a)) + '</p>').join('') +
+              '</section>'
+            : '',
+        ].filter(Boolean).join('\n');
+
+        const html = buildPage({
+          title: safeTitle,
+          description: safeDescription,
+          canonicalUrl,
+          ogType: 'website',
+          ogImage: SITE_URL + '/logo.png',
+          jsonLd,
+          body,
+          cssLink: entryCss ? '  <link rel="stylesheet" href="' + entryCss + '" />' : '',
+          scriptTag: entryScript ? '  <script type="module" src="' + entryScript + '"><\/script>' : '',
+        });
+
+        const outDir = path.resolve(distDir, page.path);
+        fs.mkdirSync(outDir, { recursive: true });
+        fs.writeFileSync(path.resolve(outDir, 'index.html'), html, 'utf-8');
+        serviceGenerated++;
+      }
+      console.log('[blog-ssg] ✓ Generated ' + serviceGenerated + ' service pages.');
+
+      // ── Core pages ───────────────────────────────────────────────────────
+      // /contact, /faq, /reviews, /about, /blog had the same problem as the
+      // service pages: SPA shell only, so no crawlable content and (per the
+      // audit) react-helmet's meta never applied. Content: src/data/corePagesSeo.js
+      let coreGenerated = 0;
+      for (const page of CORE_PAGES) {
+        const canonicalUrl = SITE_URL + '/' + page.path;
+        const safeTitle = escapeHtml(fillStats(page.title));
+        const safeDescription = escapeHtml(fillStats(page.description));
+
+        const jsonLd = [];
+        const flatFaqs = (page.faqSections || []).flatMap(s => s.questions);
+        if (flatFaqs.length) {
+          jsonLd.push(JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": flatFaqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
+            }))
+          }));
+        }
+        jsonLd.push(JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
+            { "@type": "ListItem", "position": 2, "name": page.h1, "item": canonicalUrl }
+          ]
+        }));
+
+        const parts = [
+          '    <h1>' + escapeHtml(fillStats(page.h1)) + '</h1>',
+          '    <p>' + escapeHtml(fillStats(page.intro)) + '</p>',
+        ];
+
+        if (page.facts) {
+          parts.push('    <ul>' +
+            page.facts.map(f => '<li>' + escapeHtml(fillStats(f)) + '</li>').join('') +
+            '</ul>');
+        }
+
+        for (const section of page.faqSections || []) {
+          parts.push('    <section><h2>' + escapeHtml(section.category) + '</h2>' +
+            section.questions.map(f => '<h3>' + escapeHtml(f.q) + '</h3><p>' +
+                                        escapeHtml(f.a) + '</p>').join('') +
+            '</section>');
+        }
+
+        // Link every post from /blog so crawlers can reach the ones the audit
+        // found as "Discovered — currently not indexed" / never crawled.
+        if (page.listsBlogIndex) {
+          parts.push('    <ul>' + blogIndex.map(p =>
+            '<li><a href="/blog/' + p.slug + '">' + escapeHtml(p.title) + '</a></li>'
+          ).join('') + '</ul>');
+        }
+
+        const html = buildPage({
+          title: safeTitle,
+          description: safeDescription,
+          canonicalUrl,
+          ogType: 'website',
+          ogImage: SITE_URL + '/logo.png',
+          jsonLd,
+          body: parts.join('\n'),
+          cssLink: entryCss ? '  <link rel="stylesheet" href="' + entryCss + '" />' : '',
+          scriptTag: entryScript ? '  <script type="module" src="' + entryScript + '"><\/script>' : '',
+        });
+
+        const outDir = path.resolve(distDir, page.path);
+        fs.mkdirSync(outDir, { recursive: true });
+        fs.writeFileSync(path.resolve(outDir, 'index.html'), html, 'utf-8');
+        coreGenerated++;
+      }
+      console.log('[blog-ssg] ✓ Generated ' + coreGenerated + ' core pages.');
     }
   };
 }

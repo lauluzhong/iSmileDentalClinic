@@ -1,4 +1,5 @@
 ---
+seo_title: "Wisdom Tooth Surgery: What to Expect"
 categories:
   - Oral Surgery
 date: '2026-04-17'

@@ -1,4 +1,6 @@
 ---
+seo_title: "Is My Child a Candidate for Myofunctional Orthodontics?"
+seo_description: "How to tell whether your child suits myofunctional orthodontics — the habits and growth signs that matter, and when to have them assessed."
 title: Is Your Child a Good Candidate for Myofunctional Orthodontics?
 categories:
   - Kids & Growth

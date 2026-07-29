@@ -1,4 +1,5 @@
 ---
+seo_title: "Root Canal vs Extraction: Which Is Better Long Term?"
 categories:
   - Restorative
 date: '2025-01-08'

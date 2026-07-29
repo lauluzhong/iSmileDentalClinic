@@ -3,6 +3,8 @@ import { useBooking } from '../../context/BookingContext';
 import React, { useEffect } from 'react';
 import { Shield, CheckCircle, HelpCircle, Smile } from 'lucide-react';
 import Button from '../../components/Button';
+import { specialtyFor, fillStats } from '../../data/serviceSeo';
+import reviewStats from '../../data/review-stats.json';
 
 const DentalImplants = () => {
     // Add Service schema for SEO
@@ -63,35 +65,16 @@ const DentalImplants = () => {
         };
     }, []);
 
-    const faqs = [
-        {
-            "q": "How long does the process take?",
-            "a": "Typically, the osseointegration healing phase takes several months before the final crown is placed. Your dentist will give you a more specific estimate based on your individual case and bone quality."
-        },
-        {
-            "q": "Is the procedure painful?",
-            "a": "The jawbone has very few pain receptors. Most patients find the procedure less uncomfortable than a standard tooth extraction."
-        },
-        {
-            "q": "What is the success rate?",
-            "a": "Dental implants, when placed by experienced clinicians in suitable patients with good oral hygiene, tend to have high success rates over time. Your dentist will discuss factors that affect outcomes for your specific situation."
-        },
-        {
-            "q": "Am I too old for dental implants?",
-            "a": "Age itself is rarely a limiting factor. As long as you have reasonable oral health and sufficient bone density (or are suitable for bone grafting), implants may be a viable option. Your dentist will assess your individual situation."
-        },
-        {
-            "q": "How do I care for my dental implant?",
-            "a": "Treat it much like a natural tooth. Brush and floss regularly. Regular dental check-ups are important to monitor the health of the surrounding gum and bone over time."
-        }
-    ];
+    const seo = specialtyFor('DentalImplants');
+    // Copy lives in src/data/serviceSeo.js so the prerendered HTML matches.
+    const faqs = seo.faqs.map(f => ({ q: fillStats(f.q, reviewStats), a: fillStats(f.a, reviewStats) }));
 
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Dental Implants in Damansara Jaya, PJ | iSmile</title>
-                <meta name="description" content="Replace missing teeth with titanium dental implants at iSmile Damansara Jaya, Petaling Jaya. Rated 4.8★ from 91 Google reviews. WhatsApp us to book." />
-                <link rel="canonical" href="https://ismile.com.my/services/replace/dental-implants" />
+                <title>{fillStats(seo.title, reviewStats)}</title>
+                <meta name="description" content={fillStats(seo.description, reviewStats)} />
+                <link rel="canonical" href={seo.canonical} />
             </Helmet>
 
             <div className="tech-hero">

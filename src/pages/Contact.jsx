@@ -5,6 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import { enrichEvent } from '../lib/attribution';
 import { Reveal, FadeIn } from '../components/Reveal';
+import { CORE_PAGES } from '../data/corePagesSeo';
+import { fillStats } from '../data/serviceSeo';
+import reviewStats from '../data/review-stats.json';
 
 // SVG Icons for social media
 const InstagramIcon = () => (
@@ -22,13 +25,16 @@ const FacebookIcon = () => (
 );
 
 const Contact = () => {
+    // Meta comes from src/data/corePagesSeo.js, the same source the build
+    // uses to prerender this page — so the two cannot drift.
+    const seo = CORE_PAGES.find(p => p.path === 'contact');
     const navigate = useNavigate();
     
     return (
         <div className="contact-page">
             <Helmet>
-                <title>Contact Our Dental Clinic in Petaling Jaya | iSmile</title>
-                <meta name="description" content="Find iSmile Dental Clinic at 75 & 75A Jalan SS 22/23, Damansara Jaya, PJ. Open Mon–Fri 9:30am–5:30pm, Sat 9:30am–3:30pm. Call or WhatsApp us to book." />
+                <title>{fillStats(seo.title, reviewStats)}</title>
+                <meta name="description" content={fillStats(seo.description, reviewStats)} />
                 <link rel="canonical" href="https://ismile.com.my/contact" />
             </Helmet>
             <div className="container section-padding" style={{ paddingTop: '180px' }}>

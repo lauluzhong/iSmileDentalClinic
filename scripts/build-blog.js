@@ -18,9 +18,16 @@ const STATIC_SITEMAP_ENTRIES = [
   { path: '/services/replace', changefreq: 'monthly', priority: '0.8' },
   { path: '/services/enhance', changefreq: 'monthly', priority: '0.8' },
   { path: '/services/children', changefreq: 'monthly', priority: '0.8' },
+  // Specialty pages — every route in src/pages/specialties/ must be listed here.
+  // Five of these were missing until 2026-07-29, so Google never discovered them.
   { path: '/services/children/myofunctional', changefreq: 'monthly', priority: '0.7' },
+  { path: '/services/children/pediatric-dentistry', changefreq: 'monthly', priority: '0.7' },
   { path: '/services/enhance/teeth-whitening', changefreq: 'monthly', priority: '0.7' },
+  { path: '/services/enhance/cosmetic-dentistry', changefreq: 'monthly', priority: '0.7' },
   { path: '/services/replace/dental-implants', changefreq: 'monthly', priority: '0.7' },
+  { path: '/services/protect/root-canal', changefreq: 'monthly', priority: '0.7' },
+  { path: '/services/protect/wisdom-tooth', changefreq: 'monthly', priority: '0.7' },
+  { path: '/services/straighten/clear-aligners', changefreq: 'monthly', priority: '0.7' },
   { path: '/reviews', changefreq: 'monthly', priority: '0.7' },
   { path: '/blog', changefreq: 'weekly', priority: '0.9' },
   { path: '/contact', changefreq: 'monthly', priority: '0.7' },
@@ -79,6 +86,10 @@ const blogIndex = files.map(filename => {
       date,
       img: frontmatter.img,
       excerpt: frontmatter.excerpt,
+      // Optional SERP-only overrides: tune the <title>/description shown in
+      // search without changing the visible article heading or listing blurb.
+      seo_title: frontmatter.seo_title || null,
+      seo_description: frontmatter.seo_description || null,
       featured: frontmatter.featured || false,
       faq: frontmatter.faq || [],
       content_type,
@@ -96,6 +107,8 @@ const blogIndex = files.map(filename => {
     date,
     img: frontmatter.img,
     excerpt: frontmatter.excerpt,
+    seo_title: frontmatter.seo_title || null,
+    seo_description: frontmatter.seo_description || null,
     featured: frontmatter.featured || false,
     faq: frontmatter.faq || [],
     content_type,

@@ -1,4 +1,6 @@
 ---
+seo_title: "Government vs Private Braces Malaysia: Waiting Times"
+seo_description: "Government or private braces in Malaysia? How they compare on waiting lists, appointment flexibility and treatment options — from a Petaling Jaya family clinic."
 categories:
   - Orthodontics
 date: '2025-01-05'

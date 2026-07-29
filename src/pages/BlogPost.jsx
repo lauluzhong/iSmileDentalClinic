@@ -6,6 +6,7 @@ import Button from '../components/Button';
 import { ArrowLeft, ChevronDown } from 'lucide-react';
 import { useBooking } from '../context/BookingContext';
 import blogIndex from '../data/blog-index.json';
+import { relatedServices } from '../data/blogServiceLinks';
 
 const SITE_URL = 'https://ismile.com.my';
 
@@ -341,6 +342,28 @@ const BlogPost = () => {
                             Book a Consultation
                         </Button>
                     </div>
+
+                    {/* Internal links to the treatment pages this post relates to.
+                        The audit found service pages had no inbound links from the blog. */}
+                    {relatedServices(post.categories).length > 0 && (
+                      <div className="post-related-services" style={{ marginTop: '60px', paddingTop: '40px', borderTop: '1px solid #eee' }}>
+                        <h3 style={{ marginBottom: '20px', fontSize: '1.5rem' }}>Related treatments</h3>
+                        <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+                          {relatedServices(post.categories).map((svc) => (
+                            <li key={svc.path}>
+                              <Link
+                                to={svc.path}
+                                data-analytics-click="blog-related-service"
+                                data-analytics-label={svc.label}
+                                style={{ display: 'inline-block', padding: '10px 18px', background: '#f8fafc', borderRadius: '999px', color: 'var(--color-primary)', textDecoration: 'none', fontWeight: 500 }}
+                              >
+                                {svc.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
 
                     {post.faq && post.faq.length > 0 && (
                       <div className="post-faq-section" style={{ marginTop: '60px', paddingTop: '40px', borderTop: '1px solid #eee' }}>

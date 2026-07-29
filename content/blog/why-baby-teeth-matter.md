@@ -1,4 +1,5 @@
 ---
+seo_title: "Why Baby Teeth Matter More Than You Think"
 title: 'Why Baby Teeth Actually Matter: More Than Just Temporary Teeth'
 categories:
   - Kids & Growth

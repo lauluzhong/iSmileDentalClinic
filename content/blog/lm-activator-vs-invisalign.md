@@ -1,4 +1,6 @@
 ---
+seo_title: "LM Activator vs Invisalign for Children: How Each Works"
+seo_description: "LM Activator retrains oral habits; Invisalign moves teeth. How each works for children, and where myofunctional orthodontics fits — from a PJ family clinic."
 categories:
   - Orthodontics
   - Kids & Growth

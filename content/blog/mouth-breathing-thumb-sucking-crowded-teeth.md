@@ -1,4 +1,6 @@
 ---
+seo_title: "Mouth Breathing, Thumb Sucking and Crowded Teeth"
+seo_description: "How mouth breathing and thumb sucking affect the way a child’s jaw and teeth develop — and why these habits are worth addressing early."
 title: 'Mouth Breathing, Thumb Sucking, and Crowded Teeth: What''s the Connection?'
 categories:
   - Kids & Growth
