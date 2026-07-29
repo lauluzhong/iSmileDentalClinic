@@ -1,0 +1,158 @@
+{
+  "/images/blog/child-candidate-myofunctional-orthodontics.jpg": {
+    "fallbackType": "image/jpeg",
+    "height": 714,
+    "original": "/images/blog/child-candidate-myofunctional-orthodontics.jpg",
+    "variants": [
+      {
+        "avif": "/images/blog/child-candidate-myofunctional-orthodontics-480w.avif",
+        "raster": "/images/blog/child-candidate-myofunctional-orthodontics-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/child-candidate-myofunctional-orthodontics-480w.webp"
+      },
+      {
+        "avif": "/images/blog/child-candidate-myofunctional-orthodontics-768w.avif",
+        "raster": "/images/blog/child-candidate-myofunctional-orthodontics-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/child-candidate-myofunctional-orthodontics-768w.webp"
+      },
+      {
+        "avif": "/images/blog/child-candidate-myofunctional-orthodontics-1024w.avif",
+        "raster": "/images/blog/child-candidate-myofunctional-orthodontics-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/child-candidate-myofunctional-orthodontics-1024w.webp"
+      }
+    ],
+    "width": 1280
+  },
+  "/images/blog/dental-implants-hero.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/dental-implants-hero.png",
+    "variants": [
+      {
+        "avif": "/images/blog/dental-implants-hero-480w.avif",
+        "raster": "/images/blog/dental-implants-hero-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/dental-implants-hero-480w.webp"
+      },
+      {
+        "avif": "/images/blog/dental-implants-hero-768w.avif",
+        "raster": "/images/blog/dental-implants-hero-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/dental-implants-hero-768w.webp"
+      },
+      {
+        "avif": "/images/blog/dental-implants-hero-1024w.avif",
+        "raster": "/images/blog/dental-implants-hero-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/dental-implants-hero-1024w.webp"
+      }
+    ],
+    "width": 1024
+  },
+  "/images/blog/mouth-breathing-thumb-sucking-crowded-teeth.png": {
+    "fallbackType": "image/jpeg",
+    "height": 698,
+    "original": "/images/blog/mouth-breathing-thumb-sucking-crowded-teeth.png",
+    "variants": [
+      {
+        "avif": "/images/blog/mouth-breathing-thumb-sucking-crowded-teeth-480w.avif",
+        "raster": "/images/blog/mouth-breathing-thumb-sucking-crowded-teeth-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/mouth-breathing-thumb-sucking-crowded-teeth-480w.webp"
+      },
+      {
+        "avif": "/images/blog/mouth-breathing-thumb-sucking-crowded-teeth-768w.avif",
+        "raster": "/images/blog/mouth-breathing-thumb-sucking-crowded-teeth-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/mouth-breathing-thumb-sucking-crowded-teeth-768w.webp"
+      },
+      {
+        "avif": "/images/blog/mouth-breathing-thumb-sucking-crowded-teeth-1024w.avif",
+        "raster": "/images/blog/mouth-breathing-thumb-sucking-crowded-teeth-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/mouth-breathing-thumb-sucking-crowded-teeth-1024w.webp"
+      }
+    ],
+    "width": 1280
+  },
+  "/images/blog/signs-child-early-orthodontic-assessment.png": {
+    "fallbackType": "image/jpeg",
+    "height": 698,
+    "original": "/images/blog/signs-child-early-orthodontic-assessment.png",
+    "variants": [
+      {
+        "avif": "/images/blog/signs-child-early-orthodontic-assessment-480w.avif",
+        "raster": "/images/blog/signs-child-early-orthodontic-assessment-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/signs-child-early-orthodontic-assessment-480w.webp"
+      },
+      {
+        "avif": "/images/blog/signs-child-early-orthodontic-assessment-768w.avif",
+        "raster": "/images/blog/signs-child-early-orthodontic-assessment-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/signs-child-early-orthodontic-assessment-768w.webp"
+      },
+      {
+        "avif": "/images/blog/signs-child-early-orthodontic-assessment-1024w.avif",
+        "raster": "/images/blog/signs-child-early-orthodontic-assessment-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/signs-child-early-orthodontic-assessment-1024w.webp"
+      }
+    ],
+    "width": 1280
+  },
+  "/images/child_airway_hero_1765825276038.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/child_airway_hero_1765825276038.png",
+    "variants": [
+      {
+        "avif": "/images/child_airway_hero_1765825276038-480w.avif",
+        "raster": "/images/child_airway_hero_1765825276038-480w.jpg",
+        "w": 480,
+        "webp": "/images/child_airway_hero_1765825276038-480w.webp"
+      },
+      {
+        "avif": "/images/child_airway_hero_1765825276038-768w.avif",
+        "raster": "/images/child_airway_hero_1765825276038-768w.jpg",
+        "w": 768,
+        "webp": "/images/child_airway_hero_1765825276038-768w.webp"
+      },
+      {
+        "avif": "/images/child_airway_hero_1765825276038-1024w.avif",
+        "raster": "/images/child_airway_hero_1765825276038-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/child_airway_hero_1765825276038-1024w.webp"
+      }
+    ],
+    "width": 1024
+  },
+  "/images/team_group.jpg": {
+    "fallbackType": "image/jpeg",
+    "height": 682,
+    "original": "/images/team_group.jpg",
+    "variants": [
+      {
+        "avif": "/images/team_group-480w.avif",
+        "raster": "/images/team_group-480w.jpg",
+        "w": 480,
+        "webp": "/images/team_group-480w.webp"
+      },
+      {
+        "avif": "/images/team_group-768w.avif",
+        "raster": "/images/team_group-768w.jpg",
+        "w": 768,
+        "webp": "/images/team_group-768w.webp"
+      },
+      {
+        "avif": "/images/team_group-1024w.avif",
+        "raster": "/images/team_group-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/team_group-1024w.webp"
+      }
+    ],
+    "width": 1024
+  }
+}

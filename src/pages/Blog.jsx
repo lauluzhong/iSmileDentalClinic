@@ -7,6 +7,7 @@ import blogIndex from '../data/blog-index.json';
 import { CORE_PAGES } from '../data/corePagesSeo';
 import { fillStats } from '../data/serviceSeo';
 import reviewStats from '../data/review-stats.json';
+import ResponsiveImage from '../components/ResponsiveImage';
 const educationalPosts = blogIndex.filter(post => post.content_type === 'educational');
 
 const POSTS_PER_PAGE = 12;
@@ -240,7 +241,7 @@ const Blog = () => {
                             </Link>
                         </div>
                         <div className="featured-image">
-                            <img src={featuredPost.img} alt={featuredPost.title} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                            <ResponsiveImage src={featuredPost.img} alt={featuredPost.title} loading="lazy" sizes="(max-width: 768px) 100vw, 550px" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         </div>
                     </FadeIn>
                 )}
@@ -252,7 +253,7 @@ const Blog = () => {
                             <Link to={`/blog/${post.slug}`} key={post.slug} style={{ textDecoration: 'none', color: 'inherit' }}>
                                 <FadeIn className="glass-panel post-card">
                                     <div className="post-image">
-                                        <img src={post.img} alt={post.title} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                        <ResponsiveImage src={post.img} alt={post.title} loading="lazy" sizes="(max-width: 768px) 100vw, 380px" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                     </div>
                                     <div className="post-content">
                                         <div className="post-tags">
@@ -436,6 +437,12 @@ const Blog = () => {
           }
 
           .featured-image {
+              height: 100%;
+          }
+
+          .featured-image picture, .post-image picture {
+              display: block;
+              width: 100%;
               height: 100%;
           }
 
