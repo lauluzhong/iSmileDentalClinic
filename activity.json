@@ -1,6 +1,13 @@
 {
-  "updated": "2026-07-29 18:41 MYT",
+  "updated": "2026-07-29 20:52 MYT",
   "entries": [
+    {
+      "ts": "2026-07-29 20:52 MYT",
+      "agent": "engineer",
+      "job": "review_curation",
+      "event": "started",
+      "result": ""
+    },
     {
       "ts": "2026-07-29 18:41 MYT",
       "agent": "engineer",
@@ -273,13 +280,6 @@
       "job": "recall_funnel",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-07-24 12:20 MYT",
-      "agent": "engineer",
-      "job": "review_stats_sync",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
