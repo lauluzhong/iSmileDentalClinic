@@ -39,6 +39,16 @@
       "source": "/blog/family-dentistry-damansara-jaya-what-makes-ismile-different/",
       "destination": "/blog/family-dental-care-damansara-jaya-all-ages",
       "permanent": true
+    },
+    {
+      "source": "/blog/root-canal-vs-extraction",
+      "destination": "/services/protect/root-canal",
+      "permanent": true
+    },
+    {
+      "source": "/blog/root-canal-vs-extraction/",
+      "destination": "/services/protect/root-canal",
+      "permanent": true
     }
   ],
   "rewrites": [

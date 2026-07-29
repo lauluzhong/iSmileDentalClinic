@@ -1,5 +1,50 @@
 [
   {
+    "slug": "adult-mouth-breathing",
+    "title": "Why Am I Breathing Through My Mouth? An Adult Guide",
+    "categories": [
+      "Oral Health"
+    ],
+    "tags": [
+      "Myofunctional Orthodontics",
+      "Oral Health"
+    ],
+    "date": "2026-07-29",
+    "img": "/images/blog/adult-mouth-breathing-hero.jpg",
+    "excerpt": "Mouth breathing is usually written about as a childhood issue, but plenty of adults do it too, and the effects tend to show up in the mouth first.",
+    "seo_title": "Why Am I Breathing Through My Mouth? An Adult Guide",
+    "seo_description": "Waking with a dry mouth or breathing through your mouth at night? What it can mean for your teeth and gums, and what an assessment can tell you.",
+    "featured": false,
+    "faq": [
+      {
+        "q": "Why do I breathe through my mouth?",
+        "a": "There are several possible reasons, and they are not all dental. Nasal congestion from allergies or chronic sinus inflammation can make nose breathing feel like harder work, so the mouth takes over. In some people the pattern started in childhood and simply stayed. Because the causes range from medical to habitual, working out which applies to you is the first step, and it may involve more than one type of professional."
+      },
+      {
+        "q": "Can mouth breathing affect my teeth and gums?",
+        "a": "It can. Saliva helps buffer acid, wash away food debris and repair early enamel damage. Breathing through an open mouth tends to dry the mouth out, particularly during sleep, and a persistently dry mouth may raise the risk of tooth decay and gum inflammation even in someone with good brushing habits. If your dental problems keep recurring despite consistent care, dryness is one factor worth looking at."
+      },
+      {
+        "q": "What signs should I look out for?",
+        "a": "Common things people notice are waking with a very dry mouth or a sore throat that clears through the morning, bad breath on waking, snoring, or waking unrefreshed after a full night. Often a partner notices the open mouth during sleep before the person does."
+      },
+      {
+        "q": "What does an assessment involve?",
+        "a": "We look at dryness, the pattern of decay, gum condition, tooth wear, oral posture and how you hold your bite. Where it is helpful we can also take a cone beam CT scan, a fast, low radiation 3D scan that shows the structures around the upper airway rather than just the teeth. Together these give us a clear picture of what is going on and what your options are."
+      },
+      {
+        "q": "Is mouth breathing only a problem for children?",
+        "a": "Breathing patterns matter a great deal during childhood because the face and jaws are still developing. In adults, growth is no longer the issue, but the day to day effects on the mouth continue, which is why it is still worth looking into."
+      },
+      {
+        "q": "Is it too late to do anything as an adult?",
+        "a": "That depends entirely on what is behind it. For some people the priority is having a nasal or medical cause evaluated. For others the focus is on oral habits and posture, or on protecting the teeth and gums from a persistently dry mouth. An assessment is what tells you which of those applies to you."
+      }
+    ],
+    "content_type": "educational",
+    "canonical_url": null
+  },
+  {
     "slug": "how-to-choose-orthodontist-petaling-jaya",
     "title": "How to Choose an Orthodontist in Petaling Jaya",
     "categories": [
@@ -1502,45 +1547,8 @@
     "canonical_url": null
   },
   {
-    "slug": "root-canal-vs-extraction",
-    "title": "Root Canal vs Tooth Extraction: Which Is the Better Long-Term Choice?",
-    "categories": [
-      "Restorative"
-    ],
-    "tags": [
-      "Oral Surgery",
-      "Oral Health"
-    ],
-    "date": "2025-01-08",
-    "img": "/images/blog/root_canal_vs_extraction_hero.png",
-    "excerpt": "Facing a decision between saving a tooth or pulling it? We break down the long-term impact of each choice.",
-    "seo_title": "Root Canal vs Extraction: Which Is Better Long Term?",
-    "seo_description": null,
-    "featured": false,
-    "faq": [
-      {
-        "a": "A root canal clears out infection while preserving the tooth structure. This means you keep your natural bite, alignment, and jawbone density. No replacement tooth feels or functions exactly like your own natural teeth.",
-        "q": "Why Is Saving Your Natural Tooth the Better Option?"
-      },
-      {
-        "a": "Pulling a tooth seems final, but it is often just the beginning of a new dental journey. When a tooth is missing, surrounding teeth can shift, and the jawbone begins to shrink. To restore function and prevent further issues, you may eventually need a bridge or dental implant.",
-        "q": "Why Isn't Tooth Extraction the 'One and Done' Solution?"
-      },
-      {
-        "a": "Your teeth stimulate your jawbone. When one is lost, that stimulation stops, which can lead to bone loss over time. Saving the tooth with a root canal maintains this vital relationship and keeps your facial structure supported.",
-        "q": "How Does Tooth Loss Affect Jawbone Health?"
-      },
-      {
-        "a": "If you are experiencing throbbing pain, sensitivity to heat, or swelling, do not wait. Early intervention often saves the tooth and avoids more invasive procedures later.",
-        "q": "When Should You Act Early on Tooth Pain?"
-      }
-    ],
-    "content_type": "educational",
-    "canonical_url": null
-  },
-  {
     "slug": "government-vs-private-braces",
-    "title": "Government vs Private Braces in Malaysia: What Parents Should Know",
+    "title": "Are Braces Covered by the Government in Malaysia? What Parents Should Know",
     "categories": [
       "Orthodontics"
     ],
@@ -1550,18 +1558,34 @@
     ],
     "date": "2025-01-05",
     "img": "/images/service_straighten.png",
-    "excerpt": "Deciding where to get braces for your child involves balancing time, convenience, and treatment options.",
-    "seo_title": "Government vs Private Braces Malaysia: Waiting Times",
-    "seo_description": "Government or private braces in Malaysia? How they compare on waiting lists, appointment flexibility and treatment options — from a Petaling Jaya family clinic.",
+    "excerpt": "Can you get braces at a government clinic in Malaysia? Here are the criteria the KKM guideline actually sets, and what to think about if the wait does not suit your child.",
+    "seo_title": "Are Braces Covered by the Government in Malaysia?",
+    "seo_description": "Who qualifies for braces at a KKM dental clinic, the IOTN score and hygiene requirements involved, and what to weigh up when the wait does not suit your child.",
     "featured": false,
     "faq": [
       {
-        "a": "Government clinics provide excellent care but often have long waiting lists due to high demand. Private clinics can usually begin treatment almost immediately, which is crucial if you want to utilize the prime teenage growth spurt for optimal results.",
-        "q": "How do government and private orthodontic clinics compare for waiting periods?"
+        "q": "Are braces covered by the government in Malaysia?",
+        "a": "Orthodontic treatment is provided at Ministry of Health dental facilities, but not to everyone who asks. The KKM referral guideline directs treatment at Malaysian citizens whose malocclusion affects dental function and health, scored using the Index of Orthodontic Treatment Need. Patients scoring IOTN 1, 2 or 3 are listed in the guideline as not accepted for treatment."
       },
       {
-        "a": "Private practice offers Saturday or evening appointments, meaning your child does not have to miss school and you do not have to take leave for every adjustment visit. This convenience, combined with access to advanced options like clear ceramic braces and self-ligating systems, makes the process much smoother for active families.",
-        "q": "Why might private orthodontic care be worth the investment for families?"
+        "q": "What IOTN score qualifies for government braces?",
+        "a": "The guideline states that primary dental clinics refer patients meeting IOTN scores 4 and 5, and that orthodontic facilities handle cases meeting those scores. Scores of 1, 2 and 3 are listed under patients not accepted for treatment. The guideline also mentions priority for score 3 with an aesthetic component of 6, so borderline cases are worth asking your dental officer about directly."
+      },
+      {
+        "q": "Is there an age limit for government braces?",
+        "a": "Not a hard cut-off, but priority goes to patients under 18. The guideline states that for those over 18, orthodontic treatment is given only to patients with complex problems requiring multidisciplinary specialist involvement. In practice most adults seeking routine orthodontic treatment are seen privately."
+      },
+      {
+        "q": "What else is required besides the IOTN score?",
+        "a": "The guideline requires Malaysian citizenship, very good oral hygiene measured by plaque score, freedom from calculus and gum inflammation, and being dentally fit with all basic treatment completed. It also asks the dental officer to assess patient and parent motivation, judged partly on whether appointments are kept. All criteria must be met, or the patient is referred back to the referring officer."
+      },
+      {
+        "q": "How long is the referral letter valid?",
+        "a": "Three months from the date the referring officer signs it. If you miss the specialist appointment and the letter expires, a new one has to be issued, and the dental officer has to confirm your oral health still meets the criteria first."
+      },
+      {
+        "q": "Are braces the only option for a child?",
+        "a": "No. Depending on what an assessment finds, options can include myofunctional appliances, expanders and other growth-related appliances, clear aligners, or braces. Sometimes the outcome is simply monitoring while a child grows. Which of these suits a particular child depends on their age, their stage of development and what the assessment shows."
       }
     ],
     "content_type": "educational",
@@ -1695,8 +1719,8 @@
     "date": "2024-12-05",
     "img": "/images/mouth_breathing_sleep.png",
     "excerpt": "Is your child sleeping with their mouth open? It might be more than just a habit—it could impact their facial development.",
-    "seo_title": null,
-    "seo_description": null,
+    "seo_title": "Mouth Breathing in Children: Signs Parents Should Know",
+    "seo_description": "Is your child sleeping with their mouth open? How mouth breathing affects jaw growth, sleep and teeth — and when to have it assessed.",
     "featured": false,
     "faq": [
       {
