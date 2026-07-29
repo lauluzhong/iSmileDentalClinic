@@ -20,7 +20,7 @@ faq:
   - q: Is it too late to do anything as an adult?
     a: 'That depends entirely on what is behind it. For some people the priority is having a nasal or medical cause evaluated. For others the focus is on oral habits and posture, or on protecting the teeth and gums from a persistently dry mouth. An assessment is what tells you which of those applies to you.'
 featured: false
-img: /images/blog/asian_couple_40s.png
+img: /images/blog/adult-mouth-breathing-hero.png
 title: 'Why Am I Breathing Through My Mouth? An Adult Guide'
 tags:
   - Myofunctional Orthodontics
