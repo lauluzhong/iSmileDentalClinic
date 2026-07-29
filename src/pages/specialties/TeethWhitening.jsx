@@ -3,6 +3,8 @@ import { useBooking } from '../../context/BookingContext';
 import React, { useEffect } from 'react';
 import { Shield, CheckCircle, HelpCircle, Star } from 'lucide-react';
 import Button from '../../components/Button';
+import { specialtyFor, fillStats } from '../../data/serviceSeo';
+import reviewStats from '../../data/review-stats.json';
 
 const TeethWhitening = () => {
     // Add Service schema for SEO
@@ -67,28 +69,9 @@ const TeethWhitening = () => {
         };
     }, []);
 
-    const faqs = [
-        {
-            "q": "Why is Take-Home Whitening considered the 'Gold Standard'?",
-            "a": "Take-home whitening allows for a gradual, deeper oxidation process. By using custom-fitted trays over 10-14 days, the oxygen molecules penetrate deeper into the tooth structure, leading to more stable protocols and significantly less rebound (yellowing coming back) compared to single-session chair-side whitening."
-        },
-        {
-            "q": "How long do I need to wear the trays each day?",
-            "a": "Depending on the concentration prescribed by our doctors, you'll wear the trays for either 30-60 minutes during the day or overnight while you sleep. Most patients achieve their target shade within 2 weeks."
-        },
-        {
-            "q": "Is the whitening gel safe for my gums?",
-            "a": "Yes, because our trays are custom-made from 3D scans of your mouth, they are trimmed precisely to your gum line. This prevents the whitening gel from leaking onto the soft tissues, minimizing irritation and ensuring the gel stays exactly where it's needed."
-        },
-        {
-            "q": "What happens if my teeth feel sensitive?",
-            "a": "Our prescribed gels contain built-in desensitizers and high water content to prevent dehydration. However, if sensitivity occurs, you can simply skip a night or use a desensitizing gel in your trays. The process is entirely under your control."
-        },
-        {
-            "q": "Will it damage my enamel?",
-            "a": "Professional whitening gels are formulated to be pH-neutral and contain minerals that protect the enamel. When used as prescribed, it does not thin or damage the tooth structure."
-        }
-    ];
+    const seo = specialtyFor('TeethWhitening');
+    // Copy lives in src/data/serviceSeo.js so the prerendered HTML matches.
+    const faqs = seo.faqs.map(f => ({ q: fillStats(f.q, reviewStats), a: fillStats(f.a, reviewStats) }));
 
     // Add FAQ schema for SEO
     useEffect(() => {
@@ -118,9 +101,9 @@ const TeethWhitening = () => {
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Teeth Whitening in Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Professional teeth whitening at iSmile Damansara Jaya — in-clinic treatments & take-home trays. Rated 4.8★ from 91 Google reviews. WhatsApp us to book." />
-                <link rel="canonical" href="https://ismile.com.my/services/enhance/teeth-whitening" />
+                <title>{fillStats(seo.title, reviewStats)}</title>
+                <meta name="description" content={fillStats(seo.description, reviewStats)} />
+                <link rel="canonical" href={seo.canonical} />
             </Helmet>
 
             <div className="tech-hero">

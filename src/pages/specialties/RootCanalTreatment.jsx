@@ -3,6 +3,8 @@ import { useBooking } from '../../context/BookingContext';
 import React, { useEffect } from 'react';
 import { Shield, CheckCircle, HelpCircle } from 'lucide-react';
 import Button from '../../components/Button';
+import { specialtyFor, fillStats } from '../../data/serviceSeo';
+import reviewStats from '../../data/review-stats.json';
 
 const RootCanalTreatment = () => {
     // Add Service schema for SEO
@@ -67,28 +69,9 @@ const RootCanalTreatment = () => {
         };
     }, []);
 
-    const faqs = [
-        {
-            q: "Is root canal treatment painful?",
-            a: "This is a common myth. With modern anesthesia and techniques, a root canal is typically no more uncomfortable than a routine filling. In fact, the procedure is designed to eliminate the pain caused by infection."
-        },
-        {
-            q: "Why do I need a crown afterwards?",
-            a: "After a root canal, the tooth loses its blood supply and can become brittle over time. A crown (cap) is placed to reinforce the tooth structure, preventing fractures and restoring full function."
-        },
-        {
-            q: "How many visits does it take?",
-            a: "Most treatments are completed in 1 to 2 visits, depending on the complexity of the canal system and the severity of the infection. We prioritize thorough cleaning to ensure long-term success."
-        },
-        {
-            q: "What happens if I don't get a root canal?",
-            a: "An untreated infection will continue to spread, potentially leading to a painful abscess, bone loss around the root, and eventually the need for extraction."
-        },
-        {
-            q: "Will the tooth look different afterwards?",
-            a: "Typically, the tooth is restored with a crown that matches your natural teeth perfectly, so it will look and feel natural."
-        }
-    ];
+    const seo = specialtyFor('RootCanalTreatment');
+    // Copy lives in src/data/serviceSeo.js so the prerendered HTML matches.
+    const faqs = seo.faqs.map(f => ({ q: fillStats(f.q, reviewStats), a: fillStats(f.a, reviewStats) }));
 
     // Add FAQ schema for SEO
     useEffect(() => {
@@ -118,9 +101,9 @@ const RootCanalTreatment = () => {
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Root Canal Treatment in Petaling Jaya | iSmile</title>
-                <meta name="description" content="Root canal treatment at iSmile Damansara Jaya, PJ to save an infected tooth. Family practice, open Mon–Sat. WhatsApp us to book an assessment." />
-                <link rel="canonical" href="https://ismile.com.my/services/protect/root-canal" />
+                <title>{fillStats(seo.title, reviewStats)}</title>
+                <meta name="description" content={fillStats(seo.description, reviewStats)} />
+                <link rel="canonical" href={seo.canonical} />
             </Helmet>
 
             <div className="tech-hero">

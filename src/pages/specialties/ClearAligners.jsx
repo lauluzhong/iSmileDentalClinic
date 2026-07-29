@@ -3,6 +3,8 @@ import { useBooking } from '../../context/BookingContext';
 import React, { useEffect } from 'react';
 import { Shield, CheckCircle, HelpCircle, Sparkles } from 'lucide-react';
 import Button from '../../components/Button';
+import { specialtyFor, fillStats } from '../../data/serviceSeo';
+import reviewStats from '../../data/review-stats.json';
 
 const ClearAligners = () => {
     const { openBooking } = useBooking();
@@ -65,35 +67,16 @@ const ClearAligners = () => {
         };
     }, []);
 
-    const faqs = [
-        {
-            "q": "How many hours a day must I wear them?",
-            "a": "For clinical success, 20 to 22 hours per day is typically required. They should only be removed for eating, drinking (except water), and oral hygiene."
-        },
-        {
-            "q": "Does it affect speech?",
-            "a": "A minor lisp may occur for the first day or two as the tongue adapts to the aligner thickness. This usually resolves quickly on its own."
-        },
-        {
-            "q": "Can I eat with them?",
-            "a": "No, aligners must be removed during meals to prevent staining, damage, and to ensure proper oral hygiene."
-        },
-        {
-            "q": "Are aligners suitable for all cases?",
-            "a": "While aligners can treat many orthodontic issues, some complex cases may still require traditional braces. Our dentists will assess your situation using 3D scanning and advise on the most appropriate option."
-        },
-        {
-            "q": "How do I clean my aligners?",
-            "a": "Rinse them with lukewarm water and brush them gently with a soft toothbrush. Avoid hot water as it can warp the plastic."
-        }
-    ];
+    const seo = specialtyFor('ClearAligners');
+    // Copy lives in src/data/serviceSeo.js so the prerendered HTML matches.
+    const faqs = seo.faqs.map(f => ({ q: fillStats(f.q, reviewStats), a: fillStats(f.a, reviewStats) }));
 
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Clear Aligners in Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Invisalign & clear aligners at our Damansara Jaya clinic — discreet teeth straightening for adults & teens. Rated 4.8★ on Google. WhatsApp us to book." />
-                <link rel="canonical" href="https://ismile.com.my/services/straighten/clear-aligners" />
+                <title>{fillStats(seo.title, reviewStats)}</title>
+                <meta name="description" content={fillStats(seo.description, reviewStats)} />
+                <link rel="canonical" href={seo.canonical} />
             </Helmet>
 
             <div className="tech-hero">

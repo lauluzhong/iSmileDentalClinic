@@ -3,6 +3,8 @@ import { useBooking } from '../../context/BookingContext';
 import React, { useEffect } from 'react';
 import { Shield, CheckCircle, HelpCircle, Star } from 'lucide-react';
 import Button from '../../components/Button';
+import { specialtyFor, fillStats } from '../../data/serviceSeo';
+import reviewStats from '../../data/review-stats.json';
 
 const CosmeticDentistry = () => {
     const { openBooking } = useBooking();
@@ -40,28 +42,9 @@ const CosmeticDentistry = () => {
         };
     }, []);
 
-    const faqs = [
-        {
-            "q": "What's the difference between composite and ceramic veneers?",
-            "a": "Composite veneers are directly bonded in a single visit and can be repaired easily. Ceramic veneers are lab-made from porcelain for superior aesthetics, durability, and stain resistance. Your dentist will recommend the best option based on your goals and tooth condition."
-        },
-        {
-            "q": "How long do veneers last?",
-            "a": "With proper care, ceramic veneers can last 10-15 years or longer. Composite veneers typically last 5-7 years before requiring maintenance or replacement."
-        },
-        {
-            "q": "Do veneers require tooth reduction?",
-            "a": "Minimally invasive protocols mean we preserve as much natural tooth structure as possible. Composite veneers often require little to no reduction, while ceramic veneers may require a thin layer (0.3-0.5mm) for optimal fit and aesthetics."
-        },
-        {
-            "q": "Can I see how my new smile will look before committing?",
-            "a": "Yes. We offer a 'Trial Smile' mock-up process where you can preview and feel your new smile before any treatment begins. This ensures complete confidence in the final result."
-        },
-        {
-            "q": "Is cosmetic dentistry only about aesthetics?",
-            "a": "Not at iSmile. Our cosmetic treatments are designed with function in mind. We analyze bite forces, jaw alignment, and facial harmony to ensure your new smile is as healthy as it is beautiful."
-        }
-    ];
+    const seo = specialtyFor('CosmeticDentistry');
+    // Copy lives in src/data/serviceSeo.js so the prerendered HTML matches.
+    const faqs = seo.faqs.map(f => ({ q: fillStats(f.q, reviewStats), a: fillStats(f.a, reviewStats) }));
 
     // Add FAQ schema for SEO
     useEffect(() => {
@@ -91,9 +74,9 @@ const CosmeticDentistry = () => {
     return (
         <div className="specialty-page">
             <Helmet>
-                <title>Cosmetic Dentist in Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Veneers, smile design & full mouth rehabilitation at iSmile Damansara Jaya — a family clinic serving Petaling Jaya since 2006. WhatsApp us to book." />
-                <link rel="canonical" href="https://ismile.com.my/services/enhance/cosmetic-dentistry" />
+                <title>{fillStats(seo.title, reviewStats)}</title>
+                <meta name="description" content={fillStats(seo.description, reviewStats)} />
+                <link rel="canonical" href={seo.canonical} />
             </Helmet>
 
             <div className="tech-hero">
