@@ -1558,9 +1558,9 @@
     ],
     "date": "2025-01-05",
     "img": "/images/service_straighten.png",
-    "excerpt": "Can you get braces at a government clinic in Malaysia? The KKM referral guideline sets out exactly who qualifies, and there are conditions most families never hear about.",
+    "excerpt": "Can you get braces at a government clinic in Malaysia? Here are the criteria the KKM guideline actually sets, and what to think about if the wait does not suit your child.",
     "seo_title": "Are Braces Covered by the Government in Malaysia?",
-    "seo_description": "Who qualifies for braces at a KKM dental clinic, the IOTN score needed, the oral hygiene requirements most parents never hear about, and how the referral works.",
+    "seo_description": "Who qualifies for braces at a KKM dental clinic, the IOTN score and hygiene requirements involved, and what to weigh up when the wait does not suit your child.",
     "featured": false,
     "faq": [
       {
@@ -1577,15 +1577,15 @@
       },
       {
         "q": "What else is required besides the IOTN score?",
-        "a": "This is the part most families never hear about. The guideline requires Malaysian citizenship, very good oral hygiene measured by plaque score, freedom from calculus and gum inflammation, and being dentally fit with all basic treatment completed. It also asks the dental officer to assess patient and parent motivation, judged partly on whether appointments are kept. All criteria must be met, or the patient is referred back to the referring officer."
-      },
-      {
-        "q": "What can disqualify someone from treatment?",
-        "a": "The guideline lists poor oral hygiene, unsatisfactory dental condition such as multiple caries or non-vital teeth, uncontrolled periodontal problems, extensive crown and bridge work that makes bonding difficult, certain uncontrolled medical conditions that are contraindicated for orthodontic materials or appliances, enamel anomalies, and inability to follow treatment instructions."
+        "a": "The guideline requires Malaysian citizenship, very good oral hygiene measured by plaque score, freedom from calculus and gum inflammation, and being dentally fit with all basic treatment completed. It also asks the dental officer to assess patient and parent motivation, judged partly on whether appointments are kept. All criteria must be met, or the patient is referred back to the referring officer."
       },
       {
         "q": "How long is the referral letter valid?",
-        "a": "Three months from the date the referring officer signs it. If you miss the specialist appointment and the letter expires, a new one has to be issued, and the dental officer has to confirm your oral health still meets the criteria before issuing it."
+        "a": "Three months from the date the referring officer signs it. If you miss the specialist appointment and the letter expires, a new one has to be issued, and the dental officer has to confirm your oral health still meets the criteria first."
+      },
+      {
+        "q": "Are braces the only option for a child?",
+        "a": "No. Depending on what an assessment finds, options can include myofunctional appliances, expanders and other growth-related appliances, clear aligners, or braces. Sometimes the outcome is simply monitoring while a child grows. Which of these suits a particular child depends on their age, their stage of development and what the assessment shows."
       }
     ],
     "content_type": "educational",
