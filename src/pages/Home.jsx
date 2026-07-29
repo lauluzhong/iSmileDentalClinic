@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet-async';
 import { Reveal } from '../components/Reveal';
 import { motion, useReducedMotion } from 'framer-motion';
 import reviewStats from '../data/review-stats.json';
+import ResponsiveImage from '../components/ResponsiveImage';
 
 // Updated Image Paths
 // Hero art direction. The mobile hero is a full-bleed PORTRAIT box; the desktop
@@ -326,9 +327,10 @@ const Home = () => {
                         </div>
                         <div className="welcome-image-split">
                             <picture>
-                              <source type="image/webp" srcSet={`/images/team_group-480w.webp 480w, /images/team_group-768w.webp 768w, ${TEAM_IMG_WEBP} 1024w`} sizes="(max-width: 768px) 100vw, 50vw" />
-                              <source type="image/jpeg" srcSet={`/images/team_group-480w.jpg 480w, /images/team_group-768w.jpg 768w, ${TEAM_IMG} 1024w`} sizes="(max-width: 768px) 100vw, 50vw" />
-                              <img src={TEAM_IMG} srcSet={`/images/team_group-480w.jpg 480w, /images/team_group-768w.jpg 768w, ${TEAM_IMG} 1024w`} sizes="(max-width: 768px) 100vw, 50vw" alt="iSmile Dental Clinic team" width="1024" height="682" loading="lazy" decoding="async" />
+                              <source type="image/avif" srcSet={`/images/team_group-480w.avif 480w, /images/team_group-768w.avif 768w, /images/team_group-1024w.avif 1024w`} sizes="(max-width: 768px) 100vw, 50vw" />
+                              <source type="image/webp" srcSet={`/images/team_group-480w.webp 480w, /images/team_group-768w.webp 768w, /images/team_group-1024w.webp 1024w`} sizes="(max-width: 768px) 100vw, 50vw" />
+                              <source type="image/jpeg" srcSet={`/images/team_group-480w.jpg 480w, /images/team_group-768w.jpg 768w, /images/team_group-1024w.jpg 1024w`} sizes="(max-width: 768px) 100vw, 50vw" />
+                              <img src={TEAM_IMG} srcSet={`/images/team_group-480w.jpg 480w, /images/team_group-768w.jpg 768w, /images/team_group-1024w.jpg 1024w`} sizes="(max-width: 768px) 100vw, 50vw" alt="iSmile Dental Clinic team" width="1024" height="682" loading="lazy" decoding="async" />
                             </picture>
                         </div>
                     </div>
@@ -348,7 +350,7 @@ const Home = () => {
                             {featuredBlogs.map((post, i) => (
                                 <Link to={`/blog/${post.slug}`} key={i} className="glass-panel insight-card-large" style={{ textDecoration: 'none', color: 'inherit' }}>
                                     <div className="insight-image-large">
-                                        <img src={post.img} alt={post.title} loading="lazy" />
+                                        <ResponsiveImage src={post.img} alt={post.title} loading="lazy" sizes="(max-width: 768px) 85vw, 500px" />
                                     </div>
                                     <div className="insight-content">
                                         <h3>{post.title}</h3>
@@ -744,10 +746,12 @@ const Home = () => {
             width: 100%;
         }
         
+        .insight-image-large picture,
         .insight-image-large img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .insight-content {

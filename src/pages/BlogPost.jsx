@@ -6,6 +6,7 @@ import Button from '../components/Button';
 import { ArrowLeft, ChevronDown } from 'lucide-react';
 import { useBooking } from '../context/BookingContext';
 import blogIndex from '../data/blog-index.json';
+import ResponsiveImage from '../components/ResponsiveImage';
 import { relatedServices } from '../data/blogServiceLinks';
 
 const SITE_URL = 'https://ismile.com.my';
@@ -281,11 +282,12 @@ const BlogPost = () => {
                 <FadeIn>
                     {post.img && (
                         <div className="featured-image-wrapper">
-                            <img
+                            <ResponsiveImage
                                 src={post.img}
                                 alt={post.title}
                                 className="featured-post-img"
                                 loading="lazy"
+                                sizes="(max-width: 900px) 100vw, 900px"
                             />
                         </div>
                     )}
@@ -410,7 +412,7 @@ const BlogPost = () => {
                                 {relatedPosts.map((rp) => (
                                     <Link to={`/blog/${rp.slug}`} key={rp.slug} className="related-post-card">
                                         <div className="related-post-image">
-                                            <img src={rp.img} alt={rp.title} loading="lazy" />
+                                            <ResponsiveImage src={rp.img} alt={rp.title} loading="lazy" sizes="(max-width: 768px) 100vw, 340px" />
                                         </div>
                                         <div className="related-post-content">
                                             <span className="related-post-cat">{rp.tags && rp.tags.length > 0 ? rp.tags[0] : (rp.categories && rp.categories[0]) || rp.category}</span>
@@ -432,6 +434,10 @@ const BlogPost = () => {
                     -webkit-text-fill-color: transparent;
                     background-clip: text;
                 }
+                .featured-image-wrapper picture {
+                    display: block;
+                }
+
                 .featured-image-wrapper {
                     border-radius: 24px;
                     overflow: hidden;
@@ -548,6 +554,12 @@ const BlogPost = () => {
                 .related-post-image {
                     height: 180px;
                     overflow: hidden;
+                }
+
+                .related-post-image picture {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
                 }
 
                 .related-post-image img {

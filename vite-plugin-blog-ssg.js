@@ -3,8 +3,32 @@ import path from 'path';
 import { SERVICE_CATEGORIES, SERVICE_SPECIALTIES } from './src/data/serviceSeo.js';
 import { CORE_PAGES } from './src/data/corePagesSeo.js';
 import { relatedServices } from './src/data/blogServiceLinks.js';
+import imageVariants from './src/data/image-variants.json' with { type: 'json' };
 
 const SITE_URL = 'https://ismile.com.my';
+
+// Mirrors <ResponsiveImage> for the pre-rendered shell. Without this the static
+// HTML requests the full-size original before React hydrates, which is exactly
+// the byte weight the responsive variants exist to avoid.
+const IMG_STYLE = 'max-width:100%;height:auto;border-radius:12px;margin:20px 0';
+const IMG_SIZES = '(max-width: 900px) 100vw, 900px';
+
+function responsiveImgTag(src, safeTitle) {
+  const entry = imageVariants[src];
+  if (!entry || !entry.variants || entry.variants.length === 0) {
+    return '    <img src="' + escapeHtml(src) + '" alt="' + safeTitle + '" style="' + IMG_STYLE + '" />';
+  }
+  const set = (key) => entry.variants.map(v => v[key] + ' ' + v.w + 'w').join(', ');
+  return [
+    '    <picture>',
+    '      <source type="image/avif" srcset="' + set('avif') + '" sizes="' + IMG_SIZES + '" />',
+    '      <source type="image/webp" srcset="' + set('webp') + '" sizes="' + IMG_SIZES + '" />',
+    '      <source type="' + entry.fallbackType + '" srcset="' + set('raster') + '" sizes="' + IMG_SIZES + '" />',
+    '      <img src="' + escapeHtml(src) + '" srcset="' + set('raster') + '" sizes="' + IMG_SIZES + '" alt="' + safeTitle + '" width="' + entry.width + '" height="' + entry.height + '" style="' + IMG_STYLE + '" />',
+    '    </picture>',
+  ].join('\n');
+}
+
 
 const GTM_HEAD = [
   '  <!-- Google Tag Manager -->',
@@ -253,7 +277,7 @@ export default function blogSSG() {
           : '';
 
         const cssLink = entryCss ? '  <link rel="stylesheet" href="' + entryCss + '" />' : '';
-        const imgTag = post.img ? '    <img src="' + escapeHtml(post.img) + '" alt="' + safeTitle + '" style="max-width:100%;height:auto;border-radius:12px;margin:20px 0" />' : '';
+        const imgTag = post.img ? responsiveImgTag(post.img, safeTitle) : '';
         const categorySpan = safeCategory ? ' &middot; ' + safeCategory : '';
         const scriptTag = entryScript ? '  <script type="module" src="' + entryScript + '"><\/script>' : '';
 
