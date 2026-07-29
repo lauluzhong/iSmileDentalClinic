@@ -30,7 +30,7 @@ content_type: educational
 
 Most of what gets written about mouth breathing is aimed at parents, and there is good reason for that: how a child breathes can influence how the face and jaws develop over time. But adults breathe through their mouths too, often for years, and usually without anyone connecting it to their dental history.
 
-If you have ever woken up with a mouth like paper and wondered why, this is worth ten minutes of reading.
+If you have ever woken up with a mouth like paper and wondered why, there is usually a reason worth chasing down.
 
 ## Why it happens
 
@@ -38,11 +38,9 @@ The nose is built to do the work. It filters, warms and humidifies air on the wa
 
 The reasons vary. Nasal congestion from allergies or ongoing sinus inflammation is a common one. So is a structural narrowing inside the nose. In some adults there is no current blockage at all and the pattern is simply a habit that set in during childhood and never changed back.
 
-Some of these belong to a doctor or an ENT specialist rather than a dentist, which is worth saying plainly at the start. (We will come back to that, because knowing who to see is half the problem.)
+Some of these belong to a doctor or an ENT specialist rather than a dentist. (Knowing who to see is half the problem, and most people spend a while going round in circles first.)
 
 ## What it does to your mouth
-
-This is the part a dental team sees, and it is why the topic sits on a dental website at all.
 
 Saliva does more than most people realise. It buffers acid, clears away food debris, and helps repair early enamel damage before it turns into a cavity. Breathing through an open mouth dries that system out, and seven or eight hours of sleep is a long time for it to stay dry.
 
@@ -62,17 +60,15 @@ Most people who mouth breathe at night have no idea they do it. The clues tend t
 
 None of these confirms anything on its own. Together they are a pattern worth mentioning at your next dental visit.
 
-## What an assessment actually involves
+If you want something concrete to bring with you, spend a week noting how your mouth feels when you first wake up, whether you reach for water during the night, and whether you can breathe comfortably through your nose with your lips closed while sitting still for a minute or two. Ask whoever you live with what they have noticed. It sounds basic, but that handful of observations tells us more at the first appointment than trying to reconstruct months of sleep from memory.
 
-The useful thing about coming in is that we can stop guessing and look properly.
+## What an assessment actually involves
 
 We start with the evidence in your mouth: dryness, where decay is appearing, the condition of your gums, tooth wear, oral posture and how you hold your bite. Those tell us whether what you are describing lines up with a mouth breathing pattern.
 
 Where it is helpful, we can also take a 3D scan. We use cone beam CT imaging at the clinic, a fast, low radiation scan that shows the structures around your upper airway rather than just your teeth. It gives us a much clearer picture than looking in your mouth alone, and it is the same technology we use for implant and wisdom tooth planning.
 
 From there we can talk you through what we are seeing and what your options are. Sometimes that is something we can help with directly. Sometimes the picture points to a nasal or medical cause, in which case the scan and the assessment give you something concrete to take to a doctor or ENT specialist, rather than starting from scratch. Snoring and unrefreshing sleep in particular are worth raising with a doctor.
-
-Plenty of adults have been vaguely aware for years that they breathe through their mouth without anyone joining it up to their dental history. An assessment is a small step that can save you a lot of circling.
 
 ## What tends to happen next
 

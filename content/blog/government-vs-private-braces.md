@@ -30,7 +30,7 @@ content_type: educational
 
 Orthodontic treatment is available through Ministry of Health dental clinics in Malaysia. What surprises many parents is that it is not available to everyone who wants it. Access is decided on clinical need using a scoring system, and it is generally directed at patients under 18.
 
-Plenty of families plan around an assumption that turns out not to hold. Here is what the decision actually rests on, so you can find out where your child stands before you build a plan around it.
+Plenty of families plan around an assumption that turns out not to hold, so it is worth finding out where your child stands before you build a plan around it.
 
 ## How eligibility is decided
 
@@ -46,7 +46,7 @@ Published referral guidance for Malaysian government practice sets it out along 
 
 Within the eligible group, priority goes to patients with cleft lip and palate, dental anomalies, and functional or skeletal problems.
 
-The practical consequence is worth stating plainly. Mild crowding, slightly protruding front teeth, or a smile a teenager has become self conscious about will often score too low. Those are real concerns to a family. They are simply not what the public system is resourced to take on.
+In practice, mild crowding, slightly protruding front teeth, or a smile a teenager has become self conscious about will often score too low. Those are real concerns to a family. They are simply not what the public system is resourced to take on.
 
 ## The age limit catches people out
 
@@ -67,23 +67,21 @@ Each of those steps is a queue of its own. It is also worth raising the referral
 
 ## How long the wait is
 
-This is the part where you should be sceptical of any single number, including one you read online. Waiting times are widely reported to run into years rather than months, and they vary substantially by state and by facility.
+Waiting times are widely reported to run into years rather than months, and they vary substantially by state and by facility.
 
 The figure that matters to you is the one for the clinic your child would actually be referred to. Ask the dental officer directly.
 
-## The thing that gets lost in the debate
-
-Here is the consideration we think matters more than which route costs less.
+## Growth does not pause while you wait
 
 A child's jaw keeps developing whether or not they are on a waiting list. Much of that development happens earlier than many parents expect, and the period around the growth spurt is when certain concerns can be easier to influence. Something that is relatively simple to address while growth is still happening may need a different or more involved approach once it has finished.
 
-So the useful question is not a general one about public or private care. It is whether the timing of this particular child's situation tolerates a wait. In some cases it comfortably does. In others it may not.
+The question, then, is not a general one about public or private care. It is whether the timing of this particular child's situation tolerates a wait. In some cases it comfortably does. In others it may not.
 
-That is a judgement about your child specifically, and it needs an assessment to answer. It can come from us, from the government clinic, or from anyone else you trust. What we would gently suggest avoiding is waiting several years without knowing which category your child falls into.
+That is a judgement about your child specifically, and it needs an assessment to answer. It can come from us, from the government clinic, or from anyone else you trust. The thing to avoid is waiting several years without knowing which category your child falls into.
 
 ## When the government route makes sense
 
-We should say this plainly, because articles on this topic often skip it. If your child scores in the eligible range, is comfortably within the age window, the situation is not time sensitive, and cost is a genuine constraint for your family, the government route is a reasonable choice. The clinicians are well trained and the treatment is proper specialist care.
+If your child scores in the eligible range, is comfortably within the age window, the situation is not time sensitive, and cost is a genuine constraint for your family, the government route is a reasonable choice. The clinicians are well trained and the treatment is proper specialist care.
 
 Where a wait may carry a cost is in the time sensitive cases. Where the public route is not an option at all is where a child scores too low or falls outside the age limit. Those are the situations worth knowing about early.
 
