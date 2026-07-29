@@ -7,7 +7,7 @@ categories:
   - educational
 tags:
   - Cosmetic Dentistry
-parent_page: https://ismile.com.my/services/cosmetic
+parent_page: https://ismile.com.my/services/enhance
 img: /images/blog/teeth-whitening-sensitive-teeth-hero.jpg
 featured: false
 faq:

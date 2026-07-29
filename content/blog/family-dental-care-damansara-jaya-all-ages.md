@@ -34,7 +34,7 @@ Finding dental care that works for your entire family involves considering diffe
 
 ## Understanding Family Dental Care
 
-[Family dentistry](https://ismile.com.my/services/family-dentistry) means providing dental care for patients of all ages, from young children having their first dental visit to adults seeking preventive, restorative, or cosmetic treatments. The real benefit comes from having one dental home for your entire family. When everyone sees the same dental team, we develop a complete understanding of your family's oral health history, habits, and specific needs.
+[Family dentistry](https://ismile.com.my/services) means providing dental care for patients of all ages, from young children having their first dental visit to adults seeking preventive, restorative, or cosmetic treatments. The real benefit comes from having one dental home for your entire family. When everyone sees the same dental team, we develop a complete understanding of your family's oral health history, habits, and specific needs.
 
 This continuity allows us to provide more personalized care. We notice patterns that might otherwise be missed—like similar dental concerns among siblings or shared habits that could affect oral health. Plus, it simplifies scheduling and reduces the stress of coordinating appointments across multiple specialists.
 

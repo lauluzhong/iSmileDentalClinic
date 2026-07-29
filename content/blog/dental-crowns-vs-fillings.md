@@ -7,7 +7,7 @@ categories:
   - educational
 tags:
   - Restorative Dentistry
-parent_page: https://ismile.com.my/services/restorative
+parent_page: https://ismile.com.my/services/protect
 img: /images/blog/dental-crowns-vs-fillings-hero.jpg
 featured: false
 faq:

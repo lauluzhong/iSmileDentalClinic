@@ -66,12 +66,43 @@ const HYDRATION_SWAP = [
   '  <\/script>',
 ].join('\n');
 
+// The 2026-07-29 link audit found that Header.jsx and Footer.jsx only render
+// after React mounts, so every prerendered page shipped ZERO outgoing links —
+// a crawler's first fetch of a service page saw a dead end, and the whole
+// 44-post blog cluster hung off /blog, which nothing linked to. This static
+// nav goes inside #ssg-content, so HYDRATION_SWAP removes it when the real
+// header takes over and users never see two navs.
+const STATIC_NAV_LINKS = [
+  ['/', 'Home'],
+  ['/about', 'About Us'],
+  ['/services', 'Services'],
+  ['/services/protect', 'Protect Your Teeth'],
+  ['/services/straighten', 'Straighten Your Teeth'],
+  ['/services/replace', 'Replace Missing Teeth'],
+  ['/services/enhance', 'Enhance Your Smile'],
+  ['/services/children', "Children's Dentistry"],
+  ['/services/locations/damansara-jaya', 'Dentist in Damansara Jaya'],
+  ['/blog', 'Blog'],
+  ['/reviews', 'Patient Reviews'],
+  ['/faq', 'FAQs'],
+  ['/contact', 'Contact'],
+];
+
+function staticNav(currentPath) {
+  const items = STATIC_NAV_LINKS
+    .filter(([href]) => href !== currentPath)
+    .map(([href, label]) => '<li><a href="' + href + '">' + escapeHtml(label) + '</a></li>')
+    .join('');
+  return '    <nav aria-label="Site"><ul>' + items + '</ul></nav>';
+}
+
 /**
  * Assemble one pre-rendered page. Shared by blog posts, location pages and
  * service pages so the head/GTM/hydration boilerplate lives in exactly one place.
  */
 function buildPage({ title, ogTitle, description, canonicalUrl, ogType, ogImage,
-                     extraMeta = [], jsonLd = [], body, cssLink, scriptTag }) {
+                     extraMeta = [], jsonLd = [], body, cssLink, scriptTag,
+                     currentPath = '' }) {
   // Social cards use the bare headline; only <title> carries the site suffix.
   const social = ogTitle || title;
   return [
@@ -121,6 +152,7 @@ function buildPage({ title, ogTitle, description, canonicalUrl, ogType, ogImage,
     '  <!-- Pre-rendered content for SEO — removed once React mounts -->',
     '  <article id="ssg-content" style="max-width:800px;margin:80px auto;padding:0 20px;font-family:Inter,system-ui,sans-serif">',
     body,
+    staticNav(currentPath),
     '  </article>',
     '',
     '  <!-- React SPA mount point -->',
@@ -286,6 +318,7 @@ export default function blogSSG() {
           ogTitle: safeTitle,
           description: safeExcerpt,
           canonicalUrl,
+          currentPath: canonicalUrl.replace(SITE_URL, ''),
           ogType: 'article',
           ogImage,
           extraMeta: [
@@ -366,6 +399,7 @@ export default function blogSSG() {
           title: safeTitle,
           description: safeDescription,
           canonicalUrl,
+          currentPath: canonicalUrl.replace(SITE_URL, ''),
           ogType: 'website',
           ogImage: SITE_URL + '/logo.png',
           jsonLd: [jsonLd],
@@ -461,6 +495,7 @@ export default function blogSSG() {
           title: safeTitle,
           description: safeDescription,
           canonicalUrl,
+          currentPath: canonicalUrl.replace(SITE_URL, ''),
           ogType: 'website',
           ogImage: SITE_URL + '/logo.png',
           jsonLd,
@@ -538,6 +573,7 @@ export default function blogSSG() {
           title: safeTitle,
           description: safeDescription,
           canonicalUrl,
+          currentPath: canonicalUrl.replace(SITE_URL, ''),
           ogType: 'website',
           ogImage: SITE_URL + '/logo.png',
           jsonLd,

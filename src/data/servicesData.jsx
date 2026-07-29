@@ -33,8 +33,8 @@ export const servicesData = {
             ]
         },
         blogs: [
-            { title: "Understanding Gum Health", path: "/blog/gum-health", image: "Gum Health" },
-            { title: "Managing Tooth Sensitivity", path: "/blog/sensitivity", image: "Sensitivity" }
+            { title: "Why Do My Gums Bleed?", path: "/blog/why-do-my-gums-bleed", image: "Gum Health" },
+            { title: "Crowns vs Fillings", path: "/blog/dental-crowns-vs-fillings", image: "Sensitivity" }
         ]
     },
     straighten: {
@@ -70,8 +70,8 @@ export const servicesData = {
             )
         },
         blogs: [
-            { title: "Adult Orthodontics: Is it too late?", path: "/blog/adult-ortho", image: "Adult Ortho" },
-            { title: "Living with Retainers", path: "/blog/retainers", image: "Retainers" }
+            { title: "Clear Aligners vs Braces", path: "/blog/clear-aligners-vs-braces", image: "Adult Ortho" },
+            { title: "Myofunctional Therapy Before Braces", path: "/blog/myofunctional-therapy-before-after-braces", image: "Retainers" }
         ]
     },
     replace: {
@@ -105,8 +105,8 @@ export const servicesData = {
             ]
         },
         blogs: [
-            { title: "Understanding Bone Loss", path: "/blog/bone-loss", image: "Bone Loss" },
-            { title: "Are Dental Implants Safe?", path: "/blog/implant-safety", image: "Implant Safety" }
+            { title: "Dental Implants Explained", path: "/blog/dental-implants-malaysia-explained", image: "Bone Loss" },
+            { title: "Implant Consultation in Damansara Jaya", path: "/blog/dental-implant-consultation-damansara-jaya", image: "Implant Safety" }
         ]
     },
     enhance: {
@@ -141,8 +141,8 @@ export const servicesData = {
             ]
         },
         blogs: [
-            { title: "Types of Veneers", path: "/blog/veneer-types", image: "Veneers" },
-            { title: "Fixing Gummy Smiles", path: "/blog/gummy-smiles", image: "Gummy Smile" }
+            { title: "Composite vs Porcelain Veneers", path: "/blog/composite-vs-porcelain-veneers", image: "Veneers" },
+            { title: "Cosmetic Dentistry at iSmile", path: "/blog/cosmetic-dentistry-at-ismile-damansara-jaya", image: "Gummy Smile" }
         ]
     },
     children: {
@@ -176,8 +176,8 @@ export const servicesData = {
             ]
         },
         blogs: [
-            { title: "Mouth Breathing vs Nasal Breathing", path: "/blog/mouth-breathing", image: "Mouth Breathing" },
-            { title: "Thumb Sucking: When to worry", path: "/blog/thumb-sucking", image: "Thumb Sucking" }
+            { title: "Mouth Breathing in Children", path: "/blog/mouth-breathing-in-children", image: "Mouth Breathing" },
+            { title: "When Should Children Stop Thumb Sucking?", path: "/blog/when-should-children-stop-sucking-thumb", image: "Thumb Sucking" }
         ]
     }
 };
