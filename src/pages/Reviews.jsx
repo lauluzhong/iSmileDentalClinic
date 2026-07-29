@@ -223,6 +223,38 @@ const reviewsList = [
         author: "Wee Min Lee",
         rating: 5,
         avatar: "/images/reviews/wee_min_lee.png"
+    },
+    {
+        text: (
+            <>
+                <p>
+                    "Best dental clinic ever. Amazing dentist and front desk person who is always ever willing to explain{" "}
+                    and accommodate and super prompt.
+                </p>
+                <p>
+                    My family have had <strong>multiple dental treatments</strong> here with <strong>Dr Priscilla</strong> ❤️❤️"
+                </p>
+            </>
+        ),
+        author: "Dashaene Mahalingam",
+        rating: 5,
+        type: "Verified Google Review"
+    },
+    {
+        text: (
+            <>
+                <p>
+                    "Our family has been coming here for <strong>many years</strong>.
+                </p>
+                <p>
+                    We have seen most of the dentists, <strong>Dr Ong</strong> and the team give{" "}
+                    <strong>excellent service</strong> and always <strong>caring and reassuring</strong>."
+                </p>
+            </>
+        ),
+        author: "Fong Lim",
+        rating: 5,
+        type: "Verified Google Review"
     }
 ];
 
