@@ -23,20 +23,50 @@ import sys
 import time
 import urllib.request
 import urllib.error
+import urllib.parse
+import re
 import base64
 from datetime import datetime, timezone
 from cryptography.hazmat.primitives import serialization, hashes
 from cryptography.hazmat.primitives.asymmetric import padding
 
-SERVICE_ACCOUNT_FILE = "/home/leroy/.openclaw/skills/ga4-analytics/edith-gsc-v2.json"
+SERVICE_ACCOUNT_FILE = "/home/ismile/.openclaw/skills/ga4-analytics/edith-gsc-v2.json"
+SITEMAP_URL = "https://ismile.com.my/sitemap.xml"
 
-URLS = [
-    "https://ismile.com.my/blog/why-do-my-gums-bleed/",
-    "https://ismile.com.my/blog/wisdom-tooth-surgery/",
-    "https://ismile.com.my/blog/root-canal-treatment-damansara-jaya/",
-    "https://ismile.com.my/blog/invisalign-malaysia-explained/",
-    "https://ismile.com.my/blog/family-dental-check-up-planning-damansara-jaya-parents/",
-]
+
+def load_urls():
+    """Every URL in the live sitemap — no hardcoded list to drift out of date.
+
+    Pass URLs on the command line to override (e.g. only the non-indexed ones).
+    """
+    args = [a for a in sys.argv[1:] if a.startswith("http")]
+    if args:
+        return args
+    with urllib.request.urlopen(SITEMAP_URL, timeout=20) as resp:
+        xml = resp.read().decode()
+    return re.findall(r"<loc>([^<]+)</loc>", xml)
+
+
+def submit_sitemap(sa):
+    """Resubmit the sitemap. Works at siteFullUser — unlike the Indexing API,
+    which needs owner. This is the recrawl trigger we actually have."""
+    print("\n=== Sitemap resubmit ===")
+    token = get_token(sa, ["https://www.googleapis.com/auth/webmasters"])
+    endpoint = (
+        "https://searchconsole.googleapis.com/webmasters/v3/sites/"
+        + urllib.parse.quote("https://ismile.com.my/", safe="")
+        + "/sitemaps/"
+        + urllib.parse.quote(SITEMAP_URL, safe="")
+    )
+    req = urllib.request.Request(endpoint, method="PUT", headers={"Authorization": f"Bearer {token}"})
+    try:
+        urllib.request.urlopen(req)
+        print(f"  ✅ {SITEMAP_URL} resubmitted")
+        return {"status": "ok"}
+    except urllib.error.HTTPError as e:
+        body = e.read().decode()[:300]
+        print(f"  ❌ HTTP {e.code}: {body}")
+        return {"status": f"error_{e.code}", "error": body}
 
 def make_jwt(sa, scopes):
     """Create a signed JWT assertion for Google OAuth2."""
@@ -126,6 +156,7 @@ def try_search_console_inspect(sa, urls):
 
 def main():
     dry_run = "--dry-run" in sys.argv
+    URLS = load_urls()
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     if dry_run:
@@ -157,6 +188,8 @@ def main():
         report = {"timestamp": ts, "urls": URLS, "dry_run": True, "skip_reason": "Indexing API requires service account to be Search Console property owner (current: siteFullUser)"}
     else:
         # Attempt Indexing API
+        sitemap_result = submit_sitemap(sa)
+        # Attempt Indexing API
         indexing_results = try_indexing_api(sa, URLS) if not dry_run else []
         # Attempt Search Console inspection
         sc_results = try_search_console_inspect(sa, URLS) if not dry_run else []
@@ -164,6 +197,7 @@ def main():
         report = {
             "timestamp": ts,
             "urls": URLS,
+            "sitemap_submit": sitemap_result,
             "indexing_api": indexing_results,
             "search_console_inspect": sc_results,
             "note": "Indexing API requires service account to be Search Console property owner level. "
