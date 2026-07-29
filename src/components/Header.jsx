@@ -57,14 +57,15 @@ const Header = () => {
     const isImmersive = hasDarkHero && !isCollapsed;
 
     const navLinks = [
-        { name: 'Home', path: '/' },
         {
             name: 'About Us',
             path: '/about',
             dropdown: [
                 { name: 'Our Journey', hash: '#journey' },
                 { name: 'Our Founder', hash: '#founder' },
-                { name: 'Our Team', hash: '#team' }
+                { name: 'Our Team', hash: '#team' },
+                { divider: true },
+                { name: 'Join Our Team', path: '/join-us' }
             ]
         },
         {
