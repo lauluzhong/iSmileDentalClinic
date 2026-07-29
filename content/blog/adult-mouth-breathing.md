@@ -13,8 +13,8 @@ faq:
     a: 'It can. Saliva helps buffer acid, wash away food debris and repair early enamel damage. Breathing through an open mouth tends to dry the mouth out, particularly during sleep, and a persistently dry mouth may raise the risk of tooth decay and gum inflammation even in someone with good brushing habits. If your dental problems keep recurring despite consistent care, dryness is one factor worth looking at.'
   - q: What signs should I look out for?
     a: 'Common things people notice are waking with a very dry mouth or a sore throat that clears through the morning, bad breath on waking, snoring, or waking unrefreshed after a full night. Often a partner notices the open mouth during sleep before the person does.'
-  - q: What can a dentist tell me about it?
-    a: 'A dental assessment can look at dryness, the pattern of decay, gum condition, tooth wear, oral posture and how you hold your bite, then discuss whether what is found is consistent with a mouth breathing pattern. It is a screening conversation rather than a diagnosis of the underlying cause, and it can help point you towards the right next step.'
+  - q: What does an assessment involve?
+    a: 'We look at dryness, the pattern of decay, gum condition, tooth wear, oral posture and how you hold your bite. Where it is helpful we can also take a cone beam CT scan, a fast, low radiation 3D scan that shows the structures around the upper airway rather than just the teeth. Together these give us a clear picture of what is going on and what your options are.'
   - q: Is mouth breathing only a problem for children?
     a: 'Breathing patterns matter a great deal during childhood because the face and jaws are still developing. In adults, growth is no longer the issue, but the day to day effects on the mouth continue, which is why it is still worth looking into.'
   - q: Is it too late to do anything as an adult?
@@ -62,22 +62,24 @@ Most people who mouth breathe at night have no idea they do it. The clues tend t
 
 None of these confirms anything on its own. Together they are a pattern worth mentioning at your next dental visit.
 
-## Where a dental assessment fits
+## What an assessment actually involves
 
-We want to be straight about what a dental assessment can and cannot tell you, because this is an area where it is easy to promise too much.
+The useful thing about coming in is that we can stop guessing and look properly.
 
-What it can do is look at the evidence in your mouth: dryness, where decay is appearing, the condition of your gums, tooth wear, oral posture, how you hold your bite. From there we can talk through whether what we are seeing lines up with a mouth breathing pattern, and what seems to be driving it.
+We start with the evidence in your mouth: dryness, where decay is appearing, the condition of your gums, tooth wear, oral posture and how you hold your bite. Those tell us whether what you are describing lines up with a mouth breathing pattern.
 
-What it cannot do is diagnose or treat a medical cause. If the assessment suggests a nasal or airway problem is behind it, that needs evaluation by the appropriate medical professional, and we will tell you so directly rather than work around it. Snoring and unrefreshing sleep in particular are worth raising with a doctor.
+Where it is helpful, we can also take a 3D scan. We use cone beam CT imaging at the clinic, a fast, low radiation scan that shows the structures around your upper airway rather than just your teeth. It gives us a much clearer picture than looking in your mouth alone, and it is the same technology we use for implant and wisdom tooth planning.
 
-Plenty of adults have been vaguely aware for years that they breathe through their mouth without anyone ever joining it up to their dental history. Getting that assessed is a small thing that can save you a lot of circling.
+From there we can talk you through what we are seeing and what your options are. Sometimes that is something we can help with directly. Sometimes the picture points to a nasal or medical cause, in which case the scan and the assessment give you something concrete to take to a doctor or ENT specialist, rather than starting from scratch. Snoring and unrefreshing sleep in particular are worth raising with a doctor.
+
+Plenty of adults have been vaguely aware for years that they breathe through their mouth without anyone joining it up to their dental history. An assessment is a small step that can save you a lot of circling.
 
 ## What tends to happen next
 
-There is no single treatment for adult mouth breathing, and you should be wary of anyone offering one. What makes sense depends on what the assessment finds.
+What makes sense depends on what the assessment and the scan show.
 
-For some people the useful next move is having a medical cause evaluated properly. For others the focus is on oral habits and posture. In some cases the priority is protecting the teeth and gums from a dry mouth while the underlying cause is being sorted out. These approaches are not mutually exclusive, and any of them may be discussed depending on what turns up.
+For some people the useful next move is having a nasal or medical cause evaluated. For others the focus is on oral habits and posture. In some cases the priority is protecting the teeth and gums from a dry mouth while the underlying cause is being dealt with. These are not mutually exclusive, and we will go through which of them applies to you.
 
 You can read more about the range of care we provide on our [dental services](https://ismile.com.my/services) page.
 
-**Come in and let us take a look.** A consultation is the practical starting point: we will assess your oral health and breathing pattern together, talk you through what we find, and if the answer sits with another professional, we will say so and point you in the right direction. Our clinic in [Damansara Jaya](/services/locations/damansara-jaya) sees adults for this.
+**Come in and let us take a look.** We will assess your oral health and breathing pattern, scan your airway if that helps build the picture, and go through what your options are from there. Our clinic in [Damansara Jaya](/services/locations/damansara-jaya) sees adults for this.
