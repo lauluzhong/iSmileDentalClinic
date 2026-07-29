@@ -26,7 +26,7 @@ export default async function handler(req, res) {
   }
 
   const {
-    name, phone, email, registration, currentPractice,
+    name, phone, email, registration, university, currentPractice,
     currentStatus, lookingFor, about, cv, timestamp,
   } = req.body || {};
 
@@ -47,6 +47,7 @@ export default async function handler(req, res) {
     `📞 <b>Phone:</b> ${escapeHtml(phone)}`,
     `📧 <b>Email:</b> ${escapeHtml(email) || '—'}`,
     `🎓 <b>Graduation / MDC:</b> ${escapeHtml(registration) || '—'}`,
+    `🏫 <b>University:</b> ${escapeHtml(university) || '—'}`,
     `🏥 <b>Practising now at:</b> ${escapeHtml(currentPractice) || '—'}`,
     `📌 <b>Current status:</b> ${escapeHtml(currentStatus) || '—'}`,
     `🔎 <b>Looking for:</b> ${escapeHtml(lookingFor) || '—'}`,
