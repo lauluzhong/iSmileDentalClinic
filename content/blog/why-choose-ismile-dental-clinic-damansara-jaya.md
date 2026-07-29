@@ -1,4 +1,6 @@
 ---
+seo_title: "What to Ask at a Damansara Jaya Dental Clinic"
+seo_description: "A practical guide to choosing a dentist in Damansara Jaya — the questions worth asking and what actually happens at your appointment."
 title: Questions to Ask and What to Expect at a Damansara Jaya Dental Clinic
 date: 2026-04-17
 content_type: locality

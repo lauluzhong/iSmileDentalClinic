@@ -1,4 +1,5 @@
 ---
+seo_title: "Planning Family Dental Check-Ups in Damansara Jaya"
 title: "Family Dental Check-Up Planning for Busy Damansara Jaya Parents"
 date: "2026-04-18"
 excerpt: "A parent-focused planning guide for coordinating regular dental check-ups for the whole family in Damansara Jaya."

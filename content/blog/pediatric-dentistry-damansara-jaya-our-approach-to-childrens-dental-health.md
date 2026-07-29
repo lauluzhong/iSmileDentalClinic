@@ -1,4 +1,5 @@
 ---
+seo_title: "Pediatric Dentistry in Damansara Jaya, PJ"
 title: "Pediatric Dentistry in Damansara Jaya: Our Approach to Children's Dental Health"
 date: "2026-04-09"
 excerpt: "Learn about our gentle, child-friendly approach to pediatric dentistry in Damansara Jaya. We create positive dental experiences for children."

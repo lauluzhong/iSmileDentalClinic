@@ -1,4 +1,5 @@
 ---
+seo_description: "The signs that suggest your child may benefit from an early orthodontic assessment, and the age at which it is worth getting checked."
 categories:
   - Kids & Growth
 cluster: Myofunctional Orthodontics

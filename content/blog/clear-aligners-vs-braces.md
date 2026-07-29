@@ -1,4 +1,5 @@
 ---
+seo_title: "Clear Aligners vs Braces: Which Suits Your Lifestyle?"
 categories:
   - Orthodontics
 date: '2025-01-10'
