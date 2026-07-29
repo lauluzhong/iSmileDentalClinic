@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-29 12:15 MYT",
+  "updated": "2026-07-29 15:34 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -516,7 +516,7 @@
       "endMonth": "2026-07",
       "ongoing": true,
       "why": "The registration form has asked 'who referred you to our practice' since 2022 \u2014 and it also captures occupation. Neither reaches OpenDental in any form we can query, so the answers die on the paper. We have never been able to measure where patients come from, not because we do not ask, but because the answer never survives the walk from the clipboard to the database.",
-      "next": "Take the vendor question list to the next checkpoint \u2014 the two answers that decide everything are whether the pre-arrival web form is sold to a Malaysian practice at all, and whether our version needs upgrading first. Separately and urgently: get counsel to confirm we have a lawful basis to message the existing patient base, because that affects an operation already running.",
+      "next": "The digital form is built and ready to show \u2014 seven steps, works on a phone. Two things gate a live launch: the consent wording needs legal sign-off, and pre-arrival submissions need somewhere secure to land.",
       "gate": "Fix the capture before the re-typing. And do not let the hardest consent question \u2014 audio recording \u2014 hold up the other ninety per cent of the form.",
       "deps": [
         "1",
@@ -567,6 +567,15 @@
         {
           "t": "Pilot with new adult patients, then decide",
           "done": false
+        },
+        {
+          "t": "Digital form built \u2014 seven steps, clinic branding, works on a phone",
+          "done": true
+        },
+        {
+          "t": "Decide where a submitted form lands \u2014 it is medical data and must be held securely",
+          "done": false,
+          "now": true
         }
       ],
       "note": "Without this we can't measure referral ROI or thank referrers. Front-desk executed; serves CRM/Retention."
@@ -885,14 +894,14 @@
       "endMonth": "2026-11",
       "ongoing": false,
       "why": "The clinic has no SOP for issuing letters to patients \u2014 medical certificates, referral letters, insurance reports, quotations. Nobody had ever said whose job it was, and that gap caused real friction between a doctor and the office. It is a symptom of a bigger one: a whole class of routine patient-facing admin has never been assigned or trained, so it defaults to whoever feels responsible, usually a doctor. The rule should be simple \u2014 the doctor supplies the clinical judgement, the front desk produces the document, the message and the follow-through.",
-      "next": "Write the letters SOP first (small, and it is the one that caused the friction), then the escalation matrix. Set the dates for moving Erincy to the front desk.",
+      "next": "Erincy moves to roughly 70/30 chairside-to-front-desk inside her first three months. The training runs once the new accounting system is ready and now has a fixed scope and attendee list. Letters turn out to need only templates and a short written procedure.",
       "gate": "Capacity before capability \u2014 the desk cannot take on harder work while it is one person deep. Build the bench first, then load it.",
       "deps": [
         "1",
         "15"
       ],
       "blockedOn": null,
-      "timeline": "Bench Jul\u2013Aug \u2192 P1 SOPs written Aug \u2192 ONE combined training block Sep\u2013Oct timed to digital receipts go-live (#15) \u2192 P2 SOPs and first competency review Nov.",
+      "timeline": "Bench building now. One combined training block once the new system is live \u2014 covering receipts, the digital form, letters, and handling difficult conversations.",
       "tasks": [
         {
           "t": "Scope written \u2014 ~25 front-of-house duties mapped, P1 vs P2",
@@ -904,7 +913,7 @@
           "now": true
         },
         {
-          "t": "Move Erincy to the front desk alongside Joanna, with a competency checklist",
+          "t": "Erincy on the front desk about 30% of her time inside her first three months",
           "done": false,
           "now": true
         },
@@ -923,6 +932,24 @@
         {
           "t": "Ruth rotated in",
           "done": false
+        },
+        {
+          "t": "Training scope agreed \u2014 receipts, the digital form, letters, and difficult conversations",
+          "done": true
+        },
+        {
+          "t": "Attendance agreed \u2014 four required, the rest of the assistants welcome",
+          "done": true
+        },
+        {
+          "t": "Letters: obtain the example from the office, then build the letterhead templates",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Check whether a clinic stamp can stand in for a doctor's signature on external letters",
+          "done": false,
+          "now": true
         }
       ],
       "note": "Merges the two front-of-house items raised on 20 Jul \u2014 the SOP gap and the upskilling/bench \u2014 because they are the same problem."
@@ -1011,7 +1038,7 @@
       "endMonth": "2026-10",
       "ongoing": false,
       "why": "Supplier communication and payment should sit with the office, not the doctors \u2014 both to free clinical time and because doctor-mediated invoices arrive late. One supplier offers cashback for payment within about two days of invoice, and we routinely miss it because the invoice reaches the team after the window has closed. That is a pure, uncontested loss. Before anything can be taken over, we need to know the full universe of who we buy from and how each relationship actually runs today.",
-      "next": "Register is built and waiting \u2014 population has not started yet. Agree with the GM when she can work through it, and start with the largest cost lines.",
+      "next": "The office has started working through the supplier information. Next: complete the largest cost lines and agree who takes over each relationship.",
       "gate": "Anything left as Unknown is itself a finding, not a blank.",
       "deps": [
         "1"
@@ -1028,7 +1055,7 @@
           "done": true
         },
         {
-          "t": "Complete every row \u2014 liaison, invoicing, approval, payment, terms",
+          "t": "Completing the register \u2014 in progress",
           "done": false,
           "now": true
         },
@@ -1159,7 +1186,7 @@
     {
       "id": "24",
       "title": "AI Clinical Note Transcription",
-      "status": "planned",
+      "status": "blocked",
       "owner": "Lu Zhong",
       "coOwner": "Claude (build)",
       "dept": "tech",
@@ -1168,14 +1195,19 @@
       "endMonth": "2026-11",
       "ongoing": false,
       "why": "Doctors spend real chair time typing the patient conversation into notes. That time is the most expensive time in the building, and the task is now genuinely easy to automate: record the conversation, transcribe it, and format it into the clinic's own note style.",
-      "next": "Get a sample of existing notes so the output can be matched to how the doctors already write. A handful of examples is almost certainly enough \u2014 no model training required.",
+      "next": "Hold until the clinician comes back with what she actually wants. The note data showed she is third by volume, so the problem may not be the one we assumed.",
       "gate": "Two non-negotiables: patient consent for recording, and the doctor reviews and approves before anything enters the clinical record. Never auto-write.",
       "deps": [
         "10"
       ],
-      "blockedOn": null,
+      "blockedOn": "Waiting on the clinician to define what she means by transcription.",
       "timeline": "Short term: a handheld device in the room. Medium term: a fixed microphone per surgery, with patients matched by timestamp against the appointment book.",
       "tasks": [
+        {
+          "t": "Get the clinical definition of the problem before building anything",
+          "done": false,
+          "now": true
+        },
         {
           "t": "Collect sample notes to learn the output format",
           "done": false,
@@ -1297,16 +1329,15 @@
       "endMonth": "2026-12",
       "ongoing": false,
       "why": "Our own margin data shows a very wide spread in value produced per chair-hour between doctors \u2014 one clinician generates several hundred times the true margin per hour of another. Business as usual will not close the gap in time. A clinician who can arrive and immediately deliver higher-value procedures, and bring patients with them, is the case-mix lever \u2014 the only route past the capacity ceiling other than extending hours.",
-      "next": "Candidate identified and preliminary conversations already held. Re-open the conversation and establish whether she is genuinely looking.",
-      "gate": "Look for someone who can produce from early on, not someone who needs the clinic to build their book for them.",
+      "next": "A first conversation is happening now. The founders are aligned that this needs to happen. The work to get right is how it is explained to the doctors already here.",
+      "gate": "Plan the message to the existing practitioners before anything becomes public. A new practitioner means competition for chair time and patients, and that is the part most likely to go wrong.",
       "deps": [],
       "blockedOn": null,
       "timeline": "Prior conversations already held \u2014 this is a re-open, not a cold approach. Terms would ride on the contractor agreement.",
       "tasks": [
         {
-          "t": "Open the conversation",
-          "done": false,
-          "now": true
+          "t": "First conversation held",
+          "done": true
         },
         {
           "t": "Agree what a strong first year looks like, in chair-hours and case mix",
@@ -1315,6 +1346,11 @@
         {
           "t": "Terms via the contractor agreement",
           "done": false
+        },
+        {
+          "t": "Agree how this is communicated to the practitioners already here",
+          "done": false,
+          "now": true
         }
       ],
       "note": "Sits alongside the specialist-surgeon conversation already on the board \u2014 both are the same lever."
