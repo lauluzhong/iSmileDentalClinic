@@ -38,7 +38,7 @@ TARGETS = [
     '/images/blog/signs-child-early-orthodontic-assessment.png',
     '/images/blog/mouth-breathing-thumb-sucking-crowded-teeth.png',
     '/images/blog/child-candidate-myofunctional-orthodontics.jpg',
-    '/images/blog/adult-mouth-breathing-hero.png',
+    '/images/blog/adult-mouth-breathing-hero.jpg',
     '/images/team_group.jpg',
 ]
 

@@ -3,8 +3,32 @@ import path from 'path';
 import { SERVICE_CATEGORIES, SERVICE_SPECIALTIES } from './src/data/serviceSeo.js';
 import { CORE_PAGES } from './src/data/corePagesSeo.js';
 import { relatedServices } from './src/data/blogServiceLinks.js';
+import imageVariants from './src/data/image-variants.json' with { type: 'json' };
 
 const SITE_URL = 'https://ismile.com.my';
+
+// Mirrors <ResponsiveImage> for the pre-rendered shell. Without this the static
+// HTML requests the full-size original before React hydrates, which is exactly
+// the byte weight the responsive variants exist to avoid.
+const IMG_STYLE = 'max-width:100%;height:auto;border-radius:12px;margin:20px 0';
+const IMG_SIZES = '(max-width: 900px) 100vw, 900px';
+
+function responsiveImgTag(src, safeTitle) {
+  const entry = imageVariants[src];
+  if (!entry || !entry.variants || entry.variants.length === 0) {
+    return '    <img src="' + escapeHtml(src) + '" alt="' + safeTitle + '" style="' + IMG_STYLE + '" />';
+  }
+  const set = (key) => entry.variants.map(v => v[key] + ' ' + v.w + 'w').join(', ');
+  return [
+    '    <picture>',
+    '      <source type="image/avif" srcset="' + set('avif') + '" sizes="' + IMG_SIZES + '" />',
+    '      <source type="image/webp" srcset="' + set('webp') + '" sizes="' + IMG_SIZES + '" />',
+    '      <source type="' + entry.fallbackType + '" srcset="' + set('raster') + '" sizes="' + IMG_SIZES + '" />',
+    '      <img src="' + escapeHtml(src) + '" srcset="' + set('raster') + '" sizes="' + IMG_SIZES + '" alt="' + safeTitle + '" width="' + entry.width + '" height="' + entry.height + '" style="' + IMG_STYLE + '" />',
+    '    </picture>',
+  ].join('\n');
+}
+
 
 const GTM_HEAD = [
   '  <!-- Google Tag Manager -->',
@@ -42,12 +66,43 @@ const HYDRATION_SWAP = [
   '  <\/script>',
 ].join('\n');
 
+// The 2026-07-29 link audit found that Header.jsx and Footer.jsx only render
+// after React mounts, so every prerendered page shipped ZERO outgoing links —
+// a crawler's first fetch of a service page saw a dead end, and the whole
+// 44-post blog cluster hung off /blog, which nothing linked to. This static
+// nav goes inside #ssg-content, so HYDRATION_SWAP removes it when the real
+// header takes over and users never see two navs.
+const STATIC_NAV_LINKS = [
+  ['/', 'Home'],
+  ['/about', 'About Us'],
+  ['/services', 'Services'],
+  ['/services/protect', 'Protect Your Teeth'],
+  ['/services/straighten', 'Straighten Your Teeth'],
+  ['/services/replace', 'Replace Missing Teeth'],
+  ['/services/enhance', 'Enhance Your Smile'],
+  ['/services/children', "Children's Dentistry"],
+  ['/services/locations/damansara-jaya', 'Dentist in Damansara Jaya'],
+  ['/blog', 'Blog'],
+  ['/reviews', 'Patient Reviews'],
+  ['/faq', 'FAQs'],
+  ['/contact', 'Contact'],
+];
+
+function staticNav(currentPath) {
+  const items = STATIC_NAV_LINKS
+    .filter(([href]) => href !== currentPath)
+    .map(([href, label]) => '<li><a href="' + href + '">' + escapeHtml(label) + '</a></li>')
+    .join('');
+  return '    <nav aria-label="Site"><ul>' + items + '</ul></nav>';
+}
+
 /**
  * Assemble one pre-rendered page. Shared by blog posts, location pages and
  * service pages so the head/GTM/hydration boilerplate lives in exactly one place.
  */
 function buildPage({ title, ogTitle, description, canonicalUrl, ogType, ogImage,
-                     extraMeta = [], jsonLd = [], body, cssLink, scriptTag }) {
+                     extraMeta = [], jsonLd = [], body, cssLink, scriptTag,
+                     currentPath = '' }) {
   // Social cards use the bare headline; only <title> carries the site suffix.
   const social = ogTitle || title;
   return [
@@ -97,6 +152,7 @@ function buildPage({ title, ogTitle, description, canonicalUrl, ogType, ogImage,
     '  <!-- Pre-rendered content for SEO — removed once React mounts -->',
     '  <article id="ssg-content" style="max-width:800px;margin:80px auto;padding:0 20px;font-family:Inter,system-ui,sans-serif">',
     body,
+    staticNav(currentPath),
     '  </article>',
     '',
     '  <!-- React SPA mount point -->',
@@ -253,7 +309,7 @@ export default function blogSSG() {
           : '';
 
         const cssLink = entryCss ? '  <link rel="stylesheet" href="' + entryCss + '" />' : '';
-        const imgTag = post.img ? '    <img src="' + escapeHtml(post.img) + '" alt="' + safeTitle + '" style="max-width:100%;height:auto;border-radius:12px;margin:20px 0" />' : '';
+        const imgTag = post.img ? responsiveImgTag(post.img, safeTitle) : '';
         const categorySpan = safeCategory ? ' &middot; ' + safeCategory : '';
         const scriptTag = entryScript ? '  <script type="module" src="' + entryScript + '"><\/script>' : '';
 
@@ -262,6 +318,7 @@ export default function blogSSG() {
           ogTitle: safeTitle,
           description: safeExcerpt,
           canonicalUrl,
+          currentPath: canonicalUrl.replace(SITE_URL, ''),
           ogType: 'article',
           ogImage,
           extraMeta: [
@@ -342,6 +399,7 @@ export default function blogSSG() {
           title: safeTitle,
           description: safeDescription,
           canonicalUrl,
+          currentPath: canonicalUrl.replace(SITE_URL, ''),
           ogType: 'website',
           ogImage: SITE_URL + '/logo.png',
           jsonLd: [jsonLd],
@@ -437,6 +495,7 @@ export default function blogSSG() {
           title: safeTitle,
           description: safeDescription,
           canonicalUrl,
+          currentPath: canonicalUrl.replace(SITE_URL, ''),
           ogType: 'website',
           ogImage: SITE_URL + '/logo.png',
           jsonLd,
@@ -514,6 +573,7 @@ export default function blogSSG() {
           title: safeTitle,
           description: safeDescription,
           canonicalUrl,
+          currentPath: canonicalUrl.replace(SITE_URL, ''),
           ogType: 'website',
           ogImage: SITE_URL + '/logo.png',
           jsonLd,

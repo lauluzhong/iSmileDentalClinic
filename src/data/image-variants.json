@@ -1,8 +1,8 @@
 {
-  "/images/blog/adult-mouth-breathing-hero.png": {
+  "/images/blog/adult-mouth-breathing-hero.jpg": {
     "fallbackType": "image/jpeg",
-    "height": 941,
-    "original": "/images/blog/adult-mouth-breathing-hero.png",
+    "height": 900,
+    "original": "/images/blog/adult-mouth-breathing-hero.jpg",
     "variants": [
       {
         "avif": "/images/blog/adult-mouth-breathing-hero-480w.avif",
@@ -23,7 +23,7 @@
         "webp": "/images/blog/adult-mouth-breathing-hero-1024w.webp"
       }
     ],
-    "width": 1672
+    "width": 1600
   },
   "/images/blog/child-candidate-myofunctional-orthodontics.jpg": {
     "fallbackType": "image/jpeg",
