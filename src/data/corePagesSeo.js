@@ -96,6 +96,19 @@ export const CORE_PAGES = [
     intro: "Practical dental advice for Petaling Jaya families from the team at iSmile Dental Clinic, Damansara Jaya.",
     listsBlogIndex: true,
   },
+  {
+    path: 'join-us',
+    title: "Practise at iSmile — Dental Practitioners | Petaling Jaya",
+    description: "Dental practitioners: iSmile Dental Clinic in Damansara Jaya, PJ welcomes expressions of interest — an established family patient base and a safe environment to practise, where competency and compassion meet.",
+    h1: "Practise at iSmile",
+    intro: "iSmile Dental Clinic is a family dental practice in Damansara Jaya, Petaling Jaya, caring for the same families since 2006. We believe dentistry is at its best where competency meets compassion, and we welcome expressions of interest from dental practitioners at every stage of practice.",
+    facts: [
+      "An established patient base built over two decades of family care",
+      "A broad case mix across the family, with digital workflows and multidisciplinary care under one roof",
+      "A team of family people — most of us are parents ourselves",
+      "A safe environment to practise — share your details and CV through the form on this page; every enquiry is read personally and treated in confidence",
+    ],
+  },
 ];
 
 /**

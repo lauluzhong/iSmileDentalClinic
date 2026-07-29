@@ -32,7 +32,8 @@ const STATIC_SITEMAP_ENTRIES = [
   { path: '/blog', changefreq: 'weekly', priority: '0.9' },
   { path: '/contact', changefreq: 'monthly', priority: '0.7' },
   { path: '/services/locations/damansara-jaya', changefreq: 'weekly', priority: '0.9' },
-  { path: '/faq', changefreq: 'monthly', priority: '0.6' }
+  { path: '/faq', changefreq: 'monthly', priority: '0.6' },
+  { path: '/join-us', changefreq: 'monthly', priority: '0.5' }
 ];
 
 // Ensure output directories exist

@@ -57,14 +57,15 @@ const Header = () => {
     const isImmersive = hasDarkHero && !isCollapsed;
 
     const navLinks = [
-        { name: 'Home', path: '/' },
         {
             name: 'About Us',
             path: '/about',
             dropdown: [
                 { name: 'Our Journey', hash: '#journey' },
                 { name: 'Our Founder', hash: '#founder' },
-                { name: 'Our Team', hash: '#team' }
+                { name: 'Our Team', hash: '#team' },
+                { divider: true },
+                { name: 'Join Our Team', path: '/join-us' }
             ]
         },
         {
@@ -348,15 +349,20 @@ const Header = () => {
                                         </div>
 
                                         <ul className="mobile-nav-list">
-                                            {activeSubmenuData?.dropdown?.filter(item => !item.divider).map((subItem) => (
-                                                subItem.label ? (
+                                            {activeSubmenuData?.dropdown?.map((subItem, subIndex) => (
+                                                subItem.divider ? (
+                                                    <li key={`divider-${subIndex}`} className="mobile-submenu-divider" aria-hidden="true" />
+                                                ) : subItem.label ? (
                                                     <li key={subItem.label} className="mobile-nav-item" style={{ paddingTop: '10px' }}>
                                                         <span style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#94a3b8' }}>
                                                             {subItem.label}
                                                         </span>
                                                     </li>
                                                 ) : (
-                                                    <li key={subItem.name} className="mobile-nav-item">
+                                                    <li
+                                                        key={subItem.name}
+                                                        className={`mobile-nav-item ${activeSubmenuData?.dropdown?.[subIndex + 1]?.divider ? 'mobile-nav-item-before-divider' : ''}`}
+                                                    >
                                                         <span
                                                             onClick={() => handleDropdownClick(activeSubmenuData.path, subItem.hash || subItem.path)}
                                                             className="mobile-nav-link-header"
@@ -587,6 +593,14 @@ const Header = () => {
             padding-bottom: 4px;
         }
         .mobile-nav-item:last-child { border-bottom: none; }
+        .mobile-nav-item-before-divider { border-bottom: none; }
+
+        .mobile-submenu-divider {
+            height: 2px;
+            margin: 10px 0;
+            border-radius: 999px;
+            background: rgba(148, 163, 184, 0.48);
+        }
 
         .mobile-nav-link-header {
             padding: 7px 0;

@@ -51,3 +51,5 @@ uploaded_image_*.jpg
 test.txt
 .vite/
 .claude/
+.vercel
+.env*
