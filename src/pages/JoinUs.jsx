@@ -46,12 +46,12 @@ const POINTS = [
     {
         n: '02',
         title: 'Room to grow your dentistry',
-        body: 'A broad case mix across the family, with digital workflows including cone beam CT imaging on site.',
+        body: 'A broad case mix across the family, with digital workflows and multidisciplinary care under one roof.',
     },
     {
         n: '03',
-        title: 'An environment where you can learn',
-        body: 'Experienced colleagues to discuss cases with, whatever stage of practice you are at.',
+        title: 'A team of family people',
+        body: 'Most of us are parents ourselves. Caring for families is not just what we do, it is who we are.',
     },
 ];
 
@@ -139,7 +139,11 @@ const JoinUs = () => {
                 <link rel="canonical" href="https://ismile.com.my/join-us" />
             </Helmet>
 
-            <div className="container section-padding" style={{ paddingTop: '180px' }}>
+            {/* section-padding zeroes horizontal padding, so it must wrap the
+                container, never share its div — combined, the page loses its
+                side gutters on mobile. */}
+            <div className="section-padding" style={{ paddingTop: '180px' }}>
+              <div className="container">
 
                 {/* Hero */}
                 <div className="join-hero">
@@ -155,11 +159,14 @@ const JoinUs = () => {
                             Practise at <span className="text-gradient">iSmile</span>
                         </h1>
                     </Reveal>
+                    <Reveal delay={0.1} width="100%">
+                        <p className="join-tagline">Where competency and compassion meet</p>
+                    </Reveal>
                     <Reveal delay={0.15} width="100%">
                         <p className="join-lead">
                             iSmile is a family dental practice in Damansara Jaya, Petaling Jaya, caring for
-                            the same families since 2006. We welcome expressions of interest from dental
-                            practitioners at every stage of practice.
+                            the same families since 2006. We believe dentistry is at its best where
+                            competency meets compassion. That is what we stand for, chairside and beyond.
                         </p>
                     </Reveal>
                 </div>
@@ -184,7 +191,7 @@ const JoinUs = () => {
                         <div className="join-team-card">
                             <div className="join-team-photos">
                                 {TEAM_PHOTOS.map((src) => (
-                                    <img key={src} src={src} alt="" loading="lazy" width="64" height="64" />
+                                    <img key={src} src={src} alt="" loading="lazy" width="160" height="160" />
                                 ))}
                             </div>
                             <h2>A safe environment to practise</h2>
@@ -195,6 +202,12 @@ const JoinUs = () => {
                         </div>
                     </Reveal>
                 </div>
+
+                <Reveal width="100%">
+                    <p className="join-invite">
+                        We welcome expressions of interest from dental practitioners at every stage of practice.
+                    </p>
+                </Reveal>
 
                 {/* Form */}
                 <div className="join-form-wrap">
@@ -287,6 +300,7 @@ const JoinUs = () => {
                         </form>
                     )}
                 </div>
+              </div>
             </div>
 
             <style>{`
@@ -330,12 +344,29 @@ const JoinUs = () => {
             letter-spacing: -0.025em;
             margin: 0 0 20px;
         }
+        .join-tagline {
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--color-primary-teal, #4FA3C2);
+            margin: 0 0 16px;
+        }
         .join-lead {
             font-size: 1.15rem;
             color: var(--color-text-muted, #64748b);
             line-height: 1.65;
             margin: 0 auto;
             max-width: 680px;
+        }
+        .join-invite {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #334155;
+            line-height: 1.6;
+            max-width: 560px;
+            margin: 0 auto 36px;
+            font-weight: 500;
         }
 
         /* Editorial split */
@@ -396,13 +427,20 @@ const JoinUs = () => {
             justify-content: center;
             margin-bottom: 22px;
         }
+        .join-team-photos {
+            flex-wrap: wrap;
+            gap: 14px 0;
+        }
         .join-team-photos img {
-            width: 64px; height: 64px;
+            width: 80px; height: 80px;
             border-radius: 50%;
+            /* Portraits are 682x1024 with the face in the top quarter —
+               anchor the crop there or the circle shows the torso. */
             object-fit: cover;
+            object-position: 50% 12%;
             border: 3px solid #fff;
             box-shadow: 0 4px 10px rgba(15, 23, 42, 0.12);
-            margin-left: -14px;
+            margin-left: -16px;
         }
         .join-team-photos img:first-child { margin-left: 0; }
         .join-team-card h2 {
@@ -492,7 +530,8 @@ const JoinUs = () => {
             .join-title { font-size: 2.2rem; }
             .join-lead { font-size: 1.05rem; }
             .join-eyebrow { display: none; }
-            .join-team-photos img { width: 52px; height: 52px; margin-left: -12px; }
+            .join-tagline { font-size: 0.9rem; }
+            .join-team-photos img { width: 64px; height: 64px; margin-left: -13px; }
             .join-field-row { grid-template-columns: 1fr; gap: 0; }
             .join-form { padding: 28px 20px; }
             .join-split { margin-bottom: 56px; }

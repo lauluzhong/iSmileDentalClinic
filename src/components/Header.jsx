@@ -349,8 +349,10 @@ const Header = () => {
                                         </div>
 
                                         <ul className="mobile-nav-list">
-                                            {activeSubmenuData?.dropdown?.filter(item => !item.divider).map((subItem) => (
-                                                subItem.label ? (
+                                            {activeSubmenuData?.dropdown?.map((subItem, subIndex) => (
+                                                subItem.divider ? (
+                                                    <li key={`divider-${subIndex}`} aria-hidden="true" style={{ margin: '10px 0', borderTop: '1px solid rgba(148, 163, 184, 0.35)' }} />
+                                                ) : subItem.label ? (
                                                     <li key={subItem.label} className="mobile-nav-item" style={{ paddingTop: '10px' }}>
                                                         <span style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#94a3b8' }}>
                                                             {subItem.label}
