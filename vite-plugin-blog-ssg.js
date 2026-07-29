@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { SERVICE_CATEGORIES, SERVICE_SPECIALTIES } from './src/data/serviceSeo.js';
-import { CORE_PAGES } from './src/data/corePagesSeo.js';
+import { CORE_PAGES, HOME_PAGE } from './src/data/corePagesSeo.js';
 import { relatedServices } from './src/data/blogServiceLinks.js';
 import imageVariants from './src/data/image-variants.json' with { type: 'json' };
 
@@ -62,6 +62,29 @@ const HYDRATION_SWAP = [
   '      });',
   '      var r=document.getElementById(\'root\');',
   '      if(r)o.observe(r,{childList:true});',
+  '    })();',
+  '  <\/script>',
+].join('\n');
+
+// Homepage-only guard. dist/index.html is BOTH the prerendered "/" document and
+// the fallback shell that vercel.json rewrites every unmatched route to (e.g.
+// /recall, trailing-slash variants, 404s). Without this, those routes would show
+// homepage markup until React booted — the exact flash-of-wrong-content we are
+// trying to avoid. This runs in <head>, before the body is parsed, so the block
+// is display:none from its very first layout on any non-home path; HOME_SWAP
+// then deletes it outright. On "/" nothing happens and the content paints.
+const HOME_PATH_GUARD = [
+  '  <script>',
+  '    (function(){',
+  '      var p=location.pathname;',
+  '      if(p===\'/\'||p===\'\'||p===\'/index.html\')return;',
+  '      var s=document.createElement(\'style\');',
+  '      s.textContent=\'#ssg-content{display:none!important}\';',
+  '      document.head.appendChild(s);',
+  '      document.addEventListener(\'DOMContentLoaded\',function(){',
+  '        var e=document.getElementById(\'ssg-content\');',
+  '        if(e)e.remove();',
+  '      });',
   '    })();',
   '  <\/script>',
 ].join('\n');
@@ -588,6 +611,95 @@ export default function blogSSG() {
         coreGenerated++;
       }
       console.log('[blog-ssg] ✓ Generated ' + coreGenerated + ' core pages.');
+
+      // ── Homepage ─────────────────────────────────────────────────────────
+      // "/" is the highest-traffic page and was the last one still served as an
+      // empty SPA shell: ~54% of its 8s LCP was render delay waiting for React.
+      //
+      // It cannot use buildPage() like the pages above, because those each write
+      // their own dist/<path>/index.html while the homepage's target IS
+      // dist/index.html — Vite's own output, which carries the hand-maintained
+      // <head> (title, canonical, OG/Twitter, Dentist JSON-LD, hero preloads,
+      // GTM, Clarity) and is the shared SPA fallback shell. So instead of
+      // regenerating it we INJECT the same #ssg-content block into it and leave
+      // the head byte-for-byte untouched — no SEO is rewritten and index.html
+      // itself is never edited. HOME_PATH_GUARD keeps the block off every other
+      // route that falls through the rewrite.
+      const homeIndex = path.resolve(distDir, 'index.html');
+      if (!fs.existsSync(homeIndex)) {
+        console.warn('[blog-ssg] ⚠ dist/index.html not found — homepage not prerendered.');
+        return;
+      }
+      let homeHtml = fs.readFileSync(homeIndex, 'utf-8');
+
+      if (homeHtml.includes('id="ssg-content"')) {
+        console.warn('[blog-ssg] ⚠ dist/index.html already prerendered — skipping.');
+        return;
+      }
+
+      const hero = HOME_PAGE.hero;
+      const heroAlt = escapeHtml(hero.alt);
+      const srcset = (base, ext) =>
+        base + '-480w.' + ext + ' 480w, ' + base + '-768w.' + ext + ' 768w, ' + base + '.' + ext + ' 1024w';
+      // Mirrors the <picture> art direction in Home.jsx AND the two preload
+      // links in index.html — if the static markup asked for a different crop,
+      // phones would download the preloaded image and then discard it.
+      const heroPicture = [
+        '      <picture>',
+        '        <source media="(max-width: 768px)" type="image/avif" srcset="' + srcset(hero.portraitBase, 'avif') + '" sizes="' + hero.sizes + '" />',
+        '        <source media="(max-width: 768px)" type="image/webp" srcset="' + srcset(hero.portraitBase, 'webp') + '" sizes="' + hero.sizes + '" />',
+        '        <source media="(max-width: 768px)" type="image/jpeg" srcset="' + srcset(hero.portraitBase, 'jpg') + '" sizes="' + hero.sizes + '" />',
+        '        <source type="image/avif" srcset="' + srcset(hero.base, 'avif') + '" sizes="' + hero.sizes + '" />',
+        '        <source type="image/webp" srcset="' + srcset(hero.base, 'webp') + '" sizes="' + hero.sizes + '" />',
+        '        <img src="' + hero.base + '.jpg" srcset="' + srcset(hero.base, 'jpg') + '" sizes="' + hero.sizes + '" alt="' + heroAlt + '" width="' + hero.width + '" height="' + hero.height + '" fetchpriority="high" decoding="async" style="width:100%;height:auto;border-radius:16px;display:block" />',
+        '      </picture>',
+      ].join('\n');
+
+      const homeBody = [
+        // Mirrors the art direction in Header.jsx: tight wordmark <=1024px, padded
+        // square above, each <source> carrying its own intrinsic ratio. Without the
+        // media scoping a desktop load fetches BOTH logo files (the preload in
+        // index.html plus this shell's hardcoded tight crop); without the per-source
+        // width/height the browser reserves a square box for the 3:2 tight crop.
+        // Keep this in step with Header.jsx and the logo preloads in index.html.
+        '    <p>',
+        '      <picture>',
+        '        <source media="(max-width: 1024px)" type="image/webp" srcset="/logo-tight.webp" width="320" height="215" />',
+        '        <source media="(max-width: 1024px)" type="image/png" srcset="/logo-tight.png" width="462" height="310" />',
+        '        <source type="image/webp" srcset="/logo.webp" width="320" height="320" />',
+        '        <source type="image/png" srcset="/logo.png" width="500" height="500" />',
+        '        <img class="site-logo-img" src="/logo.png" alt="iSmile Dental Clinic" width="500" height="500" style="height:80px;width:auto" />',
+        '      </picture>',
+        '    </p>',
+        '    <p>' + escapeHtml(HOME_PAGE.eyebrow) + '</p>',
+        '    <h1>' + escapeHtml(HOME_PAGE.h1) + '</h1>',
+        '    <p>' + escapeHtml(fillStats(HOME_PAGE.intro)) + '</p>',
+        heroPicture,
+        '    <p>' + escapeHtml(fillStats(HOME_PAGE.trust)) + '</p>',
+        ...HOME_PAGE.sections.map(s =>
+          '    <section><h2>' + escapeHtml(fillStats(s.h2)) + '</h2><p>' +
+          escapeHtml(fillStats(s.p)) + '</p></section>'),
+      ].join('\n');
+
+      const homeBlock = [
+        '  <!-- Pre-rendered content for SEO + first paint — removed once React mounts -->',
+        '  <article id="ssg-content" style="max-width:800px;margin:80px auto;padding:0 20px;font-family:Inter,system-ui,sans-serif">',
+        homeBody,
+        staticNav('/'),
+        '  </article>',
+        '',
+      ].join('\n');
+
+      homeHtml = homeHtml
+        .replace('</head>', HOME_PATH_GUARD + '\n</head>')
+        .replace('<div id="root"></div>', homeBlock + '  <div id="root"></div>')
+        + '\n';
+      // HYDRATION_SWAP has to sit after the module script, same as every other
+      // prerendered page, so the observer is installed before React mounts.
+      homeHtml = homeHtml.replace('</body>', HYDRATION_SWAP + '\n</body>');
+
+      fs.writeFileSync(homeIndex, homeHtml, 'utf-8');
+      console.log('[blog-ssg] ✓ Prerendered the homepage into dist/index.html.');
     }
   };
 }

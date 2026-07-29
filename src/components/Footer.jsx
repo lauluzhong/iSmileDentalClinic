@@ -64,8 +64,8 @@ const Footer = () => {
                             }}
                         >
                             <picture>
-                              <source type="image/webp" srcSet={logoWebP} />
-                              <source type="image/png" srcSet={logo} />
+                              <source type="image/webp" srcSet={logoWebP} width="320" height="320" />
+                              <source type="image/png" srcSet={logo} width="500" height="500" />
                               <img className="site-logo-img" src={logo} alt="iSmile Dental Clinic logo" width="500" height="500" loading="lazy" decoding="async" />
                             </picture>
                         </Link>
