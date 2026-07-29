@@ -162,10 +162,13 @@ const Header = () => {
                         }}
                     >
                         <picture>
-                          <source media="(max-width: 1024px)" type="image/webp" srcSet={logoTightWebP} />
-                          <source media="(max-width: 1024px)" type="image/png" srcSet={logoTight} />
-                          <source type="image/webp" srcSet={logoWebP} />
-                          <source type="image/png" srcSet={logo} />
+                          {/* width/height per <source>: each art-directed variant has its own
+                              intrinsic ratio (tight wordmark is 3:2-ish, padded logo is square).
+                              Without these the browser reserves a square box for the tight crop. */}
+                          <source media="(max-width: 1024px)" type="image/webp" srcSet={logoTightWebP} width="320" height="215" />
+                          <source media="(max-width: 1024px)" type="image/png" srcSet={logoTight} width="462" height="310" />
+                          <source type="image/webp" srcSet={logoWebP} width="320" height="320" />
+                          <source type="image/png" srcSet={logo} width="500" height="500" />
                           <img className="site-logo-img" src={logo} alt="iSmile Dental Clinic" width="500" height="500" loading="eager" decoding="async" style={{ height: '110px', width: 'auto', transition: 'height 0.3s ease' }} />
                         </picture>
                     </Link>

@@ -9,6 +9,15 @@
   <meta name="description" content="Family dental clinic in Damansara Jaya, Petaling Jaya since 2006. Check-ups, braces, implants & kids' dentistry. Rated 4.8★ from 91 Google reviews. WhatsApp us to book." />
   <link rel="canonical" href="https://ismile.com.my/" />
 
+  <!-- Header logo preload — this is the measured LCP element on the homepage (Lighthouse:
+       div.header-left > a.logo-link > picture > img.site-logo-img), not the hero photo.
+       It sits inside a JS-rendered header, so the preload scanner never sees it in the HTML
+       and it was costing ~1.46s of LCP load delay. Media-scoped to mirror the <picture> art
+       direction in Header.jsx (<=1024px gets the tight crop), so exactly ONE logo preload
+       fires per viewport and it never competes with the other breakpoint's file. -->
+  <link rel="preload" as="image" media="(max-width: 1024px)" href="/logo-tight.webp" type="image/webp" fetchpriority="high">
+  <link rel="preload" as="image" media="(min-width: 1025px)" href="/logo.webp" type="image/webp" fetchpriority="high">
+
   <!-- LCP Hero Image Preload -->
   <!-- Hero preload must mirror the <picture> art direction, or phones fetch the desktop landscape crop and then discard it. -->
   <link rel="preload" as="image" media="(max-width: 768px)" href="/images/family_hero_three_generations_portrait-480w.avif" imagesrcset="/images/family_hero_three_generations_portrait-480w.avif 480w, /images/family_hero_three_generations_portrait-768w.avif 768w, /images/family_hero_three_generations_portrait.avif 1024w" imagesizes="(max-width: 768px) 150vw, 50vw" type="image/avif" fetchpriority="high">

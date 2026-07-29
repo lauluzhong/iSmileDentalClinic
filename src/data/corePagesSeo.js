@@ -97,3 +97,34 @@ export const CORE_PAGES = [
     listsBlogIndex: true,
   },
 ];
+
+/**
+ * Homepage pre-render copy.
+ *
+ * Kept separate from CORE_PAGES because the homepage is NOT written as its own
+ * dist/<path>/index.html — dist/index.html is also the SPA fallback shell that
+ * vercel.json rewrites every unmatched route to. The build injects this content
+ * into the existing dist/index.html (preserving its head verbatim) and guards it
+ * with a pathname check so it only ever shows on "/". See vite-plugin-blog-ssg.js.
+ *
+ * Copy mirrors the hero in src/pages/Home.jsx — keep the two in sync.
+ */
+export const HOME_PAGE = {
+  h1: "Dental care for every generation",
+  eyebrow: "A family practice in Petaling Jaya · Est. 2006",
+  intro: "From a child's first visit to a grandparent's new smile, iSmile is the dentist whole families stay with. Honest advice, gentle hands, and care that's looked after Petaling Jaya households for nearly two decades.",
+  trust: "Rated ${RATING}★ on Google from ${COUNT} reviews · 20+ years of trusted care",
+  hero: {
+    alt: "Three generations of a family smiling together at iSmile Dental Clinic",
+    base: "/images/family_hero_three_generations",
+    portraitBase: "/images/family_hero_three_generations_portrait",
+    width: 1024,
+    height: 624,
+    sizes: "(max-width: 768px) 150vw, 50vw",
+  },
+  sections: [
+    { h2: "Comprehensive care for every stage of life", p: "A child's first check-up. Braces in the teenage years. A grandparent's new smile. One team that knows your family and grows with it." },
+    { h2: "Where competency and compassion meet", p: "iSmile Dental Clinic has cared for families in Damansara Jaya, Petaling Jaya since 2006 — general dentistry, orthodontics, implants, cosmetic dentistry and children's dentistry under one roof." },
+    { h2: "Visit us in Damansara Jaya", p: "75 & 75A, Jalan SS 22/23, Damansara Jaya, 47400 Petaling Jaya, Selangor. Open Monday–Friday 9:30 AM – 5:30 PM and Saturday 9:30 AM – 3:30 PM. Call or WhatsApp +60163222135 to book." },
+  ],
+};
