@@ -3,7 +3,7 @@ import { useParams, Navigate, useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Reveal, FadeIn } from '../components/Reveal';
 import Button from '../components/Button';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ChevronDown } from 'lucide-react';
 import { useBooking } from '../context/BookingContext';
 import blogIndex from '../data/blog-index.json';
 
@@ -13,6 +13,59 @@ const formatDate = (isoDate) => {
     return new Date(isoDate).toLocaleDateString('en-US', {
         year: 'numeric', month: 'short', day: 'numeric'
     });
+};
+
+/**
+ * One collapsible blog FAQ entry.
+ *
+ * The answer is ALWAYS in the DOM — collapsing is done with max-height/opacity,
+ * never by unmounting. Search and LLM crawlers therefore still read every answer
+ * (and the FAQPage JSON-LD keeps matching the visible text), while patients get a
+ * scannable list of questions instead of a wall of copy.
+ */
+const FaqItem = ({ item, index, slug }) => {
+    const [open, setOpen] = useState(false);
+    const answerId = `faq-a-${slug || 'post'}-${index}`;
+
+    return (
+        <div style={{ marginBottom: '16px', background: '#f8fafc', borderRadius: '8px', borderLeft: '4px solid var(--color-primary)', overflow: 'hidden' }}>
+            <h4 style={{ margin: 0 }}>
+                <button
+                    type="button"
+                    onClick={() => setOpen(o => !o)}
+                    aria-expanded={open}
+                    aria-controls={answerId}
+                    data-analytics-click="blog-faq-toggle"
+                    data-analytics-label={item.q}
+                    style={{
+                        display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px',
+                        width: '100%', padding: '18px 20px', background: 'none', border: 'none',
+                        font: 'inherit', textAlign: 'left', cursor: 'pointer',
+                        color: 'var(--color-primary)', fontWeight: '600'
+                    }}
+                >
+                    <span>{item.q}</span>
+                    <ChevronDown
+                        size={20}
+                        aria-hidden="true"
+                        style={{ flexShrink: 0, transition: 'transform 0.25s ease', transform: open ? 'rotate(180deg)' : 'none' }}
+                    />
+                </button>
+            </h4>
+            <div
+                id={answerId}
+                style={{
+                    display: 'grid',
+                    gridTemplateRows: open ? '1fr' : '0fr',
+                    transition: 'grid-template-rows 0.25s ease',
+                }}
+            >
+                <div style={{ overflow: 'hidden' }}>
+                    <p style={{ margin: 0, padding: '0 20px 18px', color: 'var(--color-text)', lineHeight: '1.7' }}>{item.a}</p>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 const BlogPost = () => {
@@ -294,10 +347,7 @@ const BlogPost = () => {
                         <h3 style={{ marginBottom: '30px', textAlign: 'center', fontSize: '2rem' }}>Frequently Asked Questions</h3>
                         <div style={{ textAlign: 'left', maxWidth: '700px', margin: '0 auto' }}>
                           {post.faq.map((item, idx) => (
-                            <div key={idx} style={{ marginBottom: '24px', padding: '20px', background: '#f8fafc', borderRadius: '8px', borderLeft: '4px solid var(--color-primary)' }}>
-                              <h4 style={{ marginBottom: '10px', color: 'var(--color-primary)', fontWeight: '600' }}>{item.q}</h4>
-                              <p style={{ margin: 0, color: 'var(--color-text)', lineHeight: '1.7' }}>{item.a}</p>
-                            </div>
+                            <FaqItem key={idx} item={item} index={idx} slug={post.slug} />
                           ))}
                         </div>
                       </div>
