@@ -1558,34 +1558,34 @@
     ],
     "date": "2025-01-05",
     "img": "/images/service_straighten.png",
-    "excerpt": "Can you get braces at a government clinic in Malaysia? Here is who qualifies, how that decision is made, and what to check before planning around it.",
+    "excerpt": "Can you get braces at a government clinic in Malaysia? The KKM referral guideline sets out exactly who qualifies, and there are conditions most families never hear about.",
     "seo_title": "Are Braces Covered by the Government in Malaysia?",
-    "seo_description": "Who qualifies for braces at a government dental clinic in Malaysia, how eligibility is scored, the age limit, and how the referral actually works.",
+    "seo_description": "Who qualifies for braces at a KKM dental clinic, the IOTN score needed, the oral hygiene requirements most parents never hear about, and how the referral works.",
     "featured": false,
     "faq": [
       {
         "q": "Are braces covered by the government in Malaysia?",
-        "a": "Orthodontic treatment is available through Ministry of Health dental clinics, but it is not open to everyone who wants braces. Eligibility is assessed using a clinical scoring system, and treatment is generally directed at younger patients with a clear clinical need rather than a cosmetic preference."
+        "a": "Orthodontic treatment is provided at Ministry of Health dental facilities, but not to everyone who asks. The KKM referral guideline directs treatment at Malaysian citizens whose malocclusion affects dental function and health, scored using the Index of Orthodontic Treatment Need. Patients scoring IOTN 1, 2 or 3 are listed in the guideline as not accepted for treatment."
       },
       {
-        "q": "How is eligibility for government braces decided?",
-        "a": "Government dental officers use the Index of Orthodontic Treatment Need, usually shortened to IOTN. Published referral guidance indicates treatment is directed at those scoring Dental Health Component grade 4 or 5, with grade 3 and above considered for consultation. Priority within that group goes to patients with cleft lip and palate, dental anomalies, and functional or skeletal problems."
+        "q": "What IOTN score qualifies for government braces?",
+        "a": "The guideline states that primary dental clinics refer patients meeting IOTN scores 4 and 5, and that orthodontic facilities handle cases meeting those scores. Scores of 1, 2 and 3 are listed under patients not accepted for treatment. The guideline also mentions priority for score 3 with an aesthetic component of 6, so borderline cases are worth asking your dental officer about directly."
       },
       {
-        "q": "Is there an age limit?",
-        "a": "Referral to a government orthodontic clinic is generally for patients under 18. Adults seeking orthodontic treatment in Malaysia are usually seen in private practice. Criteria can change, so it is worth confirming the current position with your government dental clinic."
+        "q": "Is there an age limit for government braces?",
+        "a": "Not a hard cut-off, but priority goes to patients under 18. The guideline states that for those over 18, orthodontic treatment is given only to patients with complex problems requiring multidisciplinary specialist involvement. In practice most adults seeking routine orthodontic treatment are seen privately."
       },
       {
-        "q": "How long is the wait for government braces?",
-        "a": "Waiting times are widely reported to run into years rather than months, and they vary by state and by facility. Rather than rely on a figure found online, ask the dental officer who assesses your child what the current wait looks like at the clinic they would be referred to."
+        "q": "What else is required besides the IOTN score?",
+        "a": "This is the part most families never hear about. The guideline requires Malaysian citizenship, very good oral hygiene measured by plaque score, freedom from calculus and gum inflammation, and being dentally fit with all basic treatment completed. It also asks the dental officer to assess patient and parent motivation, judged partly on whether appointments are kept. All criteria must be met, or the patient is referred back to the referring officer."
       },
       {
-        "q": "How do I get referred?",
-        "a": "You cannot refer yourself. Your child is assessed at a primary government dental clinic or through the school dental service, and the dental officer decides whether to refer on to a specialist orthodontic unit."
+        "q": "What can disqualify someone from treatment?",
+        "a": "The guideline lists poor oral hygiene, unsatisfactory dental condition such as multiple caries or non-vital teeth, uncontrolled periodontal problems, extensive crown and bridge work that makes bonding difficult, certain uncontrolled medical conditions that are contraindicated for orthodontic materials or appliances, enamel anomalies, and inability to follow treatment instructions."
       },
       {
-        "q": "Does it matter if we wait?",
-        "a": "It may, depending on the case. Jaw growth continues while a child is on a waiting list, and some concerns can be simpler to address while growth is still happening. Whether that applies to your child is a question for an assessment rather than a general rule."
+        "q": "How long is the referral letter valid?",
+        "a": "Three months from the date the referring officer signs it. If you miss the specialist appointment and the letter expires, a new one has to be issued, and the dental officer has to confirm your oral health still meets the criteria before issuing it."
       }
     ],
     "content_type": "educational",
