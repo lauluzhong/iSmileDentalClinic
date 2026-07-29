@@ -1,4 +1,6 @@
 ---
+seo_title: "Mouth Breathing in Children: Signs Parents Should Know"
+seo_description: "Is your child sleeping with their mouth open? How mouth breathing affects jaw growth, sleep and teeth — and when to have it assessed."
 categories:
   - Kids & Growth
 date: '2024-12-05'
@@ -49,3 +51,5 @@ Take a moment to watch your child sleep. If you notice snoring, gasping, or an o
 Between the ages of 5 and 9, we can often use simple, comfortable appliances to help expand the jaw and gently retrain healthy breathing habits, setting them up for a lifetime of health.
 
 **Concerned about your child's breathing or sleep?** Let's evaluate their airway health and growth together in a gentle, caring environment.
+
+*Breathing through your own mouth, or waking with a dry mouth? Adults are affected too — see [why am I breathing through my mouth](/blog/adult-mouth-breathing).*

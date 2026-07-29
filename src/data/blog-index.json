@@ -1,5 +1,50 @@
 [
   {
+    "slug": "adult-mouth-breathing",
+    "title": "Why Am I Breathing Through My Mouth? An Adult Guide to Nasal Breathing and Your Teeth",
+    "categories": [
+      "Oral Health"
+    ],
+    "tags": [
+      "Myofunctional Orthodontics",
+      "Oral Health"
+    ],
+    "date": "2026-07-29",
+    "img": "/images/blog/asian_couple_40s.png",
+    "excerpt": "Mouth breathing is usually treated as a childhood issue — but plenty of adults do it, and it shows up in the mouth first.",
+    "seo_title": "Why Am I Breathing Through My Mouth? An Adult Guide",
+    "seo_description": "Waking with a dry mouth or breathing through your mouth at night? What it does to your teeth and gums, what a dentist can check, and when it is an ENT problem.",
+    "featured": false,
+    "faq": [
+      {
+        "a": "Most often because the nose is not fully doing its job. Nasal congestion from allergies, a deviated septum, enlarged turbinates or chronic sinus inflammation can all make nose breathing feel like harder work, so the mouth takes over — often unconsciously, and often mainly at night. In some adults it also persists as a long-standing habit from childhood, even after the original blockage has resolved.",
+        "q": "Why am I breathing through my mouth?"
+      },
+      {
+        "a": "Saliva is the mouth's natural defence — it buffers acid, washes away food debris and helps repair early enamel damage. Breathing through the mouth dries it out, particularly during sleep, which raises the risk of tooth decay and gum inflammation even in someone who brushes and flosses conscientiously. Persistent morning dry mouth, bad breath on waking, and gums that stay inflamed despite good hygiene are the pattern we see.",
+        "q": "How does mouth breathing affect my teeth and gums?"
+      },
+      {
+        "a": "Common signs are waking with a very dry mouth or sore throat, bad breath in the morning, snoring, waking unrefreshed after a full night, and daytime fatigue. Your partner may notice you sleeping with your mouth open before you do.",
+        "q": "What are the signs in an adult?"
+      },
+      {
+        "a": "A dentist often sees the consequences first, because they show up in the mouth. We can look at dryness, gum condition, decay pattern, tooth wear, tongue position, how you hold your bite and the general shape of your airway, then tell you whether what we see is consistent with mouth breathing. That is a screening conversation, not a diagnosis of the underlying cause.",
+        "q": "What can a dentist actually check?"
+      },
+      {
+        "a": "Frequently, yes — and that is the right outcome. If the cause is nasal obstruction, an ENT specialist is the person who can address it. If snoring and unrefreshing sleep suggest disturbed breathing during sleep, that belongs with a doctor or sleep physician. We would rather point you to the right door than treat around the problem.",
+        "q": "Will I be referred elsewhere?"
+      },
+      {
+        "a": "It depends entirely on the cause. Some adults need the nasal obstruction treated first. Others benefit from work on breathing and tongue habits. In some cases the priority is simply protecting the teeth and gums from a dry mouth while the underlying issue is sorted out. The starting point is a consultation to work out which of those applies.",
+        "q": "Can anything be done about it as an adult?"
+      }
+    ],
+    "content_type": "educational",
+    "canonical_url": null
+  },
+  {
     "slug": "how-to-choose-orthodontist-petaling-jaya",
     "title": "How to Choose an Orthodontist in Petaling Jaya",
     "categories": [
@@ -1502,45 +1547,8 @@
     "canonical_url": null
   },
   {
-    "slug": "root-canal-vs-extraction",
-    "title": "Root Canal vs Tooth Extraction: Which Is the Better Long-Term Choice?",
-    "categories": [
-      "Restorative"
-    ],
-    "tags": [
-      "Oral Surgery",
-      "Oral Health"
-    ],
-    "date": "2025-01-08",
-    "img": "/images/blog/root_canal_vs_extraction_hero.png",
-    "excerpt": "Facing a decision between saving a tooth or pulling it? We break down the long-term impact of each choice.",
-    "seo_title": "Root Canal vs Extraction: Which Is Better Long Term?",
-    "seo_description": null,
-    "featured": false,
-    "faq": [
-      {
-        "a": "A root canal clears out infection while preserving the tooth structure. This means you keep your natural bite, alignment, and jawbone density. No replacement tooth feels or functions exactly like your own natural teeth.",
-        "q": "Why Is Saving Your Natural Tooth the Better Option?"
-      },
-      {
-        "a": "Pulling a tooth seems final, but it is often just the beginning of a new dental journey. When a tooth is missing, surrounding teeth can shift, and the jawbone begins to shrink. To restore function and prevent further issues, you may eventually need a bridge or dental implant.",
-        "q": "Why Isn't Tooth Extraction the 'One and Done' Solution?"
-      },
-      {
-        "a": "Your teeth stimulate your jawbone. When one is lost, that stimulation stops, which can lead to bone loss over time. Saving the tooth with a root canal maintains this vital relationship and keeps your facial structure supported.",
-        "q": "How Does Tooth Loss Affect Jawbone Health?"
-      },
-      {
-        "a": "If you are experiencing throbbing pain, sensitivity to heat, or swelling, do not wait. Early intervention often saves the tooth and avoids more invasive procedures later.",
-        "q": "When Should You Act Early on Tooth Pain?"
-      }
-    ],
-    "content_type": "educational",
-    "canonical_url": null
-  },
-  {
     "slug": "government-vs-private-braces",
-    "title": "Government vs Private Braces in Malaysia: What Parents Should Know",
+    "title": "Are Braces Covered by the Government in Malaysia? What Parents Should Know",
     "categories": [
       "Orthodontics"
     ],
@@ -1550,18 +1558,34 @@
     ],
     "date": "2025-01-05",
     "img": "/images/service_straighten.png",
-    "excerpt": "Deciding where to get braces for your child involves balancing time, convenience, and treatment options.",
-    "seo_title": "Government vs Private Braces Malaysia: Waiting Times",
-    "seo_description": "Government or private braces in Malaysia? How they compare on waiting lists, appointment flexibility and treatment options — from a Petaling Jaya family clinic.",
+    "excerpt": "Can you get braces at a government clinic in Malaysia? Here is who qualifies, how the decision is made, and what the wait usually looks like.",
+    "seo_title": "Are Braces Covered by the Government in Malaysia?",
+    "seo_description": "Who qualifies for braces at a government dental clinic in Malaysia, the IOTN grades used to decide, the age limit, and how long the wait typically is.",
     "featured": false,
     "faq": [
       {
-        "a": "Government clinics provide excellent care but often have long waiting lists due to high demand. Private clinics can usually begin treatment almost immediately, which is crucial if you want to utilize the prime teenage growth spurt for optimal results.",
-        "q": "How do government and private orthodontic clinics compare for waiting periods?"
+        "a": "Partly. Orthodontic treatment is available through Ministry of Health dental clinics, but it is not open to everyone who wants braces. Eligibility is decided using a clinical scoring system (the IOTN), and treatment is generally reserved for patients under 18 with a clear clinical need rather than a cosmetic preference.",
+        "q": "Are braces covered by the government in Malaysia?"
       },
       {
-        "a": "Private practice offers Saturday or evening appointments, meaning your child does not have to miss school and you do not have to take leave for every adjustment visit. This convenience, combined with access to advanced options like clear ceramic braces and self-ligating systems, makes the process much smoother for active families.",
-        "q": "Why might private orthodontic care be worth the investment for families?"
+        "a": "Government dental officers use the Index of Orthodontic Treatment Need (IOTN). Treatment is generally offered to those scoring Dental Health Component grade 4 or 5, with grade 3 and above eligible for a consultation. Priority goes to patients with cleft lip and palate, dental anomalies, and functional or skeletal problems.",
+        "q": "How is eligibility for government braces decided?"
+      },
+      {
+        "a": "Referral to a government orthodontic clinic is generally for patients under 18. Adults seeking orthodontic treatment in Malaysia are usually treated in the private sector.",
+        "q": "Is there an age limit for braces at a government clinic?"
+      },
+      {
+        "a": "Waiting times are commonly reported to run into years rather than months, because demand far exceeds the number of specialist orthodontic places available. Ask your referring dental officer what the current wait looks like at your assigned clinic, as it varies by state and facility.",
+        "q": "How long is the wait for government braces?"
+      },
+      {
+        "a": "You do not refer yourself. You are assessed at a primary government dental clinic or through the school dental service, and the dental officer decides whether to refer you on to a specialist orthodontic unit.",
+        "q": "How do I get referred?"
+      },
+      {
+        "a": "Jaw growth does not pause while a child waits. Some problems are far simpler to correct while the jaw is still developing, so a long wait can change which treatments remain realistic later. That is the trade-off worth discussing rather than assuming either route is automatically better.",
+        "q": "What happens if my child waits and the jaw keeps growing?"
       }
     ],
     "content_type": "educational",
@@ -1695,8 +1719,8 @@
     "date": "2024-12-05",
     "img": "/images/mouth_breathing_sleep.png",
     "excerpt": "Is your child sleeping with their mouth open? It might be more than just a habit—it could impact their facial development.",
-    "seo_title": null,
-    "seo_description": null,
+    "seo_title": "Mouth Breathing in Children: Signs Parents Should Know",
+    "seo_description": "Is your child sleeping with their mouth open? How mouth breathing affects jaw growth, sleep and teeth — and when to have it assessed.",
     "featured": false,
     "faq": [
       {
