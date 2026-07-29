@@ -5,7 +5,7 @@ date: "2026-04-18"
 excerpt: "A parent-focused planning guide for coordinating regular dental check-ups for the whole family in Damansara Jaya."
 categories: ["Family Dentistry"]
 tags: ["Family Dentistry", "Pediatric Dentistry"]
-parent_page: "https://ismile.com.my/services/family-dentistry"
+parent_page: "https://ismile.com.my/services"
 content_type: locality
 priority: medium
 tier: 2
@@ -122,7 +122,7 @@ If you're ready to make dental check-ups more manageable for your family, start 
 
 Remember, the goal isn't perfection—it's progress. Even small improvements in how you plan and coordinate family dental care can make a big difference in reducing stress and maintaining everyone's oral health.
 
-For more information about family dental services and what to consider when choosing dental care for your family, visit our [family dentistry service page](https://ismile.com.my/services/family-dentistry).
+For more information about family dental services and what to consider when choosing dental care for your family, visit our [family dentistry service page](https://ismile.com.my/services).
 
 ## Explore Our Family Dentistry Services
 

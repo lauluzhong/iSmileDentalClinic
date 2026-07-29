@@ -72,6 +72,23 @@ export const CORE_PAGES = [
     intro: "iSmile Dental Clinic has been a family dental practice in Damansara Jaya, Petaling Jaya since 2006, founded by principal dentist Dr Ong. We care for families across Selangor — from children’s first visits through to implants and orthodontics.",
   },
   {
+    // In sitemap.xml since forever, but never prerendered — the services hub
+    // was still serving the bare SPA shell after the 2026-07-28 sprint
+    // prerendered its children. Found by the 2026-07-29 link audit.
+    path: 'services',
+    title: "Dental Services in Petaling Jaya | iSmile Dental Clinic",
+    description: "Family dental care in Damansara Jaya, PJ — preventive and root canal treatment, braces and clear aligners, implants, cosmetic dentistry and children's dentistry.",
+    h1: "Our Dental Services",
+    intro: "iSmile Dental Clinic in Damansara Jaya, Petaling Jaya provides family dental care across five areas. Every treatment starts with a consultation so we can recommend what genuinely suits you.",
+    facts: [
+      "Protect Your Teeth — check-ups, cleaning, fillings, root canal treatment and wisdom tooth surgery",
+      "Straighten Your Teeth — traditional braces, clear aligners and myofunctional orthodontics",
+      "Replace Missing Teeth — dental implants, bridges and dentures",
+      "Enhance Your Smile — teeth whitening, veneers and cosmetic dentistry",
+      "Children's Dentistry — first visits, preventive care and early growth assessment",
+    ],
+  },
+  {
     path: 'blog',
     title: "Dental Health Advice for PJ Families | iSmile Dental",
     description: "Practical dental advice for Petaling Jaya families — children’s dentistry, orthodontics, oral surgery and preventive care from the iSmile team.",
