@@ -1,7 +1,7 @@
 [
   {
     "slug": "adult-mouth-breathing",
-    "title": "Why Am I Breathing Through My Mouth? An Adult Guide to Nasal Breathing and Your Teeth",
+    "title": "Why Am I Breathing Through My Mouth? An Adult Guide",
     "categories": [
       "Oral Health"
     ],
@@ -11,34 +11,34 @@
     ],
     "date": "2026-07-29",
     "img": "/images/blog/asian_couple_40s.png",
-    "excerpt": "Mouth breathing is usually treated as a childhood issue — but plenty of adults do it, and it shows up in the mouth first.",
+    "excerpt": "Mouth breathing is usually written about as a childhood issue, but plenty of adults do it too, and the effects tend to show up in the mouth first.",
     "seo_title": "Why Am I Breathing Through My Mouth? An Adult Guide",
-    "seo_description": "Waking with a dry mouth or breathing through your mouth at night? What it does to your teeth and gums, what a dentist can check, and when it is an ENT problem.",
+    "seo_description": "Waking with a dry mouth or breathing through your mouth at night? What it can mean for your teeth and gums, and what an assessment can tell you.",
     "featured": false,
     "faq": [
       {
-        "a": "Most often because the nose is not fully doing its job. Nasal congestion from allergies, a deviated septum, enlarged turbinates or chronic sinus inflammation can all make nose breathing feel like harder work, so the mouth takes over — often unconsciously, and often mainly at night. In some adults it also persists as a long-standing habit from childhood, even after the original blockage has resolved.",
-        "q": "Why am I breathing through my mouth?"
+        "q": "Why do I breathe through my mouth?",
+        "a": "There are several possible reasons, and they are not all dental. Nasal congestion from allergies or chronic sinus inflammation can make nose breathing feel like harder work, so the mouth takes over. In some people the pattern started in childhood and simply stayed. Because the causes range from medical to habitual, working out which applies to you is the first step, and it may involve more than one type of professional."
       },
       {
-        "a": "Saliva is the mouth's natural defence — it buffers acid, washes away food debris and helps repair early enamel damage. Breathing through the mouth dries it out, particularly during sleep, which raises the risk of tooth decay and gum inflammation even in someone who brushes and flosses conscientiously. Persistent morning dry mouth, bad breath on waking, and gums that stay inflamed despite good hygiene are the pattern we see.",
-        "q": "How does mouth breathing affect my teeth and gums?"
+        "q": "Can mouth breathing affect my teeth and gums?",
+        "a": "It can. Saliva helps buffer acid, wash away food debris and repair early enamel damage. Breathing through an open mouth tends to dry the mouth out, particularly during sleep, and a persistently dry mouth may raise the risk of tooth decay and gum inflammation even in someone with good brushing habits. If your dental problems keep recurring despite consistent care, dryness is one factor worth looking at."
       },
       {
-        "a": "Common signs are waking with a very dry mouth or sore throat, bad breath in the morning, snoring, waking unrefreshed after a full night, and daytime fatigue. Your partner may notice you sleeping with your mouth open before you do.",
-        "q": "What are the signs in an adult?"
+        "q": "What signs should I look out for?",
+        "a": "Common things people notice are waking with a very dry mouth or a sore throat that clears through the morning, bad breath on waking, snoring, or waking unrefreshed after a full night. Often a partner notices the open mouth during sleep before the person does."
       },
       {
-        "a": "A dentist often sees the consequences first, because they show up in the mouth. We can look at dryness, gum condition, decay pattern, tooth wear, tongue position, how you hold your bite and the general shape of your airway, then tell you whether what we see is consistent with mouth breathing. That is a screening conversation, not a diagnosis of the underlying cause.",
-        "q": "What can a dentist actually check?"
+        "q": "What can a dentist tell me about it?",
+        "a": "A dental assessment can look at dryness, the pattern of decay, gum condition, tooth wear, oral posture and how you hold your bite, then discuss whether what is found is consistent with a mouth breathing pattern. It is a screening conversation rather than a diagnosis of the underlying cause, and it can help point you towards the right next step."
       },
       {
-        "a": "Frequently, yes — and that is the right outcome. If the cause is nasal obstruction, an ENT specialist is the person who can address it. If snoring and unrefreshing sleep suggest disturbed breathing during sleep, that belongs with a doctor or sleep physician. We would rather point you to the right door than treat around the problem.",
-        "q": "Will I be referred elsewhere?"
+        "q": "Is mouth breathing only a problem for children?",
+        "a": "Breathing patterns matter a great deal during childhood because the face and jaws are still developing. In adults, growth is no longer the issue, but the day to day effects on the mouth continue, which is why it is still worth looking into."
       },
       {
-        "a": "It depends entirely on the cause. Some adults need the nasal obstruction treated first. Others benefit from work on breathing and tongue habits. In some cases the priority is simply protecting the teeth and gums from a dry mouth while the underlying issue is sorted out. The starting point is a consultation to work out which of those applies.",
-        "q": "Can anything be done about it as an adult?"
+        "q": "Is it too late to do anything as an adult?",
+        "a": "That depends entirely on what is behind it. For some people the priority is having a nasal or medical cause evaluated. For others the focus is on oral habits and posture, or on protecting the teeth and gums from a persistently dry mouth. An assessment is what tells you which of those applies to you."
       }
     ],
     "content_type": "educational",
@@ -1558,34 +1558,34 @@
     ],
     "date": "2025-01-05",
     "img": "/images/service_straighten.png",
-    "excerpt": "Can you get braces at a government clinic in Malaysia? Here is who qualifies, how the decision is made, and what the wait usually looks like.",
+    "excerpt": "Can you get braces at a government clinic in Malaysia? Here is who qualifies, how that decision is made, and what to check before planning around it.",
     "seo_title": "Are Braces Covered by the Government in Malaysia?",
-    "seo_description": "Who qualifies for braces at a government dental clinic in Malaysia, the IOTN grades used to decide, the age limit, and how long the wait typically is.",
+    "seo_description": "Who qualifies for braces at a government dental clinic in Malaysia, how eligibility is scored, the age limit, and how the referral actually works.",
     "featured": false,
     "faq": [
       {
-        "a": "Partly. Orthodontic treatment is available through Ministry of Health dental clinics, but it is not open to everyone who wants braces. Eligibility is decided using a clinical scoring system (the IOTN), and treatment is generally reserved for patients under 18 with a clear clinical need rather than a cosmetic preference.",
-        "q": "Are braces covered by the government in Malaysia?"
+        "q": "Are braces covered by the government in Malaysia?",
+        "a": "Orthodontic treatment is available through Ministry of Health dental clinics, but it is not open to everyone who wants braces. Eligibility is assessed using a clinical scoring system, and treatment is generally directed at younger patients with a clear clinical need rather than a cosmetic preference."
       },
       {
-        "a": "Government dental officers use the Index of Orthodontic Treatment Need (IOTN). Treatment is generally offered to those scoring Dental Health Component grade 4 or 5, with grade 3 and above eligible for a consultation. Priority goes to patients with cleft lip and palate, dental anomalies, and functional or skeletal problems.",
-        "q": "How is eligibility for government braces decided?"
+        "q": "How is eligibility for government braces decided?",
+        "a": "Government dental officers use the Index of Orthodontic Treatment Need, usually shortened to IOTN. Published referral guidance indicates treatment is directed at those scoring Dental Health Component grade 4 or 5, with grade 3 and above considered for consultation. Priority within that group goes to patients with cleft lip and palate, dental anomalies, and functional or skeletal problems."
       },
       {
-        "a": "Referral to a government orthodontic clinic is generally for patients under 18. Adults seeking orthodontic treatment in Malaysia are usually treated in the private sector.",
-        "q": "Is there an age limit for braces at a government clinic?"
+        "q": "Is there an age limit?",
+        "a": "Referral to a government orthodontic clinic is generally for patients under 18. Adults seeking orthodontic treatment in Malaysia are usually seen in private practice. Criteria can change, so it is worth confirming the current position with your government dental clinic."
       },
       {
-        "a": "Waiting times are commonly reported to run into years rather than months, because demand far exceeds the number of specialist orthodontic places available. Ask your referring dental officer what the current wait looks like at your assigned clinic, as it varies by state and facility.",
-        "q": "How long is the wait for government braces?"
+        "q": "How long is the wait for government braces?",
+        "a": "Waiting times are widely reported to run into years rather than months, and they vary by state and by facility. Rather than rely on a figure found online, ask the dental officer who assesses your child what the current wait looks like at the clinic they would be referred to."
       },
       {
-        "a": "You do not refer yourself. You are assessed at a primary government dental clinic or through the school dental service, and the dental officer decides whether to refer you on to a specialist orthodontic unit.",
-        "q": "How do I get referred?"
+        "q": "How do I get referred?",
+        "a": "You cannot refer yourself. Your child is assessed at a primary government dental clinic or through the school dental service, and the dental officer decides whether to refer on to a specialist orthodontic unit."
       },
       {
-        "a": "Jaw growth does not pause while a child waits. Some problems are far simpler to correct while the jaw is still developing, so a long wait can change which treatments remain realistic later. That is the trade-off worth discussing rather than assuming either route is automatically better.",
-        "q": "What happens if my child waits and the jaw keeps growing?"
+        "q": "Does it matter if we wait?",
+        "a": "It may, depending on the case. Jaw growth continues while a child is on a waiting list, and some concerns can be simpler to address while growth is still happening. Whether that applies to your child is a question for an assessment rather than a general rule."
       }
     ],
     "content_type": "educational",
