@@ -133,25 +133,47 @@ ${formData.experience}${familySection}${notesSection}`;
         pushBookingEvent('booking_modal_form_filled', safeEventPayload, ctaLocation);
         pushBookingEvent('whatsapp_submit_click', safeEventPayload, ctaLocation);
 
-        await insertLead({
-            name: formData.name,
-            email: formData.email || '',
-            contact: formData.contact,
-            experience: formData.experience,
+        // A lead-capture failure must never block the WhatsApp handoff — the
+        // patient completing the form is the outcome that matters.
+        let leadStorage = 'supabase';
+        try {
+            const { error: leadError, skipped } = await insertLead({
+                name: formData.name,
+                email: formData.email || '',
+                contact: formData.contact,
+                experience: formData.experience,
+                for_self: formData.forSelf,
+                for_child: formData.forChild,
+                child_age: formData.forChild && formData.childAge ? parseInt(formData.childAge, 10) : null,
+                for_other: formData.forOther,
+                additional_notes: formData.additionalNotes || null,
+                source_button: sourceButton,
+                source_page: currentPage,
+                whatsapp_sent: true,
+                timestamp: new Date().toISOString()
+            });
+            if (skipped) leadStorage = 'skipped';
+            else if (leadError) leadStorage = 'error';
+        } catch (err) {
+            console.error('Lead capture failed:', err);
+            leadStorage = 'error';
+        }
+
+        // The completion counterpart to form_start — without this, GA4 can only
+        // see forms being started, never finished.
+        pushBookingEvent('form_submit', {
+            form_page: currentPage,
+            form_has_experience: Boolean(formData.experience),
+            form_has_email: Boolean(formData.email),
             for_self: formData.forSelf,
             for_child: formData.forChild,
-            child_age: formData.forChild && formData.childAge ? parseInt(formData.childAge, 10) : null,
             for_other: formData.forOther,
-            additional_notes: formData.additionalNotes || null,
-            source_button: sourceButton,
-            source_page: currentPage,
-            whatsapp_sent: true,
-            timestamp: new Date().toISOString()
-        });
+            lead_storage: leadStorage
+        }, ctaLocation);
 
         pushBookingEvent('booking_confirmed', {
             ...safeEventPayload,
-            lead_storage: 'supabase',
+            lead_storage: leadStorage,
             whatsapp_sent: true
         }, ctaLocation);
 
