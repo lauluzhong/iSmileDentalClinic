@@ -5,6 +5,13 @@
       "ts": "2026-08-01 12:20 MYT",
       "agent": "engineer",
       "job": "review_stats_sync",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-08-01 12:20 MYT",
+      "agent": "engineer",
+      "job": "review_stats_sync",
       "event": "started",
       "result": ""
     },
@@ -273,13 +280,6 @@
       "job": "weekly_digest",
       "event": "finished",
       "result": "ok"
-    },
-    {
-      "ts": "2026-07-27 00:00 MYT",
-      "agent": "edith",
-      "job": "weekly_digest",
-      "event": "started",
-      "result": ""
     }
   ]
 }
