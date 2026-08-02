@@ -255,6 +255,42 @@ const reviewsList = [
         author: "Fong Lim",
         rating: 5,
         type: "Verified Google Review"
+    },
+    {
+        text: (
+            <>
+                <p>
+                    "Brilliant doctors in this establishment. Very caring and good with children."
+                </p>
+            </>
+        ),
+        author: "Gayatri Raja Mohan",
+        rating: 5,
+        type: "Verified Google Review"
+    },
+    {
+        text: (
+            <>
+                <p>
+                    "I've been a regular at iSmile for almost 3 years now. Dr. Jean is very{" "}<strong>professional, warm and caring</strong>.
+                </p>
+                <p>
+                    I used to find scaling quite uncomfortable with previous dentists, but she always makes the experience{" "}<strong>smooth and pain-free</strong>.
+                </p>
+                <p>
+                    I also did teeth whitening here, and the photo shows the progress I made after just one week of the treatment.
+                </p>
+                <p>
+                    Being in the sales line, having a <strong>brighter smile</strong> has definitely helped my confidence when meeting with clients.
+                </p>
+                <p>
+                    The clinic has a nice homey feel and is a <strong>family-friendly environment</strong>. The staff at the front desk are also easy-going and friendly.{" "}<strong>Definitely recommend.</strong>"
+                </p>
+            </>
+        ),
+        author: "Max Loh",
+        rating: 5,
+        type: "Verified Google Review"
     }
 ];
 
