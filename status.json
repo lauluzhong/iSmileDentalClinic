@@ -1,8 +1,7 @@
 {
-  "updated": "2026-08-03 00:00 MYT",
+  "updated": "2026-08-03 00:01 MYT",
   "running": [
-    "review_curation",
-    "weekly_digest"
+    "review_curation"
   ],
   "jobs": {
     "gbp_reply": {
@@ -22,8 +21,8 @@
       "last": "2026-08-01 13:01 MYT"
     },
     "weekly_digest": {
-      "state": "running",
-      "last": "2026-07-27 00:02 MYT"
+      "state": "idle",
+      "last": "2026-08-03 00:01 MYT"
     },
     "recall_funnel": {
       "state": "idle",
