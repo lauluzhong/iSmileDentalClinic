@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-04 12:15 MYT",
+  "updated": "2026-08-04 17:32 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -1336,8 +1336,8 @@
       "endMonth": "2026-12",
       "ongoing": false,
       "why": "Our own margin data shows a very wide spread in value produced per chair-hour between doctors \u2014 one clinician generates several hundred times the true margin per hour of another. Business as usual will not close the gap in time. A clinician who can arrive and immediately deliver higher-value procedures, and bring patients with them, is the case-mix lever \u2014 the only route past the capacity ceiling other than extending hours.",
-      "next": "A first conversation is happening now. The founders are aligned that this needs to happen. The work to get right is how it is explained to the doctors already here.",
-      "gate": "Plan the message to the existing practitioners before anything becomes public. A new practitioner means competition for chair time and patients, and that is the part most likely to go wrong.",
+      "next": "Three conversations happen this week: the general manager first, then the lead orthodontic practitioner, then the two longest-serving practitioners together. The goal is to listen, not to sell. The incoming clinician has signalled she would value learning directly from the lead orthodontic practitioner, which turns a competitive framing into a mentoring one \u2014 but that only works if it is genuinely wanted on both sides, so it gets tested before it is proposed.",
+      "gate": "Nothing becomes public until the practitioners already here have been heard. Expect the objection that chairs are not full as it is \u2014 the honest answer is that retention, not new patient flow, is what separates a full book from an empty one here, and the data supports that.",
       "deps": [],
       "blockedOn": null,
       "timeline": "Prior conversations already held \u2014 this is a re-open, not a cold approach. Terms would ride on the contractor agreement.",
@@ -1356,8 +1356,27 @@
         },
         {
           "t": "Agree how this is communicated to the practitioners already here",
+          "done": true,
+          "now": true
+        },
+        {
+          "t": "Hear out the lead orthodontic practitioner one-to-one \u2014 open frustrations first, then test the mentoring angle",
           "done": false,
           "now": true
+        },
+        {
+          "t": "Sit down with the two longest-serving practitioners \u2014 general input, what is planned, then introduce the hire",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Pre-brief the general manager ahead of both conversations",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Come back and reshape the proposal around what all three actually say",
+          "done": false
         }
       ],
       "note": "Sits alongside the specialist-surgeon conversation already on the board \u2014 both are the same lever."
@@ -1423,6 +1442,60 @@
         }
       ],
       "note": "Birthday trigger de-prioritised by the owner. The review ask moves a lever that already feeds the website automatically."
+    },
+    {
+      "id": "29",
+      "title": "Discount Policy & Patient Payment Plans",
+      "status": "active",
+      "owner": "Lu Zhong",
+      "coOwner": "Dr Ong",
+      "dept": "finance",
+      "lens": "cost",
+      "startMonth": "2026-08",
+      "endMonth": "2026-12",
+      "ongoing": false,
+      "why": "Discounting has never had a written rule, so it became a personal judgement call rather than a clinic position. Two years of ledger data show it is concentrated almost entirely in high-value orthodontic case starts settled upfront, and that the clinic quietly carries the larger half of every discount a practitioner gives \u2014 because the discount is deducted from the shared base before the split. The practitioner decides; the clinic pays more of it. That is the misalignment to fix. The tool itself is legitimate and stays, but its cost has to be visible to the person holding it.",
+      "next": "Two threads run in parallel. First, find a bank-agnostic payment terminal provider so instalments are not limited to one bank's cardholders, and get real merchant-discount-rate quotes to test whether instalments are actually cheaper than the discount they replace. Second, draft the discount policy with counsel so it lands inside the practitioner agreement rather than as a standalone memo.",
+      "gate": "Do not publish or advertise any discount or instalment offer. The dental council's conduct code treats discounts in advertising as an inducement, and bars 'lowest price' style claims. Instalments are offered in the chair, on request, never marketed.",
+      "deps": [
+        "16",
+        "18"
+      ],
+      "blockedOn": null,
+      "timeline": "Analysis complete Aug 2026 off 20 years of ledger data and a live database audit. Policy drafting sits with the legal workstream. Terminal and rate discovery starts now.",
+      "tasks": [
+        {
+          "t": "Audit two years of discounts against the live database \u2014 done, and reconciled against an independent source",
+          "done": true
+        },
+        {
+          "t": "Find a bank-agnostic terminal / payment provider \u2014 the current terminal only supports one bank's instalment plan, which caps who can ever be offered it",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Get written merchant-rate quotes and test them against the break-even: instalments only beat a discount when the discount they replace is larger than the merchant rate",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Create distinct adjustment reason codes in the clinical system \u2014 today every concession lands in one generic bucket, which is why this needed forensic work",
+          "done": false
+        },
+        {
+          "t": "Draft the policy: approval tiers, a per-case ceiling, and who carries the cost of a discretionary concession",
+          "done": false
+        },
+        {
+          "t": "Fold the policy into the practitioner agreement with counsel rather than issuing it as a memo",
+          "done": false
+        },
+        {
+          "t": "Monthly one-page read-out so concessions are visible without anyone having to ask",
+          "done": false
+        }
+      ],
+      "note": "Guiding principle borrowed from how private hospitals separate professional fees from facility fees: whoever decides a concession should carry it. Instalments are a conversion tool for the patient who genuinely cannot pay in one go \u2014 not a margin play. On the numbers, simply not discounting beats every instalment variant for both the clinic and the practitioner."
     }
   ]
 }
