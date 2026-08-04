@@ -1,22 +1,22 @@
 {
-  "as_of": "2026-08-03",
+  "as_of": "2026-08-04",
   "source": "redirect.ismile.com.my/admin/webhook/webhooklog",
   "note": "Funnel = event counts (per-message callbacks), not distinct patients. Conversion = matured-cohort recall->appointment rate (correlation, not proven causal lift); as-of the latest OpenDent export only.",
   "funnel_live": true,
-  "funnel_as_of": "2026-08-03",
+  "funnel_as_of": "2026-08-04",
   "cumulative": {
-    "total": 11733,
-    "sent": 4035,
-    "delivered": 4725,
-    "read": 1617,
-    "failed": 351,
-    "clicks": 105,
-    "replies": 900
+    "total": 11839,
+    "sent": 4062,
+    "delivered": 4761,
+    "read": 1632,
+    "failed": 363,
+    "clicks": 106,
+    "replies": 915
   },
   "this_month": {
-    "sent": 60,
-    "clicks": 1,
-    "replies": 6
+    "sent": 87,
+    "clicks": 2,
+    "replies": 21
   },
   "conversion": {
     "available": true,
