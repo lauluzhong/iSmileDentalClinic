@@ -1,8 +1,7 @@
 {
   "updated": "2026-08-05 12:20 MYT",
   "running": [
-    "review_curation",
-    "review_stats_sync"
+    "review_curation"
   ],
   "jobs": {
     "gbp_reply": {
@@ -30,8 +29,8 @@
       "last": "2026-08-04 13:30 MYT"
     },
     "review_stats_sync": {
-      "state": "running",
-      "last": "2026-08-04 12:20 MYT"
+      "state": "idle",
+      "last": "2026-08-05 12:20 MYT"
     }
   }
 }
