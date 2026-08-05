@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-04 17:32 MYT",
+  "updated": "2026-08-05 10:19 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -848,8 +848,8 @@
     },
     {
       "id": "18",
-      "title": "Locum Compensation Redesign",
-      "status": "review",
+      "title": "Locum Compensation Redesign \u2014 the 10% and what replaces it",
+      "status": "active",
       "owner": "Lu Zhong",
       "coOwner": "GM, Lydia (contract wording)",
       "dept": "finance",
@@ -857,18 +857,19 @@
       "startMonth": "2026-07",
       "endMonth": "2026-12",
       "ongoing": false,
-      "why": "Two legacy carve-outs quietly cost the clinic real money every year: X-rays are not shared, and one doctor\u2019s ortho work is exempt from the 10%. Together they are worth roughly RM63k/year \u2014 close to the cost of the front-desk and DSA headcount we actually need.",
-      "next": "Move the X-ray sharing policy first (universal, defensible now); phase the ortho change later, and land both through the new contractor agreement rather than a conversation.",
-      "gate": "Decouple the two: X-ray = a universal clinic policy applied to everyone; the ortho 10% = a single-doctor renegotiation, phased.",
+      "why": "The 10% deduction taken off every practitioner before their share is the single most resented part of the pay scheme, and it is applied unevenly: one practitioner's orthodontic work is lifted out before the 10% is struck, under a separate agreement made years ago, while another doing the same procedures is charged in full. The owner's direction is to stop deducting it altogether rather than renegotiate the exemption \u2014 abolition closes the gap without anyone having to defend why it existed. The question is not whether, it is how it gets funded. A small per-visit charge set by the clinic is the candidate, because it also bills the chair time nobody currently invoices.",
+      "next": "Model the swap properly and take it to the practitioners: drop the 10%, introduce a modest per-visit charge patients are used to paying elsewhere. Then decide the fee level, what happens to existing treatment contracts, and how it is announced.",
+      "gate": "Do not announce the relief before the funding is settled \u2014 a benefit given and then partially withdrawn is worse than never given. Also settle what happens to patients mid-treatment, where the per-visit charge lands hardest.",
       "deps": [
         "3",
-        "16"
+        "16",
+        "29"
       ],
       "blockedOn": null,
-      "timeline": "Analysis done. X-ray policy now; ortho phased later. Both ride on the doctor contractor agreement (#16).",
+      "timeline": "Figures rebuilt in Aug 2026 from the actual monthly workbooks rather than estimates, and independently verified. Direction set by the owner. Fee level, grandfathering and announcement still open; the wording rides on the contractor agreement.",
       "tasks": [
         {
-          "t": "Quantify both carve-outs (X-ray ~RM35.8k/yr; ortho 10% ~RM27.4k/yr)",
+          "t": "Quantify the two legacy carve-outs (X-ray sharing; the ortho exemption)",
           "done": true
         },
         {
@@ -876,20 +877,41 @@
           "done": true
         },
         {
-          "t": "Introduce X-ray sharing as universal policy",
+          "t": "Establish what the deduction actually costs and who gains if it goes \u2014 read from the real workbooks, not estimated",
+          "done": true
+        },
+        {
+          "t": "Confirm the direction: stop deducting rather than renegotiate the one-practitioner exemption",
+          "done": true
+        },
+        {
+          "t": "Set the per-visit charge and confirm it covers the giveback with headroom",
           "done": false,
           "now": true
         },
         {
-          "t": "Phase the ortho 10% renegotiation",
+          "t": "Decide how patients already mid-treatment are handled \u2014 the charge falls hardest on the most frequent visitors",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Name it properly and put it on the displayed fee schedule \u2014 it is a clinic charge, not a practitioner fee",
           "done": false
         },
         {
-          "t": "Write both into the contractor agreement / Schedule 1",
+          "t": "Introduce X-ray sharing as a universal policy",
+          "done": false
+        },
+        {
+          "t": "Write the whole scheme into the contractor agreement rather than announcing it in a meeting",
+          "done": false
+        },
+        {
+          "t": "Announce, with the relief and the funding presented together",
           "done": false
         }
       ],
-      "note": "The framing matters more than the number: the X-ray unit is a <b>licensed clinic asset</b> (AELB licence sits with the clinic, not the practitioner), so sharing its revenue is a policy applied to everyone \u2014 not a cut to one person. That is why it goes first. ~RM63k/yr recovered \u2248 funds the front-desk + DSA roles."
+      "note": "Three things make this work. The relief is <b>progressive</b> \u2014 as a share of pay the lowest earners gain most and the highest earner gains least, because most of that practitioner's base was already exempt. So abolition quietly equalises the legacy arrangement without singling anyone out. Second, roughly a third of all visits currently carry no charge at all \u2014 orthodontic reviews booked upfront, delivery appointments, and consultations individual practitioners feel unable to bill. A clinic-set charge captures that chair time uniformly without asking anyone to change how they work. Third, this is the first patient charge the clinic controls rather than the practitioners. \u26a0\ufe0f The relief must be measured on the <b>economic</b> basis (including the founder's computed but undrawn share), not the cash basis \u2014 the cash figure is flattered by a subsidy that ends the day she stops working."
     },
     {
       "id": "19",
