@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-07 12:15 MYT",
+  "updated": "2026-08-08 00:29 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -735,60 +735,54 @@
     {
       "id": "16",
       "title": "Legal \u2014 Contracts, Handbook & Doctor Agreements",
-      "status": "review",
+      "status": "active",
       "owner": "Lu Zhong",
       "coOwner": "Lydia (counsel)",
       "why": "Doctors had NO contract at all, and the employee paperwork was 20 years old. Redraft the employment terms, refresh the handbook, and move doctors onto contractor agreements (not employees) so the classification, the locum mechanics and the procurement rules are all written down.",
-      "next": "Counsel still has both the contractor agreement and the handbook. The office has not received the handbook yet, so the all-staff signing cannot be scheduled until it lands.",
+      "next": "Send the marked-up contractor agreement back to counsel. It is redlined with tracked changes and 18 margin comments, and reconstructed Schedules 1 and 2 are attached for her review \u2014 the version she returned had no fee percentage, no payment date and no deduction principles in it. Four questions need her answer before anyone signs.",
       "gate": null,
       "deps": [],
       "blockedOn": null,
-      "timeline": "Erincy's contract is signed. The doctor contractor agreement is with Lydia for line-by-line review, and Emily is reviewing the 2026 Handbook before it goes to all staff.",
+      "timeline": "Marked-up draft ready 8 Aug. Counsel's answers wanted before the 17 Aug meeting with the incoming junior doctor, since her terms sit in Schedule 1 of this same agreement.",
       "tasks": [
         {
-          "t": "All contract docs organised (status tracker + playbook + governance/terminology standard)",
-          "done": true
-        },
-        {
-          "t": "Owner policy set: long-tenured staff keep their original contracts; everyone signs the 2026 Handbook",
-          "done": true
-        },
-        {
-          "t": "Handbook acknowledgement form built",
-          "done": true
-        },
-        {
-          "t": "New-hire contract built and SIGNED (Erincy, started 7 Jul)",
-          "done": true
-        },
-        {
-          "t": "Doctor contractor agreement \u2014 first cut + counsel cover memo built",
-          "done": true
-        },
-        {
-          "t": "Lydia's line-by-line review of the doctor agreement \u2014 in progress",
+          "t": "Return the marked-up agreement and the question list to counsel",
           "done": false,
           "now": true
         },
         {
-          "t": "Handbook reviewed \u2014 signing not yet run",
-          "done": true
-        },
-        {
-          "t": "All staff sign the 2026 Handbook",
-          "done": false
-        },
-        {
-          "t": "Elaine's revised job description, once her CRM role is settled",
-          "done": false
-        },
-        {
-          "t": "All-staff handbook signing \u2014 waiting on counsel to release the handbook",
+          "t": "Get her answer on whether Schedules 1, 2 and 4 were dropped deliberately or lost in the rewrite",
           "done": false,
           "now": true
+        },
+        {
+          "t": "Get her opinion on the non-competition clause under section 28 of the Contracts Act",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Decide the fee percentages and deduction principles that go into Schedules 1 and 2",
+          "done": false
+        },
+        {
+          "t": "Get her view on whether the incoming junior doctor should be an employee rather than a contractor",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Confirm the mentorship fee framing does not raise a fee-splitting issue",
+          "done": false
+        },
+        {
+          "t": "Confirm the position on the patient registration fee and the upfront-payment discount",
+          "done": false
+        },
+        {
+          "t": "Circulate to the doctors once counsel has cleared it",
+          "done": false
         }
       ],
-      "note": "Locked decisions on the doctor agreement: fee stated as <b>principles only</b> (per-doctor % sits in a confidential schedule \u2014 the locum formula stays internal), <b>exclusivity dropped</b> (classification safety), <b>procurement centralisation added</b> (doctors were having the clinic pre-pay co-orders), session-based with no fixed hours. Terminology standard set: chairside role = <b>Dental Surgery Assistant</b>; contractor docs say practitioner / professional fees / invoicing \u2014 never employee or salary.",
+      "note": "All eight doctors are currently unpapered, several at about fifteen years' standing. Working papers are in People & Competence/Contracts/ \u2014 the review note and the marked-up agreement.",
       "dept": "people",
       "lens": "efficiency",
       "startMonth": "2026-06",
@@ -1067,7 +1061,7 @@
       "endMonth": "2026-10",
       "ongoing": false,
       "why": "Supplier communication and payment should sit with the office, not the doctors \u2014 both to free clinical time and because doctor-mediated invoices arrive late. One supplier offers cashback for payment within about two days of invoice, and we routinely miss it because the invoice reaches the team after the window has closed. That is a pure, uncontested loss. Before anything can be taken over, we need to know the full universe of who we buy from and how each relationship actually runs today.",
-      "next": "The office has started working through the supplier information. Next: complete the largest cost lines and agree who takes over each relationship.",
+      "next": "The office has committed to completing the supplier information by the end of August. Reiterated to the lead orthodontist that the intent is to move supplier contact to the practice so clinicians can stay on clinical work.",
       "gate": "Anything left as Unknown is itself a finding, not a blank.",
       "deps": [
         "1"
@@ -1215,7 +1209,7 @@
     {
       "id": "24",
       "title": "AI Clinical Note Transcription",
-      "status": "blocked",
+      "status": "active",
       "owner": "Lu Zhong",
       "coOwner": "Claude (build)",
       "dept": "tech",
@@ -1223,44 +1217,48 @@
       "startMonth": "2026-08",
       "endMonth": "2026-11",
       "ongoing": false,
-      "why": "Doctors spend real chair time typing the patient conversation into notes. That time is the most expensive time in the building, and the task is now genuinely easy to automate: record the conversation, transcribe it, and format it into the clinic's own note style.",
-      "next": "Hold until the clinician comes back with what she actually wants. The note data showed she is third by volume, so the problem may not be the one we assumed.",
+      "why": "The clinician wants a readable transcript of her consultations that she can go back over afterwards. That is a transcription problem, not a reasoning one \u2014 so it can run entirely on a local machine with no patient audio leaving the building, which removes the privacy objection outright.",
+      "next": "Buy a local transcription tool, record one real consultation and let her read the output. If it is usable, build the speaker-labelling properly. If it is not, no amount of engineering fixes it.",
       "gate": "Two non-negotiables: patient consent for recording, and the doctor reviews and approves before anything enters the clinical record. Never auto-write.",
       "deps": [
         "10"
       ],
-      "blockedOn": "Waiting on the clinician to define what she means by transcription.",
-      "timeline": "Short term: a handheld device in the room. Medium term: a fixed microphone per surgery, with patients matched by timestamp against the appointment book.",
+      "blockedOn": null,
+      "timeline": "Test in August. Build the speaker labelling only if the transcript itself passes.",
       "tasks": [
         {
-          "t": "Get the clinical definition of the problem before building anything",
+          "t": "Buy a local transcription app and run one real consultation through it",
           "done": false,
           "now": true
         },
         {
-          "t": "Collect sample notes to learn the output format",
+          "t": "Have the clinician read the transcript and say whether she can work with it",
           "done": false,
           "now": true
         },
         {
-          "t": "Recording consent \u2014 folded into the onboarding form redesign",
+          "t": "Test it on a genuinely mixed-language consultation \u2014 that is where accuracy falls over",
           "done": false,
           "now": true
         },
         {
-          "t": "Prototype: recording \u2192 transcription \u2192 formatted note",
+          "t": "If it passes, add speaker separation so it is clear who said what",
           "done": false
         },
         {
-          "t": "Trial in one surgery with doctor review before saving",
+          "t": "Enrol the clinician's voice so her turns are labelled automatically",
           "done": false
         },
         {
-          "t": "Fixed microphone per room, matched to the appointment book by timestamp",
+          "t": "Agree consent wording and where the recordings are stored",
+          "done": false
+        },
+        {
+          "t": "Decide later whether to add local summarising on top of the transcript",
           "done": false
         }
       ],
-      "note": "Run the model locally so no patient audio or clinical text leaves the premises \u2014 the privacy-safe answer and the easiest one to defend to the doctors."
+      "note": "Everything runs offline on an Apple Silicon machine \u2014 no data leaves the premises and no external service is involved. Keep summarising out of the first version: a transcript cannot be wrong in the way a summary can."
     },
     {
       "id": "25",
@@ -1305,38 +1303,50 @@
     {
       "id": "26",
       "title": "DSA Training Programme",
-      "status": "planned",
+      "status": "active",
       "owner": "Lu Zhong",
-      "coOwner": "Senior DSAs (to confirm)",
+      "coOwner": "Senior DSAs \u00b7 General Manager",
       "dept": "people",
       "lens": "efficiency",
       "startMonth": "2026-08",
       "endMonth": "2026-12",
       "ongoing": false,
-      "why": "There is no structured training for the dental surgery assistants. The doctors already run a quarterly get-together where they teach each other what they have learned \u2014 the same model would work chairside, and running it is a real ownership opportunity for the senior assistants rather than a chore.",
-      "next": "Confirm who runs it, then draft the competency matrix and the first session.",
+      "why": "There is no structured training for the dental surgery assistants and no written standard for how the floor runs during a clinical day. Two doctors have now raised chairside and floor conduct. Most of it looks uninstructed rather than deliberate \u2014 nobody has ever written down what good looks like.",
+      "next": "Ask the two senior assistants to build and run a peer-led session, paid, over dinner for the whole team, focused on doctor-specific chairside preferences. Separately, verify the feedback with the general manager and put the conduct standard in writing.",
       "gate": "A competency matrix per assistant, a quarterly session, and a sign-off \u2014 so it feeds the staff scorecard rather than being a one-off.",
       "deps": [
-        "19"
+        "19",
+        "27"
       ],
       "blockedOn": null,
-      "timeline": "Design Aug\u2013Sep \u2192 first session Q4 2026 \u2192 quarterly thereafter.",
+      "timeline": "Verify and write the standard in August. First session once the accounting system training is out of the way.",
       "tasks": [
         {
-          "t": "Confirm who leads it",
+          "t": "Ask the two senior assistants to design and run the session, and agree a fee",
           "done": false,
           "now": true
         },
         {
-          "t": "Draft the competency matrix",
+          "t": "Verify the feedback with the general manager before anything is said to the team",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Check whether the senior-junior pairing is holding in practice, and define what a junior is signed off to do alone",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Write the floor and chairside conduct standard and issue it separately from the training night",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Book the dinner and run the first session",
           "done": false
         },
         {
-          "t": "Design the first session",
-          "done": false
-        },
-        {
-          "t": "Run the first quarterly session",
+          "t": "Draft the competency matrix per assistant",
           "done": false
         },
         {
@@ -1344,7 +1354,7 @@
           "done": false
         }
       ],
-      "note": "The hybrid front-desk / chairside staff should have their chairside and front-desk competencies on one sheet."
+      "note": "Keep the training night and the conduct standard apart. The session is a reward and a skills exercise; if the grievances are read out that evening it becomes a reprimand with food. The durable fix is filling the chairs so the idle time does not exist \u2014 but that is a six-month lever and the standard is needed now."
     },
     {
       "id": "27",
@@ -1358,50 +1368,47 @@
       "endMonth": "2026-12",
       "ongoing": false,
       "why": "Our own margin data shows a very wide spread in value produced per chair-hour between doctors \u2014 one clinician generates several hundred times the true margin per hour of another. Business as usual will not close the gap in time. A clinician who can arrive and immediately deliver higher-value procedures, and bring patients with them, is the case-mix lever \u2014 the only route past the capacity ceiling other than extending hours.",
-      "next": "Three conversations happen this week: the general manager first, then the lead orthodontic practitioner, then the two longest-serving practitioners together. The goal is to listen, not to sell. The incoming clinician has signalled she would value learning directly from the lead orthodontic practitioner, which turns a competitive framing into a mentoring one \u2014 but that only works if it is genuinely wanted on both sides, so it gets tested before it is proposed.",
+      "next": "The lead orthodontist conversation is done \u2014 she is open to mentoring but was clear that it has to be paid properly. Next: have a draft contract ready for the 17 Aug meeting with the candidate and the general manager, then put the two doctors in a room together to see whether the working relationship fits.",
       "gate": "Nothing becomes public until the practitioners already here have been heard. Expect the objection that chairs are not full as it is \u2014 the honest answer is that retention, not new patient flow, is what separates a full book from an empty one here, and the data supports that.",
-      "deps": [],
+      "deps": [
+        "16"
+      ],
       "blockedOn": null,
-      "timeline": "Prior conversations already held \u2014 this is a re-open, not a cold approach. Terms would ride on the contractor agreement.",
+      "timeline": "Contract draft by 16 Aug \u2192 candidate meeting 17 Aug \u2192 introduction to the lead orthodontist \u2192 then the wider doctor briefing.",
       "tasks": [
         {
-          "t": "First conversation held",
-          "done": true
-        },
-        {
-          "t": "Agree what a strong first year looks like, in chair-hours and case mix",
+          "t": "Lead orthodontist approached \u2014 open to mentoring, wants fair remuneration",
           "done": false
         },
         {
-          "t": "Terms via the contractor agreement",
+          "t": "Have a draft contract ready to discuss technically",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Meet the candidate and the general manager on 17 August",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Decide employee versus contractor, and floor versus recoverable draw, with counsel",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Introduce the candidate and the lead orthodontist in person",
           "done": false
         },
         {
-          "t": "Agree how this is communicated to the practitioners already here",
-          "done": true,
-          "now": true
+          "t": "Settle the mentorship fee with the lead orthodontist",
+          "done": false
         },
         {
-          "t": "Hear out the lead orthodontic practitioner one-to-one \u2014 open frustrations first, then test the mentoring angle",
-          "done": false,
-          "now": true
-        },
-        {
-          "t": "Sit down with the two longest-serving practitioners \u2014 general input, what is planned, then introduce the hire",
-          "done": false,
-          "now": true
-        },
-        {
-          "t": "Pre-brief the general manager ahead of both conversations",
-          "done": false,
-          "now": true
-        },
-        {
-          "t": "Come back and reshape the proposal around what all three actually say",
+          "t": "Brief the other doctors before anything is announced",
           "done": false
         }
       ],
-      "note": "Sits alongside the specialist-surgeon conversation already on the board \u2014 both are the same lever."
+      "note": "Shape under discussion is a guaranteed monthly minimum or the calculated fee, whichever is higher, for the first six months. That plus supervision looks a lot like employment, so the engagement basis needs a legal answer before it is offered. Communication to the existing doctors remains the main risk."
     },
     {
       "id": "28",
@@ -1477,47 +1484,44 @@
       "endMonth": "2026-12",
       "ongoing": false,
       "why": "Discounting has never had a written rule, so it became a personal judgement call rather than a clinic position. Two years of ledger data show it is concentrated almost entirely in high-value orthodontic case starts settled upfront, and that the clinic quietly carries the larger half of every discount a practitioner gives \u2014 because the discount is deducted from the shared base before the split. The practitioner decides; the clinic pays more of it. That is the misalignment to fix. The tool itself is legitimate and stays, but its cost has to be visible to the person holding it.",
-      "next": "Two threads run in parallel. First, find a bank-agnostic payment terminal provider so instalments are not limited to one bank's cardholders, and get real merchant-discount-rate quotes to test whether instalments are actually cheaper than the discount they replace. Second, draft the discount policy with counsel so it lands inside the practitioner agreement rather than as a standalone memo.",
+      "next": "Non-committal rate discovery with the payment-terminal provider next week: merchant rates by instalment tenure, and whether the cost can be passed to or shared with the practitioner. Separately, the concession clause is now drafted into the contractor agreement.",
       "gate": "Do not publish or advertise any discount or instalment offer. The dental council's conduct code treats discounts in advertising as an inducement, and bars 'lowest price' style claims. Instalments are offered in the chair, on request, never marketed.",
       "deps": [
         "16",
         "18"
       ],
       "blockedOn": null,
-      "timeline": "Analysis complete Aug 2026 off 20 years of ledger data and a live database audit. Policy drafting sits with the legal workstream. Terminal and rate discovery starts now.",
+      "timeline": "Provider conversation w/c 10 Aug. Policy lands inside the contractor agreement rather than as a standalone memo.",
       "tasks": [
         {
-          "t": "Audit two years of discounts against the live database \u2014 done, and reconciled against an independent source",
-          "done": true
-        },
-        {
-          "t": "Find a bank-agnostic terminal / payment provider \u2014 the current terminal only supports one bank's instalment plan, which caps who can ever be offered it",
+          "t": "Get merchant rates by tenure from the payment provider, and whether the fee can be passed to the doctor",
           "done": false,
           "now": true
         },
         {
-          "t": "Get written merchant-rate quotes and test them against the break-even: instalments only beat a discount when the discount they replace is larger than the merchant rate",
+          "t": "Confirm June's cases against the practice-management system",
           "done": false,
           "now": true
         },
         {
-          "t": "Create distinct adjustment reason codes in the clinical system \u2014 today every concession lands in one generic bucket, which is why this needed forensic work",
+          "t": "Land the concession clause in the contractor agreement \u2014 whoever decides a concession carries it",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Get counsel's view on the discount under the professional conduct rules on inducement",
           "done": false
         },
         {
-          "t": "Draft the policy: approval tiers, a per-case ceiling, and who carries the cost of a discretionary concession",
+          "t": "Separate the trial-appliance pricing from the cash-flow discount before writing policy",
           "done": false
         },
         {
-          "t": "Fold the policy into the practitioner agreement with counsel rather than issuing it as a memo",
-          "done": false
-        },
-        {
-          "t": "Monthly one-page read-out so concessions are visible without anyone having to ask",
+          "t": "Add reason codes so concessions can be told apart in reporting",
           "done": false
         }
       ],
-      "note": "Guiding principle borrowed from how private hospitals separate professional fees from facility fees: whoever decides a concession should carry it. Instalments are a conversion tool for the patient who genuinely cannot pay in one go \u2014 not a margin play. On the numbers, simply not discounting beats every instalment variant for both the clinic and the practitioner."
+      "note": "June's actual discounts ran 3.7 to 7.2 per cent, below the level at which an instalment plan pays for itself as a straight replacement for discounting. So the instalment product is better aimed at patients who cannot pay upfront \u2014 today the clinic finances those itself, interest-free and carrying the risk. The discounting behaviour is structural: practitioners are paid on collections, so pulling payment forward pulls their own pay forward."
     }
   ]
 }
