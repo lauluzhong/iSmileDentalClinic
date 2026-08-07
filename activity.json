@@ -5,6 +5,13 @@
       "ts": "2026-08-07 12:00 MYT",
       "agent": "gbp",
       "job": "gbp_reply",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-08-07 12:00 MYT",
+      "agent": "gbp",
+      "job": "gbp_reply",
       "event": "started",
       "result": ""
     },
@@ -273,13 +280,6 @@
       "job": "seo_outcome",
       "event": "finished",
       "result": "ok"
-    },
-    {
-      "ts": "2026-08-01 13:00 MYT",
-      "agent": "analytics",
-      "job": "seo_outcome",
-      "event": "started",
-      "result": ""
     }
   ]
 }
