@@ -5,6 +5,13 @@
       "ts": "2026-08-08 07:30 MYT",
       "agent": "analytics",
       "job": "recall_funnel",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-08-08 07:30 MYT",
+      "agent": "analytics",
+      "job": "recall_funnel",
       "event": "started",
       "result": ""
     },
@@ -273,13 +280,6 @@
       "job": "weekly_digest",
       "event": "finished",
       "result": "ok"
-    },
-    {
-      "ts": "2026-08-03 00:00 MYT",
-      "agent": "edith",
-      "job": "weekly_digest",
-      "event": "started",
-      "result": ""
     }
   ]
 }
