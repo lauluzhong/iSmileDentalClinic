@@ -651,41 +651,106 @@ export default function blogSSG() {
         '        <source media="(max-width: 768px)" type="image/jpeg" srcset="' + srcset(hero.portraitBase, 'jpg') + '" sizes="' + hero.sizes + '" />',
         '        <source type="image/avif" srcset="' + srcset(hero.base, 'avif') + '" sizes="' + hero.sizes + '" />',
         '        <source type="image/webp" srcset="' + srcset(hero.base, 'webp') + '" sizes="' + hero.sizes + '" />',
-        '        <img src="' + hero.base + '.jpg" srcset="' + srcset(hero.base, 'jpg') + '" sizes="' + hero.sizes + '" alt="' + heroAlt + '" width="' + hero.width + '" height="' + hero.height + '" fetchpriority="high" decoding="async" style="width:100%;height:auto;border-radius:16px;display:block" />',
+        '        <img src="' + hero.base + '.jpg" srcset="' + srcset(hero.base, 'jpg') + '" sizes="' + hero.sizes + '" alt="' + heroAlt + '" width="' + hero.width + '" height="' + hero.height + '" fetchpriority="high" decoding="async" />',
         '      </picture>',
       ].join('\n');
 
+      // Styles the shell to LOOK like the real hero so the React mount is a
+      // seamless crossfade, not a raw-HTML→design flip (the 1s flash every
+      // cold-cache visitor saw). Uses the design tokens from the bundled CSS —
+      // it is render-blocking in <head>, so the vars are live before first
+      // paint. Values are copied from Home.jsx's hero styles and Header.jsx's
+      // immersive mobile header; keep them in step if that design changes.
+      // The <style> sits INSIDE the article so HYDRATION_SWAP removes it too.
+      const homeStyle = [
+        '  <style>',
+        '    #ssg-content{margin:0;padding:0;max-width:none;background:var(--color-bg-cream,#f8fafc);color:var(--color-text-charcoal,#15242B);font-family:var(--font-body,Inter,system-ui,sans-serif)}',
+        '    #ssg-content h1,#ssg-content h2{font-family:var(--font-heading,Outfit,sans-serif);font-weight:700}',
+        '    #ssg-content .ssg-hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}',
+        '    #ssg-content .ssg-hero-media{position:absolute;inset:0;z-index:1}',
+        '    #ssg-content .ssg-hero-media picture,#ssg-content .ssg-hero-media img{display:block;width:100%;height:100%}',
+        '    #ssg-content .ssg-hero-media img{object-fit:cover;object-position:center 30%}',
+        '    #ssg-content .ssg-hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,35,50,0.30) 0%,rgba(15,35,50,0.05) 32%,rgba(13,42,58,0.42) 56%,rgba(13,42,58,0.88) 70%,rgba(13,42,58,1) 78%)}',
+        '    #ssg-content .ssg-logo{position:absolute;top:0;left:0;z-index:3;margin:0;padding:14px 22px}',
+        '    #ssg-content .ssg-logo img{height:52px;width:auto;filter:brightness(0) invert(1) drop-shadow(0 1px 6px rgba(10,30,45,0.35))}',
+        '    #ssg-content .ssg-hero-copy{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;padding:110px 22px calc(76px + env(safe-area-inset-bottom))}',
+        '    #ssg-content .ssg-eyebrow{display:none;margin:0 0 26px;font-family:var(--font-heading,Outfit,sans-serif);font-weight:600;font-size:0.82rem;letter-spacing:0.04em}',
+        '    #ssg-content .ssg-hero-copy h1{margin:0 0 10px;font-size:2.35rem;line-height:1.12;letter-spacing:-0.03em;color:#fff}',
+        '    #ssg-content .ssg-intro{margin:0;max-width:540px;line-height:1.6;font-size:1.02rem;color:rgba(255,255,255,0.92)}',
+        '    #ssg-content .ssg-intro-desktop{display:none}',
+        '    #ssg-content .ssg-trust{order:-1;margin:0 0 12px;font-size:0.85rem;color:rgba(255,255,255,0.95)}',
+        '    #ssg-content .ssg-below{max-width:800px;margin:0 auto;padding:48px 22px 56px}',
+        '    #ssg-content .ssg-below h2{font-size:1.5rem;margin:32px 0 10px;color:var(--color-text-charcoal,#15242B)}',
+        '    #ssg-content .ssg-below p{margin:0;line-height:1.65;color:var(--color-text-slate,#475569)}',
+        '    #ssg-content nav ul{list-style:none;margin:40px 0 0;padding:24px 0 0;border-top:1px solid rgba(16,42,51,0.10);display:flex;flex-wrap:wrap;gap:8px 20px}',
+        '    #ssg-content nav a{color:var(--color-text-grey,#64748B);font-size:0.85rem;text-decoration:none}',
+        '    @media (min-width: 769px){',
+        '      #ssg-content .ssg-hero{min-height:92vh;flex-direction:row;align-items:center;justify-content:center;gap:56px;padding:140px 24px 60px}',
+        '      #ssg-content .ssg-hero-media{position:relative;inset:auto;order:2;flex:0 0 auto;width:44%;max-width:520px;border-radius:24px;overflow:hidden;box-shadow:0 24px 48px rgba(16,42,51,0.16);transform:rotate(-1.25deg);outline:6px solid #fff;outline-offset:-6px}',
+        '      #ssg-content .ssg-hero-media img{aspect-ratio:16/11;height:auto;filter:saturate(0.98) contrast(1.02)}',
+        '      #ssg-content .ssg-hero-media::after{background:linear-gradient(180deg,rgba(0,90,118,0) 58%,rgba(0,90,118,0.20) 100%)}',
+        '      #ssg-content .ssg-logo{padding:20px 32px}',
+        '      #ssg-content .ssg-logo img{height:96px;filter:none}',
+        '      #ssg-content .ssg-hero-copy{padding:0;max-width:560px}',
+        '      #ssg-content .ssg-eyebrow{display:inline-block;color:var(--color-text-charcoal,#15242B)}',
+        '      #ssg-content .ssg-hero-copy h1{font-size:var(--fs-display,3.5rem);line-height:1.05;margin:0 0 22px;color:var(--color-text-charcoal,#15242B)}',
+        '      #ssg-content .ssg-intro{font-size:var(--fs-lead,1.15rem);color:var(--color-text-slate,#475569)}',
+        '      #ssg-content .ssg-intro-desktop{display:block}',
+        '      #ssg-content .ssg-intro-mobile{display:none}',
+        '      #ssg-content .ssg-trust{order:0;margin:36px 0 0;font-size:0.95rem;color:var(--color-text-slate,#475569)}',
+        '    }',
+        '  </style>',
+      ].join('\n');
+
       const homeBody = [
+        homeStyle,
         // Mirrors the art direction in Header.jsx: tight wordmark <=1024px, padded
         // square above, each <source> carrying its own intrinsic ratio. Without the
         // media scoping a desktop load fetches BOTH logo files (the preload in
         // index.html plus this shell's hardcoded tight crop); without the per-source
         // width/height the browser reserves a square box for the 3:2 tight crop.
         // Keep this in step with Header.jsx and the logo preloads in index.html.
-        '    <p>',
+        '    <p class="ssg-logo">',
         '      <picture>',
         '        <source media="(max-width: 1024px)" type="image/webp" srcset="/logo-tight.webp" width="320" height="215" />',
         '        <source media="(max-width: 1024px)" type="image/png" srcset="/logo-tight.png" width="462" height="310" />',
         '        <source type="image/webp" srcset="/logo.webp" width="320" height="320" />',
         '        <source type="image/png" srcset="/logo.png" width="500" height="500" />',
-        '        <img class="site-logo-img" src="/logo.png" alt="iSmile Dental Clinic" width="500" height="500" style="height:80px;width:auto" />',
+        '        <img class="site-logo-img" src="/logo.png" alt="iSmile Dental Clinic" width="500" height="500" />',
         '      </picture>',
         '    </p>',
-        '    <p>' + escapeHtml(HOME_PAGE.eyebrow) + '</p>',
-        '    <h1>' + escapeHtml(HOME_PAGE.h1) + '</h1>',
-        '    <p>' + escapeHtml(fillStats(HOME_PAGE.intro)) + '</p>',
+        '    <div class="ssg-hero-media">',
         heroPicture,
-        '    <p>' + escapeHtml(fillStats(HOME_PAGE.trust)) + '</p>',
+        '    </div>',
+        '    <div class="ssg-hero-copy">',
+        '    <p class="ssg-eyebrow">' + escapeHtml(HOME_PAGE.eyebrow) + '</p>',
+        '    <h1>' + escapeHtml(HOME_PAGE.h1) + '</h1>',
+        // Same desktop/mobile subtitle swap as Home.jsx — the long intro keeps
+        // its SEO value on every viewport (hidden, not removed, on phones).
+        '    <p class="ssg-intro ssg-intro-desktop">' + escapeHtml(fillStats(HOME_PAGE.intro)) + '</p>',
+        '    <p class="ssg-intro ssg-intro-mobile">The family dentist Petaling Jaya households have stayed with since 2006.</p>',
+        '    <p class="ssg-trust">' + escapeHtml(fillStats(HOME_PAGE.trust)) + '</p>',
+        '    </div>',
+      ].join('\n');
+
+      const homeBelow = [
+        '  <div class="ssg-below">',
         ...HOME_PAGE.sections.map(s =>
           '    <section><h2>' + escapeHtml(fillStats(s.h2)) + '</h2><p>' +
           escapeHtml(fillStats(s.p)) + '</p></section>'),
+        staticNav('/'),
+        '  </div>',
       ].join('\n');
 
       const homeBlock = [
-        '  <!-- Pre-rendered content for SEO + first paint — removed once React mounts -->',
-        '  <article id="ssg-content" style="max-width:800px;margin:80px auto;padding:0 20px;font-family:Inter,system-ui,sans-serif">',
+        '  <!-- Pre-rendered content for SEO + first paint — removed once React mounts.',
+        '       Styled to match the real hero (Home.jsx / Header.jsx) so the swap is',
+        '       invisible instead of a raw-HTML flash on cold-cache loads. -->',
+        '  <article id="ssg-content">',
+        '  <section class="ssg-hero">',
         homeBody,
-        staticNav('/'),
+        '  </section>',
+        homeBelow,
         '  </article>',
         '',
       ].join('\n');
