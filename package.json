@@ -9,7 +9,7 @@
         "blog:build": "npm run blog:validate-tags && node scripts/build-blog.js && npm run blog:validate",
         "prebuild": "npm run blog:build",
         "dev": "npm run blog:build && vite",
-        "build": "vite build",
+        "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender-home.js",
         "lint": "eslint .",
         "preview": "vite preview"
     },

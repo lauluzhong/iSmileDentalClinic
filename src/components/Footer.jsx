@@ -5,6 +5,7 @@ import { Smartphone } from 'lucide-react';
 import Button from './Button';
 import reviewStats from '../data/review-stats.json';
 import { enrichEvent } from '../lib/attribution';
+import Style from './Style';
 
 const logo = '/logo.png';
 const logoWebP = '/logo.webp';
@@ -217,7 +218,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <style>{`
+            <Style>{`
         .footer {
             background-color: #edf2f7;
             padding: 80px 0 40px;
@@ -434,7 +435,7 @@ const Footer = () => {
             .direction-buttons { flex-direction: row; justify-content: flex-start; transform: none; margin-top: 5px; }
             .direction-btn { width: 140px !important; }
         }
-      `}</style>
+      `}</Style>
         </footer>
     );
 };

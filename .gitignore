@@ -53,3 +53,4 @@ test.txt
 .claude/
 .vercel
 .env*
+dist-ssr
