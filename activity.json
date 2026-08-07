@@ -3,6 +3,13 @@
   "entries": [
     {
       "ts": "2026-08-08 00:26 MYT",
+      "agent": "edith",
+      "job": "weekly_digest",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-08-08 00:26 MYT",
       "agent": "engineer",
       "job": "review_curation",
       "event": "finished",
@@ -273,13 +280,6 @@
       "job": "review_stats_sync",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-08-02 12:01 MYT",
-      "agent": "seo",
-      "job": "competitor_watch",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
