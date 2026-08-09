@@ -187,9 +187,6 @@ a {
   box-shadow: 0 14px 34px rgba(0, 141, 176, 0.36);
 }
 
-.btn-primary:active {
-  transform: translateY(0);
-}
 
 .btn-outline {
   background: rgba(255, 255, 255, 0.6);
@@ -202,6 +199,14 @@ a {
   color: white;
   transform: translateY(-2px);
   box-shadow: var(--shadow-teal);
+}
+
+/* Press feedback lives on pointer-down and is instant — on touch there is no
+   hover, so without this a tap gives no visual response at all. Placed after
+   the :hover rules so the pressed transform wins while the finger is down. */
+.btn:active {
+  transform: scale(0.97);
+  transition: transform 100ms ease-out;
 }
 
 .text-blue {

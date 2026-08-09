@@ -16,7 +16,7 @@ const WhatsAppIcon = () => (
 // Sticky bottom action bar — mobile only (<=1024px).
 // Three actions per the approved Option A mock: Call / WhatsApp / Book a Visit.
 const StickyActionBar = () => {
-    const { isBookingOpen, openBooking } = useBooking();
+    const { isBookingOpen, isPromptOpen, openBooking } = useBooking();
 
     const track = (eventName, payload = {}) => {
         window.dataLayer = window.dataLayer || [];
@@ -96,6 +96,12 @@ const StickyActionBar = () => {
                         cursor: pointer;
                         text-decoration: none;
                         -webkit-tap-highlight-color: transparent;
+                    }
+                    /* Instant press feedback — these three are the most-tapped
+                       controls on the site and previously gave no response. */
+                    .sab-btn:active {
+                        transform: scale(0.96);
+                        transition: transform 100ms ease-out;
                     }
                     .sab-wa {
                         color: #128C4B;
