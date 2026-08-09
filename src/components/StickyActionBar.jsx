@@ -16,15 +16,16 @@ const WhatsAppIcon = () => (
 // Sticky bottom action bar — mobile only (<=1024px).
 // Three actions per the approved Option A mock: Call / WhatsApp / Book a Visit.
 const StickyActionBar = () => {
-    const { isBookingOpen, openBooking } = useBooking();
+    const { isBookingOpen, isPromptOpen, openBooking } = useBooking();
 
     const track = (eventName, payload = {}) => {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push(enrichEvent({ event: eventName, ...payload }, 'sticky-bar'));
     };
 
-    // Hide the bar while the booking modal is open
-    if (isBookingOpen) return null;
+    // Hide the bar while the booking modal is open, and while the CTA prompt is
+    // showing — on mobile the prompt is a bottom sheet occupying the same space.
+    if (isBookingOpen || isPromptOpen) return null;
 
     return (
         <div className="sticky-action-bar" role="navigation" aria-label="Quick contact actions">

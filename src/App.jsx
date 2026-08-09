@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 import Layout from './components/Layout';
 import PageTransition from './components/PageTransition';
 import BookingModal from './components/BookingModal';
+import CtaPrompt from './components/CtaPrompt';
 import ClarityAnalytics from './components/Analytics/ClarityAnalytics';
 import Loader from './components/Loader';
 import { initAttribution, enrichEvent } from './lib/attribution';
@@ -63,6 +64,7 @@ function App() {
     <Layout>
       <ClarityAnalytics />
       <BookingModal />
+      <CtaPrompt />
       <AnimatePresence>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<PageTransition><Home /></PageTransition>} />
