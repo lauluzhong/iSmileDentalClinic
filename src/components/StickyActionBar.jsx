@@ -2,6 +2,7 @@ import React from 'react';
 import { Phone } from 'lucide-react';
 import { useBooking } from '../context/BookingContext';
 import { enrichEvent } from '../lib/attribution';
+import Style from './Style';
 
 const PHONE_NUMBER = '+60163222135';
 const WHATSAPP_URL = 'https://wa.me/60163222135';
@@ -54,7 +55,7 @@ const StickyActionBar = () => {
                 Book a Visit
             </button>
 
-            <style>{`
+            <Style>{`
                 .sticky-action-bar {
                     display: none;
                 }
@@ -108,7 +109,7 @@ const StickyActionBar = () => {
                         box-shadow: 0 6px 18px rgba(0, 141, 176, 0.28);
                     }
                 }
-            `}</style>
+            `}</Style>
         </div>
     );
 };

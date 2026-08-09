@@ -7,6 +7,7 @@ import BookingModal from './components/BookingModal';
 import ClarityAnalytics from './components/Analytics/ClarityAnalytics';
 import Loader from './components/Loader';
 import { initAttribution, enrichEvent } from './lib/attribution';
+import { endFirstPaint } from './lib/firstPaint';
 
 // Primary pages (synchronous)
 import Home from './pages/Home';
@@ -26,6 +27,12 @@ const JoinUs = lazy(() => import('./pages/JoinUs'));
 
 function App() {
   const location = useLocation();
+
+  // The pre-rendered markup is on screen and hydrated by the time this runs,
+  // so anything mounting from here on is a genuine client render and animates.
+  useEffect(() => {
+    endFirstPaint();
+  }, []);
 
   // Initialize attribution tracking
   useEffect(() => {

@@ -3,10 +3,18 @@ import react from '@vitejs/plugin-react'
 import blogSSG from './vite-plugin-blog-ssg.js'
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react(), blogSSG()],
+  ssr: {
+    // react-helmet-async ships CommonJS, and Node's ESM loader can't pull named
+    // exports out of it when Vite leaves it external. Bundle it into the server
+    // build instead.
+    noExternal: ['react-helmet-async'],
+  },
   build: {
-    rollupOptions: {
+    // The SSR pass (src/entry-server.jsx → dist-ssr/) is a single Node bundle
+    // consumed by scripts/prerender-home.js. Browser chunking doesn't apply.
+    rollupOptions: isSsrBuild ? {} : {
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
@@ -33,4 +41,4 @@ export default defineConfig({
       }
     }
   }
-})
+}))

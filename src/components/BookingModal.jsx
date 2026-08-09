@@ -4,6 +4,7 @@ import { useBooking } from '../context/BookingContext';
 import Button from './Button';
 import { insertLead } from '../lib/supabase';
 import { enrichEvent } from '../lib/attribution';
+import Style from './Style';
 
 const BookingModal = () => {
     const { isBookingOpen, closeBooking, prefillData } = useBooking();
@@ -311,7 +312,7 @@ ${formData.experience}${familySection}${notesSection}`;
                     </Button>
                 </form>
             </div>
-            <style>{`
+            <Style>{`
                 .modal-overlay {
                     position: fixed;
                     top: 0;
@@ -457,7 +458,7 @@ ${formData.experience}${familySection}${notesSection}`;
                     from { transform: translateY(40px); opacity: 0; }
                     to { transform: translateY(0); opacity: 1; }
                 }
-            `}</style>
+            `}</Style>
         </div>
     );
 };

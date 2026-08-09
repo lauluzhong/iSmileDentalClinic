@@ -4,6 +4,7 @@ import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { ChevronDown, ChevronRight, ChevronLeft, Menu, X, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from './Button';
+import Style from './Style';
 const logo = '/logo.png';
 const logoWebP = '/logo.webp';
 // Tightly-cropped wordmark (no transparent padding) — used on mobile so the logo reads larger
@@ -382,7 +383,7 @@ const Header = () => {
                 )}
             </AnimatePresence>
 
-            <style>{`
+            <Style>{`
         .header {
             position: fixed;
             top: 0;
@@ -780,7 +781,7 @@ const Header = () => {
                 padding: 20px;
             }
         }
-      `}</style>
+      `}</Style>
         </header>
     );
 };

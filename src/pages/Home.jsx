@@ -8,6 +8,7 @@ import { Reveal } from '../components/Reveal';
 import { motion, useReducedMotion } from 'framer-motion';
 import reviewStats from '../data/review-stats.json';
 import ResponsiveImage from '../components/ResponsiveImage';
+import { isFirstPaint } from '../lib/firstPaint';
 
 // Updated Image Paths
 // Hero art direction. The mobile hero is a full-bleed PORTRAIT box; the desktop
@@ -48,11 +49,16 @@ const TEAM_IMG_WEBP = "/images/team_group.webp";
 const MotionLink = motion(Link);
 
 import blogIndex from '../data/blog-index.json';
+import Style from '../components/Style';
 
 const Home = () => {
     const { openBooking } = useBooking();
     const navigate = useNavigate();
     const prefersReducedMotion = useReducedMotion();
+    // The homepage is pre-rendered, so on a cold load its markup is already
+    // painted — the bento cards must not fade in from opacity:0 underneath it.
+    const [wasPrerendered] = useState(() => isFirstPaint());
+    const skipEntrance = wasPrerendered || prefersReducedMotion;
 
     // Get the specific blog posts in the requested order
     // Updated 2026-03-28: Feature newest posts covering priority topics
@@ -150,7 +156,7 @@ const Home = () => {
                                   <source type="image/avif" srcSet={`/images/family_hero_three_generations-480w.avif 480w, /images/family_hero_three_generations-768w.avif 768w, /images/family_hero_three_generations.avif 1024w`} sizes={HERO_SIZES} />
                                   <source type="image/webp" srcSet={`/images/family_hero_three_generations-480w.webp 480w, /images/family_hero_three_generations-768w.webp 768w, ${FAMILY_HERO_WEBP} 1024w`} sizes={HERO_SIZES} />
                                   <source type="image/jpeg" srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 1024w`} sizes={HERO_SIZES} />
-                                  <img src={FAMILY_HERO} srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 1024w`} sizes={HERO_SIZES} alt="Three generations of a family smiling together at iSmile Dental Clinic" width="1024" height="624" fetchPriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }} />
+                                  <img src={FAMILY_HERO} srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 1024w`} sizes={HERO_SIZES} alt="Three generations of a family smiling together at iSmile Dental Clinic" width="1024" height="624" fetchpriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }} />
                                 </picture>
                                 <div className="hero-floating-badge">
                                     <div className="hero-badge-copy">
@@ -173,7 +179,7 @@ const Home = () => {
 
                     <div className="bento-grid">
                         {/* Card 1: Maintain & Repair */}
-                        <MotionLink to="/services/protect" className="bento-card" initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -40px 0px" }} transition={{ duration: 0.35, ease: "easeOut" }}>
+                        <MotionLink to="/services/protect" className="bento-card" initial={skipEntrance ? false : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -40px 0px" }} transition={{ duration: 0.35, ease: "easeOut" }}>
                             <div className="card-top">
                                 <span className="card-icon-wrap"><Shield size={26} className="card-icon" /></span>
                                 <ArrowRight size={20} className="card-arrow" />
@@ -186,7 +192,7 @@ const Home = () => {
                         </MotionLink>
 
                         {/* Card 2: Straighten Teeth */}
-                        <MotionLink to="/services/straighten" className="bento-card" initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -40px 0px" }} transition={{ duration: 0.35, ease: "easeOut" }}>
+                        <MotionLink to="/services/straighten" className="bento-card" initial={skipEntrance ? false : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -40px 0px" }} transition={{ duration: 0.35, ease: "easeOut" }}>
                             <div className="card-top">
                                 <span className="card-icon-wrap"><Sparkles size={26} className="card-icon" /></span>
                                 <ArrowRight size={20} className="card-arrow" />
@@ -199,7 +205,7 @@ const Home = () => {
                         </MotionLink>
 
                         {/* Card 3: Replace Teeth */}
-                        <MotionLink to="/services/replace" className="bento-card" initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -40px 0px" }} transition={{ duration: 0.35, ease: "easeOut" }}>
+                        <MotionLink to="/services/replace" className="bento-card" initial={skipEntrance ? false : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -40px 0px" }} transition={{ duration: 0.35, ease: "easeOut" }}>
                             <div className="card-top">
                                 <span className="card-icon-wrap"><Smile size={26} className="card-icon" /></span>
                                 <ArrowRight size={20} className="card-arrow" />
@@ -212,7 +218,7 @@ const Home = () => {
                         </MotionLink>
 
                         {/* Card 4: Enhance Smile */}
-                        <MotionLink to="/services/enhance" className="bento-card" initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -40px 0px" }} transition={{ duration: 0.35, ease: "easeOut" }}>
+                        <MotionLink to="/services/enhance" className="bento-card" initial={skipEntrance ? false : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -40px 0px" }} transition={{ duration: 0.35, ease: "easeOut" }}>
                             <div className="card-top">
                                 <span className="card-icon-wrap"><Star size={26} className="card-icon" /></span>
                                 <ArrowRight size={20} className="card-arrow" />
@@ -225,7 +231,7 @@ const Home = () => {
                         </MotionLink>
 
                         {/* Card 5: Children & Growth */}
-                        <MotionLink to="/services/children" className="bento-card" initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -40px 0px" }} transition={{ duration: 0.35, ease: "easeOut" }}>
+                        <MotionLink to="/services/children" className="bento-card" initial={skipEntrance ? false : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -40px 0px" }} transition={{ duration: 0.35, ease: "easeOut" }}>
                             <div className="card-top">
                                 <span className="card-icon-wrap"><Users size={26} className="card-icon" /></span>
                                 <ArrowRight size={20} className="card-arrow" />
@@ -363,7 +369,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <style>{`
+            <Style>{`
         /* General Hero & Section Styles */
         .mobile-break { display: none; }
         .hero-section { min-height: 92vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 140px; padding-bottom: 60px; }
@@ -930,7 +936,7 @@ const Home = () => {
             .read-more-link { font-size: 0.85rem; }
         }
 
-      `}</style>
+      `}</Style>
         </div>
     );
 };
