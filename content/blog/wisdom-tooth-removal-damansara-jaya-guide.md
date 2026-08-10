@@ -21,6 +21,14 @@ faq:
     a: "Initial healing usually takes about a week, with swelling and discomfort gradually improving. Most people in Damansara Jaya return to normal activities within a few days, though complete healing of the bone underneath takes longer. Your dentist will provide a personalized recovery timeline based on your procedure."
   - q: "What are the signs I might need wisdom tooth removal?"
     a: "Common signs include pain at the back of the mouth, swelling around the jaw, difficulty opening your mouth, or recurring infections. If you're experiencing any of these symptoms in Damansara Jaya, it's worth scheduling a dental assessment to check your wisdom teeth's position and health."
+  - q: "Will it affect my other teeth?"
+    a: "Properly done wisdom tooth removal shouldn't affect your other teeth. In fact, removing problematic wisdom teeth can prevent crowding and protect your other molars from damage."
+  - q: "How do I choose where to have it done?"
+    a: "Look for a clinic with experience in oral surgery procedures. Many Damansara Jaya dental practices regularly perform wisdom tooth removals. You might ask about their approach, what technology they use for planning, and what aftercare support they provide."
+  - q: "What about cost and insurance?"
+    a: "Costs vary depending on complexity. Many dental insurance plans in Malaysia cover at least part of wisdom tooth removal when it's medically necessary. Your clinic can usually provide an estimate and help with insurance paperwork."
+  - q: "When should I schedule it?"
+    a: "Many people in Damansara Jaya schedule wisdom tooth removal during school or work breaks to allow recovery time. Your dentist can advise on timing based on your specific situation."
 ---
 
 # Wisdom Tooth Removal in Damansara Jaya: Procedure and Recovery Guide
@@ -94,20 +102,6 @@ Your dentist will give you specific aftercare instructions, including:
 - When to resume brushing and how to clean the area gently
 - What foods to avoid during initial healing
 - Signs to watch for that might need follow-up attention
-
-## Common Questions About Wisdom Tooth Removal in Damansara Jaya
-
-**"Will it affect my other teeth?"**
-Properly done wisdom tooth removal shouldn't affect your other teeth. In fact, removing problematic wisdom teeth can prevent crowding and protect your other molars from damage.
-
-**"How do I choose where to have it done?"**
-Look for a clinic with experience in oral surgery procedures. Many Damansara Jaya dental practices regularly perform wisdom tooth removals. You might ask about their approach, what technology they use for planning, and what aftercare support they provide.
-
-**"What about cost and insurance?"**
-Costs vary depending on complexity. Many dental insurance plans in Malaysia cover at least part of wisdom tooth removal when it's medically necessary. Your clinic can usually provide an estimate and help with insurance paperwork.
-
-**"When should I schedule it?"**
-Many people in Damansara Jaya schedule wisdom tooth removal during school or work breaks to allow recovery time. Your dentist can advise on timing based on your specific situation.
 
 ## Preparing for Your Procedure in Damansara Jaya
 

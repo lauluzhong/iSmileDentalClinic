@@ -894,6 +894,22 @@
       {
         "q": "What are the signs I might need wisdom tooth removal?",
         "a": "Common signs include pain at the back of the mouth, swelling around the jaw, difficulty opening your mouth, or recurring infections. If you're experiencing any of these symptoms in Damansara Jaya, it's worth scheduling a dental assessment to check your wisdom teeth's position and health."
+      },
+      {
+        "q": "Will it affect my other teeth?",
+        "a": "Properly done wisdom tooth removal shouldn't affect your other teeth. In fact, removing problematic wisdom teeth can prevent crowding and protect your other molars from damage."
+      },
+      {
+        "q": "How do I choose where to have it done?",
+        "a": "Look for a clinic with experience in oral surgery procedures. Many Damansara Jaya dental practices regularly perform wisdom tooth removals. You might ask about their approach, what technology they use for planning, and what aftercare support they provide."
+      },
+      {
+        "q": "What about cost and insurance?",
+        "a": "Costs vary depending on complexity. Many dental insurance plans in Malaysia cover at least part of wisdom tooth removal when it's medically necessary. Your clinic can usually provide an estimate and help with insurance paperwork."
+      },
+      {
+        "q": "When should I schedule it?",
+        "a": "Many people in Damansara Jaya schedule wisdom tooth removal during school or work breaks to allow recovery time. Your dentist can advise on timing based on your specific situation."
       }
     ],
     "content_type": "locality",
@@ -1200,7 +1216,32 @@
     "seo_title": null,
     "seo_description": "Cosmetic dental treatment in Damansara Jaya, PJ — veneers, whitening and smile design, and how to work out which option suits you.",
     "featured": false,
-    "faq": [],
+    "faq": [
+      {
+        "q": "What's the first step in considering cosmetic dentistry?",
+        "a": "The initial step involves a consultation at our Damansara Jaya clinic. During this visit, we discuss your concerns, examine your dental health, and explore potential treatment options. This assessment helps determine which approaches might be most suitable for achieving your aesthetic goals while considering your overall dental wellbeing."
+      },
+      {
+        "q": "How do I know which cosmetic treatment is right for me?",
+        "a": "Your dentist will recommend options based on your specific situation during the assessment. Factors like your dental health, treatment goals, timeline, and preferences all influence which approaches might work best. We explain the pros and cons of different options so you can make an informed decision about what suits your needs."
+      },
+      {
+        "q": "Are cosmetic dental treatments covered by insurance?",
+        "a": "Coverage varies depending on your insurance plan and the specific treatment. Some procedures with both cosmetic and functional benefits might have partial coverage, while purely aesthetic treatments often don't. We can help you understand potential costs and provide documentation for insurance claims when applicable."
+      },
+      {
+        "q": "How long do cosmetic dental results typically last?",
+        "a": "Duration varies depending on the treatment, materials used, and how well you maintain the results. Some options like teeth whitening might require periodic touch-ups, while others like veneers can last many years with proper care. Your dentist will provide specific information about expected longevity during your consultation."
+      },
+      {
+        "q": "Is there any discomfort during cosmetic dental procedures?",
+        "a": "Most cosmetic treatments involve minimal discomfort, and we use appropriate techniques to ensure your comfort throughout the process. Some procedures might cause temporary sensitivity or require local anesthesia. We discuss what to expect regarding comfort during your treatment planning session."
+      },
+      {
+        "q": "Can cosmetic dentistry address functional issues too?",
+        "a": "Many cosmetic treatments improve both appearance and function. For example, aligning crooked teeth can enhance chewing efficiency, and replacing missing teeth can prevent bite problems. During assessment, we evaluate both aesthetic and functional aspects to recommend comprehensive solutions when appropriate."
+      }
+    ],
     "content_type": "locality",
     "canonical_url": null
   },
