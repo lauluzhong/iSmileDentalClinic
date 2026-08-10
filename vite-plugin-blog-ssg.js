@@ -530,7 +530,7 @@ export default function blogSSG() {
               '</section>'
             : '',
           reading.length
-            ? '    <section><h2>Keep reading</h2><ul>' +
+            ? '    <section><h2>Dental Education</h2><ul>' +
               reading.map(p => '<li><a href="' + SITE_URL + '/blog/' + escapeHtml(p.slug) + '">' +
                                escapeHtml(p.title) + '</a></li>').join('') +
               '</ul></section>'
@@ -607,10 +607,10 @@ export default function blogSSG() {
             '</section>');
         }
 
-        // /services carries the same "Keep reading" strip as the hubs below it.
+        // /services carries the same Dental Education strip as the hubs below it.
         const coreReading = pickRelatedPosts(blogIndex, page.path, 3);
         if (coreReading.length) {
-          parts.push('    <section><h2>Keep reading</h2><ul>' +
+          parts.push('    <section><h2>Dental Education</h2><ul>' +
             coreReading.map(p => '<li><a href="' + SITE_URL + '/blog/' + escapeHtml(p.slug) + '">' +
                                  escapeHtml(p.title) + '</a></li>').join('') +
             '</ul></section>');

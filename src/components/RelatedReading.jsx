@@ -7,19 +7,18 @@ import ResponsiveImage from './ResponsiveImage';
 import Style from './Style';
 
 /**
- * "Keep reading" strip for the bottom of a service or specialty page.
+ * Dental Education strip for the bottom of a service or specialty page.
  *
  * Sits below the booking CTA so the page has an exit for the visitor who is
  * researching rather than ready to book. Which posts appear is decided in
  * src/data/serviceBlogLinks.js.
  *
- * Three cards, images and all. Desktop lays them out as a grid; below 1024px
- * they become a snap-scrolling carousel that bleeds to the screen edge, the
- * same gesture as Dental Education on the homepage. Whichever layout is in
- * play, the Learning Centre button underneath always renders — the section
- * should never dead-end any more than the page above it did.
+ * Named to match the homepage section it borrows its layout from: three cards
+ * as a grid on desktop, and below 1024px a snap-scrolling carousel that bleeds
+ * to the screen edge. One call to action, the Learning Centre link beside the
+ * heading, at every width.
  */
-export default function RelatedReading({ pathKey, title = 'Keep reading', limit = 3 }) {
+export default function RelatedReading({ pathKey, title = 'Dental Education', limit = 3 }) {
     const posts = pickRelatedPosts(blogIndex, pathKey, limit);
     if (posts.length === 0) return null;
 
@@ -77,19 +76,6 @@ export default function RelatedReading({ pathKey, title = 'Keep reading', limit 
                     </ul>
                 </div>
 
-                {/* An <a> carrying the button classes, not <Link><Button> —
-                    that nests a <button> inside an <a>, which is invalid and
-                    breaks keyboard activation. */}
-                <div className="related-reading-cta">
-                    <Link
-                        to="/blog"
-                        className="btn btn-outline"
-                        data-analytics-click="service-related-reading-cta"
-                        data-analytics-label={pathKey}
-                    >
-                        Read more in the Learning Centre
-                    </Link>
-                </div>
             </div>
 
             <Style>{`
@@ -226,28 +212,19 @@ export default function RelatedReading({ pathKey, title = 'Keep reading', limit 
                     color: var(--color-primary);
                 }
 
-                .related-reading-cta {
-                    margin-top: 36px;
-                    text-align: center;
-                }
-
-                .related-reading-cta .btn {
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                    text-decoration: none;
-                }
-
                 @media (max-width: 1024px) {
                     .related-reading { padding: 48px 0; }
                     .related-reading-head { margin-bottom: 20px; }
+
+                    /* The link is the section's only call to action, so it stays
+                       on mobile — it just drops under the heading rather than
+                       squeezing onto the same line. */
+                    .related-reading-head { flex-direction: column; align-items: flex-start; gap: 10px; }
 
                     /* Carousel, matching Dental Education on the homepage: the
                        scroller breaks out of .container's 16px gutter so cards
                        run to the screen edge, and the track re-adds it as
                        padding so the first card still lines up with the heading. */
-                    .related-reading-all { display: none; }
-
                     .related-reading-scroller {
                         margin: 0 -16px;
                         overflow-x: auto;
@@ -284,7 +261,6 @@ export default function RelatedReading({ pathKey, title = 'Keep reading', limit 
                         -webkit-line-clamp: 2;
                         margin-bottom: 14px;
                     }
-                    .related-reading-cta { margin-top: 24px; }
                 }
 
                 @media (prefers-reduced-motion: reduce) {
