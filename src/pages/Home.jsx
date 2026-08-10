@@ -76,28 +76,54 @@ const Home = () => {
 
     // Scroll Animation Logic
     const scrollSectionRef = useRef(null);
+    const heroRef = useRef(null);
     const [scrollProgress, setScrollProgress] = useState(0);
+    const [heroInView, setHeroInView] = useState(true);
 
+    // Passive + rAF-coalesced: the listener previously ran layout-reading work
+    // (getBoundingClientRect) and a setState on every raw scroll event, on the
+    // main thread, without `passive` — so it could delay the scroll itself.
     useEffect(() => {
-        const handleScroll = () => {
-            if (!scrollSectionRef.current) return;
+        let frame = null;
+
+        const measure = () => {
+            frame = null;
             const el = scrollSectionRef.current;
-            const rect = el.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
+            if (!el) return;
 
-            const start = 0;
-            const end = el.offsetHeight - viewportHeight;
-            let current = -rect.top;
+            const end = el.offsetHeight - window.innerHeight;
+            if (end <= 0) return;
 
-            let progress = current / end;
-            if (progress < 0) progress = 0;
-            if (progress > 1) progress = 1;
-
-            setScrollProgress(progress);
+            const raw = -el.getBoundingClientRect().top / end;
+            const progress = Math.min(1, Math.max(0, raw));
+            // Skip no-op renders — this fires for the whole length of the section.
+            setScrollProgress(prev => (Math.abs(prev - progress) < 0.001 ? prev : progress));
         };
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        const handleScroll = () => {
+            if (frame === null) frame = window.requestAnimationFrame(measure);
+        };
+
+        measure();
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            if (frame !== null) window.cancelAnimationFrame(frame);
+        };
+    }, []);
+
+    // The decorative hero blob loops forever. Once the hero is scrolled away
+    // there is nothing to see, so stop paying for the animation.
+    useEffect(() => {
+        const el = heroRef.current;
+        if (!el || typeof IntersectionObserver === 'undefined') return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => setHeroInView(entry.isIntersecting),
+            { rootMargin: '100px' }
+        );
+        observer.observe(el);
+        return () => observer.disconnect();
     }, []);
 
     return (
@@ -109,9 +135,9 @@ const Home = () => {
             </Helmet>
 
             {/* 1. Hero Section */}
-            <section className="hero-section">
+            <section className="hero-section" ref={heroRef}>
                 <div className="liquid-shape" style={{ top: '12%', left: '6%', width: '340px', height: '340px', background: 'var(--color-secondary)' }}></div>
-                <div className="liquid-shape animate-float" style={{ bottom: '6%', right: '2%', width: '420px', height: '420px', background: 'var(--color-primary)', animationDelay: '1s' }}></div>
+                <div className="liquid-shape animate-float" style={{ bottom: '6%', right: '2%', width: '420px', height: '420px', background: 'var(--color-primary)', animationDelay: '1s', animationPlayState: heroInView ? 'running' : 'paused' }}></div>
                 <div className="liquid-shape" style={{ top: '44%', right: '32%', width: '220px', height: '220px', background: 'var(--color-accent)', filter: 'blur(70px)' }}></div>
 
                 <div className="container hero-container">

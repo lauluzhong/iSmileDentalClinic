@@ -413,8 +413,25 @@ const Header = () => {
         .header.scrolled {
             padding: 15px 0;
             background: rgba(248, 250, 252, 0.7);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             backdrop-filter: blur(20px);
+        }
+
+        /* Scroll edge, not a divider: where floating chrome overlaps content,
+           the separation is a short fade out of the bar's own tint rather than
+           a 1px-ish shadow line ruled across the full width. */
+        .header.scrolled::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            height: 18px;
+            pointer-events: none;
+            background: linear-gradient(180deg, rgba(248, 250, 252, 0.55) 0%, rgba(248, 250, 252, 0) 100%);
+        }
+
+        .header.header-dark.scrolled::after {
+            background: linear-gradient(180deg, rgba(10, 26, 34, 0.35) 0%, rgba(10, 26, 34, 0) 100%);
         }
 
         .header-container {
@@ -489,7 +506,9 @@ const Header = () => {
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             opacity: 0;
             visibility: hidden;
-            transition: all 0.2s ease;
+            /* Scoped rather than "all", which also animated colour/background
+               and repainted the whole dropdown on hover for no visible gain. */
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
             border: 1px solid rgba(0,0,0,0.05);
         }
 
@@ -681,6 +700,11 @@ const Header = () => {
                    bottom edge — a ghost of a nav bar that isn't drawn. Needs
                    !important to beat .header.scrolled, same as the two above. */
                 box-shadow: none !important;
+            }
+            /* Same reasoning for the desktop scroll-edge fade: there is no bar
+               here for it to hang from, so it would read as the same ghost line. */
+            .header.scrolled::after {
+                display: none;
             }
             /* One mobile header treatment for every page (the Home one): there is
                no bar. The container is a transparent layout box — the logo sits
