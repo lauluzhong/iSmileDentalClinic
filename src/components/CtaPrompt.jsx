@@ -46,8 +46,9 @@ const SNOOZE_AFTER_ENGAGE_DAYS = 90;
  *    before the popup ever fires. Our desktop trigger is exit intent, so the
  *    dwell here is only an arming guard against accidental top-edge exits
  *    seconds after landing; 8s sits at the top of the sweet spot.
- *  - The reviews page arms at 15s (owner decision): visitors there are doing
- *    quiet due-diligence, so the prompt holds back a little longer.
+ *  - The reviews page arms at 12s (owner decision): visitors there are doing
+ *    quiet due-diligence, so the prompt holds back a little longer — but stays
+ *    inside the 6-15s window the benchmark data favours.
  *  - Mobile fires on engagement, not exit. Scroll-triggered popups convert
  *    ~5.4% with the recommended firing band at 50–70% depth — we gate at 50%.
  *    The dwell floor is 12s, not 20s: past-20s triggers underperform for the
@@ -55,7 +56,7 @@ const SNOOZE_AFTER_ENGAGE_DAYS = 90;
  *    out skimmers, so a long dwell adds little and costs fires.
  */
 const DESKTOP_MIN_DWELL_MS = 8000;
-const REVIEWS_MIN_DWELL_MS = 15000;
+const REVIEWS_MIN_DWELL_MS = 12000;
 const MOBILE_MIN_DWELL_MS = 12000;
 const MOBILE_MIN_SCROLL_FRACTION = 0.5;
 const ENGAGEMENT_POLL_MS = 800;
