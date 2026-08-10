@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-10 18:43 MYT",
+  "updated": "2026-08-10 18:49 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -1529,7 +1529,110 @@
           "done": false
         }
       ],
-      "timeline": "Aug: draft quick-reply library + owner sign-off. Sep: live as WhatsApp Business quick replies, front desk briefed. Oct: greeting/away automations + first attribution review."
+      "timeline": "Aug: draft quick-reply library + owner sign-off. Sep: live as WhatsApp Business quick replies, front desk briefed. Oct: greeting/away automations + first attribution review.",
+      "drafts": [
+        {
+          "tag": "/hours",
+          "label": "T1 \u00b7 Hours, address & parking",
+          "body": "We're open:\n*Mon to Fri* 9.30am to 5.30pm\n*Sat* 9.30am to 3.30pm\n*Sun & public holidays* closed\n\nWe're at 75 & 75A, Jalan SS 22/23, Damansara Jaya, 47400 Petaling Jaya.\n\nThere's parking along the road and in the lots behind the shops. We're on the ground floor, so no stairs or lift needed.\n\nWant us to find you a time?"
+        },
+        {
+          "tag": "/book",
+          "label": "T1 \u00b7 How to book",
+          "body": "Happy to get you booked in.\n\nJust send us:\n1. Patient's full name\n2. Contact number\n3. Whether you've been to us before\n4. Roughly when suits you, morning or afternoon, and which days\n\nIf it's for your child, their age helps too.\n\nWe'll check the book and come back with the closest times we have."
+        },
+        {
+          "tag": "/firstvisit",
+          "label": "T1 \u00b7 First visit \u2014 what happens",
+          "body": "Welcome, and thanks for thinking of us.\n\nA first visit is mostly about getting to know you. The dentist will:\n\u2022 Go through your dental and medical history\n\u2022 Check your teeth, gums and bite\n\u2022 Take an x-ray if it's needed to see what's happening below the surface\n\u2022 Talk you through anything worth keeping an eye on\n\nIf something needs attention, the dentist will explain what it is and what the options are before anything is done. Nothing gets started without you agreeing to it.\n\nMost people are with us around an hour for a first visit, though it depends what's found.\n\nShall we look for a time?"
+        },
+        {
+          "tag": "/fees",
+          "label": "T1 \u00b7 The \"how much\" question",
+          "body": "Fair question, and the honest answer is that it depends on what you actually need.\n\nThe same treatment can be simple for one person and more involved for another, so quoting a number before the dentist has looked wouldn't be doing you any favours.\n\nWhat we can promise is no surprises. Once the dentist has assessed you, you'll get the cost explained clearly before any treatment starts, and you decide from there.\n\nWe take card, cash, DuitNow QR and bank transfer.\n\nWant to come in for an assessment first?"
+        },
+        {
+          "tag": "/pain",
+          "label": "T1 \u00b7 In pain, wants to be seen",
+          "body": "Sorry to hear that, let's get you looked at.\n\nSo we can prioritise you properly, tell us:\n\u2022 Where the pain is\n\u2022 How long it's been going on\n\u2022 Is it constant, or only when you eat or drink something hot or cold\n\u2022 Any swelling on the face or gum\n\nIf there's facial swelling, difficulty swallowing or breathing, or a fever, please treat that as urgent and go to a hospital emergency department rather than waiting for a dental appointment.\n\nOtherwise, send us the above and we'll find you the earliest slot we have."
+        },
+        {
+          "tag": "/cleaning",
+          "label": "T1 \u00b7 Scale & polish",
+          "body": "A scale and polish is the routine clean and check most people come in for.\n\nThe dentist or hygienist clears away the hardened plaque that builds up along the gumline, which brushing alone can't shift, then polishes the teeth. You'll also get a check of your teeth, gums and bite while you're in the chair.\n\nGums can feel a bit tender for a day or so after, especially if it's been a while. That usually settles on its own.\n\nMost people come in around twice a year, but the dentist will suggest what's right for you.\n\nWant us to find you a slot?"
+        },
+        {
+          "tag": "/filling",
+          "label": "T2 \u00b7 Fillings / decay",
+          "body": "Sounds like it's worth getting looked at.\n\nA filling repairs a tooth where decay or a chip has damaged it. The dentist cleans out the damaged part and rebuilds the tooth with a tooth-coloured material, so it blends in rather than showing up dark.\n\nIt's usually done in one visit, and numbing is used so you shouldn't feel the work itself. The tooth can be a little sensitive for a few days afterwards.\n\nIf the damage has gone deeper than a filling can handle, the dentist will talk you through the other options before doing anything.\n\nSend us a photo if you like, though we'd still need to see it properly to be sure. Want to come in?"
+        },
+        {
+          "tag": "/extraction",
+          "label": "T2 \u00b7 Tooth extraction",
+          "body": "Taking a tooth out is usually a last resort, so the first step is having the dentist look and see whether it can be saved.\n\nIf it does need to come out, the area is numbed first, so you'd feel pressure rather than pain. Afterwards you'll get instructions on eating, rinsing and keeping the area clean while it heals.\n\nDo let us know if you're on any blood thinners or have a heart condition, as the dentist will want to know before the day.\n\nIf there's a gap left behind, there are ways to fill it, and the dentist can walk you through those when the time is right.\n\nWant us to find you a time to get it checked?"
+        },
+        {
+          "tag": "/gums",
+          "label": "T2 \u00b7 Bleeding or sore gums",
+          "body": "Bleeding or sore gums are worth getting checked rather than waiting them out.\n\nGums often bleed when there's hardened plaque sitting along the gumline, irritating the tissue. A clean can settle that in many cases. If it's gone further, the dentist may recommend a deeper clean below the gumline, sometimes with a bit of numbing to keep you comfortable.\n\nEither way, the dentist will look first and explain what they're seeing before recommending anything.\n\nBleeding when brushing isn't something to just live with, so it's worth a look. Want to come in?"
+        },
+        {
+          "tag": "/rootcanal",
+          "label": "T2 \u00b7 Root canal",
+          "body": "Root canal treatment is what's done when the nerve inside a tooth has become infected or damaged, usually from deep decay or a crack.\n\nThe idea is to save the tooth rather than lose it. The dentist cleans out the inside of the tooth, disinfects it and seals it up. The area is numbed throughout, so it's generally much more comfortable than its reputation suggests.\n\nIt's often done over more than one visit, depending on the tooth. Afterwards the tooth can be more brittle, so the dentist may suggest a crown to protect it.\n\nIf you're in pain right now, tell us and we'll prioritise getting you seen."
+        },
+        {
+          "tag": "/kids",
+          "label": "T2 \u00b7 Child's first visit",
+          "body": "Lovely, we see plenty of children.\n\nThe first visit is mostly about letting them get comfortable. The dentist will count the teeth, have a look at how things are developing, and keep it light. If your child isn't ready for much on the day, that's completely fine, the dentist works at their pace.\n\nIt also gives you a chance to ask about brushing, thumb sucking, diet, or anything you've noticed.\n\nIt helps if you can tell us their age and anything specific you've spotted, so we can allow the right amount of time.\n\nShall we find you a slot?"
+        },
+        {
+          "tag": "/braces",
+          "label": "T3 \u00b7 Braces & clear aligners",
+          "body": "Happy to help you look into it.\n\nThere's more than one way to straighten teeth. Fixed braces are the familiar option, and clear aligners are the removable, largely invisible route. We work with Invisalign, Angel Aligner and ClearSmile.\n\nWhich one suits you depends on what needs moving and how much, which is why it starts with an assessment. The dentist looks at your teeth, bite and jaw, usually with x-rays or a scan, then talks you through the realistic options and what each involves.\n\nIt's an assessment, not a commitment. Plenty of people come in just to find out where they stand.\n\nIt helps to know: is this for you or someone else, and roughly what's bothering you about your smile?"
+        },
+        {
+          "tag": "/myo",
+          "label": "T3 \u00b7 Children's myofunctional",
+          "body": "Glad you asked, this is something we look at closely.\n\nMyofunctional orthodontics is about the habits and muscle patterns behind how a child's jaw and teeth develop: how they breathe, where the tongue rests, whether the lips seal. Things like mouth breathing, snoring or crowded teeth can be signs worth assessing.\n\nAn assessment looks at the whole picture, including developmental history, muscle function and airway, alongside the teeth themselves. Depending on what's found, treatment may involve a removable appliance worn mostly at night, plus simple exercises.\n\nIt works best while a child is still growing, so it's worth asking early rather than waiting.\n\nTell us how old your child is and what you've noticed, and we'll take it from there."
+        },
+        {
+          "tag": "/crown",
+          "label": "T3 \u00b7 Crowns & bridges",
+          "body": "A crown is a cap that covers a tooth that's too damaged or weak for a filling to hold, protecting what's left and restoring the shape.\n\nA bridge does a similar job across a gap, using the teeth either side for support.\n\nIt usually takes more than one visit. The dentist prepares the tooth and takes a mould or scan, then the crown is made and fitted at a later appointment. You're generally given a temporary one in between.\n\nThere are different materials, and the dentist will talk through which makes sense for your tooth and where it sits in your mouth.\n\nWant to come in and have it assessed?"
+        },
+        {
+          "tag": "/denture",
+          "label": "T3 \u00b7 Dentures",
+          "body": "Dentures replace missing teeth and can be a full set or a partial one that fills specific gaps.\n\nIt's done over several visits: an assessment first, then moulds, a try-in so you can see how they look and feel before they're finished, and finally fitting. The try-in stage is there so adjustments happen before anything is final.\n\nNew dentures do take some getting used to, with eating and speaking, and small adjustments afterwards are normal rather than a sign anything's wrong.\n\nIf you're weighing dentures against other ways of replacing teeth, the dentist can go through the comparison with you.\n\nShall we book you in for a look?"
+        },
+        {
+          "tag": "/implant",
+          "label": "T3 \u00b7 Dental implants",
+          "body": "An implant replaces a missing tooth from the root up. A small titanium or zirconia post is placed into the jawbone and, once it's integrated, a crown is fitted on top so it works and looks like a normal tooth.\n\nWhether it's suitable depends on the bone in that area and your general health, which is why it starts with an assessment. We use cone beam CT scanning to see the bone in three dimensions and plan properly.\n\nIt's not a quick process, as healing time between stages is part of it, and the dentist will map out the timeline for your case.\n\nWant to come in and find out whether it's an option for you?"
+        },
+        {
+          "tag": "/whitening",
+          "label": "T3 \u00b7 Teeth whitening",
+          "body": "We do professional take-home whitening.\n\nThe dentist takes a mould so custom trays are made to fit your teeth, then you wear them at home with the gel, following the instructions you're given. Custom trays matter, as they keep the gel on the teeth and off the gums.\n\nA check first is important. Whitening works on natural tooth surface, so existing fillings, crowns or veneers won't change colour, and the dentist will want to make sure your teeth and gums are healthy before starting.\n\nResults vary from person to person, and some people find their teeth are a little sensitive during the process.\n\nWant to come in for a look first?"
+        },
+        {
+          "tag": "/veneer",
+          "label": "T3 \u00b7 Veneers / smile makeover",
+          "body": "Veneers are thin facings bonded to the front of the teeth, used to change shape, colour, spacing or the look of chips.\n\nThere's more than one route. Some are built up directly in the chair, others are made in a lab and bonded on afterwards. Which suits you depends on what you'd like to change and the condition of the teeth underneath, and some cases are better served by whitening or straightening first.\n\nIt usually involves some preparation of the tooth surface, so it's worth understanding properly before committing. The dentist will go through what's involved and what's realistic for your teeth.\n\nTell us what you'd like to be different and we'll take it from there."
+        },
+        {
+          "tag": "/wisdom",
+          "label": "T3 \u00b7 Wisdom teeth",
+          "body": "Wisdom teeth are the last ones through, and there often isn't room for them, which is where the trouble starts.\n\nNot every wisdom tooth needs removing. Some sit fine. The ones worth assessing are those causing pain, swelling, repeated gum infections, or pressing on the tooth in front.\n\nThe dentist will take an x-ray to see the position and the roots, as that's what determines how straightforward removal would be. If it's more complex, that will be explained, along with the aftercare.\n\nIf you're in pain or there's swelling now, say so and we'll get you seen sooner.\n\nWant us to find you a time?"
+        },
+        {
+          "tag": "/grinding",
+          "label": "T3 \u00b7 Night guard / grinding",
+          "body": "Grinding and clenching often happen during sleep, so many people don't realise they're doing it. Signs include a sore jaw in the morning, headaches, sensitive teeth, or a partner mentioning the noise.\n\nOver time it can wear the teeth down, so it's worth getting looked at.\n\nA night guard is a custom-made shield worn while you sleep. It takes the wear instead of your teeth. The dentist takes a mould so it's made to fit you, and you collect it at a second visit.\n\nThe dentist will also check how your teeth are meeting and whether anything else is contributing.\n\nWant us to book you in for an assessment?"
+        }
+      ],
+      "draftsNote": "20 replies, awaiting owner sign-off. Tier 1 first."
     },
     {
       "id": "31",
