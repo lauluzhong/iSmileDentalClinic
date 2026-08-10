@@ -37,8 +37,26 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 const SNOOZE_AFTER_DISMISS_DAYS = 30;
 const SNOOZE_AFTER_ENGAGE_DAYS = 90;
 
+/*
+ * Timings, and where they come from (2025 popup benchmark data — Wisepops 1B
+ * displays, Popupsmart 10k campaigns):
+ *
+ *  - Time-triggered popups convert best in the 6–15s window (~6%+) and fall
+ *    off a cliff past 20s (21–30s ≈ 1.5%) — mostly because visitors leave
+ *    before the popup ever fires. Our desktop trigger is exit intent, so the
+ *    dwell here is only an arming guard against accidental top-edge exits
+ *    seconds after landing; 8s sits at the top of the sweet spot.
+ *  - The reviews page arms at 15s (owner decision): visitors there are doing
+ *    quiet due-diligence, so the prompt holds back a little longer.
+ *  - Mobile fires on engagement, not exit. Scroll-triggered popups convert
+ *    ~5.4% with the recommended firing band at 50–70% depth — we gate at 50%.
+ *    The dwell floor is 12s, not 20s: past-20s triggers underperform for the
+ *    same leave-before-it-fires reason, and the scroll gate already filters
+ *    out skimmers, so a long dwell adds little and costs fires.
+ */
 const DESKTOP_MIN_DWELL_MS = 8000;
-const MOBILE_MIN_DWELL_MS = 20000;
+const REVIEWS_MIN_DWELL_MS = 15000;
+const MOBILE_MIN_DWELL_MS = 12000;
 const MOBILE_MIN_SCROLL_FRACTION = 0.5;
 const ENGAGEMENT_POLL_MS = 800;
 const ROUTE_SETTLE_MS = 3000;
@@ -209,6 +227,9 @@ const CtaPrompt = () => {
                 const poll = setInterval(tick, ENGAGEMENT_POLL_MS);
                 cleanups.push(() => clearInterval(poll));
             } else {
+                const armDelay = pathname === '/reviews'
+                    ? REVIEWS_MIN_DWELL_MS
+                    : DESKTOP_MIN_DWELL_MS;
                 timers.push(setTimeout(() => {
                     if (disposed) return;
                     const onMouseOut = (e) => {
@@ -219,7 +240,7 @@ const CtaPrompt = () => {
                     };
                     document.addEventListener('mouseout', onMouseOut);
                     cleanups.push(() => document.removeEventListener('mouseout', onMouseOut));
-                }, DESKTOP_MIN_DWELL_MS));
+                }, armDelay));
             }
         }, ROUTE_SETTLE_MS));
 

@@ -43,10 +43,81 @@ const DEFAULT_PROMPT = {
 };
 
 /**
- * Ordered rules. First match wins, so the specific service categories are
- * listed before the generic /services fallback.
+ * Ordered rules. First match wins, so exact specialty pages come first, then
+ * their category hubs, then the generic /services fallback.
+ *
+ * Specialty variants exist because the visitor there has already narrowed down
+ * to one treatment — the prompt should name it, and the pre-typed message
+ * should carry it into the chat.
  */
 const RULES = [
+    /* ---- Specialty pages (most specific first) ---- */
+    {
+        id: 'clear-aligners',
+        match: (p) => p === '/services/straighten/clear-aligners',
+        title: 'Curious whether clear aligners would work for you?',
+        body: 'Send us a message and we will explain how an aligner assessment works.',
+        action: 'Ask on WhatsApp',
+        message: 'Hi iSmile, I am interested in clear aligners and would like to know more.'
+    },
+    {
+        id: 'wisdom-tooth',
+        match: (p) => p === '/services/protect/wisdom-tooth',
+        title: 'Wisdom tooth on your mind?',
+        body: 'Message us and describe what you are feeling. We will help you work out the next step.',
+        action: 'Message the clinic',
+        message: 'Hi iSmile, I have a question about my wisdom tooth.'
+    },
+    {
+        id: 'root-canal',
+        match: (p) => p === '/services/protect/root-canal',
+        title: 'Been told you might need a root canal?',
+        body: 'Message us with what is going on and we will explain what to expect.',
+        action: 'Message the clinic',
+        message: 'Hi iSmile, I would like to ask about root canal treatment.'
+    },
+    {
+        id: 'dental-implants',
+        match: (p) => p === '/services/replace/dental-implants',
+        title: 'Have a question about dental implants?',
+        body: 'Message us and we will explain how implants work and how to get started.',
+        action: 'Ask on WhatsApp',
+        message: 'Hi iSmile, I am interested in dental implants and would like to know more.'
+    },
+    {
+        id: 'teeth-whitening',
+        match: (p) => p === '/services/enhance/teeth-whitening',
+        title: 'Thinking about brightening your smile?',
+        body: 'Message us and we will explain the whitening options and how to begin.',
+        action: 'Ask on WhatsApp',
+        message: 'Hi iSmile, I am interested in teeth whitening.'
+    },
+    {
+        id: 'cosmetic-dentistry',
+        match: (p) => p === '/services/enhance/cosmetic-dentistry',
+        title: 'Considering upgrading your smile?',
+        body: 'Tell us what you have in mind and we will explain how a consultation works.',
+        action: 'Ask on WhatsApp',
+        message: 'Hi iSmile, I am interested in cosmetic dentistry and would like to know more.'
+    },
+    {
+        id: 'myofunctional',
+        match: (p) => p === '/services/children/myofunctional',
+        title: 'Noticed mouth breathing, snoring or crowded teeth?',
+        body: 'Tell us how old your child is and what you have seen, and we will explain how a screening works.',
+        action: 'Ask on WhatsApp',
+        message: 'Hi iSmile, I would like to ask about myofunctional treatment for my child.'
+    },
+    {
+        id: 'pediatric',
+        match: (p) => p === '/services/children/pediatric-dentistry',
+        title: 'Bringing your child in for the first time?',
+        body: 'Tell us their age and what you have noticed, and we will explain how a first visit works.',
+        action: 'Ask on WhatsApp',
+        message: 'Hi iSmile, I would like to bring my child in. Could you tell me how the first visit works?'
+    },
+
+    /* ---- Category hubs ---- */
     {
         id: 'straighten',
         match: (p) => p.startsWith('/services/straighten'),
@@ -74,18 +145,18 @@ const RULES = [
     {
         id: 'replace',
         match: (p) => p.startsWith('/services/replace'),
-        title: 'Weighing up how to replace a missing tooth?',
+        title: 'Exploring options for restoring your smile?',
         body: 'Message us and we will explain what is involved and how to get started.',
         action: 'Ask on WhatsApp',
-        message: 'Hi iSmile, I am missing a tooth and would like to know what my options are.'
+        message: 'Hi iSmile, I would like to know more about options for restoring my teeth.'
     },
     {
         id: 'enhance',
         match: (p) => p.startsWith('/services/enhance'),
-        title: 'Thinking about changing something in your smile?',
+        title: 'Considering improving your smile?',
         body: 'Tell us what you have in mind and we will explain how a consultation works.',
         action: 'Ask on WhatsApp',
-        message: 'Hi iSmile, I am interested in improving the look of my smile.'
+        message: 'Hi iSmile, I am interested in improving my smile.'
     },
     {
         id: 'location',
