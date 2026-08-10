@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { X } from 'lucide-react';
 import { useBooking } from '../context/BookingContext';
 import Button from './Button';
@@ -26,6 +27,26 @@ const BookingModal = () => {
     const [touched, setTouched] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitError, setSubmitError] = useState('');
+    const prefersReducedMotion = useReducedMotion();
+
+    // Escape closes the modal; the page behind must not scroll while it's open.
+    useEffect(() => {
+        if (!isBookingOpen) return;
+        const onKeyDown = (e) => {
+            if (e.key === 'Escape') closeBooking();
+        };
+        document.addEventListener('keydown', onKeyDown);
+        // The document scroller is <html>, not <body> — lock both.
+        const previousBodyOverflow = document.body.style.overflow;
+        const previousRootOverflow = document.documentElement.style.overflow;
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+        return () => {
+            document.removeEventListener('keydown', onKeyDown);
+            document.body.style.overflow = previousBodyOverflow;
+            document.documentElement.style.overflow = previousRootOverflow;
+        };
+    }, [isBookingOpen, closeBooking]);
 
     const pushBookingEvent = useCallback((eventName, payload = {}, ctaLocation = prefillData?.sourceButton || 'unknown') => {
         window.dataLayer = window.dataLayer || [];
@@ -65,8 +86,6 @@ const BookingModal = () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isBookingOpen, prefillData]);
-
-    if (!isBookingOpen) return null;
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -200,9 +219,25 @@ ${formData.experience}${familySection}${notesSection}`;
         closeBooking();
     };
 
+    // Enter and exit mirror each other (fade scrim, card rises in / sinks out)
+    // on an interruptible spring — closing mid-open reverses smoothly instead
+    // of hard-cutting. Reduced-motion users get a plain quick fade.
+    const cardMotion = prefersReducedMotion
+        ? { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 }, transition: { duration: 0.15 } }
+        : { initial: { opacity: 0, y: 40 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0, y: 40 }, transition: { type: 'spring', bounce: 0, duration: 0.35 } };
+
     return (
-        <div className="modal-overlay" onClick={closeBooking}>
-            <div className="modal-content glass-panel" onClick={e => e.stopPropagation()}>
+        <AnimatePresence>
+        {isBookingOpen && (
+        <motion.div
+            className="modal-overlay"
+            onClick={closeBooking}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+        >
+            <motion.div className="modal-content glass-panel" onClick={e => e.stopPropagation()} {...cardMotion}>
                 <button className="close-btn" onClick={closeBooking} aria-label="Close booking modal"><X size={24} /></button>
 
                 <h2 className="modal-title">Schedule a visit with us today</h2>
@@ -311,7 +346,7 @@ ${formData.experience}${familySection}${notesSection}`;
                         {isSubmitting ? 'Sending...' : 'Send via WhatsApp'}
                     </Button>
                 </form>
-            </div>
+            </motion.div>
             <Style>{`
                 .modal-overlay {
                     position: fixed;
@@ -326,7 +361,6 @@ ${formData.experience}${familySection}${notesSection}`;
                     align-items: center;
                     justify-content: center;
                     padding: 20px;
-                    animation: fadeIn 0.3s ease;
                 }
                 .modal-content {
                     width: 100%;
@@ -334,7 +368,6 @@ ${formData.experience}${familySection}${notesSection}`;
                     background: rgba(255, 255, 255, 0.9);
                     padding: 40px;
                     position: relative;
-                    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
                     max-height: 90vh;
                     overflow-y: auto;
                     box-shadow: 0 20px 50px rgba(0,0,0,0.15);
@@ -356,6 +389,10 @@ ${formData.experience}${familySection}${notesSection}`;
                 .close-btn:hover {
                     color: var(--color-primary);
                     background: rgba(0,0,0,0.05);
+                }
+                .close-btn:active {
+                    background: rgba(0,0,0,0.09);
+                    transform: scale(0.92);
                 }
                 .modal-title {
                     font-size: 1.8rem;
@@ -450,16 +487,10 @@ ${formData.experience}${familySection}${notesSection}`;
                     .form-group textarea { min-height: 0; }
                 }
 
-                @keyframes fadeIn {
-                    from { opacity: 0; }
-                    to { opacity: 1; }
-                }
-                @keyframes slideUp {
-                    from { transform: translateY(40px); opacity: 0; }
-                    to { transform: translateY(0); opacity: 1; }
-                }
             `}</Style>
-        </div>
+        </motion.div>
+        )}
+        </AnimatePresence>
     );
 };
 

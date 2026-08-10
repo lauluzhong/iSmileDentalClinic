@@ -128,10 +128,11 @@ const Header = () => {
         setActiveSubmenu(null);
     };
 
+    // Submenu reset happens in AnimatePresence's onExitComplete — after the
+    // panel has fully animated out — so the user never sees it snap back and
+    // there is no timer window where reopening lands on a stale submenu.
     const handleMobileMenuClose = () => {
         setMobileMenuOpen(false);
-        // Delay resetting active submenu slightly so user doesn't see it jump back while closing
-        setTimeout(() => setActiveSubmenu(null), 300);
     };
 
     const menuVariants = {
@@ -238,11 +239,8 @@ const Header = () => {
                 </div>
 
                 {/* Mobile Menu Toggle */}
-                {/* Opening always resets to the top-level list. The close handler
-                    clears it too, but only after a 300ms delay (so the submenu
-                    doesn't visibly snap back mid-close) — without this, tapping
-                    the burger again inside that window reopened the submenu, and
-                    with no Back button that was a dead end. */}
+                {/* Opening always resets to the top-level list; closing resets it
+                    via onExitComplete once the panel is gone. */}
                 <div className="mobile-toggle" onClick={() => {
                     if (mobileMenuOpen) {
                         handleMobileMenuClose();
@@ -255,15 +253,17 @@ const Header = () => {
                 </div>
             </div>
 
-            {/* Mobile Navigation Overlay */}
-            <AnimatePresence>
+            {/* Mobile Navigation Overlay — transform-origin sits top-right so the
+                panel grows out of the burger chip that summoned it. */}
+            <AnimatePresence onExitComplete={() => setActiveSubmenu(null)}>
                 {mobileMenuOpen && (
                     <motion.div
                         className="mobile-nav-overlay glass-panel"
                         initial={{ opacity: 0, y: -20, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: -20, scale: 0.95 }}
-                        transition={{ duration: 0.2 }}
+                        transition={{ type: 'spring', bounce: 0, duration: 0.3 }}
+                        style={{ transformOrigin: 'top right' }}
                     >
                         <div className="mobile-nav-viewport">
                             <AnimatePresence mode="popLayout" initial={false}>
@@ -513,6 +513,10 @@ const Header = () => {
             color: var(--color-primary);
         }
 
+        .dropdown-item:active {
+            background: var(--color-pastel-blue);
+        }
+
         .dropdown-divider {
             height: 1px;
             background: rgba(0,0,0,0.08);
@@ -607,7 +611,18 @@ const Header = () => {
             padding: 7px 0;
             cursor: pointer;
             width: 100%;
-            display: block;
+            /* 44px minimum tap target (rows were ~38px). Some rows override
+               display inline (block/flex); min-height covers both. */
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Instant press highlight on menu rows */
+        .mobile-nav-link-header:active {
+            background: rgba(0, 141, 176, 0.08);
         }
 
         /* Title row: page title on the left, back arrow on the right. The rule
