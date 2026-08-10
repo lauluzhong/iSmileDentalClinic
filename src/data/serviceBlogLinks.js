@@ -140,40 +140,6 @@ export const SERVICE_BLOG_TOPICS = {
   },
 };
 
-/**
- * Stand-in hero images for posts whose frontmatter has none.
- *
- * Every locality post (14 of 44) was written without an `img:`, so an
- * image-led card would show a hole exactly where the commercially useful
- * "<treatment> in Damansara Jaya" articles sit. These are existing clinic
- * photos picked so no two cards on the same page repeat an image.
- *
- * This is a patch at the display layer, not the fix. The real fix is an `img:`
- * in each post's frontmatter, which would also repair the /blog listing — it
- * currently renders a broken <img> for these same 14 posts.
- */
-const IMAGE_FALLBACKS = {
-  'damansara-jaya-dental-visit-patient-checklist': '/images/blog/dentist_xray.png',
-  'damansara-jaya-dental-clinic-what-to-ask': '/images/team_group.jpg',
-  'dental-clinic-near-atria-shopping-gallery-checklist': '/images/team_group.jpg',
-  'family-dental-care-damansara-jaya-all-ages': '/images/family_hero_three_generations.jpg',
-  'family-dental-check-up-planning-damansara-jaya-parents': '/images/family_hero_three_generations.jpg',
-  'dental-implant-consultation-damansara-jaya': '/images/bone_loss_hero_1765825236985.png',
-  'root-canal-treatment-damansara-jaya': '/images/blog/root_canal_vs_extraction_hero.png',
-  'wisdom-tooth-removal-damansara-jaya-guide': '/images/blog/dentist_xray.png',
-  'emergency-dental-care-damansara-jaya': '/images/sensitivity_hero_1765825197668.png',
-  'cosmetic-dentistry-at-ismile-damansara-jaya': '/images/blog/asian_couple_40s.png',
-  'clear-aligner-options-damansara-jaya': '/images/invisalign_hand.png',
-  'invisalign-and-clear-aligners-in-damansara-jaya': '/images/invisalign_hand.png',
-  'pediatric-dental-care-damansara-jaya-parents-guide': '/images/dentist-child.png',
-  'pediatric-dentistry-damansara-jaya-our-approach-to-childrens-dental-health': '/images/dentist-child.png',
-};
-
-/** The image to show for a post: its own hero, else the stand-in above. */
-export function postImage(post) {
-  return post?.img || IMAGE_FALLBACKS[post?.slug] || null;
-}
-
 /** Normalise "/services/straighten/" -> "services/straighten". */
 export function normalizeServiceKey(pathname = '') {
   return String(pathname).replace(/^\/+/, '').replace(/\/+$/, '');

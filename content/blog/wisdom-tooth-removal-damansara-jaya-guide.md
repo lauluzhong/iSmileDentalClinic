@@ -3,6 +3,7 @@ seo_title: "Wisdom Tooth Removal in Damansara Jaya: What to Expect"
 title: "Wisdom Tooth Removal in Damansara Jaya: Procedure and Recovery Guide"
 date: "2026-04-21"
 excerpt: "A detailed guide to wisdom tooth removal in Damansara Jaya, covering the procedure, recovery process, and what to expect before and after surgery."
+img: /images/blog/dentist_xray.png
 categories: ["Oral Surgery"]
 tags: ["Oral Surgery", "Wisdom Teeth"]
 parent_page: "https://ismile.com.my/services/replace"

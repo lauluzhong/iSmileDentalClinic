@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import blogIndex from '../data/blog-index.json';
-import { pickRelatedPosts, postImage } from '../data/serviceBlogLinks';
+import { pickRelatedPosts } from '../data/serviceBlogLinks';
 import ResponsiveImage from './ResponsiveImage';
 import Style from './Style';
 
@@ -41,7 +41,7 @@ export default function RelatedReading({ pathKey, title = 'Keep reading', limit 
                 <div className="related-reading-scroller">
                     <ul className="related-reading-track">
                         {posts.map((post) => {
-                            const img = postImage(post);
+                            const img = post.img;
                             return (
                                 <li key={post.slug}>
                                     <Link

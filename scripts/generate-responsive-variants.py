@@ -66,6 +66,22 @@ TARGETS = [
     '/images/service_enhance.png',
     '/images/service_straighten.png',
     '/images/veneers_hero_1765825257935.png',
+    # Added 2026-08-10 with the `img:` frontmatter backfill for the 14 locality
+    # posts. Every post image is now covered, which also fixes the /blog
+    # listing, where three of these were 2 MB PNGs in a 380px card.
+    '/images/adult_ortho_hero_1765825218135.png',
+    '/images/blog/family_brushing.png',
+    '/images/blog/myofunctional-orthodontics-malaysia-hero.jpg',
+    '/images/blog/myofunctional-therapy-exercises-kids-home-hero.png',
+    '/images/blog/myofunctional-therapy-treatment-hero.jpg',
+    '/images/blog/signs-child-mouth-breather-hero.png',
+    '/images/blog/tongue-thrust-in-children-hero.png',
+    '/images/family_hero_1765825154068.png',
+    '/images/fluoride_brush.png',
+    '/images/service_children.png',
+    '/images/service_protect.png',
+    '/images/service_replace.png',
+    '/images/teeth_3d_scan.png',
 ]
 
 # Images that are simply too large for their display box and just need

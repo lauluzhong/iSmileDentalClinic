@@ -3,6 +3,7 @@ seo_description: "Cosmetic dental treatment in Damansara Jaya, PJ — veneers, w
 title: "Cosmetic Dentistry at iSmile Damansara Jaya"
 date: "2026-04-10"
 excerpt: "Explore cosmetic dentistry options at iSmile Dental Clinic in Damansara Jaya, including treatments that can help improve smile aesthetics with a personalised assessment."
+img: /images/service_protect.png
 categories: ["Cosmetic Dentistry"]
 tags: []
 parent_page: "https://ismile.com.my/services/locations/damansara-jaya"

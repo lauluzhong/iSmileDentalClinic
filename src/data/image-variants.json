@@ -1,4 +1,30 @@
 {
+  "/images/adult_ortho_hero_1765825218135.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/adult_ortho_hero_1765825218135.png",
+    "variants": [
+      {
+        "avif": "/images/adult_ortho_hero_1765825218135-480w.avif",
+        "raster": "/images/adult_ortho_hero_1765825218135-480w.jpg",
+        "w": 480,
+        "webp": "/images/adult_ortho_hero_1765825218135-480w.webp"
+      },
+      {
+        "avif": "/images/adult_ortho_hero_1765825218135-768w.avif",
+        "raster": "/images/adult_ortho_hero_1765825218135-768w.jpg",
+        "w": 768,
+        "webp": "/images/adult_ortho_hero_1765825218135-768w.webp"
+      },
+      {
+        "avif": "/images/adult_ortho_hero_1765825218135-1024w.avif",
+        "raster": "/images/adult_ortho_hero_1765825218135-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/adult_ortho_hero_1765825218135-1024w.webp"
+      }
+    ],
+    "width": 1024
+  },
   "/images/blog/adult-mouth-breathing-hero.jpg": {
     "fallbackType": "image/jpeg",
     "height": 900,
@@ -233,6 +259,32 @@
     ],
     "width": 1200
   },
+  "/images/blog/family_brushing.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/family_brushing.png",
+    "variants": [
+      {
+        "avif": "/images/blog/family_brushing-480w.avif",
+        "raster": "/images/blog/family_brushing-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/family_brushing-480w.webp"
+      },
+      {
+        "avif": "/images/blog/family_brushing-768w.avif",
+        "raster": "/images/blog/family_brushing-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/family_brushing-768w.webp"
+      },
+      {
+        "avif": "/images/blog/family_brushing-1024w.avif",
+        "raster": "/images/blog/family_brushing-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/family_brushing-1024w.webp"
+      }
+    ],
+    "width": 1024
+  },
   "/images/blog/invisalign-malaysia-hero.jpg": {
     "fallbackType": "image/jpeg",
     "height": 698,
@@ -311,6 +363,32 @@
     ],
     "width": 1280
   },
+  "/images/blog/myofunctional-orthodontics-malaysia-hero.jpg": {
+    "fallbackType": "image/jpeg",
+    "height": 1004,
+    "original": "/images/blog/myofunctional-orthodontics-malaysia-hero.jpg",
+    "variants": [
+      {
+        "avif": "/images/blog/myofunctional-orthodontics-malaysia-hero-480w.avif",
+        "raster": "/images/blog/myofunctional-orthodontics-malaysia-hero-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/myofunctional-orthodontics-malaysia-hero-480w.webp"
+      },
+      {
+        "avif": "/images/blog/myofunctional-orthodontics-malaysia-hero-768w.avif",
+        "raster": "/images/blog/myofunctional-orthodontics-malaysia-hero-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/myofunctional-orthodontics-malaysia-hero-768w.webp"
+      },
+      {
+        "avif": "/images/blog/myofunctional-orthodontics-malaysia-hero-1024w.avif",
+        "raster": "/images/blog/myofunctional-orthodontics-malaysia-hero-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/myofunctional-orthodontics-malaysia-hero-1024w.webp"
+      }
+    ],
+    "width": 1800
+  },
   "/images/blog/myofunctional-therapy-before-after-braces-hero.png": {
     "fallbackType": "image/jpeg",
     "height": 1024,
@@ -336,6 +414,58 @@
       }
     ],
     "width": 1536
+  },
+  "/images/blog/myofunctional-therapy-exercises-kids-home-hero.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/myofunctional-therapy-exercises-kids-home-hero.png",
+    "variants": [
+      {
+        "avif": "/images/blog/myofunctional-therapy-exercises-kids-home-hero-480w.avif",
+        "raster": "/images/blog/myofunctional-therapy-exercises-kids-home-hero-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/myofunctional-therapy-exercises-kids-home-hero-480w.webp"
+      },
+      {
+        "avif": "/images/blog/myofunctional-therapy-exercises-kids-home-hero-768w.avif",
+        "raster": "/images/blog/myofunctional-therapy-exercises-kids-home-hero-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/myofunctional-therapy-exercises-kids-home-hero-768w.webp"
+      },
+      {
+        "avif": "/images/blog/myofunctional-therapy-exercises-kids-home-hero-1024w.avif",
+        "raster": "/images/blog/myofunctional-therapy-exercises-kids-home-hero-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/myofunctional-therapy-exercises-kids-home-hero-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
+  "/images/blog/myofunctional-therapy-treatment-hero.jpg": {
+    "fallbackType": "image/jpeg",
+    "height": 1023,
+    "original": "/images/blog/myofunctional-therapy-treatment-hero.jpg",
+    "variants": [
+      {
+        "avif": "/images/blog/myofunctional-therapy-treatment-hero-480w.avif",
+        "raster": "/images/blog/myofunctional-therapy-treatment-hero-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/myofunctional-therapy-treatment-hero-480w.webp"
+      },
+      {
+        "avif": "/images/blog/myofunctional-therapy-treatment-hero-768w.avif",
+        "raster": "/images/blog/myofunctional-therapy-treatment-hero-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/myofunctional-therapy-treatment-hero-768w.webp"
+      },
+      {
+        "avif": "/images/blog/myofunctional-therapy-treatment-hero-1024w.avif",
+        "raster": "/images/blog/myofunctional-therapy-treatment-hero-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/myofunctional-therapy-treatment-hero-1024w.webp"
+      }
+    ],
+    "width": 1537
   },
   "/images/blog/root_canal_vs_extraction_hero.png": {
     "fallbackType": "image/jpeg",
@@ -389,6 +519,32 @@
     ],
     "width": 1280
   },
+  "/images/blog/signs-child-mouth-breather-hero.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/signs-child-mouth-breather-hero.png",
+    "variants": [
+      {
+        "avif": "/images/blog/signs-child-mouth-breather-hero-480w.avif",
+        "raster": "/images/blog/signs-child-mouth-breather-hero-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/signs-child-mouth-breather-hero-480w.webp"
+      },
+      {
+        "avif": "/images/blog/signs-child-mouth-breather-hero-768w.avif",
+        "raster": "/images/blog/signs-child-mouth-breather-hero-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/signs-child-mouth-breather-hero-768w.webp"
+      },
+      {
+        "avif": "/images/blog/signs-child-mouth-breather-hero-1024w.avif",
+        "raster": "/images/blog/signs-child-mouth-breather-hero-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/signs-child-mouth-breather-hero-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
   "/images/blog/teeth-whitening-sensitive-teeth-hero.jpg": {
     "fallbackType": "image/jpeg",
     "height": 1024,
@@ -411,6 +567,32 @@
         "raster": "/images/blog/teeth-whitening-sensitive-teeth-hero-1024w.jpg",
         "w": 1024,
         "webp": "/images/blog/teeth-whitening-sensitive-teeth-hero-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
+  "/images/blog/tongue-thrust-in-children-hero.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/tongue-thrust-in-children-hero.png",
+    "variants": [
+      {
+        "avif": "/images/blog/tongue-thrust-in-children-hero-480w.avif",
+        "raster": "/images/blog/tongue-thrust-in-children-hero-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/tongue-thrust-in-children-hero-480w.webp"
+      },
+      {
+        "avif": "/images/blog/tongue-thrust-in-children-hero-768w.avif",
+        "raster": "/images/blog/tongue-thrust-in-children-hero-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/tongue-thrust-in-children-hero-768w.webp"
+      },
+      {
+        "avif": "/images/blog/tongue-thrust-in-children-hero-1024w.avif",
+        "raster": "/images/blog/tongue-thrust-in-children-hero-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/tongue-thrust-in-children-hero-1024w.webp"
       }
     ],
     "width": 1536
@@ -545,6 +727,32 @@
     ],
     "width": 1024
   },
+  "/images/family_hero_1765825154068.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/family_hero_1765825154068.png",
+    "variants": [
+      {
+        "avif": "/images/family_hero_1765825154068-480w.avif",
+        "raster": "/images/family_hero_1765825154068-480w.jpg",
+        "w": 480,
+        "webp": "/images/family_hero_1765825154068-480w.webp"
+      },
+      {
+        "avif": "/images/family_hero_1765825154068-768w.avif",
+        "raster": "/images/family_hero_1765825154068-768w.jpg",
+        "w": 768,
+        "webp": "/images/family_hero_1765825154068-768w.webp"
+      },
+      {
+        "avif": "/images/family_hero_1765825154068-1024w.avif",
+        "raster": "/images/family_hero_1765825154068-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/family_hero_1765825154068-1024w.webp"
+      }
+    ],
+    "width": 1024
+  },
   "/images/family_hero_three_generations.jpg": {
     "fallbackType": "image/jpeg",
     "height": 624,
@@ -567,6 +775,32 @@
         "raster": "/images/family_hero_three_generations-1024w.jpg",
         "w": 1024,
         "webp": "/images/family_hero_three_generations-1024w.webp"
+      }
+    ],
+    "width": 1024
+  },
+  "/images/fluoride_brush.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/fluoride_brush.png",
+    "variants": [
+      {
+        "avif": "/images/fluoride_brush-480w.avif",
+        "raster": "/images/fluoride_brush-480w.jpg",
+        "w": 480,
+        "webp": "/images/fluoride_brush-480w.webp"
+      },
+      {
+        "avif": "/images/fluoride_brush-768w.avif",
+        "raster": "/images/fluoride_brush-768w.jpg",
+        "w": 768,
+        "webp": "/images/fluoride_brush-768w.webp"
+      },
+      {
+        "avif": "/images/fluoride_brush-1024w.avif",
+        "raster": "/images/fluoride_brush-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/fluoride_brush-1024w.webp"
       }
     ],
     "width": 1024
@@ -649,6 +883,32 @@
     ],
     "width": 1024
   },
+  "/images/service_children.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/service_children.png",
+    "variants": [
+      {
+        "avif": "/images/service_children-480w.avif",
+        "raster": "/images/service_children-480w.jpg",
+        "w": 480,
+        "webp": "/images/service_children-480w.webp"
+      },
+      {
+        "avif": "/images/service_children-768w.avif",
+        "raster": "/images/service_children-768w.jpg",
+        "w": 768,
+        "webp": "/images/service_children-768w.webp"
+      },
+      {
+        "avif": "/images/service_children-1024w.avif",
+        "raster": "/images/service_children-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/service_children-1024w.webp"
+      }
+    ],
+    "width": 1024
+  },
   "/images/service_enhance.png": {
     "fallbackType": "image/jpeg",
     "height": 1024,
@@ -671,6 +931,58 @@
         "raster": "/images/service_enhance-1024w.jpg",
         "w": 1024,
         "webp": "/images/service_enhance-1024w.webp"
+      }
+    ],
+    "width": 1024
+  },
+  "/images/service_protect.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/service_protect.png",
+    "variants": [
+      {
+        "avif": "/images/service_protect-480w.avif",
+        "raster": "/images/service_protect-480w.jpg",
+        "w": 480,
+        "webp": "/images/service_protect-480w.webp"
+      },
+      {
+        "avif": "/images/service_protect-768w.avif",
+        "raster": "/images/service_protect-768w.jpg",
+        "w": 768,
+        "webp": "/images/service_protect-768w.webp"
+      },
+      {
+        "avif": "/images/service_protect-1024w.avif",
+        "raster": "/images/service_protect-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/service_protect-1024w.webp"
+      }
+    ],
+    "width": 1024
+  },
+  "/images/service_replace.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/service_replace.png",
+    "variants": [
+      {
+        "avif": "/images/service_replace-480w.avif",
+        "raster": "/images/service_replace-480w.jpg",
+        "w": 480,
+        "webp": "/images/service_replace-480w.webp"
+      },
+      {
+        "avif": "/images/service_replace-768w.avif",
+        "raster": "/images/service_replace-768w.jpg",
+        "w": 768,
+        "webp": "/images/service_replace-768w.webp"
+      },
+      {
+        "avif": "/images/service_replace-1024w.avif",
+        "raster": "/images/service_replace-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/service_replace-1024w.webp"
       }
     ],
     "width": 1024
@@ -723,6 +1035,32 @@
         "raster": "/images/team_group-1024w.jpg",
         "w": 1024,
         "webp": "/images/team_group-1024w.webp"
+      }
+    ],
+    "width": 1024
+  },
+  "/images/teeth_3d_scan.png": {
+    "fallbackType": "image/jpeg",
+    "height": 401,
+    "original": "/images/teeth_3d_scan.png",
+    "variants": [
+      {
+        "avif": "/images/teeth_3d_scan-480w.avif",
+        "raster": "/images/teeth_3d_scan-480w.jpg",
+        "w": 480,
+        "webp": "/images/teeth_3d_scan-480w.webp"
+      },
+      {
+        "avif": "/images/teeth_3d_scan-768w.avif",
+        "raster": "/images/teeth_3d_scan-768w.jpg",
+        "w": 768,
+        "webp": "/images/teeth_3d_scan-768w.webp"
+      },
+      {
+        "avif": "/images/teeth_3d_scan-1024w.avif",
+        "raster": "/images/teeth_3d_scan-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/teeth_3d_scan-1024w.webp"
       }
     ],
     "width": 1024

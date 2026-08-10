@@ -3,6 +3,7 @@ seo_title: "Root Canal Treatment in Damansara Jaya: The Procedure"
 title: "Root Canal Treatment in Damansara Jaya: Understanding the Procedure"
 date: 2026-04-23
 excerpt: "A comprehensive guide to root canal treatment in Damansara Jaya, explaining the procedure, what to expect, and how it can save damaged teeth."
+img: /images/blog/root_canal_vs_extraction_hero.png
 content_type: locality
 categories:
   - Endodontics
