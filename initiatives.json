@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-10 16:25 MYT",
+  "updated": "2026-08-10 16:51 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -1217,7 +1217,7 @@
           "done": false
         }
       ],
-      "note": "Everything runs offline on an Apple Silicon machine \u2014 no data leaves the premises and no external service is involved. Keep summarising out of the first version: a transcript cannot be wrong in the way a summary can. Paired request from the same clinician: pre-visit questionnaires (see the onboarding form initiative) \u2014 both serve the same goal, less consultation time on the chair."
+      "note": "Everything runs offline on an Apple Silicon machine \u2014 no data leaves the premises and no external service is involved. Keep summarising out of the first version: a transcript cannot be wrong in the way a summary can. Paired request from the same clinician: pre-visit questionnaires (see the onboarding form initiative) \u2014 both serve the same goal, less consultation time on the chair. Architecture direction (10 Aug): wired USB boundary mic per surgery into the existing room PC (no batteries, nothing to charge), audio sent over the clinic network to one central machine that does the transcription, transcript appears in a browser tab on the room PC, session labelled automatically from the appointment book by room and time."
     },
     {
       "id": "25",
@@ -1529,6 +1529,78 @@
         }
       ],
       "timeline": "Aug: draft quick-reply library + owner sign-off. Sep: live as WhatsApp Business quick replies, front desk briefed. Oct: greeting/away automations + first attribution review."
+    },
+    {
+      "id": "31",
+      "title": "Referral Baseline & Early Thank-Yous",
+      "status": "active",
+      "owner": "Lu Zhong",
+      "coOwner": "Lu Zheng (CRM)",
+      "dept": "crm",
+      "lens": "revenue",
+      "startMonth": "2026-08",
+      "endMonth": "2026-11",
+      "ongoing": false,
+      "why": "Before building the full referral engine, find out whether referrals are already happening and whether the practice system even records them. If real referrers exist today, they can be thanked immediately \u2014 a card and a small NGO-donation gesture \u2014 without waiting for the engine, and the compounding starts now.",
+      "next": "Run the read-only referral audit query in the practice system to see whether referrals are tracked and at what monthly volume. In parallel, set up the conversation with the NGO (Dignity) about a donation-backed thank-you.",
+      "gate": "If the system shows no referral data, the front-desk capture question becomes the prerequisite (it is already on the onboarding-form initiative).",
+      "deps": [
+        "9",
+        "10"
+      ],
+      "blockedOn": null,
+      "timeline": "Audit in August. If data exists, first thank-you cards can go out in September.",
+      "tasks": [
+        {
+          "t": "Run the referral audit query in the practice system \u2014 is anything recorded, and how much per month",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Set up the meeting with the NGO about a donation-backed thank-you",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Decide the thank-you: card wording, gesture, who sends it and when",
+          "done": false
+        },
+        {
+          "t": "If nothing is tracked: fold referral capture into the onboarding form and front-desk script",
+          "done": false
+        }
+      ],
+      "note": "Deliberately small and immediate \u2014 the full opt-in referral engine remains its own initiative; this is the measurement plus the first reward loop."
+    },
+    {
+      "id": "32",
+      "title": "Branding & Social Media Refresh",
+      "status": "active",
+      "owner": "Lu Zhong",
+      "coOwner": "Mandy (marketing)",
+      "dept": "growth",
+      "lens": "revenue",
+      "startMonth": "2026-08",
+      "endMonth": "2026-12",
+      "ongoing": false,
+      "why": "Social media has stagnated. An outside marketing perspective on the brand and the social channels, aimed at what a 20-year family practice should look and sound like online.",
+      "next": "Meeting with Mandy set for Tuesday 18 August \u2014 branding and social media direction.",
+      "gate": null,
+      "deps": [],
+      "blockedOn": null,
+      "timeline": "First conversation 18 Aug, then scope whatever comes out of it.",
+      "tasks": [
+        {
+          "t": "Meet Mandy on 18 August \u2014 branding and social media",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Decide scope and any engagement after the first conversation",
+          "done": false
+        }
+      ],
+      "note": "Overlaps the marketing agent vehicle (Edith runs reviews, GBP and the website); keep the split clear \u2014 this is brand voice and social content, not infrastructure."
     }
   ]
 }
