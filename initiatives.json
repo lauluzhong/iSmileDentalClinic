@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-10 16:51 MYT",
+  "updated": "2026-08-10 17:39 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -1504,16 +1504,17 @@
         "6"
       ],
       "why": "The website now opens WhatsApp conversations with a pre-typed, procedure-specific first line (CTA pop-up, live 10 Aug 2026), so incoming chats arrive already labelled by intent: aligners, wisdom tooth, implants, whitening, a child first visit. Today every one of those chats needs a hand-written reply from the front desk, which means answer quality depends on who is on shift and slow replies lose warm leads. A small library of saved quick replies per key procedure (what it is, what a first visit looks like, common questions) lets anyone on the desk send a good first answer in seconds. WhatsApp Business quick replies and greeting or away automations cover most of this without new software.",
-      "next": "Draft the first shortcut set for the highest-intent procedures (aligners and braces, wisdom tooth, implants, whitening, child first visit and myofunctional screening) matched one-to-one to the pop-up pre-typed openers; keep replies compliant with content rules (no prices, no named dentists, no outcome promises). Then set them up as WhatsApp Business quick replies on the clinic number and brief the front desk. Later: greeting and away-hours auto-replies, and review whether deeper automation is worth it once volumes are known.",
+      "next": "Draft delivered 10 Aug: 20 quick replies in 3 tiers at Branding & Marketing/WhatsApp Quick Replies (draft 2026-08-10).md. Shortcut list was derived from 24 months of production data, not assumption: checkup and cleaning touches 82% of patients and is 66% of all first visits, fillings 37%, pain visits 22%, braces only 11% by headcount but the top follow-on (12.4% of cleaning-first new patients convert into it). Only 44% of new patients ever return, so the first-visit reply is the highest-leverage one. Awaiting owner mark-up. Two flags to resolve first: Myobrace was billed 71 times in 24 months but the fact sheet says do not mention it, and there is zero insurance income across 24 months so no draft mentions insurance.",
       "note": "Chats opening with the pop-up pre-typed lines are pop-up leads; front desk should tag them so click-to-booking attribution stays cheap.",
       "tasks": [
         {
-          "t": "Draft quick-reply library for 6 key procedures (aligned to pop-up openers)",
-          "done": false
+          "t": "Draft quick-reply library \u2014 DONE 10 Aug: 20 replies in 3 tiers, list derived from 24mo production data",
+          "done": true
         },
         {
-          "t": "Owner sign-off on wording (content truth-gate)",
-          "done": false
+          "t": "Owner sign-off on wording (content truth-gate) + resolve Myobrace & insurance flags",
+          "done": false,
+          "now": true
         },
         {
           "t": "Load as WhatsApp Business quick replies + brief front desk",
