@@ -3,6 +3,7 @@ import { useBooking } from '../../context/BookingContext';
 import React, { useEffect } from 'react';
 import { Shield, CheckCircle, HelpCircle } from 'lucide-react';
 import Button from '../../components/Button';
+import RelatedReading from '../../components/RelatedReading';
 import { specialtyFor, fillStats } from '../../data/serviceSeo';
 import reviewStats from '../../data/review-stats.json';
 
@@ -181,6 +182,8 @@ const RootCanalTreatment = () => {
                     <Button onClick={() => openBooking('Interested in Root Canal Treatment', 'specialty-root-canal')}>Book Consultation</Button>
                 </div>
             </section>
+
+            <RelatedReading pathKey="services/protect/root-canal" />
 
             <style>{`
                 .specialty-page { padding-top: 100px; }

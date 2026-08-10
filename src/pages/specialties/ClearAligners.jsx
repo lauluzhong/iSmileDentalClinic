@@ -3,6 +3,7 @@ import { useBooking } from '../../context/BookingContext';
 import React, { useEffect } from 'react';
 import { Shield, CheckCircle, HelpCircle, Sparkles } from 'lucide-react';
 import Button from '../../components/Button';
+import RelatedReading from '../../components/RelatedReading';
 import { specialtyFor, fillStats } from '../../data/serviceSeo';
 import reviewStats from '../../data/review-stats.json';
 
@@ -148,6 +149,8 @@ const ClearAligners = () => {
                     <Button onClick={() => openBooking('Interested in Clear Aligners', 'specialty-clear-aligners')}>Book Consultation</Button>
                 </div>
             </section>
+
+            <RelatedReading pathKey="services/straighten/clear-aligners" />
 
             <style>{`
                 .specialty-page { padding-top: 100px; }

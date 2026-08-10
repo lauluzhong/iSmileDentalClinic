@@ -3,6 +3,7 @@ import { useBooking } from '../../context/BookingContext';
 import React, { useEffect } from 'react';
 import { Shield, CheckCircle, HelpCircle, Star } from 'lucide-react';
 import Button from '../../components/Button';
+import RelatedReading from '../../components/RelatedReading';
 import { specialtyFor, fillStats } from '../../data/serviceSeo';
 import reviewStats from '../../data/review-stats.json';
 
@@ -181,6 +182,8 @@ const TeethWhitening = () => {
                     <Button onClick={() => openBooking('Interested in Take-Home Whitening', 'specialty-teeth-whitening')}>Get Your Custom Kit</Button>
                 </div>
             </section>
+
+            <RelatedReading pathKey="services/enhance/teeth-whitening" />
 
             <style>{`
                 .specialty-page { padding-top: 100px; }

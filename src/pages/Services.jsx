@@ -1,9 +1,10 @@
 import { useBooking } from '../context/BookingContext';
 import React, { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, Link, useParams, Navigate, useLocation } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Shield, Sparkles, Smile, Star, Users } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, CheckCircle, Shield, Sparkles, Smile, Star, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Button from '../components/Button';
+import RelatedReading from '../components/RelatedReading';
 import { servicesData } from '../data/servicesData';
 import ServicesLanding from './ServicesLanding';
 import { Helmet } from 'react-helmet-async';
@@ -111,7 +112,18 @@ const ServiceHub = () => {
                                 <li key={i}>
                                     <div className="service-item-header">
                                         <CheckCircle size={18} color="var(--color-primary)" className="service-icon" />
-                                        <span className="service-name">{item.name}</span>
+                                        {/* Services with a dedicated page link straight from their name.
+                                            The "Learn More" button in the highlight card was previously the
+                                            only way in, so the same treatment read as clickable on the right
+                                            and dead on the left. Matches ServicesLanding's pattern. */}
+                                        {item.path ? (
+                                            <Link to={item.path} className="service-name service-name-link">
+                                                {item.name}
+                                                <ArrowUpRight size={15} className="service-name-arrow" />
+                                            </Link>
+                                        ) : (
+                                            <span className="service-name">{item.name}</span>
+                                        )}
                                     </div>
                                     <p className="service-desc">{item.desc}</p>
                                 </li>
@@ -223,6 +235,8 @@ const ServiceHub = () => {
                     <Button onClick={() => openBooking(`Interested in ${data.title.split("\n")[0]}`, "services-hub-cta")}>Book Consultation</Button>
                 </motion.div>
             </div>
+
+            <RelatedReading pathKey={`services/${category}`} />
 
             <style>{`
                 .hub-hero {
@@ -370,6 +384,24 @@ const ServiceHub = () => {
                 .service-name {
                     font-size: 1.1rem;
                     font-weight: 500;
+                }
+
+                .service-name-link {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 6px;
+                    color: var(--color-primary);
+                    text-decoration: none;
+                    font-weight: 600;
+                }
+
+                .service-name-link:hover {
+                    text-decoration: underline;
+                }
+
+                .service-name-arrow {
+                    flex-shrink: 0;
+                    opacity: 0.7;
                 }
 
                 .service-icon {

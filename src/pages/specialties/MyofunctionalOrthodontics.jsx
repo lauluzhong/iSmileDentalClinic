@@ -3,6 +3,7 @@ import { useBooking } from '../../context/BookingContext';
 import React, { useEffect } from 'react';
 import { Shield, CheckCircle, HelpCircle, Users } from 'lucide-react';
 import Button from '../../components/Button';
+import RelatedReading from '../../components/RelatedReading';
 import { specialtyFor, fillStats } from '../../data/serviceSeo';
 import reviewStats from '../../data/review-stats.json';
 
@@ -220,6 +221,8 @@ const MyofunctionalOrthodontics = () => {
                     <Button onClick={() => openBooking('Interested in  Myofunctional Orthodontics', 'specialty-myofunctional')}>Book Consultation</Button>
                 </div>
             </section>
+
+            <RelatedReading pathKey="services/children/myofunctional" />
 
             <style>{`
                 .specialty-page { padding-top: 100px; }

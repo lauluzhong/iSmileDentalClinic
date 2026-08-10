@@ -4,6 +4,7 @@ import { Reveal, FadeIn } from '../components/Reveal';
 import { servicesData } from '../data/servicesData';
 import { ArrowRight, CheckCircle, ArrowUpRight, HelpCircle } from 'lucide-react';
 import Button from '../components/Button';
+import RelatedReading from '../components/RelatedReading';
 import { Helmet } from 'react-helmet-async';
 import { enrichEvent } from '../lib/attribution';
 
@@ -252,6 +253,8 @@ const ServicesLanding = () => {
                     </FadeIn>
                 </div>
             </div>
+
+            <RelatedReading pathKey="services" />
 
             <style>{`
                 .services-landing {

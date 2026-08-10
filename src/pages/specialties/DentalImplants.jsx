@@ -3,6 +3,7 @@ import { useBooking } from '../../context/BookingContext';
 import React, { useEffect } from 'react';
 import { Shield, CheckCircle, HelpCircle, Smile } from 'lucide-react';
 import Button from '../../components/Button';
+import RelatedReading from '../../components/RelatedReading';
 import { specialtyFor, fillStats } from '../../data/serviceSeo';
 import reviewStats from '../../data/review-stats.json';
 
@@ -146,6 +147,8 @@ const DentalImplants = () => {
                     <Button onClick={() => openBooking('Interested in Dental Implants', 'specialty-dental-implants')}>Book Consultation</Button>
                 </div>
             </section>
+
+            <RelatedReading pathKey="services/replace/dental-implants" />
 
             <style>{`
                 .specialty-page { padding-top: 100px; }

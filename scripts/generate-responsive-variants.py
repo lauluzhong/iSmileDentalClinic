@@ -40,6 +40,32 @@ TARGETS = [
     '/images/blog/child-candidate-myofunctional-orthodontics.jpg',
     '/images/blog/adult-mouth-breathing-hero.jpg',
     '/images/team_group.jpg',
+    # Added 2026-08-10 for the "Keep reading" cards on the service pages.
+    # These render in a ~370px box (320px in the mobile carousel) but several
+    # of the originals are 0.5-2 MB, so without variants the new section would
+    # hand back the payload the July perf sprint clawed out.
+    '/images/blog/asian_couple_40s.png',
+    '/images/blog/concerned_person_brushing.png',
+    '/images/blog/dental-crowns-malaysia-hero.jpg',
+    '/images/blog/dental-crowns-vs-fillings-hero.jpg',
+    '/images/blog/dentist_xray.png',
+    '/images/blog/early-orthodontic-assessment-children-hero.jpg',
+    '/images/blog/invisalign-malaysia-hero.jpg',
+    '/images/blog/invisalign_hero.png',
+    '/images/blog/myofunctional-therapy-before-after-braces-hero.png',
+    '/images/blog/root_canal_vs_extraction_hero.png',
+    '/images/blog/teeth-whitening-sensitive-teeth-hero.jpg',
+    '/images/blog/when-should-children-stop-sucking-thumb-hero.jpg',
+    '/images/blog/why-baby-teeth-matter-hero.jpg',
+    '/images/bone_loss_hero_1765825236985.png',
+    '/images/dentist-child.png',
+    '/images/family_hero_three_generations.jpg',
+    '/images/invisalign_hand.png',
+    '/images/mouth_breathing_sleep.png',
+    '/images/sensitivity_hero_1765825197668.png',
+    '/images/service_enhance.png',
+    '/images/service_straighten.png',
+    '/images/veneers_hero_1765825257935.png',
 ]
 
 # Images that are simply too large for their display box and just need
