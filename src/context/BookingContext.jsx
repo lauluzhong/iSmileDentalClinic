@@ -4,7 +4,10 @@ const BookingContext = createContext();
 
 export const BookingProvider = ({ children }) => {
     const [isBookingOpen, setIsBookingOpen] = useState(false);
-    const [prefillData, setPrefillData] = useState({ 
+    // The contextual CTA prompt lives at the bottom of the screen on mobile,
+    // exactly where the sticky action bar sits, so the bar needs to know.
+    const [isPromptOpen, setPromptOpen] = useState(false);
+    const [prefillData, setPrefillData] = useState({
         experience: '',
         sourceButton: '',
         sourcePage: ''
@@ -24,7 +27,7 @@ export const BookingProvider = ({ children }) => {
     };
 
     return (
-        <BookingContext.Provider value={{ isBookingOpen, prefillData, openBooking, closeBooking }}>
+        <BookingContext.Provider value={{ isBookingOpen, prefillData, openBooking, closeBooking, isPromptOpen, setPromptOpen }}>
             {children}
         </BookingContext.Provider>
     );

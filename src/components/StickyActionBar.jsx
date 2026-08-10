@@ -23,8 +23,9 @@ const StickyActionBar = () => {
         window.dataLayer.push(enrichEvent({ event: eventName, ...payload }, 'sticky-bar'));
     };
 
-    // Hide the bar while the booking modal is open
-    if (isBookingOpen) return null;
+    // Hide the bar while the booking modal is open, and while the CTA prompt is
+    // showing — on mobile the prompt is a bottom sheet occupying the same space.
+    if (isBookingOpen || isPromptOpen) return null;
 
     return (
         <div className="sticky-action-bar" role="navigation" aria-label="Quick contact actions">
