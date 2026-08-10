@@ -237,6 +237,22 @@
   .kb-task.now .box{border-color:var(--teal2);border-style:dashed}
   .kb-mnote{font-size:12.5px;line-height:1.6;color:var(--mut);background:var(--bg);border:1px solid var(--line);border-radius:11px;padding:13px 15px}
   .kb-mnote b{color:var(--ink)}
+  /* Collapsible drafts — ready-to-send copy an initiative carries (e.g. the
+     WhatsApp quick replies). Closed by default so the modal stays scannable. */
+  .kb-drafts{display:flex;flex-direction:column;gap:6px}
+  .kb-draft{border:1px solid var(--line);border-radius:10px;background:var(--panel);overflow:hidden}
+  .kb-draft>summary{list-style:none;cursor:pointer;padding:9px 12px;font-size:12.5px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:8px}
+  .kb-draft>summary::-webkit-details-marker{display:none}
+  .kb-draft>summary::before{content:"▸";color:var(--teal2);font-size:11px;flex:none;transition:transform .15s}
+  .kb-draft[open]>summary::before{transform:rotate(90deg)}
+  .kb-draft[open]>summary{border-bottom:1px solid var(--line);background:var(--teal-bg)}
+  .kb-draft .tag{font-size:10.5px;font-weight:700;color:var(--teal-deep);background:var(--teal-bg);border:1px solid var(--teal);border-radius:6px;padding:1px 6px;flex:none}
+  .kb-draft[open] .tag{background:var(--panel)}
+  .kb-draft .hint{margin-left:auto;font-size:10px;color:var(--mut2);font-weight:500}
+  .kb-draftbody{padding:11px 13px}
+  .kb-draftbody pre{margin:0;white-space:pre-wrap;word-break:break-word;font-family:inherit;font-size:12.5px;line-height:1.62;color:var(--mut)}
+  .kb-copy{margin-top:9px;font-size:11px;font-weight:600;color:var(--teal-deep);background:var(--teal-bg);border:1px solid var(--teal);border-radius:7px;padding:5px 10px;cursor:pointer}
+  .kb-copy:hover{background:var(--panel)}
   .kb-pillrow{display:flex;flex-wrap:wrap;gap:6px}
   .kb-deppill{font-size:11.5px;font-weight:600;padding:5px 10px;border-radius:8px;background:var(--kb-line2);color:var(--mut);display:inline-flex;align-items:center;gap:6px;cursor:pointer}
   .kb-deppill:hover{background:var(--teal-bg);color:var(--teal-deep)}
@@ -1224,8 +1240,18 @@ const KB_ICON={
   gate:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg>',
   dep:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17H7a5 5 0 0 1 0-10h2M15 7h2a5 5 0 0 1 0 10h-2M8 12h8"/></svg>',
   task:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M3 12l3 3 8-8"/></svg>',
-  note:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12l-4 4H4z"/><path d="M16 20v-4h4"/></svg>'
+  note:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12l-4 4H4z"/><path d="M16 20v-4h4"/></svg>',
+  draft:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 20.5l1.6-4.9A8.4 8.4 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4z"/></svg>'
 };
+/* Initiative data is authored by us, but it is fetched at runtime, so anything
+   rendered inside markup gets escaped rather than trusted. */
+function kbEsc(s){return String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function kbCopyDraft(btn){
+  const pre=btn.parentElement.querySelector("pre");
+  navigator.clipboard.writeText(pre.innerText).then(()=>{
+    const o=btn.textContent;btn.textContent="Copied";setTimeout(()=>btn.textContent=o,1400);
+  }).catch(()=>{btn.textContent="Press to select, then copy";});
+}
 let KB_VIEW="status";
 function kbAv(owner){const o=KB_OWNERS[owner]||{init:"?",color:"#7c909c"};return `<span class="kb-av" style="background:${o.color}">${o.init}</span>`;}
 function kbById(id){return KB_INITIATIVES.find(i=>i.id===id);}
@@ -1280,6 +1306,12 @@ function kbOpenModal(id){
   const owners=`${kbAv(it.owner)} ${it.owner}`+(it.coOwner?`<span style="color:var(--mut2);font-weight:500"> · ${it.coOwner}</span>`:"");
   const tasks=it.tasks.map(t=>{const cls=t.done?"done":(t.now?"now":"");const box=t.done?"✓":(t.now?"▸":"");
     return `<div class="kb-task ${cls}"><span class="box">${box}</span><span class="txt">${t.t}</span></div>`;}).join("");
+  /* Optional `drafts` array: [{label, tag?, body}] — ready-to-send copy the
+     initiative carries, each collapsed behind its own dropdown. */
+  const drafts=(it.drafts&&it.drafts.length)
+    ?`<div class="kb-msec"><h4>${KB_ICON.draft} Drafts${it.draftsNote?` <span style="text-transform:none;letter-spacing:0;font-weight:500;color:var(--mut2)">· ${kbEsc(it.draftsNote)}</span>`:""}</h4><div class="kb-drafts">${
+        it.drafts.map(d=>`<details class="kb-draft"><summary>${d.tag?`<span class="tag">${kbEsc(d.tag)}</span>`:""}${kbEsc(d.label)}<span class="hint">tap to open</span></summary><div class="kb-draftbody"><pre>${kbEsc(d.body)}</pre><button class="kb-copy" onclick="kbCopyDraft(this)">Copy</button></div></details>`).join("")
+      }</div></div>`:"";
   const depPills=(it.deps&&it.deps.length)
     ?`<div class="kb-msec"><h4>${KB_ICON.dep} Dependencies</h4><div class="kb-pillrow">${
         it.deps.map(d=>{const x=kbById(d);return `<span class="kb-deppill" data-kbgo="${d}">${kbAv(x?x.owner:'')}#${d} ${x?x.title.split(/[—(]/)[0].trim():''}</span>`;}).join("")
@@ -1300,6 +1332,7 @@ function kbOpenModal(id){
       ${depPills}
       <div class="kb-msec"><h4>${KB_ICON.task} Checklist</h4><div class="kb-tasklist">${tasks}</div></div>
       <div class="kb-msec"><h4>⏱ Timeline / where it's at</h4><div class="kb-mnote">${it.timeline}</div></div>
+      ${drafts}
       ${it.note?`<div class="kb-msec"><h4>${KB_ICON.note} Context</h4><div class="kb-mnote">${it.note}</div></div>`:""}
     </div>`;
   document.getElementById("kbOverlay").classList.add("show");document.body.style.overflow="hidden";
