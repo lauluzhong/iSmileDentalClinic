@@ -106,8 +106,26 @@ h6 {
   font-family: var(--font-heading);
   color: var(--color-text-main);
   margin-top: 0;
-  letter-spacing: -0.02em;
   line-height: 1.12;
+}
+
+/* Tracking is size-specific: letters read too far apart as type grows, so
+   large headings tighten. Small headings (h4-h6 are near body size) keep
+   neutral tracking — the -0.02em that used to apply to all six cramped them. */
+h1,
+h2 {
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  letter-spacing: -0.01em;
+}
+
+h4,
+h5,
+h6 {
+  letter-spacing: 0;
+  line-height: 1.3;
 }
 
 ::selection {

@@ -87,6 +87,24 @@ const BookingModal = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isBookingOpen, prefillData]);
 
+    // Inline, per-field validation. `touched` was already being recorded but
+    // never read, so the only feedback was one lumped error string on submit.
+    // Deliberately lenient on the phone number — patients type it every which
+    // way, and a rejected valid number costs a booking.
+    const fieldError = (field, data = formData) => {
+        if (field === 'name' && !data.name.trim()) return 'Please tell us your name';
+        if (field === 'contact') {
+            if (!data.contact.trim()) return 'We need a number to confirm your appointment';
+            if (data.contact.replace(/\D/g, '').length < 7) return 'That number looks too short';
+        }
+        if (field === 'email' && data.email.trim() && !/^\S+@\S+\.\S+$/.test(data.email.trim())) {
+            return 'That email address looks incomplete';
+        }
+        return '';
+    };
+
+    const errorFor = (field) => (touched[field] ? fieldError(field) : '');
+
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
@@ -109,9 +127,14 @@ const BookingModal = () => {
         setSubmitError('');
         setIsSubmitting(true);
 
-        if (!formData.name || !formData.contact) {
-            setSubmitError('Please fill in your name and contact number');
+        const blockingFields = ['name', 'contact', 'email'].filter(f => fieldError(f));
+        if (blockingFields.length > 0) {
+            // Reveal every inline message at once rather than one at a time.
+            setTouched(prev => ({ ...prev, name: true, contact: true, email: true }));
+            setSubmitError('Please check the highlighted fields above');
             setIsSubmitting(false);
+            const firstInvalid = document.querySelector(`.booking-form [name="${blockingFields[0]}"]`);
+            if (firstInvalid) firstInvalid.focus();
             return;
         }
 
@@ -245,42 +268,59 @@ ${formData.experience}${familySection}${notesSection}`;
 
                 <form data-analytics-form="booking-submission" onSubmit={handleSubmit} className="booking-form">
                     <div className="form-group">
-                        <label>Name *</label>
+                        <label htmlFor="booking-name">Name *</label>
                         <input
                             data-analytics-focus="booking-field"
+                            id="booking-name"
                             type="text"
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
                             onBlur={handleBlur}
                             placeholder="Your Name"
+                            aria-invalid={errorFor('name') ? 'true' : undefined}
+                            aria-describedby={errorFor('name') ? 'booking-name-error' : undefined}
+                            className={errorFor('name') ? 'has-error' : ''}
                             required
                         />
+                        {errorFor('name') && <p className="field-error" id="booking-name-error">{errorFor('name')}</p>}
                     </div>
 
                     <div className="form-group">
-                        <label>Contact Number *</label>
+                        <label htmlFor="booking-contact">Contact Number *</label>
                         <input
                             data-analytics-focus="booking-field"
+                            id="booking-contact"
                             type="tel"
                             name="contact"
                             value={formData.contact}
                             onChange={handleChange}
+                            onBlur={handleBlur}
                             placeholder="012-345 6789"
+                            aria-invalid={errorFor('contact') ? 'true' : undefined}
+                            aria-describedby={errorFor('contact') ? 'booking-contact-error' : undefined}
+                            className={errorFor('contact') ? 'has-error' : ''}
                             required
                         />
+                        {errorFor('contact') && <p className="field-error" id="booking-contact-error">{errorFor('contact')}</p>}
                     </div>
 
                     <div className="form-group">
-                        <label>Email (optional)</label>
+                        <label htmlFor="booking-email">Email (optional)</label>
                         <input
                             data-analytics-focus="booking-field"
+                            id="booking-email"
                             type="email"
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
+                            onBlur={handleBlur}
                             placeholder="email@example.com"
+                            aria-invalid={errorFor('email') ? 'true' : undefined}
+                            aria-describedby={errorFor('email') ? 'booking-email-error' : undefined}
+                            className={errorFor('email') ? 'has-error' : ''}
                         />
+                        {errorFor('email') && <p className="field-error" id="booking-email-error">{errorFor('email')}</p>}
                     </div>
 
                     <div className="form-group">
@@ -455,6 +495,20 @@ ${formData.experience}${familySection}${notesSection}`;
                     align-items: center;
                     gap: 10px;
                     margin-top: 6px;
+                }
+                .form-group input.has-error,
+                .form-group textarea.has-error {
+                    border-color: #dc2626;
+                }
+                .form-group input.has-error:focus {
+                    border-color: #dc2626;
+                    box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.12);
+                }
+                .field-error {
+                    color: #b91c1c;
+                    font-size: 0.82rem;
+                    margin: 0;
+                    margin-left: 2px;
                 }
                 .submit-error {
                     color: #b91c1c;
