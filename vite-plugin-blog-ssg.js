@@ -3,6 +3,7 @@ import path from 'path';
 import { SERVICE_CATEGORIES, SERVICE_SPECIALTIES } from './src/data/serviceSeo.js';
 import { CORE_PAGES } from './src/data/corePagesSeo.js';
 import { relatedServices } from './src/data/blogServiceLinks.js';
+import { pickRelatedPosts } from './src/data/serviceBlogLinks.js';
 import imageVariants from './src/data/image-variants.json' with { type: 'json' };
 
 const SITE_URL = 'https://ismile.com.my';
@@ -513,6 +514,11 @@ export default function blogSSG() {
           }))
         }));
 
+        // Service -> blog links. The React page renders the same list via
+        // <RelatedReading>, but crawlers that don't run JS only ever see this
+        // shell, so the internal links have to exist here too.
+        const reading = pickRelatedPosts(blogIndex, page.path, 3);
+
         const body = [
           '    <h1>' + escapeHtml(fillStats(page.h1 || page.title)) + '</h1>',
           page.lead ? '    <p>' + escapeHtml(fillStats(page.lead)) + '</p>' : '',
@@ -522,6 +528,12 @@ export default function blogSSG() {
               faqs.map(f => '<h3>' + escapeHtml(fillStats(f.q)) + '</h3><p>' +
                             escapeHtml(fillStats(f.a)) + '</p>').join('') +
               '</section>'
+            : '',
+          reading.length
+            ? '    <section><h2>Dental Education</h2><ul>' +
+              reading.map(p => '<li><a href="' + SITE_URL + '/blog/' + escapeHtml(p.slug) + '">' +
+                               escapeHtml(p.title) + '</a></li>').join('') +
+              '</ul></section>'
             : '',
         ].filter(Boolean).join('\n');
 
@@ -593,6 +605,15 @@ export default function blogSSG() {
             section.questions.map(f => '<h3>' + escapeHtml(f.q) + '</h3><p>' +
                                         escapeHtml(f.a) + '</p>').join('') +
             '</section>');
+        }
+
+        // /services carries the same Dental Education strip as the hubs below it.
+        const coreReading = pickRelatedPosts(blogIndex, page.path, 3);
+        if (coreReading.length) {
+          parts.push('    <section><h2>Dental Education</h2><ul>' +
+            coreReading.map(p => '<li><a href="' + SITE_URL + '/blog/' + escapeHtml(p.slug) + '">' +
+                                 escapeHtml(p.title) + '</a></li>').join('') +
+            '</ul></section>');
         }
 
         // Link every post from /blog so crawlers can reach the ones the audit

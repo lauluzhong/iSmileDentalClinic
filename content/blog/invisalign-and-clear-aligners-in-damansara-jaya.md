@@ -2,6 +2,7 @@
 title: "Invisalign & Clear Aligners in Damansara Jaya"
 date: "2026-04-11"
 excerpt: "Learn what patients in Damansara Jaya should know about Invisalign and clear aligner treatment options, including suitability, planning, and common questions."
+img: /images/teeth_3d_scan.png
 categories: ["Orthodontics"]
 tags: []
 parent_page: "https://ismile.com.my/services/locations/damansara-jaya"

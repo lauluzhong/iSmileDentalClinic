@@ -2,6 +2,7 @@
 seo_title: "Dental Clinic Near Atria Shopping Gallery, PJ"
 title: "Dental Clinic Near Atria Shopping Gallery: A Local Patient Checklist"
 excerpt: "A local checklist for patients searching near Atria Shopping Gallery who want practical access, service, and trust signals before booking."
+img: /images/family_hero_1765825154068.png
 date: '2026-04-18'
 categories: ["Local Dentistry"]
 tags: ["Damansara Jaya", "Local Dentistry"]

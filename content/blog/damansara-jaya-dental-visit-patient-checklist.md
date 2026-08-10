@@ -4,6 +4,7 @@ seo_description: "What to bring, what to ask and what to expect at your dental a
 title: "Damansara Jaya Dental Visit Patient Checklist: What to Know Before Your Appointment"
 date: "2026-04-19"
 excerpt: "A practical checklist for Damansara Jaya residents planning a dental visit—covering location access, service options, consultation expectations, and key questions to ask your dental team."
+img: /images/blog/family_brushing.png
 categories:
   - Local Dentistry
   - Damansara Jaya

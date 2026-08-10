@@ -4,6 +4,7 @@ seo_description: "Severe toothache, swelling or a knocked-out tooth? What counts
 title: "Emergency Dental Care in Damansara Jaya: What to Expect"
 date: 2026-04-08
 excerpt: "Guide to emergency dental care in Damansara Jaya: recognizing dental emergencies, what to expect during urgent visits, and immediate steps to take for tooth pain, injuries, or swelling."
+img: /images/sensitivity_hero_1765825197668.png
 content_type: locality
 priority: P3
 tier: T3
