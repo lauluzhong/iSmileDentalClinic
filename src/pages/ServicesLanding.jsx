@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Reveal, FadeIn } from '../components/Reveal';
 import { servicesData } from '../data/servicesData';
-import { ArrowRight, CheckCircle, ArrowUpRight, HelpCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle, ArrowUpRight } from 'lucide-react';
 import Button from '../components/Button';
 import RelatedReading from '../components/RelatedReading';
+import FaqAccordion from '../components/FaqAccordion';
 import { Helmet } from 'react-helmet-async';
 import { enrichEvent } from '../lib/attribution';
 
@@ -192,43 +193,7 @@ const ServicesLanding = () => {
                             </Reveal>
                         </div>
 
-                        <div className="faq-grid" style={{
-                            display: 'grid',
-                            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                            gap: '30px',
-                            marginTop: '40px'
-                        }}>
-                            {faqs.map((faq, i) => (
-                                <FadeIn key={i} delay={i * 0.08} className="faq-item" style={{
-                                    padding: '30px',
-                                    background: 'white',
-                                    borderRadius: '20px',
-                                    boxShadow: '0 5px 20px rgba(0, 0, 0, 0.05)'
-                                }}>
-                                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', marginBottom: '15px' }}>
-                                        <HelpCircle size={20} className="text-primary-teal" style={{ flexShrink: 0, marginTop: '2px' }} />
-                                        <h4 style={{
-                                            margin: 0,
-                                            color: 'var(--color-primary)',
-                                            fontSize: '1.1rem',
-                                            fontWeight: 600,
-                                            lineHeight: '1.4'
-                                        }}>
-                                            {faq.q}
-                                        </h4>
-                                    </div>
-                                    <p style={{
-                                        margin: 0,
-                                        color: 'var(--color-text-muted)',
-                                        fontSize: '0.95rem',
-                                        lineHeight: '1.6',
-                                        paddingLeft: '32px'
-                                    }}>
-                                        {faq.a}
-                                    </p>
-                                </FadeIn>
-                            ))}
-                        </div>
+                        <FaqAccordion items={faqs} idPrefix="services" analyticsLabel="services-landing" />
                     </div>
                 </section>
 

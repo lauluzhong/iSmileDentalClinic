@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { Shield, CheckCircle, HelpCircle } from 'lucide-react';
 import Button from '../../components/Button';
 import RelatedReading from '../../components/RelatedReading';
+import FaqAccordion from '../../components/FaqAccordion';
 import { specialtyFor, fillStats } from '../../data/serviceSeo';
 import reviewStats from '../../data/review-stats.json';
 
@@ -156,14 +157,7 @@ const WisdomToothSurgery = () => {
             <section className="faq-section section-padding" style={{ background: '#f8f9fa' }}>
                 <div className="container">
                     <h2 className="text-center mb-5" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "15px" }}><HelpCircle size={32} /> Common Questions</h2>
-                    <div className="faq-grid">
-                        {faqs.map((faq, i) => (
-                            <div key={i} className="faq-item glass-panel">
-                                <h4>{faq.q}</h4>
-                                <p>{faq.a}</p>
-                            </div>
-                        ))}
-                    </div>
+                    <FaqAccordion items={faqs} idPrefix="wisdom-tooth" analyticsLabel="specialty-wisdom-tooth" />
                 </div>
             </section>
 
@@ -193,9 +187,6 @@ const WisdomToothSurgery = () => {
                 .step-list { list-style: none; padding: 0; margin-top: 30px; }
                 .step-list li { display: flex; align-items: center; gap: 20px; padding: 15px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
                 .step-list li span { font-family: 'Space Grotesk', sans-serif; font-weight: 800; color: var(--color-primary); font-size: 1.2rem; opacity: 0.3; }
-                .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-                .faq-item { padding: 30px; background: white; }
-                .faq-item h4 { margin-bottom: 15px; color: var(--color-primary); }
                 @media (max-width: 1024px) {
                     .specialty-page { padding-top: 80px; }
                     .tech-hero { padding: 60px 0; }
@@ -214,11 +205,6 @@ const WisdomToothSurgery = () => {
                     .tech-meta h3 { font-size: 1.3rem; }
                     .step-list li { padding: 12px 0; gap: 16px; font-size: 0.95rem; }
                     .step-list li span { font-size: 1rem; }
-                    
-                    .faq-grid { gap: 20px; margin-top: 30px; }
-                    .faq-item { padding: 24px; border-radius: 20px; }
-                    .faq-item h4 { font-size: 1.05rem; line-height: 1.4; }
-                    .faq-item p { font-size: 0.95rem; line-height: 1.5; }
                     
                     .section-padding { padding: 40px 0; }
                 }
