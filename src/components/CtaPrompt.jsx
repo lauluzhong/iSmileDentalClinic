@@ -20,10 +20,13 @@ import Style from './Style';
  *  - MOBILE has no cursor, so there is no honest exit signal. Back button
  *    hijacking is unreliable and feels hostile, so we do not attempt it.
  *    Instead the mobile variant is engagement triggered (scrolled past half the
- *    page AND dwelled), and it is a compact bottom sheet, not an overlay: no
- *    backdrop, no scroll lock, and it stays inside the 25 percent of screen that
- *    Google's guidance treats as a reasonable amount of space. It can never
- *    appear on the initial view of a page arrived at from search.
+ *    page AND dwelled).
+ *
+ * Both devices present the same centred dialog over a dimmed, blurred page
+ * (owner decision 2026-08-10 — the earlier mobile bottom sheet was too easy to
+ * miss). Interstitial-penalty risk stays low because the mobile trigger fires
+ * mid-engagement, never on the initial view of a page arrived at from search,
+ * which is what Google's rule targets.
  *
  * The offer is a WhatsApp conversation rather than a discount. WhatsApp is where
  * Malaysian patients are already willing to talk, and the existing booking form
@@ -260,7 +263,7 @@ const CtaPrompt = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [visible, copy]);
 
-    /* Escape closes both variants; the desktop variant also traps focus. */
+    /* Escape closes; focus is trapped inside the dialog on both devices. */
     useEffect(() => {
         if (!visible) return undefined;
 
@@ -270,7 +273,7 @@ const CtaPrompt = () => {
                 close('dismissed');
                 return;
             }
-            if (e.key !== 'Tab' || isMobile || !panelRef.current) return;
+            if (e.key !== 'Tab' || !panelRef.current) return;
             const focusable = panelRef.current.querySelectorAll(
                 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
             );
@@ -292,12 +295,22 @@ const CtaPrompt = () => {
             document.removeEventListener('keydown', onKeyDown);
             clearTimeout(focusTimer);
         };
-    }, [visible, isMobile, close, track]);
+    }, [visible, close, track]);
 
     /* If the booking modal opens from anywhere, get out of its way. */
     useEffect(() => {
         if (isBookingOpen && visible) close('engaged');
     }, [isBookingOpen, visible, close]);
+
+    /* A true modal on both devices now, so the page behind must not scroll. */
+    useEffect(() => {
+        if (!visible) return undefined;
+        const prev = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        return () => {
+            document.body.style.overflow = prev;
+        };
+    }, [visible]);
 
     if (!visible || !copy) return null;
 
@@ -321,9 +334,9 @@ const CtaPrompt = () => {
 
     const panel = (
         <div
-            className={`cta-prompt-panel ${isMobile ? 'is-sheet' : 'is-card'}`}
+            className="cta-prompt-panel is-card"
             role="dialog"
-            aria-modal={isMobile ? undefined : 'true'}
+            aria-modal="true"
             aria-labelledby="cta-prompt-title"
             tabIndex={-1}
             ref={panelRef}
@@ -359,15 +372,16 @@ const CtaPrompt = () => {
 
     return (
         <div className={`cta-prompt ${isMobile ? 'cta-prompt-mobile' : 'cta-prompt-desktop'}`}>
-            {/* Desktop only. The mobile variant never dims or blocks the page,
-                which is what keeps it clear of the intrusive interstitial rules. */}
-            {!isMobile && (
-                <div
-                    className="cta-prompt-backdrop"
-                    onClick={() => onDismiss('backdrop')}
-                    aria-hidden="true"
-                />
-            )}
+            {/* Both devices dim and blur the page behind the dialog (owner
+                decision: the prompt must visibly take attention). Interstitial
+                risk stays low because the mobile trigger fires mid-engagement
+                (50% scroll + dwell), never on arrival from search — which is
+                what Google's rule actually targets. */}
+            <div
+                className="cta-prompt-backdrop"
+                onClick={() => onDismiss('backdrop')}
+                aria-hidden="true"
+            />
             {panel}
 
             <Style>{`
@@ -375,9 +389,9 @@ const CtaPrompt = () => {
                     position: fixed;
                     inset: 0;
                     z-index: 2000;
-                    background: rgba(16, 42, 51, 0.42);
-                    backdrop-filter: blur(2px);
-                    -webkit-backdrop-filter: blur(2px);
+                    background: rgba(16, 42, 51, 0.45);
+                    backdrop-filter: blur(4px);
+                    -webkit-backdrop-filter: blur(4px);
                     animation: ctaPromptFade 220ms ease-out both;
                 }
 
@@ -401,17 +415,14 @@ const CtaPrompt = () => {
                     animation: ctaPromptCardIn 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
                 }
 
-                /* Bottom sheet. Sized to stay inside roughly a quarter of a
-                   phone screen so it reads as a banner, not an interstitial. */
-                .cta-prompt-panel.is-sheet {
-                    left: 8px;
-                    right: 8px;
-                    bottom: calc(8px + env(safe-area-inset-bottom));
-                    padding: 14px 16px 10px;
-                    border-radius: 22px;
-                    max-height: 30vh;
-                    overflow-y: auto;
-                    animation: ctaPromptSheetIn 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+                /* Same centred card on phones, just tighter. */
+                @media (max-width: 480px) {
+                    .cta-prompt-panel.is-card {
+                        width: calc(100vw - 40px);
+                        padding: 26px 22px 20px;
+                        max-height: 80vh;
+                        overflow-y: auto;
+                    }
                 }
 
                 .cta-prompt-close {
@@ -446,11 +457,11 @@ const CtaPrompt = () => {
                     line-height: 1.25;
                     padding: 0 12px;
                 }
-                .is-sheet .cta-prompt-title {
-                    font-size: 1.0625rem;
-                    line-height: 1.28;
-                    margin-bottom: 5px;
-                    padding-right: 34px;
+                @media (max-width: 480px) {
+                    .is-card .cta-prompt-title {
+                        font-size: 1.25rem;
+                        padding: 0 6px;
+                    }
                 }
 
                 .cta-prompt-body {
@@ -462,14 +473,12 @@ const CtaPrompt = () => {
                     font-size: 1rem;
                     line-height: 1.55;
                 }
-                /* 15px rather than the site's 16px mobile floor: this is a
-                   compact banner and the extra pixel costs a whole line of
-                   height, which matters more here than anywhere else. */
-                .is-sheet .cta-prompt-body {
-                    font-size: 0.9375rem;
-                    line-height: 1.4;
-                    margin-bottom: 10px;
-                    padding-right: 34px;
+                @media (max-width: 480px) {
+                    .is-card .cta-prompt-body {
+                        font-size: 0.9375rem;
+                        line-height: 1.45;
+                        margin-bottom: 14px;
+                    }
                 }
 
                 .cta-prompt-action {
@@ -491,10 +500,6 @@ const CtaPrompt = () => {
                     font-size: 1.0625rem;
                     padding: 15px 20px;
                 }
-                .is-sheet .cta-prompt-action {
-                    font-size: 1rem;
-                    padding: 12px 20px;
-                }
 
                 .cta-prompt-secondary {
                     display: block;
@@ -513,11 +518,6 @@ const CtaPrompt = () => {
                 .cta-prompt-secondary:hover {
                     color: var(--color-primary-teal);
                 }
-                .is-sheet .cta-prompt-secondary {
-                    margin-top: 6px;
-                    padding: 2px 0;
-                }
-
                 @keyframes ctaPromptFade {
                     from { opacity: 0; }
                     to { opacity: 1; }
@@ -526,15 +526,9 @@ const CtaPrompt = () => {
                     from { opacity: 0; transform: translate(-50%, -46%) scale(0.97); }
                     to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
                 }
-                @keyframes ctaPromptSheetIn {
-                    from { opacity: 0; transform: translateY(16px); }
-                    to { opacity: 1; transform: translateY(0); }
-                }
-
                 @media (prefers-reduced-motion: reduce) {
                     .cta-prompt-backdrop,
-                    .cta-prompt-panel.is-card,
-                    .cta-prompt-panel.is-sheet {
+                    .cta-prompt-panel.is-card {
                         animation: none;
                     }
                 }
