@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-10 15:42 MYT",
+  "updated": "2026-08-10 16:17 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -90,50 +90,28 @@
       "owner": "Lu Zhong",
       "coOwner": "Claude (SQL/analysis), Elaine (caller), Owner's brother (CRM owner)",
       "why": "The only near-term revenue lever. Retention game: warm lapsed families fill idle chairs cheaply (~170 idle chair-hours/month). Lu Zhong's personal focus.",
-      "next": "Decide who actually makes the calls and when. Options: give Elaine a protected, rostered block instead of fitting it around the desk; move it to someone else; or bring in a part-timer purely to dial. 172 warm, ranked names are sitting idle.",
+      "next": "Elaine may have made some calls and follow-ups since returning from hospitalisation, but nothing has been keyed back in so we cannot see it. First step is to ask her what she has actually done. Then decide the calling model: a protected rostered block, someone else, or a part-timer purely to dial.",
       "gate": null,
       "deps": [
         "7"
       ],
-      "blockedOn": "Caller capacity \u2014 Elaine has made one call and has not had the time since. The lists are built and clean; nobody is working them.",
+      "blockedOn": "Caller capacity, and no visibility. Elaine is back but taking a lighter role; some calls may have happened but no outcomes have been recorded.",
       "timeline": "Lists built, printed and handed over. Calling STARTED 1 Jul but has STALLED \u2014 one call made. The constraint is caller time, not data. CRM ownership sits with the owner's brother since 7 Jul.",
       "tasks": [
         {
-          "t": "CRM v2 scoring model reviewed & approved (Trust30/Household30/Reactivation30/Advocacy10)",
-          "done": true
-        },
-        {
-          "t": "Family + production SQL delivered & run (19,117 patients / 10,849 families, RM36.86m \u2713)",
-          "done": true
-        },
-        {
-          "t": "Ranked call list built (3 groups, 12\u201336mo sweet spot)",
-          "done": true
-        },
-        {
-          "t": "Call sheets redesigned with owner (2-attempt slots, plain-text comments, evenings-demand tick)",
-          "done": true
-        },
-        {
-          "t": "Elaine received all 3 sets and started calling \u2014 1 Jul",
-          "done": true
-        },
-        {
-          "t": "CRM handed over to the owner's brother (pack + guide) \u2014 7 Jul",
-          "done": true
-        },
-        {
-          "t": "\u26a0\ufe0f Calling has stalled \u2014 decide who dials, in a protected time block",
+          "t": "Ask Elaine what she has actually called and what came of it",
           "done": false,
           "now": true
         },
         {
-          "t": "Decide who keys the call outcomes back in, once calling resumes",
-          "done": false
+          "t": "Decide who dials, in a protected time block",
+          "done": false,
+          "now": true
         },
         {
-          "t": "Daily refresh: auto-serve \"the next 20 to call\"",
-          "done": false
+          "t": "Agree who keys the outcomes back in \u2014 without this we are blind either way",
+          "done": false,
+          "now": true
         }
       ],
       "note": "<b>Warm pools:</b> 2,677 reactivatable families (RM13.8m lifetime); <b>869 sweet-spot</b> (12\u201336mo lapsed, RM5.24m) = the priority list; 5,954 cold (\u226584mo, ~5% odds) = skip. <b>\u26a0\ufe0f Incident 16 Jun:</b> a correlated-subquery master query locked the clinic \u2014 RULE: set-based queries only on OpenDent.",
@@ -257,24 +235,33 @@
       "owner": "Lu Zhong",
       "coOwner": null,
       "why": "As families return, the arrival experience must justify the premium. CX is stagnating / team too comfortable. The first visit back is the moment of truth for a reactivated patient.",
-      "next": "Owner is walking the space this week \u2014 measurements and photographs \u2014 then the layout and quick wins get worked through together.",
+      "next": "Fourteen concept renders are done across both waiting areas, including the children's zones. The hold is procurement \u2014 this is a low-budget restyle, so furnishings need to be sourced secondhand rather than bought new.",
       "gate": null,
       "deps": [],
       "blockedOn": null,
-      "timeline": "SCOPED (CX-Scope.md): highest-leverage near-zero-cost wins are front-desk recognition + rebook-at-checkout, not fixtures. 4\u20136 week Phase 1 with a week-6 decision gate.",
+      "timeline": "Renders done (14, latest 7 Aug). Now a sourcing exercise, paced by what turns up secondhand.",
       "tasks": [
         {
-          "t": "Reactivated-patient journey mapped + interventions costed (CX-Scope.md)",
+          "t": "Site walk \u2014 measurements and photographs",
           "done": true
         },
         {
-          "t": "Owner answers 6 questions + greenlights Phase 1",
+          "t": "Concept renders for both waiting areas, including the children's zones",
           "done": true
         },
         {
-          "t": "Site walk \u2014 measurements and photographs of the arrival area, waiting area and checkout",
+          "t": "Pick the winning direction per area",
           "done": false,
           "now": true
+        },
+        {
+          "t": "Source furnishings secondhand \u2014 marketplace hunting, low budget",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Belongings storage \u2014 the gap patients notice most",
+          "done": false
         }
       ],
       "note": "Quick wins (<~RM1k): front-desk recognition, rebook-at-checkout. \"Mirror-in-a-lift\" trick = manage <b>perceived</b> wait, not just actual wait.",
@@ -291,7 +278,7 @@
       "owner": "Edith",
       "coOwner": "Lu Zhong (truth sign-off)",
       "why": "Repurposed OpenClaw \u2192 a lean, truth-gated loop: reply to Google reviews, curate family reviews onto the site, competitor watch, light outcome-anchored SEO. Cost is tiny (DeepSeek V4 + cheap VPS) so 'good-enough' is net-positive.",
-      "next": "Rotate the deferred credentials \u2014 recall admin password, Firehose key, API keys and the root password. The old Hostinger box is now switched off.",
+      "next": "Owner has parked credential rotation \u2014 not a priority right now. The vehicle itself is running: seven cron jobs, Telegram two-way, review sync, competitor watch.",
       "gate": "Truth gate: cosmetic/curation/intel = autonomous + notify; anything touching claims/prices/credentials/clinical facts must pass truth checks or queue for approval.",
       "deps": [],
       "blockedOn": null,
@@ -322,9 +309,8 @@
           "done": true
         },
         {
-          "t": "Rotate credentials (GitHub PAT + Firehose key + API keys + root pw)",
-          "done": false,
-          "now": true
+          "t": "Rotate credentials (recall password, Firehose key, API keys, root) \u2014 PARKED by owner, revisit later",
+          "done": false
         },
         {
           "t": "Two-way Telegram live \u2014 owner paired to the agent (24 Jun)",
@@ -365,50 +351,26 @@
       "owner": "Code Capsule",
       "coOwner": "Claude (attribution)",
       "why": "Existing WhatsApp recall (6/9/12mo, ~RM0.061/msg from the landline) needs daily-volume visibility + real conversion/ROI. Today Lu Zhong manually cross-refs OpenDent appointments to attribute recall\u2192booking.",
-      "next": "Refresh the OpenDent appointment export so booking conversion stops being measured off the 29 June snapshot. The certificate is renewed and the vendor has now automated it.",
+      "next": "The message funnel is refreshing daily and is current. What is stale is the BOOKING CONVERSION \u2014 it is still calculated against the 29 June appointment export, so the 6.7% figure has not moved in six weeks. One fresh OpenDent appointment export fixes it.",
       "gate": null,
       "deps": [
         "4"
       ],
       "blockedOn": null,
-      "timeline": "Funnel LIVE and refreshing daily again after the 13\u201318 Jul link outage. The box scrapes the recall system, computes booking conversion, and publishes to the Command Center CRM panel.",
+      "timeline": "Funnel as-of 10 Aug: 4,197 sent cumulative, 222 this month. Conversion still 6.7% against the 29 June export.",
       "tasks": [
         {
-          "t": "Recall measured: ~706 messaged, 5.9% individual conversion",
+          "t": "Funnel refreshing daily \u2014 current",
           "done": true
         },
         {
-          "t": "Funnel attribution method built (phone\u2192PatNum bridge)",
-          "done": true
-        },
-        {
-          "t": "Recall funnel LIVE (daily cron \u2192 recall.json \u2192 dashboard)",
-          "done": true
-        },
-        {
-          "t": "Holdout test (~15% withhold) for causal incrementality \u2014 DE-PRIORITISED by the owner, parked",
-          "done": false
-        },
-        {
-          "t": "016 number Meta approval (sends currently from landline)",
-          "done": false
-        },
-        {
-          "t": "Booking conversion built \u2014 matured-cohort recall\u2192appointment rate, now published daily with the funnel",
-          "done": true
-        },
-        {
-          "t": "Recall link was down 13\u201318 Jul (expired certificate). Found, vendor renewed it, and the silent-failure bug behind it patched \u2014 the report now says plainly when data is stale",
-          "done": true
-        },
-        {
-          "t": "Vendor added a cron job to auto-renew the recall-link certificate (confirmed 21 Jul) \u2014 the 16 Oct expiry is the real test",
-          "done": true
-        },
-        {
-          "t": "Fresh appointment export so booking conversion moves off the 29 June snapshot",
+          "t": "Fresh OpenDent appointment export so booking conversion stops being measured off the 29 June snapshot",
           "done": false,
           "now": true
+        },
+        {
+          "t": "Certificate auto-renewal \u2014 vendor cron in place",
+          "done": true
         }
       ],
       "note": "<b>\u26a0\ufe0f Corrected figure:</b> individual conversion is <b>5.9%</b> (42/706). The earlier <b>18% \"family ripple\" is RETRACTED as confounded</b> (~95% coincidental). <b>Latest (20 Jul):</b> matured-cohort booking conversion <b>6.7%</b> (49 of 729 recalled patients booked within 90 days) on 3,618 messages sent to date. Still correlation, not proven lift \u2014 the holdout that would prove it is parked.",
@@ -471,7 +433,7 @@
       "endMonth": "2026-10",
       "ongoing": true,
       "why": "We're a premium, trust-based practice \u2014 referrals must be earned through experience, not bought (no MLM, no discounts; the segment isn't price-sensitive). A great end-to-end experience makes referral automatic.",
-      "next": "Lu Zheng completes the high-value list. Then it needs a caller \u2014 the same constraint that has stalled #2, so solve that first.",
+      "next": "Call with Lu Zheng scheduled to work through the CRM and the referral engine together. He owns the CRM and is building the high-value list. The same caller constraint as the cold-calling applies once the list is ready.",
       "gate": "Premium-positioning gate: rewards = goodwill (e.g. RM50 NGO food voucher per successful referral), never clinic discounts.",
       "deps": [
         "10"
@@ -479,6 +441,11 @@
       "blockedOn": null,
       "timeline": "Three stages: (1) CX so good referral is automatic \u2192 (2) the referral \u2192 (3) post-referral thank-you. The high-value list has moved from the intern to the owner's brother, who is working on it now.",
       "tasks": [
+        {
+          "t": "Call with Lu Zheng \u2014 CRM handover and the referral engine",
+          "done": false,
+          "now": true
+        },
         {
           "t": "One-time: identify loyal / high-frequency / high-value / complex-case patients",
           "done": false,
@@ -792,7 +759,7 @@
     {
       "id": "17",
       "title": "Payroll \u2014 Bonus & Increment 2026",
-      "status": "active",
+      "status": "review",
       "owner": "Lu Zhong",
       "coOwner": "Dr Ong (announced), GM",
       "dept": "people",
@@ -801,28 +768,19 @@
       "endMonth": "2026-12",
       "ongoing": false,
       "why": "The annual reward round is the single biggest discretionary cost decision of the year and the main retention lever on a team we cannot afford to lose. It is funded from reserves, not from the year\u2019s earnings \u2014 so it has to be timed and framed deliberately.",
-      "next": "Finalise the individual bonus amounts with Dr Ong, pay with the July salary, then hold the one-to-ones for the under-one-year staff.",
+      "next": "The bonus has been paid. What remains is the one-to-ones with the staff under a year to explain their pro-rated position, and then the increment decision at year end.",
       "gate": "Funded from reserves (2026 economic baseline is roughly break-even) \u2014 so the round is a deliberate draw, not a distribution of profit.",
       "deps": [],
       "blockedOn": null,
-      "timeline": "ANNOUNCED 12 Jul by Dr Ong, framed on the 20th anniversary. The one-month bonus is paid with the July salary at month end \u2014 the amounts are being finalised with Dr Ong now. Increment moved to year end.",
+      "timeline": "Bonus paid with the July salary. One-to-ones outstanding. Increment at year end.",
       "tasks": [
         {
-          "t": "20-year payroll history + increment tracker rebuilt",
+          "t": "Finalise the individual amounts with Dr Ong",
           "done": true
         },
         {
-          "t": "Round designed: bonus forward to July, increment to year end",
+          "t": "Pay the bonus with the July salary",
           "done": true
-        },
-        {
-          "t": "Announcement speech drafted + delivered by Dr Ong \u2014 12 Jul",
-          "done": true
-        },
-        {
-          "t": "Finalise the individual amounts with Dr Ong and pay with the July salary (month end)",
-          "done": false,
-          "now": true
         },
         {
           "t": "One-to-ones: pro-rate staff under 1 year",
@@ -830,11 +788,7 @@
           "now": true
         },
         {
-          "t": "Settle the two open individual cases",
-          "done": false
-        },
-        {
-          "t": "Year-end increment decision + payout",
+          "t": "Increment decision at year end",
           "done": false
         }
       ],
@@ -1377,6 +1331,11 @@
       "timeline": "Contract draft by 16 Aug \u2192 candidate meeting 17 Aug \u2192 introduction to the lead orthodontist \u2192 then the wider doctor briefing.",
       "tasks": [
         {
+          "t": "Text Dr Azelia and Dr Priscilla to book the same one-to-one conversations held with the other doctors",
+          "done": false,
+          "now": true
+        },
+        {
           "t": "Lead orthodontist approached \u2014 open to mentoring, wants fair remuneration",
           "done": false
         },
@@ -1494,7 +1453,7 @@
       "timeline": "Pine Labs 11 Aug 9:30am. Policy lands inside the contractor agreement rather than as a standalone memo.",
       "tasks": [
         {
-          "t": "Pine Labs meeting Tue 11 Aug 9:30am \u2014 rates by tenure, and whether the fee can be passed to the doctor",
+          "t": "Pine Labs Tue 11 Aug 9:30am \u2014 question list prepared and sent to Telegram",
           "done": false,
           "now": true
         },
