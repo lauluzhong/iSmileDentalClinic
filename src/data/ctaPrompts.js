@@ -37,7 +37,7 @@ const deslug = (slug) => slug.replace(/-/g, ' ').trim();
 const DEFAULT_PROMPT = {
     id: 'general',
     title: 'Have a question before you book?',
-    body: 'Message us on WhatsApp and we will get back to you with an answer and a time that suits.',
+    body: 'Drop us a text and we\'ll happily sort out an answer and a time that suits you.',
     action: 'WhatsApp the clinic',
     message: 'Hi iSmile, I have a question before booking a visit.'
 };
@@ -56,7 +56,7 @@ const RULES = [
         id: 'clear-aligners',
         match: (p) => p === '/services/straighten/clear-aligners',
         title: 'Curious whether clear aligners would work for you?',
-        body: 'Send us a message and we will explain how an aligner assessment works.',
+        body: 'Drop us a text and we\'ll walk you through how an aligner assessment works.',
         action: 'Ask on WhatsApp',
         message: 'Hi iSmile, I am interested in clear aligners and would like to know more.'
     },
@@ -64,7 +64,7 @@ const RULES = [
         id: 'wisdom-tooth',
         match: (p) => p === '/services/protect/wisdom-tooth',
         title: 'Wisdom tooth on your mind?',
-        body: 'Message us and describe what you are feeling. We will help you work out the next step.',
+        body: 'Tell us what you\'re feeling and we\'ll help you figure out the next step.',
         action: 'Message the clinic',
         message: 'Hi iSmile, I have a question about my wisdom tooth.'
     },
@@ -72,7 +72,7 @@ const RULES = [
         id: 'root-canal',
         match: (p) => p === '/services/protect/root-canal',
         title: 'Been told you might need a root canal?',
-        body: 'Message us with what is going on and we will explain what to expect.',
+        body: 'Tell us what\'s going on and we\'ll walk you through what to expect.',
         action: 'Message the clinic',
         message: 'Hi iSmile, I would like to ask about root canal treatment.'
     },
@@ -80,7 +80,7 @@ const RULES = [
         id: 'dental-implants',
         match: (p) => p === '/services/replace/dental-implants',
         title: 'Have a question about dental implants?',
-        body: 'Message us and we will explain how implants work and how to get started.',
+        body: 'Drop us a text and we\'ll walk you through how implants work and how to get started.',
         action: 'Ask on WhatsApp',
         message: 'Hi iSmile, I am interested in dental implants and would like to know more.'
     },
@@ -88,7 +88,7 @@ const RULES = [
         id: 'teeth-whitening',
         match: (p) => p === '/services/enhance/teeth-whitening',
         title: 'Thinking about brightening your smile?',
-        body: 'Message us and we will explain the whitening options and how to begin.',
+        body: 'Drop us a text and we\'ll walk you through the options.',
         action: 'Ask on WhatsApp',
         message: 'Hi iSmile, I am interested in teeth whitening.'
     },
@@ -96,7 +96,7 @@ const RULES = [
         id: 'cosmetic-dentistry',
         match: (p) => p === '/services/enhance/cosmetic-dentistry',
         title: 'Considering upgrading your smile?',
-        body: 'Tell us what you have in mind and we will explain how a consultation works.',
+        body: 'Tell us what you have in mind and we\'ll take it from there.',
         action: 'Ask on WhatsApp',
         message: 'Hi iSmile, I am interested in cosmetic dentistry and would like to know more.'
     },
@@ -104,7 +104,7 @@ const RULES = [
         id: 'myofunctional',
         match: (p) => p === '/services/children/myofunctional',
         title: 'Noticed mouth breathing, snoring or crowded teeth?',
-        body: 'Tell us how old your child is and what you have seen, and we will explain how a screening works.',
+        body: 'Just tell us how old your child is and what you\'ve noticed, and we\'ll walk you through how a screening works.',
         action: 'Ask on WhatsApp',
         message: 'Hi iSmile, I would like to ask about myofunctional treatment for my child.'
     },
@@ -112,7 +112,7 @@ const RULES = [
         id: 'pediatric',
         match: (p) => p === '/services/children/pediatric-dentistry',
         title: 'Bringing your child in for the first time?',
-        body: 'Tell us their age and what you have noticed, and we will explain how a first visit works.',
+        body: 'Just tell us their age and what you\'ve noticed, and we\'ll walk you through how a first visit works.',
         action: 'Ask on WhatsApp',
         message: 'Hi iSmile, I would like to bring my child in. Could you tell me how the first visit works?'
     },
@@ -122,7 +122,7 @@ const RULES = [
         id: 'straighten',
         match: (p) => p.startsWith('/services/straighten'),
         title: 'Wondering if braces or aligners would suit you?',
-        body: 'Send us a message and we will explain how an assessment works and what to expect.',
+        body: 'Drop us a text and we\'ll walk you through how an assessment works.',
         action: 'Ask on WhatsApp',
         message: 'Hi iSmile, I am considering braces or clear aligners and would like to know more.'
     },
@@ -130,7 +130,7 @@ const RULES = [
         id: 'children',
         match: (p) => p.startsWith('/services/children'),
         title: 'Bringing your child in for the first time?',
-        body: 'Tell us their age and what you have noticed, and we will explain how a first visit works.',
+        body: 'Just tell us their age and what you\'ve noticed, and we\'ll walk you through how a first visit works.',
         action: 'Ask on WhatsApp',
         message: 'Hi iSmile, I would like to bring my child in. Could you tell me how the first visit works?'
     },
@@ -138,7 +138,7 @@ const RULES = [
         id: 'protect',
         match: (p) => p.startsWith('/services/protect'),
         title: 'Is a tooth bothering you?',
-        body: 'Message us and describe what you are feeling. We will help you get seen.',
+        body: 'Tell us what you\'re feeling and we\'ll help you get seen.',
         action: 'Message the clinic',
         message: 'Hi iSmile, I have some tooth discomfort and would like to arrange a visit.'
     },
@@ -146,7 +146,7 @@ const RULES = [
         id: 'replace',
         match: (p) => p.startsWith('/services/replace'),
         title: 'Exploring options for restoring your smile?',
-        body: 'Message us and we will explain what is involved and how to get started.',
+        body: 'Drop us a text and we\'ll walk you through the options.',
         action: 'Ask on WhatsApp',
         message: 'Hi iSmile, I would like to know more about options for restoring my teeth.'
     },
@@ -154,7 +154,7 @@ const RULES = [
         id: 'enhance',
         match: (p) => p.startsWith('/services/enhance'),
         title: 'Considering improving your smile?',
-        body: 'Tell us what you have in mind and we will explain how a consultation works.',
+        body: 'Tell us what you have in mind and we\'ll take it from there.',
         action: 'Ask on WhatsApp',
         message: 'Hi iSmile, I am interested in improving my smile.'
     },
@@ -162,7 +162,7 @@ const RULES = [
         id: 'location',
         match: (p) => p.startsWith('/services/locations'),
         title: 'Nearby and thinking of coming in?',
-        body: 'Message us on WhatsApp for directions, parking, or to find a time that works.',
+        body: 'Drop us a text for directions, parking, or a time that works for you.',
         action: 'Message the clinic',
         message: 'Hi iSmile, I am in the area and would like to arrange a visit.'
     },
@@ -170,7 +170,7 @@ const RULES = [
         id: 'services',
         match: (p) => p.startsWith('/services'),
         title: 'Not sure which treatment you need?',
-        body: 'Tell us what is bothering you on WhatsApp and we will point you to the right next step.',
+        body: 'Tell us what\'s bothering you and we\'ll point you in the right direction.',
         action: 'Ask on WhatsApp',
         message: 'Hi iSmile, I am not sure which treatment I need. Could you help me work it out?'
     },
@@ -182,7 +182,7 @@ const RULES = [
             return {
                 id: 'blog-post',
                 title: 'Still have a question after reading?',
-                body: 'Message the clinic on WhatsApp. We are happy to answer even if you are not ready to book.',
+                body: 'Drop us a text and we\'ll happily answer, even if you\'re not ready to book.',
                 action: 'Ask a question',
                 message: topic
                     ? `Hi iSmile, I was reading your article about ${topic} and have a question.`
@@ -194,7 +194,7 @@ const RULES = [
         id: 'reviews',
         match: (p) => p === '/reviews',
         title: 'Looking for a dentist your family can stay with?',
-        body: 'Message us on WhatsApp and we will help you find a first appointment that works.',
+        body: 'Drop us a text and we\'ll help you find a first appointment that works for you.',
         action: 'WhatsApp the clinic',
         message: 'Hi iSmile, I am looking for a family dentist and would like to arrange a first visit.'
     }
