@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-10 16:18 MYT",
+  "updated": "2026-08-10 16:25 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -493,6 +493,11 @@
       "timeline": "Research complete: journey design, form specification and software feasibility all written. Next gate is the vendor conversation, then counsel.",
       "tasks": [
         {
+          "t": "Design the airway pre-consult questionnaire with the lead clinician \u2014 her request: answers visible in the practice system before the patient enters the room",
+          "done": false,
+          "now": true
+        },
+        {
           "t": "Obtain and analyse the current registration form",
           "done": true
         },
@@ -554,7 +559,7 @@
           "now": true
         }
       ],
-      "note": "Without this we can't measure referral ROI or thank referrers. Front-desk executed; serves CRM/Retention."
+      "note": "Without this we can't measure referral ROI or thank referrers. Front-desk executed; serves CRM/Retention. NEW (10 Aug): the lead clinician asked for segment-specific pre-visit questionnaires \u2014 e.g. an airway question set sent at booking, answered before arrival, visible when she opens the patient. Same time-saving ethos as the transcription initiative: move consultation off the chair. Fastest route is a module on the existing digital form with the front desk pasting a summary into the appointment note; the native Sheets/Web Forms route depends on the practice-management version being upgraded first."
     },
     {
       "id": "11",
@@ -1212,7 +1217,7 @@
           "done": false
         }
       ],
-      "note": "Everything runs offline on an Apple Silicon machine \u2014 no data leaves the premises and no external service is involved. Keep summarising out of the first version: a transcript cannot be wrong in the way a summary can."
+      "note": "Everything runs offline on an Apple Silicon machine \u2014 no data leaves the premises and no external service is involved. Keep summarising out of the first version: a transcript cannot be wrong in the way a summary can. Paired request from the same clinician: pre-visit questionnaires (see the onboarding form initiative) \u2014 both serve the same goal, less consultation time on the chair."
     },
     {
       "id": "25",
