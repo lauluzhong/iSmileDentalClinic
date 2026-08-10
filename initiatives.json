@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-10 06:15 MYT",
+  "updated": "2026-08-10 15:42 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -1484,17 +1484,17 @@
       "endMonth": "2026-12",
       "ongoing": false,
       "why": "Discounting has never had a written rule, so it became a personal judgement call rather than a clinic position. Two years of ledger data show it is concentrated almost entirely in high-value orthodontic case starts settled upfront, and that the clinic quietly carries the larger half of every discount a practitioner gives \u2014 because the discount is deducted from the shared base before the split. The practitioner decides; the clinic pays more of it. That is the misalignment to fix. The tool itself is legitimate and stays, but its cost has to be visible to the person holding it.",
-      "next": "Non-committal rate discovery with the payment-terminal provider next week: merchant rates by instalment tenure, and whether the cost can be passed to or shared with the practitioner. Separately, the concession clause is now drafted into the contractor agreement.",
+      "next": "Pine Labs meeting confirmed for Tuesday 11 August, 9:30am \u2014 bank-agnostic instalment plans. Non-committal rate discovery: merchant rates by instalment tenure, whether the cost can be passed to or shared with the practitioner, settlement timing and any minimum ticket or volume commitment. Separately, the concession clause is now drafted into the contractor agreement.",
       "gate": "Do not publish or advertise any discount or instalment offer. The dental council's conduct code treats discounts in advertising as an inducement, and bars 'lowest price' style claims. Instalments are offered in the chair, on request, never marketed.",
       "deps": [
         "16",
         "18"
       ],
       "blockedOn": null,
-      "timeline": "Provider conversation w/c 10 Aug. Policy lands inside the contractor agreement rather than as a standalone memo.",
+      "timeline": "Pine Labs 11 Aug 9:30am. Policy lands inside the contractor agreement rather than as a standalone memo.",
       "tasks": [
         {
-          "t": "Get merchant rates by tenure from the payment provider, and whether the fee can be passed to the doctor",
+          "t": "Pine Labs meeting Tue 11 Aug 9:30am \u2014 rates by tenure, and whether the fee can be passed to the doctor",
           "done": false,
           "now": true
         },
