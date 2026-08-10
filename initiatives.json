@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-10 17:39 MYT",
+  "updated": "2026-08-10 18:43 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -1542,18 +1542,22 @@
       "startMonth": "2026-08",
       "endMonth": "2026-11",
       "ongoing": false,
-      "why": "Before building the full referral engine, find out whether referrals are already happening and whether the practice system even records them. If real referrers exist today, they can be thanked immediately \u2014 a card and a small NGO-donation gesture \u2014 without waiting for the engine, and the compounding starts now.",
-      "next": "Run the read-only referral audit query in the practice system to see whether referrals are tracked and at what monthly volume. In parallel, set up the conversation with the NGO (Dignity) about a donation-backed thank-you.",
+      "why": "Audited 10 Aug: referral capture stopped in 2014. Of 3,259 referral records in the practice system, 99.8 per cent were created before 2015 \u2014 the years since produce single digits, and several produce nothing at all. So referrals may well still be happening; the practice simply stopped recording them. Historically, patient referrals ran about two to one ahead of doctor referrals, which is the channel the referral engine is built on.",
+      "next": "Capture first, reward second. Add the referral question to the intake form and the front-desk script so the field starts filling again. In parallel, keep the NGO conversation moving so the thank-you is ready the day data starts arriving \u2014 and use the existing family groupings to build a first thank-you list from data already held.",
       "gate": "If the system shows no referral data, the front-desk capture question becomes the prerequisite (it is already on the onboarding-form initiative).",
       "deps": [
         "9",
         "10"
       ],
       "blockedOn": null,
-      "timeline": "Audit in August. If data exists, first thank-you cards can go out in September.",
+      "timeline": "Audit done 10 Aug. Capture question live with the intake form work. First thank-you list from family groupings can be built now without waiting for new capture.",
       "tasks": [
         {
-          "t": "Run the referral audit query in the practice system \u2014 is anything recorded, and how much per month",
+          "t": "Audit run \u2014 capture confirmed dead since 2014",
+          "done": true
+        },
+        {
+          "t": "Add the referral question to the intake form and the front-desk script",
           "done": false,
           "now": true
         },
@@ -1563,15 +1567,24 @@
           "now": true
         },
         {
-          "t": "Decide the thank-you: card wording, gesture, who sends it and when",
+          "t": "Build a first thank-you list from family groupings \u2014 patients who brought their family in",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Ask what changed around 2009-10, when capture first fell away",
           "done": false
         },
         {
-          "t": "If nothing is tracked: fold referral capture into the onboarding form and front-desk script",
+          "t": "Counsel: confirm a referral thank-you sits within the professional conduct rules on inducement",
+          "done": false
+        },
+        {
+          "t": "Decide the thank-you: card wording, gesture, who sends it and when",
           "done": false
         }
       ],
-      "note": "Deliberately small and immediate \u2014 the full opt-in referral engine remains its own initiative; this is the measurement plus the first reward loop."
+      "note": "Query saved at CRM/referral-baseline-audit.sql. Schema note: this version of the practice system uses IsFrom, not RefType \u2014 the later column name errors out."
     },
     {
       "id": "32",
