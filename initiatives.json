@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-10 16:17 MYT",
+  "updated": "2026-08-10 16:18 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -1481,6 +1481,49 @@
         }
       ],
       "note": "June's actual discounts ran 3.7 to 7.2 per cent, below the level at which an instalment plan pays for itself as a straight replacement for discounting. So the instalment product is better aimed at patients who cannot pay upfront \u2014 today the clinic finances those itself, interest-free and carrying the risk. The discounting behaviour is structural: practitioners are paid on collections, so pulling payment forward pulls their own pay forward."
+    },
+    {
+      "id": "30",
+      "title": "WhatsApp Procedure Shortcuts & Chat Automation",
+      "status": "active",
+      "owner": "Lu Zhong",
+      "coOwner": "Front Desk",
+      "dept": "crm",
+      "lens": "revenue",
+      "startMonth": "2026-08",
+      "endMonth": "2026-11",
+      "ongoing": false,
+      "blockedOn": null,
+      "gate": "All reply wording passes the content truth-gate: no prices, no named dentists, no outcome or reply-time promises.",
+      "deps": [
+        "6"
+      ],
+      "why": "The website now opens WhatsApp conversations with a pre-typed, procedure-specific first line (CTA pop-up, live 10 Aug 2026), so incoming chats arrive already labelled by intent: aligners, wisdom tooth, implants, whitening, a child first visit. Today every one of those chats needs a hand-written reply from the front desk, which means answer quality depends on who is on shift and slow replies lose warm leads. A small library of saved quick replies per key procedure (what it is, what a first visit looks like, common questions) lets anyone on the desk send a good first answer in seconds. WhatsApp Business quick replies and greeting or away automations cover most of this without new software.",
+      "next": "Draft the first shortcut set for the highest-intent procedures (aligners and braces, wisdom tooth, implants, whitening, child first visit and myofunctional screening) matched one-to-one to the pop-up pre-typed openers; keep replies compliant with content rules (no prices, no named dentists, no outcome promises). Then set them up as WhatsApp Business quick replies on the clinic number and brief the front desk. Later: greeting and away-hours auto-replies, and review whether deeper automation is worth it once volumes are known.",
+      "note": "Chats opening with the pop-up pre-typed lines are pop-up leads; front desk should tag them so click-to-booking attribution stays cheap.",
+      "tasks": [
+        {
+          "t": "Draft quick-reply library for 6 key procedures (aligned to pop-up openers)",
+          "done": false
+        },
+        {
+          "t": "Owner sign-off on wording (content truth-gate)",
+          "done": false
+        },
+        {
+          "t": "Load as WhatsApp Business quick replies + brief front desk",
+          "done": false
+        },
+        {
+          "t": "Greeting / away-hours auto-reply",
+          "done": false
+        },
+        {
+          "t": "Front desk tags pop-up-opener chats for attribution",
+          "done": false
+        }
+      ],
+      "timeline": "Aug: draft quick-reply library + owner sign-off. Sep: live as WhatsApp Business quick replies, front desk briefed. Oct: greeting/away automations + first attribution review."
     }
   ]
 }
