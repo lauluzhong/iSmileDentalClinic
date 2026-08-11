@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-11 06:15 MYT",
+  "updated": "2026-08-11 10:38 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -1327,16 +1327,20 @@
       "endMonth": "2026-12",
       "ongoing": false,
       "why": "Our own margin data shows a very wide spread in value produced per chair-hour between doctors \u2014 one clinician generates several hundred times the true margin per hour of another. Business as usual will not close the gap in time. A clinician who can arrive and immediately deliver higher-value procedures, and bring patients with them, is the case-mix lever \u2014 the only route past the capacity ceiling other than extending hours.",
-      "next": "The lead orthodontist conversation is done \u2014 she is open to mentoring but was clear that it has to be paid properly. Next: have a draft contract ready for the 17 Aug meeting with the candidate and the general manager, then put the two doctors in a room together to see whether the working relationship fits.",
+      "next": "One-to-ones with Dr Azelia and Dr Priscilla are now booked for next week, which completes the round of individual conversations with the existing practitioners. Alongside that: have a draft contract ready for the 17 Aug meeting with the candidate and the general manager, then put her and the lead orthodontist in a room together to see whether the working relationship fits.",
       "gate": "Nothing becomes public until the practitioners already here have been heard. Expect the objection that chairs are not full as it is \u2014 the honest answer is that retention, not new patient flow, is what separates a full book from an empty one here, and the data supports that.",
       "deps": [
         "16"
       ],
       "blockedOn": null,
-      "timeline": "Contract draft by 16 Aug \u2192 candidate meeting 17 Aug \u2192 introduction to the lead orthodontist \u2192 then the wider doctor briefing.",
+      "timeline": "Contract draft by 16 Aug \u2192 candidate meeting 17 Aug \u2192 Azelia and Priscilla one-to-ones the same week \u2192 introduction to the lead orthodontist \u2192 then the wider doctor briefing.",
       "tasks": [
         {
-          "t": "Text Dr Azelia and Dr Priscilla to book the same one-to-one conversations held with the other doctors",
+          "t": "Book the same one-to-one conversations with Dr Azelia and Dr Priscilla",
+          "done": true
+        },
+        {
+          "t": "Hold the one-to-ones with Dr Azelia and Dr Priscilla (booked, week of 17 Aug)",
           "done": false,
           "now": true
         },
