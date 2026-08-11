@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-11 10:38 MYT",
+  "updated": "2026-08-11 10:46 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -711,14 +711,14 @@
       "owner": "Lu Zhong",
       "coOwner": "Lydia (counsel)",
       "why": "Doctors had NO contract at all, and the employee paperwork was 20 years old. Redraft the employment terms, refresh the handbook, and move doctors onto contractor agreements (not employees) so the classification, the locum mechanics and the procurement rules are all written down.",
-      "next": "Send the marked-up contractor agreement back to counsel. It is redlined with tracked changes and 18 margin comments, and reconstructed Schedules 1 and 2 are attached for her review \u2014 the version she returned had no fee percentage, no payment date and no deduction principles in it. Four questions need her answer before anyone signs.",
+      "next": "The owner is reading through the marked-up contractor agreement now \u2014 tracked changes, 18 margin comments and the reconstructed Schedules 1 and 2. Once he is through it, send it back to counsel with the four blocking questions. Her answers are wanted before the 17 Aug meeting with the incoming junior doctor, since her terms sit in Schedule 1 of this same agreement.",
       "gate": null,
       "deps": [],
       "blockedOn": null,
       "timeline": "Marked-up draft ready 8 Aug. Counsel's answers wanted before the 17 Aug meeting with the incoming junior doctor, since her terms sit in Schedule 1 of this same agreement.",
       "tasks": [
         {
-          "t": "Return the marked-up agreement and the question list to counsel",
+          "t": "Owner reviewing the marked-up agreement before it goes back to counsel",
           "done": false,
           "now": true
         },
@@ -1452,17 +1452,21 @@
       "endMonth": "2026-12",
       "ongoing": false,
       "why": "Discounting has never had a written rule, so it became a personal judgement call rather than a clinic position. Two years of ledger data show it is concentrated almost entirely in high-value orthodontic case starts settled upfront, and that the clinic quietly carries the larger half of every discount a practitioner gives \u2014 because the discount is deducted from the shared base before the split. The practitioner decides; the clinic pays more of it. That is the misalignment to fix. The tool itself is legitimate and stays, but its cost has to be visible to the person holding it.",
-      "next": "Pine Labs meeting confirmed for Tuesday 11 August, 9:30am \u2014 bank-agnostic instalment plans. Non-committal rate discovery: merchant rates by instalment tenure, whether the cost can be passed to or shared with the practitioner, settlement timing and any minimum ticket or volume commitment. Separately, the concession clause is now drafted into the contractor agreement.",
+      "next": "Pine Labs met on 11 Aug and it went well; they are sending merchant rates this week. When the rates land, test them against the blended cost of the upfront discount they would replace, and settle whether the cost sits with the clinic, the practitioner, or is shared. Separately, the concession clause is now drafted into the contractor agreement.",
       "gate": "Do not publish or advertise any discount or instalment offer. The dental council's conduct code treats discounts in advertising as an inducement, and bars 'lowest price' style claims. Instalments are offered in the chair, on request, never marketed.",
       "deps": [
         "16",
         "18"
       ],
       "blockedOn": null,
-      "timeline": "Pine Labs 11 Aug 9:30am. Policy lands inside the contractor agreement rather than as a standalone memo.",
+      "timeline": "Pine Labs met 11 Aug; rates expected within the week. Policy lands inside the contractor agreement rather than as a standalone memo.",
       "tasks": [
         {
-          "t": "Pine Labs Tue 11 Aug 9:30am \u2014 question list prepared and sent to Telegram",
+          "t": "Pine Labs rate-discovery meeting held 11 Aug \u2014 went well, rates to follow",
+          "done": true
+        },
+        {
+          "t": "Receive and assess Pine Labs merchant rates by instalment tenure (expected this week)",
           "done": false,
           "now": true
         },
