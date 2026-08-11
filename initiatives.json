@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-11 10:46 MYT",
+  "updated": "2026-08-12 02:46 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -1726,6 +1726,48 @@
         }
       ],
       "note": "Overlaps the marketing agent vehicle (Edith runs reviews, GBP and the website); keep the split clear \u2014 this is brand voice and social content, not infrastructure."
+    },
+    {
+      "id": "33",
+      "title": "Doctor-Specific Marketing (Personal Brand Showcase)",
+      "status": "active",
+      "owner": "Lu Zhong",
+      "coOwner": null,
+      "dept": "growth",
+      "lens": "revenue",
+      "startMonth": "2026-08",
+      "endMonth": null,
+      "ongoing": true,
+      "why": "Dr Ling and Dr Joan have shared content on their own personal brands that iSmile could promote on the website and channels. Mutually beneficial: the clinic gets authentic clinician content and stronger E-E-A-T / SEO-GEO signals (named-practitioner entity pages are what search and AI answer engines increasingly reward), the doctors get reach. As the clinic scales, associates with personal brands become a repeatable asset \u2014 build the showcase pattern once.",
+      "next": "Collect the content Dr Ling and Dr Joan have shared; scope what a doctor showcase looks like on the website (profile/entity pages, blog attribution, social cross-posting).",
+      "gate": "Content truth-gate + each doctor\u2019s written consent on anything published under their name; MDC advertising guidelines on practitioner promotion.",
+      "deps": [],
+      "blockedOn": null,
+      "timeline": "Scope Aug\u2013Sep 2026; first doctor pages/content after that.",
+      "tasks": [
+        {
+          "t": "Gather the personal-brand content Dr Ling and Dr Joan have already shared",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Decide the showcase format: doctor profile/entity pages on the website, blog byline attribution, social cross-promotion",
+          "done": false
+        },
+        {
+          "t": "Reconcile with the content governance rule (blog currently avoids named dentists) \u2014 carve out a doctor-attributed content lane with per-doctor consent",
+          "done": false
+        },
+        {
+          "t": "Assess SEO/GEO upside: Person/Dentist schema, E-E-A-T bylines, how AI answer engines cite named practitioners",
+          "done": false
+        },
+        {
+          "t": "Define the repeatable onboarding pattern for future associates with personal brands",
+          "done": false
+        }
+      ],
+      "note": "Overlaps id 32 (Mandy branding/social refresh \u2014 bring this to the 18 Aug meeting) and the marketing agent vehicle (Edith/website infra). Governance: CONTENT-CONTRACT currently steers blog copy away from named dentists \u2014 this initiative deliberately creates a consented, doctor-attributed lane; update the contract when scoped."
     }
   ]
 }
