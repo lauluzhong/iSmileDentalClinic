@@ -20,7 +20,7 @@
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
-  body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.5;}
+  body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.5;overflow-x:hidden;}
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
   a{color:var(--teal-d);text-decoration:none;}
 
@@ -44,7 +44,7 @@
 
   /* Section heading */
   .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 14px;flex-wrap:wrap;}
-  .sec-head h1{margin:0;font-size:19px;font-weight:600;letter-spacing:-.3px;}
+  .sec-head h1{margin:0;font-size:20px;font-weight:650;letter-spacing:-.3px;}
   .sec-head p{margin:3px 0 0;color:var(--ink-2);font-size:13px;max-width:640px;}
   .window-badge{align-self:flex-end;background:var(--teal);color:#fff;font-size:12px;font-weight:600;padding:6px 12px;border-radius:8px;white-space:nowrap;}
   .window-badge .wl{opacity:.8;font-weight:500;margin-right:5px;}
@@ -64,7 +64,7 @@
   .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 14px;}
   .field{display:flex;flex-direction:column;gap:3px;}
   .field label{font-size:10.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--ink-3);font-weight:600;}
-  select,input[type=search]{font:inherit;font-size:13px;padding:7px 10px;border:1px solid var(--line-2);border-radius:8px;background:var(--surface);color:var(--ink);min-width:130px;height:34px;}
+  select,input[type=search],input[type=date]{font:inherit;font-size:13px;padding:7px 10px;border:1px solid var(--line-2);border-radius:8px;background:var(--surface);color:var(--ink);min-width:130px;height:34px;}
   input[type=search]{min-width:190px;}
   select:focus,input:focus{outline:0;border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,160,198,.15);}
   .btn{font:inherit;font-size:12.5px;font-weight:500;padding:7px 12px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2);border-radius:8px;cursor:pointer;height:34px;display:inline-flex;align-items:center;gap:6px;}
@@ -121,7 +121,7 @@
   .kpi{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:15px 16px;}
   .kpi .kl{font-size:11.5px;color:var(--ink-3);font-weight:600;text-transform:uppercase;letter-spacing:.4px;display:flex;align-items:center;gap:6px;margin-bottom:7px;}
   .kpi .kl .ki{width:22px;height:22px;border-radius:6px;background:var(--funnel-1);color:var(--teal-d);display:flex;align-items:center;justify-content:center;font-size:13px;}
-  .kpi .kv{font-size:26px;font-weight:700;letter-spacing:-.5px;font-variant-numeric:tabular-nums;line-height:1.1;}
+  .kpi .kv{font-size:28px;font-weight:700;letter-spacing:-.5px;font-variant-numeric:tabular-nums;line-height:1.1;}
   .kpi .kv small{font-size:14px;font-weight:600;color:var(--ink-3);}
   .kpi .ks{font-size:11.5px;color:var(--ink-2);margin-top:5px;}
   .kpi.accent{background:var(--teal);} .kpi.accent .kl,.kpi.accent .ks{color:rgba(255,255,255,.85);}
@@ -163,6 +163,51 @@
   .note{font-size:11.5px;color:var(--ink-3);margin-top:12px;line-height:1.6;border-top:1px dashed var(--line-2);padding-top:10px;}
   .note b{color:var(--ink-2);font-weight:600;}
   .ti{font-family:inherit;} /* placeholder */
+  .tscroll{-webkit-overflow-scrolling:touch;}
+
+  /* ---------- Mobile (≤760px) ---------- */
+  @media (max-width:760px){
+    body{font-size:13.5px;}
+    .topbar{padding:0 12px;}
+    .topbar-in{height:auto;flex-wrap:wrap;gap:8px;padding:10px 0;}
+    .brand{font-size:15px;}
+    .brand span small{display:none;}
+    .topbar-right{margin-left:auto;}
+    .tabs{order:3;width:100%;margin-left:0;}
+    .tab{flex:1;justify-content:center;padding:10px 6px;min-height:40px;}
+    .wrap{padding:16px 12px 48px;}
+    .sec-head{margin-bottom:12px;}
+    .sec-head h1{font-size:17px;}
+    .sec-head p{font-size:12.5px;}
+    .window-badge{align-self:flex-start;}
+    /* funnel ribbon → 2-col grid, final step full width */
+    .funnel{display:grid;grid-template-columns:1fr 1fr;}
+    .fstep{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:9px 11px;}
+    .fstep .arrow{display:none;}
+    .fstep.final{grid-column:1 / -1;border-bottom:0;}
+    /* filters → 2-col grid, full-width controls, 44px-ish tap targets */
+    .toolbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:end;}
+    .field{min-width:0;}
+    select,input[type=search],input[type=date]{width:100%;min-width:0;height:42px;font-size:16px;} /* 16px stops iOS focus-zoom */
+    .btn{height:42px;justify-content:center;}
+    .filter-note{grid-column:1 / -1;margin-left:0;padding-bottom:0;align-self:auto;}
+    /* summary */
+    .kpis{grid-template-columns:1fr 1fr;gap:10px;}
+    .kpi{padding:12px 13px;}
+    .kpi .kv{font-size:21px;}
+    .panel,.recon{padding:14px;}
+    .bar-row{grid-template-columns:88px 1fr 74px;gap:8px;padding:8px 0;}
+    .bar-row .brl{font-size:12px;}
+    .daily{gap:3px;height:120px;}
+    .dbar .dlab{display:none;}          /* labels collide at 375px — hover/tap title keeps the detail */
+    .dbar:nth-child(5n+1) .dlab{display:block;font-size:9px;}
+    .recon-grid{grid-template-columns:1fr 1fr;}
+    .recon-grid .cell .v{font-size:15px;}
+  }
+  @media (max-width:480px){
+    #data-asof{display:none;}
+    .pill-sample{font-size:10px;}
+  }
 </style>
 </head>
 <body>
@@ -204,11 +249,14 @@
       <div class="field"><label>From</label><input type="date" id="f-from"></div>
       <div class="field"><label>To</label><input type="date" id="f-to"></div>
       <div class="field"><label>Quick range</label><select id="f-preset">
-        <option value="all">All data</option>
+        <option value="l90" selected>Last 90 days</option>
+        <option value="l30">Last 30 days</option>
         <option value="mtd">This month</option>
         <option value="last">Last month</option>
         <option value="qtd">Quarter to date</option>
         <option value="ytd">Year to date</option>
+        <option value="all">All data</option>
+        <option value="custom">Custom</option>
       </select></div>
       <div class="field"><label>Doctor</label><select id="f-doctor"></select></div>
       <div class="field"><label>Procedure category</label><select id="f-cat"></select></div>
@@ -495,7 +543,17 @@ const rm0 = v => Math.round(v).toLocaleString('en-MY');
 const pct = v => (v*100).toFixed(0) + '%';
 const pct1= v => (v*100).toFixed(1) + '%';
 const TIER_LABEL = {c1:'C1',c2:'C2',c3:'C3',c4:'C4'};
-const dlabel = ds => { const d=new Date(ds); return d.getDate()+'/'+(d.getMonth()+1); };
+
+/* ---- Local-date helpers ----
+   Build YYYY-MM-DD strings from LOCAL date parts only. Never serialize a
+   local-midnight Date via toISOString()/toJSON(): it converts through UTC,
+   which in MYT (+08:00) shifts the date back a day (1 Aug → 31 Jul). */
+const dparts = s => s.split('-').map(Number);                 // 'YYYY-MM-DD' → [y, m(1-12), d]
+const ymd = (y,m,d) => y+'-'+String(m).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+const daysBack = (s,n) => { const [y,m,d]=dparts(s); const t=new Date(y,m-1,d-n);
+  return ymd(t.getFullYear(), t.getMonth()+1, t.getDate()); };
+const MONTHS_S = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const dlabel = ds => { const [,m,d]=dparts(ds); return d+'/'+m; };
 
 /* ---- Column definitions (left → right funnel order) ---- */
 const COLS = [
@@ -517,8 +575,7 @@ const DATA_MIN = ROWS.reduce((m,r)=>r.date<m?r.date:m, ROWS[0].date);
 const DATA_MAX = ROWS.reduce((m,r)=>r.date>m?r.date:m, ROWS[0].date);
 /* Default window = last 90 days (the full history is ~25 months / 13k+ visits;
    rendering it all by default makes the ledger sluggish — pick "All data"). */
-const DEFAULT_FROM = (()=>{ const d=new Date(DATA_MAX); d.setDate(d.getDate()-90);
-  const iso=d.toISOString().slice(0,10); return iso>DATA_MIN?iso:DATA_MIN; })();
+const DEFAULT_FROM = (()=>{ const s=daysBack(DATA_MAX,90); return s>DATA_MIN?s:DATA_MIN; })();
 let state = {from:DEFAULT_FROM,to:DATA_MAX,doctor:'',cat:'',show:'',search:'',sortKey:'date',sortDir:1};
 
 /* ---- Filtering ---- */
@@ -647,7 +704,7 @@ function groupBy(keyFn, data){
 function windowed(){
   return ROWS.filter(r=>(!state.from||r.date>=state.from)&&(!state.to||r.date<=state.to));
 }
-const dpretty = ds => { const d=new Date(ds); return d.toLocaleDateString('en-MY',{day:'numeric',month:'short',year:'numeric'}); };
+const dpretty = ds => { const [y,m,d]=dparts(ds); return d+' '+MONTHS_S[m-1]+' '+y; };
 function renderSummary(){
   const WIN=windowed();
   const t=totals(WIN);
@@ -656,7 +713,7 @@ function renderSummary(){
     `<span class="wl">Window</span>${dpretty(state.from)} → ${dpretty(state.to)}`;
   // KPIs
   const kpis=[
-    {l:'Total production', i:'▦', v:rm(t.production), s:ROWS.length+' lines · '+t.shows+' showed'},
+    {l:'Total production', i:'▦', v:rm(t.production), s:WIN.length+' visits in window'},
     {l:'Total true margin', i:'◆', v:rm(t.trueMargin), s:pct(t.trueMargin/t.production)+' of production', accent:true},
     {l:'Contribution margin', i:'◇', v:pct1(t.contribution/t.production), s:rm(t.contribution)+' before locum & burn'},
     {l:'Locum % of production', i:'◷', v:pct1(t.locum/t.production), s:rm(t.locum)+' total payout'}
@@ -773,7 +830,7 @@ function renderEfficiency(){
     return `<div class="bar-row" data-doctor="${x.d}">
       <div class="brl"><span class="dot" style="background:${x.color}"></span>${x.d}</div>
       <div class="bar-track"><div class="bar-fill" style="width:${w}%;background:${neg?'var(--neg)':'var(--teal)'}">
-        <span class="blabel" style="color:#fff;position:relative;z-index:2">RM${rm0(x.mph)}/h</span></div></div>
+        <span class="blabel" style="color:#fff;position:relative;z-index:2">${rm(x.mph)}/h</span></div></div>
       <div class="brv">${x.h.toFixed(0)}h<small>${x.visits} visits</small></div></div>`;
   }).join('');
 
@@ -789,7 +846,7 @@ function renderEfficiency(){
     return `<div class="bar-row" data-cat="${x.c}">
       <div class="brl">${x.c}</div>
       <div class="bar-track"><div class="bar-fill" style="width:${w}%;background:${col}">
-        <span class="blabel">RM${rm0(x.mph)}/h</span></div></div>
+        <span class="blabel">${rm(x.mph)}/h</span></div></div>
       <div class="brv">${rm0(x.tm)}<small>${x.h.toFixed(0)}h</small></div></div>`;
   }).join('');
 
@@ -800,14 +857,14 @@ function renderEfficiency(){
       <td class="num mono">${rm0(x.pph)}</td>
       <td class="num mono">${rm0(x.lph)}</td>
       <td class="num mono">${rm0(x.bph)}</td>
-      <td class="num mono col-final ${x.mph<0?'neg':''}">${x.mph<0?'−':''}RM${rm0(Math.abs(x.mph))}</td>
+      <td class="num mono col-final ${x.mph<0?'neg':''}">${x.mph<0?'−':''}${rm(Math.abs(x.mph))}</td>
       <td class="num mono">${rm0(x.tm)}</td></tr>`).join('');
 
   const all=totals(W), H=all.dur/60, best=docs[0], worst=docs[docs.length-1];
   const k=[
-    {l:'Avg true margin / chair-hr', v:'RM'+rm0(H?all.trueMargin/H:0), s:H.toFixed(0)+' chair-hrs in window', accent:true},
-    {l:'Most efficient', v:best?best.d.replace('Dr ',''):'—', s:best?'RM'+rm0(best.mph)+'/chair-hr':''},
-    {l:'Least efficient', v:worst?worst.d.replace('Dr ',''):'—', s:worst?'RM'+rm0(worst.mph)+'/chair-hr':''},
+    {l:'Avg true margin / chair-hr', v:rm(H?all.trueMargin/H:0), s:H.toFixed(0)+' chair-hrs in window', accent:true},
+    {l:'Most efficient', v:best?best.d.replace('Dr ',''):'—', s:best?rm(best.mph)+'/chair-hr':''},
+    {l:'Least efficient', v:worst?worst.d.replace('Dr ',''):'—', s:worst?rm(worst.mph)+'/chair-hr':''},
     {l:'Top-vs-bottom spread', v:(best&&worst&&worst.mph>0)?Math.round(best.mph/worst.mph)+'×':'—', s:'true margin per chair-hr'}
   ];
   document.getElementById('eff-kpis').innerHTML = k.map(x=>`
@@ -844,8 +901,8 @@ function initFilters(){
   // date-window controls
   const ff=document.getElementById('f-from'), ft=document.getElementById('f-to');
   ff.min=ft.min=DATA_MIN; ff.max=ft.max=DATA_MAX; ff.value=state.from; ft.value=state.to;
-  ff.onchange=e=>{state.from=e.target.value; document.getElementById('f-preset').value='all'; renderAll();};
-  ft.onchange=e=>{state.to=e.target.value; document.getElementById('f-preset').value='all'; renderAll();};
+  ff.onchange=e=>{state.from=e.target.value; document.getElementById('f-preset').value='custom'; renderAll();};
+  ft.onchange=e=>{state.to=e.target.value; document.getElementById('f-preset').value='custom'; renderAll();};
   document.getElementById('f-preset').onchange=e=>{applyPreset(e.target.value);};
 
   fd.onchange=e=>{state.doctor=e.target.value;renderTable();};
@@ -870,13 +927,18 @@ function initFilters(){
 // Re-render both the ledger and the summary (date window affects both).
 function renderAll(){ renderTable(); renderSummary(); renderEfficiency(); }
 // Presets are anchored to the latest data date (acts as "today" for the demo).
+// All boundaries are built from LOCAL date parts (ymd/dparts) — never via
+// toISOString(), which shifts MYT local midnight back a day through UTC.
 function applyPreset(p){
-  const max=new Date(DATA_MAX); let from=DATA_MIN, to=DATA_MAX;
-  const iso=d=>d.toISOString().slice(0,10);
-  if(p==='mtd'){ from=iso(new Date(max.getFullYear(),max.getMonth(),1)); to=DATA_MAX; }
-  else if(p==='last'){ from=iso(new Date(max.getFullYear(),max.getMonth()-1,1)); to=iso(new Date(max.getFullYear(),max.getMonth(),0)); }
-  else if(p==='qtd'){ const q=Math.floor(max.getMonth()/3)*3; from=iso(new Date(max.getFullYear(),q,1)); to=DATA_MAX; }
-  else if(p==='ytd'){ from=iso(new Date(max.getFullYear(),0,1)); to=DATA_MAX; }
+  const [Y,M] = dparts(DATA_MAX);            // anchor year / month (1-12)
+  let from=DATA_MIN, to=DATA_MAX;
+  if(p==='mtd'){ from=ymd(Y,M,1); }
+  else if(p==='last'){ const y=(M===1?Y-1:Y), m=(M===1?12:M-1);
+    from=ymd(y,m,1); to=ymd(y,m,new Date(y,m,0).getDate()); }   // day 0 of next monthIndex = last day of m
+  else if(p==='qtd'){ from=ymd(Y, Math.floor((M-1)/3)*3+1, 1); }
+  else if(p==='ytd'){ from=ymd(Y,1,1); }
+  else if(p==='l30'){ from=daysBack(DATA_MAX,30); if(from<DATA_MIN) from=DATA_MIN; }
+  else if(p==='l90'){ from=daysBack(DATA_MAX,90); if(from<DATA_MIN) from=DATA_MIN; }
   state.from=from; state.to=to;
   document.getElementById('f-from').value=from; document.getElementById('f-to').value=to;
   renderAll();
@@ -885,7 +947,7 @@ function resetFilters(silent){
   state.from=DEFAULT_FROM;state.to=DATA_MAX;state.doctor='';state.cat='';state.show='';state.search='';
   document.getElementById('f-from').value=DEFAULT_FROM;
   document.getElementById('f-to').value=DATA_MAX;
-  document.getElementById('f-preset').value='all';
+  document.getElementById('f-preset').value='l90';
   document.getElementById('f-doctor').value='';
   document.getElementById('f-cat').value='';
   document.getElementById('f-show').value='';
