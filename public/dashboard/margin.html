@@ -180,8 +180,8 @@
       <button class="tab" data-view="efficiency" id="tab-efficiency"><span class="i">◷</span> Efficiency</button>
     </div>
     <div class="topbar-right">
-      <span class="pill-sample" id="data-pill">REAL DATA · loading…</span>
-      <span>Jun 2026</span>
+      <span class="pill-sample" id="data-pill">LIVE DATA · loading…</span>
+      <span id="data-asof"></span>
     </div>
   </div>
 </div>
@@ -219,7 +219,7 @@
       <div class="field"><label>Duration source</label><select id="f-show">
         <option value="">All visits</option><option value="show">Real appt duration</option><option value="noshow">Estimated duration</option>
       </select></div>
-      <div class="field"><label>Search patient / procedure</label><input type="search" id="f-search" placeholder="e.g. Tan, implant…"></div>
+      <div class="field"><label>Search procedure / visit ref</label><input type="search" id="f-search" placeholder="e.g. implant, crown…"></div>
       <button class="btn" id="f-clear">↺ Reset</button>
       <span class="filter-note" id="filter-note"></span>
     </div>
@@ -334,14 +334,49 @@
   </section>
 </div>
 
-<script src="margin-data.js"></script>
 <script>
 /* ============================================================
-   iSmile Transaction Profitability Dashboard — UI PROTOTYPE
-   SAMPLE DATA. Locum + margin computed from raw inputs in JS so
-   every column is internally consistent with the locum rules.
-   Live data later arrives via the Code Capsule DB tunnel.
+   iSmile Transaction Profitability Dashboard — LIVE DATA
+   Fetches margin.json from the repo's `status` branch, rebuilt
+   daily on the Contabo box by ~/.openclaw/loop/build_margin.py
+   from the OpenDental extracts (e1–e4). Aggregates only — the
+   ledger carries a hashed visit id, never PatNum/AptNum.
    ============================================================ */
+const MARGIN_JSON_URL = "https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/margin.json";
+
+function marginLoadFailed(msg){
+  const w = document.querySelector('.wrap');
+  if (w) w.insertAdjacentHTML('afterbegin',
+    '<div style="margin:18px 0;padding:16px 20px;border:1px solid #e3b04b;border-radius:10px;background:#fdf6e3;color:#7a5b12;font-size:14px;line-height:1.5">'+
+    '<b>Live margin data unavailable.</b> Could not load <code>margin.json</code> from the status branch ('+msg+'). '+
+    'The dashboard rebuilds daily on the Contabo box (<code>build_margin.py</code>); check the status branch or try again shortly.</div>');
+  const p = document.getElementById('data-pill');
+  if (p) p.textContent = 'DATA UNAVAILABLE';
+}
+
+(async function(){
+  let MJ;
+  try {
+    const r = await fetch(MARGIN_JSON_URL, {cache:'no-store'});
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    MJ = await r.json();
+    if (!MJ || !MJ.meta || !Array.isArray(MJ.visits) || !MJ.visits.length) throw new Error('empty payload');
+  } catch (err) {
+    marginLoadFailed(String(err && err.message || err));
+    return;
+  }
+  /* Adapt the new schema to the page's row shape: the hashed visit id
+     stands in where the old baked file exposed the patient name. */
+  window.MARGIN_DATA = {
+    meta: MJ.meta,
+    visits: MJ.visits.map(v => ({date:v.date, patient:v.id, doctor:v.doctor,
+      cat:v.cat, proc:v.proc, nlines:v.nlines, production:v.production,
+      lab:v.lab, dur:v.dur, locum:v.locum, matched:v.matched}))
+  };
+  main();
+})();
+
+function main(){
 
 /* ---- Doctors: tier %, 10%-exempt flag, colour ---- */
 const DOCTORS = {
@@ -465,7 +500,7 @@ const dlabel = ds => { const d=new Date(ds); return d.getDate()+'/'+(d.getMonth(
 /* ---- Column definitions (left → right funnel order) ---- */
 const COLS = [
   {k:'date',  grp:'',           h:'Date',         num:false, sort:r=>r.date},
-  {k:'patient',grp:'Customer',  h:'Patient',      num:false, sort:r=>r.patient},
+  {k:'patient',grp:'Visit',     h:'Visit ref',    num:false, sort:r=>r.patient},
   {k:'proc',  grp:'Booking',    h:'Procedure',    num:false, sort:r=>r.proc},
   {k:'doctor',grp:'Provider',   h:'Doctor',       num:false, sort:r=>r.doctor},
   {k:'production',grp:'Production',h:'Production', num:true,  sort:r=>r.production},
@@ -480,7 +515,11 @@ const COLS = [
 /* ---- State ---- */
 const DATA_MIN = ROWS.reduce((m,r)=>r.date<m?r.date:m, ROWS[0].date);
 const DATA_MAX = ROWS.reduce((m,r)=>r.date>m?r.date:m, ROWS[0].date);
-let state = {from:DATA_MIN,to:DATA_MAX,doctor:'',cat:'',show:'',search:'',sortKey:'date',sortDir:1};
+/* Default window = last 90 days (the full history is ~25 months / 13k+ visits;
+   rendering it all by default makes the ledger sluggish — pick "All data"). */
+const DEFAULT_FROM = (()=>{ const d=new Date(DATA_MAX); d.setDate(d.getDate()-90);
+  const iso=d.toISOString().slice(0,10); return iso>DATA_MIN?iso:DATA_MIN; })();
+let state = {from:DEFAULT_FROM,to:DATA_MAX,doctor:'',cat:'',show:'',search:'',sortKey:'date',sortDir:1};
 
 /* ---- Filtering ---- */
 function filtered(){
@@ -631,7 +670,7 @@ function renderSummary(){
 
   // Bars by doctor (width = production, label = true margin)
   const byDoc = groupBy(r=>r.doctor, WIN);
-  const docAgg = Object.entries(byDoc).map(([d,rs])=>({d,...totals(rs),color:DOCTORS[d].color}))
+  const docAgg = Object.entries(byDoc).map(([d,rs])=>({d,...totals(rs),color:(DOCTORS[d]||{}).color||'#888'}))
     .sort((a,b)=>b.production-a.production);
   const maxProd = Math.max(...docAgg.map(x=>x.production));
   document.getElementById('bars-doctor').innerHTML = docAgg.map(x=>{
@@ -683,7 +722,7 @@ function renderSummary(){
   // Locum table
   document.querySelector('#locum-table tbody').innerHTML = docAgg
     .sort((a,b)=>b.locum-a.locum).map(x=>{
-    const d=DOCTORS[x.d];
+    const d=DOCTORS[x.d]||{tier:0,exempt10:false};
     return `<tr data-doctor="${x.d}">
       <td><span class="doc"><span class="dot" style="background:${x.color}"></span>${x.d}</span></td>
       <td>${pct(d.tier)}${d.exempt10?' · no-10%':''}</td>
@@ -693,13 +732,12 @@ function renderSummary(){
   }).join('');
 
   // notes
-  const months = 6, burnMo = totals(windowed()).burn; // current-window burn
   document.getElementById('sum-note').innerHTML =
-    `<b>Data provenance.</b> Production is <b>real</b> from OpenDent (${MD.meta.visits} visits, ${MD.meta.period[0]}→${MD.meta.period[1]}; total collection RM${rm0(MD.meta.totalCollection)} ≈ production, a good cross-check). `+
-    `A <b>visit = one appointment</b> (AptNum); its production lines are grouped, so chair-time is counted once. `+
-    `<b>Burn</b> = appointment duration × RM${BURN_RATE}/hour ${BURN_RATE===BURN.loaded?'(loaded, incl. depreciation)':'(cash, ex-depreciation)'} — <b>${MD.meta.durCoverage}% real durations</b> from the OpenDent appointment join (rest ★ estimated). `+
-    `<b>⚠ Read the bottom line carefully:</b> this burn is only the chair-time these 8 doctors actually billed (~RM${rm0(BURN_RATE*2239/months)}/mo of the clinic's ~RM118,000/mo total fixed overhead). The unrecovered ~RM58k/mo is <b>under-absorbed overhead — idle chairs + support/admin time</b>, i.e. the "fill empty chairs" lever. So practice-level true margin here is BEFORE that under-absorption; charging full overhead lands the clinic near break-even (consistent with the P&L). `+
-    `<b>Lab cost = %-of-production estimate</b> (real per-case lab pending EIV/AutoCount). Per-visit locum is a production proxy; authoritative = monthly collection-based calc.`;
+    `<b>Data provenance.</b> Production is <b>real</b> from the daily OpenDental extracts (${MD.meta.visits} visits, ${MD.meta.period[0]}→${MD.meta.period[1]}; earned collections RM${rm0(MD.meta.totalCollection)} cross-check). Rebuilt daily on the Contabo box; categories are the clinic's own OpenDental procedure categories, not keyword guesses. `+
+    `A <b>visit = one appointment</b>; its production lines are grouped, so chair-time is counted once. `+
+    `<b>Burn</b> = appointment duration × RM${BURN_RATE}/hour ${BURN_RATE===BURN.loaded?'(loaded, incl. depreciation)':'(cash, ex-depreciation)'} — ${MD.meta.durCoverage}% of visits have a matched appointment duration (booked length; real seated→dismissed chair time is not yet populated in the extract — rest ★ category estimate). `+
+    `<b>⚠ Read the bottom line carefully:</b> this burn is only the chair-time actually billed, not the clinic's full ~RM118,000/mo fixed overhead. The unrecovered remainder is <b>under-absorbed overhead — idle chairs + support/admin time</b>, i.e. the "fill empty chairs" lever; charging full overhead lands the clinic near break-even (consistent with the P&L). `+
+    `<b>Lab cost = %-of-production estimate</b> (real per-case lab pending AutoCount). <b>Locum = collection-based estimate</b> (doctor-month earned collections × locum rules, allocated to visits pro-rata by production); authoritative = the monthly locum engine.`;
 
   // drill handlers
   document.querySelectorAll('[data-doctor]').forEach(el=>el.onclick=()=>drill({doctor:el.dataset.doctor}));
@@ -820,9 +858,14 @@ function initFilters(){
     BURN_RATE = e.target.value==='exdep' ? BURN.exdep : BURN.loaded;
     rebuildRows(); renderAll();
   };
-  // data-provenance pill
+  // data-provenance pill + as-of / freshness badge
   document.getElementById('data-pill').textContent =
-    `REAL DATA · ${MD.meta.period[0]}→${MD.meta.period[1]} · ${MD.meta.visits} visits`;
+    `LIVE DATA · ${MD.meta.period[0]}→${MD.meta.period[1]} · ${MD.meta.visits} visits`;
+  const asof=document.getElementById('data-asof');
+  if(asof){
+    asof.textContent = 'as of ' + (MD.meta.as_of||MD.meta.period[1]) + (MD.meta.fresh===false?' · STALE':'');
+    if(MD.meta.fresh===false){ asof.style.color='#c0392b'; asof.title=MD.meta.fresh_reason||''; }
+  }
 }
 // Re-render both the ledger and the summary (date window affects both).
 function renderAll(){ renderTable(); renderSummary(); renderEfficiency(); }
@@ -839,8 +882,8 @@ function applyPreset(p){
   renderAll();
 }
 function resetFilters(silent){
-  state.from=DATA_MIN;state.to=DATA_MAX;state.doctor='';state.cat='';state.show='';state.search='';
-  document.getElementById('f-from').value=DATA_MIN;
+  state.from=DEFAULT_FROM;state.to=DATA_MAX;state.doctor='';state.cat='';state.show='';state.search='';
+  document.getElementById('f-from').value=DEFAULT_FROM;
   document.getElementById('f-to').value=DATA_MAX;
   document.getElementById('f-preset').value='all';
   document.getElementById('f-doctor').value='';
@@ -868,6 +911,7 @@ initFilters();
 initSort();
 renderTable();
 renderSummary();
+} /* end main() — runs only after margin.json has loaded */
 </script>
 </body>
 </html>

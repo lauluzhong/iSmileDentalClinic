@@ -1,4 +1,20 @@
-"""Build REAL margin-dashboard data from OpenDent query exports.
+"""⚠️ DEPRECATED (2026-08-12) — superseded by the Contabo builder.
+
+The margin dashboard is now fed by margin.json on the repo's `status` branch,
+rebuilt daily by /home/ismile/.openclaw/loop/build_margin.py on the Contabo VPS
+from the daily OpenDental TSV extracts (e1–e4). This script is kept only for
+reference; known defects fixed in the replacement:
+  a. wrote to public/dashboards/ (plural) while the page loads from
+     public/dashboard/ (singular) — output never landed (path fixed below)
+  b. keyword-guessed categories from description text (now ProcCatDefNum)
+  c. used booked Pattern length for all chair time (now RealChairMinutes-first)
+  d. production-proxy locum (now collection-based from e3 Bucket=earned)
+  e. keyed providers on name strings — "Mah (Bro)" collided into "Mah",
+     AmyG/Tee dropped (now ProvNum integer)
+  f. no IsNonPatientRecord exclusion
+  g. no discount handling (e4 NegativeAmt is the single discount truth)
+
+Build REAL margin-dashboard data from OpenDent query exports.
 
 Now driven by the three OpenDent extracts (set-based, safe) the owner ran:
   QUERY 1 — production lines (Date, Patient, Procedure, Prov, Production, AptNum, ApptMinutes)
@@ -23,7 +39,7 @@ Q3 = f"{SRC}/QUERY 3 (optional) — collection per patient-day, for true collect
 sys.path.append("/Users/lauluzhong/Documents/iSmile/Financials/03_Locum Calculation")
 from locum_calculator import tier_for, VOLUME_THRESHOLD, VOLUME_PCT, TEN_PCT_RATE, TEN_PCT_EXEMPT
 
-OUT = os.path.join(os.path.dirname(__file__), "..", "public", "dashboards", "margin-data.js")
+OUT = os.path.join(os.path.dirname(__file__), "..", "public", "dashboard", "margin-data.js")  # was "dashboards" (plural) — never landed
 BURN_LOADED, BURN_EXDEP = 160.0, 119.0      # RM per chair-hour (incl/excl dep)
 
 PROV = {"Jean":"Ong","Azeli":"Azelia","Pris":"Priscilla","Ling":"Ling",
