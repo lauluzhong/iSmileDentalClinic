@@ -2,13 +2,13 @@
   "as_of": "2026-08-12",
   "mode": "eod",
   "fresh": true,
-  "generated_myt": "2026-08-12 19:50",
+  "generated_myt": "2026-08-12 20:11",
   "source_max_paydate": "2026-08-12",
   "source_max_procdate": "2026-08-12",
   "today": {
     "collected": 17100.0,
     "produced": 20000.0,
-    "patients_seen": 38,
+    "patients_seen": 34,
     "new_patients": 1,
     "by_paytype": {
       "Credit Card": 14690.0,
@@ -28,7 +28,23 @@
       "Internet Banking": 150.0
     }
   },
-  "booked_next_14d": 216,
+  "booked_next_14d": 207,
+  "forward_book": {
+    "next_7d": {
+      "days": 7,
+      "appts": 150,
+      "booked_min": 8370,
+      "capacity_min": 11120,
+      "pct": 75.26978417266187
+    },
+    "next_14d": {
+      "days": 14,
+      "appts": 206,
+      "booked_min": 11840,
+      "capacity_min": 22240,
+      "pct": 53.23741007194245
+    }
+  },
   "doctors_worked": {
     "count": 4,
     "abbrs": [
@@ -39,11 +55,11 @@
     ]
   },
   "utilization": {
-    "chair_minutes": 1940,
-    "operatories": 6,
+    "chair_minutes": 1600,
+    "operatories": 4,
     "open_minutes": 480,
-    "capacity_minutes": 2880,
-    "pct": 67.4
+    "capacity_minutes": 1920,
+    "pct": 83.3
   },
   "pnl": {
     "locum_est": 6501,
