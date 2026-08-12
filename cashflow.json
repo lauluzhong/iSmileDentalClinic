@@ -1,0 +1,32 @@
+{
+  "as_of": "2026-08-12",
+  "mode": "eod",
+  "fresh": true,
+  "generated_myt": "2026-08-12 15:28",
+  "source_max_paydate": "2026-08-12",
+  "source_max_procdate": "2026-08-12",
+  "today": {
+    "collected": 9620.0,
+    "produced": 9870.0,
+    "patients_seen": 13,
+    "new_patients": 0,
+    "by_paytype": {
+      "Credit Card": 9420.0,
+      "Cash": 200.0
+    }
+  },
+  "mtd": {
+    "collected": 80573.0,
+    "produced": 83900.0,
+    "trading_days": 10,
+    "avg_per_trading_day": 8057.3,
+    "run_rate_26d": 209489.8,
+    "by_paytype": {
+      "Credit Card": 78003.0,
+      "PBB QR": 1450.0,
+      "Cash": 970.0,
+      "Internet Banking": 150.0
+    }
+  },
+  "booked_next_14d": 218
+}
