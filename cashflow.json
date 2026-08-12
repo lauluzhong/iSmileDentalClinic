@@ -2,31 +2,59 @@
   "as_of": "2026-08-12",
   "mode": "eod",
   "fresh": true,
-  "generated_myt": "2026-08-12 15:28",
+  "generated_myt": "2026-08-12 19:50",
   "source_max_paydate": "2026-08-12",
   "source_max_procdate": "2026-08-12",
   "today": {
-    "collected": 9620.0,
-    "produced": 9870.0,
-    "patients_seen": 13,
-    "new_patients": 0,
+    "collected": 17100.0,
+    "produced": 20000.0,
+    "patients_seen": 38,
+    "new_patients": 1,
     "by_paytype": {
-      "Credit Card": 9420.0,
-      "Cash": 200.0
+      "Credit Card": 14690.0,
+      "Cash": 2410.0
     }
   },
   "mtd": {
-    "collected": 80573.0,
-    "produced": 83900.0,
+    "collected": 88053.0,
+    "produced": 94030.0,
     "trading_days": 10,
-    "avg_per_trading_day": 8057.3,
-    "run_rate_26d": 209489.8,
+    "avg_per_trading_day": 8805.3,
+    "run_rate_26d": 228937.8,
     "by_paytype": {
-      "Credit Card": 78003.0,
+      "Credit Card": 83273.0,
+      "Cash": 3180.0,
       "PBB QR": 1450.0,
-      "Cash": 970.0,
       "Internet Banking": 150.0
     }
   },
-  "booked_next_14d": 218
+  "booked_next_14d": 216,
+  "doctors_worked": {
+    "count": 4,
+    "abbrs": [
+      "Amy",
+      "Jean",
+      "Ling",
+      "Yeoh"
+    ]
+  },
+  "utilization": {
+    "chair_minutes": 1940,
+    "operatories": 6,
+    "open_minutes": 480,
+    "capacity_minutes": 2880,
+    "pct": 67.4
+  },
+  "pnl": {
+    "locum_est": 6501,
+    "lab_est": 2338,
+    "gp": 11161.0,
+    "overhead_day": 3385.08,
+    "ebitda_day": 7775.92,
+    "depreciation_day": 1146.54,
+    "net_day": 6629.38,
+    "visits_matched": 32,
+    "available": true,
+    "produced": 20000.0
+  }
 }
