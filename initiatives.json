@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-12 06:15 MYT",
+  "updated": "2026-08-12 12:42 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -1709,14 +1709,16 @@
       "endMonth": "2026-12",
       "ongoing": false,
       "why": "Social media has stagnated. An outside marketing perspective on the brand and the social channels, aimed at what a 20-year family practice should look and sound like online.",
-      "next": "Meeting with Mandy set for Tuesday 18 August \u2014 branding and social media direction.",
+      "next": "Meeting with Mandy set for Tuesday 18 August \u2014 branding and social media direction. Agenda: also raise the doctor personal-brand content angle (id 33 \u2014 Dr Ling and Dr Joan have shared content the clinic could promote).",
       "gate": null,
-      "deps": [],
+      "deps": [
+        "33"
+      ],
       "blockedOn": null,
       "timeline": "First conversation 18 Aug, then scope whatever comes out of it.",
       "tasks": [
         {
-          "t": "Meet Mandy on 18 August \u2014 branding and social media",
+          "t": "Meet Mandy on 18 August \u2014 branding and social media. Agenda item: doctor personal-brand content (Dr Ling / Dr Joan \u2014 initiative 33) as an input to the social direction",
           "done": false,
           "now": true
         },
