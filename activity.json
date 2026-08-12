@@ -1,6 +1,13 @@
 {
-  "updated": "2026-08-12 07:30 MYT",
+  "updated": "2026-08-12 15:28 MYT",
   "entries": [
+    {
+      "ts": "2026-08-12 15:28 MYT",
+      "agent": "analytics",
+      "job": "cash_digest",
+      "event": "started",
+      "result": ""
+    },
     {
       "ts": "2026-08-12 07:30 MYT",
       "agent": "analytics",
@@ -273,13 +280,6 @@
       "job": "review_curation",
       "event": "finished",
       "result": "recovered-stale-timeout"
-    },
-    {
-      "ts": "2026-08-07 13:30 MYT",
-      "agent": "analytics",
-      "job": "recall_funnel",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
