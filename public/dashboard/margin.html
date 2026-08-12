@@ -69,6 +69,13 @@
   select:focus,input:focus{outline:0;border-color:var(--teal);box-shadow:0 0 0 3px rgba(0,160,198,.15);}
   .btn{font:inherit;font-size:12.5px;font-weight:500;padding:7px 12px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2);border-radius:8px;cursor:pointer;height:34px;display:inline-flex;align-items:center;gap:6px;}
   .btn:hover{border-color:var(--teal);color:var(--teal-d);}
+  /* Segmented burn-basis controls */
+  .seg{display:flex;height:34px;border:1px solid var(--line-2);border-radius:8px;overflow:hidden;background:var(--surface);}
+  .seg button{appearance:none;border:0;background:transparent;font:inherit;font-size:12px;font-weight:500;color:var(--ink-2);padding:0 10px;cursor:pointer;white-space:nowrap;border-right:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;}
+  .seg button:last-child{border-right:0;}
+  .seg button:hover:not(.active):not(:disabled){background:var(--surface-2);color:var(--ink);}
+  .seg button.active{background:var(--teal);color:#fff;font-weight:600;}
+  .seg button:disabled{color:var(--ink-3);opacity:.55;cursor:not-allowed;}
   .filter-note{margin-left:auto;font-size:12px;color:var(--ink-3);align-self:flex-end;padding-bottom:7px;}
   .chip{display:inline-flex;align-items:center;gap:6px;background:var(--teal);color:#fff;font-size:12px;font-weight:500;padding:5px 10px;border-radius:20px;}
   .chip b{font-weight:600;} .chip button{border:0;background:transparent;color:#fff;cursor:pointer;font-size:14px;line-height:1;padding:0;}
@@ -188,6 +195,9 @@
     /* filters → 2-col grid, full-width controls, 44px-ish tap targets */
     .toolbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:end;}
     .field{min-width:0;}
+    .seg-field{grid-column:1 / -1;}
+    .seg{height:42px;}
+    .seg button{flex:1;font-size:12.5px;padding:0 6px;white-space:normal;line-height:1.2;}
     select,input[type=search],input[type=date]{width:100%;min-width:0;height:42px;font-size:16px;} /* 16px stops iOS focus-zoom */
     .btn{height:42px;justify-content:center;}
     .filter-note{grid-column:1 / -1;margin-left:0;padding-bottom:0;align-self:auto;}
@@ -262,10 +272,18 @@
       </select></div>
       <div class="field"><label>Doctor</label><select id="f-doctor"></select></div>
       <div class="field"><label>Procedure category</label><select id="f-cat"></select></div>
-      <div class="field"><label>Burn basis</label><select id="f-dep">
-        <option value="loaded">Incl. depreciation (RM160/hr)</option>
-        <option value="exdep">Cash burn ex-dep (RM119/hr)</option>
-      </select></div>
+      <div class="field seg-field"><label>Burn basis · allocation</label>
+        <div class="seg" id="seg-alloc" role="group" aria-label="Burn allocation basis">
+          <button type="button" data-v="chair">Chair-hours used</button>
+          <button type="button" data-v="fullday" id="seg-fullday">Full day (÷26)</button>
+        </div>
+      </div>
+      <div class="field seg-field"><label>Burn basis · depreciation</label>
+        <div class="seg" id="seg-dep" role="group" aria-label="Burn depreciation basis">
+          <button type="button" data-v="ebitda">EBITDA (excl. depreciation)</button>
+          <button type="button" data-v="net">Net (incl. depreciation)</button>
+        </div>
+      </div>
       <div class="field"><label>Duration source</label><select id="f-show">
         <option value="">All visits</option><option value="show">Real appt duration</option><option value="noshow">Estimated duration</option>
       </select></div>
@@ -287,7 +305,7 @@
     <!-- GM reconciliation strip -->
     <div class="recon">
       <h3>◷ GM month-end reconciliation</h3>
-      <p>The sum of the locum-payout column ties out to the branch manager's monthly locum calc. True margin = contribution − locum − <b>burn</b> (chair-time × hourly fixed-cost rate). Production & collection are real (DailyP&I 2026); lab cost is a category estimate; durations are real where matched (★ = estimated).</p>
+      <p>The sum of the locum-payout column ties out to the branch manager's monthly locum calc. True margin = contribution − locum − <b>burn</b>, allocated per the Burn basis control above (chair-hours used, or each day's full fixed cost ÷26). Production & collection are real (DailyP&I 2026); lab cost is a category estimate; durations are real where matched (★ = estimated).</p>
       <div class="recon-grid" id="recon-grid"></div>
     </div>
 
@@ -475,17 +493,44 @@ const XRAY_ADDBACK = {none:0, intraoral:30, opg:75, ceph:75, cbct:165};
    grouped patient+date, with REAL appointment durations where matched (else a
    category default). Burn is the true fixed cost prorated PER VISIT by chair-
    time — a 60-min visit bears 60 min of burn, NOT per production line.
-   Burn rate: RM160/chair-hour loaded (incl. depreciation) or RM119/hr cash
-   (ex-dep) — toggled in the UI. Lab cost is a category ESTIMATE (real per-case
-   lab invoices aren't digitised yet). */
+   Burn basis (owner toggle, persisted): allocation = chair-hours used
+   (RM160/chair-hour Net incl. depreciation, RM119/hr EBITDA excl.
+   depreciation) OR full day ÷26 (the day's whole fixed cost allocated to
+   that day's visits pro-rata by duration — matches the By-day P&L / Telegram
+   digest). Lab cost is a category ESTIMATE (real per-case lab invoices
+   aren't digitised yet). */
 const MD = window.MARGIN_DATA;
-const BURN = {loaded: MD.meta.burnLoaded, exdep: MD.meta.burnExDep};
-let BURN_RATE = BURN.loaded;                 // RM per chair-hour
+const BURN = {loaded: MD.meta.burnLoaded, ebitda: MD.meta.burnExDep};
+const PNL = MD.meta.pnl || null;             // overhead_day / depreciation_day (÷26)
+/* Burn-basis state: alloc 'chair'|'fullday' · dep 'net'|'ebitda'.
+   Default = chair + net (RM160/hr) — the pre-toggle behaviour. Persisted. */
+const BURN_LS = 'ismileBurnBasis';
+let burnBasis = {alloc:'chair', dep:'net'};
+try{ const s=JSON.parse(localStorage.getItem(BURN_LS)||'null');
+  if(s && ['chair','fullday'].includes(s.alloc) && ['net','ebitda'].includes(s.dep)) burnBasis=s;
+}catch(e){}
+if(!PNL && burnBasis.alloc==='fullday') burnBasis.alloc='chair';  // guard: no meta.pnl
+/* Per-calendar-day totals (ALL visits, unfiltered) for full-day allocation —
+   a visit's share of the day's fixed cost is stable no matter how you filter. */
+const DAY_TOT = {};
+MD.visits.forEach(v=>{ const d=DAY_TOT[v.date]||(DAY_TOT[v.date]={dur:0,n:0}); d.dur+=v.dur; d.n++; });
+function burnFor(v){
+  if(burnBasis.alloc==='fullday' && PNL){
+    const fixed = PNL.overhead_day + (burnBasis.dep==='net' ? PNL.depreciation_day : 0);
+    const dt = DAY_TOT[v.date];
+    if(!dt) return 0;
+    return dt.dur > 0 ? fixed * v.dur / dt.dur : fixed / dt.n;   // pro-rata by duration
+  }
+  return v.dur/60 * (burnBasis.dep==='net' ? BURN.loaded : BURN.ebitda);
+}
+const basisLabel = () =>
+  'burn: ' + (burnBasis.alloc==='fullday' ? 'full day ÷26' : 'chair-hours') +
+  ' · ' + (burnBasis.dep==='net' ? 'Net' : 'EBITDA');
 function buildRow(v){
   const production=v.production, lab=v.lab;
   const contribution=production-lab;
   const locum=v.locum;
-  const burn=v.dur/60*BURN_RATE;             // duration-prorated fixed burn
+  const burn=burnFor(v);                     // per the selected burn basis
   const trueMargin=contribution-locum-burn;
   return {date:v.date, patient:v.patient, proc:v.proc, cat:v.cat, doctor:v.doctor,
     production, lab, contribution, contribPct:production?contribution/production:0,
@@ -716,7 +761,7 @@ function renderRecon(rows){
     {l:'Σ Lab cost', v:rm(t.lab)},
     {l:'Σ Contribution margin', v:rm(t.contribution)},
     {l:'Σ Locum payout (recon target)', v:rm(t.locum)},
-    {l:'Σ Burn (chair-time)', v:rm(t.burn)},
+    {l:'Σ Burn ('+(burnBasis.alloc==='fullday'?'full-day share':'chair-time')+')', v:rm(t.burn)},
     {l:'Σ True margin', v:rm(t.trueMargin), match:true}
   ];
   document.getElementById('recon-grid').innerHTML = cells.map(c=>`
@@ -743,7 +788,7 @@ function renderSummary(){
   // KPIs
   const kpis=[
     {l:'Total production', i:'▦', v:rm(t.production), s:WIN.length+' visits in window'},
-    {l:'Total true margin', i:'◆', v:rm(t.trueMargin), s:pct(t.trueMargin/t.production)+' of production', accent:true},
+    {l:'Total true margin', i:'◆', v:rm(t.trueMargin), s:pct(t.trueMargin/t.production)+' of production · '+basisLabel(), accent:true},
     {l:'Contribution margin', i:'◇', v:pct1(t.contribution/t.production), s:rm(t.contribution)+' before locum & burn'},
     {l:'Locum % of production', i:'◷', v:pct1(t.locum/t.production), s:rm(t.locum)+' total payout'}
   ];
@@ -821,8 +866,11 @@ function renderSummary(){
   document.getElementById('sum-note').innerHTML =
     `<b>Data provenance.</b> Production is <b>real</b> from the daily OpenDental extracts (${MD.meta.visits} visits, ${MD.meta.period[0]}→${MD.meta.period[1]}; earned collections RM${rm0(MD.meta.totalCollection)} cross-check). Rebuilt daily on the Contabo box; categories are the clinic's own OpenDental procedure categories, not keyword guesses. `+
     `A <b>visit = one appointment</b>; its production lines are grouped, so chair-time is counted once. `+
-    `<b>Burn</b> = appointment duration × RM${BURN_RATE}/hour ${BURN_RATE===BURN.loaded?'(loaded, incl. depreciation)':'(cash, ex-depreciation)'} — ${MD.meta.durCoverage}% of visits have a matched appointment duration (booked length; real seated→dismissed chair time is not yet populated in the extract — rest ★ category estimate). `+
-    `<b>⚠ Read the bottom line carefully:</b> this burn is only the chair-time actually billed, not the clinic's full ~RM118,000/mo fixed overhead. The unrecovered remainder is <b>under-absorbed overhead — idle chairs + support/admin time</b>, i.e. the "fill empty chairs" lever; charging full overhead lands the clinic near break-even (consistent with the P&L). `+
+    (burnBasis.alloc==='fullday'
+      ? `<b>Burn</b> = each trading day's full fixed cost (overhead RM${rm0(PNL.overhead_day)}/day${burnBasis.dep==='net'?' + depreciation RM'+rm0(PNL.depreciation_day)+'/day':''}, ÷${PNL.trading_days_month||26}) allocated to that day's visits pro-rata by duration — so the window's total true margin matches the By-day P&amp;L (${burnBasis.dep==='net'?'Net, incl. depreciation':'EBITDA, excl. depreciation'}). ${MD.meta.durCoverage}% of visits have a matched appointment duration (rest ★ category estimate). `+
+        `<b>Read the bottom line:</b> on this basis every day's visits absorb the day's whole fixed cost, so quiet days drag their visits' margins down — this answers "did we make money", the same as the nightly Telegram digest. `
+      : `<b>Burn</b> = appointment duration × RM${burnBasis.dep==='net'?BURN.loaded:BURN.ebitda}/hour (${burnBasis.dep==='net'?'Net, incl. depreciation':'EBITDA, excl. depreciation'}) — ${MD.meta.durCoverage}% of visits have a matched appointment duration (booked length; real seated→dismissed chair time is not yet populated in the extract — rest ★ category estimate). `+
+        `<b>⚠ Read the bottom line carefully:</b> this burn is only the chair-time actually billed, not the clinic's full ~RM118,000/mo fixed overhead. The unrecovered remainder is <b>under-absorbed overhead — idle chairs + support/admin time</b>, i.e. the "fill empty chairs" lever; charging full overhead lands the clinic near break-even (consistent with the P&L). Switch the Burn basis to <b>Full day (÷26)</b> to charge it in full. `)+
     `<b>Lab cost = %-of-production estimate</b> (real per-case lab pending AutoCount). <b>Locum = collection-based estimate</b> (doctor-month earned collections × locum rules, allocated to visits pro-rata by production); authoritative = the monthly locum engine.`;
 
   // drill handlers
@@ -877,7 +925,7 @@ function renderDay(){
       <td class="num mono ${eb<0?'neg':'pos'}">${srm(eb)}</td>
       <td class="num mono">${rm0(DEP)}</td>
       <td class="num mono col-final ${net<0?'neg':''}">${srm(net)}</td>
-      <td>${eb>=0?'🟢':'🔴'} cash · ${net>=0?'🟢':'🔴'} net</td>
+      <td>${eb>=0?'🟢':'🔴'} EBITDA · ${net>=0?'🟢':'🔴'} net</td>
     </tr>`;
   }).join('') || `<tr><td colspan="11" style="text-align:center;color:var(--ink-3);padding:30px">No trading days with visits in this window.</td></tr>`;
   document.getElementById('day-foot').innerHTML = T.n ? `<tr>
@@ -891,11 +939,13 @@ function renderDay(){
     <td class="num ${T.eb<0?'neg':'pos'}">${srm(T.eb)}</td>
     <td class="num">${rm0(DEP*T.n)}</td>
     <td class="num col-final">${srm(T.net)}</td>
-    <td>${T.green}/${T.n} cash-positive</td>
+    <td>${T.green}/${T.n} EBITDA-positive</td>
   </tr>` : '';
   document.getElementById('day-note').innerHTML =
     `Overhead RM ${rm0(OH)}/day + depreciation RM ${rm0(DEP)}/day allocated per trading day (÷${P.trading_days_month||26}) — same formula as the nightly Telegram digest. Estimates, not accounts. `+
-    `Unlike the per-visit <b>true-margin</b> views (which charge chair-hour burn only for hours actually used, flattering quiet days), this <b>Day P&amp;L</b> charges each trading day its full share of fixed cost.`;
+    (burnBasis.alloc==='fullday'
+      ? `The per-visit <b>true-margin</b> views are currently on the same <b>Full day (÷26)</b> burn basis, so their window totals tie out to this table (${burnBasis.dep==='net'?'NET':'EBITDA'} column).`
+      : `<b>Note:</b> this tab <b>always</b> shows full-day P&amp;L regardless of the Burn basis control — the per-visit <b>true-margin</b> views are currently on <b>Chair-hours used</b>, which charges fixed cost only for hours actually occupied and so flatters quiet days.`);
 }
 
 /* ---- View switching ---- */
@@ -949,7 +999,7 @@ function renderEfficiency(){
 
   const all=totals(W), H=all.dur/60, best=docs[0], worst=docs[docs.length-1];
   const k=[
-    {l:'Avg true margin / chair-hr', v:rm(H?all.trueMargin/H:0), s:H.toFixed(0)+' chair-hrs in window', accent:true},
+    {l:'Avg true margin / chair-hr', v:rm(H?all.trueMargin/H:0), s:H.toFixed(0)+' chair-hrs in window · '+basisLabel(), accent:true},
     {l:'Most efficient', v:best?best.d.replace('Dr ',''):'—', s:best?rm(best.mph)+'/chair-hr':''},
     {l:'Least efficient', v:worst?worst.d.replace('Dr ',''):'—', s:worst?rm(worst.mph)+'/chair-hr':''},
     {l:'Top-vs-bottom spread', v:(best&&worst&&worst.mph>0)?Math.round(best.mph/worst.mph)+'×':'—', s:'true margin per chair-hr'}
@@ -997,11 +1047,24 @@ function initFilters(){
   document.getElementById('f-show').onchange=e=>{state.show=e.target.value;renderTable();};
   document.getElementById('f-search').oninput=e=>{state.search=e.target.value;renderTable();};
   document.getElementById('f-clear').onclick=()=>resetFilters();
-  // depreciation / burn-basis toggle → recompute burn on every row
-  document.getElementById('f-dep').onchange=e=>{
-    BURN_RATE = e.target.value==='exdep' ? BURN.exdep : BURN.loaded;
-    rebuildRows(); renderAll();
-  };
+  // burn-basis segmented controls → recompute burn on every row, persist
+  function syncSeg(){
+    document.querySelectorAll('#seg-alloc button').forEach(b=>b.classList.toggle('active',b.dataset.v===burnBasis.alloc));
+    document.querySelectorAll('#seg-dep button').forEach(b=>b.classList.toggle('active',b.dataset.v===burnBasis.dep));
+  }
+  function setBasis(patch){
+    Object.assign(burnBasis, patch);
+    try{ localStorage.setItem(BURN_LS, JSON.stringify(burnBasis)); }catch(e){}
+    syncSeg(); rebuildRows(); renderAll();
+  }
+  document.querySelectorAll('#seg-alloc button').forEach(b=>b.onclick=()=>{ if(!b.disabled) setBasis({alloc:b.dataset.v}); });
+  document.querySelectorAll('#seg-dep button').forEach(b=>b.onclick=()=>setBasis({dep:b.dataset.v}));
+  if(!PNL){
+    const fb=document.getElementById('seg-fullday');
+    fb.disabled=true;
+    fb.title='Full-day burn needs the P&L block (meta.pnl) in margin.json — it will appear after the next nightly rebuild.';
+  }
+  syncSeg();
   // data-provenance pill: live + last-refresh time only (range/visit-count
   // removed per owner — the windowed visit count lives in the Summary KPI).
   document.getElementById('data-pill').textContent =
