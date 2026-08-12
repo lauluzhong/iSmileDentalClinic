@@ -5,33 +5,32 @@
   "funnel_live": true,
   "funnel_as_of": "2026-08-12",
   "cumulative": {
-    "total": 12362,
-    "sent": 4239,
-    "delivered": 4962,
-    "read": 1707,
-    "failed": 390,
-    "clicks": 113,
-    "replies": 951
+    "total": 12540,
+    "sent": 4287,
+    "delivered": 5031,
+    "read": 1734,
+    "failed": 393,
+    "clicks": 120,
+    "replies": 975
   },
   "this_month": {
-    "sent": 264,
-    "clicks": 9,
-    "replies": 57
+    "sent": 312,
+    "clicks": 16,
+    "replies": 81
   },
   "conversion": {
-    "available": true,
-    "appt_export": "Appointments 2026 dated 29 June 2026.xls",
-    "appt_range": [
-      "2026-01-01",
-      "2026-12-31"
-    ],
-    "sent_total": 767,
-    "matured_cohort": 767,
-    "resolved_to_patient": 729,
-    "booked_within_window": 49,
-    "booked_anytime": 52,
-    "conversion_pct": 6.7,
     "mature_days": 21,
-    "attrib_window_days": 90
+    "attrib_window_days": 90,
+    "data_as_of": "2026-08-12",
+    "appt_export": "inbox/2026-08-12 e5+e6+backfill",
+    "appt_range": [
+      "2024-08-12",
+      "2026-12-09"
+    ],
+    "stale": false,
+    "available": false,
+    "bridge": "none",
+    "reason": "phone->PatNum bridge unavailable: weekly e8_patient_master.tsv not yet in loop/inbox/ (lands Sundays 05:00 MYT; conversion auto-resumes then). Name-joins are deliberately not used.",
+    "sent_total": 767
   }
 }
