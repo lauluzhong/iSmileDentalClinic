@@ -379,8 +379,8 @@
           <thead><tr>
             <th>Date</th><th class="num">Visits</th><th class="num">Production</th>
             <th class="num">Locum (est.)</th><th class="num">Lab (est.)</th>
-            <th class="num">Gross profit</th><th class="num">− Overhead/day</th>
-            <th class="num">EBITDA-day</th><th class="num">− Dep/day</th>
+            <th class="num">Gross profit</th>
+            <th class="num">EBITDA-day</th>
             <th class="num col-final">NET-day</th><th>Verdict</th>
           </tr></thead>
           <tbody id="day-body"></tbody>
@@ -921,13 +921,11 @@ function renderDay(){
       <td class="num mono">${rm0(t.locum)}</td>
       <td class="num mono">${rm0(t.lab)}</td>
       <td class="num mono">${srm(gp)}</td>
-      <td class="num mono">${rm0(OH)}</td>
       <td class="num mono ${eb<0?'neg':'pos'}">${srm(eb)}</td>
-      <td class="num mono">${rm0(DEP)}</td>
       <td class="num mono col-final ${net<0?'neg':''}">${srm(net)}</td>
       <td>${eb>=0?'🟢':'🔴'} EBITDA · ${net>=0?'🟢':'🔴'} net</td>
     </tr>`;
-  }).join('') || `<tr><td colspan="11" style="text-align:center;color:var(--ink-3);padding:30px">No trading days with visits in this window.</td></tr>`;
+  }).join('') || `<tr><td colspan="9" style="text-align:center;color:var(--ink-3);padding:30px">No trading days with visits in this window.</td></tr>`;
   document.getElementById('day-foot').innerHTML = T.n ? `<tr>
     <td>TOTALS · ${T.n} days</td>
     <td class="num">${T.visits}</td>
@@ -935,14 +933,12 @@ function renderDay(){
     <td class="num">${rm0(T.locum)}</td>
     <td class="num">${rm0(T.lab)}</td>
     <td class="num">${srm(T.gp)}</td>
-    <td class="num">${rm0(OH*T.n)}</td>
     <td class="num ${T.eb<0?'neg':'pos'}">${srm(T.eb)}</td>
-    <td class="num">${rm0(DEP*T.n)}</td>
     <td class="num col-final">${srm(T.net)}</td>
     <td>${T.green}/${T.n} EBITDA-positive</td>
   </tr>` : '';
   document.getElementById('day-note').innerHTML =
-    `Overhead RM ${rm0(OH)}/day + depreciation RM ${rm0(DEP)}/day allocated per trading day (÷${P.trading_days_month||26}) — same formula as the nightly Telegram digest. Estimates, not accounts. `+
+    `<b>Assumptions:</b> EBITDA-day = gross profit − overhead RM ${rm0(OH)}/day; NET-day = EBITDA-day − depreciation RM ${rm0(DEP)}/day. Both are the monthly figure ÷ ${P.trading_days_month||26} trading days, charged to every trading day in full regardless of utilization — same formula as the nightly Telegram digest. Estimates, not accounts. `+
     (burnBasis.alloc==='fullday'
       ? `The per-visit <b>true-margin</b> views are currently on the same <b>Full day (÷26)</b> burn basis, so their window totals tie out to this table (${burnBasis.dep==='net'?'NET':'EBITDA'} column).`
       : `<b>Note:</b> this tab <b>always</b> shows full-day P&amp;L regardless of the Burn basis control — the per-visit <b>true-margin</b> views are currently on <b>Chair-hours used</b>, which charges fixed cost only for hours actually occupied and so flatters quiet days.`);
