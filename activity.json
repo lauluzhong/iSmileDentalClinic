@@ -1,6 +1,13 @@
 {
-  "updated": "2026-08-12 15:28 MYT",
+  "updated": "2026-08-12 19:40 MYT",
   "entries": [
+    {
+      "ts": "2026-08-12 19:40 MYT",
+      "agent": "analytics",
+      "job": "margin_build",
+      "event": "started",
+      "result": ""
+    },
     {
       "ts": "2026-08-12 15:28 MYT",
       "agent": "analytics",
@@ -271,13 +278,6 @@
       "ts": "2026-08-08 00:26 MYT",
       "agent": "edith",
       "job": "weekly_digest",
-      "event": "finished",
-      "result": "ok"
-    },
-    {
-      "ts": "2026-08-08 00:26 MYT",
-      "agent": "engineer",
-      "job": "review_curation",
       "event": "finished",
       "result": "ok"
     }
