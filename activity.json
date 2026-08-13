@@ -5,6 +5,13 @@
       "ts": "2026-08-13 19:50 MYT",
       "agent": "analytics",
       "job": "cash_digest",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-08-13 19:50 MYT",
+      "agent": "analytics",
+      "job": "cash_digest",
       "event": "started",
       "result": ""
     },
@@ -273,13 +280,6 @@
       "job": "recall_funnel",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-08-09 06:32 MYT",
-      "agent": "engineer",
-      "job": "review_curation",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
