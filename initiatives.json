@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-13 06:15 MYT",
+  "updated": "2026-08-13 18:13 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -821,6 +821,11 @@
       "blockedOn": null,
       "timeline": "Figures rebuilt in Aug 2026 from the actual monthly workbooks rather than estimates, and independently verified. Direction set by the owner. Fee level, grandfathering and announcement still open; the wording rides on the contractor agreement.",
       "tasks": [
+        {
+          "t": "Resolve the production-target vs collection-payout mismatch (Dr Ling case): the RM55k volume threshold is judged on PRODUCTION, but the % applies to COLLECTED value \u2014 a month can collect >RM55k yet pay 45% because production fell short. Decide whether to (a) keep as-is with a written one-page explanation, (b) judge the threshold on the same base as the payout, or (c) smooth it (rolling average / pro-rata band). Fold the chosen rule into the contractor agreement Schedule.",
+          "done": false,
+          "now": true
+        },
         {
           "t": "Quantify the two legacy carve-outs (X-ray sharing; the ortho exemption)",
           "done": true
