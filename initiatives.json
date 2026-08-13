@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-13 18:13 MYT",
+  "updated": "2026-08-13 18:23 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -822,7 +822,7 @@
       "timeline": "Figures rebuilt in Aug 2026 from the actual monthly workbooks rather than estimates, and independently verified. Direction set by the owner. Fee level, grandfathering and announcement still open; the wording rides on the contractor agreement.",
       "tasks": [
         {
-          "t": "Resolve the production-target vs collection-payout mismatch (Dr Ling case): the RM55k volume threshold is judged on PRODUCTION, but the % applies to COLLECTED value \u2014 a month can collect >RM55k yet pay 45% because production fell short. Decide whether to (a) keep as-is with a written one-page explanation, (b) judge the threshold on the same base as the payout, or (c) smooth it (rolling average / pro-rata band). Fold the chosen rule into the contractor agreement Schedule.",
+          "t": "Resolve the production-target vs collected-payout mismatch (Dr Ling): the RM55k threshold is judged on PRODUCTION but the % is applied to COLLECTION, so a ringgit produced in a 50% month can be paid at 45% when it settles later. DIRECTION SET \u2014 the rate follows the production month, the same principle already agreed for late lab invoices. Still to do: model 12 months per doctor, agree with the GM, build the attribution into the locum tool, then into Schedule 1. Written up in Financials/03_Locum Calculation/\u201cLocum Rate Basis \u2014 Production Target vs Collected Payout.md\u201d.",
           "done": false,
           "now": true
         },
