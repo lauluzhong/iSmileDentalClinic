@@ -5,6 +5,13 @@
       "ts": "2026-08-13 12:05 MYT",
       "agent": "analytics",
       "job": "cash_digest",
+      "event": "finished",
+      "result": "failed"
+    },
+    {
+      "ts": "2026-08-13 12:05 MYT",
+      "agent": "analytics",
+      "job": "cash_digest",
       "event": "started",
       "result": ""
     },
@@ -273,13 +280,6 @@
       "job": "review_stats_sync",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-08-09 06:01 MYT",
-      "agent": "seo",
-      "job": "competitor_watch",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
