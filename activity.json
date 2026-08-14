@@ -1,6 +1,13 @@
 {
-  "updated": "2026-08-15 06:01 MYT",
+  "updated": "2026-08-15 06:20 MYT",
   "entries": [
+    {
+      "ts": "2026-08-15 06:20 MYT",
+      "agent": "engineer",
+      "job": "review_stats_sync",
+      "event": "started",
+      "result": ""
+    },
     {
       "ts": "2026-08-15 06:01 MYT",
       "agent": "gbp",
@@ -273,13 +280,6 @@
       "job": "recall_funnel",
       "event": "finished",
       "result": "ok"
-    },
-    {
-      "ts": "2026-08-11 07:30 MYT",
-      "agent": "analytics",
-      "job": "recall_funnel",
-      "event": "started",
-      "result": ""
     }
   ]
 }
