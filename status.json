@@ -1,8 +1,6 @@
 {
   "updated": "2026-08-16 12:05 MYT",
-  "running": [
-    "cash_digest"
-  ],
+  "running": [],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -33,7 +31,7 @@
       "last": "2026-08-16 06:20 MYT"
     },
     "cash_digest": {
-      "state": "running",
+      "state": "failed",
       "last": "2026-08-15 19:50 MYT"
     },
     "margin_build": {
