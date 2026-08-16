@@ -5,6 +5,13 @@
       "ts": "2026-08-17 07:30 MYT",
       "agent": "analytics",
       "job": "recall_funnel",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-08-17 07:30 MYT",
+      "agent": "analytics",
+      "job": "recall_funnel",
       "event": "started",
       "result": ""
     },
@@ -273,13 +280,6 @@
       "job": "margin_build",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-08-14 12:05 MYT",
-      "agent": "analytics",
-      "job": "cash_digest",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
