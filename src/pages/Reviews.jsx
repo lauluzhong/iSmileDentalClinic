@@ -291,6 +291,27 @@ const reviewsList = [
         author: "Max Loh",
         rating: 5,
         type: "Verified Google Review"
+    },
+    {
+        text: (
+            <>
+                <p>
+                    "I have been coming to iSmile Dental for <strong>nearly 20 years</strong>, and I can confidently say that{" "}
+                    Dr. Ong is still the <strong>best dentist</strong> I have ever known.
+                </p>
+                <p>
+                    Her dedication to her patients is unmatched; she truly gives her absolute best every single time.
+                    Most recently, Dr. Ong <strong>helped my wife with her denture</strong>, and the fit and function are perfect.
+                </p>
+                <p>
+                    We also appreciate Elaine at the reception for her consistent kindness and excellent service over the years.
+                    We are so grateful for the expertise and kindness of the <strong>entire team</strong>. Thank you, Dr. Ong and her team!"
+                </p>
+            </>
+        ),
+        author: "Anson Chow",
+        rating: 5,
+        type: "Verified Google Review"
     }
 ];
 
