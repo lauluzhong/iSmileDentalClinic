@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-19 06:15 MYT",
+  "updated": "2026-08-19 19:21 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -1714,7 +1714,7 @@
       "endMonth": "2026-12",
       "ongoing": false,
       "why": "Social media has stagnated. An outside marketing perspective on the brand and the social channels, aimed at what a 20-year family practice should look and sound like online.",
-      "next": "Meeting with Mandy set for Tuesday 18 August \u2014 branding and social media direction. Agenda: also raise the doctor personal-brand content angle (id 33 \u2014 Dr Ling and Dr Joan have shared content the clinic could promote).",
+      "next": "Content plan (first cut) written 18 Aug: experience + educational pillars, Dr Ling first shoot, front-desk appointment checklist. Next: front desk flags shootable appointments, assign DSA videographers, buy clip-on mic, ask Dr Ling.",
       "gate": null,
       "deps": [
         "33"
@@ -1723,12 +1723,29 @@
       "timeline": "First conversation 18 Aug, then scope whatever comes out of it.",
       "tasks": [
         {
-          "t": "Meet Mandy on 18 August \u2014 branding and social media. Agenda item: doctor personal-brand content (Dr Ling / Dr Joan \u2014 initiative 33) as an input to the social direction",
+          "t": "Meet Mandy on 18 August (DONE) \u2014 multi-channel posting, experience + educational pillars, DSA girls as videographers",
+          "done": true
+        },
+        {
+          "t": "Content plan first cut written \u2014 Branding & Marketing/Content Plan \u2014 Social Video (first cut, 18 Aug 2026).md",
+          "done": true
+        },
+        {
+          "t": "Front desk: flag upcoming shootable appointments against the checklist (consults w/ 9-17yo, braces/myofunctional consults, teen cleanings, denture consults)",
           "done": false,
           "now": true
         },
         {
-          "t": "Decide scope and any engagement after the first conversation",
+          "t": "Assign which off-duty DSAs will shoot; buy clip-on mic",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Ask Dr Ling to be the first mic-d doctor (organic consult recordings, patient consent)",
+          "done": false
+        },
+        {
+          "t": "Extend Zernio tracking beyond Instagram to all channels; check if Zernio API can post Threads replies",
           "done": false
         }
       ],
@@ -1775,6 +1792,40 @@
         }
       ],
       "note": "Overlaps id 32 (Mandy branding/social refresh \u2014 bring this to the 18 Aug meeting) and the marketing agent vehicle (Edith/website infra). Governance: CONTENT-CONTRACT currently steers blog copy away from named dentists \u2014 this initiative deliberately creates a consented, doctor-attributed lane; update the contract when scoped."
+    },
+    {
+      "id": "34",
+      "title": "Doctor Appreciation \u2014 Patient Notes (Dec)",
+      "status": "planned",
+      "owner": "Lu Zhong",
+      "coOwner": "Front desk",
+      "dept": "people",
+      "lens": "efficiency",
+      "startMonth": "2026-11",
+      "endMonth": "2026-12",
+      "ongoing": false,
+      "why": "Recognise a long-serving doctor with appreciation notes from long-standing patients, timed to her December birthday. Reaffirms the value she brings to the practice.",
+      "next": "Confirm the birthday date (via Emily). Nearer the time: front desk selects safe long-tenured patients to write notes.",
+      "gate": "Keep quiet until executed \u2014 this is a surprise.",
+      "deps": [],
+      "blockedOn": null,
+      "timeline": "Prep Nov, deliver on her December birthday.",
+      "tasks": [
+        {
+          "t": "Confirm the exact December birthday (Emily)",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Front desk shortlists safe long-tenured patients of hers",
+          "done": false
+        },
+        {
+          "t": "Invite notes, collect, present on the birthday",
+          "done": false
+        }
+      ],
+      "note": "People & Competence initiative. Handle discreetly."
     }
   ]
 }
