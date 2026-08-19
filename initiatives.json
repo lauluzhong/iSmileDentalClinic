@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-19 19:25 MYT",
+  "updated": "2026-08-19 19:36 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -90,7 +90,7 @@
       "owner": "Lu Zhong",
       "coOwner": "Claude (SQL/analysis), Elaine (caller), Owner's brother (CRM owner)",
       "why": "The only near-term revenue lever. Retention game: warm lapsed families fill idle chairs cheaply (~170 idle chair-hours/month). Lu Zhong's personal focus.",
-      "next": "Elaine may have made some calls and follow-ups since returning from hospitalisation, but nothing has been keyed back in so we cannot see it. First step is to ask her what she has actually done. Then decide the calling model: a protected rostered block, someone else, or a part-timer purely to dial.",
+      "next": "Owner observation 19 Aug: Elaine is calling, but very slowly. Watch throughput; capacity remains the constraint.",
       "gate": null,
       "deps": [
         "7"
@@ -183,11 +183,11 @@
     {
       "id": "4",
       "title": "Data-Visibility Dashboard",
-      "status": "review",
+      "status": "done",
       "owner": "Claude",
       "coOwner": "Code Capsule (DB tunnel)",
       "why": "See per-transaction profitability live: customer \u2192 appt \u2192 production \u2192 payment \u2192 profit. Daily, drill-down, per-doctor, attrition. Deterministic SQL + BI (no LLM under the numbers).",
-      "next": "Digitise per-case lab cost (post-#1); automate regen when fresh OpenDent exports land; owner review of layout.",
+      "next": "CLOSED 19 Aug: dashboards are live (gated /dashboard hub: command center, margin, analytics, recall funnel, strategy board).",
       "gate": null,
       "deps": [
         "1"
@@ -274,11 +274,11 @@
     {
       "id": "6",
       "title": "Marketing Agent Vehicle (Contabo / Edith)",
-      "status": "active",
+      "status": "done",
       "owner": "Edith",
       "coOwner": "Lu Zhong (truth sign-off)",
       "why": "Repurposed OpenClaw \u2192 a lean, truth-gated loop: reply to Google reviews, curate family reviews onto the site, competitor watch, light outcome-anchored SEO. Cost is tiny (DeepSeek V4 + cheap VPS) so 'good-enough' is net-positive.",
-      "next": "Owner has parked credential rotation \u2014 not a priority right now. The vehicle itself is running: seven cron jobs, Telegram two-way, review sync, competitor watch.",
+      "next": "CLOSED 19 Aug (owner): vehicle is live and autonomous; credential rotation deliberately dropped (low importance), route change not happening now.",
       "gate": "Truth gate: cosmetic/curation/intel = autonomous + notify; anything touching claims/prices/credentials/clinical facts must pass truth checks or queue for approval.",
       "deps": [],
       "blockedOn": null,
@@ -347,11 +347,11 @@
     {
       "id": "7",
       "title": "Automated Recall + ROI Attribution",
-      "status": "active",
+      "status": "done",
       "owner": "Code Capsule",
       "coOwner": "Claude (attribution)",
       "why": "Existing WhatsApp recall (6/9/12mo, ~RM0.061/msg from the landline) needs daily-volume visibility + real conversion/ROI. Today Lu Zhong manually cross-refs OpenDent appointments to attribute recall\u2192booking.",
-      "next": "The message funnel is refreshing daily and is current. What is stale is the BOOKING CONVERSION \u2014 it is still calculated against the 29 June appointment export, so the 6.7% figure has not moved in six weeks. One fresh OpenDent appointment export fixes it.",
+      "next": "CLOSED 19 Aug: live and connected \u2014 daily cron, dashboard bridge, conversion reporting all running.",
       "gate": null,
       "deps": [
         "4"
@@ -573,7 +573,7 @@
       "endMonth": "2026-10",
       "ongoing": false,
       "why": "Raises the hard 762-chair-hour/month capacity ceiling \u2014 the one lever that lifts the cap. Also serves the 'can't come during working hours' churn segment and may open new markets.",
-      "next": "Model the economics: which extra slots, staffing/locum cost, expected fill from the can't-come-in-hours segment.",
+      "next": "Dr Priscilla mentioned (Aug) she is OPEN TO WORKING NIGHTS \u2014 possibly not mornings. A concrete staffing option for extended hours.",
       "gate": null,
       "deps": [],
       "blockedOn": null,
@@ -711,7 +711,7 @@
       "owner": "Lu Zhong",
       "coOwner": "Lydia (counsel)",
       "why": "Doctors had NO contract at all, and the employee paperwork was 20 years old. Redraft the employment terms, refresh the handbook, and move doctors onto contractor agreements (not employees) so the classification, the locum mechanics and the procurement rules are all written down.",
-      "next": "The owner is reading through the marked-up contractor agreement now \u2014 tracked changes, 18 margin comments and the reconstructed Schedules 1 and 2. Once he is through it, send it back to counsel with the four blocking questions. Her answers are wanted before the 17 Aug meeting with the incoming junior doctor, since her terms sit in Schedule 1 of this same agreement.",
+      "next": "Owner to ping Lydia for an update. Understanding: handbook DONE, employee side DONE \u2014 remaining = all-staff handbook acknowledgement sign-off + the contractor agreement (with Lydia, rollout pipeline: Lydia->owner->Emily->Dr Ong->per-doctor copies->night Q&A->sign).",
       "gate": null,
       "deps": [],
       "blockedOn": null,
@@ -773,7 +773,7 @@
       "endMonth": "2026-12",
       "ongoing": false,
       "why": "The annual reward round is the single biggest discretionary cost decision of the year and the main retention lever on a team we cannot afford to lose. It is funded from reserves, not from the year\u2019s earnings \u2014 so it has to be timed and framed deliberately.",
-      "next": "The bonus has been paid. What remains is the one-to-ones with the staff under a year to explain their pro-rated position, and then the increment decision at year end.",
+      "next": "Remaining scope = the YEAR-END INCREMENT only (bonus paid Jul). Owner + Emily to sit down and set per-person amounts. Easy call already made: staff under 1 year (Erincy/Ruth/Suriza) get NO increment.",
       "gate": "Funded from reserves (2026 economic baseline is roughly break-even) \u2014 so the round is a deliberate draw, not a distribution of profit.",
       "deps": [],
       "blockedOn": null,
@@ -883,7 +883,7 @@
       "endMonth": "2026-11",
       "ongoing": false,
       "why": "The clinic has no SOP for issuing letters to patients \u2014 medical certificates, referral letters, insurance reports, quotations. Nobody had ever said whose job it was, and that gap caused real friction between a doctor and the office. It is a symptom of a bigger one: a whole class of routine patient-facing admin has never been assigned or trained, so it defaults to whoever feels responsible, usually a doctor. The rule should be simple \u2014 the doctor supplies the clinical judgement, the front desk produces the document, the message and the follow-through.",
-      "next": "Erincy moves to roughly 70/30 chairside-to-front-desk inside her first three months. The training runs once the new accounting system is ready and now has a fixed scope and attendee list. Letters turn out to need only templates and a short written procedure.",
+      "next": "Consolidated all training inputs onto this card (see note). Next: owner picks a date to build the FOH training deck.",
       "gate": "Capacity before capability \u2014 the desk cannot take on harder work while it is one person deep. Build the bench first, then load it.",
       "deps": [
         "1",
@@ -941,12 +941,12 @@
           "now": true
         }
       ],
-      "note": "Merges the two front-of-house items raised on 20 Jul \u2014 the SOP gap and the upskilling/bench \u2014 because they are the same problem."
+      "note": "Merges the two front-of-house items raised on 20 Jul \u2014 the SOP gap and the upskilling/bench \u2014 because they are the same problem. TRAINING SYLLABUS INPUTS (consolidated 19 Aug, for the future training deck): (1) FOH training compulsory attendees Joanna/Erincy/Jessy/Ida; (2) FOH-01 patient-letters SOP (5 templates, 7-step process, Joanna pilot); (3) WhatsApp quick replies house voice + desk usage, plus desk-training sheet coming from chat-history mining (id 30); (4) DSA professionalism standards (noise, phones, occupied rooms; Siti/Eda peer-led training night model); (5) digital registration form staff flow (?staff=1); (6) rebooking-at-checkout habit (real baseline ~55-65%); (7) AutoCount front-desk training once migration timeline lands (invoice edits in OpenDent only - 30s rule); (8) phone/WhatsApp etiquette + name sign-offs. Detail lives in local memory/chat archives - enough to whip up a deck on request."
     },
     {
       "id": "20",
       "title": "Locum Invoice Crossover & Payment Date",
-      "status": "active",
+      "status": "done",
       "owner": "Lu Zhong",
       "coOwner": "Emily (GM), Lydia (wording)",
       "dept": "finance",
@@ -955,7 +955,7 @@
       "endMonth": "2026-11",
       "ongoing": false,
       "why": "Payment used to fall on one date and quietly moved to another, and nobody explained why. The date itself was never the real issue \u2014 the cost of moving it back is about sixty ringgit a month. The real issue is that a laboratory cost can arrive after the month has been closed, and there was no agreed rule for which month it then belongs to.",
-      "next": "Decided: the payment date stays where it is, and late invoices carry forward at their original month's rate. Both clauses go to counsel. In parallel, the supplier exercise identifies which suppliers deliver late \u2014 that list is the real risk.",
+      "next": "RESOLVED: dollar stays tied to the transaction/production month (rate-follows-production-month principle, baked into the contractor agreement Schedule).",
       "gate": "A laboratory cost belongs to the month the procedure was done, not the month the invoice arrived. A cost carried into a later month is deducted at the share that applied in its original month \u2014 and shown separately on the statement.",
       "deps": [
         "3",
@@ -1182,7 +1182,7 @@
       "endMonth": "2026-11",
       "ongoing": false,
       "why": "The clinician wants a readable transcript of her consultations that she can go back over afterwards. That is a transcription problem, not a reasoning one \u2014 so it can run entirely on a local machine with no patient audio leaving the building, which removes the privacy objection outright.",
-      "next": "Buy a local transcription tool, record one real consultation and let her read the output. If it is usable, build the speaker-labelling properly. If it is not, no amount of engineering fixes it.",
+      "next": "Experiment with Dr Ling: clip-on mic during consultations doubles as (a) content recording for the social shoots (id 32) and (b) transcription source. Run both at the same shoot.",
       "gate": "Two non-negotiables: patient consent for recording, and the doctor reviews and approves before anything enters the clinical record. Never auto-write.",
       "deps": [
         "10"
@@ -1227,7 +1227,7 @@
     {
       "id": "25",
       "title": "Patient Conversation Context for Doctors",
-      "status": "planned",
+      "status": "done",
       "owner": "Lu Zhong",
       "coOwner": "Joanna, Emily",
       "dept": "clinical",
@@ -1236,7 +1236,7 @@
       "endMonth": "2026-09",
       "ongoing": false,
       "why": "When a patient arrives having asked something technical by message beforehand, the doctor needs that context. The agreed short-term fix is to put the messaging app on a surgery computer for the upstairs doctors \u2014 recorded here so it gets re-examined rather than quietly becoming permanent.",
-      "next": "Confirm the placement, then decide whether the shared computer is the right long-term answer or an interim.",
+      "next": "CLOSED 19 Aug (owner): WhatsApp stays open in Surgery 4 (unused room) + front desk only; no other surgery gets it.",
       "gate": "The messaging app is a channel; the patient record is the system of record. Context should reach the doctor where they already look.",
       "deps": [
         "19"
@@ -1332,7 +1332,7 @@
       "endMonth": "2026-12",
       "ongoing": false,
       "why": "Our own margin data shows a very wide spread in value produced per chair-hour between doctors \u2014 one clinician generates several hundred times the true margin per hour of another. Business as usual will not close the gap in time. A clinician who can arrive and immediately deliver higher-value procedures, and bring patients with them, is the case-mix lever \u2014 the only route past the capacity ceiling other than extending hours.",
-      "next": "One-to-ones with Dr Azelia and Dr Priscilla are now booked for next week, which completes the round of individual conversations with the existing practitioners. Alongside that: have a draft contract ready for the 17 Aug meeting with the candidate and the general manager, then put her and the lead orthodontist in a room together to see whether the working relationship fits.",
+      "next": "Jun (Dr Jia Yin) offer landed 17 Aug: RM7k/6mo or 40% locum. She talks to her boss ~18-19 Aug, then offer letter -> sign -> ~2mo notice. Mom chat + Dr Ling chemistry chat follow.",
       "gate": "Nothing becomes public until the practitioners already here have been heard. Expect the objection that chairs are not full as it is \u2014 the honest answer is that retention, not new patient flow, is what separates a full book from an empty one here, and the data supports that.",
       "deps": [
         "16"
@@ -1395,7 +1395,7 @@
       "endMonth": "2026-10",
       "ongoing": false,
       "why": "The recall system was built with more triggers than the six, nine and twelve-month recalls we actually switched on. Turning the others on is the cheapest top-line lever available, and the P&L trajectory says business as usual will not close the gap. Messaging even ten thousand lapsed patients costs on the order of RM3,000.",
-      "next": "Decision taken: send from the landline. Brief the vendor, then ship the review ask \u2014 it needs only a direct review link and no redirect.",
+      "next": "Code Capsule mtg 18 Aug: Suraya building filter page (tiers/age/visit-count), ~250 sends/day, do-not-message list respected; flow = template -> Meta approval -> blast; price pending from Jason. OWNER NEXT: draft the blast message template + segmentation parameters.",
       "gate": "Do not launch anything while the recall link is broken \u2014 blasting the whole base into a browser security warning is worse than not blasting at all.",
       "deps": [
         "7",
@@ -1457,7 +1457,7 @@
       "endMonth": "2026-12",
       "ongoing": false,
       "why": "Discounting has never had a written rule, so it became a personal judgement call rather than a clinic position. Two years of ledger data show it is concentrated almost entirely in high-value orthodontic case starts settled upfront, and that the clinic quietly carries the larger half of every discount a practitioner gives \u2014 because the discount is deducted from the shared base before the split. The practitioner decides; the clinic pays more of it. That is the misalignment to fix. The tool itself is legitimate and stays, but its cost has to be visible to the person holding it.",
-      "next": "Pine Labs met on 11 Aug and it went well; they are sending merchant rates this week. When the rates land, test them against the blended cost of the upfront discount they would replace, and settle whether the cost sits with the clinic, the practitioner, or is shared. Separately, the concession clause is now drafted into the contractor agreement.",
+      "next": "Baseline policy already written into the contractor agreement (min-price schedule + concession borne by doctor + [10]%/RM100 free band + standing categories clinic-borne). Owner runs it through with Emily once Lydia finishes the agreement review.",
       "gate": "Do not publish or advertise any discount or instalment offer. The dental council's conduct code treats discounts in advertising as an inducement, and bars 'lowest price' style claims. Instalments are offered in the chair, on request, never marketed.",
       "deps": [
         "16",
@@ -1517,34 +1517,29 @@
         "6"
       ],
       "why": "The website now opens WhatsApp conversations with a pre-typed, procedure-specific first line (CTA pop-up, live 10 Aug 2026), so incoming chats arrive already labelled by intent: aligners, wisdom tooth, implants, whitening, a child first visit. Today every one of those chats needs a hand-written reply from the front desk, which means answer quality depends on who is on shift and slow replies lose warm leads. A small library of saved quick replies per key procedure (what it is, what a first visit looks like, common questions) lets anyone on the desk send a good first answer in seconds. WhatsApp Business quick replies and greeting or away automations cover most of this without new software.",
-      "next": "Owner collecting chat-history backup at clinic 19 Aug (crypt15 + key) -> decrypt -> mine tier 2/3 shortcut drafts from real chats.",
+      "next": "Owner collecting the encrypted backup + key at the clinic 19 Aug; then decrypt and mine for tier 2/3.",
       "note": "Chats opening with the pop-up pre-typed lines are pop-up leads; front desk should tag them so click-to-booking attribution stays cheap.",
       "tasks": [
         {
-          "t": "Draft quick-reply library \u2014 DONE 10 Aug: 20 replies in 3 tiers, list derived from 24mo production data",
+          "t": "Tier 1 (7 shortcuts) loaded on clinic phone 17 Aug (hours/book/firstvisit/fees/pain/cleaning/form \u2014 form gated on backend)",
           "done": true
         },
         {
-          "t": "Owner sign-off on wording (content truth-gate) + resolve Myobrace & insurance flags",
+          "t": "Collect chat history at clinic (19 Aug): confirm E2E re-encryption done, USB-copy msgstore.db.crypt15 + 64-digit key",
           "done": false,
           "now": true
         },
         {
-          "t": "Load as WhatsApp Business quick replies + brief front desk",
+          "t": "Decrypt with whatsapp-chat-exporter, verify Dr Ling group intact",
           "done": false
         },
         {
-          "t": "Greeting / away-hours auto-reply",
+          "t": "Mine history -> tier 2 (filling/extraction/gums/rootcanal/kids) + tier 3 tx- drafts + desk training sheet",
           "done": false
         },
         {
-          "t": "Front desk tags pop-up-opener chats for attribution",
+          "t": "Registration-form backend (Google Sheet webhook) so the form shortcut can go live \u2014 in build (id 10)",
           "done": false
-        },
-        {
-          "t": "Collect WhatsApp chat history at clinic (19 Aug): confirm E2E re-encryption finished, USB-copy msgstore.db.crypt15 + 64-digit key, then decrypt and mine Dr Ling group for tier 2/3 shortcuts",
-          "done": false,
-          "now": true
         }
       ],
       "timeline": "Aug: draft quick-reply library + owner sign-off. Sep: live as WhatsApp Business quick replies, front desk briefed. Oct: greeting/away automations + first attribution review.",
@@ -1655,7 +1650,7 @@
     {
       "id": "31",
       "title": "Referral Baseline & Early Thank-Yous",
-      "status": "active",
+      "status": "paused",
       "owner": "Lu Zhong",
       "coOwner": "Lu Zheng (CRM)",
       "dept": "crm",
@@ -1664,7 +1659,7 @@
       "endMonth": "2026-11",
       "ongoing": false,
       "why": "Audited 10 Aug: referral capture stopped in 2014. Of 3,259 referral records in the practice system, 99.8 per cent were created before 2015 \u2014 the years since produce single digits, and several produce nothing at all. So referrals may well still be happening; the practice simply stopped recording them. Historically, patient referrals ran about two to one ahead of doctor referrals, which is the channel the referral engine is built on.",
-      "next": "Capture first, reward second. Add the referral question to the intake form and the front-desk script so the field starts filling again. In parallel, keep the NGO conversation moving so the thank-you is ready the day data starts arriving \u2014 and use the existing family groupings to build a first thank-you list from data already held.",
+      "next": "PAUSED 19 Aug (owner): unsure whether the NGO route is still the route. Revisit before any further work.",
       "gate": "If the system shows no referral data, the front-desk capture question becomes the prerequisite (it is already on the onboarding-form initiative).",
       "deps": [
         "9",
