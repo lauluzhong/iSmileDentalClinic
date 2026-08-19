@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-19 19:21 MYT",
+  "updated": "2026-08-19 19:25 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -1517,7 +1517,7 @@
         "6"
       ],
       "why": "The website now opens WhatsApp conversations with a pre-typed, procedure-specific first line (CTA pop-up, live 10 Aug 2026), so incoming chats arrive already labelled by intent: aligners, wisdom tooth, implants, whitening, a child first visit. Today every one of those chats needs a hand-written reply from the front desk, which means answer quality depends on who is on shift and slow replies lose warm leads. A small library of saved quick replies per key procedure (what it is, what a first visit looks like, common questions) lets anyone on the desk send a good first answer in seconds. WhatsApp Business quick replies and greeting or away automations cover most of this without new software.",
-      "next": "Draft delivered 10 Aug: 20 quick replies in 3 tiers at Branding & Marketing/WhatsApp Quick Replies (draft 2026-08-10).md. Shortcut list was derived from 24 months of production data, not assumption: checkup and cleaning touches 82% of patients and is 66% of all first visits, fillings 37%, pain visits 22%, braces only 11% by headcount but the top follow-on (12.4% of cleaning-first new patients convert into it). Only 44% of new patients ever return, so the first-visit reply is the highest-leverage one. Awaiting owner mark-up. Two flags to resolve first: Myobrace was billed 71 times in 24 months but the fact sheet says do not mention it, and there is zero insurance income across 24 months so no draft mentions insurance.",
+      "next": "Owner collecting chat-history backup at clinic 19 Aug (crypt15 + key) -> decrypt -> mine tier 2/3 shortcut drafts from real chats.",
       "note": "Chats opening with the pop-up pre-typed lines are pop-up leads; front desk should tag them so click-to-booking attribution stays cheap.",
       "tasks": [
         {
@@ -1540,6 +1540,11 @@
         {
           "t": "Front desk tags pop-up-opener chats for attribution",
           "done": false
+        },
+        {
+          "t": "Collect WhatsApp chat history at clinic (19 Aug): confirm E2E re-encryption finished, USB-copy msgstore.db.crypt15 + 64-digit key, then decrypt and mine Dr Ling group for tier 2/3 shortcuts",
+          "done": false,
+          "now": true
         }
       ],
       "timeline": "Aug: draft quick-reply library + owner sign-off. Sep: live as WhatsApp Business quick replies, front desk briefed. Oct: greeting/away automations + first attribution review.",
