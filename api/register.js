@@ -20,10 +20,32 @@ import { JWT } from 'google-auth-library';
 
 // The form lives on its own Vercel project, so this endpoint is cross-origin.
 const ALLOWED_ORIGINS = [
+  'https://register.ismile.com.my',
   'https://ismile-registration-form.vercel.app',
   'https://ismile.com.my',
   'https://www.ismile.com.my',
 ];
+
+// Rate limit: this is per warm instance, not global — serverless gives us no
+// shared counter without a KV store. It is enough to blunt a naive flood from
+// one source; real abuse protection is Vercel's bot rules at the edge.
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+const RATE_MAX = 12; // a family registering together must not trip this
+const recentByIp = new Map();
+
+function rateLimited(ip) {
+  if (!ip) return false;
+  const now = Date.now();
+  const hits = (recentByIp.get(ip) || []).filter((t) => now - t < RATE_WINDOW_MS);
+  hits.push(now);
+  recentByIp.set(ip, hits);
+  if (recentByIp.size > 500) {
+    for (const [key, times] of recentByIp) {
+      if (!times.some((t) => now - t < RATE_WINDOW_MS)) recentByIp.delete(key);
+    }
+  }
+  return hits.length > RATE_MAX;
+}
 
 const SHEET_TAB = process.env.REGISTRATION_SHEET_TAB || 'Registrations';
 
@@ -167,6 +189,21 @@ export default async function handler(req, res) {
 
   const payload = req.body || {};
   const a = payload.answers;
+
+  // Honeypot: a hidden field no human ever sees. A filled one means a bot.
+  // We answer with a visible error rather than a fake success on purpose — if
+  // this ever fires on a real patient, the form says so and keeps their answers
+  // on the device, instead of losing a registration silently.
+  if (payload.meta && String(payload.meta.confirmRef || '').trim() !== '') {
+    console.warn('Registration rejected: honeypot filled');
+    return res.status(400).json({ ok: false, error: 'Could not record the registration' });
+  }
+
+  const ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim() || req.headers['x-real-ip'];
+  if (rateLimited(ip)) {
+    console.warn('Registration rate-limited for one address');
+    return res.status(429).json({ ok: false, error: 'Too many registrations from this connection. Please try again shortly.' });
+  }
 
   // Sanity checks only — the form validates properly before it submits.
   if (!a || typeof a !== 'object' || payload.meta?.form !== 'iSmile patient registration') {
