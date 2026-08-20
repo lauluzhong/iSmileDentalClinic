@@ -118,16 +118,33 @@ async function notifyTelegram(payload) {
   const chatId = process.env.TELEGRAM_REGISTRATION_CHAT_ID || process.env.TELEGRAM_CHAT_ID;
   if (!token || !chatId) return;
 
+  // Same visual language as the website's "New Booking Request" message, but a
+  // distinct header: bookings are LEADS; this fires when a patient who already
+  // has an appointment finishes the registration form. Deliberately PII-minimal
+  // (no IC, no medical detail) — the Sheet holds the full record.
   const a = payload.answers || {};
-  const name = (a.preferredName || '').trim() || (a.fullName || '').trim() || 'a new patient';
-  const minor = payload.meta && payload.meta.isMinor ? ' (under 18 — contact the guardian)' : '';
-  const text = `📝 New patient registration received — ${name}${minor}. Full details are in the Registrations sheet.`;
+  const esc = (s) => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const name = (a.fullName || '').trim() || (a.preferredName || '').trim() || '—';
+  const mobile = (a.mobileFull || a.mobile || '').trim() || '—';
+  const isMinor = !!(payload.meta && payload.meta.isMinor);
+  const timeDisplay = new Date().toLocaleString('en-MY', {
+    timeZone: 'Asia/Kuala_Lumpur', dateStyle: 'medium', timeStyle: 'short',
+  });
+  const lines = [
+    '📝 <b>New Patient Registration</b> — form completed',
+    '',
+    `📋 <b>Name:</b> ${esc(name)}`,
+    `📞 <b>Mobile:</b> ${esc(mobile)}`,
+  ];
+  if (isMinor) lines.push('🧒 <b>Under 18</b> — contact the guardian');
+  lines.push('', '🗂 Full details are in the <b>Registrations sheet</b>', `🕐 <b>Time:</b> ${timeDisplay} (MYT)`);
+  const text = lines.join('\n');
 
   try {
     const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chatId, text, disable_web_page_preview: true }),
+      body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'HTML', disable_web_page_preview: true }),
     });
     const result = await res.json();
     if (!result.ok) console.error('Telegram notify error:', result.description);
