@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-20 09:44 MYT",
+  "updated": "2026-08-20 11:41 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -483,7 +483,7 @@
       "endMonth": "2026-07",
       "ongoing": true,
       "why": "The registration form has asked 'who referred you to our practice' since 2022 \u2014 and it also captures occupation. Neither reaches OpenDental in any form we can query, so the answers die on the paper. We have never been able to measure where patients come from, not because we do not ask, but because the answer never survives the walk from the clipboard to the database.",
-      "next": "Decided: no vendor spend on automated patient creation. The front desk copies across from the submitted form, which the office has approved. Next: put the form somewhere the office can test it on their own phone.",
+      "next": "Form backend LIVE 20 Aug (e2e tested): submissions append to the private iSmile Patient Registrations Google Sheet (clinic account) + Telegram ping. Next: give front desk the Sheet + staff URL, decide row-retention after OpenDental entry, then un-gate the form WhatsApp shortcut.",
       "gate": "Fix the capture before the re-typing. And do not let the hardest consent question \u2014 audio recording \u2014 hold up the other ninety per cent of the form.",
       "deps": [
         "1",
