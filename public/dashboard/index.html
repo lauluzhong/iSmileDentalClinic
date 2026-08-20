@@ -146,6 +146,7 @@
     --kb-blocked:#e07a3f; --kb-blocked-bg:#fdf0e8;
     --kb-active:#00A0C6;  --kb-active-bg:#E8F6FB;
     --kb-review:#9a6cf0;  --kb-review-bg:#f1ecfd;
+    --kb-paused:#b8860b;  --kb-paused-bg:#fdf8ec;
     --kb-done:#1fab78;    --kb-done-bg:#e8f7f1;
     --kb-line2:#eef3f6; --kb-radius:14px;
   }
@@ -169,7 +170,7 @@
   .kb-colhead .count{font-size:11.5px;font-weight:700;color:var(--mut2);background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:1px 9px}
   .kb-colhead .sub{font-size:10.5px;color:var(--mut2);margin-left:auto;font-weight:500}
   .kb-col.blocked .swatch{background:var(--kb-blocked)} .kb-col.active .swatch{background:var(--kb-active)}
-  .kb-col.review .swatch{background:var(--kb-review)} .kb-col.done .swatch{background:var(--kb-done)} .kb-col.planned .swatch{background:var(--kb-planned)}
+  .kb-col.review .swatch{background:var(--kb-review)} .kb-col.done .swatch{background:var(--kb-done)} .kb-col.paused .swatch{background:var(--kb-paused)} .kb-col.planned .swatch{background:var(--kb-planned)}
   .kb-lane{display:flex;flex-direction:column;gap:11px;min-height:40px;padding:3px;border-radius:14px}
   .kb-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--kb-radius);padding:14px;box-shadow:var(--shadow);cursor:pointer;transition:transform .14s,box-shadow .14s,border-color .14s;position:relative;overflow:hidden}
   .kb-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-h);border-color:var(--teal)}
@@ -184,6 +185,7 @@
   .kb-chip.review{background:var(--kb-review-bg);color:var(--kb-review)}
   .kb-chip.done{background:var(--kb-done-bg);color:var(--kb-done)}
   .kb-chip.planned{background:var(--kb-planned-bg);color:var(--kb-planned)}
+  .kb-chip.paused{background:var(--kb-paused-bg);color:var(--kb-paused)}
   .kb-ctitle{font-size:14.5px;font-weight:700;line-height:1.3;letter-spacing:-.2px;color:var(--ink)}
   .kb-cmeta{display:flex;align-items:center;gap:7px;margin-top:10px;flex-wrap:wrap}
   .kb-owner{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--mut);font-weight:600}
@@ -265,6 +267,10 @@
   .iv-seg button{border:none;background:none;color:var(--mut);font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:.15s}
   .iv-seg button.on{background:var(--teal);color:#fff;box-shadow:0 1px 4px rgba(0,160,198,.3)}
   .iv-note{font-size:11.5px;color:var(--mut2);margin-bottom:12px;line-height:1.5}
+  .iv-filter{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin:-2px 0 12px}
+  .iv-filter button{border:1px solid var(--line);background:var(--panel);color:var(--mut);font-size:10.5px;font-weight:700;padding:4px 8px;border-radius:20px;cursor:pointer;line-height:1.15;transition:.15s}
+  .iv-filter button.on{background:var(--teal-bg);border-color:var(--teal);color:var(--teal-deep)}
+  .iv-filter .iv-filter-count{font-size:9.5px;margin-left:3px;opacity:.75}
 
   /* ---- Matrix view ---- */
   .iv-matrix-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px}
@@ -278,7 +284,7 @@
   .iv-card{background:var(--bg);border:1px solid var(--line);border-left:3px solid var(--mut2);border-radius:9px;padding:8px 9px;cursor:pointer;transition:.13s;position:relative}
   .iv-card:hover{transform:translateY(-1px);box-shadow:var(--shadow-h);border-color:var(--teal)}
   .iv-card.s-planned{border-left-color:var(--kb-planned)}.iv-card.s-blocked{border-left-color:var(--kb-blocked)}
-  .iv-card.s-active{border-left-color:var(--kb-active)}.iv-card.s-review{border-left-color:var(--kb-review)}.iv-card.s-done{border-left-color:var(--kb-done)}
+  .iv-card.s-active{border-left-color:var(--kb-active)}.iv-card.s-review{border-left-color:var(--kb-review)}.iv-card.s-paused{border-left-color:var(--kb-paused)}.iv-card.s-done{border-left-color:var(--kb-done)}
   .iv-ctop{display:flex;align-items:center;gap:6px;margin-bottom:3px}
   .iv-cid{font-size:9.5px;font-weight:800;color:var(--teal2)}
   .iv-dot{width:7px;height:7px;border-radius:50%;flex:none}
@@ -667,11 +673,13 @@ let KB_OWNERS={
   "Intern":      {init:"IN", role:"CRM scoring & data",        color:"#1fab78"},
   "Edith":       {init:"ED", role:"Marketing agent (OpenClaw)",color:"#b8860b"}
 };
+const kbStat=s=>KB_STATUS[s]||{label:s||"?",sub:"",color:"#999"};
 const KB_STATUS={
   planned:{label:"Planned / Backlog",sub:"not started",color:"var(--kb-planned)"},
   blocked:{label:"Blocked / Waiting",sub:"needs an unblock",color:"var(--kb-blocked)"},
   active: {label:"Active",           sub:"work in motion",   color:"var(--kb-active)"},
   review: {label:"In Review / Gate", sub:"verifying outcome",color:"var(--kb-review)"},
+  paused: {label:"Paused",           sub:"on hold",          color:"var(--kb-paused)"},
   done:   {label:"Done",             sub:"shipped",          color:"var(--kb-done)"}
 };
 let KB_INITIATIVES=[
@@ -1264,7 +1272,7 @@ function kbCardHTML(it){
     if(!it.blockedOn) flags+=`<div class="kb-flag dep">${KB_ICON.dep}<span>Depends on ${names}</span></div>`;
   }
   return `<div class="kb-card s-${s}" data-kbid="${it.id}">
-    <div class="kb-ctop"><span class="kb-cid">#${it.id}</span><span class="kb-chip ${s}">${KB_STATUS[s].label.split(" / ")[0]}</span></div>
+    <div class="kb-ctop"><span class="kb-cid">#${it.id}</span><span class="kb-chip ${s}">${kbStat(s).label.split(" / ")[0]}</span></div>
     <div class="kb-ctitle">${it.title}</div>
     <div class="kb-cmeta"><span class="kb-owner">${kbAv(it.owner)}${it.owner}</span></div>
     <div class="kb-next"><div class="lbl">${KB_ICON.next} Next action</div>${it.next}</div>
@@ -1283,7 +1291,7 @@ function kbLegendHTML(){
     +`<span class="it" style="margin-left:auto;color:var(--mut2)">Tap any card for full detail →</span>`;
 }
 function kbStatusHTML(){
-  const cols=["planned","blocked","active","review","done"];
+  const cols=["planned","blocked","active","review","paused","done"];
   return cols.map(s=>{
     const items=KB_INITIATIVES.filter(i=>i.status===s);
     return `<div class="kb-col ${s}"><div class="kb-colhead"><span class="swatch"></span><span class="name">${KB_STATUS[s].label}</span><span class="count">${items.length}</span><span class="sub">${KB_STATUS[s].sub}</span></div>
@@ -1294,7 +1302,7 @@ function kbOwnerHTML(){
   return Object.keys(KB_OWNERS).map(name=>{
     const items=KB_INITIATIVES.filter(i=>i.owner===name);if(!items.length)return "";
     const o=KB_OWNERS[name];
-    const tally=["planned","blocked","active","review","done"].map(s=>{const n=items.filter(i=>i.status===s).length;
+    const tally=["planned","blocked","active","review","paused","done"].map(s=>{const n=items.filter(i=>i.status===s).length;
       return n?`<span><span class="tdot" style="background:${KB_STATUS[s].color}"></span>${n} ${s}</span>`:"";}).join("");
     return `<div class="kb-ogroup"><div class="kb-ogroup-head"><span class="kb-av" style="background:${o.color}">${o.init}</span>
       <div><div class="nm">${name}</div><div class="role">${o.role}</div></div><div class="tally">${tally}</div></div>
@@ -1304,7 +1312,7 @@ function kbOwnerHTML(){
 function kbOpenModal(id){
   const it=kbById(id);if(!it)return;const s=it.status;
   const owners=`${kbAv(it.owner)} ${it.owner}`+(it.coOwner?`<span style="color:var(--mut2);font-weight:500"> · ${it.coOwner}</span>`:"");
-  const tasks=it.tasks.map(t=>{const cls=t.done?"done":(t.now?"now":"");const box=t.done?"✓":(t.now?"▸":"");
+  const tasks=(it.tasks||[]).map(t=>{const cls=t.done?"done":(t.now?"now":"");const box=t.done?"✓":(t.now?"▸":"");
     return `<div class="kb-task ${cls}"><span class="box">${box}</span><span class="txt">${t.t}</span></div>`;}).join("");
   /* Optional `drafts` array: [{label, tag?, body}] — ready-to-send copy the
      initiative carries, each collapsed behind its own dropdown. */
@@ -1317,14 +1325,14 @@ function kbOpenModal(id){
         it.deps.map(d=>{const x=kbById(d);return `<span class="kb-deppill" data-kbgo="${d}">${kbAv(x?x.owner:'')}#${d} ${x?x.title.split(/[—(]/)[0].trim():''}</span>`;}).join("")
       }</div></div>`:"";
   document.getElementById("kbModal").innerHTML=`
-    <div class="kb-mhead"><div class="strip" style="background:${KB_STATUS[s].color}"></div>
+    <div class="kb-mhead"><div class="strip" style="background:${kbStat(s).color}"></div>
       <button class="kb-mclose" onclick="kbCloseModal()">✕</button>
-      <div class="kb-ctop"><span class="kb-cid">#${it.id}</span><span class="kb-chip ${s}">${KB_STATUS[s].label}</span></div>
+      <div class="kb-ctop"><span class="kb-cid">#${it.id}</span><span class="kb-chip ${s}">${kbStat(s).label}</span></div>
       <div class="kb-mtitle">${it.title}</div><div class="kb-mwhy">${it.why}</div></div>
     <div class="kb-mbody">
       <div class="kb-mgrid">
         <div class="kb-mfact"><div class="k">Owner</div><div class="v">${owners}</div></div>
-        <div class="kb-mfact"><div class="k">Status</div><div class="v"><span style="width:8px;height:8px;border-radius:50%;background:${KB_STATUS[s].color};display:inline-block"></span>${KB_STATUS[s].label}</div></div>
+        <div class="kb-mfact"><div class="k">Status</div><div class="v"><span style="width:8px;height:8px;border-radius:50%;background:${kbStat(s).color};display:inline-block"></span>${kbStat(s).label}</div></div>
       </div>
       <div class="kb-msec"><h4>${KB_ICON.next} The one next action</h4><div class="kb-mnote" style="background:var(--teal-bg);border-color:var(--teal)"><b>${it.next}</b></div></div>
       ${it.blockedOn?`<div class="kb-msec"><h4>${KB_ICON.block} Blocked on</h4><div class="kb-mnote" style="background:var(--kb-blocked-bg);border-color:#f3d3bd">${it.blockedOn}</div></div>`:""}
@@ -1372,7 +1380,29 @@ function ensureOverlay(){
 const IV_DEPTS=[["growth","Growth & Acquisition"],["crm","CRM & Retention"],["clinical","Clinical & Operational Delivery"],["people","People & Competence"],["finance","Finance & Governance"],["tech","Technology & Data"]];
 const IV_LENSES=[["revenue","Revenue ↑"],["cost","Cost ↓"],["efficiency","Efficiency / Compliance"]];
 let INIT_TAB=(function(){try{return localStorage.getItem("ismile_iv")||"matrix"}catch(e){return "matrix"}})();
+const IV_FILTER_STATUSES=["active","planned","review","blocked","paused","done"];
+const IV_FILTER_DEFAULT=IV_FILTER_STATUSES.filter(s=>s!=="done");
+let IV_STATUS_FILTER=(function(){
+  try{
+    const saved=JSON.parse(localStorage.getItem("ismile_iv_status_filter"));
+    if(Array.isArray(saved)){
+      const selected=saved.filter(s=>IV_FILTER_STATUSES.includes(s));
+      return selected.length?selected:IV_FILTER_STATUSES.slice();
+    }
+  }catch(e){}
+  return IV_FILTER_DEFAULT.slice();
+})();
 function setInitTab(t){INIT_TAB=t;try{localStorage.setItem("ismile_iv",t)}catch(e){}render();}
+function setMatrixStatusFilter(status){
+  if(status==="all")IV_STATUS_FILTER=IV_FILTER_STATUSES.slice();
+  else{
+    const selected=IV_STATUS_FILTER.includes(status);
+    IV_STATUS_FILTER=selected?IV_STATUS_FILTER.filter(s=>s!==status):IV_STATUS_FILTER.concat(status);
+    if(!IV_STATUS_FILTER.length)IV_STATUS_FILTER=IV_FILTER_STATUSES.slice();
+  }
+  try{localStorage.setItem("ismile_iv_status_filter",JSON.stringify(IV_STATUS_FILTER))}catch(e){}
+  render();
+}
 
 function viewInits(){
   setTimeout(()=>{kbWire();ensureOverlay();if(INIT_TAB==="kanban")kbSetView(KB_VIEW);},0);
@@ -1404,13 +1434,17 @@ function ivMiniCard(it){
 }
 function matrixHTML(){
   const cell=(d,l)=>KB_INITIATIVES.filter(i=>(i.dept||"")===d&&(i.lens||"")===l);
+  const isVisible=it=>!IV_FILTER_STATUSES.includes(it.status)||IV_STATUS_FILTER.includes(it.status);
+  const count=status=>status==="all"?KB_INITIATIVES.length:KB_INITIATIVES.filter(i=>i.status===status).length;
+  const filterChip=(status,label)=>`<button class="${status==="all"?IV_STATUS_FILTER.length===IV_FILTER_STATUSES.length?"on":"":IV_STATUS_FILTER.includes(status)?"on":""}" onclick="setMatrixStatusFilter('${status}')">${label}<span class="iv-filter-count">${count(status)}</span></button>`;
   let grid=`<div class="iv-corner" style="min-height:0"></div>`+IV_DEPTS.map(([k,l])=>`<div class="iv-head">${l}</div>`).join("");
   IV_LENSES.forEach(([lk,ll])=>{
     grid+=`<div class="iv-rowlab iv-${lk}">${ll}</div>`;
-    IV_DEPTS.forEach(([dk])=>{const items=cell(dk,lk);
+    IV_DEPTS.forEach(([dk])=>{const items=cell(dk,lk).filter(isVisible);
       grid+=`<div class="iv-cell">${items.length?items.map(ivMiniCard).join(""):'<div class="iv-empty">·</div>'}</div>`;});
   });
   return `<div class="iv-note">Department (columns) × objective (rows). Empty cells show where there's no initiative yet — a coverage gap, on purpose.</div>
+    <div class="iv-filter" aria-label="Filter matrix initiatives by status">${filterChip("all","All")}${filterChip("active","Active")}${filterChip("planned","Planned")}${filterChip("review","Review")}${filterChip("blocked","Blocked")}${filterChip("paused","Paused")}${filterChip("done","Done")}</div>
     <div class="iv-matrix-wrap"><div class="iv-matrix">${grid}</div></div>`;
 }
 function monthHTML(){
