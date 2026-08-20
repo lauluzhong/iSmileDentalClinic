@@ -52,6 +52,16 @@ const SHEET_TAB = process.env.REGISTRATION_SHEET_TAB || 'Registrations';
 // Google Sheets caps a cell at 50,000 characters.
 const MAX_CELL = 45000;
 
+// A truncated data: URI is a BROKEN image, not a partial one — it will never
+// render. For the signature (the signed consent record) we record the failure
+// instead of silently storing something unopenable.
+const SIG_MAX = 49000;
+const sigCell = (v) => {
+  const str = String(v || '');
+  if (!str) return '';
+  return str.length > SIG_MAX ? `[signature too large to store: ${str.length} chars]` : str;
+};
+
 const cell = (v) => {
   if (v === true) return 'Yes';
   if (v === false) return 'No';
@@ -82,7 +92,12 @@ function buildRow(payload) {
   // Everything except the signature image, so nothing is ever lost even if a
   // future form version adds fields this column list does not know about.
   const { signatureDataUri, ...answersNoSig } = a;
-  const fullJson = JSON.stringify({ meta: m, answers: answersNoSig });
+  let fullJson = JSON.stringify({ meta: m, answers: answersNoSig });
+  if (fullJson.length > MAX_CELL) {
+    // Truncating JSON yields an unparseable cell, which defeats the point of
+    // this column (the "nothing is ever lost" safety net). Record the overflow.
+    fullJson = JSON.stringify({ meta: m, _note: 'answers too large to store inline', _chars: fullJson.length });
+  }
 
   const submittedMyt = new Date(m.submittedAt || Date.now()).toLocaleString('en-MY', {
     timeZone: 'Asia/Kuala_Lumpur', dateStyle: 'medium', timeStyle: 'short',
@@ -109,8 +124,7 @@ function buildRow(payload) {
     a.filledFor, a.signerRole, a.signerName, a.signerRelationship,
     m.isMinor ? 'YES' : 'No',
     fullJson,
-    signatureDataUri || '',
-  ].map(cell);
+  ].map(cell).concat([sigCell(signatureDataUri)]);
 }
 
 async function appendToSheet(row) {
@@ -127,6 +141,9 @@ async function appendToSheet(row) {
 
   const range = encodeURIComponent(`${SHEET_TAB}!A1`);
   await client.request({
+    // ⚠️ valueInputOption=RAW is what stops Google Sheets FORMULA INJECTION: a
+    // patient typing =HYPERLINK(...) or @SUM(...) into a field is stored as
+    // literal text. Do NOT change this to USER_ENTERED to get dates parsing.
     url: `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`,
     method: 'POST',
     data: { values: [row] },
@@ -146,7 +163,9 @@ async function notifyTelegram(payload) {
   // (no IC, no medical detail) — the Sheet holds the full record.
   const a = payload.answers || {};
   const esc = (s) => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  const name = (a.fullName || '').trim() || (a.preferredName || '').trim() || '—';
+  // Telegram caps a message at 4096 chars; a pathological name must not cost
+  // the front desk their notification.
+  const name = ((a.fullName || '').trim() || (a.preferredName || '').trim() || '—').slice(0, 120);
   const mobile = (a.mobileFull || a.mobile || '').trim() || '—';
   const isMinor = !!(payload.meta && payload.meta.isMinor);
   const timeDisplay = new Date().toLocaleString('en-MY', {
@@ -172,6 +191,28 @@ async function notifyTelegram(payload) {
     if (!result.ok) console.error('Telegram notify error:', result.description);
   } catch (err) {
     console.error('Telegram notify failed:', err.message);
+  }
+}
+
+async function notifyTelegramFailure(name) {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_REGISTRATION_CHAT_ID || process.env.TELEGRAM_CHAT_ID;
+  if (!token || !chatId) return;
+  const esc = (s) => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const text = [
+    '\u26a0\ufe0f <b>Registration NOT recorded</b>',
+    '',
+    `A form was submitted for <b>${esc(String(name).slice(0, 120))}</b> but could not be saved.`,
+    'Their answers are still on the device they used — ask them to tap "Try again" before they leave.',
+  ].join('\n');
+  try {
+    await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'HTML', disable_web_page_preview: true }),
+    });
+  } catch (err) {
+    console.error('Telegram failure-alert failed:', err.message);
   }
 }
 
@@ -209,8 +250,18 @@ export default async function handler(req, res) {
   if (!a || typeof a !== 'object' || payload.meta?.form !== 'iSmile patient registration') {
     return res.status(400).json({ error: 'Not a registration payload' });
   }
-  if (!a.fullName || !(a.mobileFull || a.mobile)) {
+  const nameIn = String(a.fullName || '').trim();
+  const mobileIn = String(a.mobileFull || a.mobile || '').trim();
+  if (!nameIn || !mobileIn) {
+    // .trim() matters: a whitespace-only value is truthy and would otherwise
+    // sail through as a blank row.
     return res.status(400).json({ error: 'Missing name or mobile' });
+  }
+  // Deliberately LOOSE. The form validates properly; this only stops junk from
+  // a client that bypassed it. Any Unicode letter is a valid name — rejecting a
+  // real patient costs far more than accepting an odd one.
+  if (nameIn.length > 200 || !/^\+?[0-9 ().\-]{5,30}$/.test(mobileIn)) {
+    return res.status(400).json({ error: 'Name or mobile does not look valid' });
   }
 
   try {
@@ -218,6 +269,10 @@ export default async function handler(req, res) {
   } catch (error) {
     // Log the failure, never the submission body.
     console.error('Sheet append failed:', error.message);
+    // The one case staff most need to know about: the patient thinks they are
+    // done, but nothing was recorded. Best-effort alert so the desk can catch
+    // them while they are still in the chair.
+    await notifyTelegramFailure(nameIn);
     return res.status(502).json({ ok: false, error: 'Could not record the registration' });
   }
 
