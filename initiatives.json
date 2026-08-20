@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-20 06:15 MYT",
+  "updated": "2026-08-20 09:44 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -128,7 +128,7 @@
       "owner": "Claude",
       "coOwner": "Branch manager (rules)",
       "why": "Today 100% manual (branch manager). Also the per-doctor margin input the dashboard (#4) needs. Vision: locum computed per line / per transaction / per payment, not monthly.",
-      "next": "Feasibility verdict 19 Aug (GPT analysis): NOT end-to-end automatable today. Engine is solid (8/8 April to the cent) but P&I alone cannot do payment-to-production-month or lab attribution, and the VPS data push is stale/manual. Full automation ~7-9 working days via 3 monthly pushed files (P&I + OpenDental payment-allocation export + AP/lab ledger); provisional tool possible in 1-2 days. Report: Financials/03_Locum Calculation/Locum Automation Feasibility (19 Aug 2026).md",
+      "next": "CORRECTION 19 Aug: VPS feed is NOT stale \u2014 daily push lands in loop/inbox ~19:31 MYT w/ procedure-level production. Real gaps = paysplit-to-procedure allocation + lab AP. Owner has the allocation query; adding it as e7 to the nightly push closes the main gap. Revised effort likely well under the 7-9 day estimate.",
       "gate": null,
       "deps": [],
       "blockedOn": null,
@@ -811,7 +811,7 @@
       "endMonth": "2026-12",
       "ongoing": false,
       "why": "The 10% deduction taken off every practitioner before their share is the single most resented part of the pay scheme, and it is applied unevenly: one practitioner's orthodontic work is lifted out before the 10% is struck, under a separate agreement made years ago, while another doing the same procedures is charged in full. The owner's direction is to stop deducting it altogether rather than renegotiate the exemption \u2014 abolition closes the gap without anyone having to defend why it existed. The question is not whether, it is how it gets funded. A small per-visit charge set by the clinic is the candidate, because it also bills the chair time nobody currently invoices.",
-      "next": "Simulation done 19 Aug (12mo Jun25-May26): consistent PRODUCTION basis = clinic pays RM23.8k MORE (Ling +27k); consistent COLLECTION basis looks like RM26.6k saved but RM72k of unassigned cash makes its sign genuinely unresolved. 4 confirmed tier-flips (Amy/Mah/Ling months where production crossed 55k but collection did not). Decision-grade answer needs one OpenDental payment-to-charge allocation export. Report: Financials/03_Locum Calculation/Locum Comp Consistency Simulation (19 Aug 2026).md",
+      "next": "Scenario C run 19 Aug (the intended rule: pay on collections, rate follows production month): would have SAVED ~RM20k over 12mo (range 18.9-22.2k) \u2014 BUT RM72k unassigned cash could flip it to a RM4-17k cost. Decider = owner runs the payment-allocation query in OpenDental (file in Financials/03_Locum Calculation), then re-run exact.",
       "gate": "Do not announce the relief before the funding is settled \u2014 a benefit given and then partially withdrawn is worse than never given. Also settle what happens to patients mid-treatment, where the per-visit charge lands hardest.",
       "deps": [
         "3",
