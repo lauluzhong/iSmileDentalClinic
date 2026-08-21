@@ -1,8 +1,6 @@
 {
   "updated": "2026-08-21 19:40 MYT",
-  "running": [
-    "margin_build"
-  ],
+  "running": [],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -37,8 +35,8 @@
       "last": "2026-08-21 12:05 MYT"
     },
     "margin_build": {
-      "state": "running",
-      "last": "2026-08-20 19:40 MYT"
+      "state": "idle",
+      "last": "2026-08-21 19:40 MYT"
     }
   }
 }
