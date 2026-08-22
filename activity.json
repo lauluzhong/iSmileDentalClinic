@@ -1,6 +1,13 @@
 {
-  "updated": "2026-08-23 06:20 MYT",
+  "updated": "2026-08-23 06:30 MYT",
   "entries": [
+    {
+      "ts": "2026-08-23 06:30 MYT",
+      "agent": "engineer",
+      "job": "review_curation",
+      "event": "started",
+      "result": ""
+    },
     {
       "ts": "2026-08-23 06:20 MYT",
       "agent": "engineer",
@@ -273,13 +280,6 @@
       "job": "review_stats_sync",
       "event": "finished",
       "result": "ok"
-    },
-    {
-      "ts": "2026-08-20 06:20 MYT",
-      "agent": "engineer",
-      "job": "review_stats_sync",
-      "event": "started",
-      "result": ""
     }
   ]
 }
