@@ -5,6 +5,13 @@
       "ts": "2026-08-22 19:50 MYT",
       "agent": "analytics",
       "job": "cash_digest",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-08-22 19:50 MYT",
+      "agent": "analytics",
+      "job": "cash_digest",
       "event": "started",
       "result": ""
     },
@@ -273,13 +280,6 @@
       "job": "margin_build",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-08-19 12:05 MYT",
-      "agent": "analytics",
-      "job": "cash_digest",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
