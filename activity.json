@@ -1,6 +1,13 @@
 {
-  "updated": "2026-08-22 19:50 MYT",
+  "updated": "2026-08-23 06:00 MYT",
   "entries": [
+    {
+      "ts": "2026-08-23 06:00 MYT",
+      "agent": "seo",
+      "job": "competitor_watch",
+      "event": "started",
+      "result": ""
+    },
     {
       "ts": "2026-08-22 19:50 MYT",
       "agent": "analytics",
@@ -273,13 +280,6 @@
       "job": "margin_build",
       "event": "finished",
       "result": "ok"
-    },
-    {
-      "ts": "2026-08-19 19:40 MYT",
-      "agent": "analytics",
-      "job": "margin_build",
-      "event": "started",
-      "result": ""
     }
   ]
 }
