@@ -487,12 +487,12 @@ ${formData.experience}${familySection}${notesSection}`;
                     width: 100%;
                     min-height: 56px;
                     padding: 24px 16px 8px;
-                    border: 1.5px solid transparent;
+                    border: 1.5px solid var(--color-tint-blue);
                     border-radius: 16px;
                     font-family: var(--font-body);
                     font-size: 1rem;
                     color: var(--color-text-main);
-                    background: #F1F5F8;
+                    background: #fff;
                     transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
                 }
                 .fl select {
@@ -538,7 +538,7 @@ ${formData.experience}${familySection}${notesSection}`;
                 }
                 .fl input::placeholder, .fl textarea::placeholder { color: transparent; transition: color 0.15s ease; }
                 .fl input:focus::placeholder, .fl textarea:focus::placeholder { color: #9AA7B4; }
-                .fl input:hover, .fl textarea:hover, .fl select:hover { background-color: #EAF1F5; }
+                .fl input:hover, .fl textarea:hover, .fl select:hover { border-color: var(--color-pastel-blue); }
                 .fl input:focus, .fl textarea:focus, .fl select:focus {
                     outline: none;
                     border-color: var(--color-primary);
@@ -556,15 +556,15 @@ ${formData.experience}${familySection}${notesSection}`;
                     gap: 12px;
                     min-height: 56px;
                     padding: 14px 16px;
-                    border: 1.5px solid transparent;
+                    border: 1.5px solid var(--color-tint-blue);
                     border-radius: 16px;
-                    background: #F1F5F8;
+                    background: #fff;
                     font-weight: 500;
                     cursor: pointer;
                     -webkit-tap-highlight-color: transparent;
                     transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.08s ease;
                 }
-                .booking-check-item:hover { background: #EAF1F5; }
+                .booking-check-item:hover { border-color: var(--color-pastel-blue); }
                 .booking-check-item:active { transform: scale(0.985); }
                 .booking-check-item:has(input:checked) {
                     background: var(--color-tint-blue);
