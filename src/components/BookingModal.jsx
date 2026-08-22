@@ -268,63 +268,69 @@ ${formData.experience}${familySection}${notesSection}`;
 
                 <form data-analytics-form="booking-submission" onSubmit={handleSubmit} className="booking-form">
                     <div className="form-group">
-                        <label htmlFor="booking-name">Name *</label>
-                        <input
-                            data-analytics-focus="booking-field"
-                            id="booking-name"
-                            type="text"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            placeholder="Your Name"
-                            aria-invalid={errorFor('name') ? 'true' : undefined}
-                            aria-describedby={errorFor('name') ? 'booking-name-error' : undefined}
-                            className={errorFor('name') ? 'has-error' : ''}
-                            required
-                        />
+                        <div className={`fl${formData.name.trim() ? ' filled' : ''}${errorFor('name') ? ' fl-error' : ''}`}>
+                            <input
+                                data-analytics-focus="booking-field"
+                                id="booking-name"
+                                type="text"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                placeholder="Your Name"
+                                aria-invalid={errorFor('name') ? 'true' : undefined}
+                                aria-describedby={errorFor('name') ? 'booking-name-error' : undefined}
+                                className={errorFor('name') ? 'has-error' : ''}
+                                required
+                            />
+                            <label htmlFor="booking-name">Name *</label>
+                        </div>
                         {errorFor('name') && <p className="field-error" id="booking-name-error">{errorFor('name')}</p>}
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="booking-contact">Contact Number *</label>
-                        <input
-                            data-analytics-focus="booking-field"
-                            id="booking-contact"
-                            type="tel"
-                            name="contact"
-                            value={formData.contact}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            placeholder="012-345 6789"
-                            aria-invalid={errorFor('contact') ? 'true' : undefined}
-                            aria-describedby={errorFor('contact') ? 'booking-contact-error' : undefined}
-                            className={errorFor('contact') ? 'has-error' : ''}
-                            required
-                        />
+                        <div className={`fl${formData.contact.trim() ? ' filled' : ''}${errorFor('contact') ? ' fl-error' : ''}`}>
+                            <input
+                                data-analytics-focus="booking-field"
+                                id="booking-contact"
+                                type="tel"
+                                name="contact"
+                                value={formData.contact}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                placeholder="012-345 6789"
+                                aria-invalid={errorFor('contact') ? 'true' : undefined}
+                                aria-describedby={errorFor('contact') ? 'booking-contact-error' : undefined}
+                                className={errorFor('contact') ? 'has-error' : ''}
+                                required
+                            />
+                            <label htmlFor="booking-contact">Contact Number *</label>
+                        </div>
                         {errorFor('contact') && <p className="field-error" id="booking-contact-error">{errorFor('contact')}</p>}
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="booking-email">Email (optional)</label>
-                        <input
-                            data-analytics-focus="booking-field"
-                            id="booking-email"
-                            type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            placeholder="email@example.com"
-                            aria-invalid={errorFor('email') ? 'true' : undefined}
-                            aria-describedby={errorFor('email') ? 'booking-email-error' : undefined}
-                            className={errorFor('email') ? 'has-error' : ''}
-                        />
+                        <div className={`fl${formData.email.trim() ? ' filled' : ''}${errorFor('email') ? ' fl-error' : ''}`}>
+                            <input
+                                data-analytics-focus="booking-field"
+                                id="booking-email"
+                                type="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                placeholder="email@example.com"
+                                aria-invalid={errorFor('email') ? 'true' : undefined}
+                                aria-describedby={errorFor('email') ? 'booking-email-error' : undefined}
+                                className={errorFor('email') ? 'has-error' : ''}
+                            />
+                            <label htmlFor="booking-email">Email (optional)</label>
+                        </div>
                         {errorFor('email') && <p className="field-error" id="booking-email-error">{errorFor('email')}</p>}
                     </div>
 
-                    <div className="form-group">
-                        <label>Who Is This Consultation For?</label>
+                    <fieldset className="form-group">
+                        <legend>Who Is This Consultation For?</legend>
                         <div className="booking-check-grid">
                             <label className="booking-check-item">
                                 <input type="checkbox" name="forSelf" checked={formData.forSelf} onChange={handleChange} />
@@ -340,8 +346,7 @@ ${formData.experience}${familySection}${notesSection}`;
                             </label>
                         </div>
                         {formData.forChild && (
-                            <div className="child-age-row">
-                                <label htmlFor="childAge">Child age</label>
+                            <div className="fl always child-age-row">
                                 <select
                                     id="childAge"
                                     name="childAge"
@@ -353,31 +358,38 @@ ${formData.experience}${familySection}${notesSection}`;
                                         <option key={age} value={String(age)}>{age}</option>
                                     ))}
                                 </select>
+                                <label htmlFor="childAge">Child age</label>
                             </div>
                         )}
+                    </fieldset>
+
+                    <div className="form-group">
+                        <div className={`fl fl-area${formData.experience.trim() ? ' filled' : ''}`}>
+                            <textarea
+                                data-analytics-focus="booking-field"
+                                id="booking-experience"
+                                name="experience"
+                                value={formData.experience}
+                                onChange={handleChange}
+                                placeholder="I'm experiencing..."
+                                rows={4}
+                            />
+                            <label htmlFor="booking-experience">Describe what you're feeling or any preferences</label>
+                        </div>
                     </div>
 
                     <div className="form-group">
-                        <label>Describe what you're feeling or any preferences</label>
-                        <textarea
-                            data-analytics-focus="booking-field"
-                            name="experience"
-                            value={formData.experience}
-                            onChange={handleChange}
-                            placeholder="I'm experiencing..."
-                            rows={4}
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <label>Additional notes (optional)</label>
-                        <textarea
-                            name="additionalNotes"
-                            value={formData.additionalNotes}
-                            onChange={handleChange}
-                            placeholder="Anything else we should know?"
-                            rows={3}
-                        />
+                        <div className={`fl fl-area${formData.additionalNotes.trim() ? ' filled' : ''}`}>
+                            <textarea
+                                id="booking-notes"
+                                name="additionalNotes"
+                                value={formData.additionalNotes}
+                                onChange={handleChange}
+                                placeholder="Anything else we should know?"
+                                rows={3}
+                            />
+                            <label htmlFor="booking-notes">Additional notes (optional)</label>
+                        </div>
                     </div>
 
                     {submitError && <p className="submit-error">{submitError}</p>}
@@ -450,59 +462,150 @@ ${formData.experience}${familySection}${notesSection}`;
                     display: flex;
                     flex-direction: column;
                     gap: 8px;
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    min-width: 0;
                 }
-                .form-group label {
+                .form-group legend {
                     font-weight: 600;
                     color: var(--color-text-main);
                     font-size: 0.9rem;
                     margin-left: 2px;
+                    padding: 0;
+                    margin-bottom: 4px;
                 }
-                .form-group input, .form-group textarea, .form-group select {
-                    padding: 12px 16px;
-                    border: 1px solid #e1e4e8;
-                    border-radius: 12px;
+                /* Floating label: the label lives inside a filled, borderless
+                   56px field and floats up on focus or once there is a value.
+                   Placeholder is only shown while focused, so the label is the
+                   sole resting hint. */
+                .fl {
+                    position: relative;
+                }
+                .fl input, .fl textarea, .fl select {
+                    display: block;
+                    width: 100%;
+                    min-height: 56px;
+                    padding: 24px 16px 8px;
+                    border: 1.5px solid var(--color-tint-blue);
+                    border-radius: 16px;
                     font-family: var(--font-body);
                     font-size: 1rem;
-                    background: rgba(255,255,255,0.8);
-                    transition: all 0.3s;
+                    color: var(--color-text-main);
+                    background: #fff;
+                    transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
                 }
-                .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+                .fl select {
+                    appearance: none;
+                    -webkit-appearance: none;
+                    padding-right: 44px;
+                    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><path fill='%23475569' d='M3 5.5l5 5 5-5z'/></svg>");
+                    background-repeat: no-repeat;
+                    background-position: right 16px center;
+                }
+                .fl textarea {
+                    padding-top: 28px;
+                    resize: vertical;
+                    line-height: 1.45;
+                }
+                .fl label {
+                    position: absolute;
+                    left: 16px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    margin: 0;
+                    font-weight: 400;
+                    font-size: 1rem;
+                    line-height: 1.2;
+                    color: #64748B;
+                    pointer-events: none;
+                    max-width: calc(100% - 32px);
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    transition: top 0.18s cubic-bezier(.22,.7,.3,1), transform 0.18s cubic-bezier(.22,.7,.3,1),
+                                font-size 0.18s cubic-bezier(.22,.7,.3,1), color 0.15s ease;
+                }
+                /* textarea labels are sentences — let them wrap instead of truncating */
+                .fl-area textarea { padding-top: 44px; }
+                .fl-area label { top: 16px; transform: none; white-space: normal; line-height: 1.3; }
+                .fl:focus-within label, .fl.filled label, .fl.always label {
+                    top: 9px;
+                    transform: none;
+                    font-size: 0.76rem;
+                    font-weight: 500;
+                    color: #475569;
+                }
+                .fl input::placeholder, .fl textarea::placeholder { color: transparent; transition: color 0.15s ease; }
+                .fl input:focus::placeholder, .fl textarea:focus::placeholder { color: #9AA7B4; }
+                .fl input:hover, .fl textarea:hover, .fl select:hover { border-color: var(--color-pastel-blue); }
+                .fl input:focus, .fl textarea:focus, .fl select:focus {
                     outline: none;
                     border-color: var(--color-primary);
-                    background: white;
+                    background-color: white;
                     box-shadow: 0 0 0 4px var(--color-tint-blue);
                 }
                 .booking-check-grid {
                     display: grid;
-                    gap: 10px;
-                    margin-top: 4px;
+                    gap: 8px;
+                    margin-top: 2px;
                 }
                 .booking-check-item {
                     display: flex;
                     align-items: center;
-                    gap: 10px;
+                    gap: 12px;
+                    min-height: 56px;
+                    padding: 14px 16px;
+                    border: 1.5px solid var(--color-tint-blue);
+                    border-radius: 16px;
+                    background: #fff;
                     font-weight: 500;
-                    margin-left: 0;
+                    cursor: pointer;
+                    -webkit-tap-highlight-color: transparent;
+                    transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.08s ease;
+                }
+                .booking-check-item:hover { border-color: var(--color-pastel-blue); }
+                .booking-check-item:active { transform: scale(0.985); }
+                .booking-check-item:has(input:checked) {
+                    background: var(--color-tint-blue);
+                    border-color: var(--color-primary);
                 }
                 .booking-check-item input {
-                    width: 18px;
-                    height: 18px;
+                    appearance: none;
+                    -webkit-appearance: none;
+                    width: 22px;
+                    height: 22px;
                     padding: 0;
+                    margin: 0;
+                    flex: 0 0 auto;
+                    border: 2px solid #B4C2CE;
+                    border-radius: 7px;
+                    background: #fff;
+                    cursor: pointer;
+                    transition: border-color 0.12s ease, background-color 0.12s ease;
                 }
-                .child-age-row {
-                    display: grid;
-                    grid-template-columns: 120px 1fr;
-                    align-items: center;
-                    gap: 10px;
-                    margin-top: 6px;
+                .booking-check-item input:checked {
+                    border-color: var(--color-primary);
+                    background: var(--color-primary);
+                    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><path fill='white' d='M8 13.4L4.6 10l-1.2 1.2L8 15.8l8-8-1.2-1.2z'/></svg>");
+                    background-size: 20px 20px;
+                    background-position: center;
+                    background-repeat: no-repeat;
                 }
-                .form-group input.has-error,
-                .form-group textarea.has-error {
+                .booking-check-item input:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
+                .child-age-row { margin-top: 2px; }
+                .fl-error input, .form-group input.has-error, .form-group textarea.has-error {
                     border-color: #dc2626;
+                    background-color: white;
                 }
+                .fl-error label { color: #b91c1c; }
                 .form-group input.has-error:focus {
                     border-color: #dc2626;
                     box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.12);
+                }
+                .booking-form .btn {
+                    min-height: 56px;
+                    border-radius: 999px;
                 }
                 .field-error {
                     color: #b91c1c;
@@ -534,11 +637,11 @@ ${formData.experience}${familySection}${notesSection}`;
                     .close-btn { top: 12px; right: 12px; }
                     .booking-form { gap: 14px; }
                     .form-group { gap: 6px; }
-                    .form-group input, .form-group textarea, .form-group select {
-                        padding: 10px 14px;
+                    .fl input, .fl textarea, .fl select {
                         font-size: 16px; /* also prevents iOS focus zoom */
                     }
-                    .form-group textarea { min-height: 0; }
+                    .fl label { font-size: 16px; }
+                    .fl:focus-within label, .fl.filled label, .fl.always label { font-size: 12px; }
                 }
 
             `}</Style>
