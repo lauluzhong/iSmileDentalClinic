@@ -1,28 +1,28 @@
 {
-  "as_of": "2026-08-24",
+  "as_of": "2026-08-25",
   "source": "redirect.ismile.com.my/admin/webhook/webhooklog",
   "note": "Funnel = event counts (per-message callbacks), not distinct patients. Conversion = matured-cohort recall->appointment rate (correlation, not proven causal lift); as-of the latest OpenDent export only.",
   "funnel_live": true,
-  "funnel_as_of": "2026-08-24",
+  "funnel_as_of": "2026-08-25",
   "cumulative": {
-    "total": 13564,
-    "sent": 4620,
-    "delivered": 5421,
-    "read": 1869,
-    "failed": 438,
-    "clicks": 142,
-    "replies": 1074
+    "total": 13787,
+    "sent": 4698,
+    "delivered": 5514,
+    "read": 1899,
+    "failed": 444,
+    "clicks": 146,
+    "replies": 1086
   },
   "this_month": {
-    "sent": 645,
-    "clicks": 38,
-    "replies": 180
+    "sent": 723,
+    "clicks": 42,
+    "replies": 192
   },
   "conversion": {
     "mature_days": 21,
     "attrib_window_days": 90,
-    "data_as_of": "2026-08-23",
-    "appt_export": "inbox/2026-08-23 e5+e6+backfill",
+    "data_as_of": "2026-08-24",
+    "appt_export": "inbox/2026-08-24 e5+e6+backfill",
     "appt_range": [
       "2024-08-12",
       "2026-12-19"
@@ -34,8 +34,8 @@
     "matured_cohort": 767,
     "resolved_to_patient": 729,
     "resolved_via_patnum": 729,
-    "booked_within_window": 194,
-    "booked_anytime": 230,
-    "conversion_pct": 26.6
+    "booked_within_window": 197,
+    "booked_anytime": 234,
+    "conversion_pct": 27.0
   }
 }
