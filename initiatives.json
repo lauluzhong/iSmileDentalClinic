@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-25 06:15 MYT",
+  "updated": "2026-08-26 00:26 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -36,11 +36,11 @@
       "owner": "Code Capsule",
       "coOwner": "Lu Zhong (sponsor)",
       "why": "LHDN e-invoicing is mandatory Jan 2027 \u2014 the non-negotiable trigger. AutoCount does the upward LHDN reporting. This is the data backbone everything else (dashboard, locum, recall ROI) plugs into.",
-      "next": "Complete the one-week parallel run on live data, log and investigate every discrepancy, then confirm the go-live date and the remote tunnel (Tailscale).",
+      "next": "Issue the AutoCount payment and PO on 26 Aug, then confirm the hardware arrival date so the clinic knows which Saturday loses OpenDent for seven to eight hours and can plan the appointment book around it.",
       "gate": "Contract SIGNED 22 Jun 2026. Payment gated: RM10k over 3 months, released against UAT milestones (RM3.5k + RM3.5k + RM3k).",
       "deps": [],
       "blockedOn": null,
-      "timeline": "Demo passed. The server is now at the clinic running on LIVE data in parallel with the current system for a week; any discrepancy gets investigated. Clear read by end of July.",
+      "timeline": "Vendor schedule as at 24 Aug 2026: hardware ordered 24 Aug on a ten day lead; payment and PO to AutoCount due 26 Aug with three business days to licence; licence issued, data migrated and integration reconfigured 1 Sep; end-to-end test 2 Sep; OpenDent configuration takes a full Saturday - 5 Sep if the hardware arrives in time, otherwise 12 Sep.",
       "tasks": [
         {
           "t": "Vendor engaged (Code Capsule) + scope agreed",
@@ -73,6 +73,14 @@
         },
         {
           "t": "Remote tunnel (Tailscale) stood up",
+          "done": false
+        },
+        {
+          "t": "Payment / PO issued to AutoCount",
+          "done": false
+        },
+        {
+          "t": "Confirm which Saturday takes the OpenDent configuration downtime",
           "done": false
         }
       ],
@@ -1457,11 +1465,12 @@
       "endMonth": "2026-12",
       "ongoing": false,
       "why": "Discounting has never had a written rule, so it became a personal judgement call rather than a clinic position. Two years of ledger data show it is concentrated almost entirely in high-value orthodontic case starts settled upfront, and that the clinic quietly carries the larger half of every discount a practitioner gives \u2014 because the discount is deducted from the shared base before the split. The practitioner decides; the clinic pays more of it. That is the misalignment to fix. The tool itself is legitimate and stays, but its cost has to be visible to the person holding it.",
-      "next": "Baseline policy already written into the contractor agreement (min-price schedule + concession borne by doctor + [10]%/RM100 free band + standing categories clinic-borne). Owner runs it through with Emily once Lydia finishes the agreement review.",
+      "next": "The pricing baseline question is now answered - see the fee schedule initiative. Doctors do follow the list where a price exists (60% exactly at base, and charging above and below cancels out), so the list is usable as an anchor once the gaps are filled. The blocker is that price reductions are recorded as edits to the procedure line rather than as discounts, so the clause needs the keying rule alongside it.",
       "gate": "Do not publish or advertise any discount or instalment offer. The dental council's conduct code treats discounts in advertising as an inducement, and bars 'lowest price' style claims. Instalments are offered in the chair, on request, never marketed.",
       "deps": [
         "16",
-        "18"
+        "18",
+        "35"
       ],
       "blockedOn": null,
       "timeline": "Pine Labs met 11 Aug; rates expected within the week. Policy lands inside the contractor agreement rather than as a standalone memo.",
@@ -1496,6 +1505,10 @@
         {
           "t": "Add reason codes so concessions can be told apart in reporting",
           "done": false
+        },
+        {
+          "t": "Establish the pricing baseline from the fee schedule audit",
+          "done": true
         }
       ],
       "note": "June's actual discounts ran 3.7 to 7.2 per cent, below the level at which an instalment plan pays for itself as a straight replacement for discounting. So the instalment product is better aimed at patients who cannot pay upfront \u2014 today the clinic finances those itself, interest-free and carrying the risk. The discounting behaviour is structural: practitioners are paid on collections, so pulling payment forward pulls their own pay forward."
@@ -1826,6 +1839,138 @@
         }
       ],
       "note": "People & Competence initiative. Handle discreetly."
+    },
+    {
+      "id": "35",
+      "title": "Fee Schedule Reprice & OpenDent Code Standards",
+      "status": "active",
+      "dept": "Finance & Governance",
+      "lens": "Efficiency / Compliance",
+      "owner": "Lu Zhong",
+      "coOwner": "Emily (practice manager)",
+      "why": "A full audit of 20 months of completed procedures against the Standard fee schedule was run to test whether the price list can anchor the discount clause in the doctor contractor agreement. Answer: yes, but only after a repricing pass. Two structural problems were found. First, the list has holes exactly where the volume is - only 79 of 601 codes carry a price (8 of those at RM0), and 90 of the 159 actively-used codes have no price at all. Second, and larger: when a price is reduced it is almost always done by editing the procedure line rather than recording a discount, so roughly RM233k a year of pricing decisions are invisible to management, against RM84k recorded properly.",
+      "next": "Hold the repricing sitting with Emily: set prices for the 22 unpriced codes that carry real volume, fix the 8 list prices that no longer match what is charged, agree one code per procedure across the ten conflicting code groups, and add the Staff & Family, Warranty/Redo and Goodwill discount types. Then write the keying rule into the contractor agreement.",
+      "gate": "The bundling convention must be agreed before any discount policing starts - package cases legitimately carry RM0 lines, and without the convention those read as losses that are not real.",
+      "deps": [
+        "16",
+        "29"
+      ],
+      "blockedOn": null,
+      "timeline": "Audit complete 24 Aug 2026. Repricing sitting with Emily from 26 Aug. Feeds the contractor agreement, which is with counsel now.",
+      "tasks": [
+        {
+          "t": "Audit every completed procedure Oct 2024 - Jun 2026 against the fee schedule",
+          "done": true
+        },
+        {
+          "t": "Confirm the last repricing date from the database (Sep 2024)",
+          "done": true
+        },
+        {
+          "t": "Quantify unrecorded price reductions and where they concentrate",
+          "done": true
+        },
+        {
+          "t": "Build the proposed price list for unpriced and mispriced codes",
+          "done": true
+        },
+        {
+          "t": "Identify code groups where doctors use different codes for the same work",
+          "done": true
+        },
+        {
+          "t": "Publish the findings report for the practice manager discussion",
+          "done": true
+        },
+        {
+          "t": "Repricing sitting - agree the new prices",
+          "done": false
+        },
+        {
+          "t": "Code cleanup - one agreed code per procedure, retire the unspecified codes",
+          "done": false
+        },
+        {
+          "t": "Add the new discount types in OpenDent",
+          "done": false
+        },
+        {
+          "t": "Brief all doctors on the keying rule",
+          "done": false
+        },
+        {
+          "t": "Fold the pricing baseline into the contractor agreement discount clause",
+          "done": false
+        },
+        {
+          "t": "Stand up a monthly compliance report off the daily extracts",
+          "done": false
+        }
+      ]
+    },
+    {
+      "id": "36",
+      "title": "Practice Manager Working Session - Aug 2026",
+      "status": "active",
+      "dept": "People & Competence",
+      "lens": "Efficiency / Compliance",
+      "owner": "Lu Zhong",
+      "coOwner": "Emily",
+      "why": "A single working session to clear the items that have been waiting on the practice manager. Several separate workstreams have all reached a point where they need her operational decision or her sign-off at the same time, and the AutoCount migration puts a hard date on some of them.",
+      "next": "Run the session Wed 26 Aug 10:00. Priority order: issue the AutoCount payment/PO today (3 business day lead time), decide which Saturday takes the OpenDent configuration downtime, then the pricing and discount decisions, the locum method, the front-of-house training date and syllabus, and the marketing blast.",
+      "gate": "The AutoCount payment must be issued 26 Aug or the whole migration chain slips.",
+      "deps": [
+        "1",
+        "16",
+        "19",
+        "29",
+        "30",
+        "35"
+      ],
+      "blockedOn": null,
+      "timeline": "Wed 26 Aug 2026, 10:00.",
+      "tasks": [
+        {
+          "t": "Issue the AutoCount payment / PO (3 business days to licence)",
+          "done": false
+        },
+        {
+          "t": "Decide the OpenDent configuration Saturday - 5 Sep or 12 Sep",
+          "done": false
+        },
+        {
+          "t": "Contractor agreement walkthrough + the new doctor's offer letter",
+          "done": false
+        },
+        {
+          "t": "Discount approach, pricing baseline and instalment plans",
+          "done": false
+        },
+        {
+          "t": "Locum calculation - confirm the procedure-date basis",
+          "done": false
+        },
+        {
+          "t": "Marketing blast progress and what is still outstanding",
+          "done": false
+        },
+        {
+          "t": "Set the front-of-house training date",
+          "done": false
+        },
+        {
+          "t": "WhatsApp shortcuts - which clarifications she can answer herself",
+          "done": false
+        },
+        {
+          "t": "Patient registration form + consolidate the training syllabus",
+          "done": false
+        },
+        {
+          "t": "Owner and practice manager to learn AutoCount before training anyone",
+          "done": false
+        }
+      ]
     }
   ]
 }
