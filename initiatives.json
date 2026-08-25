@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-26 01:02 MYT",
+  "updated": "2026-08-26 01:18 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -1403,14 +1403,14 @@
       "endMonth": "2026-10",
       "ongoing": false,
       "why": "The recall system was built with more triggers than the six, nine and twelve-month recalls we actually switched on. Turning the others on is the cheapest top-line lever available, and the P&L trajectory says business as usual will not close the gap. Messaging even ten thousand lapsed patients costs on the order of RM3,000.",
-      "next": "Code Capsule mtg 18 Aug: Suraya building filter page (tiers/age/visit-count), ~250 sends/day, do-not-message list respected; flow = template -> Meta approval -> blast; price pending from Jason. OWNER NEXT: draft the blast message template + segmentation parameters.",
+      "next": "Code Capsule builds the mini-CRM pieces (excluded-names master list via CSV upload + recall/birthday-recipient exclusion tick, per Jason 24 Aug) and submits the 3 templates for Meta approval. Then: blacklist export back to us, fresh-data re-run of the send list, Lydia PDPA read (L11), price from Jason, final go.",
       "gate": "Do not launch anything while the recall link is broken \u2014 blasting the whole base into a browser security warning is worse than not blasting at all.",
       "deps": [
         "7",
         "2"
       ],
       "blockedOn": null,
-      "timeline": "UNBLOCKED 18 Jul \u2014 the recall link certificate is renewed (valid to 16 Oct) and the vendor has automated the renewal. Post-visit follow-up amendment first (fast, free), then the cold blast.",
+      "timeline": "TARGETING + TEMPLATES DONE 24-26 Aug: full execution pack delivered to Code Capsule \u2014 4,011-message send list (3 waves: 13-36mo 1,238 / 37-60mo 1,096 / 5yr+ & household>=RM1.5k 1,677; ~7.5k cold low-value skipped), 9,833-row excluded list with reasons, 5-slide deck. One message per adult 18+, minors folded into a parent message; recall recipients excluded (mutually exclusive with the recall funnel). Final template wording (anniversary framing, recall house format, button + prefill = Hi iSmile) sent in the CC group 24 Aug 18:52. Aim: Wave 1 lands as the new associate's late-Oct schedule opens; Meta approval by early-mid Sep.",
       "tasks": [
         {
           "t": "Decision taken \u2014 send from the landline now; stop waiting on the mobile approval",
@@ -1432,11 +1432,11 @@
         },
         {
           "t": "Draft the cold reactivation blast, with a bring-the-family angle",
-          "done": false
+          "done": true
         },
         {
           "t": "De-conflict against the reactivation call lists so nobody gets both",
-          "done": false
+          "done": true
         },
         {
           "t": "Send, then measure honestly \u2014 correlation is not proven lift",
@@ -1449,6 +1449,48 @@
         {
           "t": "Certificate auto-renewal automated by the vendor (cron added, confirmed 21 Jul)",
           "done": true
+        },
+        {
+          "t": "Targeting built: 4,011 sends / 3 waves; Elaine households, recall recipients, booked & 2026 visitors excluded (24 Aug)",
+          "done": true
+        },
+        {
+          "t": "3 final templates + Hi iSmile button/prefill sent to Code Capsule in the CC group (24 Aug)",
+          "done": true
+        },
+        {
+          "t": "Execution pack + include & exclude CSVs delivered to Jason/Suraya",
+          "done": true
+        },
+        {
+          "t": "Suraya: excluded-names CSV upload + recall-recipient exclusion tick in mini-CRM",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Meta template approval (submit by early-mid Sep)",
+          "done": false,
+          "now": true
+        },
+        {
+          "t": "Blacklist + households removed by Code Capsule; export shared back",
+          "done": false
+        },
+        {
+          "t": "Exclude Lu Tsen's anniversary outreach list",
+          "done": false
+        },
+        {
+          "t": "Lydia: PDPA basis for cold marketing messaging (L11)",
+          "done": false
+        },
+        {
+          "t": "Fresh-data re-run of the send list the week before Wave 1",
+          "done": false
+        },
+        {
+          "t": "Verify cert renewal fires before 16 Oct (mid-campaign)",
+          "done": false
         }
       ],
       "note": "Birthday trigger de-prioritised by the owner. The review ask moves a lever that already feeds the website automatically."
