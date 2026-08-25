@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-26 00:56 MYT",
+  "updated": "2026-08-26 01:02 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -1848,8 +1848,8 @@
       "lens": "Efficiency / Compliance",
       "owner": "Lu Zhong",
       "coOwner": "Emily (practice manager)",
-      "why": "A full audit of 20 months of completed procedures against the Standard fee schedule was run to test whether the price list can anchor the discount clause in the doctor contractor agreement. Answer: yes, but only after a repricing pass. Two structural problems were found. First, the list has holes exactly where the volume is - only 79 of 601 codes carry a price (8 of those at RM0), and 90 of the 159 actively-used codes have no price at all. Second, and larger: when a price is reduced it is almost always done by editing the procedure line rather than recording a discount, so roughly RM233k a year of pricing decisions are invisible to management, against RM84k recorded properly.",
-      "next": "Hold the repricing sitting with Emily: set prices for the 22 unpriced codes that carry real volume, fix the 8 list prices that no longer match what is charged, agree one code per procedure across the ten conflicting code groups, and add the Staff & Family, Warranty/Redo and Goodwill discount types. Then write the keying rule into the contractor agreement.",
+      "why": "A full audit of 20 months of completed procedures against the Standard fee schedule was run to test whether the price list can anchor the discount clause in the doctor contractor agreement. Answer: yes, but only after a repricing pass. Two structural problems were found. First, the list has holes exactly where the volume is - only 79 of 601 codes carry a price (8 of those at RM0), and 90 of the 159 actively-used codes have no price at all. Second, and larger: when a price is reduced it is almost always done by editing the procedure line rather than recording a discount, so roughly RM233k a year of pricing decisions are invisible to management, against RM84k recorded properly. A follow-up check found the recording habit did not fail to develop - it lapsed. Between 2012 and 2015 the clinic recorded around 110 discounts per thousand procedures; from 2018 onward it records about 22, a five-fold fall with no drop in procedure volume, and every doctor dropped at the same time. The average recorded discount rose from RM43 to RM199, so the large formal discounts survived and the everyday small concession stopped being written down. Referral capture died in the same window, which points at a process or system change around 2015 to 2016 rather than anything to do with the practitioners.",
+      "next": "Hold the repricing sitting with the practice manager first, then run the practitioner session off a finished price list. Frame it as writing down a standard that was never written down, not as retraining - most of the content is genuinely new, and the two most accurate keyers would otherwise be the ones who feel accused. Keep all per-practitioner comparisons out of the group room and handle those individually.",
       "gate": "The bundling convention must be agreed before any discount policing starts - package cases legitimately carry RM0 lines, and without the convention those read as losses that are not real.",
       "deps": [
         "16",
@@ -1904,6 +1904,22 @@
         },
         {
           "t": "Stand up a monthly compliance report off the daily extracts",
+          "done": false
+        },
+        {
+          "t": "Establish what changed around 2015-16 that broke the recording habit",
+          "done": false
+        },
+        {
+          "t": "Run the practitioner session - agreement questions, prices, discounts, codes",
+          "done": false
+        },
+        {
+          "t": "Produce a one page keying card for each surgery",
+          "done": false
+        },
+        {
+          "t": "Review the 2025 miscellaneous negative adjustments as a control question",
           "done": false
         }
       ]
