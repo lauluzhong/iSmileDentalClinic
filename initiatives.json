@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-26 00:30 MYT",
+  "updated": "2026-08-26 00:56 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -2024,6 +2024,10 @@
         },
         {
           "t": "Referral capture - restart the were-you-referred question at the desk",
+          "done": false
+        },
+        {
+          "t": "Establish current unit cost and supplier for retainer/denture/aligner cases",
           "done": false
         }
       ]
