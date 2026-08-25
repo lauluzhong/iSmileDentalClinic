@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-26 00:26 MYT",
+  "updated": "2026-08-26 00:30 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -1968,6 +1968,62 @@
         },
         {
           "t": "Owner and practice manager to learn AutoCount before training anyone",
+          "done": false
+        },
+        {
+          "t": "Checkout rebooking leak - agree the baseline and front desk ownership",
+          "done": false
+        },
+        {
+          "t": "Software and Windows requirement list for the new reception PC",
+          "done": false
+        },
+        {
+          "t": "Supplier register completion incl. the dental sundries group",
+          "done": false
+        },
+        {
+          "t": "Chairside conduct complaints + the junior supervision question",
+          "done": false
+        },
+        {
+          "t": "Loss-making weekdays - compress review blocks, anchor a high value session",
+          "done": false
+        },
+        {
+          "t": "CRM calling - decide caller capacity",
+          "done": false
+        },
+        {
+          "t": "Year end increment amounts - book the sit-down",
+          "done": false
+        },
+        {
+          "t": "Supplier rebate mechanics - does a credit note reduce the monthly cost line",
+          "done": false
+        },
+        {
+          "t": "Invisalign verification - what access is missing to move it off the doctor",
+          "done": false
+        },
+        {
+          "t": "Letters SOP - MDC prefixes, outstanding chops, filing, vector logo",
+          "done": false
+        },
+        {
+          "t": "Staff and family treatment - agree the rule and the approver",
+          "done": false
+        },
+        {
+          "t": "Case allocation - is the hygiene-heavy mix practice or allocation",
+          "done": false
+        },
+        {
+          "t": "Give the practice manager Telegram access to the ops assistant",
+          "done": false
+        },
+        {
+          "t": "Referral capture - restart the were-you-referred question at the desk",
           "done": false
         }
       ]
