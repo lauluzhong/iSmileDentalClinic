@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-26 01:18 MYT",
+  "updated": "2026-08-26 01:21 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -719,12 +719,17 @@
       "owner": "Lu Zhong",
       "coOwner": "Lydia (counsel)",
       "why": "Doctors had NO contract at all, and the employee paperwork was 20 years old. Redraft the employment terms, refresh the handbook, and move doctors onto contractor agreements (not employees) so the classification, the locum mechanics and the procurement rules are all written down.",
-      "next": "Owner to ping Lydia for an update. Understanding: handbook DONE, employee side DONE \u2014 remaining = all-staff handbook acknowledgement sign-off + the contractor agreement (with Lydia, rollout pipeline: Lydia->owner->Emily->Dr Ong->per-doctor copies->night Q&A->sign).",
+      "next": "Review Lydia's final Independent Dental Practitioner Agreement with Emily on 25 Aug, then carry any agreed points into the contractor-agreement rollout (Emily -> Dr Ong -> per-doctor copies -> night Q&A -> sign).",
       "gate": null,
       "deps": [],
       "blockedOn": null,
       "timeline": "Marked-up draft ready 8 Aug. Counsel's answers wanted before the 17 Aug meeting with the incoming junior doctor, since her terms sit in Schedule 1 of this same agreement.",
       "tasks": [
+        {
+          "t": "Review Lydia's shared iSmile - Independent Dental Practitioner Agreement_FINAL.docx with Emily (25 Aug 2026)",
+          "done": false,
+          "now": true
+        },
         {
           "t": "Owner reviewing the marked-up agreement before it goes back to counsel",
           "done": false,
