@@ -1,8 +1,6 @@
 {
-  "updated": "2026-08-26 21:30 MYT",
-  "running": [
-    "wa_group_digest"
-  ],
+  "updated": "2026-08-26 21:34 MYT",
+  "running": [],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -41,7 +39,8 @@
       "last": "2026-08-26 19:40 MYT"
     },
     "wa_group_digest": {
-      "state": "running"
+      "state": "idle",
+      "last": "2026-08-26 21:34 MYT"
     }
   }
 }
