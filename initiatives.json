@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-26 17:18 MYT",
+  "updated": "2026-08-26 17:19 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -2116,7 +2116,7 @@
       "owner": "Lu Zhong",
       "coOwner": "Emily (procurement side)",
       "why": "A long-yield perceived-value play for a premium brand, not a near-term revenue lever. A procurement company that sources for brands has been engaged and is quoting eight dental-specific products plus a fifteen-character collectible series. Generic promo items were explicitly rejected - everything must be dental-specific.",
-      "next": "Receive the quotes, then judge them against our current case spend - which is not recorded anywhere today, so the practice manager needs to confirm the supplier, unit price and pack size first. Volume is now sized from the clinical system at roughly 220 to 300 cases a year, so the minimum order quantity is the real constraint rather than unit price: a typical 500 to 1,000 unit minimum is two to four years of stock. Ask whether a stock case with a printed wrap can beat a fully custom tool.",
+      "next": "The supplier has already answered the key question without being asked: ready made items - the cups and the cases - carry a low minimum if we accept an existing colour swatch and simply apply the logo, while anything needing a custom mould, the plush and the squeezer charm, needs a much higher one. Some items sit at 300 to 500 pieces; 100 is possible on the ready made route. End to end is two to three months, or under two if we only apply a logo. They are waiting on our order quantity: the clinical system says roughly 220 to 300 cases a year, which can be sent now. Only the current unit cost still needs the practice manager.",
       "gate": "The gating decision is whether to commit to an original mascot character. One character investment powers the stickers, plush, keychain, certificates and a selfie corner; without it every item is a standalone cost. Related: there is still no vector master of the logo.",
       "deps": [
         "21"
@@ -2158,6 +2158,41 @@
         },
         {
           "t": "Pick a small pilot - the case is the strongest first buy",
+          "done": false
+        },
+        {
+          "t": "Send the supplier our indicative order quantity",
+          "done": false
+        }
+      ]
+    },
+    {
+      "id": "38",
+      "title": "Payroll & HR Module (Attendance, Leave, Claims)",
+      "status": "active",
+      "dept": "Finance & Governance",
+      "lens": "Efficiency",
+      "owner": "Emily",
+      "coOwner": "Lu Zhong",
+      "why": "Quoted alongside the accounting migration: payroll for 14 staff, plus electronic leave and claims for 12 and clock in and out for 10. It would replace manual leave and attendance handling and feed payroll directly, and it lands while the finance system is being replaced anyway.",
+      "next": "Quotation expected 27 Aug. Compare the annual fee against the manual effort it removes before committing, and decide whether it goes live with the accounting system or after the front desk has settled - stacking two new systems on the same team at once is the main risk.",
+      "gate": "Depends on the accounting migration landing first.",
+      "deps": [
+        "1"
+      ],
+      "blockedOn": null,
+      "timeline": "Headcount confirmed 26 Aug; quotation due 27 Aug.",
+      "tasks": [
+        {
+          "t": "Confirm headcount per module",
+          "done": true
+        },
+        {
+          "t": "Receive and review the quotation",
+          "done": false
+        },
+        {
+          "t": "Decide go-live sequencing against the accounting rollout",
           "done": false
         }
       ]
