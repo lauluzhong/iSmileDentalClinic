@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-26 06:15 MYT",
+  "updated": "2026-08-26 17:18 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -1980,7 +1980,7 @@
       "owner": "Lu Zhong",
       "coOwner": "Emily",
       "why": "A single working session to clear the items that have been waiting on the practice manager. Several separate workstreams have all reached a point where they need her operational decision or her sign-off at the same time, and the AutoCount migration puts a hard date on some of them.",
-      "next": "Run the session Wed 26 Aug 10:00. Priority order: issue the AutoCount payment/PO today (3 business day lead time), decide which Saturday takes the OpenDent configuration downtime, then the pricing and discount decisions, the locum method, the front-of-house training date and syllabus, and the marketing blast.",
+      "next": "Session held 26 Aug. Settled: the subscription timing, the 5 Sep configuration slot with the engineer arriving mid-afternoon so the trading day is not lost, the software list, the contractor agreement walkthrough, the pricing and discount findings, the locum timing approach, the shortcut set and the year-end increment timing. Still open: the supplier register and what we currently pay for cases; a date for the front-desk training, to run on a Saturday after work with dinner; and a new mailbox the practice manager proposed for the registration sheet. Four items were not reached at all - the checkout rebooking leak, the loss-making weekdays, the chairside conduct matter and caller capacity - and these should open the next session.",
       "gate": "The AutoCount payment must be issued 26 Aug or the whole migration chain slips.",
       "deps": [
         "1",
@@ -1995,27 +1995,27 @@
       "tasks": [
         {
           "t": "Issue the AutoCount payment / PO (3 business days to licence)",
-          "done": false
+          "done": true
         },
         {
           "t": "Decide the OpenDent configuration Saturday - 5 Sep or 12 Sep",
-          "done": false
+          "done": true
         },
         {
           "t": "Contractor agreement walkthrough + the new doctor's offer letter",
-          "done": false
+          "done": true
         },
         {
           "t": "Discount approach, pricing baseline and instalment plans",
-          "done": false
+          "done": true
         },
         {
           "t": "Locum calculation - confirm the procedure-date basis",
-          "done": false
+          "done": true
         },
         {
           "t": "Marketing blast progress and what is still outstanding",
-          "done": false
+          "done": true
         },
         {
           "t": "Set the front-of-house training date",
@@ -2023,11 +2023,11 @@
         },
         {
           "t": "WhatsApp shortcuts - which clarifications she can answer herself",
-          "done": false
+          "done": true
         },
         {
           "t": "Patient registration form + consolidate the training syllabus",
-          "done": false
+          "done": true
         },
         {
           "t": "Owner and practice manager to learn AutoCount before training anyone",
@@ -2039,7 +2039,7 @@
         },
         {
           "t": "Software and Windows requirement list for the new reception PC",
-          "done": false
+          "done": true
         },
         {
           "t": "Supplier register completion incl. the dental sundries group",
@@ -2059,7 +2059,7 @@
         },
         {
           "t": "Year end increment amounts - book the sit-down",
-          "done": false
+          "done": true
         },
         {
           "t": "Supplier rebate mechanics - does a credit note reduce the monthly cost line",
@@ -2091,6 +2091,18 @@
         },
         {
           "t": "Establish current unit cost and supplier for retainer/denture/aligner cases",
+          "done": false
+        },
+        {
+          "t": "Set the front desk training date - Saturday after work, then dinner",
+          "done": false
+        },
+        {
+          "t": "Set up the new mailbox for the registration sheet",
+          "done": false
+        },
+        {
+          "t": "Carry the four untouched items into the next session",
           "done": false
         }
       ]
