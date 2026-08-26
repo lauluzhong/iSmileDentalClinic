@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-26 17:19 MYT",
+  "updated": "2026-08-26 17:28 MYT",
   "source": "Contabo ~/.openclaw/loop/initiatives.store.json (edit on VPS or via OpenClaw agent \u2014 no PR needed)",
   "owners": {
     "Lu Zhong": {
@@ -94,11 +94,11 @@
     {
       "id": "2",
       "title": "CRM Reactivation Cold-Calling",
-      "status": "blocked",
+      "status": "parked",
       "owner": "Lu Zhong",
       "coOwner": "Claude (SQL/analysis), Elaine (caller), Owner's brother (CRM owner)",
       "why": "The only near-term revenue lever. Retention game: warm lapsed families fill idle chairs cheaply (~170 idle chair-hours/month). Lu Zhong's personal focus.",
-      "next": "Owner observation 19 Aug: Elaine is calling, but very slowly. Watch throughput; capacity remains the constraint.",
+      "next": "Deprioritised by the owner on 26 Aug. Caller capacity remains the constraint and there is no spare capacity to allocate right now, so the ranked list stays built and idle rather than being worked. Revisit once front of house pressure eases.",
       "gate": null,
       "deps": [
         "7"
@@ -1280,7 +1280,7 @@
     {
       "id": "26",
       "title": "DSA Training Programme",
-      "status": "active",
+      "status": "parked",
       "owner": "Lu Zhong",
       "coOwner": "Senior DSAs \u00b7 General Manager",
       "dept": "people",
@@ -1289,7 +1289,7 @@
       "endMonth": "2026-12",
       "ongoing": false,
       "why": "There is no structured training for the dental surgery assistants and no written standard for how the floor runs during a clinical day. Two doctors have now raised chairside and floor conduct. Most of it looks uninstructed rather than deliberate \u2014 nobody has ever written down what good looks like.",
-      "next": "Ask the two senior assistants to build and run a peer-led session, paid, over dinner for the whole team, focused on doctor-specific chairside preferences. Separately, verify the feedback with the general manager and put the conduct standard in writing.",
+      "next": "Held by the owner on 26 Aug. The intended approach is to raise utilisation so the team is properly occupied, rather than to run a conduct process now. The supervision question should still be verified with the practice manager separately, since that one is about patient safety rather than professionalism.",
       "gate": "A competency matrix per assistant, a quarterly session, and a sign-off \u2014 so it feeds the staff scorecard rather than being a one-off.",
       "deps": [
         "19",
@@ -2116,7 +2116,7 @@
       "owner": "Lu Zhong",
       "coOwner": "Emily (procurement side)",
       "why": "A long-yield perceived-value play for a premium brand, not a near-term revenue lever. A procurement company that sources for brands has been engaged and is quoting eight dental-specific products plus a fifteen-character collectible series. Generic promo items were explicitly rejected - everything must be dental-specific.",
-      "next": "The supplier has already answered the key question without being asked: ready made items - the cups and the cases - carry a low minimum if we accept an existing colour swatch and simply apply the logo, while anything needing a custom mould, the plush and the squeezer charm, needs a much higher one. Some items sit at 300 to 500 pieces; 100 is possible on the ready made route. End to end is two to three months, or under two if we only apply a logo. They are waiting on our order quantity: the clinical system says roughly 220 to 300 cases a year, which can be sent now. Only the current unit cost still needs the practice manager.",
+      "next": "Order quantity sent to the supplier 26 Aug: roughly 220 to 300 cases a year, with a first order framed as six to twelve months of stock. We asked them to quote the ready made route - an existing colour swatch with our logo applied - and to state the lowest minimum that supports, plus a fully custom comparison if it is close. Awaiting their quote. Only the current unit cost still needs the practice manager.",
       "gate": "The gating decision is whether to commit to an original mascot character. One character investment powers the stickers, plush, keychain, certificates and a selfie corner; without it every item is a standalone cost. Related: there is still no vector master of the logo.",
       "deps": [
         "21"
@@ -2162,7 +2162,7 @@
         },
         {
           "t": "Send the supplier our indicative order quantity",
-          "done": false
+          "done": true
         }
       ]
     },
