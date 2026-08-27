@@ -129,7 +129,7 @@ const Home = () => {
     return (
         <div className="home-page" style={{ background: 'linear-gradient(180deg, #FFFFFF 0%, #eff6ff 100%)', minHeight: '100vh' }}>
             <Helmet>
-                <title>Family Dental Clinic in Petaling Jaya | iSmile Damansara Jaya</title>
+                <title>Family Dental Clinic in Damansara Jaya, Petaling Jaya | iSmile</title>
                 <meta name="description" content="Family dental clinic in Damansara Jaya, Petaling Jaya since 2006. Check-ups, braces, implants & kids' dentistry. Rated 4.8★ from 91 Google reviews. WhatsApp us to book." />
                 <link rel="canonical" href="https://ismile.com.my/" />
             </Helmet>
