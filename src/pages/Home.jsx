@@ -1,64 +1,116 @@
 import { useBooking } from '../context/BookingContext';
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowRight, Star, Heart, Shield, Sparkles, Smile, Users, Quote } from 'lucide-react';
+import { ArrowRight, Star, Heart, Shield, Sparkles, Smile, Users } from 'lucide-react';
 import Button from '../components/Button';
 import { Helmet } from 'react-helmet-async';
 import { Reveal } from '../components/Reveal';
-import { motion, useReducedMotion } from 'framer-motion';
+import { useReducedMotion } from 'framer-motion';
 import reviewStats from '../data/review-stats.json';
 import ResponsiveImage from '../components/ResponsiveImage';
-import { isFirstPaint } from '../lib/firstPaint';
 
-// Updated Image Paths
-// Hero art direction. The mobile hero is a full-bleed PORTRAIT box; the desktop
-// hero is a LANDSCAPE card. Serving one landscape file to both meant object-fit
-// cover magnified it ~2.8x on phones AND cropped to 30% of its width, which cut
-// both grandparents out of a "three generations" photo. Mobile now gets the
-// portrait master and desktop a landscape crop of the same shot.
-// `sizes` describes layout WIDTH only, so it under-requests for a cover-cropped
-// portrait box; overstating the mobile slot makes the browser pick the largest
-// variant instead of the 768w one.
-const HERO_SIZES = "(max-width: 768px) 150vw, 50vw";
-
-const FAMILY_HERO = "/images/family_hero_three_generations.jpg";
-const FAMILY_HERO_WEBP = "/images/family_hero_three_generations.webp";
-const GUM_IMG = "/images/blog/concerned_person_brushing.png";
-const GUM_IMG_WEBP = "/images/blog/concerned_person_brushing.webp";
-const SENSITIVITY_IMG = "/images/sensitivity_hero_1765825197668.png";
-const SENSITIVITY_IMG_WEBP = "/images/sensitivity_hero_1765825197668.webp";
-const ORTHO_IMG = "/images/adult_ortho_hero_1765825218135.png";
-const ORTHO_IMG_WEBP = "/images/adult_ortho_hero_1765825218135.webp";
-const VENEER_IMG = "/images/veneers_hero_1765825257935.png";
-const VENEER_IMG_WEBP = "/images/veneers_hero_1765825257935.webp";
-const AIRWAY_IMG = "/images/child_airway_hero_1765825276038.png";
-const AIRWAY_IMG_WEBP = "/images/child_airway_hero_1765825276038.webp";
+// Hero art direction.
+// The hero photo is now a full-height panel that bleeds off the right edge on
+// desktop and covers the whole viewport on phones — in both cases a TALL box.
+// So both breakpoints are served the PORTRAIT master (1024x1536) rather than the
+// landscape crop: cover-fitting a 1024x624 landscape into a tall panel scales it
+// up ~1.3x, while the portrait master is still being scaled DOWN at 1440px.
+// The landscape variants are deliberately no longer referenced.
+// `sizes` is overstated on phones on purpose: it describes layout WIDTH only, so
+// it under-requests for a cover-cropped portrait box.
+const HERO_SIZES = "(max-width: 768px) 150vw, 55vw";
+const HERO_BASE = "/images/family_hero_three_generations_portrait";
 
 // Review avatar WebP variants
 const AVATAR_MIKE_WEBP = "/images/reviews/mike_ngui.webp";
-const AVATAR_MIKE = "/images/reviews/mike_ngui.png";
 const AVATAR_KAH_MUN_WEBP = "/images/reviews/kah_mun_hew.webp";
-const AVATAR_KAH_MUN = "/images/reviews/kah_mun_hew.png";
 const AVATAR_BENNY_WEBP = "/images/reviews/benny_kong.webp";
-const AVATAR_BENNY = "/images/reviews/benny_kong.png";
 
 // Team image
 const TEAM_IMG = "/images/team_group.jpg";
-const TEAM_IMG_WEBP = "/images/team_group.webp";
-
-const MotionLink = motion(Link);
 
 import blogIndex from '../data/blog-index.json';
 import Style from '../components/Style';
+
+// The five areas of care, in the order families actually meet them: the
+// check-up that brings almost everyone through the door first, then the rest.
+// Presented as an editorial list rather than a card grid — see the note on
+// .stage-list below.
+const STAGES = [
+    {
+        to: '/services/protect',
+        eyebrow: 'Protect & repair',
+        title: 'Healthy teeth for life',
+        line: 'Examination and diagnosis, gentle scaling and polishing, fillings and root canal treatment.'
+    },
+    {
+        to: '/services/children',
+        eyebrow: 'Children & growth',
+        title: 'Developing healthy smiles',
+        line: "Early intervention and gentle paediatric care while your child's jaw is still growing."
+    },
+    {
+        to: '/services/straighten',
+        eyebrow: 'Straighten teeth',
+        title: 'Confidence in every smile',
+        line: 'Metal and clear brackets, and clear aligners, for teenagers and adults alike.'
+    },
+    {
+        to: '/services/enhance',
+        eyebrow: 'Enhance smile',
+        title: 'Design your dream smile',
+        line: 'Ceramic veneers, composite bonding and professional whitening.'
+    },
+    {
+        to: '/services/replace',
+        eyebrow: 'Replace teeth',
+        title: 'Speak and smile confidently again',
+        line: 'Premium implants, bridges and custom dentures that restore comfort and function.'
+    }
+];
+
+// Mobile keeps the compact chip grid the owner chose — same five destinations,
+// same order as the desktop list so the two views never disagree.
+const CHIPS = [
+    { to: '/services/protect', label: 'Check-ups & cleaning', Icon: Shield },
+    { to: '/services/children', label: 'Children & growing smiles', Icon: Users },
+    { to: '/services/straighten', label: 'Braces & aligners', Icon: Sparkles },
+    { to: '/services/enhance', label: 'Veneers & whitening', Icon: Star },
+    { to: '/services/replace', label: 'Implants & dentures', Icon: Smile }
+];
+
+const QUOTES = [
+    {
+        // One-line pulls, verbatim from each patient's full Google review (full text on /reviews)
+        text: "My fear of being in the dentist chair has been completely removed by the gentle care I received.",
+        author: "Mike Ngui",
+        avatar: AVATAR_MIKE_WEBP
+    },
+    {
+        text: "I've referred multiple family members here since I first came, because I know they will always be in good hands here at iSmile.",
+        author: "Kah Mun Hew",
+        avatar: AVATAR_KAH_MUN_WEBP
+    },
+    {
+        text: "Above all, I appreciate iSmile's professional care and 'customer first' attitude.",
+        author: "Benny Kong",
+        avatar: AVATAR_BENNY_WEBP
+    }
+];
+
+// Real reviewer names, exactly as they are already published on /reviews.
+// Nothing here is invented; the marquee is a quiet roll-call, not a claim.
+const REVIEWER_NAMES = [
+    'Mike Ngui', 'Kah Mun Hew', 'Benny Kong', 'Ashley Chin', 'Karen Lam',
+    'Lydia Ng', 'Sze Yoong', 'Sook Yeen Lee', 'Tan Bee Wah', 'Christina Phang',
+    'Wee Min Lee', 'Dashaene Mahalingam', 'Fong Lim', 'Gayatri Raja Mohan',
+    'Max Loh', 'Anson Chow'
+];
 
 const Home = () => {
     const { openBooking } = useBooking();
     const navigate = useNavigate();
     const prefersReducedMotion = useReducedMotion();
-    // The homepage is pre-rendered, so on a cold load its markup is already
-    // painted — the bento cards must not fade in from opacity:0 underneath it.
-    const [wasPrerendered] = useState(() => isFirstPaint());
-    const skipEntrance = wasPrerendered || prefersReducedMotion;
 
     // Get the specific blog posts in the requested order
     // Updated 2026-03-28: Feature newest posts covering priority topics
@@ -74,71 +126,77 @@ const Home = () => {
         .map(slug => blogIndex.find(post => post.slug === slug))
         .filter(Boolean);
 
-    // Scroll Animation Logic
-    const scrollSectionRef = useRef(null);
     const heroRef = useRef(null);
-    const [scrollProgress, setScrollProgress] = useState(0);
-    const [heroInView, setHeroInView] = useState(true);
+    const heroMediaRef = useRef(null);
 
-    // Passive + rAF-coalesced: the listener previously ran layout-reading work
-    // (getBoundingClientRect) and a setState on every raw scroll event, on the
-    // main thread, without `passive` — so it could delay the scroll itself.
+    // Hero parallax.
+    //
+    // This listener used to compute a `scrollProgress` state on every frame that
+    // nothing on the page consumed — the leftovers of a scroll effect that had
+    // been removed. It now drives the one thing it was always meant to: the hero
+    // photo drifting slower than the page.
+    //
+    // Written straight to the style property rather than through state, so the
+    // scroll path never triggers a React render.
     useEffect(() => {
+        if (prefersReducedMotion) return;
+
+        const section = heroRef.current;
+        const media = heroMediaRef.current;
+        if (!section || !media) return;
+
         let frame = null;
+        let running = true;
 
         const measure = () => {
             frame = null;
-            const el = scrollSectionRef.current;
-            if (!el) return;
+            if (!running) return;
 
-            const end = el.offsetHeight - window.innerHeight;
-            if (end <= 0) return;
+            const rect = section.getBoundingClientRect();
+            // Past the hero there is nothing to see, so stop writing transforms.
+            if (rect.bottom <= 0 || rect.top >= window.innerHeight) return;
 
-            const raw = -el.getBoundingClientRect().top / end;
-            const progress = Math.min(1, Math.max(0, raw));
-            // Skip no-op renders — this fires for the whole length of the section.
-            setScrollProgress(prev => (Math.abs(prev - progress) < 0.001 ? prev : progress));
+            const travelled = Math.min(1, Math.max(0, -rect.top / rect.height));
+            media.style.transform = `translate3d(0, ${(travelled * 84).toFixed(2)}px, 0)`;
         };
 
-        const handleScroll = () => {
+        const onScroll = () => {
             if (frame === null) frame = window.requestAnimationFrame(measure);
         };
 
         measure();
-        window.addEventListener('scroll', handleScroll, { passive: true });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll, { passive: true });
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            running = false;
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('resize', onScroll);
             if (frame !== null) window.cancelAnimationFrame(frame);
         };
-    }, []);
-
-    // The decorative hero blob loops forever. Once the hero is scrolled away
-    // there is nothing to see, so stop paying for the animation.
-    useEffect(() => {
-        const el = heroRef.current;
-        if (!el || typeof IntersectionObserver === 'undefined') return;
-
-        const observer = new IntersectionObserver(
-            ([entry]) => setHeroInView(entry.isIntersecting),
-            { rootMargin: '100px' }
-        );
-        observer.observe(el);
-        return () => observer.disconnect();
-    }, []);
+    }, [prefersReducedMotion]);
 
     return (
-        <div className="home-page" style={{ background: 'linear-gradient(180deg, #FFFFFF 0%, #eff6ff 100%)', minHeight: '100vh' }}>
+        <div className="home-page">
             <Helmet>
                 <title>Family Dental Clinic in Damansara Jaya, Petaling Jaya | iSmile</title>
                 <meta name="description" content="Family dental clinic in Damansara Jaya, Petaling Jaya since 2006. Check-ups, braces, implants & kids' dentistry. Rated 4.8★ from 91 Google reviews. WhatsApp us to book." />
                 <link rel="canonical" href="https://ismile.com.my/" />
             </Helmet>
 
-            {/* 1. Hero Section */}
+            {/* ============ 1. HERO — the photo bleeds off the page, no frame ============ */}
             <section className="hero-section" ref={heroRef}>
-                <div className="liquid-shape" style={{ top: '12%', left: '6%', width: '340px', height: '340px', background: 'var(--color-secondary)' }}></div>
-                <div className="liquid-shape animate-float" style={{ bottom: '6%', right: '2%', width: '420px', height: '420px', background: 'var(--color-primary)', animationDelay: '1s', animationPlayState: heroInView ? 'running' : 'paused' }}></div>
-                <div className="liquid-shape" style={{ top: '44%', right: '32%', width: '220px', height: '220px', background: 'var(--color-accent)', filter: 'blur(70px)' }}></div>
+                <div className="hero-visual">
+                    <div className="hero-card">
+                        <div className="hero-media" ref={heroMediaRef}>
+                            <picture>
+                                <source type="image/avif" srcSet={`${HERO_BASE}-480w.avif 480w, ${HERO_BASE}-768w.avif 768w, ${HERO_BASE}.avif 1024w`} sizes={HERO_SIZES} />
+                                <source type="image/webp" srcSet={`${HERO_BASE}-480w.webp 480w, ${HERO_BASE}-768w.webp 768w, ${HERO_BASE}.webp 1024w`} sizes={HERO_SIZES} />
+                                <source type="image/jpeg" srcSet={`${HERO_BASE}-480w.jpg 480w, ${HERO_BASE}-768w.jpg 768w, ${HERO_BASE}.jpg 1024w`} sizes={HERO_SIZES} />
+                                <img src={`${HERO_BASE}.jpg`} srcSet={`${HERO_BASE}-480w.jpg 480w, ${HERO_BASE}-768w.jpg 768w, ${HERO_BASE}.jpg 1024w`} sizes={HERO_SIZES} alt="Three generations of a family smiling together at iSmile Dental Clinic" width="1024" height="1536" fetchpriority="high" loading="eager" decoding="async" />
+                            </picture>
+                        </div>
+                    </div>
+                </div>
 
                 <div className="container hero-container">
                     {/* Hero content renders statically — above-the-fold copy must never start at opacity 0 */}
@@ -172,113 +230,58 @@ const Home = () => {
                             <div className="hero-trust-item"><strong>20+</strong> years of trusted care</div>
                         </div>
                     </div>
+                </div>
+            </section>
 
-                    <div className="hero-visual">
-                            <div className="hero-card" style={{ padding: 0, overflow: 'hidden' }}>
-                                <picture>
-                                  <source media="(max-width: 768px)" type="image/avif" srcSet={`/images/family_hero_three_generations_portrait-480w.avif 480w, /images/family_hero_three_generations_portrait-768w.avif 768w, /images/family_hero_three_generations_portrait.avif 1024w`} sizes={HERO_SIZES} />
-                                  <source media="(max-width: 768px)" type="image/webp" srcSet={`/images/family_hero_three_generations_portrait-480w.webp 480w, /images/family_hero_three_generations_portrait-768w.webp 768w, /images/family_hero_three_generations_portrait.webp 1024w`} sizes={HERO_SIZES} />
-                                  <source media="(max-width: 768px)" type="image/jpeg" srcSet={`/images/family_hero_three_generations_portrait-480w.jpg 480w, /images/family_hero_three_generations_portrait-768w.jpg 768w, /images/family_hero_three_generations_portrait.jpg 1024w`} sizes={HERO_SIZES} />
-                                  <source type="image/avif" srcSet={`/images/family_hero_three_generations-480w.avif 480w, /images/family_hero_three_generations-768w.avif 768w, /images/family_hero_three_generations.avif 1024w`} sizes={HERO_SIZES} />
-                                  <source type="image/webp" srcSet={`/images/family_hero_three_generations-480w.webp 480w, /images/family_hero_three_generations-768w.webp 768w, ${FAMILY_HERO_WEBP} 1024w`} sizes={HERO_SIZES} />
-                                  <source type="image/jpeg" srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 1024w`} sizes={HERO_SIZES} />
-                                  <img src={FAMILY_HERO} srcSet={`/images/family_hero_three_generations-480w.jpg 480w, /images/family_hero_three_generations-768w.jpg 768w, ${FAMILY_HERO} 1024w`} sizes={HERO_SIZES} alt="Three generations of a family smiling together at iSmile Dental Clinic" width="1024" height="624" fetchpriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }} />
-                                </picture>
-                                <div className="hero-floating-badge">
-                                    <div className="hero-badge-copy">
-                                        <strong>Trusted by families across multiple generations</strong>
-                                    </div>
-                                </div>
-                            </div>
+            {/* ============ 2. TRUST RAIL — the page changes register for the first time ============ */}
+            <section className="trust-rail">
+                <div className="container trust-rail-inner">
+                    <div className="trust-stat">
+                        <strong>{reviewStats.rating}<span className="trust-star">★</span></strong>
+                        <span>{reviewStats.count} Google reviews</span>
+                    </div>
+                    <span className="trust-divider" aria-hidden="true" />
+                    <div className="trust-stat">
+                        <strong>2006</strong>
+                        <span>In Damansara Jaya since</span>
+                    </div>
+                    <span className="trust-divider" aria-hidden="true" />
+                    <div className="trust-stat">
+                        <strong>6 days</strong>
+                        <span>Open Monday to Saturday</span>
+                    </div>
+                    <span className="trust-divider" aria-hidden="true" />
+                    <div className="trust-stat">
+                        <strong>5</strong>
+                        <span>Areas of care, one roof</span>
                     </div>
                 </div>
             </section>
 
-            {/* 2. Service Bento Grid */}
-            <section className="section-padding services-bento-section">
+            {/* ============ 3. SERVICES — an editorial list, not a card grid ============ */}
+            <section className="section-padding services-section">
                 <div className="container">
-                    <div className="section-header text-center">
-                        <Reveal width="100%"><span className="pill-label">Our Services</span></Reveal>
-                        <Reveal width="100%"><h2 className="section-title services-title">Comprehensive care for <br className="mobile-break" /><span className="text-gradient">every stage of life</span></h2></Reveal>
+                    <div className="section-header services-header">
+                        <Reveal width="100%"><h2 className="section-title">Comprehensive care for <span className="stage-accent">every stage of life</span></h2></Reveal>
                         <Reveal width="100%"><p className="section-lead">A child's first check-up. Braces in the teenage years. A grandparent's new smile. One team that knows your family and grows with it.</p></Reveal>
                     </div>
 
-                    <div className="bento-grid">
-                        {/* Card 1: Maintain & Repair */}
-                        <MotionLink to="/services/protect" className="bento-card" initial={skipEntrance ? false : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -40px 0px" }} transition={{ duration: 0.35, ease: "easeOut" }}>
-                            <div className="card-top">
-                                <span className="card-icon-wrap"><Shield size={26} className="card-icon" /></span>
-                                <ArrowRight size={20} className="card-arrow" />
-                            </div>
-                            <div className="card-content">
-                                <span className="eyebrow">PROTECT & REPAIR</span>
-                                <h3 className="card-headline">Healthy Teeth <br /> For Life</h3>
-                                <p className="card-body">Comprehensive examination & diagnosis, gentle scaling & polishing to help you maintain a healthy smile.</p>
-                            </div>
-                        </MotionLink>
-
-                        {/* Card 2: Straighten Teeth */}
-                        <MotionLink to="/services/straighten" className="bento-card" initial={skipEntrance ? false : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -40px 0px" }} transition={{ duration: 0.35, ease: "easeOut" }}>
-                            <div className="card-top">
-                                <span className="card-icon-wrap"><Sparkles size={26} className="card-icon" /></span>
-                                <ArrowRight size={20} className="card-arrow" />
-                            </div>
-                            <div className="card-content">
-                                <span className="eyebrow">STRAIGHTEN TEETH</span>
-                                <h3 className="card-headline">Confidence in Every Smile</h3>
-                                <p className="card-body">Precision orthodontic treatment with metal or clear brackets and clear aligners for your every need.</p>
-                            </div>
-                        </MotionLink>
-
-                        {/* Card 3: Replace Teeth */}
-                        <MotionLink to="/services/replace" className="bento-card" initial={skipEntrance ? false : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -40px 0px" }} transition={{ duration: 0.35, ease: "easeOut" }}>
-                            <div className="card-top">
-                                <span className="card-icon-wrap"><Smile size={26} className="card-icon" /></span>
-                                <ArrowRight size={20} className="card-arrow" />
-                            </div>
-                            <div className="card-content">
-                                <span className="eyebrow">REPLACE TEETH</span>
-                                <h3 className="card-headline">Speak and Smile Confidently Again</h3>
-                                <p className="card-body">Restoring function with premium implants, bridges, and custom dentures.</p>
-                            </div>
-                        </MotionLink>
-
-                        {/* Card 4: Enhance Smile */}
-                        <MotionLink to="/services/enhance" className="bento-card" initial={skipEntrance ? false : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -40px 0px" }} transition={{ duration: 0.35, ease: "easeOut" }}>
-                            <div className="card-top">
-                                <span className="card-icon-wrap"><Star size={26} className="card-icon" /></span>
-                                <ArrowRight size={20} className="card-arrow" />
-                            </div>
-                            <div className="card-content">
-                                <span className="eyebrow">ENHANCE SMILE</span>
-                                <h3 className="card-headline">Design Your Dream Smile</h3>
-                                <p className="card-body">Aesthetic transformation using ceramic veneers, composite bonding, and professional whitening.</p>
-                            </div>
-                        </MotionLink>
-
-                        {/* Card 5: Children & Growth */}
-                        <MotionLink to="/services/children" className="bento-card" initial={skipEntrance ? false : { opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -40px 0px" }} transition={{ duration: 0.35, ease: "easeOut" }}>
-                            <div className="card-top">
-                                <span className="card-icon-wrap"><Users size={26} className="card-icon" /></span>
-                                <ArrowRight size={20} className="card-arrow" />
-                            </div>
-                            <div className="card-content">
-                                <span className="eyebrow">CHILDREN & GROWTH</span>
-                                <h3 className="card-headline">Developing Healthy Smiles</h3>
-                                <p className="card-body">Early intervention and gentle dental paediatric care to keep your child's smile on track.</p>
-                            </div>
-                        </MotionLink>
+                    <div className="stage-list">
+                        {STAGES.map(stage => (
+                            <Link key={stage.to} to={stage.to} className="stage-row">
+                                <div className="stage-head">
+                                    <span className="stage-eyebrow">{stage.eyebrow}</span>
+                                    <h3 className="stage-title">{stage.title}</h3>
+                                </div>
+                                <p className="stage-line">{stage.line}</p>
+                                <ArrowRight size={22} className="stage-arrow" />
+                            </Link>
+                        ))}
                     </div>
 
-                    {/* Mobile chip grid (Option A) — replaces the swipe carousel on phones */}
+                    {/* Mobile chip grid — replaces the list on phones */}
                     <div className="chip-grid">
-                        {[
-                            { to: '/services/protect', label: 'Check-ups & cleaning', Icon: Shield },
-                            { to: '/services/straighten', label: 'Braces & aligners', Icon: Sparkles },
-                            { to: '/services/replace', label: 'Implants & dentures', Icon: Smile },
-                            { to: '/services/enhance', label: 'Veneers & whitening', Icon: Star },
-                            { to: '/services/children', label: 'Children & growing smiles', Icon: Users }
-                        ].map(({ to, label, Icon }) => (
+                        {CHIPS.map(({ to, label, Icon }) => (
                             <Link key={to} to={to} className="service-chip">
                                 <span className="service-chip-icon"><Icon size={18} /></span>
                                 {label}
@@ -288,67 +291,12 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* 3. Social Proof */}
-            <section className="section-padding reviews-section">
-                <div className="container">
-                    <div className="section-header text-center">
-                        <Reveal width="100%"><span className="pill-label"><Star size={13} fill="#E0A500" color="#E0A500" /> {reviewStats.rating} · {reviewStats.count} Google reviews</span></Reveal>
-                        <Reveal width="100%"><h2 className="section-title reviews-title text-center">Trusted by <span className="text-gradient">families</span></h2></Reveal>
-                    </div>
-                    <div className="reviews-slider">
-                        {[
-                            {
-                                // One-line pulls, verbatim from each patient's full Google review (full text on /reviews)
-                                text: "My fear of being in the dentist chair has been completely removed by the gentle care I received.",
-                                author: "Mike Ngui",
-                                type: "Patient",
-                                avatar: AVATAR_MIKE_WEBP,
-                                rating: 5
-                            },
-                            {
-                                text: "I've referred multiple family members here since I first came, because I know they will always be in good hands here at iSmile.",
-                                author: "Kah Mun Hew",
-                                type: "Patient",
-                                avatar: AVATAR_KAH_MUN_WEBP,
-                                rating: 5
-                            },
-                            {
-                                text: "Above all, I appreciate iSmile's professional care and 'customer first' attitude.",
-                                author: "Benny Kong",
-                                type: "Patient",
-                                avatar: AVATAR_BENNY_WEBP,
-                                rating: 5
-                            }
-                        ].map((review, i) => (
-                            <div key={i} className="glass-panel review-card">
-                                <div className="quote-icon"><Quote size={40} color="var(--color-tint-blue)" /></div>
-                                <div className="review-stars">
-                                    {[...Array(review.rating)].map((_, i) => <Star key={i} size={16} fill="#FFD700" color="#FFD700" />)}
-                                </div>
-                                <div className="review-text"><p>“{review.text}”</p></div>
-                                <div className="review-author">
-                                    <img src={review.avatar} alt={review.author} loading="lazy" width="40" height="40" style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }} />
-                                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                        <strong>{review.author}</strong>
-                                        <span className="review-type">{review.type}</span>
-                                    </div>
-                                    <Link to="/reviews" className="review-more">Full review <ArrowRight size={14} /></Link>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                    <div className="text-center reviews-more-row">
-                        <Link to="/reviews" className="btn-link">See More Reviews <ArrowRight size={16} /></Link>
-                    </div>
-                </div>
-            </section>
-
-            {/* 4. Welcome Section */}
+            {/* ============ 4. THE TEAM — photo runs off the right edge of the page ============ */}
             <section className="section-padding welcome-section">
                 <div className="container">
                     <div className="welcome-container">
                         <div className="welcome-content-split">
-                            <h2 className="welcome-headline">Built on <br /><span className="text-blue">Competency & <br className="desktop-only" />Compassion</span></h2>
+                            <h2 className="welcome-headline">Built on <br /><span className="text-blue">Competency &amp; <br className="desktop-only" />Compassion</span></h2>
                             <p className="welcome-description">
                                 At iSmile, we combine <strong>family-run warmth</strong> with <strong>advanced, high-quality dentistry</strong> to deliver care that is both personal and precise.
                                 With over 20 years of experience, we strive to make every patient feel comfortable, supported, and genuinely cared for.
@@ -359,17 +307,49 @@ const Home = () => {
                         </div>
                         <div className="welcome-image-split">
                             <picture>
-                              <source type="image/avif" srcSet={`/images/team_group-480w.avif 480w, /images/team_group-768w.avif 768w, /images/team_group-1024w.avif 1024w`} sizes="(max-width: 768px) 100vw, 50vw" />
-                              <source type="image/webp" srcSet={`/images/team_group-480w.webp 480w, /images/team_group-768w.webp 768w, /images/team_group-1024w.webp 1024w`} sizes="(max-width: 768px) 100vw, 50vw" />
-                              <source type="image/jpeg" srcSet={`/images/team_group-480w.jpg 480w, /images/team_group-768w.jpg 768w, /images/team_group-1024w.jpg 1024w`} sizes="(max-width: 768px) 100vw, 50vw" />
-                              <img src={TEAM_IMG} srcSet={`/images/team_group-480w.jpg 480w, /images/team_group-768w.jpg 768w, /images/team_group-1024w.jpg 1024w`} sizes="(max-width: 768px) 100vw, 50vw" alt="iSmile Dental Clinic team" width="1024" height="682" loading="lazy" decoding="async" />
+                              <source type="image/avif" srcSet={`/images/team_group-480w.avif 480w, /images/team_group-768w.avif 768w, /images/team_group-1024w.avif 1024w`} sizes="(max-width: 1024px) 100vw, 50vw" />
+                              <source type="image/webp" srcSet={`/images/team_group-480w.webp 480w, /images/team_group-768w.webp 768w, /images/team_group-1024w.webp 1024w`} sizes="(max-width: 1024px) 100vw, 50vw" />
+                              <source type="image/jpeg" srcSet={`/images/team_group-480w.jpg 480w, /images/team_group-768w.jpg 768w, /images/team_group-1024w.jpg 1024w`} sizes="(max-width: 1024px) 100vw, 50vw" />
+                              <img src={TEAM_IMG} srcSet={`/images/team_group-480w.jpg 480w, /images/team_group-768w.jpg 768w, /images/team_group-1024w.jpg 1024w`} sizes="(max-width: 1024px) 100vw, 50vw" alt="iSmile Dental Clinic team" width="1024" height="682" loading="lazy" decoding="async" />
                             </picture>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* 5. Dental Education - Horizontal Scroll */}
+            {/* ============ 5. PROOF — the one dark act on the page ============ */}
+            <section className="proof-section">
+                <div className="container">
+                    <p className="proof-eyebrow">What families say</p>
+                    <h2 className="proof-statement">Every generation.<br /><em>Same chair.</em></h2>
+
+                    <div className="proof-quotes">
+                        {QUOTES.map((quote) => (
+                            <blockquote key={quote.author} className="proof-quote">
+                                <p>“{quote.text}”</p>
+                                <footer className="proof-author">
+                                    <img src={quote.avatar} alt="" aria-hidden="true" loading="lazy" width="36" height="36" />
+                                    <span>{quote.author}</span>
+                                </footer>
+                            </blockquote>
+                        ))}
+                    </div>
+
+                    <div className="proof-actions">
+                        <Link to="/reviews" className="proof-link">Read all {reviewStats.count} reviews <ArrowRight size={16} /></Link>
+                    </div>
+                </div>
+
+                <div className="name-marquee" aria-hidden="true">
+                    <div className="name-marquee-track">
+                        {[...REVIEWER_NAMES, ...REVIEWER_NAMES].map((name, i) => (
+                            <span key={i} className="name-marquee-item">{name}</span>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ============ 6. DENTAL EDUCATION ============ */}
             <section className="section-padding dental-education-section">
                 <div className="container">
                     <div className="section-header flex-between w-full dental-edu-header">
@@ -395,43 +375,92 @@ const Home = () => {
                 </div>
             </section>
 
-            <Style>{`
-        /* General Hero & Section Styles */
-        .mobile-break { display: none; }
-        .hero-section { min-height: 92vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 140px; padding-bottom: 60px; }
-        .hero-container { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; position: relative; z-index: 2; }
-        .hero-content { text-align: left; }
+            {/* ============ 7. CLOSING — the page used to end into the footer ============ */}
+            <section className="closing-cta">
+                <div className="container">
+                    <h2 className="closing-title">Come and meet us</h2>
+                    <p className="closing-line">
+                        We are on Jalan SS 22/23 in Damansara Jaya, open Monday to Saturday. Tell us who is coming in and we will find a time that suits the family.
+                    </p>
+                    <Button onClick={() => openBooking('', 'home-closing-cta')}>Book a Visit <ArrowRight size={18} /></Button>
+                </div>
+            </section>
 
-        /* Bespoke hero eyebrow — replaces the generic AI chip.
-           A thin keyline + small caps label + year, reading like editorial masthead type. */
-        .hero-eyebrow {
-            display: inline-flex; align-items: center; gap: 12px;
-            margin-bottom: 26px;
-            padding: 0; background: none;
+            <Style>{`
+        /* ==========================================================
+           HOMEPAGE
+           The page is composed as alternating bands rather than one
+           continuous field of cards: light hero -> dark trust rail ->
+           light services -> light team -> DARK proof -> light reading ->
+           light close. The register change is what stops a 5,000px page
+           reading as one long scroll of the same object.
+           ========================================================== */
+
+        .home-page { background: linear-gradient(180deg, #FFFFFF 0%, #F4F9FC 62%, #eff6ff 100%); min-height: 100vh; }
+        .mobile-break { display: none; }
+
+        /* ---------- 1. HERO ---------- */
+        /* The photo is no longer a rotated, outlined card floating in a column.
+           It is a full-height panel pinned to the right edge of the viewport
+           that dissolves into the page on its left side. */
+        .hero-section {
+            position: relative;
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding: 150px 0 96px;
         }
+        .hero-container { position: relative; z-index: 2; }
+        .hero-content { text-align: left; max-width: min(560px, 46%); }
+
+        .hero-visual { position: absolute; top: 0; right: 0; bottom: 0; width: 54%; z-index: 1; }
+        .hero-card { position: absolute; inset: 0; overflow: hidden; }
+        /* Parallax wrapper — over-sized top and bottom so the drift never
+           exposes an edge. Transform is written by the scroll effect.
+           The left-edge dissolve is a MASK, not a white gradient painted over
+           the photo. Painting white only matches where the page happens to be
+           pure white; the page background is a gradient, so an opaque white
+           overlay left a faint vertical seam down the join. Masking fades the
+           photo itself to transparent, so it dissolves into whatever colour is
+           actually behind it. */
+        .hero-media {
+            position: absolute; inset: -7% 0; will-change: transform;
+            -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.10) 12%, rgba(0,0,0,0.55) 30%, rgba(0,0,0,0.92) 48%, #000 62%);
+            mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.10) 12%, rgba(0,0,0,0.55) 30%, rgba(0,0,0,0.92) 48%, #000 62%);
+        }
+        .hero-card picture, .hero-card img { display: block; width: 100%; height: 100%; }
+        .hero-card img { object-fit: cover; object-position: center 26%; filter: saturate(0.98) contrast(1.02); }
+
+        /* Empty on desktop — the mask above does the blending. The mobile block
+           gives this the vertical shade the full-bleed phone hero needs. */
+        .hero-card::before {
+            content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+            background: none;
+        }
+        /* No grain overlay. It used to sit on .hero-card to make a stock photo
+           read as art-directed, but an unmasked blend layer over a masked photo
+           draws its own rectangle: the overlay blend stepped the tone exactly at
+           the panel's left edge and put back the vertical seam the mask removes.
+           The bleed does the art direction now. */
+
+        .hero-eyebrow { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 26px; padding: 0; background: none; }
         .hero-eyebrow-mark {
             display: inline-flex; align-items: center; justify-content: center;
             width: 26px; height: 26px; border-radius: 50%;
             background: var(--color-primary-deep); color: #fff; flex-shrink: 0;
         }
-        .hero-eyebrow-text {
-            font-family: var(--font-heading); font-weight: 600;
-            font-size: 0.82rem; letter-spacing: 0.04em;
-            color: var(--color-text-charcoal);
-        }
+        .hero-eyebrow-text { font-family: var(--font-heading); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.04em; color: var(--color-text-charcoal); }
         .hero-eyebrow-year {
             position: relative; padding-left: 14px;
             font-family: var(--font-heading); font-weight: 600;
             font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
             color: var(--color-primary-deep);
         }
-        .hero-eyebrow-year::before {
-            content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
-            width: 1px; height: 14px; background: rgba(16,42,51,0.18);
-        }
-        .hero-title { font-size: var(--fs-display); line-height: 1.05; margin-bottom: 22px; font-weight: 700; letter-spacing: -0.03em; }
-        .hero-subtitle { font-size: var(--fs-lead); color: var(--color-text-slate); margin-bottom: 32px; max-width: 540px; line-height: 1.6; }
-        /* Short mobile subline (Option A) — swapped in below 1024px */
+        .hero-eyebrow-year::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 14px; background: rgba(16,42,51,0.18); }
+
+        .hero-title { font-size: var(--fs-display); line-height: 1.03; margin-bottom: 22px; font-weight: 700; letter-spacing: -0.035em; }
+        .hero-subtitle { font-size: var(--fs-lead); color: var(--color-text-slate); margin-bottom: 32px; max-width: 520px; line-height: 1.6; }
         .hero-subtitle-mobile { display: none; }
         .hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
         .hero-secondary-link { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-heading); font-weight: 600; color: var(--color-primary-deep); font-size: 1rem; transition: gap 0.25s ease; }
@@ -442,216 +471,60 @@ const Home = () => {
         .hero-trust-stars { display: inline-flex; gap: 2px; }
         .hero-trust-divider { width: 1px; height: 22px; background: rgba(16,42,51,0.12); }
 
-        .hero-visual { position: relative; max-width: 460px; margin: 0 auto; }
+        /* ---------- 2. TRUST RAIL ---------- */
+        .trust-rail { background: #0D2A3A; color: rgba(234,243,247,0.92); position: relative; z-index: 3; }
+        .trust-rail-inner { display: flex; align-items: stretch; justify-content: space-between; gap: 28px; padding: 34px 20px; }
+        .trust-stat { display: flex; flex-direction: column; justify-content: center; gap: 8px; min-width: 0; }
+        .trust-stat strong {
+            font-family: var(--font-heading); font-weight: 700;
+            font-size: clamp(1.5rem, 1.2rem + 0.9vw, 2rem);
+            line-height: 1; letter-spacing: -0.025em; color: #fff;
+        }
+        .trust-star { color: var(--color-gold); font-size: 0.7em; margin-left: 3px; }
+        .trust-stat span { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(234,243,247,0.58); line-height: 1.4; }
+        .trust-divider { width: 1px; background: rgba(234,243,247,0.14); flex: none; }
 
-        /* Editorial frame tag — labels the photo as a real patient photo, de-emphasising the "stock" feel */
-        .hero-frame-tag {
-            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-            z-index: 4; white-space: nowrap;
-            font-family: var(--font-heading); font-weight: 600;
-            font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase;
-            color: var(--color-primary-deep);
-            background: #fff; padding: 6px 14px; border-radius: 50px;
-            box-shadow: var(--shadow-sm); border: 1px solid rgba(0,141,176,0.14);
-        }
+        /* ---------- 3. SERVICES ---------- */
+        /* Deliberately NOT cards. Five hairline-separated rows, each one a wide
+           hit area with a slow teal wash on hover. The section reads as an index
+           rather than a grid, which is the whole point of it being here. */
+        .section-header { margin-bottom: 48px; }
+        .services-header { max-width: 720px; }
+        .section-title { margin: 0; font-size: var(--fs-h2); font-weight: 700; line-height: 1.08; letter-spacing: -0.03em; }
+        .stage-accent { color: var(--color-primary-deep); }
+        .section-lead { font-size: var(--fs-lead); color: var(--color-text-slate); max-width: 620px; margin: 18px 0 0; line-height: 1.6; }
 
-        .hero-card {
-            position: relative; border-radius: 24px; overflow: hidden;
-            aspect-ratio: 16/11; width: 100%; max-width: 520px; margin: 0 auto;
-            box-shadow: var(--shadow-lg);
-            transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
-            transform: rotate(-1.25deg);
-            /* Crisp teal keyline so the frame reads as intentional/editorial, not a raw stock drop-in */
-            outline: 6px solid #fff; outline-offset: -6px;
-        }
-        /* Keep the photo natural and warm — just a soft bottom shade for badge legibility
-           and a whisper of grain so it reads as art-directed, not a heavy teal duotone. */
-        .hero-card picture, .hero-card img { display: block; width: 100%; height: 100%; }
-        .hero-card img { filter: saturate(0.98) contrast(1.02); }
-        .hero-card::before {
-            content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
-            background: linear-gradient(180deg, rgba(0,90,118,0) 58%, rgba(0,90,118,0.20) 100%);
-        }
-        .hero-card::after {
-            content: ''; position: absolute; inset: 0; z-index: 3; pointer-events: none; opacity: 0.16;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
-            mix-blend-mode: overlay;
-        }
-        .hero-card:hover { transform: rotate(0deg) scale(1.012); }
-
-        /* Redesigned "generations" badge — elegant glass card with a divider + small-caps label */
-        .hero-floating-badge {
-            position: absolute; bottom: 18px; left: 18px; right: 18px; z-index: 5;
-            display: flex; align-items: center; gap: 14px;
-            background: rgba(255,255,255,0.82);
-            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-            padding: 14px 16px; border-radius: 18px;
-            box-shadow: 0 10px 30px rgba(0,90,118,0.22);
-            border: 1px solid rgba(255,255,255,0.7);
-        }
-        .hero-badge-icon {
-            display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
-            width: 40px; height: 40px; border-radius: 12px;
-            background: linear-gradient(135deg, var(--color-primary-deep), var(--color-primary-teal));
-            color: #fff;
-        }
-        .hero-badge-copy { display: flex; flex-direction: column; line-height: 1.28; min-width: 0; }
-        .hero-badge-copy strong { font-family: var(--font-heading); font-size: 0.92rem; color: var(--color-text-charcoal); }
-        .hero-badge-copy span { font-size: 0.74rem; color: var(--color-text-slate); }
-
-        .section-header { margin-bottom: 56px; }
-        .section-header .pill-label { margin-bottom: 18px; }
-        .section-lead { font-size: var(--fs-lead); color: var(--color-text-slate); max-width: 620px; margin: 18px auto 0; line-height: 1.6; }
-        
-        /* Welcome Section & About Preview Section Redesign */
-        .welcome-section, .about-preview { /* Use default background */ }
-        .welcome-container, .about-card-container {
-            display: flex;
-            align-items: stretch;
-            min-height: 480px;
-            border-radius: 32px;
-            overflow: hidden;
-            background: #fff;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid rgba(16,42,51,0.05);
-            margin: 0 auto;
-        }
-        .welcome-content-split, .about-content-split { 
-            flex: 0.8; 
-            padding: 60px; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center;
-        }
-        .welcome-headline, .about-headline {
-            font-size: var(--fs-h2);
-            font-weight: 700;
-            line-height: 1.05;
-            margin-bottom: 24px;
-            color: var(--color-text-charcoal);
-            letter-spacing: -0.025em;
-        }
-        .welcome-description, .about-description {
-            font-size: var(--fs-lead);
-            color: var(--color-text-slate);
-            margin-bottom: 40px;
-            max-width: 500px;
-            line-height: 1.65;
-        }
-        .welcome-image-split, .about-image-split { 
-            flex: 1.5; 
-            position: relative; 
-            overflow: hidden; 
-            
-        }
-        .welcome-image-split img, .about-image-split img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover;
-            object-position: center 20%;
-        }
-        .section-title { margin-bottom: 0; margin-top: 0; font-size: var(--fs-h2); font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; }
-        .dental-edu-header { margin-bottom: 30px; }
-
-
-        /* Bento Grid Services */
-        .services-bento-section {
-            /* Use default background */
-        }
-
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
-        }
-
-        .bento-card {
-            background-color: #FFFFFF;
-            border-radius: 24px;
-            padding: 28px 24px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            overflow: hidden;
-            text-decoration: none;
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease, border-color 0.5s ease;
-            border: 1px solid rgba(16,42,51,0.06);
-            box-shadow: var(--shadow-sm);
+        .stage-list { border-top: 1px solid rgba(16,42,51,0.10); }
+        .stage-row {
             position: relative;
-            min-height: 240px;
-        }
-
-        .bento-card::before {
-            content: '';
-            position: absolute;
-            inset: 0 0 auto 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--color-primary-deep), var(--color-sky-blue));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .bento-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            border-color: rgba(0,141,176,0.18);
-        }
-        .bento-card:hover::before { opacity: 1; }
-        .bento-card:hover .card-icon-wrap { background: var(--color-primary-teal); transform: scale(1.05); box-shadow: 0 8px 20px rgba(0,141,176,0.30); }
-        /* Keep the icon legible on hover: flip it to white so it stays visible on the teal chip */
-        .bento-card:hover .card-icon-wrap .card-icon { color: #fff; opacity: 1; }
-        .bento-card:hover .card-arrow { opacity: 1; transform: translateX(0); }
-
-        .card-top {
-            margin-bottom: 22px;
-            display: flex;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr) 26px;
             align-items: center;
-            justify-content: space-between;
+            gap: 48px;
+            padding: 34px 24px;
+            border-bottom: 1px solid rgba(16,42,51,0.10);
+            text-decoration: none; color: inherit; overflow: hidden;
         }
-
-        .card-icon-wrap {
-            width: 52px; height: 52px;
-            display: inline-flex; align-items: center; justify-content: center;
-            border-radius: 14px;
-            background: var(--color-tint-light);
-            color: var(--color-primary-deep);
-            transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+        .stage-row::before {
+            content: ''; position: absolute; inset: 0; z-index: 0;
+            background: linear-gradient(90deg, rgba(0,141,176,0.09) 0%, rgba(0,141,176,0.02) 62%, rgba(0,141,176,0) 100%);
+            transform: scaleX(0); transform-origin: left;
+            transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
-        .card-arrow { color: var(--color-primary-teal); opacity: 0; transform: translateX(-6px); transition: all 0.4s ease; }
-
-        .card-icon {
-            color: var(--color-primary);
-            stroke-width: 1.6px;
-            opacity: 0.9;
+        .stage-row:hover::before, .stage-row:focus-visible::before { transform: scaleX(1); }
+        .stage-head, .stage-line, .stage-arrow { position: relative; z-index: 1; }
+        .stage-eyebrow { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-primary-teal); margin-bottom: 12px; }
+        .stage-title {
+            font-family: var(--font-heading); font-weight: 700;
+            font-size: clamp(1.4rem, 1.05rem + 1.1vw, 2.05rem);
+            line-height: 1.1; letter-spacing: -0.025em; color: var(--color-text-charcoal); margin: 0;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
+        .stage-row:hover .stage-title { transform: translateX(10px); }
+        .stage-line { color: var(--color-text-slate); font-size: 1rem; line-height: 1.6; margin: 0; }
+        .stage-arrow { color: var(--color-primary-teal); opacity: 0.3; transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+        .stage-row:hover .stage-arrow { opacity: 1; transform: translateX(8px); }
 
-        .eyebrow {
-            display: block;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            color: var(--color-primary-deep);
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .card-headline {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--color-text-charcoal);
-            line-height: 1.18;
-            margin-bottom: 12px;
-            letter-spacing: -0.01em;
-        }
-
-        .card-body {
-            font-size: 0.92rem;
-            color: var(--color-text-slate);
-            line-height: 1.5;
-        }
-
-        /* Mobile services chip grid (Option A) — hidden on desktop/tablet */
         .chip-grid { display: none; grid-template-columns: 1fr 1fr; gap: 10px; }
         .service-chip {
             display: flex; align-items: center; gap: 10px;
@@ -669,180 +542,122 @@ const Home = () => {
             display: flex; align-items: center; justify-content: center;
         }
 
-        /* Reviews */
-        .reviews-slider { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
-        .review-card {
-            padding: 34px 30px;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            background: #fff;
-            border: 1px solid rgba(16,42,51,0.06);
-            border-radius: 24px;
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease;
+        /* ---------- 4. THE TEAM ---------- */
+        /* The photo leaves the container and runs to the right edge of the
+           viewport. Nothing on this page is allowed to sit in a rounded white
+           box on a near-white background any more. */
+        .welcome-section .container { max-width: none; padding: 0; }
+        .welcome-container { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 0; }
+        .welcome-content-split {
+            padding-right: 64px;
+            padding-left: max(20px, calc((100vw - 1200px) / 2 + 20px));
         }
-        .review-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
-        .quote-icon {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            opacity: 0.5;
-        }
-        .review-text {
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-            color: var(--color-text-slate);
-            flex: 1;
-            line-height: 1.65;
-        }
-        .review-text strong { color: var(--color-text-charcoal); font-weight: 600; }
+        .welcome-headline { font-size: var(--fs-h2); font-weight: 700; line-height: 1.05; margin-bottom: 24px; color: var(--color-text-charcoal); letter-spacing: -0.03em; }
+        .welcome-description { font-size: var(--fs-lead); color: var(--color-text-slate); margin-bottom: 36px; max-width: 500px; line-height: 1.65; }
+        .welcome-image-split { position: relative; height: 560px; overflow: hidden; border-radius: 28px 0 0 28px; }
+        .welcome-image-split picture, .welcome-image-split img { display: block; width: 100%; height: 100%; }
+        .welcome-image-split img { object-fit: cover; object-position: center 20%; }
 
-        .review-text p {
-            margin-bottom: 12px;
+        /* ---------- 5. PROOF (the dark act) ---------- */
+        .proof-section { background: #0D2A3A; color: #EAF3F7; padding: 116px 0 0; overflow: hidden; }
+        .proof-eyebrow { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-sky-blue); margin: 0 0 26px; }
+        .proof-statement {
+            font-family: var(--font-heading); font-weight: 700; color: #fff;
+            font-size: clamp(2.6rem, 1.2rem + 5.6vw, 5.4rem);
+            line-height: 0.97; letter-spacing: -0.04em; margin: 0 0 72px;
         }
+        /* One accent phrase per headline. That is the whole accent budget here. */
+        .proof-statement em { font-style: normal; color: var(--color-sky-blue); }
 
-        .review-text p:last-child {
-            margin-bottom: 0;
+        .proof-quotes { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(234,243,247,0.14); }
+        .proof-quote { margin: 0; padding: 40px 40px 40px 0; border-right: 1px solid rgba(234,243,247,0.14); }
+        .proof-quote:last-child { border-right: none; }
+        .proof-quote:not(:first-child) { padding-left: 40px; }
+        .proof-quote p { font-size: 1.05rem; line-height: 1.62; color: rgba(234,243,247,0.9); margin: 0 0 26px; }
+        .proof-author { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; letter-spacing: 0.04em; color: rgba(234,243,247,0.55); }
+        .proof-author img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex: none; }
+
+        .proof-actions { padding: 44px 0 0; }
+        .proof-link { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-weight: 600; color: var(--color-sky-blue); transition: gap 0.25s ease; }
+        .proof-link:hover { gap: 12px; color: #fff; }
+
+        /* A quiet roll-call of the people who actually left the reviews.
+           Slow on purpose — 64s for one pass. */
+        .name-marquee { margin-top: 84px; border-top: 1px solid rgba(234,243,247,0.12); padding: 26px 0; overflow: hidden; }
+        .name-marquee-track { display: flex; width: max-content; animation: name-marquee 64s linear infinite; }
+        .name-marquee-item {
+            font-family: var(--font-heading); font-size: 0.78rem; font-weight: 600;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: rgba(234,243,247,0.34); white-space: nowrap; padding-right: 26px;
         }
-        .review-author {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border-top: 1px solid rgba(0,0,0,0.05);
-            padding-top: 15px;
-        }
-        .review-type {
-            font-size: 0.82rem;
-            color: var(--color-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .review-more {
-            margin-left: auto;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--color-primary-deep);
-            white-space: nowrap;
-        }
-        .review-more:hover { color: var(--color-primary-teal); }
-        .review-stars { 
-            color: #FFD700; 
-            margin-bottom: 15px; 
-            font-size: 1.2rem;
-            display: flex;
-            gap: 4px;
-        }
+        .name-marquee-item::after { content: '·'; margin-left: 26px; color: rgba(234,243,247,0.18); }
+        @keyframes name-marquee { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
+        @media (prefers-reduced-motion: reduce) { .name-marquee-track { animation: none; } }
+
+        /* ---------- 6. DENTAL EDUCATION ---------- */
+        .dental-edu-header { margin-bottom: 30px; }
         .btn-link { color: var(--color-primary); font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
-        .reviews-more-row { margin-top: 60px; }
-
-        /* About */
-        .split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .image-placeholder-rect { width: 100%; height: 300px; background: #eee; display: flex; align-items: center; justify-content: center; color: #aaa; border-radius: 12px; }
-
-        /* === DENTAL EDUCATION SECTION === */
-        .horizontal-scroll-mask {
-            width: 100%;
-            overflow-x: auto;
-            padding: 20px 0 40px;
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none;  /* IE/Edge */
-        }
-        
-        .horizontal-scroll-mask::-webkit-scrollbar {
-            display: none; /* Chrome/Safari */
-        }
-        
-        .horizontal-track-simple {
-            display: flex;
-            gap: 30px;
-            width: max-content;
-            padding: 0 10px;
-        }
-        
+        .horizontal-scroll-mask { width: 100%; overflow-x: auto; padding: 20px 0 40px; scrollbar-width: none; -ms-overflow-style: none; }
+        .horizontal-scroll-mask::-webkit-scrollbar { display: none; }
+        .horizontal-track-simple { display: flex; gap: 30px; width: max-content; padding: 0 10px; }
         .insight-card-large {
-            width: 70vw; /* Stretch across screen as requested (iPhone style) */
-            max-width: 500px;
-            flex-shrink: 0;
-            padding: 0;
-            overflow: hidden;
+            width: 70vw; max-width: 500px; flex-shrink: 0; padding: 0; overflow: hidden;
             border: 1px solid rgba(0,0,0,0.05);
-            /* Ensure images fit */
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s ease;
         }
-        
-        .insight-image-large {
-            height: 300px;
-            width: 100%;
-        }
-        
-        .insight-image-large picture,
-        .insight-image-large img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .insight-content {
-            padding: 25px; /* Added padding to fix text clipping */
-        }
-        
-        .insight-card-large { box-shadow: var(--shadow-sm); transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease; }
+        .insight-image-large { height: 300px; width: 100%; }
+        .insight-image-large picture, .insight-image-large img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .insight-content { padding: 25px; }
         .insight-card-large:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
-        .insight-card-large .insight-image-large img { transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+        .insight-card-large .insight-image-large img { transition: transform 0.8s cubic-bezier(0.16,1,0.3,1); }
         .insight-card-large:hover .insight-image-large img { transform: scale(1.05); }
-
-        .insight-content h3 {
-            margin-bottom: 12px;
-            font-size: 1.15rem;
-            line-height: 1.3;
-        }
-
-        .read-more-link {
-            font-size: 0.95rem;
-            color: var(--color-primary-deep);
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
+        .insight-content h3 { margin-bottom: 12px; font-size: 1.15rem; line-height: 1.3; }
+        .read-more-link { font-size: 0.95rem; color: var(--color-primary-deep); font-weight: 700; display: inline-flex; align-items: center; gap: 6px; }
         .read-more-link::after { content: '→'; transition: transform 0.25s ease; }
         .insight-card-large:hover .read-more-link::after { transform: translateX(4px); }
 
+        /* ---------- 7. CLOSING ---------- */
+        .closing-cta { padding: 96px 0 120px; text-align: center; }
+        .closing-title { font-family: var(--font-heading); font-weight: 700; font-size: clamp(1.9rem, 1.3rem + 2.4vw, 3rem); line-height: 1.05; letter-spacing: -0.03em; margin: 0 0 20px; color: var(--color-text-charcoal); }
+        .closing-line { font-size: var(--fs-lead); color: var(--color-text-slate); max-width: 560px; margin: 0 auto 34px; line-height: 1.6; }
+
         /* ============================
-           RESPONSIVE — TABLET (481–1024px)
+           RESPONSIVE — TABLET (481-1024px)
            ============================ */
         @media (max-width: 1024px) {
             .desktop-only { display: none; }
             .mobile-break { display: inline; }
 
-            /* Compact mobile rhythm: ~32px section padding (≈64px between sections on tablet) */
             .section-padding { padding: 32px 0; }
             .home-page .section-title { font-size: 2rem; margin-bottom: 0.75rem; line-height: 1.1; }
 
-            /* ---- Hero — Option A immersive full-bleed (photo as background) ---- */
+            /* ---- Hero — immersive full-bleed (photo as background) ---- */
             .hero-section { position: relative; padding: 0; min-height: 100vh; min-height: 100svh; display: block; text-align: left; overflow: hidden; }
-            .hero-section .liquid-shape { display: none; }
             .hero-container { display: block; padding: 0; max-width: none; }
-            .hero-visual { position: absolute; inset: 0; max-width: none; margin: 0; z-index: 1; }
-            .home-page .hero-card { position: absolute; inset: 0; height: 100%; max-width: none; aspect-ratio: auto; transform: none; border-radius: 0; outline: none; box-shadow: none; }
-            .home-page .hero-card img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; filter: none; }
-            /* Option A shade — light at the top, dark at the bottom for text
-               contrast. The portrait crop shows the whole frame vertically, which
-               puts the family's bare feet across the bottom ~20%; the shade now
-               reaches full opacity by 78% so the legs dissolve into the brand
-               navy around shin height instead of ending in toes. */
-            .home-page .hero-card::before { background: linear-gradient(180deg, rgba(15,35,50,0.30) 0%, rgba(15,35,50,0.05) 32%, rgba(13,42,58,0.42) 56%, rgba(13,42,58,0.88) 70%, rgba(13,42,58,1) 78%); }
-            .home-page .hero-card::after { display: none; }
-            .hero-floating-badge { display: none; }
-            .hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; min-height: 100vh; min-height: 100svh; padding: 110px 22px calc(76px + env(safe-area-inset-bottom)); text-align: left; }
+            .hero-visual { position: absolute; inset: 0; width: auto; max-width: none; margin: 0; z-index: 1; }
+            .home-page .hero-card { position: absolute; inset: 0; height: 100%; max-width: none; }
+            /* Full-bleed on phones: the photo has no left edge to dissolve. */
+            .hero-media { -webkit-mask-image: none; mask-image: none; }
+            .home-page .hero-card img { object-position: center 30%; filter: none; }
+            /* Shade — light at the top, dark at the bottom for text contrast. The
+               portrait crop shows the whole frame vertically, which puts the
+               family's bare feet across the bottom ~20%; the shade reaches full
+               opacity by 78% so the legs dissolve into the brand navy around shin
+               height instead of ending in toes. */
+            .home-page .hero-card::before {
+                background: linear-gradient(180deg, rgba(15,35,50,0.30) 0%, rgba(15,35,50,0.05) 32%, rgba(13,42,58,0.42) 56%, rgba(13,42,58,0.88) 70%, rgba(13,42,58,1) 78%);
+            }
+            .hero-content {
+                position: relative; z-index: 2; display: flex; flex-direction: column;
+                align-items: flex-start; justify-content: flex-end;
+                min-height: 100vh; min-height: 100svh; max-width: none;
+                padding: 110px 22px calc(76px + env(safe-area-inset-bottom));
+                text-align: left;
+            }
             .hero-eyebrow { display: none; }
             .hero-subtitle-desktop { display: none; }
             .hero-subtitle-mobile { display: block; }
-            /* Trust line — restored and moved above the headline, per the mock */
             .hero-trust { display: flex; order: -1; margin: 0 0 12px; gap: 10px; color: rgba(255,255,255,0.95); font-size: 0.85rem; }
             .hero-trust-item strong { color: #fff; }
             .hero-trust-divider { display: none; }
@@ -851,61 +666,51 @@ const Home = () => {
             .hero-title .text-gradient { background: none; -webkit-background-clip: initial; background-clip: initial; -webkit-text-fill-color: #fff; color: #fff; }
             .hero-subtitle { font-size: 1rem; color: rgba(255,255,255,0.92); margin: 0 0 18px; max-width: 420px; line-height: 1.55; }
             .hero-actions { gap: 14px; }
-            /* One white pill CTA on the photo */
             .hero-actions .btn { background: #fff; color: var(--color-primary-deep); box-shadow: 0 12px 30px rgba(10,35,50,0.35); }
             .hero-secondary-link { display: none; }
+
+            /* Trust rail — 2x2, still the first change of register */
+            .trust-rail-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 18px; padding: 26px 16px; }
+            .trust-divider { display: none; }
+            .trust-stat strong { font-size: 1.4rem; }
+            .trust-stat span { font-size: 0.64rem; letter-spacing: 0.13em; }
+
             .section-header { margin-bottom: 22px; }
-            .section-header .pill-label { margin-bottom: 10px; }
             .section-lead { font-size: 1rem; margin-top: 10px; }
 
-            /* Services — 2-col grid on tablet, not horizontal scroll */
-            .bento-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
-            }
-            .bento-card {
-                min-height: 180px;
-                padding: 20px;
-                border-radius: 20px;
-            }
-            .bento-card:last-child {
-                grid-column: 1 / -1;
-                max-width: 50%;
-                margin: 0 auto;
-            }
-            .card-headline { font-size: 1.1rem; line-height: 1.2; margin-bottom: 8px; }
-            .card-body { font-size: 0.85rem; line-height: 1.4; opacity: 0.85; }
-            .eyebrow { margin-bottom: 6px; font-size: 0.8125rem; }
-            .card-top { margin-bottom: 16px; }
-            .card-icon { width: 28px; height: 28px; }
+            /* Services — rows tighten to two lines, arrow drops away */
+            .stage-row { grid-template-columns: 1fr; gap: 10px; padding: 22px 12px; }
+            .stage-arrow { display: none; }
+            .stage-eyebrow { margin-bottom: 8px; font-size: 0.66rem; }
+            .stage-title { font-size: 1.35rem; }
+            .stage-row:hover .stage-title { transform: none; }
+            .stage-line { font-size: 0.92rem; }
 
-            /* Welcome — no card wrapper on mobile: content sits directly on the
-               page background, photo keeps rounded corners */
-            .welcome-container { flex-direction: column; background: transparent; box-shadow: none; border: none; border-radius: 0; min-height: 0; }
-            .welcome-content-split { padding: 0; text-align: center; align-items: center; }
+            /* Team — back inside the container, photo above the copy */
+            .welcome-section .container { max-width: 1200px; padding: 0 16px; }
+            .welcome-container { grid-template-columns: 1fr; }
+            .welcome-content-split { padding: 0; text-align: center; }
             .welcome-headline { font-size: 2rem; margin-bottom: 12px; }
-            .welcome-description { font-size: 0.95rem; margin-bottom: 20px; line-height: 1.5; }
-            .welcome-image-split { height: 320px; flex: none; width: 100%; border-radius: 24px; overflow: hidden; margin-top: 24px; }
+            .welcome-description { font-size: 0.95rem; margin-bottom: 20px; line-height: 1.5; margin-left: auto; margin-right: auto; }
+            .welcome-image-split { height: 320px; width: 100%; border-radius: 24px; margin-top: 24px; }
 
-            /* Reviews — 2 visible on tablet */
-            .reviews-slider {
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                gap: 16px;
-                margin: 0;
-                padding: 8px 8px 12px 8px;
-                scrollbar-width: none;
+            /* Proof — quotes become a snap carousel, matching the reading rail */
+            .proof-section { padding: 56px 0 0; }
+            .proof-statement { margin-bottom: 32px; }
+            .proof-quotes {
+                display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+                gap: 16px; padding: 8px 0 12px; scrollbar-width: none;
+                border-top: 1px solid rgba(234,243,247,0.14);
             }
-            .reviews-more-row { margin-top: 12px; }
-            .reviews-slider::-webkit-scrollbar { display: none; }
-            .review-card { 
-                flex: 0 0 calc(50% - 12px);
-                scroll-snap-align: start;
-                padding: 24px; 
-                border-radius: 20px; 
+            .proof-quotes::-webkit-scrollbar { display: none; }
+            .proof-quote {
+                flex: 0 0 82%; scroll-snap-align: start;
+                padding: 26px 0 26px 0; border-right: none;
             }
-            .review-text { font-size: 0.95rem; margin-bottom: 16px; }
+            .proof-quote:not(:first-child) { padding-left: 0; }
+            .proof-quote p { font-size: 0.98rem; margin-bottom: 18px; }
+            .proof-actions { padding-top: 20px; }
+            .name-marquee { margin-top: 40px; padding: 20px 0; }
 
             /* Dental Education — header centered for consistency */
             .dental-edu-header { margin-bottom: 12px; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
@@ -916,43 +721,34 @@ const Home = () => {
             .insight-content { padding: 20px; }
             .insight-content h3 { font-size: 1rem; line-height: 1.3; margin-bottom: 6px; }
             .read-more-link { font-size: 0.9rem; }
+
+            .closing-cta { padding: 44px 0 56px; }
+            .closing-line { font-size: 1rem; margin-bottom: 26px; }
         }
 
         /* ============================
-           RESPONSIVE — PHONE (≤480px)
+           RESPONSIVE — PHONE (<=480px)
            ============================ */
         @media (max-width: 480px) {
-            /* Phone rhythm: 24px section padding ≈ 48px between sections */
             .section-padding { padding: 24px 0; }
             .home-page .section-title { font-size: 1.6rem; margin-bottom: 0.5rem; line-height: 1.1; }
             .section-header { margin-bottom: 18px; }
-            .reviews-more-row { margin-top: 8px; }
 
-            /* Hero — immersive layout already applies at ≤1024px; phone type tweaks only */
             .hero-title { font-size: 2.1rem; line-height: 1.12; margin-bottom: 10px; }
             .hero-subtitle { font-size: 1rem; max-width: 340px; }
             .hero-content { padding-left: 18px; padding-right: 18px; }
             .hero-actions .btn { width: auto; padding: 14px 24px; }
 
-            /* Services — Option A chip grid replaces the swipe carousel */
-            .bento-grid { display: none; }
+            /* Services — chip grid replaces the list on phones */
+            .stage-list { display: none; }
             .chip-grid { display: grid; }
 
-            /* Welcome — card already removed at <=1024px; phone-size tweaks */
             .welcome-headline { font-size: 1.6rem; margin-bottom: 10px; }
             .welcome-description { font-size: 0.88rem; margin-bottom: 16px; }
             .welcome-image-split { height: 260px; border-radius: 20px; margin-top: 20px; }
 
-            /* Reviews — full-width swipe */
-            .review-card { 
-                flex: 0 0 calc(100% - 16px);
-                scroll-snap-align: center;
-                padding: 20px; 
-                border-radius: 18px; 
-            }
-            .review-text { font-size: 0.95rem; margin-bottom: 14px; }
+            .proof-quote { flex: 0 0 88%; }
 
-            /* Dental Education */
             .dental-edu-header { flex-direction: column; align-items: center; gap: 6px; text-align: center; }
             .horizontal-track-simple { gap: 12px; padding: 0 16px; }
             .insight-card-large { width: 240px; border-radius: 16px; }
@@ -961,7 +757,6 @@ const Home = () => {
             .insight-content h3 { font-size: 0.95rem; line-height: 1.3; margin-bottom: 4px; }
             .read-more-link { font-size: 0.85rem; }
         }
-
       `}</Style>
         </div>
     );
