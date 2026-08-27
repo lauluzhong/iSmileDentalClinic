@@ -53,3 +53,5 @@ Between the ages of 5 and 9, we can often use simple, comfortable appliances to 
 **Concerned about your child's breathing or sleep?** Let's evaluate their airway health and growth together in a gentle, caring environment.
 
 *Breathing through your own mouth, or waking with a dry mouth? Adults are affected too — see [why am I breathing through my mouth](/blog/adult-mouth-breathing).*
+
+*Wondering what the daily practice looks like at home? Read our guide to [myofunctional therapy exercises for kids](/blog/myofunctional-therapy-exercises-kids-home).*

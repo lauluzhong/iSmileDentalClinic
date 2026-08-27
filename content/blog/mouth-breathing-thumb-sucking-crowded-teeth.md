@@ -133,3 +133,5 @@ Some children need expanders to widen the upper jaw. Some need LM Activator to r
 <p>To learn more about our approach to myofunctional orthodontics and children's dental development, visit our <a href="https://ismile.com.my/services/children">children's dental service</a> page.</p>
 
 **Your child's smile is worth getting right the first time.** Book a consultation with iSmile Dental Clinic today and find out whether their breathing and habits are on track.
+
+*Still weighing up the thumb habit on its own? See [when should children stop sucking their thumb](/blog/when-should-children-stop-sucking-thumb) for the ages that matter and how to help gently.*

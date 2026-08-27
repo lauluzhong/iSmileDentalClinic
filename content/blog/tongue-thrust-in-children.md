@@ -131,3 +131,5 @@ At iSmile Dental Clinic, every pediatric check-up includes a basic myofunctional
 Tongue thrust is a common and treatable condition. With early recognition and the right approach, most children can develop a correct swallowing pattern that supports healthy dental development and clear speech.
 
 For more information, visit our [myofunctional orthodontics page](https://ismile.com.my/services/children/myofunctional) or explore our [children's dental services](https://ismile.com.my/services/children).
+
+*If your child has already started therapy, our guide to [myofunctional therapy exercises for kids](/blog/myofunctional-therapy-exercises-kids-home) walks through the tongue posture, lip seal and swallow drills that make up the daily practice.*

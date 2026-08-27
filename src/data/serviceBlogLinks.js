@@ -52,8 +52,13 @@ export const SERVICE_BLOG_TOPICS = {
     tags: ['Cosmetic Dentistry'],
   },
   'services/children': {
+    // 'preparing-child-first-dental-visit' rather than the shorter
+    // 'your-childs-first-dental-visit': the two cover the same ground, and the
+    // shorter one is already pinned on /services/children/pediatric-dentistry,
+    // so pinning the longer one here gives each an inbound link of its own
+    // instead of pointing both pages at the same article.
     pinned: [
-      'your-childs-first-dental-visit',
+      'preparing-child-first-dental-visit',
       'why-baby-teeth-matter',
       'early-orthodontic-assessment-children',
     ],
@@ -110,10 +115,15 @@ export const SERVICE_BLOG_TOPICS = {
     tags: ['Cosmetic Dentistry'],
   },
   'services/children/myofunctional': {
+    // 'myofunctional-therapy-exercises-kids-home' answers the question this
+    // page leaves open (what the therapy actually involves day to day), and it
+    // had no inbound link from anywhere in the service tree.
+    // 'myofunctional-therapy-before-after-braces' keeps its link from
+    // /blog/child-candidate-myofunctional-orthodontics.
     pinned: [
       'mouth-breathing-in-children',
       'child-candidate-myofunctional-orthodontics',
-      'myofunctional-therapy-before-after-braces',
+      'myofunctional-therapy-exercises-kids-home',
     ],
     tags: ['Myofunctional Orthodontics'],
   },

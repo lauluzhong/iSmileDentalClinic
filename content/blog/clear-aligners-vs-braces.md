@@ -26,7 +26,7 @@ While we carry industry-leading clear aligner brands like Invisalign, Angel, and
 
 Whether you are a busy professional or a parent of an active teen, understanding the daily impact of each option is key to a successful and stress-free journey.
 
-<p>To learn more about our approach to straightening teeth, visit our <a href="https://ismile.com.my/services/straighten">teeth straightening service</a> page.</p>
+<p>To learn more about how we plan and fit clear aligners, visit our <a href="https://ismile.com.my/services/straighten/clear-aligners">clear aligner treatment</a> page.</p>
 
 ### Visibility and Personal Confidence
 

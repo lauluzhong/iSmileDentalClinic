@@ -1,5 +1,7 @@
 ---
 title: "When Should Children Stop Sucking Their Thumb"
+seo_title: "When Should Children Stop Sucking Their Thumb?"
+seo_description: "The age at which a thumb habit starts to affect the front teeth and jaw, gentle ways to help a child stop, and when it is worth asking a dentist."
 date: "2026-05-07"
 excerpt: "Dental effects of prolonged thumb sucking and when parents should help children stop"
 content_type: educational
