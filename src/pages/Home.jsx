@@ -129,7 +129,7 @@ const Home = () => {
     return (
         <div className="home-page" style={{ background: 'linear-gradient(180deg, #FFFFFF 0%, #eff6ff 100%)', minHeight: '100vh' }}>
             <Helmet>
-                <title>Family Dentist Damansara Jaya, PJ | iSmile Dental Clinic</title>
+                <title>Family Dental Clinic in Petaling Jaya | iSmile Damansara Jaya</title>
                 <meta name="description" content="Family dental clinic in Damansara Jaya, Petaling Jaya since 2006. Check-ups, braces, implants & kids' dentistry. Rated 4.8★ from 91 Google reviews. WhatsApp us to book." />
                 <link rel="canonical" href="https://ismile.com.my/" />
             </Helmet>
@@ -145,7 +145,7 @@ const Home = () => {
                     <div className="hero-content">
                         <span className="hero-eyebrow">
                             <span className="hero-eyebrow-mark"><Heart size={13} /></span>
-                            <span className="hero-eyebrow-text">A family practice in Petaling Jaya</span>
+                            <span className="hero-eyebrow-text">A family dental clinic in Petaling Jaya</span>
                             <span className="hero-eyebrow-year">Est. 2006</span>
                         </span>
                         <h1 className="hero-title">
