@@ -4,6 +4,8 @@ import { SERVICE_CATEGORIES, SERVICE_SPECIALTIES } from './src/data/serviceSeo.j
 import { CORE_PAGES } from './src/data/corePagesSeo.js';
 import { relatedServices } from './src/data/blogServiceLinks.js';
 import { pickRelatedPosts } from './src/data/serviceBlogLinks.js';
+import { SERVICE_CONTENT } from './src/data/serviceContent/index.js';
+import { servicesData } from './src/data/servicesData.jsx';
 import imageVariants from './src/data/image-variants.json' with { type: 'json' };
 
 const SITE_URL = 'https://ismile.com.my';
@@ -468,12 +470,23 @@ export default function blogSSG() {
         .replace(/\$\{RATING\}/g, String(reviewStats.rating))
         .replace(/\$\{COUNT\}/g, String(reviewStats.count));
 
+      // Escape + fill stats in one step. Every string that reaches the HTML
+      // goes through this, including the long-form copy from serviceContent/.
+      const safe = (str) => escapeHtml(fillStats(String(str == null ? '' : str)));
+
       let serviceGenerated = 0;
       for (const page of [...SERVICE_CATEGORIES, ...SERVICE_SPECIALTIES]) {
         const canonicalUrl = page.canonical || SITE_URL + '/' + page.path;
         const safeTitle = escapeHtml(fillStats(page.title));
         const safeDescription = escapeHtml(fillStats(page.description));
-        const faqs = page.faqs || [];
+
+        // Long-form body copy (src/data/serviceContent/). serviceSeo.js stays
+        // the source of truth for the head/meta and the original FAQ set; this
+        // only adds body sections and extra questions on top.
+        const longForm = SERVICE_CONTENT[page.path] || { sections: [], faqs: [] };
+        // serviceSeo.js wins on a duplicate question, so the FAQPage graph and
+        // the visible list can't disagree.
+        const faqs = mergeFaqs(page.faqs, longForm.faqs);
 
         const jsonLd = [JSON.stringify({
           "@context": "https://schema.org",
@@ -519,15 +532,46 @@ export default function blogSSG() {
         // shell, so the internal links have to exist here too.
         const reading = pickRelatedPosts(blogIndex, page.path, 3);
 
+        // The treatment list for a category hub (src/data/servicesData.jsx —
+        // the same list the React page renders). Only the hubs get it; on a
+        // specialty page it would just repeat its parent.
+        const crumbSegments = page.path.split('/');
+        const categoryKey = crumbSegments.length === 2 ? crumbSegments[1] : '';
+        const category = categoryKey ? servicesData[categoryKey] : null;
+        const categoryServices = (category && Array.isArray(category.services))
+          ? category.services : [];
+
+        // page.intro is the preferred long-form opener; page.lead is what the
+        // specialty entries actually carry today. The meta description is only
+        // repeated on pages that have neither, so it stays the one visible
+        // paragraph on an otherwise bare hub rather than duplicating the intro.
+        const intro = page.intro || page.lead || '';
+
         const body = [
           '    <h1>' + escapeHtml(fillStats(page.h1 || page.title)) + '</h1>',
-          page.lead ? '    <p>' + escapeHtml(fillStats(page.lead)) + '</p>' : '',
-          '    <p>' + safeDescription + '</p>',
+          intro ? renderParagraphs(intro, safe) : '',
+          !intro || page.description !== intro ? '    <p>' + safeDescription + '</p>' : '',
+          ...longForm.sections.map(s => [
+            '    <section>',
+            s.heading ? '      <h2>' + safe(s.heading) + '</h2>' : '',
+            renderParagraphs(s.body, safe, '      '),
+            '    </section>',
+          ].filter(Boolean).join('\n')),
+          Array.isArray(page.facts) && page.facts.length
+            ? '    <ul>' + page.facts.map(f => '<li>' + safe(f) + '</li>').join('') + '</ul>'
+            : '',
           faqs.length
             ? '    <section><h2>Frequently Asked Questions</h2>' +
-              faqs.map(f => '<h3>' + escapeHtml(fillStats(f.q)) + '</h3><p>' +
-                            escapeHtml(fillStats(f.a)) + '</p>').join('') +
+              faqs.map(f => '<h3>' + safe(f.q) + '</h3><p>' + safe(f.a) + '</p>').join('') +
               '</section>'
+            : '',
+          categoryServices.length
+            ? '    <section><h2>' + safe(category.displayTitle || categoryKey) + ' treatments</h2><ul>' +
+              categoryServices.map(s => '<li>' +
+                (s.path ? '<a href="' + escapeHtml(s.path) + '">' + safe(s.name) + '</a>' : '<strong>' + safe(s.name) + '</strong>') +
+                (s.desc ? ' &ndash; ' + safe(s.desc) : '') +
+              '</li>').join('') +
+              '</ul></section>'
             : '',
           reading.length
             ? '    <section><h2>Dental Education</h2><ul>' +
@@ -666,6 +710,40 @@ function formatDate(isoDate) {
     month: 'short',
     day: 'numeric'
   });
+}
+
+/**
+ * Render a plain-text block (blank-line separated) as escaped <p> elements.
+ * The serviceContent modules hold text, never markup, so nothing here may be
+ * passed through raw — `esc` is the escape-and-fill-stats helper.
+ */
+function renderParagraphs(text, esc, indent = '    ') {
+  return String(text || '')
+    .split(/\n\s*\n/)
+    .map(p => p.trim())
+    .filter(Boolean)
+    .map(p => indent + '<p>' + esc(p.replace(/\s*\n\s*/g, ' ')) + '</p>')
+    .join('\n');
+}
+
+/**
+ * Merge two FAQ lists, de-duplicated by question (case/punctuation-insensitive).
+ * Earlier lists win, so serviceSeo.js stays authoritative.
+ */
+function mergeFaqs(...lists) {
+  const seen = new Set();
+  const out = [];
+  for (const list of lists) {
+    if (!Array.isArray(list)) continue;
+    for (const f of list) {
+      if (!f || !f.q || !f.a) continue;
+      const key = String(f.q).toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push(f);
+    }
+  }
+  return out;
 }
 
 /** Escape HTML special chars for safe insertion into attributes/text nodes */
