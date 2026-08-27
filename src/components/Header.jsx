@@ -392,8 +392,15 @@ const Header = () => {
             z-index: 1000;
             transition: all 0.3s ease;
             padding: 20px 0;
-            background: rgba(248, 250, 252, 0.2);
-            backdrop-filter: blur(20px);
+            /* Unscrolled, the bar has no edge of its own: a blurred translucent
+               panel ends in a hard horizontal cut, which is invisible over a
+               white page and glaringly obvious the moment a hero photo runs up
+               to the top of the viewport. The tint now fades out downward
+               instead, so the header dissolves into whatever is behind it while
+               still keeping the nav links legible over an image.
+               The blur is kept only for the scrolled state, where the bar is
+               opaque enough to own a boundary. */
+            background: linear-gradient(180deg, rgba(248, 250, 252, 0.72) 0%, rgba(248, 250, 252, 0.42) 52%, rgba(248, 250, 252, 0) 100%);
         }
 
         .header.header-dark {
