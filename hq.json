@@ -2,9 +2,9 @@
  "decisions": [
   {
    "hot": true,
-   "k": "By ~end Aug",
+   "k": "She has tendered",
    "t": "Dr Jun's offer letter",
-   "w": "She tenders ~end Aug for a late-Oct start. Close first: 55k\u219250% tier, Oct pro-rating.",
+   "w": "She resigned on a handshake for a 26 Oct start. Paper owed to her now. Close: 55k\u219250% tier, Oct pro-rating.",
    "ref": "g4"
   },
   {
@@ -844,10 +844,10 @@
     },
     {
      "id": "g4",
-     "dot": "blocked",
-     "chip": "offer letter",
+     "dot": "now",
+     "chip": "tendered",
      "name": "Dr Jun (new doctor)",
-     "one": "Starts Mon 26 Oct, 5 days/wk. Terms agreed verbally; the offer letter is the critical path \u2014 she tenders ~end Aug.",
+     "one": "She has tendered and the 26 Oct start is agreed with her boss. She did it on a handshake \u2014 the offer letter is now about honouring that, not racing her notice.",
      "steps": [
       {
        "t": "Terms agreed: RM7k/6mo or 40%, whichever higher",
@@ -860,16 +860,21 @@
        "w": "20 Aug"
       },
       {
-       "t": "First date confirmed: Mon 26 Oct",
+       "t": "First date confirmed with her boss: Mon 26 Oct",
        "s": "done",
        "w": "28 Aug"
+      },
+      {
+       "t": "She has TENDERED \u2014 ahead of any paper",
+       "s": "done",
+       "w": "~28 Aug"
       },
       {
        "t": "Offer letter issued",
        "s": "now"
       },
       {
-       "t": "She signs \u00b7 tenders (~2 months notice)",
+       "t": "She signs",
        "s": ""
       },
       {
@@ -891,9 +896,11 @@
       }
      ],
      "open": [
-      "Close before paper: 55k\u219250% tier (leaning: keep, consistency), Oct pro-rating",
+      "<b>She has resigned on a verbal agreement</b> \u2014 she now carries all the risk. Get the letter to her promptly; that is a trust obligation, not admin",
+      "Close in the letter: 55k\u219250% tier (leaning: keep, consistency), Oct pro-rating (26 Oct start = part month)",
       "Ling arrangement: apprentice override vs independent \u2014 fair remuneration expected; design as clinic-paid supervision fee, not fee-splitting",
-      "<b>She builds her own book</b> \u2014 the RM7k floor is the ramp support; blast + call-list patients route to her"
+      "<b>She builds her own book</b> \u2014 the RM7k floor is the ramp support; blast + call-list patients route to her",
+      "Time Wave 1 of the blast so replies land as her book opens"
      ]
     },
     {
@@ -1260,6 +1267,6 @@
  ],
  "meta": {
   "asof": "FRI 28 AUG 2026",
-  "updated": "2026-08-28T18:36:28+08:00"
+  "updated": "2026-08-28T18:41:48+08:00"
  }
 }
