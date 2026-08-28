@@ -5,6 +5,13 @@
       "ts": "2026-08-28 19:40 MYT",
       "agent": "analytics",
       "job": "margin_build",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-08-28 19:40 MYT",
+      "agent": "analytics",
+      "job": "margin_build",
       "event": "started",
       "result": ""
     },
@@ -273,13 +280,6 @@
       "job": "gbp_reply",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-08-25 19:50 MYT",
-      "agent": "analytics",
-      "job": "cash_digest",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
