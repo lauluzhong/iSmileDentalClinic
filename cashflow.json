@@ -1,59 +1,78 @@
 {
   "as_of": "2026-08-28",
-  "mode": "midday",
+  "mode": "eod",
   "fresh": true,
-  "generated_myt": "2026-08-28 12:05",
+  "generated_myt": "2026-08-28 19:50",
   "source_max_paydate": "2026-08-28",
   "source_max_procdate": "2026-08-28",
   "today": {
-    "collected": 450.0,
-    "produced": 450.0,
-    "patients_seen": 4,
-    "new_patients": 1,
+    "collected": 9240.0,
+    "produced": 9890.0,
+    "patients_seen": 28,
+    "new_patients": 6,
     "by_paytype": {
-      "Credit Card": 450.0
+      "Credit Card": 6640.0,
+      "Cash": 1600.0,
+      "PBB QR": 1000.0
     }
   },
   "mtd": {
-    "collected": 198765.0,
-    "produced": 200250.0,
+    "collected": 207555.0,
+    "produced": 209690.0,
     "trading_days": 23,
-    "avg_per_trading_day": 8641.96,
-    "run_rate_26d": 224690.87,
+    "avg_per_trading_day": 9024.13,
+    "run_rate_26d": 234627.39,
     "by_paytype": {
-      "Credit Card": 185305.0,
-      "Cash": 8500.0,
-      "PBB QR": 3220.0,
+      "Credit Card": 191495.0,
+      "Cash": 10100.0,
+      "PBB QR": 4220.0,
       "Internet Banking": 1740.0
     }
   },
-  "booked_next_14d": 287,
+  "booked_next_14d": 267,
   "forward_book": {
     "next_7d": {
       "days": 7,
-      "appts": 127,
-      "booked_min": 7800,
+      "appts": 129,
+      "booked_min": 7770,
       "capacity_min": 11120,
-      "pct": 70.14388489208633
+      "pct": 69.87410071942446
     },
     "next_14d": {
       "days": 14,
-      "appts": 258,
-      "booked_min": 14700,
+      "appts": 261,
+      "booked_min": 14610,
       "capacity_min": 22240,
-      "pct": 66.09712230215827
+      "pct": 65.69244604316546
     }
   },
   "doctors_worked": {
-    "count": 2,
+    "count": 5,
     "abbrs": [
       "Amy",
-      "Mah"
+      "Joan",
+      "Ling",
+      "Mah",
+      "Pris"
     ]
   },
-  "utilization": null,
+  "utilization": {
+    "chair_minutes": 1460,
+    "operatories": 4,
+    "open_minutes": 480,
+    "capacity_minutes": 1920,
+    "pct": 76.0
+  },
   "pnl": {
-    "available": false,
-    "reason": "n/a (midday)"
+    "locum_est": 3193,
+    "lab_est": 0,
+    "gp": 6697.0,
+    "overhead_day": 3385.08,
+    "ebitda_day": 3311.92,
+    "depreciation_day": 1146.54,
+    "net_day": 2165.38,
+    "visits_matched": 28,
+    "available": true,
+    "produced": 9890.0
   }
 }
