@@ -5,6 +5,13 @@
       "ts": "2026-08-28 18:41 MYT",
       "agent": "engineer",
       "job": "cert_check",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-08-28 18:41 MYT",
+      "agent": "engineer",
+      "job": "cert_check",
       "event": "started",
       "result": ""
     },
@@ -273,13 +280,6 @@
       "job": "cash_digest",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-08-25 19:40 MYT",
-      "agent": "analytics",
-      "job": "margin_build",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
