@@ -1,5 +1,7 @@
 ---
 title: "Preparing Your Child for Their First Dental Visit"
+seo_title: "How to Prepare Your Child for a First Dental Visit in Malaysia"
+seo_description: "What to say beforehand, what the dentist actually checks on the day, and how to settle a nervous toddler. A practical guide for parents in Petaling Jaya."
 date: 2026-05-08
 excerpt: "Practical tips for parents to make their child's first dental visit positive and stress-free"
 content_type: educational

@@ -80,7 +80,7 @@ If you're considering cosmetic dentistry in Damansara Jaya, explore our comprehe
 - [Cosmetic dentistry overview](https://ismile.com.my/services/enhance) - Complete smile enhancement treatments
 - [Teeth whitening services](https://ismile.com.my/services/enhance) - Professional smile brightening
 - [Dental veneers and bonding](https://ismile.com.my/services/enhance) - Smile transformation options
-- [Clear aligner treatment](https://ismile.com.my/services/straighten) - Discreet teeth straightening
+- [Clear aligner treatment](https://ismile.com.my/services/straighten/clear-aligners) - Discreet teeth straightening
 - [Our Damansara Jaya location](https://ismile.com.my/services/locations/damansara-jaya) - Convenient local cosmetic dentistry
 
 For personalized advice about cosmetic dental treatments, schedule a consultation to discuss your smile goals and explore suitable options.

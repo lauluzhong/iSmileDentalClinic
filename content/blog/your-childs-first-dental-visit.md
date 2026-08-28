@@ -50,3 +50,5 @@ Building a "dental home" early means you have a dedicated partner in your child'
 Bringing your child in when that first tooth pops through is a wonderful milestone! It's a great time to start their journey towards a lifetime of healthy, happy smiles.
 
 **Is it time for your little one's debut?** Schedule a fun, friendly "happy visit" with us at our [Damansara Jaya clinic](/services/locations/damansara-jaya) today and let's start their smile story together.
+
+*Want a step by step run through of the day itself? Read [preparing your child for their first dental visit](/blog/preparing-child-first-dental-visit).*

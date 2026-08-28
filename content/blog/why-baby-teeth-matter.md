@@ -85,6 +85,7 @@ For comprehensive dental care for your child, consider exploring:
 - [Myofunctional orthodontics](https://ismile.com.my/services/children/myofunctional) - Early intervention for oral habits
 - [Preventive dental care](https://ismile.com.my/services/protect) - Routine check-ups and maintenance
 - [Our complete dental services](https://ismile.com.my/services) - Full range of treatments for all ages
-- [Your child's first dental visit](https://ismile.com.my/services/children) - Gentle introduction to dental care
+- [Preparing your child for their first dental visit](/blog/preparing-child-first-dental-visit) - How to make that first appointment a calm one
+- [When should children stop sucking their thumb](/blog/when-should-children-stop-sucking-thumb) - What the habit does to baby teeth, and when to step in
 
 For personalized advice about your child's dental development, schedule a consultation with a dental professional who can assess their specific needs and provide appropriate guidance.
