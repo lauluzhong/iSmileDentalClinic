@@ -66,8 +66,8 @@ export const CORE_PAGES = [
   },
   {
     path: 'about',
-    title: "About iSmile — Family Dental Clinic in Petaling Jaya",
-    description: "Meet the team at iSmile Dental Clinic, Damansara Jaya — a family practice caring for Petaling Jaya smiles since 2006. WhatsApp us to book a visit.",
+    title: "About iSmile Dental Clinic — Our Team in Damansara Jaya, PJ",
+    description: "Meet the team at iSmile Dental Clinic, Damansara Jaya — caring for Petaling Jaya smiles since 2006. WhatsApp us to book a visit.",
     h1: "Where Competency and Compassion Meet",
     intro: "iSmile Dental Clinic has been a family dental practice in Damansara Jaya, Petaling Jaya since 2006, founded by principal dentist Dr Ong. We care for families across Selangor — from children’s first visits through to implants and orthodontics.",
   },
