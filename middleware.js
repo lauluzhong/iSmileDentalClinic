@@ -15,6 +15,7 @@ import { next, rewrite } from '@vercel/functions';
  *
  * Clean URLs (the only ones that should ever be shared):
  *   /dashboard            → Command Center hub   (public/dashboard/index.html)
+ *   /dashboard/hq         → iSmile HQ pillar view (public/dashboard/hq.html)
  *   /dashboard/margin     → margin dashboard      (public/dashboard/margin.html)
  *   /dashboard/analytics  → website analytics      (public/dashboard/analytics.html)
  *   /dashboard/margin-data.js → data asset for the margin dashboard
@@ -36,6 +37,7 @@ const LEGACY = {
 const PAGES = {
   '/dashboard': '/dashboard/index.html',
   '/dashboard/': '/dashboard/index.html',
+  '/dashboard/hq': '/dashboard/hq.html',
   '/dashboard/margin': '/dashboard/margin.html',
   '/dashboard/analytics': '/dashboard/analytics.html',
 };
@@ -43,6 +45,7 @@ const PAGES = {
 // physical .html → its clean URL (so the .html form is never user-facing)
 const CANONICAL = {
   '/dashboard/index.html': '/dashboard',
+  '/dashboard/hq.html': '/dashboard/hq',
   '/dashboard/margin.html': '/dashboard/margin',
   '/dashboard/analytics.html': '/dashboard/analytics',
 };
