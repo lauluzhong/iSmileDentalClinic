@@ -4,14 +4,14 @@
    "hot": true,
    "k": "By ~end Aug",
    "t": "Dr Jun's offer letter",
-   "w": "She tenders ~end Aug for a late-Oct start. Close first: 55k→50% tier, Oct pro-rating.",
+   "w": "She tenders ~end Aug for a late-Oct start. Close first: 55k\u219250% tier, Oct pro-rating.",
    "ref": "g4"
   },
   {
    "hot": true,
    "k": "Gates Pillar 2",
-   "t": "Parents sit-down — doctor rulings",
-   "w": "Tone from the top on locum timing, 10% removal, doctor-borne discounts, IPP — then firm up with Lydia and start the rollout chain.",
+   "t": "Parents sit-down \u2014 doctor rulings",
+   "w": "Tone from the top on locum timing, 10% removal, doctor-borne discounts, IPP \u2014 then firm up with Lydia and start the rollout chain.",
    "ref": "l1"
   },
   {
@@ -23,7 +23,7 @@
   },
   {
    "hot": false,
-   "k": "Next 1–2 weeks",
+   "k": "Next 1\u20132 weeks",
    "t": "Fire the cold blast",
    "w": "Pack is built (4,011 sends / 3 waves). Chase Jason's price, run the exclusion cross-checks, fresh-data re-run, send.",
    "ref": "g1"
@@ -42,18 +42,18 @@
    "l": "Hardware ordered (~10-day lead)",
    "s": "done",
    "iso": "2026-08-24",
-   "tip": "New reception PC + server hardware bought — roughly 10-day flight lead into the 5 Sep slot."
+   "tip": "New reception PC + server hardware bought \u2014 roughly 10-day flight lead into the 5 Sep slot."
   },
   {
-   "d": "26–27 Aug",
+   "d": "26\u201327 Aug",
    "l": "AutoCount payment / PO issued",
    "s": "done",
    "iso": "2026-08-26",
-   "tip": "AutoCount RM4,200 (incl. API module, +2 stock users) and Cloud HRMS RM1,139.05/yr both paid by Emily — 3 business days to licence issue."
+   "tip": "AutoCount RM4,200 (incl. API module, +2 stock users) and Cloud HRMS RM1,139.05/yr both paid by Emily \u2014 3 business days to licence issue."
   },
   {
    "d": "~30 Aug",
-   "l": "Jun tenders · supplier register due",
+   "l": "Jun tenders \u00b7 supplier register due",
    "s": "now",
    "iso": "2026-08-30",
    "tip": "Dr Jun hands in her ~2-month notice at Elite (offer letter must be in her hands), and Emily's full supplier register is committed for end of August."
@@ -70,24 +70,24 @@
    "l": "End-to-end integration test",
    "s": "",
    "iso": "2026-09-02",
-   "tip": "Code Capsule runs the full OpenDent → AutoCount round-trip on the live licence."
+   "tip": "Code Capsule runs the full OpenDent \u2192 AutoCount round-trip on the live licence."
   },
   {
    "d": "5 Sep",
    "l": "OpenDent config downtime, from 3pm (fallback 12 Sep)",
    "s": "",
    "iso": "2026-09-05",
-   "tip": "Bob reconfigures OpenDent for 7–8 hrs starting 3pm — after trading, so the Saturday list is not lost. Slips to 12 Sep if hardware lands late."
+   "tip": "Bob reconfigures OpenDent for 7\u20138 hrs starting 3pm \u2014 after trading, so the Saturday list is not lost. Slips to 12 Sep if hardware lands late."
   },
   {
    "d": "8 Sep",
-   "l": "Align workshop — seat still unanswered",
+   "l": "Align workshop \u2014 seat still unanswered",
    "s": "",
    "iso": "2026-09-08",
-   "tip": "The Invisalign/Align workshop invitation in the management group — the seat has never been answered."
+   "tip": "The Invisalign/Align workshop invitation in the management group \u2014 the seat has never been answered."
   },
   {
-   "d": "Sep–Oct",
+   "d": "Sep\u2013Oct",
    "l": "FOH training + digital receipts window",
    "s": "",
    "iso": "2026-09-25",
@@ -109,17 +109,17 @@
   },
   {
    "d": "Q4",
-   "l": "Cold blast waves · increment sit-down",
+   "l": "Cold blast waves \u00b7 increment sit-down",
    "s": "",
    "iso": "2026-11-20",
-   "tip": "Blast waves 1–3 land and convert; the year-end increment amounts get decided in a sit-down."
+   "tip": "Blast waves 1\u20133 land and convert; the year-end increment amounts get decided in a sit-down."
   },
   {
    "d": "Jan 2027",
    "l": "LHDN e-invoicing mandate",
    "s": "",
    "iso": "2027-01-01",
-   "tip": "E-invoicing becomes mandatory — the regulatory deadline the whole digital pillar was built to beat."
+   "tip": "E-invoicing becomes mandatory \u2014 the regulatory deadline the whole digital pillar was built to beat."
   }
  ],
  "pillars": [
@@ -128,24 +128,24 @@
    "color": "var(--p1)",
    "num": "Pillar 1",
    "name": "Digital Transformation",
-   "mission": "One server, one flow: OpenDent → AutoCount carrying all AR and AP, e-invoicing ready before the Jan 2027 mandate — then a brain on top.",
-   "lead": "PMO: Lu · prime EPM: Code Capsule",
+   "mission": "One server, one flow: OpenDent \u2192 AutoCount carrying all AR and AP, e-invoicing ready before the Jan 2027 mandate \u2014 then a brain on top.",
+   "lead": "PMO: Lu \u00b7 prime EPM: Code Capsule",
    "gtpp": {
     "g": "Rules locked: one invoice per patient, fixed-amount line discounts, the 30-second rule (line edits in OpenDent only), no vendor spend on auto patient creation.",
-    "t": "Integration proven in the side-PC sandbox; licence paid; limits and sync parameters understood. Final integration runs 1–5 Sep.",
+    "t": "Integration proven in the side-PC sandbox; licence paid; limits and sync parameters understood. Final integration runs 1\u20135 Sep.",
     "p": "To write: receipts SOP, digital-form handling SOP, weekly inventory-count SOP (rotated staff; possibly WhatsApp-to-brain updates).",
-    "pe": "FOH training (compulsory: Joanna, Erincy, Jessy, Ida) — AutoCount, receipts, form + Sheet extraction, WhatsApp shortcuts, verbal skills. You and Emily learn AutoCount first. Date pending: a Saturday after work + dinner."
+    "pe": "FOH training (compulsory: Joanna, Erincy, Jessy, Ida) \u2014 AutoCount, receipts, form + Sheet extraction, WhatsApp shortcuts, verbal skills. You and Emily learn AutoCount first. Date pending: a Saturday after work + dinner."
    },
    "streams": [
     {
      "id": "d1",
      "dot": "now",
      "chip": "go-live wk",
-     "name": "OpenDent ↔ AutoCount integration",
-     "one": "The spine. Sandbox proven, licence paid — the true integration happens 1–5 Sep.",
+     "name": "OpenDent \u2194 AutoCount integration",
+     "one": "The spine. Sandbox proven, licence paid \u2014 the true integration happens 1\u20135 Sep.",
      "steps": [
       {
-       "t": "Sandbox on the side PC — integration proven",
+       "t": "Sandbox on the side PC \u2014 integration proven",
        "s": "done"
       },
       {
@@ -163,7 +163,7 @@
        "w": "27 Aug"
       },
       {
-       "t": "Licence issued · data migration · config change",
+       "t": "Licence issued \u00b7 data migration \u00b7 config change",
        "s": "now",
        "w": "1 Sep"
       },
@@ -173,7 +173,7 @@
        "w": "2 Sep"
       },
       {
-       "t": "OpenDent config downtime, 7–8 hrs from 3pm",
+       "t": "OpenDent config downtime, 7\u20138 hrs from 3pm",
        "s": "",
        "w": "Sat 5 Sep"
       },
@@ -182,13 +182,13 @@
        "s": ""
       },
       {
-       "t": "AR sync live — parallel run with paper receipts",
+       "t": "AR sync live \u2014 parallel run with paper receipts",
        "s": ""
       }
      ],
      "open": [
       "Confirm 5 vs 12 Sep once hardware ETA is known",
-      "EasyDent (X-ray) + CCTV stay on the old PC — do not migrate"
+      "EasyDent (X-ray) + CCTV stay on the old PC \u2014 do not migrate"
      ]
     },
     {
@@ -224,7 +224,7 @@
      "dot": "wait",
      "chip": "post go-live",
      "name": "Digital receipts (AR)",
-     "one": "Receipts out of AutoCount replace the paper book — front desk switches only after training.",
+     "one": "Receipts out of AutoCount replace the paper book \u2014 front desk switches only after training.",
      "steps": [
       {
        "t": "Receipt capability confirmed in AutoCount",
@@ -239,28 +239,28 @@
        "s": ""
       },
       {
-       "t": "FOH trained · paper retired",
+       "t": "FOH trained \u00b7 paper retired",
        "s": ""
       }
      ],
      "open": [
-      "Receipt-name nuance: AutoCount name changes stick (parent paying for child, company claims) — teach it explicitly",
-      "Physical receipts continue until training done — decided, not a slip"
+      "Receipt-name nuance: AutoCount name changes stick (parent paying for child, company claims) \u2014 teach it explicitly",
+      "Physical receipts continue until training done \u2014 decided, not a slip"
      ]
     },
     {
      "id": "d4",
      "dot": "blocked",
      "chip": "reg. due now",
-     "name": "AP · suppliers + inventory",
-     "one": "Supplier register → lab + equipment AP in AutoCount → inventory with PO→invoice→receipt flow.",
+     "name": "AP \u00b7 suppliers + inventory",
+     "one": "Supplier register \u2192 lab + equipment AP in AutoCount \u2192 inventory with PO\u2192invoice\u2192receipt flow.",
      "steps": [
       {
        "t": "Supplier register seeded (4 rows)",
        "s": "done"
       },
       {
-       "t": "Full register from Emily — committed end Aug",
+       "t": "Full register from Emily \u2014 committed end Aug",
        "s": "now"
       },
       {
@@ -268,7 +268,7 @@
        "s": ""
       },
       {
-       "t": "Inventory module on · opening stock count",
+       "t": "Inventory module on \u00b7 opening stock count",
        "s": ""
       },
       {
@@ -277,17 +277,17 @@
       }
      ],
      "open": [
-      "<b>RM246k dental-sundries group is not on the register at all</b> — the largest single COGS line",
+      "<b>RM246k dental-sundries group is not on the register at all</b> \u2014 the largest single COGS line",
       "Register also produces the >7-day lab list that stress-tests the locum carry-forward rule",
-      "Stock-count design: DSA or FOH rotated weekly; maybe WhatsApp photo/count → brain → Emily or direct entry"
+      "Stock-count design: DSA or FOH rotated weekly; maybe WhatsApp photo/count \u2192 brain \u2192 Emily or direct entry"
      ]
     },
     {
      "id": "d5",
      "dot": "live",
      "chip": "paid",
-     "name": "AP · payroll / HRMS module",
-     "one": "AutoCount Cloud HRMS bought: RM1,139.05/yr — Payroll 14 · E-leave & E-claim 12 · E-attendance 10. Attendance feeds the same environment.",
+     "name": "AP \u00b7 payroll / HRMS module",
+     "one": "AutoCount Cloud HRMS bought: RM1,139.05/yr \u2014 Payroll 14 \u00b7 E-leave & E-claim 12 \u00b7 E-attendance 10. Attendance feeds the same environment.",
      "steps": [
       {
        "t": "Quote received (final price by headcount)",
@@ -322,8 +322,8 @@
      "id": "d6",
      "dot": "blocked",
      "chip": "data gap",
-     "name": "AP · locum statements",
-     "one": "Calculator already reproduces all 8 doctors to the cent — end-to-end statements now possible under the new timing rules.",
+     "name": "AP \u00b7 locum statements",
+     "one": "Calculator already reproduces all 8 doctors to the cent \u2014 end-to-end statements now possible under the new timing rules.",
      "steps": [
       {
        "t": "Engine built + validated to the cent",
@@ -335,7 +335,7 @@
        "w": "26 Aug"
       },
       {
-       "t": "Payment→procedure allocation convention agreed",
+       "t": "Payment\u2192procedure allocation convention agreed",
        "s": "now"
       },
       {
@@ -348,14 +348,14 @@
       }
      ],
      "open": [
-      "<b>Blocker is data, not rules:</b> only ~9% of paysplits carry a ProcNum — need an allocation convention (e.g. oldest-unpaid-first per patient+doctor), built into the tool, never manual",
+      "<b>Blocker is data, not rules:</b> only ~9% of paysplits carry a ProcNum \u2014 need an allocation convention (e.g. oldest-unpaid-first per patient+doctor), built into the tool, never manual",
       "60-day backstop for implant-case invoices"
      ]
     },
     {
      "id": "d7",
      "dot": "now",
-     "chip": "paid · in transit",
+     "chip": "paid \u00b7 in transit",
      "name": "Hardware & server",
      "one": "New reception PC + the home CPU as the new server beside the old one; OpenDent rep reconfigures everything.",
      "steps": [
@@ -366,7 +366,7 @@
       {
        "t": "Hardware + OpenDent rep invoices paid (Code Capsule)",
        "s": "done",
-       "w": "27–28 Aug"
+       "w": "27\u201328 Aug"
       },
       {
        "t": "PCs in transit (~10-day lead from 24 Aug)",
@@ -379,7 +379,7 @@
       }
      ],
      "open": [
-      "Every OpenDent PC needs reconfiguring after the server moves — more touch-time than the Saturday itself"
+      "Every OpenDent PC needs reconfiguring after the server moves \u2014 more touch-time than the Saturday itself"
      ]
     },
     {
@@ -387,14 +387,14 @@
      "dot": "live",
      "chip": "live",
      "name": "Digital onboarding form",
-     "one": "Live at register.ismile.com.my (+?staff=1 desk view) → Google Sheet → manual keying into OpenDent.",
+     "one": "Live at register.ismile.com.my (+?staff=1 desk view) \u2192 Google Sheet \u2192 manual keying into OpenDent.",
      "steps": [
       {
        "t": "Form built + live on the domain",
        "s": "done"
       },
       {
-       "t": "Sheet access ruling — Emily proposes a dedicated email",
+       "t": "Sheet access ruling \u2014 Emily proposes a dedicated email",
        "s": "now"
       },
       {
@@ -407,7 +407,7 @@
       }
      ],
      "open": [
-      "Sheet holds IC numbers + medical history — settle access + row-deletion policy",
+      "Sheet holds IC numbers + medical history \u2014 settle access + row-deletion policy",
       "Delete the TEST PATIENT row",
       "Parked: Dr Ling's segment questionnaires (airway pre-visit set) as a form module"
      ]
@@ -437,7 +437,7 @@
       }
      ],
      "open": [
-      "Owner ruling 28 Aug: this block belongs under Pillar 1, not finance — it becomes the locum-attribution substrate"
+      "Owner ruling 28 Aug: this block belongs under Pillar 1, not finance \u2014 it becomes the locum-attribution substrate"
      ]
     },
     {
@@ -445,7 +445,7 @@
      "dot": "live",
      "chip": "live",
      "name": "Transcription & AI listening",
-     "one": "The capture arm: walogger records the working WhatsApp groups, Edith listens, digests and answers — the substrate the brain will read.",
+     "one": "The capture arm: walogger records the working WhatsApp groups, Edith listens, digests and answers \u2014 the substrate the brain will read.",
      "steps": [
       {
        "t": "walogger live across the 5 working groups",
@@ -456,7 +456,7 @@
        "s": "done"
       },
       {
-       "t": "Resolve Dr Ling's listener concern — she has an offered opt-out, unanswered",
+       "t": "Resolve Dr Ling's listener concern \u2014 she has an offered opt-out, unanswered",
        "s": "now"
       },
       {
@@ -466,13 +466,13 @@
      ],
      "open": [
       "Keep Edith mention-gated in the management group until Ling responds",
-      "Transcripts live on the Contabo vault — check them before flagging anything as pending"
+      "Transcripts live on the Contabo vault \u2014 check them before flagging anything as pending"
      ]
     },
     {
      "id": "d10",
      "dot": "horizon",
-     "chip": "phase 2–3",
+     "chip": "phase 2\u20133",
      "name": "The brain (local LLM)",
      "one": "A local model on the server traversing OpenDent + AutoCount + mini-CRM: insights on demand, locum runs automated, WhatsApp stock updates.",
      "steps": [
@@ -494,7 +494,7 @@
       }
      ],
      "open": [
-      "Deliberately sequenced after go-live — don't let it pull focus from the integration"
+      "Deliberately sequenced after go-live \u2014 don't let it pull focus from the integration"
      ]
     }
    ]
@@ -505,10 +505,10 @@
    "num": "Pillar 2",
    "name": "Legal & Governance",
    "mission": "Contracts that match how the clinic actually runs: the contractor agreement, clean locum economics, a discount regime doctors self-police, and a handbook everyone has signed.",
-   "lead": "Counsel: Lydia · gate: parents sit-down",
+   "lead": "Counsel: Lydia \u00b7 gate: parents sit-down",
    "gtpp": {
-    "g": "The decisions are made (timing, 10%, discounts, IPP). What's left is tone from the top — run them by your parents, then firm the agreement with Lydia.",
-    "t": "Nothing material — same systems. The one technical piece (per-line locum % + discount lines) lives in Pillar 1.",
+    "g": "The decisions are made (timing, 10%, discounts, IPP). What's left is tone from the top \u2014 run them by your parents, then firm the agreement with Lydia.",
+    "t": "Nothing material \u2014 same systems. The one technical piece (per-line locum % + discount lines) lives in Pillar 1.",
     "p": "Doctors' briefing: OpenDent keying expectations, discount lines mandatory, code consolidation (Emily reviewing the compliance audit). Fold the OpenDent refresher into the agreement forum.",
     "pe": "Employees: sign the handbook acknowledgement (blocked on Lydia, not Emily). Doctors: group forum walkthrough + Q&A night call, then per-doctor Schedule 1 conversations and signatures."
    },
@@ -553,7 +553,7 @@
        "s": ""
       },
       {
-       "t": "Dr Ling 1-to-1 sit-down (overdue) — runs inside this rollout",
+       "t": "Dr Ling 1-to-1 sit-down (overdue) \u2014 runs inside this rollout",
        "s": ""
       },
       {
@@ -566,8 +566,8 @@
       }
      ],
      "open": [
-      "Clause 2.6 names the GM for below-band sign-off — Emily now knows",
-      "Jun's offer letter depends on this being settled — the clock is hers"
+      "Clause 2.6 names the GM for below-band sign-off \u2014 Emily now knows",
+      "Jun's offer letter depends on this being settled \u2014 the clock is hers"
      ]
     },
     {
@@ -596,8 +596,8 @@
       }
      ],
      "open": [
-      "Not yet modelled in the engine — don't change the live calc until the agreement signs",
-      "Simulated: RM0 net effect over 12 months, ±10.8% monthly; 96% settles within a month"
+      "Not yet modelled in the engine \u2014 don't change the live calc until the agreement signs",
+      "Simulated: RM0 net effect over 12 months, \u00b110.8% monthly; 96% settles within a month"
      ]
     },
     {
@@ -605,10 +605,10 @@
      "dot": "now",
      "chip": "decided-ish",
      "name": "Remove the 10% deduction",
-     "one": "Abolish it clinic-wide; offset by doctors bearing their own discounts. Cleaner — especially for Jun — but a real net cost.",
+     "one": "Abolish it clinic-wide; offset by doctors bearing their own discounts. Cleaner \u2014 especially for Jun \u2014 but a real net cost.",
      "steps": [
       {
-       "t": "Simulated across Jun-25→May-26",
+       "t": "Simulated across Jun-25\u2192May-26",
        "s": "done"
       },
       {
@@ -625,8 +625,8 @@
       }
      ],
      "open": [
-      "<b>Costed honestly: −RM57k/yr ex-Ong; 2026 EBITDA ~34k → ~−23k.</b> The offsets recover only ~RM3.3k — this is bought simplicity, own it as such",
-      "Ling's exemption bucket disappears with the rule — one story, not two"
+      "<b>Costed honestly: \u2212RM57k/yr ex-Ong; 2026 EBITDA ~34k \u2192 ~\u221223k.</b> The offsets recover only ~RM3.3k \u2014 this is bought simplicity, own it as such",
+      "Ling's exemption bucket disappears with the rule \u2014 one story, not two"
      ]
     },
     {
@@ -634,7 +634,7 @@
      "dot": "now",
      "chip": "policy set",
      "name": "Discounts & IPP",
-     "one": "Floor price + mandatory discount lines, 100% doctor-borne. IPP as the alternative to upfront discounts — doctor bears MDR above the 0.85% BAU.",
+     "one": "Floor price + mandatory discount lines, 100% doctor-borne. IPP as the alternative to upfront discounts \u2014 doctor bears MDR above the 0.85% BAU.",
      "steps": [
       {
        "t": "20-yr discount forensics (all clean cases = Dr Ling, ~10%)",
@@ -646,11 +646,11 @@
        "w": "20 Aug"
       },
       {
-       "t": "Scenario A chosen: doctor bears MDR — self-policing",
+       "t": "Scenario A chosen: doctor bears MDR \u2014 self-policing",
        "s": "done"
       },
       {
-       "t": "Confirm at parents sit-down · Lydia drafts clause",
+       "t": "Confirm at parents sit-down \u00b7 Lydia drafts clause",
        "s": "now"
       },
       {
@@ -660,8 +660,8 @@
      ],
      "open": [
       "Family benefit stays verbal for contractors (handbook only): free treatment for immediate family, invoiced costs (crowns/implants/aligners) borne by doctor or member",
-      "Scope IPP as ≥12-month treatment courses >RM10k — justification, not money",
-      "Sim says doctor +RM22.6k / clinic −RM2.3k on scenario A — everybody earns more than discounting"
+      "Scope IPP as \u226512-month treatment courses >RM10k \u2014 justification, not money",
+      "Sim says doctor +RM22.6k / clinic \u2212RM2.3k on scenario A \u2014 everybody earns more than discounting"
      ]
     },
     {
@@ -690,7 +690,7 @@
       }
      ],
      "open": [
-      "Azelia is the sole below-pricer — handled via training, not confrontation",
+      "Azelia is the sole below-pricer \u2014 handled via training, not confrontation",
       "Doctor OpenDent training carries this: discount = a line, never an edited price"
      ]
     },
@@ -699,7 +699,7 @@
      "dot": "wait",
      "chip": "on Lydia",
      "name": "Employee contracts & handbook",
-     "one": "New hires signed on Gen-3; long-tenured staff don't re-sign — everyone signs the 2026 handbook acknowledgement instead.",
+     "one": "New hires signed on Gen-3; long-tenured staff don't re-sign \u2014 everyone signs the 2026 handbook acknowledgement instead.",
      "steps": [
       {
        "t": "Gen-3 templates + terminology standard settled",
@@ -731,12 +731,12 @@
    "num": "Pillar 3",
    "name": "Growth",
    "mission": "Fill the chairs: reactivate the lapsed base, stop the checkout leak, land Dr Jun with new demand, and compound the brand (SEO, social, merch, 20th anniversary).",
-   "lead": "Owner-led · retention before acquisition",
+   "lead": "Owner-led \u00b7 retention before acquisition",
    "gtpp": {
     "g": "Spend gates: Jason's blast price, DataForSEO US$50, merch pilot budget. Targets: coffee scheme tiers reset off the honest 54% baseline.",
     "t": "Recall funnel + daily rebooking numbers live via Edith; blast filter page with Suraya; OpenSEO installed, gated on the API key.",
-    "p": "Desk rebooking script (ask-at-checkout — the data says it's decided at the counter, same day), blast exclusion hygiene, review-ask cadence with the standees.",
-    "pe": "FOH verbal/retention training (rejection handling, sales skills) inside the FOH syllabus; DSA girls as videographers; Jun × Ling working-arrangement talk."
+    "p": "Desk rebooking script (ask-at-checkout \u2014 the data says it's decided at the counter, same day), blast exclusion hygiene, review-ask cadence with the standees.",
+    "pe": "FOH verbal/retention training (rejection handling, sales skills) inside the FOH syllabus; DSA girls as videographers; Jun \u00d7 Ling working-arrangement talk."
    },
    "streams": [
     {
@@ -744,7 +744,7 @@
      "dot": "now",
      "chip": "next 2 wks",
      "name": "Cold reactivation blast",
-     "one": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved — bring patients back before year end.",
+     "one": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
      "steps": [
       {
        "t": "Send list + exclusions built (9,833 excluded w/ reasons)",
@@ -760,7 +760,7 @@
        "s": "now"
       },
       {
-       "t": "Blacklist + family cross-check · anniversary-list exclusion",
+       "t": "Blacklist + family cross-check \u00b7 anniversary-list exclusion",
        "s": "now"
       },
       {
@@ -768,11 +768,11 @@
        "s": ""
       },
       {
-       "t": "Wave 1 fires (13–36mo lapsed)",
+       "t": "Wave 1 fires (13\u201336mo lapsed)",
        "s": ""
       },
       {
-       "t": "Waves 2–3 · funnel read via campaign tags",
+       "t": "Waves 2\u20133 \u00b7 funnel read via campaign tags",
        "s": ""
       }
      ],
@@ -812,14 +812,14 @@
      "dot": "now",
      "chip": "~50%",
      "name": "Front-desk retention (rebooking)",
-     "one": "~46% of visits end with nothing booked in 60 days ≈ 2,800 patients/yr — 16× the call list, and it's decided at the counter, same day.",
+     "one": "~46% of visits end with nothing booked in 60 days \u2248 2,800 patients/yr \u2014 16\u00d7 the call list, and it's decided at the counter, same day.",
      "steps": [
       {
        "t": "Honest baseline settled: ~54% on a 60-day window",
        "s": "done"
       },
       {
-       "t": "Maturation hypothesis tested — rejected (+0.8pp only)",
+       "t": "Maturation hypothesis tested \u2014 rejected (+0.8pp only)",
        "s": "done",
        "w": "26 Aug"
       },
@@ -838,8 +838,8 @@
      ],
      "open": [
       "<b>Saturday is the leak: 38% on the 2nd-busiest day</b>; new patients rebook at 22% vs 49% returning",
-      "Flat targets read as unfair — cleaning-heavy days can't match ortho days; target eligible patients or per-weekday",
-      "159 past-dated appointments still 'Scheduled' — desk hygiene"
+      "Flat targets read as unfair \u2014 cleaning-heavy days can't match ortho days; target eligible patients or per-weekday",
+      "159 past-dated appointments still 'Scheduled' \u2014 desk hygiene"
      ]
     },
     {
@@ -847,15 +847,15 @@
      "dot": "blocked",
      "chip": "offer letter",
      "name": "Dr Jun (new doctor)",
-     "one": "Starts last week of Oct, 5 days/wk. Terms agreed verbally; the offer letter is the critical path — she tenders ~end Aug.",
+     "one": "Starts last week of Oct, 5 days/wk. Terms agreed verbally; the offer letter is the critical path \u2014 she tenders ~end Aug.",
      "steps": [
       {
        "t": "Terms agreed: RM7k/6mo or 40%, whichever higher",
        "s": "done",
-       "w": "17–20 Aug"
+       "w": "17\u201320 Aug"
       },
       {
-       "t": "Boss talk done · Elite 2 Sats/mo transition",
+       "t": "Boss talk done \u00b7 Elite 2 Sats/mo transition",
        "s": "done",
        "w": "20 Aug"
       },
@@ -864,15 +864,15 @@
        "s": "now"
       },
       {
-       "t": "She signs · tenders (~2 months notice)",
+       "t": "She signs \u00b7 tenders (~2 months notice)",
        "s": ""
       },
       {
-       "t": "Jun ↔ Dr Ong practitioner chat",
+       "t": "Jun \u2194 Dr Ong practitioner chat",
        "s": ""
       },
       {
-       "t": "Jun ↔ Dr Ling chemistry + arrangement talk",
+       "t": "Jun \u2194 Dr Ling chemistry + arrangement talk",
        "s": ""
       },
       {
@@ -880,14 +880,14 @@
        "s": ""
       },
       {
-       "t": "Starts late Oct · book steered to NEW demand",
+       "t": "Starts late Oct \u00b7 book steered to NEW demand",
        "s": ""
       }
      ],
      "open": [
-      "Close before paper: 55k→50% tier (leaning: keep, consistency), Oct pro-rating",
-      "Ling arrangement: apprentice override vs independent — fair remuneration expected; design as clinic-paid supervision fee, not fee-splitting",
-      "<b>She builds her own book</b> — the RM7k floor is the ramp support; blast + call-list patients route to her"
+      "Close before paper: 55k\u219250% tier (leaning: keep, consistency), Oct pro-rating",
+      "Ling arrangement: apprentice override vs independent \u2014 fair remuneration expected; design as clinic-paid supervision fee, not fee-splitting",
+      "<b>She builds her own book</b> \u2014 the RM7k floor is the ramp support; blast + call-list patients route to her"
      ]
     },
     {
@@ -895,7 +895,7 @@
      "dot": "now",
      "chip": "root cause",
      "name": "SEO & website",
-     "one": "Diagnosis landed: service pages render as 160-word stubs to Google — prerendering them is the single highest-impact fix. Reviews velocity 2/mo vs 6–8 target.",
+     "one": "Diagnosis landed: service pages render as 160-word stubs to Google \u2014 prerendering them is the single highest-impact fix. Reviews velocity 2/mo vs 6\u20138 target.",
      "steps": [
       {
        "t": "Deep diagnosis: CTR fault isolated, stubs found",
@@ -912,11 +912,11 @@
        "s": "now"
       },
       {
-       "t": "Review standees in — watch the weekly velocity number",
+       "t": "Review standees in \u2014 watch the weekly velocity number",
        "s": "now"
       },
       {
-       "t": "Dentist pages (doctor-name searches convert 16–42%)",
+       "t": "Dentist pages (doctor-name searches convert 16\u201342%)",
        "s": ""
       },
       {
@@ -927,7 +927,7 @@
      "open": [
       "OpenSEO installed but gated on your DataForSEO key (US$50 min top-up)",
       "Content batch #213/215/216 waits on Dr Ong's 44-claim sheet",
-      "Proportion check: organic = 26 enquiries/90d — keep SEO cheap; reactivation is the bigger lever"
+      "Proportion check: organic = 26 enquiries/90d \u2014 keep SEO cheap; reactivation is the bigger lever"
      ]
     },
     {
@@ -943,7 +943,7 @@
        "w": "18 Aug"
       },
       {
-       "t": "Buy clip-on mic · pick shoot days",
+       "t": "Buy clip-on mic \u00b7 pick shoot days",
        "s": "now"
       },
       {
@@ -956,7 +956,7 @@
       }
      ],
      "open": [
-      "Stalled on your time — decide whether Mandy/DSAs can run it without you",
+      "Stalled on your time \u2014 decide whether Mandy/DSAs can run it without you",
       "Consent forms before any face-on-camera recording (parents sign for minors)"
      ]
     },
@@ -965,7 +965,7 @@
      "dot": "wait",
      "chip": "quoting",
      "name": "Merch & character series",
-     "one": "TOC engaged and quoting. MOQ answer is in: ready-made = low MOQ, custom moulds = 300–500+. The case is the strongest first buy.",
+     "one": "TOC engaged and quoting. MOQ answer is in: ready-made = low MOQ, custom moulds = 300\u2013500+. The case is the strongest first buy.",
      "steps": [
       {
        "t": "Catalogue (8 products + 15 characters) sent to TOC",
@@ -973,7 +973,7 @@
        "w": "25 Aug"
       },
       {
-       "t": "Vivienne answered: ~220–300 cases/yr, quote on ready-made basis",
+       "t": "Vivienne answered: ~220\u2013300 cases/yr, quote on ready-made basis",
        "s": "done",
        "w": "26 Aug"
       },
@@ -995,7 +995,7 @@
       }
      ],
      "open": [
-      "This is a brand/perceived-value play, not cost reduction — the owner's own read",
+      "This is a brand/perceived-value play, not cost reduction \u2014 the owner's own read",
       "15-character plush series only works if costumes share one base body"
      ]
     },
@@ -1004,7 +1004,7 @@
      "dot": "now",
      "chip": "34 names",
      "name": "20th-anniversary appreciation",
-     "one": "Lu Tsen vetting ~34 long-timer patients with your mum for a bespoke gift — the 'wrapped card' of their years with the clinic.",
+     "one": "Lu Tsen vetting ~34 long-timer patients with your mum for a bespoke gift \u2014 the 'wrapped card' of their years with the clinic.",
      "steps": [
       {
        "t": "Name list drafted (~34)",
@@ -1025,7 +1025,7 @@
      ],
      "open": [
       "Cross-check: anniversary names must be excluded from the cold blast (already flagged in the blast pack)",
-      "Bespoke beats branded merch here — these are relationship gifts"
+      "Bespoke beats branded merch here \u2014 these are relationship gifts"
      ]
     }
    ]
@@ -1047,11 +1047,11 @@
      "one": "Low visibility is the risk. Live: Dr Mah's morale plan, the Align workshop seat, and a regular check-in rhythm.",
      "steps": [
       {
-       "t": "Mah appreciation-notes plan set (Dec birthday — confirm date, keep secret)",
+       "t": "Mah appreciation-notes plan set (Dec birthday \u2014 confirm date, keep secret)",
        "s": "now"
       },
       {
-       "t": "Align workshop 8 Sep — answer the seat",
+       "t": "Align workshop 8 Sep \u2014 answer the seat",
        "s": "now"
       },
       {
@@ -1060,7 +1060,7 @@
       }
      ],
      "open": [
-      "Front desk to pick safe long-tenured patients of Mah's for the notes — quiet until executed"
+      "Front desk to pick safe long-tenured patients of Mah's for the notes \u2014 quiet until executed"
      ]
     },
     {
@@ -1076,7 +1076,7 @@
        "w": "12 Jul"
       },
       {
-       "t": "Dr Ong × Elaine JD talk — confirmed NOT yet happened; make it happen",
+       "t": "Dr Ong \u00d7 Elaine JD talk \u2014 confirmed NOT yet happened; make it happen",
        "s": "now"
       },
       {
@@ -1084,13 +1084,13 @@
        "s": ""
       },
       {
-       "t": "Scorecard tool (defensible raises) — still unbuilt",
+       "t": "Scorecard tool (defensible raises) \u2014 still unbuilt",
        "s": ""
       }
      ],
      "open": [
       "Emily is aware and planning for EOY",
-      "Funded from reserves, not profit — hold that framing"
+      "Funded from reserves, not profit \u2014 hold that framing"
      ]
     },
     {
@@ -1098,14 +1098,14 @@
      "dot": "wait",
      "chip": "verify",
      "name": "DSA conduct & supervision",
-     "one": "Conduct complaints held (utilisation fix first) — but the junior-left-alone-chairside allegation is patient safety and needs verifying regardless.",
+     "one": "Conduct complaints held (utilisation fix first) \u2014 but the junior-left-alone-chairside allegation is patient safety and needs verifying regardless.",
      "steps": [
       {
        "t": "Complaints logged (noise, phones, occupied rooms)",
        "s": "done"
       },
       {
-       "t": "Verify the supervision allegation with Emily — separately",
+       "t": "Verify the supervision allegation with Emily \u2014 separately",
        "s": "now"
       },
       {
@@ -1138,7 +1138,7 @@
       }
      ],
      "open": [
-      "CRM calling itself is deprioritised — the redeployment still needs a real cadence eventually"
+      "CRM calling itself is deprioritised \u2014 the redeployment still needs a real cadence eventually"
      ]
     }
    ]
@@ -1148,7 +1148,7 @@
    "color": "var(--ffin)",
    "num": "Foundation",
    "name": "Finance / FinOps",
-   "mission": "Hold three numbers at all times: year-end net profitability, EBITDA, and cash in the bank — with the capex wave priced in.",
+   "mission": "Hold three numbers at all times: year-end net profitability, EBITDA, and cash in the bank \u2014 with the capex wave priced in.",
    "streams": [
     {
      "id": "f1",
@@ -1171,7 +1171,7 @@
       }
      ],
      "open": [
-      "Break-even ≈ RM5.5k/day — the number the team can hold"
+      "Break-even \u2248 RM5.5k/day \u2014 the number the team can hold"
      ]
     },
     {
@@ -1179,7 +1179,7 @@
      "dot": "now",
      "chip": "v6",
      "name": "FY2026 landing projection",
-     "one": "V6 redone. Expecting a loss year — the job is knowing the landing zone, not pretending otherwise.",
+     "one": "V6 redone. Expecting a loss year \u2014 the job is knowing the landing zone, not pretending otherwise.",
      "steps": [
       {
        "t": "V6 rebuilt",
@@ -1195,8 +1195,8 @@
       }
      ],
      "open": [
-      "10%-removal decision moves EBITDA ~34k → ~−23k — carry it in the projection before the parents sit-down",
-      "40% of trading days are EBITDA-negative; Friday 63% — parked until Jun rebalances the week"
+      "10%-removal decision moves EBITDA ~34k \u2192 ~\u221223k \u2014 carry it in the projection before the parents sit-down",
+      "40% of trading days are EBITDA-negative; Friday 63% \u2014 parked until Jun rebalances the week"
      ]
     },
     {
@@ -1204,7 +1204,7 @@
      "dot": "now",
      "chip": "bills paid",
      "name": "Capex & cash runway",
-     "one": "The digitisation bill is paid — hardware ~10k, Code Capsule 10k, AutoCount RM4.2k + HRMS RM1.1k/yr. What's left is confirming cash covers the Dec wave.",
+     "one": "The digitisation bill is paid \u2014 hardware ~10k, Code Capsule 10k, AutoCount RM4.2k + HRMS RM1.1k/yr. What's left is confirming cash covers the Dec wave.",
      "steps": [
       {
        "t": "AutoCount licence + Cloud HRMS paid",
@@ -1214,7 +1214,7 @@
       {
        "t": "Code Capsule + hardware invoices paid",
        "s": "done",
-       "w": "27–28 Aug"
+       "w": "27\u201328 Aug"
       },
       {
        "t": "Confirm cash covers remaining capex + Dec bonus/increment wave",
@@ -1222,8 +1222,8 @@
       }
      ],
      "open": [
-      "Increments + bonus are reserve-funded — keep them in the cash view, not just the P&L",
-      "Your own payroll is now on the books — it changes the monthly cash floor"
+      "Increments + bonus are reserve-funded \u2014 keep them in the cash view, not just the P&L",
+      "Your own payroll is now on the books \u2014 it changes the monthly cash floor"
      ]
     }
    ]
@@ -1235,25 +1235,25 @@
   "Delete the <b>TEST PATIENT</b> row in the registrations Sheet",
   "<b>Letters SOP:</b> Joan/Yeoh chops outstanding; ask what RES/PRO prefixes denote",
   "Where are issued letters filed? Nobody knows",
-  "<b>Vector logo master</b> — none exists; gates merch + signage",
+  "<b>Vector logo master</b> \u2014 none exists; gates merch + signage",
   "Referral capture restart at the desk (99.8% of records pre-2015)",
   "2-week accompanying-children tally before waiting-area joinery",
-  "Credential rotation (RECALL_PASS, Firehose, openclaw keys) — deferred",
-  "Emily ↔ Edith Telegram access (pilot: Mah's birthday ask)",
-  "Supplier rebate credit-note test — does it touch the monthly lab figure?",
+  "Credential rotation (RECALL_PASS, Firehose, openclaw keys) \u2014 deferred",
+  "Emily \u2194 Edith Telegram access (pilot: Mah's birthday ask)",
+  "Supplier rebate credit-note test \u2014 does it touch the monthly lab figure?",
   "Invisalign: which of the 3 accesses is Emily missing?",
   "Priscilla: clinical practice or case allocation? Only Emily knows",
-  "Free staff/family treatment — quantify + name an approver",
+  "Free staff/family treatment \u2014 quantify + name an approver",
   "Retire or rename the RM0 Myobrace code in OpenDental",
   "GA4: mark form_submit as key event (avoid double-count)",
-  "Registration/admin fee idea — parked (RM10–15 break-even, Lydia same convo as discounts)",
+  "Registration/admin fee idea \u2014 parked (RM10\u201315 break-even, Lydia same convo as discounts)",
   "holidays.txt repopulate each January (closed-day digest guard)",
-  "CRM 172-name call list — built, idle, deprioritised by choice",
-  "X-ray compliance ✅ resolved — one AELB-compliant person in the building suffices, and one is always present"
+  "CRM 172-name call list \u2014 built, idle, deprioritised by choice",
+  "X-ray compliance \u2705 resolved \u2014 one AELB-compliant person in the building suffices, and one is always present"
  ],
  "meta": {
-  "asof": "THU 28 AUG 2026",
+  "asof": "FRI 28 AUG 2026",
   "horizon": "Q4 2026",
-  "updated": "2026-08-28T16:00:00+08:00"
+  "updated": "2026-08-28T18:21:28+08:00"
  }
 }
