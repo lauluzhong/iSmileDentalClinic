@@ -355,7 +355,7 @@
     {
      "id": "d7",
      "dot": "now",
-     "chip": "capex",
+     "chip": "paid · in transit",
      "name": "Hardware & server",
      "one": "New reception PC + the home CPU as the new server beside the old one; OpenDent rep reconfigures everything.",
      "steps": [
@@ -364,15 +364,16 @@
        "s": "done"
       },
       {
-       "t": "Hardware invoice received",
-       "s": "done"
+       "t": "Hardware + OpenDent rep invoices paid (Code Capsule)",
+       "s": "done",
+       "w": "27–28 Aug"
       },
       {
-       "t": "Pay hardware + OpenDent rep fee",
+       "t": "PCs in transit (~10-day lead from 24 Aug)",
        "s": "now"
       },
       {
-       "t": "PCs arrive · server swap on downtime day",
+       "t": "Server swap on downtime day",
        "s": "",
        "w": "~5 Sep"
       }
@@ -1201,30 +1202,28 @@
     {
      "id": "f3",
      "dot": "now",
-     "chip": "capex wave",
+     "chip": "bills paid",
      "name": "Capex & cash runway",
-     "one": "The digitisation bill lands now: hardware ~10k, Code Capsule 10k, AutoCount 7k + HRMS, your own payroll now on the books.",
+     "one": "The digitisation bill is paid — hardware ~10k, Code Capsule 10k, AutoCount RM4.2k + HRMS RM1.1k/yr. What's left is confirming cash covers the Dec wave.",
      "steps": [
       {
-       "t": "AutoCount licence paid",
+       "t": "AutoCount licence + Cloud HRMS paid",
        "s": "done",
-       "w": "26–27 Aug"
+       "w": "27 Aug"
       },
       {
-       "t": "Hardware invoice → pay",
+       "t": "Code Capsule + hardware invoices paid",
+       "s": "done",
+       "w": "27–28 Aug"
+      },
+      {
+       "t": "Confirm cash covers remaining capex + Dec bonus/increment wave",
        "s": "now"
-      },
-      {
-       "t": "HRMS quote decision",
-       "s": "now"
-      },
-      {
-       "t": "Confirm cash covers capex + Dec bonus/increment wave",
-       "s": ""
       }
      ],
      "open": [
-      "Increments + bonus are reserve-funded — keep them in the cash view, not just the P&L"
+      "Increments + bonus are reserve-funded — keep them in the cash view, not just the P&L",
+      "Your own payroll is now on the books — it changes the monthly cash floor"
      ]
     }
    ]
@@ -1255,6 +1254,6 @@
  "meta": {
   "asof": "THU 28 AUG 2026",
   "horizon": "Q4 2026",
-  "updated": "2026-08-28T18:00:00+08:00"
+  "updated": "2026-08-28T16:00:00+08:00"
  }
 }
