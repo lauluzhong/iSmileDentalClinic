@@ -80,11 +80,11 @@
    "tip": "Bob reconfigures OpenDent for 7\u20138 hrs starting 3pm \u2014 after trading, so the Saturday list is not lost. Slips to 12 Sep if hardware lands late."
   },
   {
-   "d": "8 Sep",
-   "l": "Align workshop \u2014 seat still unanswered",
+   "d": "15 Sep",
+   "l": "Cert auto-renewal should fire (~30d before expiry)",
    "s": "",
-   "iso": "2026-09-08",
-   "tip": "The Invisalign/Align workshop invitation in the management group \u2014 the seat has never been answered."
+   "iso": "2026-09-15",
+   "tip": "Let's Encrypt renews about 30 days out. Code Capsule's renewal cron, added after the July lapse, gets its first real test here \u2014 reminder sent to Jason 28 Aug."
   },
   {
    "d": "Sep\u2013Oct",
@@ -101,11 +101,11 @@
    "tip": "The WhatsApp cert behind the blast infrastructure must be renewed before this date or sends stop."
   },
   {
-   "d": "Late Oct",
-   "l": "Dr Jun starts (5 days/wk)",
+   "d": "26 Oct",
+   "l": "Dr Jun's first day (5 days/wk)",
    "s": "",
    "iso": "2026-10-26",
-   "tip": "Jun joins 5 days/wk (+2 Elite Saturdays during her ~6-month transition). RM7k floor or 40%, whichever higher, for 6 months."
+   "tip": "Confirmed first date: Monday 26 October 2026. Jun joins 5 days/wk (+2 Elite Saturdays during her ~6-month transition). RM7k floor or 40%, whichever higher, for 6 months."
   },
   {
    "d": "Q4",
@@ -779,7 +779,7 @@
      "open": [
       "Jason still owes the price",
       "PDPA check with Lydia",
-      "Cert renewal before 16 Oct",
+      "<b>Cert expires 16 Oct</b> \u2014 renewal cron should fire ~15 Sep; Jason reminded 28 Aug, confirm it actually renews",
       "250 sends/day cap shapes the wave calendar"
      ]
     },
@@ -847,7 +847,7 @@
      "dot": "blocked",
      "chip": "offer letter",
      "name": "Dr Jun (new doctor)",
-     "one": "Starts last week of Oct, 5 days/wk. Terms agreed verbally; the offer letter is the critical path \u2014 she tenders ~end Aug.",
+     "one": "Starts Mon 26 Oct, 5 days/wk. Terms agreed verbally; the offer letter is the critical path \u2014 she tenders ~end Aug.",
      "steps": [
       {
        "t": "Terms agreed: RM7k/6mo or 40%, whichever higher",
@@ -858,6 +858,11 @@
        "t": "Boss talk done \u00b7 Elite 2 Sats/mo transition",
        "s": "done",
        "w": "20 Aug"
+      },
+      {
+       "t": "First date confirmed: Mon 26 Oct",
+       "s": "done",
+       "w": "28 Aug"
       },
       {
        "t": "Offer letter issued",
@@ -880,8 +885,9 @@
        "s": ""
       },
       {
-       "t": "Starts late Oct \u00b7 book steered to NEW demand",
-       "s": ""
+       "t": "First day \u00b7 book steered to NEW demand",
+       "s": "",
+       "w": "26 Oct"
       }
      ],
      "open": [
@@ -1044,14 +1050,15 @@
      "dot": "now",
      "chip": "sensitive",
      "name": "Doctor wellbeing",
-     "one": "Low visibility is the risk. Live: Dr Mah's morale plan, the Align workshop seat, and a regular check-in rhythm.",
+     "one": "Low visibility is the risk. Live: Dr Mah's morale plan and building a regular check-in rhythm.",
      "steps": [
       {
-       "t": "Mah appreciation-notes plan set (Dec birthday \u2014 confirm date, keep secret)",
-       "s": "now"
+       "t": "Align workshop 8 Sep \u2014 declined, nobody attending",
+       "s": "done",
+       "w": "28 Aug"
       },
       {
-       "t": "Align workshop 8 Sep \u2014 answer the seat",
+       "t": "Mah appreciation-notes plan set (Dec birthday \u2014 confirm date, keep secret)",
        "s": "now"
       },
       {
@@ -1253,7 +1260,6 @@
  ],
  "meta": {
   "asof": "FRI 28 AUG 2026",
-  "horizon": "Q4 2026",
-  "updated": "2026-08-28T18:21:28+08:00"
+  "updated": "2026-08-28T18:36:28+08:00"
  }
 }
