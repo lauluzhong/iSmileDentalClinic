@@ -1,0 +1,908 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>iSmile HQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* Single-theme by design: dark mission-control. Every color painted explicitly. */
+  :root{
+    --bg:#0A101E;
+    --panel:#101B30;
+    --panel2:#142138;
+    --line:#223252;
+    --ink:#E9F0FA;
+    --mut:#93A5C4;
+    --dim:#5E7196;
+    --p1:#45C4FF;   /* digital */
+    --p2:#B195FF;   /* legal */
+    --p3:#3FDDA0;   /* growth */
+    --fhr:#F0B152;  /* people foundation */
+    --ffin:#EF7E93; /* finance foundation */
+    --ok:#56C271;
+    --warn:#F5B84A;
+    --bad:#FF6B6B;
+    --disp:"Chakra Petch",system-ui,sans-serif;
+    --body:"IBM Plex Sans",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scrollbar-color:#2A3B5E var(--bg)}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:14px;
+    line-height:1.5;
+    min-height:100vh;
+    background-image:
+      radial-gradient(1100px 500px at 75% -10%, rgba(69,196,255,.07), transparent 60%),
+      radial-gradient(900px 500px at 10% 108%, rgba(63,221,160,.05), transparent 60%),
+      linear-gradient(rgba(34,50,82,.16) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,50,82,.16) 1px, transparent 1px);
+    background-size:auto,auto,44px 44px,44px 44px;
+  }
+  #fx{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .wrap{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:28px 22px 80px}
+
+  /* ---------- header ---------- */
+  header{display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px;margin-bottom:22px}
+  .brand h1{font-family:var(--disp);font-weight:700;font-size:26px;letter-spacing:.04em;text-transform:uppercase}
+  .brand h1 b{color:var(--p1);font-weight:700}
+  .brand .sub{color:var(--mut);font-size:13px;margin-top:2px}
+  .asof{margin-left:auto;display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:12px;color:var(--dim);text-align:right}
+  .asof .pulse{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ok);margin-right:6px;animation:pulse 2.4s infinite}
+  .ring{flex:none;width:34px;height:34px;border-radius:50%;border:1px dashed rgba(69,196,255,.55);position:relative;animation:spin 16s linear infinite}
+  .ring::after{content:"";position:absolute;top:-2.5px;left:50%;width:5px;height:5px;border-radius:50%;background:var(--p1);box-shadow:0 0 8px var(--p1)}
+  .counts{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .counts span{font-family:var(--mono);font-size:11px;color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:3px 10px;background:rgba(16,27,48,.7);cursor:pointer;transition:border-color .15s,color .15s,box-shadow .2s,transform .15s}
+  .counts span:hover{border-color:#3A5382;color:var(--ink);transform:translateY(-1px)}
+  .counts span.active{border-color:var(--p1);color:var(--ink);box-shadow:0 0 14px -5px var(--p1)}
+  .counts b{color:var(--ink);font-weight:500}
+
+  /* ---------- decision queue ---------- */
+  .secthead{font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin:26px 0 10px;display:flex;align-items:center;gap:10px}
+  .secthead::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+  .decisions{display:grid;grid-template-columns:repeat(auto-fit,minmax(172px,1fr));gap:8px}
+  .dcard{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--warn);border-radius:7px;padding:7px 10px;cursor:pointer;transition:transform .15s,border-color .15s}
+  .dcard:hover,.dcard:focus-visible{transform:translateY(-2px);border-color:#3A5382;outline:none}
+  .dcard.hot{border-left-color:var(--bad)}
+  .dcard .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+  .dcard .t{font-weight:600;font-size:12.5px;margin:1px 0}
+  .dcard .w{font-size:11.5px;color:var(--mut);line-height:1.4}
+
+  /* ---------- horizon rail ---------- */
+  .rail{position:relative;margin:8px 0 4px;overflow-x:auto;padding-bottom:6px}
+  .rail-inner{display:flex;gap:0;min-width:900px;position:relative;padding:14px 8px 4px}
+  .rail-inner::before{content:"";position:absolute;left:16px;right:16px;top:19px;height:2px;background:linear-gradient(90deg,var(--p1),var(--p2),var(--p3));opacity:.45;border-radius:2px}
+  .mile{flex:1;min-width:96px;position:relative;padding-top:16px}
+  .mile .dot{position:absolute;top:0;left:0;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--dim)}
+  .mile.done .dot{border-color:var(--ok);background:var(--ok)}
+  .mile.now .dot{border-color:var(--p1);background:var(--p1);box-shadow:0 0 0 4px rgba(69,196,255,.18);animation:pulse 2s infinite}
+  .mile .d{font-family:var(--mono);font-size:10.5px;color:var(--dim)}
+  .mile.now .d{color:var(--p1)}
+  .mile .l{font-size:12px;color:var(--mut);max-width:120px;line-height:1.3;margin-top:1px}
+  .mile.done .l{color:var(--dim);text-decoration:line-through;text-decoration-color:rgba(147,165,196,.5)}
+
+  /* ---------- pillars ---------- */
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:980px){.pillars{grid-template-columns:1fr}}
+  .pillar{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;position:relative;transition:box-shadow .3s,border-color .3s,transform .3s}
+  .pillar:hover{border-color:#31466F;box-shadow:0 14px 40px -16px var(--pc, rgba(69,196,255,.5));transform:translateY(-2px)}
+  .pillar::before,.pillar::after{content:"";position:absolute;width:10px;height:10px;opacity:.55;pointer-events:none}
+  .pillar::before{top:9px;right:9px;border-top:1.5px solid var(--pc,var(--p1));border-right:1.5px solid var(--pc,var(--p1))}
+  .pillar::after{bottom:9px;left:9px;border-bottom:1.5px solid var(--pc,var(--p1));border-left:1.5px solid var(--pc,var(--p1))}
+  .pillar>.top{height:3px;width:100%}
+  .phead{padding:14px 16px 10px;cursor:pointer}
+  .phead:hover .pname,.phead:focus-visible .pname{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+  .phead:focus-visible{outline:1px solid var(--dim);outline-offset:-4px}
+  .pnum{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase}
+  .pname{font-family:var(--disp);font-weight:600;font-size:17px;letter-spacing:.02em;margin:1px 0 3px}
+  .pmiss{font-size:12.5px;color:var(--mut);line-height:1.45}
+  .pbar{height:4px;background:#1B2A47;border-radius:4px;margin:10px 16px 4px;overflow:hidden}
+  .pbar i{display:block;height:100%;border-radius:4px;transition:width .8s ease}
+  .pbar-lab{font-family:var(--mono);font-size:10.5px;color:var(--dim);margin:2px 16px 6px}
+  .streams{list-style:none;padding:4px 8px 12px;display:flex;flex-direction:column;gap:2px}
+  .srow{display:flex;align-items:center;gap:9px;padding:7px 8px;border-radius:7px;cursor:pointer;border:1px solid transparent;transition:background .12s,border-color .12s}
+  .srow{transition:background .15s,border-color .15s,transform .15s,opacity .3s,filter .3s}
+  .srow:hover,.srow:focus-visible{background:var(--panel2);border-color:var(--line);outline:none;transform:translateX(3px)}
+  .srow.dim{opacity:.25;filter:saturate(.3)}
+  .sdot{width:9px;height:9px;border-radius:50%;flex:none}
+  .sdot.live{background:var(--ok)}
+  .sdot.now{background:var(--p1);animation:pulse 1.8s infinite}
+  .sdot.wait{background:var(--warn)}
+  .sdot.blocked{background:var(--bad)}
+  .sdot.parked{background:transparent;border:1.5px solid var(--dim)}
+  .sdot.horizon{background:transparent;border:1.5px dashed var(--dim)}
+  .sname{flex:1;font-size:13px;font-weight:500;line-height:1.3}
+  .schip{font-family:var(--mono);font-size:10px;letter-spacing:.05em;color:var(--mut);background:#1B2A47;border-radius:5px;padding:2px 7px;white-space:nowrap}
+  .srow.flag .sname::after{content:"◆";color:var(--warn);font-size:9px;margin-left:6px;vertical-align:2px}
+
+  /* ---------- foundations ---------- */
+  #foundations{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  @media(max-width:980px){#foundations{grid-template-columns:1fr}}
+  .found{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .fhead{display:flex;align-items:baseline;gap:12px;padding:12px 16px 8px}
+  .fhead .pnum{color:var(--dim)}
+  .fhead .pname{font-size:15px}
+  .fhead .pmiss{margin-left:auto;text-align:right;max-width:52%}
+  @media(max-width:720px){.fhead{flex-wrap:wrap}.fhead .pmiss{margin-left:0;text-align:left;max-width:100%}}
+  .found .streams{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px 10px;padding:2px 10px 12px}
+
+  /* ---------- sideboard ---------- */
+  .sideboard{margin-top:16px;background:transparent;border:1px dashed var(--line);border-radius:12px}
+  .sideboard>button{all:unset;display:flex;width:100%;align-items:center;gap:10px;padding:12px 16px;cursor:pointer;font-family:var(--disp);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+  .sideboard>button:hover,.sideboard>button:focus-visible{color:var(--mut)}
+  .sideboard>button .n{font-family:var(--mono);background:#1B2A47;border-radius:999px;padding:2px 9px;font-size:11px;letter-spacing:0}
+  .sideboard>button .caret{margin-left:auto;transition:transform .2s}
+  .sideboard.open>button .caret{transform:rotate(180deg)}
+  .sblist{display:none;padding:0 16px 14px;columns:3;column-gap:26px}
+  @media(max-width:980px){.sblist{columns:2}}
+  @media(max-width:640px){.sblist{columns:1}}
+  .sideboard.open .sblist{display:block}
+  .sblist li{break-inside:avoid;font-size:12.5px;color:var(--mut);padding:4px 0;list-style:none;border-bottom:1px solid rgba(34,50,82,.5)}
+  .sblist li b{color:var(--ink);font-weight:500}
+
+  /* ---------- detail panel ---------- */
+  .scrim{position:fixed;inset:0;background:rgba(4,8,16,.62);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .2s;z-index:40}
+  .panel-open .scrim{opacity:1;pointer-events:auto}
+  .detail{position:fixed;top:0;right:0;bottom:0;width:min(500px,94vw);background:var(--panel);border-left:1px solid var(--line);z-index:50;transform:translateX(103%);transition:transform .25s ease;display:flex;flex-direction:column}
+  .panel-open .detail{transform:none}
+  .dhead{padding:18px 20px 12px;border-bottom:1px solid var(--line)}
+  .dhead .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+  .dhead h2{font-family:var(--disp);font-size:19px;font-weight:600;margin:3px 0 4px;text-wrap:balance}
+  .dhead .one{color:var(--mut);font-size:13px}
+  .dclose{all:unset;position:absolute;top:14px;right:14px;cursor:pointer;color:var(--dim);font-size:20px;line-height:1;padding:6px}
+  .dclose:hover,.dclose:focus-visible{color:var(--ink)}
+  .dbody{overflow-y:auto;padding:16px 20px 32px;flex:1}
+  .dsec{margin-bottom:20px}
+  .dsec h3{font-family:var(--disp);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:9px}
+  .steps{list-style:none;position:relative;padding-left:20px}
+  .steps::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .steps li{position:relative;padding:3px 0 9px;font-size:13px;color:var(--mut)}
+  .steps li::before{content:"";position:absolute;left:-20px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--dim)}
+  .steps li.done{color:var(--dim)}
+  .steps li.done::before{background:var(--ok);border-color:var(--ok)}
+  .steps li.now{color:var(--ink);font-weight:500}
+  .steps li.now::before{background:var(--p1);border-color:var(--p1);box-shadow:0 0 0 4px rgba(69,196,255,.15);animation:pulse 2s infinite}
+  .steps li .when{font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-left:6px}
+  .opens{list-style:none}
+  .opens li{font-size:13px;color:var(--mut);padding:5px 0 5px 16px;position:relative;border-bottom:1px solid rgba(34,50,82,.45)}
+  .opens li::before{content:"›";position:absolute;left:2px;color:var(--warn)}
+  .opens li b{color:var(--ink);font-weight:500}
+  .needsu{background:rgba(245,184,74,.08);border:1px solid rgba(245,184,74,.35);border-radius:8px;padding:9px 12px;font-size:13px;color:#F7CE8A}
+  .gtpp{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .gtpp .cell{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:9px 11px}
+  .gtpp .cell .g{font-family:var(--disp);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:3px}
+  .gtpp .cell p{font-size:12px;color:var(--mut);line-height:1.45}
+
+  /* ---------- today marker + tooltip ---------- */
+  .today{position:absolute;top:8px;bottom:0;width:2px;background:var(--p1);border-radius:2px;box-shadow:0 0 12px var(--p1);animation:pulse 3s infinite;pointer-events:none}
+  .today::after{content:"TODAY";position:absolute;top:-6px;left:7px;font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--p1);text-shadow:0 0 8px rgba(69,196,255,.6)}
+  .mile{cursor:default}
+  .mile:hover .dot{box-shadow:0 0 0 5px rgba(147,165,196,.15)}
+  #tip{position:fixed;z-index:90;background:#0D1526;border:1px solid #2C4066;border-radius:8px;padding:8px 11px;max-width:250px;pointer-events:none;opacity:0;transform:translateY(5px);transition:opacity .15s,transform .18s cubic-bezier(.22,.9,.3,1);box-shadow:0 12px 30px rgba(0,0,0,.55),0 0 0 1px rgba(69,196,255,.06)}
+  #tip.show{opacity:1;transform:none}
+  #tip .tk{font-family:var(--mono);font-size:9.5px;color:var(--p1);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px}
+  #tip .tb{font-size:12px;color:var(--mut);line-height:1.45}
+
+  /* ---------- panel nav + slide ---------- */
+  .dsheet{display:flex;flex-direction:column;height:100%;transition:transform .16s ease,opacity .16s ease}
+  .dsheet.out-l{transform:translateX(-20px);opacity:0}
+  .dsheet.out-r{transform:translateX(20px);opacity:0}
+  .dsheet.jump-r{transform:translateX(20px);opacity:0;transition:none}
+  .dsheet.jump-l{transform:translateX(-20px);opacity:0;transition:none}
+  .dnav{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+  .dnav button{all:unset;cursor:pointer;font-family:var(--mono);font-size:10.5px;color:var(--mut);border:1px solid var(--line);border-radius:6px;padding:4px 10px;transition:color .15s,border-color .15s,transform .15s;max-width:170px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .dnav button:hover,.dnav button:focus-visible{color:var(--ink);border-color:#3A5382;transform:translateY(-1px)}
+  .dnav .hint{font-family:var(--mono);font-size:9.5px;color:var(--dim);align-self:center;margin-left:auto}
+
+  /* ---------- legend ---------- */
+  .legendrow{display:flex;justify-content:flex-end;gap:14px;flex-wrap:wrap;margin:-2px 0 8px}
+  .legendrow span{font-family:var(--mono);font-size:10.5px;color:var(--dim);display:inline-flex;align-items:center;gap:5px}
+  .legendrow .sdot{display:inline-block}
+
+  footer{margin-top:28px;font-family:var(--mono);font-size:11px;color:var(--dim);text-align:center}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* ---------- load choreography ---------- */
+  .reveal{opacity:0;transform:translateY(14px)}
+  .reveal.in{opacity:1;transform:translateY(0);transition:opacity .5s ease,transform .55s cubic-bezier(.22,.9,.3,1)}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+  /* ---------- mobile ---------- */
+  @media(max-width:640px){
+    .wrap{padding:18px 14px 56px}
+    .brand h1{font-size:22px}
+    header{gap:6px}
+    .asof{width:100%;margin-left:0;justify-content:flex-start;text-align:left;order:3}
+    .decisions{grid-template-columns:1fr 1fr}
+    .legendrow{justify-content:flex-start;gap:10px}
+    .srow{padding:10px 8px}
+    .detail{width:100vw;border-left:none}
+    .gtpp{grid-template-columns:1fr}
+    .found .streams{grid-template-columns:1fr}
+    .rail{-webkit-overflow-scrolling:touch}
+    .dnav .hint{display:none}
+  }
+  footer a{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--dim)}
+  footer a:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <h1>iSmile <b>HQ</b></h1>
+      <div class="sub">Three pillars · two foundations · everything chronological. Click anything to drill in.</div>
+      <div class="counts" id="counts"></div>
+    </div>
+    <div class="asof"><div class="ring"></div><div><span class="pulse"></span>AS AT <span id="asofDate">THU 28 AUG 2026</span><br>programme horizon: <span id="asofHz">Q4 2026</span></div></div>
+  </header>
+
+  <div class="secthead">Needs your decision</div>
+  <div class="decisions" id="decisions"></div>
+
+  <div class="secthead">The next 60 days</div>
+  <div class="rail"><div class="rail-inner" id="rail"></div></div>
+
+  <div class="secthead">Pillars</div>
+  <div class="legendrow">
+    <span><i class="sdot live"></i>live</span>
+    <span><i class="sdot now"></i>in motion</span>
+    <span><i class="sdot wait"></i>waiting</span>
+    <span><i class="sdot blocked"></i>blocked</span>
+    <span><i class="sdot parked"></i>parked</span>
+    <span><i class="sdot horizon"></i>horizon</span>
+  </div>
+  <div class="pillars" id="pillars"></div>
+
+  <div id="foundations"></div>
+
+  <div class="sideboard" id="sideboard">
+    <button type="button" id="sbtoggle">Side board — smaller open items <span class="n" id="sbcount"></span><span class="caret">▾</span></button>
+    <ul class="sblist" id="sblist"></ul>
+  </div>
+
+  <footer>iSmile HQ · <a href="/dashboard">Command Center</a> · <a href="/dashboard/margin">margin</a> · <a href="/dashboard/analytics">analytics</a><br>data loads live from <span style="font-family:var(--mono)">hq.json</span> on the status branch — ask Claude or Edith to update any card</footer>
+</div>
+
+<div id="tip"></div>
+<div class="scrim" id="scrim"></div>
+<aside class="detail" id="detail" role="dialog" aria-modal="true" aria-labelledby="dtitle">
+  <div class="dsheet" id="dsheet">
+    <div class="dhead">
+      <div class="k" id="dkicker"></div>
+      <h2 id="dtitle"></h2>
+      <div class="one" id="done"></div>
+      <div class="dnav" id="dnav"></div>
+      <button class="dclose" id="dclose" aria-label="Close">×</button>
+    </div>
+    <div class="dbody" id="dbody"></div>
+  </div>
+</aside>
+
+<script>
+/* Fallback data — the live copy is fetched from the status branch (hq.json) at load. */
+let DATA = {
+  decisions: [
+    {hot:true,  k:"By ~end Aug", t:"Dr Jun's offer letter", w:"She tenders ~end Aug for a late-Oct start. Close first: 55k→50% tier, Oct pro-rating.", ref:"g4"},
+    {hot:true,  k:"Gates Pillar 2", t:"Parents sit-down — doctor rulings", w:"Tone from the top on locum timing, 10% removal, doctor-borne discounts, IPP — then firm up with Lydia and start the rollout chain.", ref:"l1"},
+    {hot:false, k:"This week", t:"Confirm Sat 5 Sep downtime", w:"Bob from 3pm after trading; hardware ETA decides 5 vs 12 Sep. Emily plans the book either way.", ref:"d1"},
+    {hot:false, k:"Next 1–2 weeks", t:"Fire the cold blast", w:"Pack is built (4,011 sends / 3 waves). Chase Jason's price, run the exclusion cross-checks, fresh-data re-run, send.", ref:"g1"},
+    {hot:false, k:"Small unlock", t:"Set FOH training date + fund SEO tooling", w:"Training = a Saturday after work + dinner. Separately: US$50 DataForSEO top-up unlocks the rank-grid tooling.", ref:"P1"}
+  ],
+  rail: [
+    {d:"24 Aug", l:"Hardware ordered (~10-day lead)", s:"done", iso:"2026-08-24", tip:"New reception PC + server hardware bought — roughly 10-day flight lead into the 5 Sep slot."},
+    {d:"26–27 Aug", l:"AutoCount payment / PO issued", s:"done", iso:"2026-08-26", tip:"AutoCount RM4,200 (incl. API module, +2 stock users) and Cloud HRMS RM1,139.05/yr both paid by Emily — 3 business days to licence issue."},
+    {d:"~30 Aug", l:"Jun tenders · supplier register due", s:"now", iso:"2026-08-30", tip:"Dr Jun hands in her ~2-month notice at Elite (offer letter must be in her hands), and Emily's full supplier register is committed for end of August."},
+    {d:"1 Sep", l:"AutoCount licence + data migration", s:"", iso:"2026-09-01", tip:"Vendor issues the licence, migrates AutoCount data and changes the integration config."},
+    {d:"2 Sep", l:"End-to-end integration test", s:"", iso:"2026-09-02", tip:"Code Capsule runs the full OpenDent → AutoCount round-trip on the live licence."},
+    {d:"5 Sep", l:"OpenDent config downtime, from 3pm (fallback 12 Sep)", s:"", iso:"2026-09-05", tip:"Bob reconfigures OpenDent for 7–8 hrs starting 3pm — after trading, so the Saturday list is not lost. Slips to 12 Sep if hardware lands late."},
+    {d:"8 Sep", l:"Align workshop — seat still unanswered", s:"", iso:"2026-09-08", tip:"The Invisalign/Align workshop invitation in the management group — the seat has never been answered."},
+    {d:"Sep–Oct", l:"FOH training + digital receipts window", s:"", iso:"2026-09-25", tip:"The FOH training Saturday (+ dinner) and the paper-to-digital receipts switch-over both land in this window. Date still to be set."},
+    {d:"16 Oct", l:"Blast cert renewal deadline", s:"", iso:"2026-10-16", tip:"The WhatsApp cert behind the blast infrastructure must be renewed before this date or sends stop."},
+    {d:"Late Oct", l:"Dr Jun starts (5 days/wk)", s:"", iso:"2026-10-26", tip:"Jun joins 5 days/wk (+2 Elite Saturdays during her ~6-month transition). RM7k floor or 40%, whichever higher, for 6 months."},
+    {d:"Q4", l:"Cold blast waves · increment sit-down", s:"", iso:"2026-11-20", tip:"Blast waves 1–3 land and convert; the year-end increment amounts get decided in a sit-down."},
+    {d:"Jan 2027", l:"LHDN e-invoicing mandate", s:"", iso:"2027-01-01", tip:"E-invoicing becomes mandatory — the regulatory deadline the whole digital pillar was built to beat."}
+  ],
+  pillars: [
+    {
+      id:"P1", color:"var(--p1)", num:"Pillar 1", name:"Digital Transformation",
+      mission:"One server, one flow: OpenDent → AutoCount carrying all AR and AP, e-invoicing ready before the Jan 2027 mandate — then a brain on top.",
+      lead:"PMO: Lu · prime EPM: Code Capsule",
+      gtpp:{
+        g:"Rules locked: one invoice per patient, fixed-amount line discounts, the 30-second rule (line edits in OpenDent only), no vendor spend on auto patient creation.",
+        t:"Integration proven in the side-PC sandbox; licence paid; limits and sync parameters understood. Final integration runs 1–5 Sep.",
+        p:"To write: receipts SOP, digital-form handling SOP, weekly inventory-count SOP (rotated staff; possibly WhatsApp-to-brain updates).",
+        pe:"FOH training (compulsory: Joanna, Erincy, Jessy, Ida) — AutoCount, receipts, form + Sheet extraction, WhatsApp shortcuts, verbal skills. You and Emily learn AutoCount first. Date pending: a Saturday after work + dinner."
+      },
+      streams:[
+        {id:"d1", dot:"now", chip:"go-live wk", name:"OpenDent ↔ AutoCount integration",
+         one:"The spine. Sandbox proven, licence paid — the true integration happens 1–5 Sep.",
+         steps:[
+           {t:"Sandbox on the side PC — integration proven", s:"done"},
+           {t:"Software / Windows list + licences done, passed to Code Capsule", s:"done"},
+           {t:"Hardware purchased", s:"done", w:"24 Aug"},
+           {t:"AutoCount invoice paid (RM4,200 incl. API module, +2 stock users)", s:"done", w:"27 Aug"},
+           {t:"Licence issued · data migration · config change", s:"now", w:"1 Sep"},
+           {t:"End-to-end test", s:"", w:"2 Sep"},
+           {t:"OpenDent config downtime, 7–8 hrs from 3pm", s:"", w:"Sat 5 Sep"},
+           {t:"Reconfigure every other OpenDent PC in the clinic", s:""},
+           {t:"AR sync live — parallel run with paper receipts", s:""}
+         ],
+         open:["Confirm 5 vs 12 Sep once hardware ETA is known","EasyDent (X-ray) + CCTV stay on the old PC — do not migrate"]},
+        {id:"d2", dot:"wait", chip:"Jan 2027", name:"E-invoicing readiness",
+         one:"The original why: transactions >RM10k need e-invoices; LHDN mandate lands Jan 2027.",
+         steps:[{t:"AutoCount chosen as the accounting layer",s:"done"},{t:"Integration live (see spine)",s:"now"},{t:"E-invoice format + submission flow configured",s:""},{t:"First live e-invoice issued",s:""}],
+         open:["Confirm the >RM10k threshold mechanics and consolidated-invoice rules with the AutoCount rep before design"]},
+        {id:"d3", dot:"wait", chip:"post go-live", name:"Digital receipts (AR)",
+         one:"Receipts out of AutoCount replace the paper book — front desk switches only after training.",
+         steps:[{t:"Receipt capability confirmed in AutoCount",s:"done"},{t:"Design what the new receipt looks like",s:"now"},{t:"Receipts SOP written",s:""},{t:"FOH trained · paper retired",s:""}],
+         open:["Receipt-name nuance: AutoCount name changes stick (parent paying for child, company claims) — teach it explicitly","Physical receipts continue until training done — decided, not a slip"]},
+        {id:"d4", dot:"blocked", chip:"reg. due now", name:"AP · suppliers + inventory",
+         one:"Supplier register → lab + equipment AP in AutoCount → inventory with PO→invoice→receipt flow.",
+         steps:[{t:"Supplier register seeded (4 rows)",s:"done"},{t:"Full register from Emily — committed end Aug",s:"now"},{t:"Suppliers + lab AP into AutoCount",s:""},{t:"Inventory module on · opening stock count",s:""},{t:"Weekly rotated stock-count routine live",s:""}],
+         open:["<b>RM246k dental-sundries group is not on the register at all</b> — the largest single COGS line","Register also produces the >7-day lab list that stress-tests the locum carry-forward rule","Stock-count design: DSA or FOH rotated weekly; maybe WhatsApp photo/count → brain → Emily or direct entry"]},
+        {id:"d5", dot:"live", chip:"paid", name:"AP · payroll / HRMS module",
+         one:"AutoCount Cloud HRMS bought: RM1,139.05/yr — Payroll 14 · E-leave & E-claim 12 · E-attendance 10. Attendance feeds the same environment.",
+         steps:[{t:"Quote received (final price by headcount)",s:"done",w:"27 Aug"},{t:"Invoice paid by Emily",s:"done",w:"27 Aug"},{t:"Cloud Payroll registration + company profile created (ismiledental76@)",s:"done",w:"27 Aug"},{t:"Employee data entry + configuration",s:"now"},{t:"First parallel payroll run",s:""}],
+         open:["Headcount add-ons later are pay-the-difference only; renewal date stays anchored to first payment","Decide the cut-over month for live payroll"]},
+        {id:"d6", dot:"blocked", chip:"data gap", name:"AP · locum statements",
+         one:"Calculator already reproduces all 8 doctors to the cent — end-to-end statements now possible under the new timing rules.",
+         steps:[{t:"Engine built + validated to the cent",s:"done"},{t:"Timing rules decided (invoice month @ production-month rate)",s:"done",w:"26 Aug"},{t:"Payment→procedure allocation convention agreed",s:"now"},{t:"Per-doctor monthly statements generated",s:""},{t:"Feed into AutoCount AP",s:""}],
+         open:["<b>Blocker is data, not rules:</b> only ~9% of paysplits carry a ProcNum — need an allocation convention (e.g. oldest-unpaid-first per patient+doctor), built into the tool, never manual","60-day backstop for implant-case invoices"]},
+        {id:"d7", dot:"now", chip:"capex", name:"Hardware & server",
+         one:"New reception PC + the home CPU as the new server beside the old one; OpenDent rep reconfigures everything.",
+         steps:[{t:"Server CPU brought in",s:"done"},{t:"Hardware invoice received",s:"done"},{t:"Pay hardware + OpenDent rep fee",s:"now"},{t:"PCs arrive · server swap on downtime day",s:"",w:"~5 Sep"}],
+         open:["Every OpenDent PC needs reconfiguring after the server moves — more touch-time than the Saturday itself"]},
+        {id:"d8", dot:"live", chip:"live", name:"Digital onboarding form",
+         one:"Live at register.ismile.com.my (+?staff=1 desk view) → Google Sheet → manual keying into OpenDent.",
+         steps:[{t:"Form built + live on the domain",s:"done"},{t:"Sheet access ruling — Emily proposes a dedicated email",s:"now"},{t:"Fold into FOH training + desk SOP",s:""},{t:"Referral-capture field starts feeding data again",s:""}],
+         open:["Sheet holds IC numbers + medical history — settle access + row-deletion policy","Delete the TEST PATIENT row","Parked: Dr Ling's segment questionnaires (airway pre-visit set) as a form module"]},
+        {id:"d9", dot:"live", chip:"live", name:"Daily P&L / cash visibility",
+         one:"Line-by-line P&L wired from the OpenDent push to the VPS; daily cash + recall numbers arrive via Edith.",
+         steps:[{t:"Push pipeline + dashboard live",s:"done"},{t:"Daily cash-cover notification running",s:"done"},{t:"Add per-line locum-% column (40/45/50 sticks to the line)",s:"now"},{t:"Locum attribution view feeds statements",s:""}],
+         open:["Owner ruling 28 Aug: this block belongs under Pillar 1, not finance — it becomes the locum-attribution substrate"]},
+        {id:"d11", dot:"live", chip:"live", name:"Transcription & AI listening",
+         one:"The capture arm: walogger records the working WhatsApp groups, Edith listens, digests and answers — the substrate the brain will read.",
+         steps:[{t:"walogger live across the 5 working groups",s:"done"},{t:"Daily digests + review-reply flow running",s:"done"},{t:"Resolve Dr Ling's listener concern — she has an offered opt-out, unanswered",s:"now"},{t:"Consult-room transcription via the clip-on mic (doubles as social audio)",s:""}],
+         open:["Keep Edith mention-gated in the management group until Ling responds","Transcripts live on the Contabo vault — check them before flagging anything as pending"]},
+        {id:"d10", dot:"horizon", chip:"phase 2–3", name:"The brain (local LLM)",
+         one:"A local model on the server traversing OpenDent + AutoCount + mini-CRM: insights on demand, locum runs automated, WhatsApp stock updates.",
+         steps:[{t:"All data lands on one server",s:"now"},{t:"Local model + data access layer",s:""},{t:"Automated locum calc output",s:""},{t:"WhatsApp channel for stock counts / queries",s:""}],
+         open:["Deliberately sequenced after go-live — don't let it pull focus from the integration"]}
+      ]
+    },
+    {
+      id:"P2", color:"var(--p2)", num:"Pillar 2", name:"Legal & Governance",
+      mission:"Contracts that match how the clinic actually runs: the contractor agreement, clean locum economics, a discount regime doctors self-police, and a handbook everyone has signed.",
+      lead:"Counsel: Lydia · gate: parents sit-down",
+      gtpp:{
+        g:"The decisions are made (timing, 10%, discounts, IPP). What's left is tone from the top — run them by your parents, then firm the agreement with Lydia.",
+        t:"Nothing material — same systems. The one technical piece (per-line locum % + discount lines) lives in Pillar 1.",
+        p:"Doctors' briefing: OpenDent keying expectations, discount lines mandatory, code consolidation (Emily reviewing the compliance audit). Fold the OpenDent refresher into the agreement forum.",
+        pe:"Employees: sign the handbook acknowledgement (blocked on Lydia, not Emily). Doctors: group forum walkthrough + Q&A night call, then per-doctor Schedule 1 conversations and signatures."
+      },
+      streams:[
+        {id:"l1", dot:"wait", chip:"with Lydia", name:"Contractor agreement",
+         one:"Synthesised 13 Aug, with Lydia since 17 Aug. Body is a pure template; every per-doctor input lives in Schedule 1.",
+         steps:[
+           {t:"Synthesised draft with owner rulings",s:"done",w:"13 Aug"},
+           {t:"Shared with Lydia",s:"done",w:"17 Aug"},
+           {t:"Emily walkthrough",s:"done",w:"26 Aug"},
+           {t:"Open legal questions all cleared by owner",s:"done",w:"28 Aug"},
+           {t:"Lydia's line-by-line review back",s:"now"},
+           {t:"Parents / Dr Ong sign-off (tone from top)",s:""},
+           {t:"Per-doctor Schedule 1 copies drafted",s:""},
+           {t:"Dr Ling 1-to-1 sit-down (overdue) — runs inside this rollout",s:""},
+           {t:"Group forum + night Q&A call (+ OpenDent refresher)",s:""},
+           {t:"Signatures",s:""}
+         ],
+         open:["Clause 2.6 names the GM for below-band sign-off — Emily now knows","Jun's offer letter depends on this being settled — the clock is hers"]},
+        {id:"l2", dot:"live", chip:"decided", name:"Locum structure & timing",
+         one:"Tiers stay 40/45/50 with the RM55k whole-month rule. One principle collapses three rules: economics follow the production month.",
+         steps:[{t:"Tiers + volume rule confirmed against 17 months of workbooks",s:"done"},{t:"Invoiced services pay in the invoice month at the production month's rate",s:"done",w:"26 Aug"},{t:"Rate-follows-production-month for late collections",s:"done"},{t:"Write into Schedule 1 + the calculator",s:"now"}],
+         open:["Not yet modelled in the engine — don't change the live calc until the agreement signs","Simulated: RM0 net effect over 12 months, ±10.8% monthly; 96% settles within a month"]},
+        {id:"l3", dot:"now", chip:"decided-ish", name:"Remove the 10% deduction",
+         one:"Abolish it clinic-wide; offset by doctors bearing their own discounts. Cleaner — especially for Jun — but a real net cost.",
+         steps:[{t:"Simulated across Jun-25→May-26",s:"done"},{t:"Direction chosen: remove, offset via doctor-borne discounts",s:"done"},{t:"Confirm at parents sit-down",s:"now"},{t:"Lands in Schedule 1 + doctor briefing",s:""}],
+         open:["<b>Costed honestly: −RM57k/yr ex-Ong; 2026 EBITDA ~34k → ~−23k.</b> The offsets recover only ~RM3.3k — this is bought simplicity, own it as such","Ling's exemption bucket disappears with the rule — one story, not two"]},
+        {id:"l4", dot:"now", chip:"policy set", name:"Discounts & IPP",
+         one:"Floor price + mandatory discount lines, 100% doctor-borne. IPP as the alternative to upfront discounts — doctor bears MDR above the 0.85% BAU.",
+         steps:[{t:"20-yr discount forensics (all clean cases = Dr Ling, ~10%)",s:"done"},{t:"Pine Labs rate card + 12-month simulation",s:"done",w:"20 Aug"},{t:"Scenario A chosen: doctor bears MDR — self-policing",s:"done"},{t:"Confirm at parents sit-down · Lydia drafts clause",s:"now"},{t:"Doctor briefing: discount lines, never touch production price",s:""}],
+         open:["Family benefit stays verbal for contractors (handbook only): free treatment for immediate family, invoiced costs (crowns/implants/aligners) borne by doctor or member","Scope IPP as ≥12-month treatment courses >RM10k — justification, not money","Sim says doctor +RM22.6k / clinic −RM2.3k on scenario A — everybody earns more than discounting"]},
+        {id:"l5", dot:"now", chip:"audit done", name:"Pricing base compliance",
+         one:"Fee-schedule audit done: 60% priced exactly, 97% of reductions are silent ProcFee edits, 90 active codes unpriced (~RM308k governable).",
+         steps:[{t:"Full audit vs the Sep-2024 standard list",s:"done",w:"24 Aug"},{t:"Emily reviewing code-consolidation advice",s:"now"},{t:"Repricing pass on the 90 unpriced codes",s:""},{t:"Becomes the floor the discount clause references",s:""}],
+         open:["Azelia is the sole below-pricer — handled via training, not confrontation","Doctor OpenDent training carries this: discount = a line, never an edited price"]},
+        {id:"l6", dot:"wait", chip:"on Lydia", name:"Employee contracts & handbook",
+         one:"New hires signed on Gen-3; long-tenured staff don't re-sign — everyone signs the 2026 handbook acknowledgement instead.",
+         steps:[{t:"Gen-3 templates + terminology standard settled",s:"done"},{t:"New hires signed",s:"done"},{t:"Handbook finalised by Lydia",s:"now"},{t:"All-staff acknowledgement signatures",s:""}],
+         open:["Say it out loud: this is blocked on Lydia, not Emily","Family-treatment benefit written here (employees), verbal for contractors"]}
+      ]
+    },
+    {
+      id:"P3", color:"var(--p3)", num:"Pillar 3", name:"Growth",
+      mission:"Fill the chairs: reactivate the lapsed base, stop the checkout leak, land Dr Jun with new demand, and compound the brand (SEO, social, merch, 20th anniversary).",
+      lead:"Owner-led · retention before acquisition",
+      gtpp:{
+        g:"Spend gates: Jason's blast price, DataForSEO US$50, merch pilot budget. Targets: coffee scheme tiers reset off the honest 54% baseline.",
+        t:"Recall funnel + daily rebooking numbers live via Edith; blast filter page with Suraya; OpenSEO installed, gated on the API key.",
+        p:"Desk rebooking script (ask-at-checkout — the data says it's decided at the counter, same day), blast exclusion hygiene, review-ask cadence with the standees.",
+        pe:"FOH verbal/retention training (rejection handling, sales skills) inside the FOH syllabus; DSA girls as videographers; Jun × Ling working-arrangement talk."
+      },
+      streams:[
+        {id:"g1", dot:"now", chip:"next 2 wks", name:"Cold reactivation blast",
+         one:"The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved — bring patients back before year end.",
+         steps:[{t:"Send list + exclusions built (9,833 excluded w/ reasons)",s:"done",w:"24 Aug"},{t:"3 templates sent to Code Capsule",s:"done"},{t:"Meta template approval",s:"now"},{t:"Blacklist + family cross-check · anniversary-list exclusion",s:"now"},{t:"Fresh-data re-run immediately before sending",s:""},{t:"Wave 1 fires (13–36mo lapsed)",s:""},{t:"Waves 2–3 · funnel read via campaign tags",s:""}],
+         open:["Jason still owes the price","PDPA check with Lydia","Cert renewal before 16 Oct","250 sends/day cap shapes the wave calendar"]},
+        {id:"g2", dot:"live", chip:"live", name:"Recall funnel (automated)",
+         one:"The 03-number WhatsApp recall runs daily on cron; you get the number from Edith every morning. 6.7% booking conversion is the floor.",
+         steps:[{t:"Live + cron'd",s:"done"},{t:"Daily funnel telemetry",s:"done"},{t:"Fix click under-logging with Code Capsule",s:"now"}],
+         open:["Only dependency: keep the Alibaba account topped up (alerts to the iSmile inbox)"]},
+        {id:"g3", dot:"now", chip:"~50%", name:"Front-desk retention (rebooking)",
+         one:"~46% of visits end with nothing booked in 60 days ≈ 2,800 patients/yr — 16× the call list, and it's decided at the counter, same day.",
+         steps:[{t:"Honest baseline settled: ~54% on a 60-day window",s:"done"},{t:"Maturation hypothesis tested — rejected (+0.8pp only)",s:"done",w:"26 Aug"},{t:"Coffee targets running (70% any 3 days)",s:"now"},{t:"Verbal/rejection-handling module into FOH training",s:""},{t:"Re-cut targets: eligible-only or per-day",s:""}],
+         open:["<b>Saturday is the leak: 38% on the 2nd-busiest day</b>; new patients rebook at 22% vs 49% returning","Flat targets read as unfair — cleaning-heavy days can't match ortho days; target eligible patients or per-weekday","159 past-dated appointments still 'Scheduled' — desk hygiene"]},
+        {id:"g4", dot:"blocked", chip:"offer letter", name:"Dr Jun (new doctor)",
+         one:"Starts last week of Oct, 5 days/wk. Terms agreed verbally; the offer letter is the critical path — she tenders ~end Aug.",
+         steps:[{t:"Terms agreed: RM7k/6mo or 40%, whichever higher",s:"done",w:"17–20 Aug"},{t:"Boss talk done · Elite 2 Sats/mo transition",s:"done",w:"20 Aug"},{t:"Offer letter issued",s:"now"},{t:"She signs · tenders (~2 months notice)",s:""},{t:"Jun ↔ Dr Ong practitioner chat",s:""},{t:"Jun ↔ Dr Ling chemistry + arrangement talk",s:""},{t:"Amy + Mah, then the rest, then announce",s:""},{t:"Starts late Oct · book steered to NEW demand",s:""}],
+         open:["Close before paper: 55k→50% tier (leaning: keep, consistency), Oct pro-rating","Ling arrangement: apprentice override vs independent — fair remuneration expected; design as clinic-paid supervision fee, not fee-splitting","<b>She builds her own book</b> — the RM7k floor is the ramp support; blast + call-list patients route to her"]},
+        {id:"g5", dot:"now", chip:"root cause", name:"SEO & website",
+         one:"Diagnosis landed: service pages render as 160-word stubs to Google — prerendering them is the single highest-impact fix. Reviews velocity 2/mo vs 6–8 target.",
+         steps:[{t:"Deep diagnosis: CTR fault isolated, stubs found",s:"done",w:"28 Aug"},{t:"Quick wins merged (titles, links)",s:"done",w:"28 Aug"},{t:"Prerender service pages",s:"now"},{t:"Review standees in — watch the weekly velocity number",s:"now"},{t:"Dentist pages (doctor-name searches convert 16–42%)",s:""},{t:"NAP fix on old-address listings",s:""}],
+         open:["OpenSEO installed but gated on your DataForSEO key (US$50 min top-up)","Content batch #213/215/216 waits on Dr Ong's 44-claim sheet","Proportion check: organic = 26 enquiries/90d — keep SEO cheap; reactivation is the bigger lever"]},
+        {id:"g6", dot:"parked", chip:"needs time", name:"Social media (organic)",
+         one:"Plan written with Mandy: experience + educational pillars, shoot once post everywhere, DSA girls as videographers, Dr Ling first.",
+         steps:[{t:"Strategy + first-cut plan written",s:"done",w:"18 Aug"},{t:"Buy clip-on mic · pick shoot days",s:"now"},{t:"First Dr Ling consult footage",s:""},{t:"Zernio tracking across channels",s:""}],
+         open:["Stalled on your time — decide whether Mandy/DSAs can run it without you","Consent forms before any face-on-camera recording (parents sign for minors)"]},
+        {id:"g7", dot:"wait", chip:"quoting", name:"Merch & character series",
+         one:"TOC engaged and quoting. MOQ answer is in: ready-made = low MOQ, custom moulds = 300–500+. The case is the strongest first buy.",
+         steps:[{t:"Catalogue (8 products + 15 characters) sent to TOC",s:"done",w:"25 Aug"},{t:"Vivienne answered: ~220–300 cases/yr, quote on ready-made basis",s:"done",w:"26 Aug"},{t:"Stock-on-hand qty + current case unit cost from Emily",s:"now"},{t:"Judge quote on MOQ, not unit price",s:""},{t:"Pilot: the case (a spec change, not a new line)",s:""},{t:"Mascot commitment decision + vector logo commission",s:""}],
+         open:["This is a brand/perceived-value play, not cost reduction — the owner's own read","15-character plush series only works if costumes share one base body"]},
+        {id:"g8", dot:"now", chip:"34 names", name:"20th-anniversary appreciation",
+         one:"Lu Tsen vetting ~34 long-timer patients with your mum for a bespoke gift — the 'wrapped card' of their years with the clinic.",
+         steps:[{t:"Name list drafted (~34)",s:"done"},{t:"Vetting with Dr Ong",s:"now"},{t:"Design the journey card (years, first-visit age, story)",s:""},{t:"Gift + delivery",s:""}],
+         open:["Cross-check: anniversary names must be excluded from the cold blast (already flagged in the blast pack)","Bespoke beats branded merch here — these are relationship gifts"]}
+      ]
+    }
+  ],
+  foundations: [
+    {
+      id:"F1", color:"var(--fhr)", num:"Foundation", name:"People & HR",
+      mission:"Keep the doctors and staff genuinely okay while the three pillars land on them.",
+      streams:[
+        {id:"h1", dot:"now", chip:"sensitive", name:"Doctor wellbeing",
+         one:"Low visibility is the risk. Live: Dr Mah's morale plan, the Align workshop seat, and a regular check-in rhythm.",
+         steps:[{t:"Mah appreciation-notes plan set (Dec birthday — confirm date, keep secret)",s:"now"},{t:"Align workshop 8 Sep — answer the seat",s:"now"},{t:"Light doctor check-in rhythm, not event-driven",s:""}],
+         open:["Front desk to pick safe long-tenured patients of Mah's for the notes — quiet until executed"]},
+        {id:"h2", dot:"wait", chip:"Q4", name:"Year-end increments",
+         one:"Decided: year end, BASE only, <1yr staff none, Elaine pending JD. Amounts = the Q4 sit-down.",
+         steps:[{t:"July bonus paid + announced",s:"done",w:"12 Jul"},{t:"Dr Ong × Elaine JD talk — confirmed NOT yet happened; make it happen",s:"now"},{t:"Book the amounts sit-down",s:""},{t:"Scorecard tool (defensible raises) — still unbuilt",s:""}],
+         open:["Emily is aware and planning for EOY","Funded from reserves, not profit — hold that framing"]},
+        {id:"h3", dot:"wait", chip:"verify", name:"DSA conduct & supervision",
+         one:"Conduct complaints held (utilisation fix first) — but the junior-left-alone-chairside allegation is patient safety and needs verifying regardless.",
+         steps:[{t:"Complaints logged (noise, phones, occupied rooms)",s:"done"},{t:"Verify the supervision allegation with Emily — separately",s:"now"},{t:"Peer-led training night (Siti + Eda) if confirmed useful",s:""}],
+         open:["Keep the safety question and the conduct question as two different conversations"]},
+        {id:"h4", dot:"live", chip:"tracking", name:"Bench & succession",
+         one:"Elaine redeployed to CRM caller (post-recovery care), Jessy tracking to head-of-DSAs, Erincy at 70/30 DSA/FOH.",
+         steps:[{t:"Elaine calling lists issued",s:"done"},{t:"Jessy FOH stretch posting running",s:"now"},{t:"Erincy mileage building",s:"now"}],
+         open:["CRM calling itself is deprioritised — the redeployment still needs a real cadence eventually"]}
+      ]
+    },
+    {
+      id:"F2", color:"var(--ffin)", num:"Foundation", name:"Finance / FinOps",
+      mission:"Hold three numbers at all times: year-end net profitability, EBITDA, and cash in the bank — with the capex wave priced in.",
+      streams:[
+        {id:"f1", dot:"live", chip:"daily", name:"Daily cash & EBITDA telemetry",
+         one:"Daily cash-cover + P&L push is live; you already receive the number every morning.",
+         steps:[{t:"Pipeline live",s:"done"},{t:"Daily notification via Edith",s:"done"},{t:"Add a bank-balance line to the daily view",s:"now"}],
+         open:["Break-even ≈ RM5.5k/day — the number the team can hold"]},
+        {id:"f2", dot:"now", chip:"v6", name:"FY2026 landing projection",
+         one:"V6 redone. Expecting a loss year — the job is knowing the landing zone, not pretending otherwise.",
+         steps:[{t:"V6 rebuilt",s:"done"},{t:"Track landing vs actuals monthly",s:"now"},{t:"Year-end close + FY2027 base",s:""}],
+         open:["10%-removal decision moves EBITDA ~34k → ~−23k — carry it in the projection before the parents sit-down","40% of trading days are EBITDA-negative; Friday 63% — parked until Jun rebalances the week"]},
+        {id:"f3", dot:"now", chip:"capex wave", name:"Capex & cash runway",
+         one:"The digitisation bill lands now: hardware ~10k, Code Capsule 10k, AutoCount 7k + HRMS, your own payroll now on the books.",
+         steps:[{t:"AutoCount licence paid",s:"done",w:"26–27 Aug"},{t:"Hardware invoice → pay",s:"now"},{t:"HRMS quote decision",s:"now"},{t:"Confirm cash covers capex + Dec bonus/increment wave",s:""}],
+         open:["Increments + bonus are reserve-funded — keep them in the cash view, not just the P&L"]}
+      ]
+    }
+  ],
+  sideboard: [
+    "<b>Azelia</b> owed RM135 (X-ray recon)",
+    "Delete <b>msgstore.db.crypt15</b> from clinic Drive (unconfirmed)",
+    "Delete the <b>TEST PATIENT</b> row in the registrations Sheet",
+    "<b>Letters SOP:</b> Joan/Yeoh chops outstanding; ask what RES/PRO prefixes denote",
+    "Where are issued letters filed? Nobody knows",
+    "<b>Vector logo master</b> — none exists; gates merch + signage",
+    "Referral capture restart at the desk (99.8% of records pre-2015)",
+    "2-week accompanying-children tally before waiting-area joinery",
+    "Credential rotation (RECALL_PASS, Firehose, openclaw keys) — deferred",
+    "Emily ↔ Edith Telegram access (pilot: Mah's birthday ask)",
+    "Supplier rebate credit-note test — does it touch the monthly lab figure?",
+    "Invisalign: which of the 3 accesses is Emily missing?",
+    "Priscilla: clinical practice or case allocation? Only Emily knows",
+    "Free staff/family treatment — quantify + name an approver",
+    "Retire or rename the RM0 Myobrace code in OpenDental",
+    "GA4: mark form_submit as key event (avoid double-count)",
+    "Registration/admin fee idea — parked (RM10–15 break-even, Lydia same convo as discounts)",
+    "holidays.txt repopulate each January (closed-day digest guard)",
+    "CRM 172-name call list — built, idle, deprioritised by choice",
+    "X-ray compliance ✅ resolved — one AELB-compliant person in the building suffices, and one is always present"
+  ]
+};
+
+/* ---------- render ---------- */
+const $ = (s)=>document.querySelector(s);
+const el = (tag, cls, html)=>{const e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e;};
+const DOTLBL = {live:"live", now:"in motion", wait:"waiting", blocked:"blocked", parked:"parked", horizon:"horizon"};
+
+let FILTER=null;
+function setFilter(k){
+  FILTER=k;
+  document.querySelectorAll("#counts span").forEach(sp=>sp.classList.toggle("active", !!FILTER && sp.dataset.filter===FILTER));
+  document.querySelectorAll(".wrap .srow").forEach(r=>{
+    const dot=r.querySelector(".sdot");
+    r.classList.toggle("dim", !!FILTER && !dot.classList.contains(FILTER));
+  });
+}
+function renderCounts(){
+  const all=[...DATA.pillars, ...DATA.foundations].flatMap(p=>p.streams);
+  const c=(k)=>all.filter(s=>s.dot===k).length;
+  const defs=[["all",all.length,"workstreams"],["live",c("live"),"live"],["now",c("now"),"in motion"],["wait",c("wait"),"waiting"],["blocked",c("blocked"),"blocked"]];
+  const box=$("#counts"); box.innerHTML="";
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  defs.forEach(([k,n,lab])=>{
+    const sp=el("span",null,`<b>${reduce?n:0}</b> ${lab}`);
+    sp.dataset.filter=k;
+    if(k==="blocked")sp.style.borderColor="rgba(255,107,107,.5)";
+    sp.setAttribute("data-tip-k", k==="all"?"show all":"filter");
+    sp.setAttribute("data-tip-b", k==="all"?"Click to clear the spotlight and show everything.":"Click to spotlight these workstreams across the board; click again to clear.");
+    sp.addEventListener("click",()=>setFilter(k==="all"?null:(FILTER===k?null:k)));
+    box.appendChild(sp);
+    if(!reduce){
+      const bEl=sp.querySelector("b"); let t0=null;
+      const tick=(ts)=>{if(!t0)t0=ts;const p=Math.min(1,(ts-t0)/750);bEl.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick);};
+      requestAnimationFrame(tick);
+    }
+  });
+}
+
+function renderDecisions(){
+  const box=$("#decisions");
+  DATA.decisions.forEach(d=>{
+    const c=el("div","dcard"+(d.hot?" hot":""));
+    c.tabIndex=0; c.setAttribute("role","button");
+    c.innerHTML=`<div class="k">${d.k}</div><div class="t">${d.t}</div><div class="w">${d.w}</div>`;
+    const go=()=>{
+      const p=[...DATA.pillars,...DATA.foundations].find(x=>x.id===d.ref);
+      if(p&&p.gtpp){openPillar(p);return;}
+      const s=findStream(d.ref); if(s) openStream(s.stream,s.parent);
+    };
+    c.addEventListener("click",go);
+    c.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go();}});
+    box.appendChild(c);
+  });
+}
+
+function renderRail(){
+  const box=$("#rail");
+  DATA.rail.forEach(m=>{
+    const d=el("div","mile"+(m.s?" "+m.s:""));
+    d.innerHTML=`<span class="dot"></span><div class="d">${m.d}</div><div class="l">${m.l}</div>`;
+    d.setAttribute("data-tip-k", m.d+(m.s==="done"?" · done":m.s==="now"?" · in motion":""));
+    d.setAttribute("data-tip-b", m.tip||m.l);
+    box.appendChild(d);
+  });
+  placeToday();
+}
+function placeToday(){
+  const rail=$("#rail"); if(!rail)return;
+  let tm=rail.querySelector(".today"); if(!tm){tm=el("div","today"); rail.appendChild(tm);}
+  const now=Date.now();
+  const times=DATA.rail.map(m=>new Date(m.iso+"T00:00:00+08:00").getTime());
+  const xs=[...rail.querySelectorAll(".mile")].map(m=>m.offsetLeft+6);
+  if(!xs.length)return;
+  let x=xs[0];
+  if(now>=times[times.length-1]) x=xs[xs.length-1];
+  else for(let i=0;i<times.length-1;i++){
+    if(now>=times[i]&&now<times[i+1]){const f=(now-times[i])/(times[i+1]-times[i]); x=xs[i]+f*(xs[i+1]-xs[i]); break;}
+  }
+  tm.style.left=x+"px";
+}
+window.addEventListener("resize",placeToday);
+
+const DOTTIPS={live:"Running — no action needed, just watch the number.",now:"In motion — actively being worked right now.",wait:"Waiting on someone or something outside your control.",blocked:"Blocked — needs an unblock before it can move.",parked:"Parked deliberately — a choice, not a stall.",horizon:"A future phase — sequenced after the current work lands."};
+function streamRow(s,parent){
+  const li=el("li","srow"); li.tabIndex=0; li.setAttribute("role","button");
+  li.innerHTML=`<span class="sdot ${s.dot}" data-tip-k="${DOTLBL[s.dot]||s.dot}" data-tip-b="${DOTTIPS[s.dot]||""}"></span><span class="sname">${s.name}</span><span class="schip">${s.chip}</span>`;
+  const go=()=>openStream(s,parent);
+  li.addEventListener("click",go);
+  li.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go();}});
+  return li;
+}
+
+function pillarProgress(p){
+  const done=p.streams.flatMap(s=>s.steps).filter(x=>x.s==="done").length;
+  const tot=p.streams.flatMap(s=>s.steps).length;
+  return Math.round(100*done/tot);
+}
+
+function renderPillars(){
+  const box=$("#pillars");
+  DATA.pillars.forEach(p=>{
+    const card=el("div","pillar");
+    card.appendChild(el("div","top","")).style.background=p.color;
+    const head=el("div","phead");
+    head.tabIndex=0; head.setAttribute("role","button");
+    head.innerHTML=`<div class="pnum" style="color:${p.color}">${p.num}</div><div class="pname">${p.name}</div>`;
+    const go=()=>openPillar(p);
+    head.addEventListener("click",go);
+    head.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go();}});
+    card.appendChild(head);
+    const pct=pillarProgress(p);
+    const bar=el("div","pbar"); const fill=el("i"); fill.style.width="0%"; fill.style.background=p.color; bar.appendChild(fill);
+    setTimeout(()=>{fill.style.width=pct+"%";},450);
+    card.appendChild(bar);
+    card.appendChild(el("div","pbar-lab",`${pct}% of mapped steps complete`));
+    const ul=el("ul","streams");
+    p.streams.forEach(s=>ul.appendChild(streamRow(s,p)));
+    card.appendChild(ul);
+    box.appendChild(card);
+  });
+}
+
+function renderFoundations(){
+  const box=$("#foundations");
+  DATA.foundations.forEach(f=>{
+    const card=el("div","found");
+    const top=el("div","top",""); top.style.cssText=`height:3px;background:${f.color}`;
+    card.appendChild(top);
+    const head=el("div","fhead");
+    head.innerHTML=`<span class="pnum" style="color:${f.color}">${f.num}</span><span class="pname" style="font-family:var(--disp);font-weight:600">${f.name}</span>`;
+    card.appendChild(head);
+    const ul=el("ul","streams");
+    f.streams.forEach(s=>ul.appendChild(streamRow(s,f)));
+    card.appendChild(ul);
+    box.appendChild(card);
+  });
+}
+
+function renderSideboard(){
+  $("#sbcount").textContent=DATA.sideboard.length;
+  const ul=$("#sblist");
+  DATA.sideboard.forEach(t=>ul.appendChild(el("li",null,t)));
+  $("#sbtoggle").addEventListener("click",()=>$("#sideboard").classList.toggle("open"));
+}
+
+function findStream(id){
+  for(const p of [...DATA.pillars,...DATA.foundations]){
+    const s=p.streams.find(x=>x.id===id);
+    if(s) return {stream:s,parent:p};
+  }
+  return null;
+}
+
+let lastFocus=null, PANELCTX=null;
+function openPanel(){document.body.classList.add("panel-open");}
+function closePanel(){document.body.classList.remove("panel-open"); PANELCTX=null; if(lastFocus)lastFocus.focus();}
+
+function navBtn(t,fn){const b=el("button",null,t); b.addEventListener("click",fn); return b;}
+function slideTo(dir,fn){
+  const sh=$("#dsheet");
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches){fn();return;}
+  sh.classList.add(dir>0?"out-l":"out-r");
+  setTimeout(()=>{
+    fn();
+    sh.classList.remove("out-l","out-r");
+    sh.classList.add(dir>0?"jump-r":"jump-l");
+    requestAnimationFrame(()=>requestAnimationFrame(()=>sh.classList.remove("jump-r","jump-l")));
+  },170);
+}
+function buildNav(){
+  const nav=$("#dnav"); nav.innerHTML="";
+  if(!PANELCTX)return;
+  if(PANELCTX.kind==="stream"){
+    const st=PANELCTX.p.streams, i=PANELCTX.idx;
+    if(st.length>1){
+      const prev=st[(i-1+st.length)%st.length], next=st[(i+1)%st.length];
+      nav.appendChild(navBtn("‹ "+prev.name,()=>slideTo(-1,()=>openStream(prev,PANELCTX.p))));
+      nav.appendChild(navBtn(next.name+" ›",()=>slideTo(1,()=>openStream(next,PANELCTX.p))));
+    }
+    if(PANELCTX.p.gtpp) nav.appendChild(navBtn("◳ pillar lens",()=>slideTo(1,()=>openPillar(PANELCTX.p))));
+  }else{
+    const ps=DATA.pillars, i=ps.indexOf(PANELCTX.p);
+    if(i>=0){
+      const prev=ps[(i-1+ps.length)%ps.length], next=ps[(i+1)%ps.length];
+      nav.appendChild(navBtn("‹ "+prev.name,()=>slideTo(-1,()=>openPillar(prev))));
+      nav.appendChild(navBtn(next.name+" ›",()=>slideTo(1,()=>openPillar(next))));
+    }
+  }
+  if(nav.children.length) nav.appendChild(el("span","hint","← → keys · swipe"));
+}
+
+function openStream(s,parent){
+  if(!document.body.classList.contains("panel-open")) lastFocus=document.activeElement;
+  PANELCTX={kind:"stream",p:parent,idx:parent.streams.indexOf(s)};
+  $("#dkicker").textContent=`${parent.num} · ${parent.name} · ${DOTLBL[s.dot]||s.dot}`;
+  $("#dkicker").style.color="";
+  const cv=parent.color||"var(--p1)";
+  $("#dkicker").style.color=cv.startsWith("var")?getComputedStyle(document.documentElement).getPropertyValue(cv.slice(4,-1)):cv;
+  $("#dtitle").textContent=s.name;
+  $("#done").textContent=s.one;
+  const b=$("#dbody"); b.innerHTML="";
+  if(s.steps&&s.steps.length){
+    const sec=el("div","dsec","<h3>Where we are — chronologically</h3>");
+    const ol=el("ol","steps");
+    s.steps.forEach(st=>{
+      const li=el("li",st.s||null,`${st.t}${st.w?`<span class="when">${st.w}</span>`:""}`);
+      ol.appendChild(li);
+    });
+    sec.appendChild(ol); b.appendChild(sec);
+  }
+  if(s.open&&s.open.length){
+    const sec=el("div","dsec","<h3>Open / watch-outs</h3>");
+    const ul=el("ul","opens");
+    s.open.forEach(o=>ul.appendChild(el("li",null,o)));
+    sec.appendChild(ul); b.appendChild(sec);
+  }
+  buildNav();
+  openPanel();
+  $("#dclose").focus();
+}
+
+function openPillar(p){
+  if(!document.body.classList.contains("panel-open")) lastFocus=document.activeElement;
+  PANELCTX={kind:"pillar",p};
+  $("#dkicker").textContent=`${p.num} · four-lens view`;
+  $("#dkicker").style.color=getComputedStyle(document.documentElement).getPropertyValue(p.color.slice(4,-1));
+  $("#dtitle").textContent=p.name;
+  $("#done").textContent=p.mission;
+  const b=$("#dbody"); b.innerHTML="";
+  const sec=el("div","dsec","<h3>Governance · Technology · Process · People</h3>");
+  const g=el("div","gtpp");
+  [["Governance",p.gtpp.g],["Technology",p.gtpp.t],["Process",p.gtpp.p],["People",p.gtpp.pe]].forEach(([k,v])=>{
+    g.appendChild(el("div","cell",`<div class="g">${k}</div><p>${v}</p>`));
+  });
+  sec.appendChild(g); b.appendChild(sec);
+  const sec2=el("div","dsec","<h3>Workstreams inside this pillar</h3>");
+  const ul=el("ul","streams");
+  p.streams.forEach(s=>ul.appendChild(streamRow(s,p)));
+  sec2.appendChild(ul); b.appendChild(sec2);
+  buildNav();
+  openPanel();
+  $("#dclose").focus();
+}
+
+$("#scrim").addEventListener("click",closePanel);
+$("#dclose").addEventListener("click",closePanel);
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape")closePanel();
+  if(!document.body.classList.contains("panel-open"))return;
+  const btns=$("#dnav").querySelectorAll("button");
+  if(e.key==="ArrowLeft"&&btns[0])btns[0].click();
+  if(e.key==="ArrowRight"&&btns[1])btns[1].click();
+});
+
+/* swipe between panels (mobile) */
+(()=>{
+  let x0=null,y0=null;
+  const d=$("#detail");
+  d.addEventListener("touchstart",e=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY;},{passive:true});
+  d.addEventListener("touchend",e=>{
+    if(x0==null)return;
+    const dx=e.changedTouches[0].clientX-x0, dy=e.changedTouches[0].clientY-y0;
+    x0=null;
+    if(Math.abs(dx)<60||Math.abs(dx)<Math.abs(dy)*1.5)return;
+    const btns=$("#dnav").querySelectorAll("button");
+    if(dx>0&&btns[0])btns[0].click();
+    if(dx<0&&btns[1])btns[1].click();
+  },{passive:true});
+})();
+
+/* tooltip engine */
+(()=>{
+  const tip=$("#tip");
+  let holdTimer=null;
+  function fill(t){
+    tip.innerHTML=(t.dataset.tipK?`<div class="tk">${t.dataset.tipK}</div>`:"")+`<div class="tb">${t.dataset.tipB}</div>`;
+  }
+  function place(x,y){
+    tip.style.left="0px"; tip.style.top="0px";
+    const r=tip.getBoundingClientRect();
+    let px=x+14, py=y+16;
+    if(px+r.width>innerWidth-8)px=Math.max(8,x-r.width-12);
+    if(py+r.height>innerHeight-8)py=Math.max(8,y-r.height-12);
+    tip.style.left=px+"px"; tip.style.top=py+"px";
+  }
+  document.addEventListener("mouseover",e=>{
+    const t=e.target.closest("[data-tip-b]");
+    if(!t||!t.dataset.tipB)return;
+    fill(t); tip.classList.add("show"); place(e.clientX,e.clientY);
+  });
+  document.addEventListener("mouseout",e=>{ if(e.target.closest("[data-tip-b]")) tip.classList.remove("show"); });
+  document.addEventListener("mousemove",e=>{ if(tip.classList.contains("show")) place(e.clientX,e.clientY); });
+  /* tap-to-peek on touch, for elements that aren't otherwise interactive (the rail) */
+  document.addEventListener("touchstart",e=>{
+    const t=e.target.closest(".mile[data-tip-b]");
+    if(!t)return;
+    fill(t); tip.classList.add("show");
+    const r=t.getBoundingClientRect(); place(r.left+10,r.bottom+4);
+    clearTimeout(holdTimer); holdTimer=setTimeout(()=>tip.classList.remove("show"),2800);
+  },{passive:true});
+})();
+
+/* ambient neural web */
+(()=>{
+  const cv=document.getElementById("fx"); if(!cv)return;
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const ctx=cv.getContext("2d");
+  const COLS=["69,196,255","177,149,255","63,221,160"];
+  let W,H,pts=[],mx=0,my=0;
+  function size(){W=cv.width=innerWidth;H=cv.height=innerHeight;}
+  function seed(){
+    const n=innerWidth<700?30:innerWidth<1100?48:68;
+    pts=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.28,vy:(Math.random()-.5)*.28,c:COLS[Math.random()*3|0]}));
+  }
+  addEventListener("mousemove",e=>{mx=(e.clientX/W-.5);my=(e.clientY/H-.5);},{passive:true});
+  function draw(move){
+    ctx.clearRect(0,0,W,H);
+    const ox=mx*20, oy=my*20;
+    if(move) for(const p of pts){
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<-20)p.x=W+20; if(p.x>W+20)p.x=-20;
+      if(p.y<-20)p.y=H+20; if(p.y>H+20)p.y=-20;
+    }
+    for(let i=0;i<pts.length;i++){
+      const a=pts[i];
+      for(let j=i+1;j<pts.length;j++){
+        const b=pts[j], dx=a.x-b.x, dy=a.y-b.y, d2=dx*dx+dy*dy;
+        if(d2<13225){
+          ctx.strokeStyle=`rgba(${a.c},${(1-Math.sqrt(d2)/115)*.11})`;
+          ctx.lineWidth=1;
+          ctx.beginPath(); ctx.moveTo(a.x+ox,a.y+oy); ctx.lineTo(b.x+ox,b.y+oy); ctx.stroke();
+        }
+      }
+      ctx.fillStyle=`rgba(${a.c},.55)`;
+      ctx.beginPath(); ctx.arc(a.x+ox,a.y+oy,1.3,0,7); ctx.fill();
+    }
+  }
+  function loop(){ draw(true); requestAnimationFrame(loop); }
+  size(); seed();
+  addEventListener("resize",()=>{size();seed();draw(false);});
+  if(reduce) draw(false); else requestAnimationFrame(loop);
+})();
+
+/* ---------- boot: fetch live data from the status branch, fall back to embedded ---------- */
+const HQ_DATA_URL="https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/hq.json";
+function renderAll(){
+  if(DATA.meta){
+    if(DATA.meta.asof)$("#asofDate").textContent=DATA.meta.asof;
+    if(DATA.meta.horizon)$("#asofHz").textContent=DATA.meta.horizon;
+  }
+  renderCounts(); renderDecisions(); renderRail(); renderPillars(); renderFoundations(); renderSideboard();
+  /* staggered entrance */
+  const seq=[...document.querySelectorAll("header, .secthead, .dcard, .legendrow, .rail, .pillar, .found, .sideboard, footer")];
+  seq.forEach(t=>t.classList.add("reveal"));
+  seq.forEach((t,i)=>setTimeout(()=>t.classList.add("in"), 80+i*40));
+}
+(async()=>{
+  try{
+    const r=await fetch(HQ_DATA_URL+"?t="+Date.now(),{cache:"no-store"});
+    if(r.ok){
+      const j=await r.json();
+      if(j&&Array.isArray(j.pillars)&&Array.isArray(j.foundations)) DATA=j;
+    }
+  }catch(e){/* offline or raw blocked — embedded fallback renders */}
+  renderAll();
+})();
+</script>
+</body>
+</html>
