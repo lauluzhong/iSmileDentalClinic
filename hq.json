@@ -73,18 +73,18 @@
    "tip": "Code Capsule runs the full OpenDent \u2192 AutoCount round-trip on the live licence."
   },
   {
-   "d": "5 Sep",
-   "l": "OpenDent config downtime, from 3pm (fallback 12 Sep)",
-   "s": "",
-   "iso": "2026-09-05",
-   "tip": "Bob reconfigures OpenDent for 7\u20138 hrs starting 3pm \u2014 after trading, so the Saturday list is not lost. Slips to 12 Sep if hardware lands late."
-  },
-  {
    "d": "3 Sep",
    "l": "Hardware lands (Taobao tracking)",
    "s": "",
    "iso": "2026-09-03",
    "tip": "Jason, 28 Aug: Taobao shipping update puts arrival at 3 Sep, which keeps the 5 Sep configuration slot alive. He has already briefed Bob."
+  },
+  {
+   "d": "5 Sep",
+   "l": "OpenDent config downtime, from 3pm (fallback 12 Sep)",
+   "s": "",
+   "iso": "2026-09-05",
+   "tip": "Bob reconfigures OpenDent for 7\u20138 hrs starting 3pm \u2014 after trading, so the Saturday list is not lost. Slips to 12 Sep if hardware lands late."
   },
   {
    "d": "15 Sep",
@@ -1294,6 +1294,6 @@
  ],
  "meta": {
   "asof": "SAT 29 AUG 2026",
-  "updated": "2026-08-29T13:15:59+08:00"
+  "updated": "2026-08-29T13:16:38+08:00"
  }
 }
