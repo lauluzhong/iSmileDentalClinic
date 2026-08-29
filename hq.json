@@ -9,9 +9,9 @@
   },
   {
    "hot": true,
-   "k": "Gated on the agreement",
+   "k": "Target Tue 1 Sep",
    "t": "Dr Jun's offer letter",
-   "w": "The letter IS the contract \u2014 it goes to her once the contractor agreement is approved. She has already resigned on a handshake, so this is owed.",
+   "w": "The letter IS the contract, so it needs the parents' reply first. She has already resigned on a handshake \u2014 this is owed.",
    "ref": "g4"
   },
   {
@@ -23,17 +23,31 @@
   },
   {
    "hot": false,
-   "k": "Next 1\u20132 weeks",
+   "k": "Send 7\u20138 Sep",
    "t": "Fire the cold blast",
-   "w": "Pack is built (4,011 sends / 3 waves). Chase Jason's price, run the exclusion cross-checks, fresh-data re-run, send.",
+   "w": "Date is set, no further delay. Before then: Meta approval, Suraya's filter page, exclusion cross-checks, fresh-data re-run.",
    "ref": "g1"
   },
   {
    "hot": false,
+   "k": "Target Fri 4 Sep",
+   "t": "Contractor agreements to the doctors",
+   "w": "Still to decide: hand them over in a sit-down, or send individually first and take questions after. Meeting follows on 15 Sep.",
+   "ref": "l8"
+  },
+  {
+   "hot": false,
    "k": "Small unlock",
-   "t": "Set FOH training date + fund SEO tooling",
-   "w": "Training = a Saturday after work + dinner. Separately: US$50 DataForSEO top-up unlocks the rank-grid tooling.",
-   "ref": "P1"
+   "t": "Set the FOH training date",
+   "w": "A Saturday after work, followed by dinner. Scope is already fixed; it only needs a date in the diary.",
+   "ref": "d3"
+  },
+  {
+   "hot": false,
+   "k": "US$50",
+   "t": "Fund the SEO tooling",
+   "w": "A DataForSEO top-up unlocks the Maps rank grid, real search volumes and AI-visibility tracking. New vendor spend, so it needs you.",
+   "ref": "g5"
   }
  ],
  "rail": [
@@ -52,25 +66,32 @@
    "tip": "AutoCount RM4,200 (incl. API module, +2 stock users) and Cloud HRMS RM1,139.05/yr both paid by Emily \u2014 3 business days to licence issue."
   },
   {
-   "d": "~30 Aug",
-   "l": "Jun tenders \u00b7 supplier register due",
+   "d": "28 Aug",
+   "l": "Parents briefed on the 3 comp changes",
    "s": "now",
-   "iso": "2026-08-30",
-   "tip": "Dr Jun hands in her ~2-month notice at Elite (offer letter must be in her hands), and Emily's full supplier register is committed for end of August."
+   "iso": "2026-08-28",
+   "tip": "Briefing PDF sent. Their reply finalises the contractor agreement and unblocks Jun's letter, the doctor rollout and the 15 Sep meeting. \u26d4 No agreement edits until they answer."
+  },
+  {
+   "d": "31 Aug",
+   "l": "Supplier register due (Emily)",
+   "s": "",
+   "iso": "2026-08-31",
+   "tip": "Committed for end of August. The RM246k dental-sundries group is still not on it, and the register is also what produces the list of labs invoicing more than 7 days after month end."
   },
   {
    "d": "1 Sep",
-   "l": "AutoCount licence + data migration",
+   "l": "AutoCount licence \u00b7 Dr Jun's offer letter",
    "s": "",
    "iso": "2026-09-01",
-   "tip": "Vendor issues the licence, migrates AutoCount data and changes the integration config."
+   "tip": "Vendor issues the licence and migrates the data. Same day is the owner's target to get Dr Jun's offer letter out \u2014 which is her copy of the contractor agreement, so it depends on the parents having replied."
   },
   {
    "d": "2 Sep",
-   "l": "End-to-end integration test",
+   "l": "Preliminary config check only",
    "s": "",
    "iso": "2026-09-02",
-   "tip": "Code Capsule runs the full OpenDent \u2192 AutoCount round-trip on the live licence."
+   "tip": "\u26a0\ufe0f NOT the end-to-end test. Before the hardware lands all that can be checked is that the AutoCount \u2194 OpenDent configuration is sound. True end-to-end testing can only happen after Bob's 5 Sep configuration."
   },
   {
    "d": "3 Sep",
@@ -80,11 +101,39 @@
    "tip": "Jason, 28 Aug: Taobao shipping update puts arrival at 3 Sep, which keeps the 5 Sep configuration slot alive. He has already briefed Bob."
   },
   {
+   "d": "4 Sep",
+   "l": "Contractor agreements out to doctors",
+   "s": "",
+   "iso": "2026-09-04",
+   "tip": "Owner's target to get the agreements to the doctors. Open decision: hand them over in a sit-down, or send individually first and take questions afterwards."
+  },
+  {
    "d": "5 Sep",
-   "l": "OpenDent config downtime, from 3pm (fallback 12 Sep)",
+   "l": "OpenDent migration & configuration, from 3pm",
    "s": "",
    "iso": "2026-09-05",
-   "tip": "Bob reconfigures OpenDent for 7\u20138 hrs starting 3pm \u2014 after trading, so the Saturday list is not lost. Slips to 12 Sep if hardware lands late."
+   "tip": "Bob migrates and reconfigures OpenDent for 7\u20138 hrs starting 3pm \u2014 after trading, so the Saturday list is not lost. Slips to 12 Sep if hardware lands late. Everything real gets tested after this."
+  },
+  {
+   "d": "7\u20138 Sep",
+   "l": "Cold blast sends \u2014 the date is set",
+   "s": "",
+   "iso": "2026-09-07",
+   "tip": "Owner's cut-off: the blast goes out on 7\u20138 September, no further delay. Needs Meta approval and Suraya's filter-page work done before then."
+  },
+  {
+   "d": "7\u201311 Sep",
+   "l": "True end-to-end test \u00b7 Emily firms OpenDent training",
+   "s": "",
+   "iso": "2026-09-08",
+   "tip": "The real end-to-end integration test, now that the server is configured. Same week, Emily must firm up the OpenDent corrections and training content so it is ready for the doctors on 15 Sep."
+  },
+  {
+   "d": "15 Sep",
+   "l": "Doctors' meeting \u2014 walk the agreement",
+   "s": "",
+   "iso": "2026-09-15",
+   "tip": "The sit-down with the doctors: guiding principles, why we are doing this, the three changes, and the OpenDent refresher. The narrative matters as much as the content \u2014 see the Doctor rollout card."
   },
   {
    "d": "15 Sep",
@@ -175,7 +224,7 @@
        "w": "1 Sep"
       },
       {
-       "t": "End-to-end test",
+       "t": "Preliminary config check only \u2014 end-to-end is NOT possible yet",
        "s": "",
        "w": "2 Sep"
       },
@@ -185,13 +234,18 @@
        "w": "~3 Sep"
       },
       {
-       "t": "OpenDent config downtime, 7\u20138 hrs from 3pm \u2014 Bob informed",
+       "t": "OpenDent migration & configuration, 7\u20138 hrs from 3pm \u2014 Bob informed",
        "s": "",
        "w": "Sat 5 Sep"
       },
       {
        "t": "Reconfigure every other OpenDent PC in the clinic",
        "s": ""
+      },
+      {
+       "t": "True end-to-end integration test",
+       "s": "",
+       "w": "7\u201311 Sep"
       },
       {
        "t": "AR sync live \u2014 parallel run with paper receipts",
@@ -569,19 +623,13 @@
       },
       {
        "t": "Per-doctor Schedule 1 copies drafted (Jun's = her offer letter)",
-       "s": ""
+       "s": "",
+       "w": "Jun: 1 Sep"
       },
       {
-       "t": "Dr Ling 1-to-1 sit-down (overdue) \u2014 runs inside this rollout",
-       "s": ""
-      },
-      {
-       "t": "Group forum + night Q&A call (+ OpenDent refresher)",
-       "s": ""
-      },
-      {
-       "t": "Signatures",
-       "s": ""
+       "t": "Hand over to the doctors \u2014 see Doctor rollout & communication",
+       "s": "",
+       "w": "4 Sep"
       }
      ],
      "open": [
@@ -715,6 +763,55 @@
      "open": [
       "Azelia is the sole below-pricer \u2014 handled via training, not confrontation",
       "Doctor OpenDent training carries this: discount = a line, never an edited price"
+     ]
+    },
+    {
+     "id": "l8",
+     "dot": "wait",
+     "chip": "meet 15 Sep",
+     "name": "Doctor rollout & communication",
+     "one": "How the agreement actually lands with the doctors. The narrative carries as much weight as the terms.",
+     "steps": [
+      {
+       "t": "Parents approve the three changes",
+       "s": ""
+      },
+      {
+       "t": "Decide the format: sit-down while sharing, or send individually then take questions",
+       "s": "now"
+      },
+      {
+       "t": "Agreements out to the doctors",
+       "s": "",
+       "w": "target Fri 4 Sep"
+      },
+      {
+       "t": "Emily firms up the OpenDent corrections / training content",
+       "s": "",
+       "w": "7\u201311 Sep"
+      },
+      {
+       "t": "Doctors' meeting \u2014 principles, the why, the three changes, OpenDent refresher",
+       "s": "",
+       "w": "15 Sep"
+      },
+      {
+       "t": "Per-doctor questions \u00b7 signatures",
+       "s": ""
+      }
+     ],
+     "noteTitle": "Narrative \u2014 how this gets said",
+     "note": [
+      "<b>Open on the guiding principles first</b> \u2014 trust and respect \u2014 before any of the substance. Set the register before the content.",
+      "<b>Then the three reasons we are doing this at all:</b> (1) legal, we are required to; (2) it protects both parties; (3) it is a chance to move some of the grey into black and white \u2014 <b>deliberately not all of it</b> \u2014 so everyone can operate with more confidence.",
+      "Only then walk the three changes themselves.",
+      "Fold in the OpenDent refresher: a discount is a line, never an edited production price.",
+      "\u26a0\ufe0f <b>Work the full narrative out in a dedicated session</b> \u2014 this note is the skeleton, not the script. Share it with your parents once they have given their input on the three changes."
+     ],
+     "open": [
+      "<b>Open decision:</b> group sit-down as you hand the agreements over, versus sending individually first and taking questions after. Either way the meeting lands the week of 14 Sep",
+      "Emily's OpenDent training content must be ready before 15 Sep, not after",
+      "Dr Ling's overdue 1-to-1 belongs inside this rollout, not as a separate conversation"
      ]
     },
     {
@@ -1301,6 +1398,6 @@
  ],
  "meta": {
   "asof": "SAT 29 AUG 2026",
-  "updated": "2026-08-29T13:32:49+08:00"
+  "updated": "2026-08-29T13:45:47+08:00"
  }
 }
