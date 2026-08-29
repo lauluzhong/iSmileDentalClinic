@@ -883,10 +883,13 @@ document.addEventListener("keydown",e=>{
 /* ---------- boot: fetch live data from the status branch, fall back to embedded ---------- */
 const HQ_DATA_URL="https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/hq.json";
 function renderAll(){
-  if(DATA.meta){
-    if(DATA.meta.asof)$("#asofDate").textContent=DATA.meta.asof;
-    if(DATA.meta.horizon)$("#asofHz").textContent=DATA.meta.horizon;
-  }
+  if(DATA.meta&&DATA.meta.asof)$("#asofDate").textContent=DATA.meta.asof;
+  else $("#asofDate").textContent="OFFLINE SNAPSHOT";
+  if(DATA.meta&&DATA.meta.horizon)$("#asofHz").textContent=DATA.meta.horizon;
+  /* the rail is authored by hand (and by Edith) — keep it chronological whatever order it arrives in,
+     since the TODAY marker interpolates between neighbouring milestones and assumes ascending dates. */
+  if(Array.isArray(DATA.rail))
+    DATA.rail.sort((a,b)=>String(a.iso||"").localeCompare(String(b.iso||"")));
   renderCounts(); renderDecisions(); renderRail(); renderPillars(); renderFoundations(); renderSideboard();
   /* staggered entrance */
   const seq=[...document.querySelectorAll("header, .secthead, .dcard, .legendrow, .rail, .pillar, .found, .sideboard, footer")];
