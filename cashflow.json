@@ -1,48 +1,48 @@
 {
   "as_of": "2026-08-29",
-  "mode": "midday",
+  "mode": "eod",
   "fresh": true,
-  "generated_myt": "2026-08-29 12:05",
+  "generated_myt": "2026-08-29 19:50",
   "source_max_paydate": "2026-08-29",
   "source_max_procdate": "2026-08-29",
   "today": {
-    "collected": 600.0,
-    "produced": 1330.0,
-    "patients_seen": 6,
+    "collected": 5730.0,
+    "produced": 5580.0,
+    "patients_seen": 21,
     "new_patients": 1,
     "by_paytype": {
-      "Credit Card": 400.0,
+      "Credit Card": 5530.0,
       "Cash": 200.0
     }
   },
   "mtd": {
-    "collected": 208155.0,
-    "produced": 211020.0,
+    "collected": 213285.0,
+    "produced": 215270.0,
     "trading_days": 24,
-    "avg_per_trading_day": 8673.12,
-    "run_rate_26d": 225501.25,
+    "avg_per_trading_day": 8886.88,
+    "run_rate_26d": 231058.75,
     "by_paytype": {
-      "Credit Card": 191895.0,
+      "Credit Card": 197025.0,
       "Cash": 10300.0,
       "PBB QR": 4220.0,
       "Internet Banking": 1740.0
     }
   },
-  "booked_next_14d": 286,
+  "booked_next_14d": 263,
   "forward_book": {
     "next_7d": {
       "days": 7,
-      "appts": 127,
-      "booked_min": 7400,
+      "appts": 129,
+      "booked_min": 7280,
       "capacity_min": 11120,
-      "pct": 66.54676258992805
+      "pct": 65.46762589928058
     },
     "next_14d": {
       "days": 14,
-      "appts": 253,
-      "booked_min": 14140,
+      "appts": 259,
+      "booked_min": 14310,
       "capacity_min": 22240,
-      "pct": 63.57913669064749
+      "pct": 64.34352517985612
     }
   },
   "doctors_worked": {
@@ -54,9 +54,23 @@
       "Pris"
     ]
   },
-  "utilization": null,
+  "utilization": {
+    "chair_minutes": 1020,
+    "operatories": 4,
+    "open_minutes": 480,
+    "capacity_minutes": 1520,
+    "pct": 67.1
+  },
   "pnl": {
-    "available": false,
-    "reason": "n/a (midday)"
+    "locum_est": 2188,
+    "lab_est": 382,
+    "gp": 3010.0,
+    "overhead_day": 3385.08,
+    "ebitda_day": -375.08,
+    "depreciation_day": 1146.54,
+    "net_day": -1521.62,
+    "visits_matched": 21,
+    "available": true,
+    "produced": 5580.0
   }
 }
