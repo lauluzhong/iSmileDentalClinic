@@ -78,13 +78,13 @@
   .rail{position:relative;margin:8px 0 4px;overflow-x:auto;padding-bottom:6px}
   .rail-inner{display:flex;gap:0;min-width:900px;position:relative;padding:14px 8px 4px}
   .rail-inner::before{content:"";position:absolute;left:16px;right:16px;top:19px;height:2px;background:linear-gradient(90deg,var(--p1),var(--p2),var(--p3));opacity:.45;border-radius:2px}
-  .mile{flex:1;min-width:96px;position:relative;padding-top:16px}
+  .mile{flex:1;min-width:116px;padding-right:14px;position:relative;padding-top:16px}
   .mile .dot{position:absolute;top:0;left:0;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--dim)}
   .mile.done .dot{border-color:var(--ok);background:var(--ok)}
   .mile.now .dot{border-color:var(--p1);background:var(--p1);box-shadow:0 0 0 4px rgba(69,196,255,.18);animation:pulse 2s infinite}
-  .mile .d{font-family:var(--mono);font-size:10.5px;color:var(--dim)}
+  .mile .d{font-family:var(--mono);font-size:10px;color:var(--dim)}
   .mile.now .d{color:var(--p1)}
-  .mile .l{font-size:12px;color:var(--mut);max-width:120px;line-height:1.3;margin-top:1px}
+  .mile .l{font-size:10.5px;color:var(--mut);max-width:100px;line-height:1.35;margin-top:1px}
   .mile.done .l{color:var(--dim);text-decoration:line-through;text-decoration-color:rgba(147,165,196,.5)}
 
   /* ---------- pillars ---------- */
@@ -170,6 +170,11 @@
   .steps li.now::before{background:var(--p1);border-color:var(--p1);box-shadow:0 0 0 4px rgba(69,196,255,.15);animation:pulse 2s infinite}
   .steps li .when{font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-left:6px}
   .opens{list-style:none}
+  .notes{list-style:none;background:rgba(69,196,255,.05);border:1px solid rgba(69,196,255,.22);border-radius:8px;padding:9px 12px 9px 10px}
+  .notes li{font-size:13px;color:var(--mut);line-height:1.5;padding:4px 0 4px 16px;position:relative}
+  .notes li+li{border-top:1px solid rgba(69,196,255,.12)}
+  .notes li::before{content:"▹";position:absolute;left:0;color:var(--p1)}
+  .notes li b{color:var(--ink);font-weight:600}
   .opens li{font-size:13px;color:var(--mut);padding:5px 0 5px 16px;position:relative;border-bottom:1px solid rgba(34,50,82,.45)}
   .opens li::before{content:"›";position:absolute;left:2px;color:var(--warn)}
   .opens li b{color:var(--ink);font-weight:500}
@@ -746,6 +751,12 @@ function openStream(s,parent){
       ol.appendChild(li);
     });
     sec.appendChild(ol); b.appendChild(sec);
+  }
+  if(s.note&&s.note.length){
+    const sec=el("div","dsec",`<h3>${s.noteTitle||"Narrative &amp; talking points"}</h3>`);
+    const ul=el("ul","notes");
+    s.note.forEach(n=>ul.appendChild(el("li",null,n)));
+    sec.appendChild(ul); b.appendChild(sec);
   }
   if(s.open&&s.open.length){
     const sec=el("div","dsec","<h3>Open / watch-outs</h3>");
