@@ -1,6 +1,8 @@
 {
-  "updated": "2026-08-30 06:20 MYT",
-  "running": [],
+  "updated": "2026-08-30 06:30 MYT",
+  "running": [
+    "review_curation"
+  ],
   "jobs": {
     "gbp_reply": {
       "state": "failed",
@@ -11,7 +13,7 @@
       "last": "2026-08-30 06:03 MYT"
     },
     "review_curation": {
-      "state": "idle",
+      "state": "running",
       "last": "2026-08-23 06:32 MYT"
     },
     "seo_outcome": {
