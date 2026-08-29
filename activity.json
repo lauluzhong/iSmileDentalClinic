@@ -3,6 +3,13 @@
   "entries": [
     {
       "ts": "2026-08-30 06:00 MYT",
+      "agent": "seo",
+      "job": "competitor_watch",
+      "event": "started",
+      "result": ""
+    },
+    {
+      "ts": "2026-08-30 06:00 MYT",
       "agent": "gbp",
       "job": "gbp_reply",
       "event": "started",
@@ -273,13 +280,6 @@
       "job": "margin_build",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-08-27 12:05 MYT",
-      "agent": "analytics",
-      "job": "cash_digest",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
