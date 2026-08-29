@@ -5,6 +5,13 @@
       "ts": "2026-08-29 19:40 MYT",
       "agent": "analytics",
       "job": "margin_build",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-08-29 19:40 MYT",
+      "agent": "analytics",
+      "job": "margin_build",
       "event": "started",
       "result": ""
     },
@@ -273,13 +280,6 @@
       "job": "review_stats_sync",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-08-27 06:08 MYT",
-      "agent": "gbp",
-      "job": "gbp_reply",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
