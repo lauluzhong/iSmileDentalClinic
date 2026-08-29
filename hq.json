@@ -776,7 +776,13 @@
       },
       {
        "t": "3 templates sent to Code Capsule",
-       "s": "done"
+       "s": "done",
+       "w": "24 Aug"
+      },
+      {
+       "t": "Suraya builds the filter-page additions (CSV exclusion list + recall/birthday tick)",
+       "s": "now",
+       "w": "asked 29 Aug"
       },
       {
        "t": "Meta template approval",
@@ -800,6 +806,7 @@
       }
      ],
      "open": [
+      "<b>Asked Jason 29 Aug (awaiting reply):</b> are Suraya's two filter-page additions built, and what is the overall blast timeline including Meta approval",
       "Jason still owes the price",
       "PDPA check with Lydia",
       "<b>Cert expires 16 Oct</b> \u2014 renewal cron should fire ~15 Sep; Jason reminded 28 Aug, confirm it actually renews",
@@ -1294,6 +1301,6 @@
  ],
  "meta": {
   "asof": "SAT 29 AUG 2026",
-  "updated": "2026-08-29T13:30:47+08:00"
+  "updated": "2026-08-29T13:32:49+08:00"
  }
 }
