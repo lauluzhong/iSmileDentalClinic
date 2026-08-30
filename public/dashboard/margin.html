@@ -107,6 +107,8 @@
   .badge.show{background:var(--pos-bg);color:var(--pos);} .badge.noshow{background:var(--neg-bg);color:var(--neg);}
   .doc{display:inline-flex;align-items:center;gap:7px;}
   .dot{width:8px;height:8px;border-radius:50%;flex:none;}
+  .rate-flag{color:#C77700;margin-left:3px;font-size:9px;vertical-align:1px}
+  .rate-prov{color:var(--ink-3);margin-left:2px;font-weight:700}
   .cm-pct{display:inline-block;font-size:10.5px;font-weight:700;padding:1px 6px;border-radius:5px;margin-left:5px;}
   .pos{color:var(--pos);} .neg{color:var(--neg);}
   .cm-pct.good{background:var(--pos-bg);color:var(--pos);} .cm-pct.mid{background:var(--warn-bg);color:var(--warn);} .cm-pct.bad{background:var(--neg-bg);color:var(--neg);}
@@ -466,7 +468,8 @@ function marginLoadFailed(msg){
     meta: MJ.meta,
     visits: MJ.visits.map(v => ({date:v.date, patient:v.id, doctor:v.doctor,
       cat:v.cat, proc:v.proc, nlines:v.nlines, production:v.production,
-      lab:v.lab, dur:v.dur, locum:v.locum, matched:v.matched}))
+      lab:v.lab, dur:v.dur, locum:v.locum, matched:v.matched,
+      rate:v.rate, vol:v.vol, prov:v.prov}))
   };
   main();
 })();
@@ -532,9 +535,14 @@ function buildRow(v){
   const locum=v.locum;
   const burn=burnFor(v);                     // per the selected burn basis
   const trueMargin=contribution-locum-burn;
+  /* The locum rate that sticks to this line: the doctor's base tier, or 50%
+     when that doctor's PRODUCTION for the month crossed RM55k (whole-month
+     volume rule). Comes from the build; falls back to the base tier. */
+  const rate = (v.rate != null) ? v.rate/100 : (DOCTORS[v.doctor]||{}).tier;
   return {date:v.date, patient:v.patient, proc:v.proc, cat:v.cat, doctor:v.doctor,
     production, lab, contribution, contribPct:production?contribution/production:0,
-    locum, dur:v.dur, burn, trueMargin, matched:v.matched, showed:true,
+    locum, rate, vol:!!v.vol, prov:!!v.prov,
+    dur:v.dur, burn, trueMargin, matched:v.matched, showed:true,
     color:(DOCTORS[v.doctor]||{}).color||'#888'};
 }
 let ROWS = MD.visits.map(buildRow);
@@ -640,6 +648,7 @@ const COLS = [
   {k:'contribution',grp:'Margin',h:'Contribution',num:true,  sort:r=>r.contribution},
   {k:'dur',   grp:'Chair-time', h:'Mins',         num:true,  sort:r=>r.dur},
   {k:'burn',  grp:'− Burn',     h:'Burn',         num:true,  sort:r=>r.burn},
+  {k:'rate',  grp:'− Locum',    h:'Rate',         num:true,  sort:r=>r.rate||0},
   {k:'locum', grp:'− Locum',    h:'Locum',        num:true,  sort:r=>r.locum},
   {k:'trueMargin',grp:'→ Bottom line',h:'True margin',num:true,sort:r=>r.trueMargin, final:true}
 ];
@@ -695,14 +704,30 @@ function renderFunnel(rows){
 
 function totals(rows){
   const t={production:0,lab:0,contribution:0,locum:0,burn:0,dur:0,trueMargin:0,shows:0};
+  let rateW=0, rateP=0;
   rows.forEach(r=>{t.production+=r.production;t.lab+=r.lab;
     t.contribution+=r.contribution;t.locum+=r.locum;t.burn+=r.burn;t.dur+=r.dur;
-    t.trueMargin+=r.trueMargin;t.shows++;});
+    t.trueMargin+=r.trueMargin;t.shows++;
+    if(r.rate){rateW+=r.rate*r.production;rateP+=r.production;}});
+  /* Blended rate for the window, weighted by production — not an average of
+     percentages, which would over-weight small visits. */
+  t.rate = rateP ? rateW/rateP : 0;
   return t;
 }
 
 /* ---- Render table ---- */
 function cmClass(p){ return p>=0.6?'good':p>=0.35?'mid':'bad'; }
+/* Explain the rate on hover: which tier applied, and why. */
+function rateTitle(r){
+  if(!r.rate) return 'No locum rate for this line';
+  const p = Math.round(r.rate*100);
+  let t = p+'% applies to this line';
+  t += r.vol ? ' — lifted to 50% because '+r.doctor+"'s production crossed RM55,000 that month (whole-month volume rule)"
+             : ' — '+r.doctor+"'s base tier";
+  if(r.prov) t += '. PROVISIONAL: the month is still open, so crossing RM55,000 would lift the whole month to 50%.';
+  return t;
+}
+
 function renderTable(){
   const rows = filtered();
   // head
@@ -725,6 +750,7 @@ function renderTable(){
       <td class="num mono">${rm0(r.contribution)}<span class="cm-pct ${cmClass(r.contribPct)}">${r.production?pct(r.contribPct):'–'}</span></td>
       <td class="num mono" title="${r.matched?'real appointment duration':'estimated (no appt match)'}">${r.dur}${r.matched?'':'<span style="color:var(--warn)">*</span>'}</td>
       <td class="num mono">${rm0(r.burn)}</td>
+      <td class="num mono" title="${rateTitle(r)}">${r.rate?Math.round(r.rate*100)+'%':'—'}${r.vol?'<span class="rate-flag">▲</span>':''}${r.prov?'<span class="rate-prov">?</span>':''}</td>
       <td class="num mono">${r.locum?rm0(r.locum):'—'}</td>
       <td class="num mono col-final ${r.trueMargin<0?'neg':''}">${r.trueMargin<0?'−':''}${rm0(Math.abs(r.trueMargin))}</td>
     </tr>`;
@@ -739,6 +765,7 @@ function renderTable(){
     <td class="num">${rm0(t.contribution)}</td>
     <td class="num">${Math.round(t.dur/60)}h</td>
     <td class="num">${rm0(t.burn)}</td>
+    <td class="num" title="Blended locum rate for this window, weighted by production">${t.rate?(t.rate*100).toFixed(1)+'%':'—'}</td>
     <td class="num">${rm0(t.locum)}</td>
     <td class="num col-final">${rm0(t.trueMargin)}</td>
   </tr>`;
@@ -871,7 +898,8 @@ function renderSummary(){
         `<b>Read the bottom line:</b> on this basis every day's visits absorb the day's whole fixed cost, so quiet days drag their visits' margins down — this answers "did we make money", the same as the nightly Telegram digest. `
       : `<b>Burn</b> = appointment duration × RM${burnBasis.dep==='net'?BURN.loaded:BURN.ebitda}/hour (${burnBasis.dep==='net'?'Net, incl. depreciation':'EBITDA, excl. depreciation'}) — ${MD.meta.durCoverage}% of visits have a matched appointment duration (booked length; real seated→dismissed chair time is not yet populated in the extract — rest ★ category estimate). `+
         `<b>⚠ Read the bottom line carefully:</b> this burn is only the chair-time actually billed, not the clinic's full ~RM118,000/mo fixed overhead. The unrecovered remainder is <b>under-absorbed overhead — idle chairs + support/admin time</b>, i.e. the "fill empty chairs" lever; charging full overhead lands the clinic near break-even (consistent with the P&L). Switch the Burn basis to <b>Full day (÷26)</b> to charge it in full. `)+
-    `<b>Lab cost = %-of-production estimate</b> (real per-case lab pending AutoCount). <b>Locum = collection-based estimate</b> (doctor-month earned collections × locum rules, allocated to visits pro-rata by production); authoritative = the monthly locum engine.`;
+    `<b>Lab cost = %-of-production estimate</b> (real per-case lab pending AutoCount). <b>Locum = collection-based estimate</b> (doctor-month earned collections × locum rules, allocated to visits pro-rata by production); authoritative = the monthly locum engine. `+
+    `<b>Rate</b> is the locum percentage that sticks to the line: the doctor's base tier (40/45/50), or 50% where that doctor's <b>production</b> for the month crossed RM55,000 — the whole-month volume rule, marked <span class="rate-flag">▲</span>. A <span class="rate-prov">?</span> means the month is still open and the rate is <b>provisional</b>: crossing RM55,000 lifts the entire month to 50% retrospectively. The totals row shows the blended rate, weighted by production. Rates are exact; the ringgit amounts beside them remain estimates.`;
 
   // drill handlers
   document.querySelectorAll('[data-doctor]').forEach(el=>el.onclick=()=>drill({doctor:el.dataset.doctor}));
