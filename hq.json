@@ -496,16 +496,24 @@
        "s": "done"
       },
       {
-       "t": "Add per-line locum-% column (40/45/50 sticks to the line)",
+       "t": "Per-line locum-rate column live on /dashboard/margin",
+       "s": "done",
+       "w": "30 Aug"
+      },
+      {
+       "t": "Agree the payment\u2192procedure allocation convention with Emily",
        "s": "now"
       },
       {
-       "t": "Locum attribution view feeds statements",
+       "t": "Locum attribution view feeds per-doctor statements",
        "s": ""
       }
      ],
      "open": [
-      "Owner ruling 28 Aug: this block belongs under Pillar 1, not finance \u2014 it becomes the locum-attribution substrate"
+      "Owner ruling 28 Aug: this block belongs under Pillar 1, not finance \u2014 it becomes the locum-attribution substrate",
+      "<b>Rate column shipped 30 Aug</b> (PR #220): every line now shows 40/45/50, marks lines lifted by the RM55k whole-month volume rule, and flags a rate as provisional while its month is still open. Validated against April 2026 (Ling/Ong/Mah at 50%)",
+      "\u26a0\ufe0f Display only \u2014 it does not change how anyone is paid, and 'rate follows the production month' stays out of the engine until the agreement is signed",
+      "Next real blocker is the allocation convention: only ~9% of paysplits carry a ProcNum"
      ]
     },
     {
@@ -1397,7 +1405,7 @@
   "X-ray compliance \u2705 resolved \u2014 one AELB-compliant person in the building suffices, and one is always present"
  ],
  "meta": {
-  "asof": "SAT 29 AUG 2026",
-  "updated": "2026-08-29T13:45:47+08:00"
+  "asof": "SUN 30 AUG 2026",
+  "updated": "2026-08-30T11:24:33+08:00"
  }
 }
