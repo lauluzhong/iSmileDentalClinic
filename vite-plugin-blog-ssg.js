@@ -780,8 +780,8 @@ export default function blogSSG() {
               '<li>Languages: ' + escapeHtml(d.languages) + '</li>' +
               (d.keyCompetency ? '<li>Areas of focus: ' + escapeHtml(d.keyCompetency) + '</li>' : '') +
             '</ul>',
-            '    <section><h2>Book with ' + escapeHtml(d.knownAs) + '</h2><p>' +
-              escapeHtml('We are at 75 & 75A, Jalan SS 22/23, Damansara Jaya, 47400 Petaling Jaya. Call or WhatsApp +60163222135 and mention ' + d.knownAs + ' when you book.') +
+            '    <section><h2>Book an appointment</h2><p>' +
+              escapeHtml('We are at 75 & 75A, Jalan SS 22/23, Damansara Jaya, 47400 Petaling Jaya. Call or WhatsApp +60163222135 to book. If you would like to see a particular dentist, let the front desk know and they will arrange it where the diary allows.') +
             '</p></section>',
             '    <section><h2>Other dentists at the clinic</h2><ul>' +
               dentists.filter(o => o.slug !== d.slug).map(o =>
