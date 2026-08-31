@@ -95,7 +95,7 @@ const FAQ = () => {
             questions: [
                 {
                     q: "At what age should my child first see a dentist?",
-                    a: "We recommend bringing your child for their first dental visit at around age two. By then there are enough teeth to examine properly and most children can follow what is being asked of them, which makes the visit easier for everyone. If anything is worrying you before that, a discoloured tooth, a knock to the mouth or a habit you want an opinion on, bring them in at whatever age they are. Early visits help children feel comfortable and establish good lifelong habits."
+                    a: "We recommend bringing your child for their first dental visit by their first birthday, or within six months of their first tooth appearing. That is where both the Malaysian Dental Association and the American Academy of Pediatric Dentistry put it. Early visits help children feel comfortable and let us catch changes while they are still simple to manage. Early visits help children feel comfortable and establish good lifelong habits."
                 },
                 {
                     q: "Can I bring my children with me?",

@@ -14,7 +14,7 @@ keyword: family dentist Damansara Jaya
 created_at: 2026-04-06
 faq:
   - q: What dental services are available for families at iSmile Damansara Jaya?
-    a: We provide dental care for everyone in the family, starting with children's first visits at around age two. For kids, that means check-ups, cleanings, fluoride treatments, and early orthodontic assessments if needed. Adults can get regular preventive care, restorative work like implants or crowns, cosmetic options, and clear aligner treatments. Basically, we cover the dental needs you'd expect at different life stages—your dentist will look at each person's situation and suggest what makes sense for them.
+    a: We provide dental care for everyone in the family, starting with children's first visits around age one. For kids, that means check-ups, cleanings, fluoride treatments, and early orthodontic assessments if needed. Adults can get regular preventive care, restorative work like implants or crowns, cosmetic options, and clear aligner treatments. Basically, we cover the dental needs you'd expect at different life stages—your dentist will look at each person's situation and suggest what makes sense for them.
   - q: How does iSmile approach children's first dental visits?
     a: We keep first visits low-pressure and positive. Usually, it's just about getting comfortable—counting teeth, maybe sitting in the chair, and chatting with parents about brushing and feeding habits. We explain things in simple terms and go at the child's pace. Unless there's something urgent that needs attention, we don't do any treatment during that first visit. The idea is to make dental care feel normal and not scary from the beginning.
   - q: What should I consider when choosing a dental clinic for my family?
@@ -52,7 +52,7 @@ We focus on coordinating care across different age groups within families. Under
 At iSmile Damansara Jaya, we offer a [full range of dental services](https://ismile.com.my/services) so your family doesn't need to visit multiple clinics for different needs:
 
 **For Children:**
-- **First dental visits** from around age two
+- **First dental visits** starting from age one
 - **Preventive care** including cleanings, fluoride treatments, and sealants
 - **Early orthodontic assessments** to monitor development
 - **Myofunctional orthodontics** with systems like LM Activator for addressing functional habits

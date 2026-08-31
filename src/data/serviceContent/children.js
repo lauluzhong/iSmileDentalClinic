@@ -7,7 +7,7 @@ export default {
     },
     {
       heading: 'When to bring your child for a first visit',
-      body: "Around age two is a good point to bring a child in for the first time. By then there are enough teeth to look at properly, and, just as importantly, a two year old can understand what is being asked of them well enough to sit and cooperate.\n\nMuch of that first visit is really for the parent. It is a chance to look at how feeding, bottle use and night-time habits are affecting the new teeth, to be shown how to brush a toddler who does not want to be brushed, and to catch early enamel changes while they can still be managed simply.\n\nIt also does something less measurable. A child who first meets a dentist with nothing wrong learns that the chair is a boring place where nothing happens. A child whose first visit is at six with toothache learns something else entirely. If your child is already past two and has never been seen, the answer is not to wait longer. And if something is worrying you before then, a tooth that looks discoloured, a knock to the mouth, a habit you want an opinion on, bring them in at whatever age they are.",
+      body: "The usual advice is a first dental visit at around a year old, or within roughly six months of the first tooth appearing. Both the Malaysian Dental Association and the American Academy of Pediatric Dentistry put it there. That surprises many parents, because there is very little to examine at that stage.\n\nThe reason is that the first visit is mostly about the parent, not the child. It is a chance to look at how feeding, bottle use and night-time habits are affecting the new teeth, to be shown how to brush a toddler who does not want to be brushed, and to catch early enamel changes while they can still be managed simply.\n\nIt also does something less measurable. A child who first meets a dentist at two, with nothing wrong, learns that the chair is a boring place where nothing happens. A child whose first visit is at six with toothache learns something else entirely. If your child is already older than one and has never been seen, the answer is not to wait longer.",
     },
     {
       heading: 'What happens at a check-up',
@@ -41,7 +41,7 @@ export default {
   faqs: [
     {
       q: "When should my child first see a dentist?",
-      a: "Around age two is a good point for a first visit. There are enough teeth to examine by then, and a two year old can usually follow what is being asked of them, which makes the appointment easier for everyone. The visit is mainly to review feeding and brushing habits, catch early enamel changes, and let your child get used to the surroundings before anything needs doing. If your child is already older and has not been seen, book now rather than waiting for a milestone. Anything worrying you earlier is worth bringing in at any age.",
+      a: "The usual guidance is around a year old, or within about six months of the first tooth coming through, which is where both the Malaysian Dental Association and the American Academy of Pediatric Dentistry put it. Very little examination happens at that age. The visit is mainly to review feeding and brushing habits, catch early enamel changes, and let your child get used to the surroundings before anything needs doing. If your child is already older and has not been seen, book now rather than waiting for a milestone.",
     },
     {
       q: "Do you see young children and toddlers?",
