@@ -48,8 +48,8 @@ function DentistIndex() {
                 <p className="dentists-intro">
                     Our team in Damansara Jaya covers general, paediatric, orthodontic and restorative
                     care between them, with 14 to 34 years in practice each. If you would like to see a
-                    particular dentist, say so when you book and the front desk will arrange it where
-                    the diary allows.
+                    particular dentist, say so when you book and the front desk
+                    will arrange it for you where possible.
                 </p>
             </div>
 
@@ -146,13 +146,13 @@ function DentistProfile() {
                     <p>
                         We are at 75 &amp; 75A, Jalan SS 22/23, Damansara Jaya, Petaling Jaya. If you
                         would like to see a particular dentist, let the front desk know and they will
-                        arrange it where the diary allows.
+                        arrange it for you where possible.
                     </p>
                     {/* The first argument prefills the booking form's free-text field, which
                         becomes the body of the pre-typed WhatsApp message. It is deliberately
                         EMPTY here. Every other page seeds a page-specific opener, but naming a
                         dentist would put a doctor-specific request in the patient's mouth before
-                        they have asked for one, and the front desk assigns the diary. If a patient
+                        they have asked for one, and the front desk assigns appointments. If a patient
                         wants a particular dentist they can type it themselves.
 
                         The second argument is the analytics source. It never reaches the message,
