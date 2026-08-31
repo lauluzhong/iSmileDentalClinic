@@ -5,9 +5,14 @@ import { Award } from 'lucide-react';
 import Button from '../components/Button';
 import { Reveal, FadeIn } from '../components/Reveal';
 import { Link } from 'react-router-dom';
+import dentistProfiles from '../data/dentists';
 import { CORE_PAGES } from '../data/corePagesSeo';
 import { fillStats } from '../data/serviceSeo';
 import reviewStats from '../data/review-stats.json';
+
+/* Resolve each team card to its profile page in src/data/dentists.js.
+   Matched on the photo path, the one field both arrays share verbatim. */
+const profileSlugByImg = Object.fromEntries(dentistProfiles.map((d) => [d.img, d.slug]));
 
 const doctors = [
     {
@@ -239,6 +244,12 @@ const About = () => {
                                     <div className="team-languages">
                                         <small>Languages Spoken: {doc.languages}</small>
                                     </div>
+
+                                    {profileSlugByImg[doc.img] && (
+                                        <Link className="team-profile-link" to={`/dentists/${profileSlugByImg[doc.img]}`}>
+                                            View full profile →
+                                        </Link>
+                                    )}
                                 </div>
                             </div>
                         ))}
@@ -447,6 +458,16 @@ const About = () => {
                     background: #f8fafc;
                     scroll-margin-top: 120px;
                 }
+
+                .team-profile-link {
+                    display: inline-block;
+                    margin-top: 12px;
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                    color: var(--color-primary-teal, #4FA3C2);
+                    text-decoration: none;
+                }
+                .team-profile-link:hover { text-decoration: underline; }
 
                 .team-profiles-link {
                     margin: -8px auto 32px;
