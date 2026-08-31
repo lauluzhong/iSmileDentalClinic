@@ -23,6 +23,8 @@ const PediatricDentistry = lazy(() => import('./specialties/PediatricDentistry')
 // Lazy-loaded Location Pages
 const DamansaraJaya = lazy(() => import('./locations/DamansaraJaya'));
 
+import ServiceGuide from '../components/ServiceGuide';
+
 const ServiceHub = () => {
     const { openBooking } = useBooking();
     const { category } = useParams();
@@ -221,6 +223,8 @@ const ServiceHub = () => {
                     </div>
                 </div>
             )}
+
+            <ServiceGuide category={category} />
 
             {/* CTA & Blogs */}
             <div className="container section-padding text-center">
