@@ -33,7 +33,18 @@ const STATIC_SITEMAP_ENTRIES = [
   { path: '/contact', changefreq: 'monthly', priority: '0.7' },
   { path: '/services/locations/damansara-jaya', changefreq: 'weekly', priority: '0.9' },
   { path: '/faq', changefreq: 'monthly', priority: '0.6' },
-  { path: '/join-us', changefreq: 'monthly', priority: '0.5' }
+  { path: '/join-us', changefreq: 'monthly', priority: '0.5' },
+  // Dentist pages. Doctor-name queries convert far better than anything else
+  // on the site and previously had nowhere to land — see src/data/dentists.js.
+  { path: '/dentists', changefreq: 'monthly', priority: '0.8' },
+  { path: '/dentists/dr-jean-ong', changefreq: 'monthly', priority: '0.7' },
+  { path: '/dentists/dr-amy-chin', changefreq: 'monthly', priority: '0.7' },
+  { path: '/dentists/dr-ling-yoke-li', changefreq: 'monthly', priority: '0.7' },
+  { path: '/dentists/dr-mah-haw-yeng', changefreq: 'monthly', priority: '0.7' },
+  { path: '/dentists/dr-azelia-lau', changefreq: 'monthly', priority: '0.7' },
+  { path: '/dentists/dr-priscilla-chan', changefreq: 'monthly', priority: '0.7' },
+  { path: '/dentists/dr-joan-lim', changefreq: 'monthly', priority: '0.7' },
+  { path: '/dentists/dr-yeoh-oon-take', changefreq: 'monthly', priority: '0.7' }
 ];
 
 // Ensure output directories exist

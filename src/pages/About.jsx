@@ -4,6 +4,7 @@ import React from 'react';
 import { Award } from 'lucide-react';
 import Button from '../components/Button';
 import { Reveal, FadeIn } from '../components/Reveal';
+import { Link } from 'react-router-dom';
 import { CORE_PAGES } from '../data/corePagesSeo';
 import { fillStats } from '../data/serviceSeo';
 import reviewStats from '../data/review-stats.json';
@@ -182,6 +183,16 @@ const About = () => {
             <section id="team" className="section-padding team-section">
                 <div className="container">
                     <Reveal width="100%"><h2 className="section-title text-center">The Team Behind <span className="text-gradient">Your Smile</span></h2></Reveal>
+
+                    {/* Each dentist also has their own page. Doctor-name searches are the
+                        best-converting queries the site gets, and this is the internal link
+                        that lets crawlers reach those pages from an established one. */}
+                    <Reveal width="100%">
+                        <p className="text-center team-profiles-link">
+                            Each of our dentists has their own profile —{' '}
+                            <Link to="/dentists">read more about the team</Link>.
+                        </p>
+                    </Reveal>
 
                     <div className="team-grid">
                         {doctors.map((doc, index) => (
@@ -435,6 +446,16 @@ const About = () => {
                 .team-section {
                     background: #f8fafc;
                     scroll-margin-top: 120px;
+                }
+
+                .team-profiles-link {
+                    margin: -8px auto 32px;
+                    max-width: 560px;
+                    color: var(--color-text-grey, #666);
+                }
+                .team-profiles-link a {
+                    color: var(--color-primary-teal, #4FA3C2);
+                    text-decoration: underline;
                 }
 
                 .team-grid {
