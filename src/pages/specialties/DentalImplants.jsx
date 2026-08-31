@@ -92,7 +92,7 @@ const DentalImplants = () => {
                     <div className="tech-grid">
                         <div className="tech-info">
                             <h2>The Science & Tech</h2>
-                            <p>We use Grade 5 Titanium or Zirconia for implants, both of which are highly biocompatible materials that the body readily accepts.</p>
+                            <p>We use Grade 5 Titanium for implants, a highly biocompatible material that the body readily accepts.</p>
 
                             <div className="tech-feature-list">
 
@@ -100,7 +100,7 @@ const DentalImplants = () => {
                                     <div className="feature-icon"><CheckCircle size={20} /></div>
                                     <div className="feature-text">
                                         <h4>Bio-compatibility</h4>
-                                        <p>Grade 5 Titanium or Zirconia promotes healthy bone growth and integration, minimizing the risk of rejection.</p>
+                                        <p>Grade 5 Titanium promotes healthy bone growth and integration, minimizing the risk of rejection.</p>
                                     </div>
                                 </div>
                                 <div className="tech-feature">
