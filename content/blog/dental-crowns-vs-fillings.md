@@ -14,13 +14,13 @@ faq:
   - q: "What is the difference between a dental crown and a filling?"
     a: "A filling repairs a small area of decay within the tooth structure, while a crown covers the entire visible portion of the tooth. Crowns are used when the damage is too extensive for a filling to provide enough strength or protection."
   - q: "How long does a filling last compared to a crown?"
-    a: "Composite fillings typically last 5 to 7 years with good care, while crowns can last 10 to 15 years or longer. Crowns are more durable because they cover and protect the entire tooth rather than just patching the damaged area."
+    a: "Composite fillings normally last around 5 to 7 years with good care, while crowns can last up to 10 to 15 years or more. Crowns are more durable because they cover and protect the entire tooth rather than just patching the damaged area."
   - q: "When is a crown necessary instead of a filling?"
     a: "A crown is usually needed when the tooth has lost a significant amount of structure — from a large cavity, a crack, or a fracture. If more than half the tooth is affected, a filling may not provide enough support to hold the tooth together during chewing."
   - q: "Does a crown hurt more than a filling?"
     a: "Both procedures are performed under local anaesthesia and should not cause pain during treatment. Crowns require more tooth reshaping and typically involve two visits, but the experience itself is similar — the difference is in the preparation time and the number of appointments needed."
   - q: "Which lasts longer — a crown or a filling?"
-    a: "Crowns generally last longer than fillings. A well-made crown with good oral hygiene can last 10 to 15 years or more. A composite filling may need replacement every 5 to 7 years. However, crowns require more tooth preparation initially, so the choice depends on what the tooth needs."
+    a: "Crowns generally last longer than fillings. A well-made crown with good oral hygiene can last up to 10 to 15 years or more. A composite filling normally needs replacement every 5 to 7 years or so. However, crowns require more tooth preparation initially, so the choice depends on what the tooth needs."
 ---
 
 # Dental Crowns vs Fillings: Which Is Right for You
@@ -61,7 +61,7 @@ A crown is a custom-made cap that fits over the entire visible part of the tooth
 |---|---|---|
 | Tooth structure removed | Minimal — only decay | More — reshaped to fit cap |
 | Visits required | Usually one | Usually two |
-| Typical lifespan | 5 to 7 years | 10 to 15 years |
+| Typical lifespan | normally around 5 to 7 years | up to 10 to 15 years |
 | Best for | Small to moderate decay | Large cavities, cracks, post-root canal |
 | Strength | Restores locally | Reinforces entire tooth |
 | Aesthetic match | Good for small areas | Excellent — covers whole tooth |

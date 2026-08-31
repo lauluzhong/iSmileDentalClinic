@@ -13,7 +13,7 @@ faq:
   - q: What's the main difference between composite and porcelain veneers?
     a: 'Composite veneers are resin material applied directly to teeth in one visit, offering flexibility and easy repair. Porcelain veneers are custom-made in a lab, providing superior stain resistance, durability, and a more natural translucent appearance. Composite is more affordable and conservative, while porcelain offers longer-lasting, more aesthetic results.'
   - q: How long do veneers typically last?
-    a: 'Composite veneers usually last 5-7 years with proper care, while porcelain veneers can last 10-15 years or longer. Longevity depends on oral hygiene, habits (like teeth grinding), and regular dental check-ups. Both types require maintenance, but porcelain is more stain-resistant and durable.'
+    a: 'Composite veneers normally last around 5-7 years with good care, while porcelain veneers can last up to 10-15 years or more. Longevity depends on oral hygiene, habits (like teeth grinding), and regular dental check-ups. Both types require maintenance, but porcelain is more stain-resistant and durable.'
   - q: Are veneers reversible or permanent?
     a: 'Composite veneers are more reversible as they require minimal tooth preparation. Porcelain veneers involve removing a small amount of enamel (0.3-0.5mm), making them irreversible. However, both options preserve most of your natural tooth structure compared to crowns, and the process is considered conservative cosmetic dentistry.'
   - q: Can veneers fix crooked teeth or gaps?
@@ -37,7 +37,7 @@ Composite veneers are skillfully sculpted directly onto your teeth in a single v
 
 ### Durability and Long-Term Beauty
 
-Porcelain is highly resistant to staining from coffee or tea and typically lasts 10-15 years with proper care. Composite is more porous and may require periodic polishing to maintain its luster, usually lasting around 5-7 years.
+Porcelain is highly resistant to staining from coffee or tea and can normally last up to 10-15 years with good care. Composite is more porous and may require periodic polishing to maintain its lustre, normally lasting around 5-7 years.
 
 ### Preserving Your Natural Teeth
 

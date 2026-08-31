@@ -11,7 +11,7 @@ Our clinic in Damansara Jaya sees patients from across Petaling Jaya for tooth r
     },
     {
       heading: 'The three ways a missing tooth is usually replaced',
-      body: `Dental implants replace the root of the tooth as well as the crown. A titanium or zirconia post is placed into the jawbone and, once healing is complete, a crown is fitted onto it. Nothing is attached to the neighbouring teeth, so those teeth are left untouched.
+      body: `Dental implants replace the root of the tooth as well as the crown. A titanium post is placed into the jawbone and, once healing is complete, a crown is fitted onto it. Nothing is attached to the neighbouring teeth, so those teeth are left untouched.
 
 A dental bridge uses the teeth on either side of the gap as supports. The replacement tooth is joined to crowns that sit over those neighbours. This is a fixed solution and it can be a sensible one, particularly where the adjacent teeth already carry large fillings or crowns and would benefit from being restored anyway. The trade off is that healthy neighbouring teeth may need to be reduced to hold the bridge.
 
@@ -45,7 +45,7 @@ A case tends to be more involved when bone has been lost, either because the too
 
 General health matters too. Smoking, some long term medical conditions and certain medications can all affect healing, which is why the medical history is gone through properly rather than treated as paperwork.
 
-Our team plans and treats a range of case complexity, from single tooth replacement through to more involved reconstruction, and treatment planning is led by experienced clinicians. Where a case would be better served by referral, we will say so.`,
+Our team plans and treats the full range of case complexity, from a single tooth replacement through to more involved reconstruction, with treatment planning led by experienced clinicians.`,
     },
     {
       heading: 'When bone grafting comes into the conversation',
@@ -71,7 +71,7 @@ Where a full arch is missing, there are approaches that combine implants with a 
 
 The dentist will examine the site and the rest of the mouth, including the gums and the bite, since the health of everything around a gap affects what can be done in it. Imaging is taken where it is needed, and your medical history, medications and habits such as grinding or smoking are discussed, because these genuinely affect planning.
 
-From there you will be talked through the options that apply to your mouth, including the option of doing nothing for now where that is reasonable, along with what each one involves in appointments and stages. An itemised treatment plan can be provided in writing so that you can consider it away from the chair.
+From there you will be talked through the options that apply to your mouth, including the option of doing nothing for now where that is reasonable, along with what each one involves in appointments and stages. If you would like an itemised treatment plan in writing to consider away from the chair, ask and we will prepare one.
 
 We provide receipts and documentation for insurance claims. Patients pay for treatment first and then submit their claim to their insurer or company.`,
     },

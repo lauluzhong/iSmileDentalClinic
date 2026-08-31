@@ -17,7 +17,7 @@ Shape, width, small chips, gaps and worn edges are usually a veneer or bonding q
 
 Heavily broken down or root treated teeth are usually a crown question, because the priority there is strength as much as appearance.
 
-Crowding, spacing and how the teeth are angled are usually an orthodontic question. In some cases moving the teeth first gives a better and more conservative result than covering them, because less tooth structure has to be altered. Where that applies, it will be raised at the consultation.
+Crowding, spacing and how the teeth are angled are usually an orthodontic question. In some cases moving the teeth first gives a better and more conservative result than covering them, because less tooth structure has to be altered. Whether that is the better route depends entirely on the individual case, and your dentist will tell you where it is worth considering.
 
 Worn down teeth across the whole mouth are a rehabilitation question, where the bite is planned as a whole rather than tooth by tooth.
 
@@ -25,7 +25,7 @@ Many plans combine these. It is common to whiten first and then match any new re
     },
     {
       heading: 'Teeth whitening',
-      body: `Professional whitening uses a peroxide based gel to lighten the natural tooth. We provide take home whitening with custom trays, and in clinic whitening where a faster result is wanted.
+      body: `Professional whitening uses a peroxide based gel to lighten the natural tooth. We provide take home whitening with custom trays, and in clinic whitening using the Zoom system where a faster result is wanted.
 
 For take home whitening the trays are made to fit your own teeth and trimmed to the gum line so the gel stays where it is meant to be. You wear them for a prescribed period each day over a course of treatment, and the change happens gradually. Many dentists favour this because the gradual process tends to give a more stable result and lets the concentration be adjusted if teeth become sensitive.
 
@@ -69,7 +69,7 @@ Treatment planning is led by experienced clinicians, and the plan is written dow
 
 From there the conversation is about options. You should expect to hear more than one route, including the more conservative one, and to be told plainly where a treatment is unlikely to give you what you are hoping for.
 
-Photographs, scans and shade records are often taken so that the plan can be prepared properly, and an itemised treatment plan can be provided in writing. We provide receipts and documentation for insurance claims, with patients paying for treatment first and then submitting the claim to their own insurer or company, though cosmetic treatment is frequently excluded from policies.`,
+Photographs, scans and shade records are often taken so that the plan can be prepared properly, and an itemised treatment plan can be prepared in writing if you ask for one. We provide receipts and documentation for insurance claims, with patients paying for treatment first and then submitting the claim to their own insurer or company, though cosmetic treatment is frequently excluded from policies.`,
     },
     {
       heading: 'Questions worth asking before cosmetic treatment',
@@ -123,7 +123,7 @@ Routine care is the same as for natural teeth: brushing, cleaning between the te
     },
     {
       q: 'How long do veneers last?',
-      a: 'There is no fixed lifespan. Ceramic generally lasts longer than composite, but longevity depends on the bite, on grinding habits, on oral hygiene and on how the restoration is looked after. Your dentist can give you a more useful expectation once they have assessed your mouth.',
+      a: 'There is no fixed lifespan. Ceramic normally lasts longer than composite, and with good care can last up to 10 to 15 years or more, while composite normally lasts around 5 to 7 years. Those are general figures rather than a guarantee: longevity depends on the bite, on grinding habits, on oral hygiene and on how the restoration is looked after. Your dentist can give you a more useful expectation once they have assessed your mouth.',
     },
     {
       q: 'Can I see what my smile will look like beforehand?',
