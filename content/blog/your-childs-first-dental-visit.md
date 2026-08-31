@@ -5,7 +5,7 @@ categories:
 date: '2024-11-28'
 excerpt: First impressions last a lifetime. Here is how to ensure your little one grows up loving the dentist.
 faq:
-  - a: We recommend a first visit at around age two, when there are enough teeth to examine and most children can cooperate. This start emphasises prevention and helps children become comfortably acclimatised before they ever need treatment.
+  - a: We recommend a first visit around age 1 or within 6 months of the first tooth appearing. This early start emphasises prevention and helps children become comfortably acclimatised before they ever need treatment.
     q: When Is the Perfect Time for a Child's First Dental Visit?
   - a: 'A ''happy visit'' prioritises your child''s comfort and trust. A ride in the ''magic'' chair, counting their teeth, and choosing a special sticker might be all we do first. This builds the confidence and trust they need to feel safe and secure during future visits.'
     q: What Is a 'Happy Visit' and What Happens During It?
@@ -31,7 +31,7 @@ Our goal is to host "happy visits" where we prioritize your child's comfort and 
 
 ### The Perfect Time to Start
 
-We recommend a first visit at around age two, when there are enough teeth to look at properly and a child can usually understand what is being asked of them. This start emphasizes prevention and helps them become comfortably acclimatized before they ever need treatment.
+We recommend a first visit by a child's first birthday or as soon as their first tooth appears. This early start emphasizes prevention and helps them become comfortably acclimatized before they ever need treatment.
 
 ### Our "Happy Visit" Philosophy
 
