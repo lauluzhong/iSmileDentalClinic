@@ -25,6 +25,7 @@ const Contact = lazy(() => import('./pages/Contact'));
 const FAQ = lazy(() => import('./pages/FAQ'));
 const Recall = lazy(() => import('./pages/Recall'));
 const JoinUs = lazy(() => import('./pages/JoinUs'));
+const Dentists = lazy(() => import('./pages/Dentists'));
 
 function App() {
   const location = useLocation();
@@ -75,6 +76,7 @@ function App() {
               App.jsx sees a KEY change (location.pathname), so it remounts <Services/>.
               Thus <PageTransition> triggers.
           */}
+          <Route path="/dentists/*" element={<PageTransition><Suspense fallback={<Loader />}><Dentists /></Suspense></PageTransition>} />
           <Route path="/services/*" element={<PageTransition><Suspense fallback={<Loader />}><Services /></Suspense></PageTransition>} />
           <Route path="/reviews" element={<PageTransition><Suspense fallback={<Loader />}><Reviews /></Suspense></PageTransition>} />
           <Route path="/blog" element={<PageTransition><Suspense fallback={<Loader />}><Blog /></Suspense></PageTransition>} />

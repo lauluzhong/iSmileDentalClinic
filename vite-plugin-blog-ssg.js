@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { SERVICE_CATEGORIES, SERVICE_SPECIALTIES } from './src/data/serviceSeo.js';
 import { CORE_PAGES } from './src/data/corePagesSeo.js';
+import dentists, { dentistSeo } from './src/data/dentists.js';
 import { relatedServices } from './src/data/blogServiceLinks.js';
 import { pickRelatedPosts } from './src/data/serviceBlogLinks.js';
 import { SERVICE_CONTENT } from './src/data/serviceContent/index.js';
@@ -101,6 +102,7 @@ const HOME_PATH_GUARD = [
 const STATIC_NAV_LINKS = [
   ['/', 'Home'],
   ['/about', 'About Us'],
+  ['/dentists', 'Our Dentists'],
   ['/services', 'Services'],
   ['/services/protect', 'Protect Your Teeth'],
   ['/services/straighten', 'Straighten Your Teeth'],
@@ -687,6 +689,114 @@ export default function blogSSG() {
         coreGenerated++;
       }
       console.log('[blog-ssg] ✓ Generated ' + coreGenerated + ' core pages.');
+
+      // ── Dentist pages ────────────────────────────────────────────────────
+      // Doctor-name queries are the best-converting traffic the site has
+      // ("dr jean ong" 41.7% CTR against a 0.23% site average) and had nowhere
+      // to land: "dr ling dentist" drew 157 impressions at position 9.5 with
+      // zero clicks. These pages are also rendered by src/pages/Dentists.jsx —
+      // prerendering alone is not enough, because the #ssg-content block below
+      // is deleted the moment React mounts.
+      //
+      // Person/Dentist schema is emitted here so it survives without JS. The
+      // protected title "Specialist" is deliberately absent — see dentists.js.
+      let dentistGenerated = 0;
+      const dentistIndexPath = path.resolve(distDir, 'dentists');
+      fs.mkdirSync(dentistIndexPath, { recursive: true });
+      fs.writeFileSync(path.resolve(dentistIndexPath, 'index.html'), buildPage({
+        title: escapeHtml('Our Dentists in Damansara Jaya, Petaling Jaya | iSmile Dental Clinic'),
+        description: escapeHtml('Meet the dentists at iSmile Dental Clinic in Damansara Jaya, Petaling Jaya. Eight dental surgeons with 14 to 34 years in practice across general, paediatric, orthodontic and restorative care.'),
+        canonicalUrl: SITE_URL + '/dentists',
+        currentPath: '/dentists',
+        ogType: 'website',
+        ogImage: SITE_URL + '/logo.png',
+        jsonLd: [JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          itemListElement: dentists.map((d, i) => ({
+            '@type': 'ListItem', position: i + 1, name: d.knownAs,
+            url: SITE_URL + '/dentists/' + d.slug,
+          })),
+        })],
+        body: [
+          '    <h1>Our dentists</h1>',
+          '    <p>Our team in Damansara Jaya covers general, paediatric, orthodontic and restorative care between them, with 14 to 34 years in practice each.</p>',
+          '    <ul>' + dentists.map(d =>
+            '<li><a href="/dentists/' + d.slug + '">' + escapeHtml(d.knownAs) + '</a> — ' +
+            escapeHtml(d.role) + '. ' + escapeHtml(d.qualifications) + '</li>').join('') + '</ul>',
+        ].join('\n'),
+        cssLink: entryCss ? '  <link rel="stylesheet" href="' + entryCss + '" />' : '',
+        scriptTag: entryScript ? '  <script type="module" src="' + entryScript + '"><\/script>' : '',
+      }), 'utf-8');
+      dentistGenerated++;
+
+      for (const d of dentists) {
+        const seo = dentistSeo(d);
+        const canonicalUrl = SITE_URL + '/dentists/' + d.slug;
+        const html = buildPage({
+          title: escapeHtml(seo.title),
+          description: escapeHtml(seo.description),
+          canonicalUrl,
+          currentPath: '/dentists/' + d.slug,
+          ogType: 'profile',
+          ogImage: SITE_URL + d.img,
+          jsonLd: [
+            JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Dentist',
+              name: d.name,
+              alternateName: d.knownAs,
+              image: SITE_URL + d.img,
+              url: canonicalUrl,
+              knowsLanguage: d.languages.split(',').map(x => x.trim()),
+              worksFor: {
+                '@type': 'Dentist', name: 'iSmile Dental Clinic', url: SITE_URL,
+                address: {
+                  '@type': 'PostalAddress',
+                  streetAddress: '75 & 75A, Jalan SS 22/23, Damansara Jaya',
+                  addressLocality: 'Petaling Jaya', addressRegion: 'Selangor',
+                  postalCode: '47400', addressCountry: 'MY',
+                },
+              },
+            }),
+            JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+                { '@type': 'ListItem', position: 2, name: 'Our Dentists', item: SITE_URL + '/dentists' },
+                { '@type': 'ListItem', position: 3, name: d.knownAs, item: canonicalUrl },
+              ],
+            }),
+          ],
+          body: [
+            '    <h1>' + escapeHtml(d.knownAs) + '</h1>',
+            '    <p>' + escapeHtml(d.role + (d.founder ? ', and founder of iSmile Dental Clinic' : '') +
+                ', Damansara Jaya, Petaling Jaya.') + '</p>',
+            '    <p>' + escapeHtml(d.bio) + '</p>',
+            '    <ul>' +
+              '<li>Qualifications: ' + escapeHtml(d.qualifications) + '</li>' +
+              '<li>In practice: ' + escapeHtml(d.years) + '</li>' +
+              '<li>Languages: ' + escapeHtml(d.languages) + '</li>' +
+              (d.keyCompetency ? '<li>Areas of focus: ' + escapeHtml(d.keyCompetency) + '</li>' : '') +
+            '</ul>',
+            '    <section><h2>Book with ' + escapeHtml(d.knownAs) + '</h2><p>' +
+              escapeHtml('We are at 75 & 75A, Jalan SS 22/23, Damansara Jaya, 47400 Petaling Jaya. Call or WhatsApp +60163222135 and mention ' + d.knownAs + ' when you book.') +
+            '</p></section>',
+            '    <section><h2>Other dentists at the clinic</h2><ul>' +
+              dentists.filter(o => o.slug !== d.slug).map(o =>
+                '<li><a href="/dentists/' + o.slug + '">' + escapeHtml(o.knownAs) + '</a></li>').join('') +
+            '</ul></section>',
+          ].join('\n'),
+          cssLink: entryCss ? '  <link rel="stylesheet" href="' + entryCss + '" />' : '',
+          scriptTag: entryScript ? '  <script type="module" src="' + entryScript + '"><\/script>' : '',
+        });
+        const outDir = path.resolve(distDir, 'dentists', d.slug);
+        fs.mkdirSync(outDir, { recursive: true });
+        fs.writeFileSync(path.resolve(outDir, 'index.html'), html, 'utf-8');
+        dentistGenerated++;
+      }
+      console.log('[blog-ssg] ✓ Generated ' + dentistGenerated + ' dentist pages.');
 
       // ── Homepage ─────────────────────────────────────────────────────────
       // "/" is NOT handled here. It used to get a hand-written #ssg-content
