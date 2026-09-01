@@ -1,44 +1,44 @@
 {
   "as_of": "2026-09-01",
-  "mode": "midday",
+  "mode": "eod",
   "fresh": true,
-  "generated_myt": "2026-09-01 12:05",
+  "generated_myt": "2026-09-01 19:50",
   "source_max_paydate": "2026-09-01",
   "source_max_procdate": "2026-09-01",
   "today": {
-    "collected": 1450.0,
-    "produced": 1450.0,
-    "patients_seen": 9,
-    "new_patients": 0,
+    "collected": 8640.0,
+    "produced": 8640.0,
+    "patients_seen": 25,
+    "new_patients": 1,
     "by_paytype": {
-      "Credit Card": 1450.0
+      "Credit Card": 8640.0
     }
   },
   "mtd": {
-    "collected": 1450.0,
-    "produced": 1450.0,
+    "collected": 8640.0,
+    "produced": 8640.0,
     "trading_days": 1,
-    "avg_per_trading_day": 1450.0,
-    "run_rate_26d": 37700.0,
+    "avg_per_trading_day": 8640.0,
+    "run_rate_26d": 224640.0,
     "by_paytype": {
-      "Credit Card": 1450.0
+      "Credit Card": 8640.0
     }
   },
-  "booked_next_14d": 278,
+  "booked_next_14d": 249,
   "forward_book": {
     "next_7d": {
       "days": 7,
-      "appts": 154,
-      "booked_min": 8320,
+      "appts": 149,
+      "booked_min": 8280,
       "capacity_min": 11120,
-      "pct": 74.82014388489209
+      "pct": 74.46043165467626
     },
     "next_14d": {
       "days": 14,
-      "appts": 248,
-      "booked_min": 13260,
+      "appts": 241,
+      "booked_min": 13220,
       "capacity_min": 22240,
-      "pct": 59.62230215827338
+      "pct": 59.44244604316546
     }
   },
   "doctors_worked": {
@@ -49,9 +49,23 @@
       "Mah"
     ]
   },
-  "utilization": null,
+  "utilization": {
+    "chair_minutes": 1030,
+    "operatories": 4,
+    "open_minutes": 480,
+    "capacity_minutes": 1920,
+    "pct": 53.6
+  },
   "pnl": {
-    "available": false,
-    "reason": "n/a (midday)"
+    "locum_est": 2810,
+    "lab_est": 800,
+    "gp": 5030.0,
+    "overhead_day": 3385.08,
+    "ebitda_day": 1644.92,
+    "depreciation_day": 1146.54,
+    "net_day": 498.38,
+    "visits_matched": 24,
+    "available": true,
+    "produced": 8640.0
   }
 }
