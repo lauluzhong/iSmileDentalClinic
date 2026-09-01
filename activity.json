@@ -1,6 +1,13 @@
 {
-  "updated": "2026-09-01 19:50 MYT",
+  "updated": "2026-09-01 21:30 MYT",
   "entries": [
+    {
+      "ts": "2026-09-01 21:30 MYT",
+      "agent": "edith",
+      "job": "wa_group_digest",
+      "event": "started",
+      "result": ""
+    },
     {
       "ts": "2026-09-01 19:50 MYT",
       "agent": "analytics",
@@ -273,13 +280,6 @@
       "job": "weekly_digest",
       "event": "finished",
       "result": "ok"
-    },
-    {
-      "ts": "2026-08-30 18:00 MYT",
-      "agent": "edith",
-      "job": "weekly_digest",
-      "event": "started",
-      "result": ""
     }
   ]
 }
