@@ -5,6 +5,13 @@
       "ts": "2026-09-02 06:20 MYT",
       "agent": "engineer",
       "job": "review_stats_sync",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-09-02 06:20 MYT",
+      "agent": "engineer",
+      "job": "review_stats_sync",
       "event": "started",
       "result": ""
     },
@@ -273,13 +280,6 @@
       "job": "wa_group_digest",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-08-30 19:50 MYT",
-      "agent": "analytics",
-      "job": "cash_digest",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
