@@ -916,8 +916,8 @@
       },
       {
        "t": "Suraya builds the filter-page additions (CSV exclusion list + recall/birthday tick)",
-       "s": "now",
-       "w": "asked 29 Aug"
+       "s": "done",
+       "w": "1 Sep"
       },
       {
        "t": "Meta template approval",
@@ -941,7 +941,7 @@
       }
      ],
      "open": [
-      "<b>Asked Jason 29 Aug (awaiting reply):</b> are Suraya's two filter-page additions built, and what is the overall blast timeline including Meta approval",
+      "<b>Filter-page additions are built (1 Sep).</b> One Wave template is under testing; two more were submitted to Meta. Confirm approval and overall blast timing before sending",
       "Jason still owes the price",
       "PDPA check with Lydia",
       "<b>Cert expires 16 Oct</b> \u2014 renewal cron should fire ~15 Sep; Jason reminded 28 Aug, confirm it actually renews",
@@ -1473,6 +1473,6 @@
  ],
  "meta": {
   "asof": "TUE 01 SEP 2026",
-  "updated": "2026-09-01T17:18:06+08:00"
+  "updated": "2026-09-01T21:33:40+08:00"
  }
 }
