@@ -48,6 +48,10 @@
   .ch .k{font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ac,var(--p1))}
   .ch .m{font-family:var(--mono);font-size:10px;color:var(--dim);margin-left:auto;white-space:nowrap}
   .ch .m.bad{color:var(--bad)}
+  a.ch{text-decoration:none;color:inherit;cursor:pointer}
+  .ch .arr{font-family:var(--mono);font-size:12px;color:var(--dim);margin-left:6px;transition:transform .15s,color .15s}
+  a.ch:hover .arr{color:var(--ac,var(--p1));transform:translateX(3px)}
+  a.ch:hover .k{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
   .cb{padding:4px 14px 14px}
   .empty{color:var(--dim);font-family:var(--mono);font-size:11px;padding:6px 0 4px}
 
@@ -161,11 +165,11 @@
     <!-- LEFT -->
     <div class="col l">
       <div class="card vps"><div class="top"></div>
-        <div class="ch"><span class="k">VPS · Edith's box</span><span class="m" id="vpsm">—</span></div>
+        <a class="ch go" href="/dashboard#agents" title="Open the box: crons, workflows and the office"><span class="k">VPS · Edith's box</span><span class="arr">→</span><span class="m" id="vpsm">—</span></a>
         <div class="cb" id="vps"><div class="empty">loading…</div></div>
       </div>
       <div class="card fin"><div class="top"></div>
-        <div class="ch"><span class="k">Financial status</span><span class="m" id="finm">—</span></div>
+        <a class="ch go" href="/dashboard/margin#day" title="Open day-by-day P&amp;L, line by line"><span class="k">Financial status</span><span class="arr">→</span><span class="m" id="finm">—</span></a>
         <div class="cb" id="fin"><div class="empty">loading…</div></div>
       </div>
     </div>
@@ -199,22 +203,22 @@
     <!-- RIGHT -->
     <div class="col r">
       <div class="card needs"><div class="top"></div>
-        <div class="ch"><span class="k">Needs you</span><span class="m" id="needm">—</span></div>
+        <a class="ch go" href="/dashboard/hq" title="Open the pillar board"><span class="k">Needs you</span><span class="arr">→</span><span class="m" id="needm">—</span></a>
         <div class="cb" id="needs"><div class="empty">loading…</div></div>
       </div>
       <div class="card web"><div class="top"></div>
-        <div class="ch"><span class="k">Website · reviews · social</span><span class="m" id="webm">—</span></div>
+        <a class="ch go" href="/dashboard/analytics" title="Open full website analytics"><span class="k">Website · reviews · social</span><span class="arr">→</span><span class="m" id="webm">—</span></a>
         <div class="cb" id="web"><div class="empty">loading…</div></div>
       </div>
       <div class="card rec"><div class="top"></div>
-        <div class="ch"><span class="k">Recall</span><span class="m" id="recm">—</span></div>
+        <a class="ch go" href="/dashboard#margin" title="Open the recall funnel panel (Practice view)"><span class="k">Recall</span><span class="arr">→</span><span class="m" id="recm">—</span></a>
         <div class="cb" id="rec"><div class="empty">loading…</div></div>
       </div>
     </div>
   </div>
 
   <footer>iSmile Deck · data from the <span style="font-family:var(--mono)">status</span> branch (deck · cashflow · hq · recall) and GA4 · refreshes itself every 5 minutes<br>
-    <a href="/dashboard/hq">HQ</a> is where the action lives — this page is the glance.</footer>
+    <a href="/dashboard/hq">HQ</a> is where the action lives — this page is the glance. Every card title opens its detail page.</footer>
 </div>
 
 <script>
