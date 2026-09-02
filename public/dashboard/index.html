@@ -551,19 +551,27 @@ async function speakRemote(text){
   return "data:"+(j.mime||"audio/mpeg")+";base64,"+j.audio_b64;
 }
 function speak(text,done){
-  if(VOICE_PROVIDER!=="browser"){
-    SPEAKING=true; $("#wave").classList.add("on");
-    speakRemote(text).then(src=>{
-      if(!SPEAKING){return;}
-      if(AUDIO){AUDIO.pause();}
+  if(VOICE_PROVIDER==="browser"){speakBrowser(text,done);return;}
+  /* Real voice, sentence by sentence: render chunk n+1 while chunk n plays, so the first words arrive in a few
+     seconds even when the box takes ~1s per sentence (the local Kokoro voice) — and fall back to the browser if a chunk fails. */
+  const parts=[]; let cur="";
+  (text.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[text]).forEach(sn=>{sn=sn.trim();if(!sn)return;if((cur+" "+sn).length>160&&cur){parts.push(cur);cur=sn;}else cur=cur?cur+" "+sn:sn;});
+  if(cur)parts.push(cur);
+  SPEAKING=true; $("#wave").classList.add("on");
+  const fetches=parts.map(()=>null); const get=(i)=>fetches[i]||(fetches[i]=speakRemote(parts[i]));
+  let i=0;
+  const playNext=()=>{
+    if(!SPEAKING||i>=parts.length){SPEAKING=false;$("#wave").classList.remove("on");if(done)done();return;}
+    if(i+1<parts.length)get(i+1).catch(()=>{});
+    get(i).then(src=>{
+      if(!SPEAKING)return;
       AUDIO=new Audio(src);
-      AUDIO.onended=()=>{SPEAKING=false;$("#wave").classList.remove("on");if(done)done();};
-      AUDIO.onerror=()=>{SPEAKING=false;$("#wave").classList.remove("on");speakBrowser(text,done);};
-      AUDIO.play().catch(()=>{SPEAKING=false;$("#wave").classList.remove("on");speakBrowser(text,done);});
-    }).catch(()=>{speakBrowser(text,done);});
-    return;
-  }
-  speakBrowser(text,done);
+      AUDIO.onended=()=>{i++;playNext();};
+      AUDIO.onerror=()=>{SPEAKING=false;$("#wave").classList.remove("on");speakBrowser(parts.slice(i).join(" "),done);};
+      AUDIO.play().catch(()=>{SPEAKING=false;$("#wave").classList.remove("on");speakBrowser(parts.slice(i).join(" "),done);});
+    }).catch(()=>{SPEAKING=false;$("#wave").classList.remove("on");speakBrowser(parts.slice(i).join(" "),done);});
+  };
+  playNext();
 }
 function speakBrowser(text,done){
   if(!synth){if(done)done();return;}
@@ -641,7 +649,9 @@ async function handleUser(text){
       let pr; try{pr=await post({poll:j.job});}catch(e){continue;}
       last=await pr.json().catch(()=>({}));
       if(last.status==="done"){m.remove();const rep=last.reply||"(she sent an empty reply)";say("e",rep);speak(rep,afterSpeaking);return;}
-      if(last.status==="error"||pr.status===404){m.remove();const s="Edith's gateway returned an error ("+(last.error||pr.status)+").";say("s",s);speak("Edith's gateway returned an error.",afterSpeaking);return;}
+      if(last.status==="error"||pr.status===404){m.remove();
+        const why=(last.error==="bridge_restarted"||last.error==="unknown_job")?"The line restarted while she was answering — please ask again.":"Edith's gateway returned an error ("+(last.error||pr.status)+").";
+        say("s",why);speak(why,afterSpeaking);return;}
     }
     m.remove();say("s","No reply after 8 minutes — she may still finish; check WhatsApp or ask again.");
   }catch(e){m.remove();say("s","Network error: "+e.message);}
