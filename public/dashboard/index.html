@@ -600,7 +600,7 @@ function speakBrowser(text,done){
 }
 function hush(){SPEAKING=false;if(synth)synth.cancel();if(AUDIO){AUDIO.pause();AUDIO=null;}$("#wave").classList.remove("on");}
 
-function greeting(){const h=nowMYT().getHours();return (h<12?"Good morning":h<18?"Good afternoon":"Good evening")+", Lu.";}
+function greeting(){const h=nowMYT().getHours();return (h<12?"Good morning":h<18?"Good afternoon":"Good evening")+", Lau.";}
 function brief(){
   const n=nowMYT(), c=D.cash, d=D.deck, r=D.recall, items=allAttention();
   const L=[];

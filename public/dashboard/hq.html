@@ -2325,7 +2325,7 @@ document.addEventListener("keydown",e=>{
 })();
 
 /* ---------- people (owners) ---------- */
-const PEOPLE={lu:"Lu",jean:"Dr Ong",tianchen:"Lau Tian Chen",emily:"Emily",lydia:"Lydia",ling:"Dr Ling",edith:"Edith",codecapsule:"Code Capsule",parents:"Lu's parents"};
+const PEOPLE={lu:"Lau",jean:"Dr Ong",tianchen:"Lau Tian Chen",emily:"Emily",lydia:"Lydia",ling:"Dr Ling",edith:"Edith",codecapsule:"Code Capsule",parents:"Lu's parents"};
 
 /* ---------- views: board · timeline · kanban (+ #s=<id> opens one item, #v=<view> picks a view) ---------- */
 let VIEW="board";
@@ -2388,7 +2388,7 @@ function renderKanban(){
       if(r.a){const a=r.a;card.innerHTML=`<div class="t">${a.title}</div><div class="m"><span class="ow">${PEOPLE[a.owner]||a.owner||""}</span><span>${KDEPT[a.dept]||a.dept||""}</span>${a.endMonth?`<span>${a.endMonth}</span>`:""}</div>${a.closed?`<div class="n">${a.closed}</div>`:""}`;
         if(a.stream){const r2=findStream(a.stream);if(r2)card.addEventListener("click",()=>openStream(r2.stream,r2.parent));}}
       else{const {s,p}=r;
-        card.innerHTML=`<div class="t">${s.name}</div><div class="m"><span class="ow" style="border-color:${p.color||"var(--line)"}">${PEOPLE[s.owner]||s.owner||"Lu"}</span><span style="color:${p.color||"var(--dim)"}">${(p.num||"").replace("Pillar ","P").replace("Foundation","F")}</span><span>${KDEPT[s.dept]||s.dept||""}</span>${s.lens?`<span>${s.lens}</span>`:""}${s.endMonth?`<span>→ ${s.endMonth}</span>`:""}${s.flag?`<span class="atag k-${s.flag.k}" style="color:var(--ak);border-color:var(--ak)">${s.flag.k}</span>`:""}</div>${s.next?`<div class="n">Next: ${s.next}</div>`:s.one?`<div class="n">${s.one}</div>`:""}`;
+        card.innerHTML=`<div class="t">${s.name}</div><div class="m"><span class="ow" style="border-color:${p.color||"var(--line)"}">${PEOPLE[s.owner]||s.owner||"Lau"}</span><span style="color:${p.color||"var(--dim)"}">${(p.num||"").replace("Pillar ","P").replace("Foundation","F")}</span><span>${KDEPT[s.dept]||s.dept||""}</span>${s.lens?`<span>${s.lens}</span>`:""}${s.endMonth?`<span>→ ${s.endMonth}</span>`:""}${s.flag?`<span class="atag k-${s.flag.k}" style="color:var(--ak);border-color:var(--ak)">${s.flag.k}</span>`:""}</div>${s.next?`<div class="n">Next: ${s.next}</div>`:s.one?`<div class="n">${s.one}</div>`:""}`;
         card.addEventListener("click",()=>openStream(s,p));}
       col.appendChild(card);
     });
