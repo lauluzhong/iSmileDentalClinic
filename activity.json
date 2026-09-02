@@ -5,6 +5,13 @@
       "ts": "2026-09-02 08:20 MYT",
       "agent": "engineer",
       "job": "cert_check",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-09-02 08:20 MYT",
+      "agent": "engineer",
+      "job": "cert_check",
       "event": "started",
       "result": ""
     },
@@ -273,13 +280,6 @@
       "job": "review_stats_sync",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-08-31 06:03 MYT",
-      "agent": "gbp",
-      "job": "gbp_reply",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
