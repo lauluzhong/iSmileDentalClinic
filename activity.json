@@ -5,6 +5,13 @@
       "ts": "2026-09-03 06:30 MYT",
       "agent": "analytics",
       "job": "deck_stats",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-09-03 06:30 MYT",
+      "agent": "analytics",
+      "job": "deck_stats",
       "event": "started",
       "result": ""
     },
@@ -273,13 +280,6 @@
       "job": "deck_stats",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-09-02 21:34 MYT",
-      "agent": "edith",
-      "job": "wa_group_digest",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
