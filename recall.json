@@ -5,18 +5,18 @@
   "funnel_live": true,
   "funnel_as_of": "2026-09-02",
   "cumulative": {
-    "total": 14447,
-    "sent": 4950,
-    "delivered": 5802,
-    "read": 1974,
+    "total": 14596,
+    "sent": 4998,
+    "delivered": 5856,
+    "read": 2007,
     "failed": 456,
-    "clicks": 164,
-    "replies": 1101
+    "clicks": 166,
+    "replies": 1113
   },
   "this_month": {
-    "sent": 18,
-    "clicks": 4,
-    "replies": 3
+    "sent": 66,
+    "clicks": 6,
+    "replies": 15
   },
   "conversion": {
     "mature_days": 21,
@@ -37,5 +37,128 @@
     "booked_within_window": 198,
     "booked_anytime": 239,
     "conversion_pct": 27.2
+  },
+  "value": {
+    "available": true,
+    "as_of": "2026-09-02",
+    "bridge": "e8_patient_master.tsv (2026-08-30)",
+    "sends": 767,
+    "patients_in_cohort": 1138,
+    "attrib_window_days": 90,
+    "mature_days": 21,
+    "production_lines": 19415,
+    "month": "2026-09",
+    "rule": "production by a recalled patient within 90 days after their first recall send, credited to the line's doctor; correlation, not proven lift",
+    "all_time": {
+      "patients_reached": 1138,
+      "patients_converted": 226,
+      "visits": 293,
+      "repeat_patients": 41,
+      "production": 111720,
+      "conversion_pct": 19.9,
+      "by_doctor": [
+        {
+          "provnum": "6",
+          "abbr": "Ling",
+          "name": "Dr. Ling Yoke Li",
+          "patients": 28,
+          "visits": 48,
+          "repeat_visits": 20,
+          "production": 32750
+        },
+        {
+          "provnum": "3",
+          "abbr": "Amy",
+          "name": "Dr Amy Chin",
+          "patients": 67,
+          "visits": 75,
+          "repeat_visits": 8,
+          "production": 22450
+        },
+        {
+          "provnum": "8",
+          "abbr": "Azeli",
+          "name": "Dr Azelia",
+          "patients": 40,
+          "visits": 47,
+          "repeat_visits": 7,
+          "production": 12110
+        },
+        {
+          "provnum": "7",
+          "abbr": "Mah",
+          "name": "Dr Mah Haw Yeng",
+          "patients": 33,
+          "visits": 50,
+          "repeat_visits": 17,
+          "production": 11220
+        },
+        {
+          "provnum": "4",
+          "abbr": "Pris",
+          "name": "Dr Priscilla",
+          "patients": 31,
+          "visits": 32,
+          "repeat_visits": 1,
+          "production": 10500
+        },
+        {
+          "provnum": "1",
+          "abbr": "Jean",
+          "name": "Dr Jean Ong",
+          "patients": 28,
+          "visits": 33,
+          "repeat_visits": 5,
+          "production": 9740
+        },
+        {
+          "provnum": "12",
+          "abbr": "Yeoh",
+          "name": "Dr Yeoh Oon Take",
+          "patients": 1,
+          "visits": 1,
+          "repeat_visits": 0,
+          "production": 6700
+        },
+        {
+          "provnum": "9",
+          "abbr": "Joan",
+          "name": "Dr Joan Lim",
+          "patients": 3,
+          "visits": 7,
+          "repeat_visits": 4,
+          "production": 6250
+        }
+      ]
+    },
+    "mtd": {
+      "patients_reached": 775,
+      "patients_converted": 4,
+      "visits": 4,
+      "repeat_patients": 0,
+      "production": 950,
+      "conversion_pct": 0.4,
+      "by_doctor": [
+        {
+          "provnum": "1",
+          "abbr": "Jean",
+          "name": "Dr Jean Ong",
+          "patients": 2,
+          "visits": 2,
+          "repeat_visits": 0,
+          "production": 750
+        },
+        {
+          "provnum": "7",
+          "abbr": "Mah",
+          "name": "Dr Mah Haw Yeng",
+          "patients": 2,
+          "visits": 2,
+          "repeat_visits": 0,
+          "production": 200
+        }
+      ],
+      "patients_first_converted": 3
+    }
   }
 }
