@@ -1270,7 +1270,7 @@
      "dot": "wait",
      "chip": "Q4",
      "name": "Year-end increments",
-     "one": "Decided: year end, BASE only, <1yr staff none, Elaine pending JD. Amounts = the Q4 sit-down.",
+     "one": "Decided: year end, BASE only, <1yr staff none, Elaine none. Amounts = the Q4 sit-down.",
      "steps": [
       {
        "t": "July bonus paid + announced",
@@ -1278,7 +1278,7 @@
        "w": "12 Jul"
       },
       {
-       "t": "Dr Ong \u00d7 Elaine JD talk \u2014 confirmed NOT yet happened; make it happen",
+       "t": "Dr Ong \u00d7 Elaine job-description talk \u2014 confirmed not yet happened; make it happen",
        "s": "now"
       },
       {
@@ -1297,7 +1297,7 @@
      "flag": {
       "k": "talk",
       "who": "Dr Ong",
-      "w": "Dr Ong still has not sat down with Elaine about her job description. Her increment waits on that conversation."
+      "w": "Dr Ong still has not sat down with Elaine about her job description."
      }
     },
     {
@@ -1473,6 +1473,6 @@
  ],
  "meta": {
   "asof": "WED 02 SEP 2026",
-  "updated": "2026-09-02T11:16:11+08:00"
+  "updated": "2026-09-02T11:39:35+08:00"
  }
 }
