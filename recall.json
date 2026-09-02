@@ -1,9 +1,9 @@
 {
-  "as_of": "2026-09-02",
+  "as_of": "2026-09-03",
   "source": "redirect.ismile.com.my/admin/webhook/webhooklog",
   "note": "Funnel = event counts (per-message callbacks), not distinct patients. Conversion = matured-cohort recall->appointment rate (correlation, not proven causal lift); as-of the latest OpenDent export only.",
   "funnel_live": true,
-  "funnel_as_of": "2026-09-02",
+  "funnel_as_of": "2026-09-03",
   "cumulative": {
     "total": 14596,
     "sent": 4998,
@@ -21,11 +21,11 @@
   "conversion": {
     "mature_days": 21,
     "attrib_window_days": 90,
-    "data_as_of": "2026-09-01",
-    "appt_export": "inbox/2026-09-01 e5+e6+backfill",
+    "data_as_of": "2026-09-02",
+    "appt_export": "inbox/2026-09-02 e5+e6+backfill",
     "appt_range": [
       "2024-08-12",
-      "2026-12-29"
+      "2026-12-30"
     ],
     "stale": false,
     "available": true,
@@ -34,27 +34,27 @@
     "matured_cohort": 767,
     "resolved_to_patient": 729,
     "resolved_via_patnum": 729,
-    "booked_within_window": 198,
-    "booked_anytime": 239,
-    "conversion_pct": 27.2
+    "booked_within_window": 199,
+    "booked_anytime": 242,
+    "conversion_pct": 27.3
   },
   "value": {
     "available": true,
-    "as_of": "2026-09-02",
+    "as_of": "2026-09-03",
     "bridge": "e8_patient_master.tsv (2026-08-30)",
     "sends": 767,
     "patients_in_cohort": 1138,
     "attrib_window_days": 90,
     "mature_days": 21,
-    "production_lines": 19415,
+    "production_lines": 19449,
     "month": "2026-09",
     "rule": "production by a recalled patient within 90 days after their first recall send, credited to the line's doctor; correlation, not proven lift",
     "all_time": {
       "patients_reached": 1138,
-      "patients_converted": 226,
-      "visits": 293,
+      "patients_converted": 227,
+      "visits": 294,
       "repeat_patients": 41,
-      "production": 111720,
+      "production": 111940,
       "conversion_pct": 19.9,
       "by_doctor": [
         {
@@ -106,10 +106,10 @@
           "provnum": "1",
           "abbr": "Jean",
           "name": "Dr Jean Ong",
-          "patients": 28,
-          "visits": 33,
+          "patients": 29,
+          "visits": 34,
           "repeat_visits": 5,
-          "production": 9740
+          "production": 9960
         },
         {
           "provnum": "12",
@@ -133,20 +133,20 @@
     },
     "mtd": {
       "patients_reached": 775,
-      "patients_converted": 4,
-      "visits": 4,
+      "patients_converted": 5,
+      "visits": 5,
       "repeat_patients": 0,
-      "production": 950,
-      "conversion_pct": 0.4,
+      "production": 1170,
+      "conversion_pct": 0.5,
       "by_doctor": [
         {
           "provnum": "1",
           "abbr": "Jean",
           "name": "Dr Jean Ong",
-          "patients": 2,
-          "visits": 2,
+          "patients": 3,
+          "visits": 3,
           "repeat_visits": 0,
-          "production": 750
+          "production": 970
         },
         {
           "provnum": "7",
@@ -158,7 +158,7 @@
           "production": 200
         }
       ],
-      "patients_first_converted": 3
+      "patients_first_converted": 4
     }
   }
 }
