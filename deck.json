@@ -1,21 +1,21 @@
 {
- "generated_myt": "2026-09-03 00:00",
- "generated_at": "2026-09-03T00:00:09+08:00",
+ "generated_myt": "2026-09-03 00:30",
+ "generated_at": "2026-09-03T00:30:10+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 79.3,
   "nproc": 4,
   "load": [
-   0.09,
-   0.09,
-   0.09
+   1.71,
+   1.03,
+   0.67
   ],
-  "cpu_pct": 1.6,
+  "cpu_pct": 1.0,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 2225,
-   "avail_mb": 5716,
-   "pct": 28.0,
+   "used_mb": 1558,
+   "avail_mb": 6382,
+   "pct": 19.6,
    "swap_total_mb": 2047,
    "swap_used_mb": 211
   },
@@ -32,7 +32,7 @@
    "running": [
     "deck_stats"
    ],
-   "status_updated": "2026-09-03 00:00 MYT"
+   "status_updated": "2026-09-03 00:30 MYT"
   },
   "last_clinic_push": "2026-09-02"
  },
@@ -105,7 +105,7 @@
    "model": null,
    "sessions_total": 61,
    "sessions_30d": 39,
-   "last_active_myt": "2026-09-02 23:49"
+   "last_active_myt": "2026-09-03 00:18"
   }
  ],
  "finance": {
