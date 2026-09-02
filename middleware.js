@@ -34,12 +34,18 @@ const LEGACY = {
 };
 
 // clean URL → physical file to serve (rewrite, address bar unchanged)
+// gated proxy to Edith (api/edith.js re-checks the same Basic Auth header itself)
+const PROXIES = {
+  '/dashboard/edith': '/api/edith',
+};
+
 const PAGES = {
   '/dashboard': '/dashboard/index.html',
   '/dashboard/': '/dashboard/index.html',
   '/dashboard/hq': '/dashboard/hq.html',
   '/dashboard/margin': '/dashboard/margin.html',
   '/dashboard/analytics': '/dashboard/analytics.html',
+  '/dashboard/deck': '/dashboard/deck.html',
 };
 
 // physical .html → its clean URL (so the .html form is never user-facing)
@@ -48,6 +54,7 @@ const CANONICAL = {
   '/dashboard/hq.html': '/dashboard/hq',
   '/dashboard/margin.html': '/dashboard/margin',
   '/dashboard/analytics.html': '/dashboard/analytics',
+  '/dashboard/deck.html': '/dashboard/deck',
 };
 
 export const config = {
@@ -102,6 +109,9 @@ export default function middleware(request) {
   // 4) Serve clean URLs from their physical file (address bar stays clean).
   if (PAGES[pathname]) {
     return rewrite(new URL(PAGES[pathname], request.url));
+  }
+  if (PROXIES[pathname]) {
+    return rewrite(new URL(PROXIES[pathname], request.url));
   }
 
   // 5) Authenticated assets (e.g. /dashboard/margin-data.js) continue.

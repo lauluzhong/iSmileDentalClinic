@@ -462,6 +462,7 @@ function render(){
 function paintTabs(h){
   const t=[["org","🏛️","Org"],["agents","👥","Office"],["initiatives","📋","Initiatives"],["margin","📈","Practice"]];
   document.getElementById("tabs").innerHTML=t.map(([k,i,l])=>`<button class="${h===k||(k==='org'&&h.startsWith('dept/'))||(k==='agents'&&h==='workflows')?'active':''}" onclick="location.hash='${k}'"><span class="ic">${i}</span>${l}</button>`).join("")
+    +`<button onclick="location.href='/dashboard/deck'" title="Command deck — today at a glance, and the line to Edith"><span class="ic">🧠</span>Deck</button>`
     +`<button onclick="location.href='/dashboard/hq'" title="iSmile HQ — the pillar programme view"><span class="ic">🛰️</span>HQ</button>`;
 }
 
