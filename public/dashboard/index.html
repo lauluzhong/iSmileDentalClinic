@@ -554,15 +554,18 @@ function speak(text,done){
   if(VOICE_PROVIDER==="browser"){speakBrowser(text,done);return;}
   /* Real voice, sentence by sentence: render chunk n+1 while chunk n plays, so the first words arrive in a few
      seconds even when the box takes ~1s per sentence (the local Kokoro voice) — and fall back to the browser if a chunk fails. */
+  /* first chunk = the first sentence alone (≈1 s to render), the rest in ≤120-char chunks, ALL requested at once so
+     they are ready before their turn — the render time then only shows once, at the very start. */
+  const sents=(text.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[text]).map(x=>x.trim()).filter(Boolean);
   const parts=[]; let cur="";
-  (text.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[text]).forEach(sn=>{sn=sn.trim();if(!sn)return;if((cur+" "+sn).length>160&&cur){parts.push(cur);cur=sn;}else cur=cur?cur+" "+sn:sn;});
+  sents.forEach((sn,k)=>{if(k===0){parts.push(sn);return;}if((cur+" "+sn).length>120&&cur){parts.push(cur);cur=sn;}else cur=cur?cur+" "+sn:sn;});
   if(cur)parts.push(cur);
   SPEAKING=true; $("#wave").classList.add("on");
   const fetches=parts.map(()=>null); const get=(i)=>fetches[i]||(fetches[i]=speakRemote(parts[i]));
+  parts.forEach((_,k)=>{if(k>0)setTimeout(()=>get(k).catch(()=>{}),k*150);});
   let i=0;
   const playNext=()=>{
     if(!SPEAKING||i>=parts.length){SPEAKING=false;$("#wave").classList.remove("on");if(done)done();return;}
-    if(i+1<parts.length)get(i+1).catch(()=>{});
     get(i).then(src=>{
       if(!SPEAKING)return;
       AUDIO=new Audio(src);
