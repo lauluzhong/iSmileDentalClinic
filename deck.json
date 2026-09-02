@@ -1,0 +1,169 @@
+{
+ "generated_myt": "2026-09-02 11:47",
+ "generated_at": "2026-09-02T11:47:25+08:00",
+ "vps": {
+  "hostname": "vmi3374460",
+  "uptime_days": 78.8,
+  "nproc": 4,
+  "load": [
+   0.3,
+   0.53,
+   0.44
+  ],
+  "cpu_pct": 0.8,
+  "mem": {
+   "total_mb": 7941,
+   "used_mb": 2689,
+   "avail_mb": 5251,
+   "pct": 33.9,
+   "swap_total_mb": 2047,
+   "swap_used_mb": 211
+  },
+  "disk": {
+   "total_gb": 154.9,
+   "used_gb": 22.0,
+   "pct": 14.2
+  },
+  "gateway_ok": true,
+  "walogger_ok": true,
+  "crons": {
+   "total": 12,
+   "failed": [],
+   "running": [
+    "deck_stats"
+   ],
+   "status_updated": "2026-09-02 11:47 MYT"
+  },
+  "last_clinic_push": "2026-09-01"
+ },
+ "finance": {
+  "as_of": "2026-09-01",
+  "generated_myt": "2026-09-01 19:40",
+  "basis": "margin dashboard: true margin = production \u2212 locum est \u2212 lab est \u2212 chair-time burn (RM160/h loaded). Not the statutory P&L.",
+  "mtd": {
+   "production": 8640,
+   "visits": 24,
+   "chair_hours": 15.5,
+   "lab_est": 800,
+   "locum_est": 2810,
+   "burn_loaded": 2480,
+   "true_margin": 2550,
+   "months": [
+    "2026-09"
+   ]
+  },
+  "ytd": {
+   "production": 1771538,
+   "visits": 4334,
+   "chair_hours": 3121.4,
+   "lab_est": 161294,
+   "locum_est": 649415,
+   "burn_loaded": 499426,
+   "true_margin": 461403,
+   "months": [
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09"
+   ],
+   "year": "2026"
+  },
+  "months": [
+   {
+    "month": "2025-09",
+    "production": 241600,
+    "true_margin": 71173
+   },
+   {
+    "month": "2025-10",
+    "production": 209855,
+    "true_margin": 52484
+   },
+   {
+    "month": "2025-11",
+    "production": 236770,
+    "true_margin": 65892
+   },
+   {
+    "month": "2025-12",
+    "production": 311760,
+    "true_margin": 106947
+   },
+   {
+    "month": "2026-01",
+    "production": 221890,
+    "true_margin": 53851
+   },
+   {
+    "month": "2026-02",
+    "production": 160780,
+    "true_margin": 47683
+   },
+   {
+    "month": "2026-03",
+    "production": 191120,
+    "true_margin": 43471
+   },
+   {
+    "month": "2026-04",
+    "production": 287038,
+    "true_margin": 98816
+   },
+   {
+    "month": "2026-05",
+    "production": 161980,
+    "true_margin": 19987
+   },
+   {
+    "month": "2026-06",
+    "production": 282520,
+    "true_margin": 93334
+   },
+   {
+    "month": "2026-07",
+    "production": 243920,
+    "true_margin": 53030
+   },
+   {
+    "month": "2026-08",
+    "production": 213650,
+    "true_margin": 48681
+   },
+   {
+    "month": "2026-09",
+    "production": 8640,
+    "true_margin": 2550
+   }
+  ]
+ },
+ "seo": {
+  "window": [
+   "2026-08-01",
+   "2026-08-31"
+  ],
+  "clicks": 176,
+  "impressions": 14915,
+  "avg_position": 13.0,
+  "nonbrand_clicks": 28,
+  "nonbrand_ctr_pct": 0.3,
+  "organic_sessions": 228,
+  "organic_sessions_mobile": 160,
+  "whatsapp_submit_click": 46,
+  "source": "seo_scorecard_2026-09.json"
+ },
+ "reviews": {
+  "rating": "4.8",
+  "count": 94,
+  "updated": "2026-08-28",
+  "source": "Google Business Profile API"
+ },
+ "social": {
+  "available": false,
+  "note": "No social analytics integration is wired yet (Zernio is an initiative, not a feed)."
+ }
+}
