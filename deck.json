@@ -1,37 +1,35 @@
 {
- "generated_myt": "2026-09-02 14:30",
- "generated_at": "2026-09-02T14:30:11+08:00",
+ "generated_myt": "2026-09-02 14:35",
+ "generated_at": "2026-09-02T14:35:39+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 78.9,
   "nproc": 4,
   "load": [
+   0.37,
    0.54,
-   0.45,
-   0.45
+   0.5
   ],
-  "cpu_pct": 1.5,
+  "cpu_pct": 1.8,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 2499,
-   "avail_mb": 5441,
-   "pct": 31.5,
+   "used_mb": 2493,
+   "avail_mb": 5447,
+   "pct": 31.4,
    "swap_total_mb": 2047,
    "swap_used_mb": 211
   },
   "disk": {
    "total_gb": 154.9,
    "used_gb": 22.1,
-   "pct": 14.3
+   "pct": 14.2
   },
   "gateway_ok": true,
   "walogger_ok": true,
   "crons": {
    "total": 12,
    "failed": [],
-   "running": [
-    "deck_stats"
-   ],
+   "running": [],
    "status_updated": "2026-09-02 14:30 MYT"
   },
   "last_clinic_push": "2026-09-02"
@@ -115,7 +113,7 @@
    "model": null,
    "sessions_total": 26,
    "sessions_30d": 26,
-   "last_active_myt": "2026-09-02 14:03"
+   "last_active_myt": "2026-09-02 14:33"
   },
   {
    "id": "cron-seo",
@@ -325,7 +323,27 @@
   "source": "Google Business Profile API"
  },
  "social": {
-  "available": false,
-  "note": "No social analytics integration is wired yet (Zernio is an initiative, not a feed)."
+  "available": true,
+  "source": "Zernio MCP (Edith's connection)",
+  "as_of": "2026-09-02",
+  "window_days": 30,
+  "accounts": [
+   {
+    "platform": "instagram",
+    "username": "ismiledentalclinicmy",
+    "display": "iSmile Dental Clinic",
+    "followers": 98.0,
+    "growth_30d": -1.0,
+    "growth_pct_30d": -1.01,
+    "posts_on_platform": 13.0,
+    "last_updated": "2026-09-02T04:33:57.451000Z",
+    "active": true
+   }
+  ],
+  "instagram_30d": {
+   "raw": "{'dailyData': [], 'platformBreakdown': []}"
+  },
+  "posts_published_via_zernio": 0,
+  "note": "Instagram @ismiledentalclinicmy is connected through Zernio. Posts published outside Zernio are not counted in posts_published_via_zernio."
  }
 }
