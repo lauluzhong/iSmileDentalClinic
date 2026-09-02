@@ -2,16 +2,9 @@
  "decisions": [
   {
    "hot": true,
-   "k": "Awaiting reply",
-   "t": "Parents' approval \u2014 3 comp changes",
-   "w": "Briefing PDF sent 28 Aug. Their yes finalises the contractor agreement and unblocks everything behind it, Jun's letter included. \u26d4 No agreement edits until they reply.",
-   "ref": "l1"
-  },
-  {
-   "hot": true,
-   "k": "Target Tue 1 Sep",
+   "k": "Now unblocked",
    "t": "Dr Jun's offer letter",
-   "w": "The letter IS the contract, so it needs the parents' reply first. She has already resigned on a handshake \u2014 this is owed.",
+   "w": "Parents approved the three compensation changes today. Issue her offer letter as Schedule 1 of the final contractor agreement.",
    "ref": "g4"
   },
   {
@@ -68,9 +61,9 @@
   {
    "d": "28 Aug",
    "l": "Parents briefed on the 3 comp changes",
-   "s": "now",
+   "s": "done",
    "iso": "2026-08-28",
-   "tip": "Briefing PDF sent. Their reply finalises the contractor agreement and unblocks Jun's letter, the doctor rollout and the 15 Sep meeting. \u26d4 No agreement edits until they answer."
+   "tip": "Parents approved the three compensation changes on 2 Sep, with the discount-approval threshold amended to 15% rather than 10%. The contractor agreement can now be finalised."
   },
   {
    "d": "31 Aug",
@@ -699,8 +692,8 @@
    "streams": [
     {
      "id": "l1",
-     "dot": "wait",
-     "chip": "with Lydia",
+     "dot": "now",
+     "chip": "approved \u00b7 with Lydia",
      "name": "Contractor agreement",
      "one": "Synthesised 13 Aug, with Lydia since 17 Aug. Body is a pure template; every per-doctor input lives in Schedule 1.",
      "steps": [
@@ -730,12 +723,13 @@
        "w": "28 Aug"
       },
       {
-       "t": "\u26d4 Parents' approval \u2014 HOLD on all agreement edits until they reply",
-       "s": "now"
+       "t": "Parents approved the 3 compensation changes (discount approval threshold amended to 15%)",
+       "s": "done",
+       "w": "2 Sep"
       },
       {
-       "t": "Strike the 10% from Schedule 2 with Lydia \u00b7 accept 2.10\u20132.12",
-       "s": ""
+       "t": "Update Schedule 2: strike the 10% deduction and apply the 15% discount-approval threshold \u00b7 accept 2.10\u20132.12",
+       "s": "now"
       },
       {
        "t": "Per-doctor Schedule 1 copies drafted (Jun's = her offer letter)",
@@ -749,19 +743,18 @@
       }
      ],
      "open": [
-      "<b>The three changes put to them:</b> abolish the 10% \u00b7 floor price with doctor-borne discounts \u00b7 economics follow the production month",
-      "\u26a0\ufe0f Drafting state differs per item: item 2 is properly drafted (cl. 2.7), item 3 sits as unaccepted suggestions (2.10\u20132.12), <b>item 1 is not in the document at all</b> \u2014 abolishing the 10% means striking the Schedule 2 line, an instruction Lydia has not been given",
+      "<b>Parents approved all three changes on 2 Sep:</b> abolish the 10% \u00b7 floor price with doctor-borne discounts \u00b7 economics follow the production month. Discount approval threshold amended to 15%.",
+      "\u26a0\ufe0f Lydia must now carry the approved changes into the agreement: strike the Schedule 2 deduction, set the discount-approval threshold to 15%, and accept 2.10\u20132.12",
       "Keep the parents' register: item 2 pays for item 1, leaving a gap of about RM10\u201312k a year",
       "Clause 2.6 names the GM for below-band sign-off \u2014 Emily now knows",
       "\u26a0\ufe0f Item 3b cannot be operated for real yet (only ~8% of paysplits carry a ProcNum) \u2014 agree the principle, never give the doctors a start date",
-      "<b>Jun's offer letter IS her copy of this agreement</b> \u2014 it cannot go out ahead of approval",
+      "<b>Jun's offer letter IS her copy of this agreement</b> \u2014 now unblocked by parents' approval",
       "From the initiatives board: All eight doctors are currently unpapered, several at about fifteen years' standing. Working papers are in People & Competence/Contracts/ \u2014 the review note and the marked-up agreement."
      ],
      "flag": {
       "k": "talk",
-      "who": "your parents",
-      "hot": true,
-      "w": "Chase their answer on the three changes to how the doctors are paid. Nothing else in Legal & Governance can move until they reply."
+      "who": "Lydia",
+      "w": "Carry the parents' approved changes into the agreement, including the 15% discount-approval threshold."
      },
      "owner": "lydia",
      "dept": "people",
@@ -769,7 +762,7 @@
      "from_initiatives": [
       16
      ],
-     "next": "Review Lydia's final Independent Dental Practitioner Agreement with Emily on 25 Aug, then carry any agreed points into the contractor-agreement rollout (Emily -> Dr Ong -> per-doctor copies -> night Q&A -> sign).",
+     "next": "Lydia updates the agreement with the approved changes, then issue Jun's Schedule 1 offer letter and prepare the per-doctor copies for the 15 Sep rollout.",
      "endMonth": "2026-08"
     },
     {
@@ -827,8 +820,9 @@
        "s": "done"
       },
       {
-       "t": "Confirm at parents sit-down",
-       "s": "now"
+       "t": "Approved by parents, with the discount-approval threshold amended to 15%",
+       "s": "done",
+       "w": "2 Sep"
       },
       {
        "t": "Lands in Schedule 1 + doctor briefing",
@@ -869,8 +863,9 @@
        "s": "done"
       },
       {
-       "t": "Confirm at parents sit-down \u00b7 Lydia drafts clause",
-       "s": "now"
+       "t": "Approved by parents; discount-approval threshold set at 15% \u00b7 Lydia updates clause",
+       "s": "now",
+       "w": "2 Sep"
       },
       {
        "t": "Doctor briefing: discount lines, never touch production price",
@@ -2132,6 +2127,6 @@
  },
  "meta": {
   "asof": "WED 02 SEP 2026",
-  "updated": "2026-09-02T18:19:04+08:00"
+  "updated": "2026-09-02T20:36:54+08:00"
  }
 }

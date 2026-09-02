@@ -1,13 +1,18 @@
 {
- "updated": "2026-09-02T18:19:04+08:00",
+ "updated": "2026-09-02T20:36:54+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Edith": {
-   "init": "E",
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
   "Emily": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
@@ -17,18 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
-   "init": "L",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
   "Dr Ong": {
    "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Code Capsule": {
-   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   }
@@ -257,10 +257,10 @@
   {
    "id": "l1",
    "title": "Contractor agreement",
-   "status": "review",
+   "status": "active",
    "owner": "Lydia",
    "why": "Synthesised 13 Aug, with Lydia since 17 Aug. Body is a pure template; every per-doctor input lives in Schedule 1.",
-   "next": "Review Lydia's final Independent Dental Practitioner Agreement with Emily on 25 Aug, then carry any agreed points into the contractor-agreement rollout (Emily -> Dr Ong -> per-doctor copies -> night Q&A -> sign).",
+   "next": "Lydia updates the agreement with the approved changes, then issue Jun's Schedule 1 offer letter and prepare the per-doctor copies for the 15 Sep rollout.",
    "dept": "people",
    "lens": "efficiency",
    "endMonth": "2026-08",
@@ -271,8 +271,8 @@
     "Emily walkthrough",
     "Open legal questions all cleared by owner",
     "3 comp changes briefed to parents (PDF sent)",
-    "\u26d4 Parents' approval \u2014 HOLD on all agreement edits until they reply",
-    "Strike the 10% from Schedule 2 with Lydia \u00b7 accept 2.10\u20132.12",
+    "Parents approved the 3 compensation changes (discount approval threshold amended to 15%)",
+    "Update Schedule 2: strike the 10% deduction and apply the 15% discount-approval threshold \u00b7 accept 2.10\u20132.12",
     "Per-doctor Schedule 1 copies drafted (Jun's = her offer letter)",
     "Hand over to the doctors \u2014 see Doctor rollout & communication"
    ],
@@ -311,7 +311,7 @@
    "tasks": [
     "Simulated across Jun-25\u2192May-26",
     "Direction chosen: remove, offset via doctor-borne discounts",
-    "Confirm at parents sit-down",
+    "Approved by parents, with the discount-approval threshold amended to 15%",
     "Lands in Schedule 1 + doctor briefing"
    ],
    "pillar": "P2"
@@ -331,7 +331,7 @@
     "20-yr discount forensics (all clean cases = Dr Ling, ~10%)",
     "Pine Labs rate card + 12-month simulation",
     "Scenario A chosen: doctor bears MDR \u2014 self-policing",
-    "Confirm at parents sit-down \u00b7 Lydia drafts clause",
+    "Approved by parents; discount-approval threshold set at 15% \u00b7 Lydia updates clause",
     "Doctor briefing: discount lines, never touch production price"
    ],
    "pillar": "P2"
