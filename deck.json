@@ -1,41 +1,211 @@
 {
- "generated_myt": "2026-09-02 14:00",
- "generated_at": "2026-09-02T14:00:11+08:00",
+ "generated_myt": "2026-09-02 14:29",
+ "generated_at": "2026-09-02T14:29:15+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 78.9,
   "nproc": 4,
   "load": [
-   0.3,
-   0.23,
-   0.36
+   0.65,
+   0.46,
+   0.45
   ],
-  "cpu_pct": 3.6,
+  "cpu_pct": 9.9,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 2492,
-   "avail_mb": 5448,
-   "pct": 31.4,
+   "used_mb": 2506,
+   "avail_mb": 5434,
+   "pct": 31.6,
    "swap_total_mb": 2047,
    "swap_used_mb": 211
   },
   "disk": {
    "total_gb": 154.9,
    "used_gb": 22.1,
-   "pct": 14.2
+   "pct": 14.3
   },
   "gateway_ok": true,
   "walogger_ok": true,
   "crons": {
    "total": 12,
    "failed": [],
-   "running": [
-    "deck_stats"
-   ],
+   "running": [],
    "status_updated": "2026-09-02 14:00 MYT"
   },
   "last_clinic_push": "2026-09-02"
  },
+ "agents": [
+  {
+   "id": "analytics-agent",
+   "name": "analytics-agent",
+   "role": "specialist",
+   "kind": "specialist",
+   "model": null,
+   "sessions_total": 26,
+   "sessions_30d": 4,
+   "last_active_myt": "2026-08-27 09:54"
+  },
+  {
+   "id": "blog-content-creator",
+   "name": "blog-content-creator",
+   "role": "specialist",
+   "kind": "specialist",
+   "model": null,
+   "sessions_total": 0,
+   "sessions_30d": 0,
+   "last_active_myt": null
+  },
+  {
+   "id": "briefing-agent.json",
+   "name": "briefing-agent.json",
+   "role": "specialist",
+   "kind": "specialist",
+   "model": null,
+   "sessions_total": 0,
+   "sessions_30d": 0,
+   "last_active_myt": null
+  },
+  {
+   "id": "content-strategist",
+   "name": "content-strategist",
+   "role": "specialist",
+   "kind": "specialist",
+   "model": null,
+   "sessions_total": 2,
+   "sessions_30d": 2,
+   "last_active_myt": "2026-08-27 17:55"
+  },
+  {
+   "id": "counsellor-agent",
+   "name": "counsellor-agent",
+   "role": "specialist",
+   "kind": "specialist",
+   "model": null,
+   "sessions_total": 2,
+   "sessions_30d": 2,
+   "last_active_myt": "2026-08-27 17:53"
+  },
+  {
+   "id": "creative-agent",
+   "name": "creative-agent",
+   "role": "specialist",
+   "kind": "specialist",
+   "model": null,
+   "sessions_total": 0,
+   "sessions_30d": 0,
+   "last_active_myt": null
+  },
+  {
+   "id": "cron-analytics",
+   "name": "cron-analytics",
+   "role": "cron worker",
+   "kind": "cron",
+   "model": null,
+   "sessions_total": 2,
+   "sessions_30d": 2,
+   "last_active_myt": "2026-09-01 07:05"
+  },
+  {
+   "id": "cron-gbp",
+   "name": "cron-gbp",
+   "role": "cron worker",
+   "kind": "cron",
+   "model": null,
+   "sessions_total": 62,
+   "sessions_30d": 62,
+   "last_active_myt": "2026-09-02 14:15"
+  },
+  {
+   "id": "cron-main",
+   "name": "cron-main",
+   "role": "cron worker",
+   "kind": "cron",
+   "model": null,
+   "sessions_total": 26,
+   "sessions_30d": 26,
+   "last_active_myt": "2026-09-02 14:03"
+  },
+  {
+   "id": "cron-seo",
+   "name": "cron-seo",
+   "role": "cron worker",
+   "kind": "cron",
+   "model": null,
+   "sessions_total": 8,
+   "sessions_30d": 8,
+   "last_active_myt": "2026-08-30 06:03"
+  },
+  {
+   "id": "engineer",
+   "name": "engineer",
+   "role": "Website PRs",
+   "kind": "specialist",
+   "model": null,
+   "sessions_total": 0,
+   "sessions_30d": 0,
+   "last_active_myt": null
+  },
+  {
+   "id": "engineer-agent",
+   "name": "engineer-agent",
+   "role": "specialist",
+   "kind": "specialist",
+   "model": null,
+   "sessions_total": 0,
+   "sessions_30d": 0,
+   "last_active_myt": null
+  },
+  {
+   "id": "gbp-agent",
+   "name": "gbp-agent",
+   "role": "specialist",
+   "kind": "specialist",
+   "model": null,
+   "sessions_total": 132,
+   "sessions_30d": 8,
+   "last_active_myt": "2026-09-02 14:21"
+  },
+  {
+   "id": "main",
+   "name": "Edith",
+   "role": "Edith \u2014 Director of Digital Growth",
+   "kind": "main",
+   "model": null,
+   "sessions_total": 54,
+   "sessions_30d": 32,
+   "last_active_myt": "2026-09-02 14:18"
+  },
+  {
+   "id": "openrouter-free",
+   "name": "openrouter-free",
+   "role": "specialist",
+   "kind": "specialist",
+   "model": null,
+   "sessions_total": 0,
+   "sessions_30d": 0,
+   "last_active_myt": null
+  },
+  {
+   "id": "reporting-agent",
+   "name": "reporting-agent",
+   "role": "specialist",
+   "kind": "specialist",
+   "model": null,
+   "sessions_total": 2,
+   "sessions_30d": 2,
+   "last_active_myt": "2026-08-27 17:48"
+  },
+  {
+   "id": "seo-agent",
+   "name": "seo-agent",
+   "role": "specialist",
+   "kind": "specialist",
+   "model": null,
+   "sessions_total": 18,
+   "sessions_30d": 0,
+   "last_active_myt": "2026-08-02 12:01"
+  }
+ ],
  "finance": {
   "as_of": "2026-09-01",
   "generated_myt": "2026-09-01 19:40",
