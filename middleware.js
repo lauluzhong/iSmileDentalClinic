@@ -28,9 +28,14 @@ const REALM = 'iSmile Command Center';
 // old URL → new canonical URL
 const LEGACY = {
   '/command-center.html': '/dashboard',
-  '/dashboards/margin-dashboard.html': '/dashboard/margin',
+  '/dashboards/margin-dashboard.html': '/dashboard/profitability',
   '/dashboards/margin-data.js': '/dashboard/margin-data.js',
   '/analytics-dashboard.html': '/dashboard/analytics',
+  // 2026-09 refresh: the Deck is now the landing page, HQ is the Task Tracker, margin is Profitability
+  '/dashboard/deck': '/dashboard',
+  '/dashboard/hq': '/dashboard/tasks',
+  '/dashboard/margin': '/dashboard/profitability',
+  '/dashboard/legacy': '/dashboard/legacy/',
 };
 
 // clean URL → physical file to serve (rewrite, address bar unchanged)
@@ -40,21 +45,26 @@ const PROXIES = {
 };
 
 const PAGES = {
-  '/dashboard': '/dashboard/index.html',
+  '/dashboard': '/dashboard/index.html',            // the Dashboard (was /dashboard/deck)
   '/dashboard/': '/dashboard/index.html',
-  '/dashboard/hq': '/dashboard/hq.html',
-  '/dashboard/margin': '/dashboard/margin.html',
+  '/dashboard/tasks': '/dashboard/hq.html',          // Task Tracker (was HQ)
+  '/dashboard/org': '/dashboard/org.html',
+  '/dashboard/office': '/dashboard/office.html',
+  '/dashboard/profitability': '/dashboard/margin.html',
   '/dashboard/analytics': '/dashboard/analytics.html',
-  '/dashboard/deck': '/dashboard/deck.html',
+  '/dashboard/legacy/': '/dashboard/legacy.html',    // the old Command Center, kept for reference
 };
 
 // physical .html → its clean URL (so the .html form is never user-facing)
 const CANONICAL = {
   '/dashboard/index.html': '/dashboard',
-  '/dashboard/hq.html': '/dashboard/hq',
-  '/dashboard/margin.html': '/dashboard/margin',
+  '/dashboard/deck.html': '/dashboard',
+  '/dashboard/hq.html': '/dashboard/tasks',
+  '/dashboard/org.html': '/dashboard/org',
+  '/dashboard/office.html': '/dashboard/office',
+  '/dashboard/margin.html': '/dashboard/profitability',
   '/dashboard/analytics.html': '/dashboard/analytics',
-  '/dashboard/deck.html': '/dashboard/deck',
+  '/dashboard/legacy.html': '/dashboard/legacy/',
 };
 
 export const config = {

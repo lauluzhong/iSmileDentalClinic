@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>iSmile Org Chart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* Single-theme by design: the same dark mission-control as /dashboard/hq and /dashboard/deck. */
+  :root{
+    --bg:#0A101E; --panel:#101B30; --panel2:#142138; --line:#223252;
+    --ink:#E9F0FA; --mut:#93A5C4; --dim:#5E7196;
+    --p1:#45C4FF; --p2:#B195FF; --p3:#3FDDA0; --fhr:#F0B152; --ffin:#EF7E93;
+    --ok:#56C271; --warn:#F5B84A; --bad:#FF6B6B;
+    --disp:"Chakra Petch",system-ui,sans-serif; --body:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scrollbar-color:#2A3B5E var(--bg)}
+  body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:13.5px;line-height:1.45;min-height:100vh;
+    background-image:radial-gradient(900px 500px at 50% -10%, rgba(69,196,255,.08), transparent 60%),
+      linear-gradient(rgba(34,50,82,.16) 1px, transparent 1px),linear-gradient(90deg, rgba(34,50,82,.16) 1px, transparent 1px);
+    background-size:auto,44px 44px,44px 44px}
+  a{color:var(--mut)}
+  .wrap{max-width:1440px;margin:0 auto;padding:18px 18px 40px}
+
+  /* ---------- header (shared across the dashboard pages) ---------- */
+  header{display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px;margin-bottom:14px}
+  .brand h1{font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:.06em;text-transform:uppercase}
+  .brand h1 b{color:var(--p1)}
+  .brand .sub{color:var(--dim);font-family:var(--mono);font-size:11px;margin-top:2px}
+  nav{display:flex;justify-content:flex-end;gap:6px;flex-wrap:wrap;margin-left:auto}
+  nav a{font-family:var(--mono);font-size:11px;color:var(--mut);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 11px;background:rgba(16,27,48,.7);white-space:nowrap;transition:border-color .15s,color .15s}
+  nav a:hover{border-color:#3A5382;color:var(--ink)}
+  nav a.active{border-color:var(--p1);color:var(--ink)}
+
+  .secthead{font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin:22px 0 10px;display:flex;align-items:center;gap:10px}
+  .secthead::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+  .secthead .m{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:none;color:var(--dim)}
+  .secthead .m.bad{color:var(--bad)}
+
+  /* ---------- "who holds the ball" strip ---------- */
+  .ball{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 8px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+  .pcard{--ac:var(--p1);flex:none;display:flex;align-items:center;gap:10px;min-width:214px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:9px 12px 9px 9px;cursor:pointer;text-align:left;color:inherit;font:inherit;position:relative;transition:transform .15s,border-color .15s,box-shadow .2s}
+  .pcard::before{content:"";position:absolute;top:7px;right:7px;width:8px;height:8px;border-top:1.5px solid var(--ac);border-right:1.5px solid var(--ac);opacity:.55;pointer-events:none}
+  .pcard:hover,.pcard:focus-visible{transform:translateY(-2px);border-color:#3A5382;box-shadow:0 14px 30px -18px var(--ac);outline:none}
+  .pcard .n{font-weight:600;font-size:13px;line-height:1.2}
+  .pcard .r{font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:1px;white-space:nowrap}
+  .pcard .c{font-family:var(--mono);font-size:10.5px;color:var(--mut);margin-top:4px}
+  .pcard .c b{color:var(--ink);font-weight:500}
+  .pcard .c b.hot{color:var(--warn)}
+  .av{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-family:var(--disp);font-weight:700;font-size:12px;letter-spacing:.04em;color:var(--ac);background:color-mix(in srgb,var(--ac) 14%,transparent);border:1px solid color-mix(in srgb,var(--ac) 45%,transparent)}
+  .av.sm{width:20px;height:20px;font-size:8.5px}
+  .av.ai{border-style:dashed}
+
+  /* ---------- org tree ---------- */
+  .tree{display:flex;flex-direction:column;align-items:center}
+  .node{background:var(--panel);border:1px solid var(--line);border-radius:12px;position:relative;overflow:hidden}
+  .node::before{content:"";position:absolute;top:8px;right:8px;width:9px;height:9px;border-top:1.5px solid var(--ac,var(--p1));border-right:1.5px solid var(--ac,var(--p1));opacity:.55;pointer-events:none}
+  .node>.top{height:3px;background:var(--ac,var(--p1))}
+  .nb{padding:10px 14px 12px}
+  .nk{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+  .nt{font-family:var(--disp);font-size:15px;font-weight:600;letter-spacing:.02em;margin:1px 0 6px}
+  .apex{--ac:var(--dim);width:min(560px,100%);text-align:center}
+  .apex .chips{justify-content:center}
+  .ceo{--ac:var(--p1);width:min(360px,100%);text-align:center}
+  .ceo .chips{justify-content:center}
+  .link{width:2px;height:22px;background:linear-gradient(var(--line),#31466F);flex:none}
+  .bus{position:relative;width:100%;height:22px;flex:none}
+  .bus::before{content:"";position:absolute;left:10%;right:10%;top:0;height:2px;background:var(--line)}
+  .divs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;width:100%;align-items:start}
+  .div{display:flex;flex-direction:column;position:relative}
+  .div::before{content:"";position:absolute;left:50%;top:-22px;width:2px;height:22px;background:var(--line)}
+  .div .node{display:flex;flex-direction:column;min-height:100%}
+  .div .nt{font-size:14px;line-height:1.25}
+  .depts{display:flex;flex-direction:column;gap:6px;padding:0 8px 10px}
+  .dept{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px 10px;transition:border-color .15s,transform .15s}
+  .dept:hover{border-color:#3A5382;transform:translateX(2px)}
+  .dept .dn{font-size:12.5px;font-weight:500;line-height:1.3}
+  .dept .dk{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--dim);margin-bottom:2px}
+
+  /* person chips: the atomic unit — click to see what that person holds */
+  .chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+  .chip{--ac:var(--p1);all:unset;display:inline-flex;align-items:center;gap:6px;font-family:var(--body);font-size:11.5px;color:var(--mut);background:rgba(16,27,48,.8);border:1px solid var(--line);border-radius:999px;padding:2px 9px 2px 3px;cursor:pointer;transition:color .15s,border-color .15s,transform .15s}
+  .chip:hover,.chip:focus-visible{color:var(--ink);border-color:color-mix(in srgb,var(--ac) 60%,var(--line));transform:translateY(-1px)}
+  .chip .cn{white-space:nowrap}
+  .chip .cc{font-family:var(--mono);font-size:9.5px;color:var(--dim);white-space:nowrap}
+  .chip .cc b{color:var(--warn);font-weight:500}
+  .chip .cc.none{color:var(--dim)}
+
+  /* status dots, same palette as HQ */
+  .sdot{width:9px;height:9px;border-radius:50%;flex:none;display:inline-block}
+  .sdot.live{background:var(--ok)}
+  .sdot.now{background:var(--p1);animation:pulse 1.8s infinite}
+  .sdot.wait{background:var(--warn)}
+  .sdot.blocked{background:var(--bad)}
+  .sdot.parked{background:transparent;border:1.5px solid var(--dim)}
+  .sdot.horizon{background:transparent;border:1.5px dashed var(--dim)}
+  .legendrow{display:flex;justify-content:flex-end;gap:14px;flex-wrap:wrap;margin:-2px 0 8px}
+  .legendrow span{font-family:var(--mono);font-size:10.5px;color:var(--dim);display:inline-flex;align-items:center;gap:5px}
+  .note{font-family:var(--mono);font-size:10.5px;color:var(--dim);padding:6px 2px}
+  .note.bad{color:var(--bad)}
+
+  /* ---------- detail panel (hq.html pattern) ---------- */
+  .scrim{position:fixed;inset:0;background:rgba(4,8,16,.62);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .2s;z-index:40}
+  .panel-open .scrim{opacity:1;pointer-events:auto}
+  .detail{position:fixed;top:0;right:0;bottom:0;width:min(500px,94vw);background:var(--panel);border-left:1px solid var(--line);z-index:50;transform:translateX(103%);transition:transform .25s ease;display:flex;flex-direction:column}
+  .panel-open .detail{transform:none}
+  .dhead{padding:18px 20px 12px;border-bottom:1px solid var(--line);position:relative;display:flex;gap:12px;align-items:center}
+  .dhead .av{width:44px;height:44px;font-size:14px}
+  .dhead .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ac,var(--dim))}
+  .dhead h2{font-family:var(--disp);font-size:19px;font-weight:600;margin:2px 0 2px;text-wrap:balance}
+  .dhead .one{color:var(--mut);font-size:12.5px;font-family:var(--mono)}
+  .dclose{all:unset;position:absolute;top:14px;right:14px;cursor:pointer;color:var(--dim);font-size:20px;line-height:1;padding:6px}
+  .dclose:hover,.dclose:focus-visible{color:var(--ink)}
+  .dbody{overflow-y:auto;padding:16px 20px 32px;flex:1}
+  .dsec{margin-bottom:18px}
+  .dsec h3{font-family:var(--disp);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gc,var(--dim));margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .dsec h3 small{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--dim);text-transform:none}
+  .dsec h3::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+  .irow{display:grid;grid-template-columns:auto 1fr auto;column-gap:9px;row-gap:3px;align-items:center;padding:8px 10px;border-radius:8px;text-decoration:none;color:inherit;background:var(--panel2);border:1px solid var(--line);margin-bottom:5px;transition:transform .15s,border-color .15s}
+  .irow:hover,.irow:focus-visible{transform:translateX(3px);border-color:#3A5382;outline:none}
+  .irow.flag{border-left:3px solid var(--ak,var(--warn))}
+  .irow .sname{font-size:12.5px;font-weight:600;line-height:1.3}
+  .irow .sname .why{font-family:var(--mono);font-size:9.5px;font-weight:400;color:var(--dim);margin-left:6px;white-space:nowrap}
+  .schip{font-family:var(--mono);font-size:10px;letter-spacing:.05em;color:var(--mut);background:#1B2A47;border-radius:5px;padding:2px 7px;white-space:nowrap}
+  .irow .fl{grid-column:2/-1;display:flex;gap:8px;align-items:flex-start}
+  .atag{font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ak,var(--warn));border:1px solid var(--ak,var(--warn));border-radius:4px;padding:1px 5px;white-space:nowrap;margin-top:2px}
+  .aask{font-size:11.5px;color:var(--mut);line-height:1.4}
+  .aask .aby{font-family:var(--mono);font-size:10px;color:var(--ak,var(--dim));margin-left:6px;white-space:nowrap}
+  .k-late{--ak:var(--bad)} .k-blocked{--ak:#FF9052} .k-decide{--ak:var(--warn)} .k-talk{--ak:var(--p2)} .k-due{--ak:var(--p1)}
+  .irow.hot{box-shadow:0 0 22px -12px var(--ak,var(--warn))}
+  .dempty{font-family:var(--mono);font-size:11px;color:var(--dim);padding:8px 0}
+  .dfoot{font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:8px;line-height:1.6}
+
+  footer{margin-top:24px;text-align:center;color:var(--dim);font-family:var(--mono);font-size:10.5px;line-height:1.7}
+  footer a{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--dim)}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:1120px){.divs{grid-template-columns:repeat(3,minmax(0,1fr))}.bus::before{display:none}.div::before{display:none}}
+  @media(max-width:760px){
+    .wrap{padding:14px 12px 30px}
+    header{gap:8px}
+    .brand h1{font-size:20px}
+    nav{margin-left:0;width:100%;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px;scrollbar-width:none}
+    nav::-webkit-scrollbar{display:none}
+    .divs{grid-template-columns:1fr;gap:10px}
+    .bus{height:14px}
+    .legendrow{justify-content:flex-start;gap:10px}
+    .detail{width:100vw;border-left:none}
+    .pcard{min-width:196px}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <h1>iSmile <b>Org Chart</b></h1>
+      <div class="sub" id="sub">who owns what · tap a person to see what they hold</div>
+    </div>
+    <nav>
+      <a href="/dashboard">Dashboard</a><a href="/dashboard/org" class="active">Org Chart</a><a href="/dashboard/tasks">Task Tracker</a><a href="/dashboard/profitability">Profitability</a><a href="/dashboard/analytics">Analytics</a><a href="/dashboard/office">Office</a>
+    </nav>
+  </header>
+
+  <div class="secthead">Who holds the ball <span class="m" id="ballm">loading task feed…</span></div>
+  <div class="ball" id="ball"></div>
+
+  <div class="secthead">The practice</div>
+  <div class="legendrow">
+    <span><i class="sdot live"></i>live</span>
+    <span><i class="sdot now"></i>in motion</span>
+    <span><i class="sdot wait"></i>waiting</span>
+    <span><i class="sdot blocked"></i>blocked</span>
+    <span><i class="sdot parked"></i>parked</span>
+    <span><i class="sdot horizon"></i>horizon</span>
+  </div>
+  <div class="tree" id="tree"></div>
+
+  <footer>iSmile Org Chart · <a href="/dashboard/hq">HQ</a> · <a href="/dashboard/tasks">Task Tracker</a><br>ownership is fixed on this page; the items come live from <span style="font-family:var(--mono)">hq.json</span> on the status branch (stream <span style="font-family:var(--mono)">owner</span> + <span style="font-family:var(--mono)">flag.who</span>)</footer>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="detail" id="detail" role="dialog" aria-modal="true" aria-labelledby="dtitle" aria-hidden="true">
+  <div class="dhead" id="dhead">
+    <div class="av" id="dav"></div>
+    <div>
+      <div class="k" id="dkicker"></div>
+      <h2 id="dtitle"></h2>
+      <div class="one" id="done"></div>
+    </div>
+    <button class="dclose" id="dclose" aria-label="Close">×</button>
+  </div>
+  <div class="dbody" id="dbody"></div>
+</aside>
+
+<script>
+/* =====================================================================
+   1. Static structure — the org itself. Ownership is edited here, not in the feed.
+   ===================================================================== */
+const ORG={
+  directors:{t:"Directors / Shareholders",o:"Ong Nguk Jean · Lau Tian Chen"},
+  ceo:{t:"Chief Executive (CEO)",o:"Lau Lu-Zhong"},
+  divisions:[
+    {n:"Growth & Digital Presence",o:"Lau Lu-Zhong",c:"var(--p3)",depts:[
+      {id:"branding",n:"Branding & Marketing",o:"Lau Lu-Zhong"},
+      {id:"crm",n:"Customer Relationship Mgmt",o:"Lau Lu-Zhong"},
+      {id:"bizdev",n:"Business Development & Partnerships",o:"Lau Lu-Zhong"}]},
+    {n:"Clinical & Operational Delivery",o:"Lau Lu-Zhong",c:"var(--p1)",depts:[
+      {id:"clinical",n:"Clinical Standards & Care Delivery",o:"Ong Nguk Jean"},
+      {id:"ops",n:"Operations & Capacity Mgmt",o:"Lau Lu-Zhong"},
+      {id:"foh",n:"Front-of-House Operations",o:"Emily"}]},
+    {n:"People & Competency",o:"Emily",c:"var(--fhr)",depts:[
+      {id:"ld",n:"Learning & Development",o:"Ong Nguk Jean"},
+      {id:"wpm",n:"Workforce & Performance Mgmt",o:"Ong Nguk Jean"}]},
+    {n:"Finance & Governance",o:"Emily",c:"var(--ffin)",depts:[
+      {id:"finops",n:"Financial Operations (FinOps)",o:"Emily"},
+      {id:"risk",n:"Risk, Audit & Governance",o:"Lau Lu-Zhong · Lydia"}]},
+    {n:"Technology & Data",o:"Lau Lu-Zhong",c:"var(--p2)",depts:[
+      {id:"sysops",n:"Systems & Data Operations",o:"Lau Lu-Zhong"},
+      {id:"innovation",n:"Innovation, Automation & AI (CoE)",o:"Lau Lu-Zhong"}]},
+  ]};
+
+/* People: id → display, role, accent, initials, and the aliases used to match
+   free-text `flag.who` in hq.json ("on Emily", "your parents", "Dr Ong"). */
+const PEOPLE={
+  lu:         {n:"Lau Lu-Zhong",     r:"CEO",                               c:"var(--p1)",  i:"LZ", al:["lu-zhong","lu zhong","lau lu"]},
+  jean:       {n:"Dr Ong Nguk Jean", r:"Founder & Principal Dentist",       c:"var(--p3)",  i:"OJ", al:["dr ong","nguk jean","jean"]},
+  tianchen:   {n:"Lau Tian Chen",    r:"Director",                          c:"var(--mut)", i:"TC", al:["tian chen"]},
+  emily:      {n:"Emily",            r:"Practice Manager",                  c:"var(--fhr)", i:"EM", al:["emily"]},
+  lydia:      {n:"Lydia",            r:"Counsel",                           c:"var(--p2)",  i:"LY", al:["lydia"]},
+  ling:       {n:"Dr Ling",          r:"Orthodontist",                      c:"var(--ffin)",i:"DL", al:["dr ling","ling"]},
+  edith:      {n:"Edith",            r:"AI Director of Digital Growth",     c:"var(--p1)",  i:"ED", al:["edith"], ai:true},
+  codecapsule:{n:"Code Capsule",     r:"Vendor · OpenDent / AutoCount",     c:"var(--dim)", i:"CC", al:["code capsule","suraya","bob"]},
+  parents:    {n:"Lu's parents",     r:"Directors · decision gate",         c:"var(--warn)",i:"LP", al:["parents"]},
+};
+/* Owner strings in ORG → people ids. */
+const OWNER_ID={"Lau Lu-Zhong":"lu","Ong Nguk Jean":"jean","Lau Tian Chen":"tianchen","Emily":"emily","Lydia":"lydia"};
+const ownersOf=s=>s.split("·").map(x=>x.trim()).map(x=>OWNER_ID[x]).filter(Boolean);
+
+/* =====================================================================
+   2. Live items — from hq.json on the status branch. Fail soft.
+   ===================================================================== */
+const HQ_URL="https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/hq.json";
+let FEED=null;            // {groups:[{id,num,name,color,streams}]} or null when unavailable
+let ITEMS={};             // personId → [{s,g,why}]  (why: "owns" | "named")
+
+/* Build per-person item lists: streams they own (missing owner → lu) plus
+   streams whose flag.who names them. Deduped per person; owner wins. */
+function computeItems(){
+  ITEMS={}; Object.keys(PEOPLE).forEach(id=>ITEMS[id]=[]);
+  if(!FEED) return;
+  const seen={};
+  const add=(pid,s,g,why)=>{const k=pid+"|"+s.id; if(seen[k])return; seen[k]=1; ITEMS[pid].push({s,g,why});};
+  for(const g of FEED.groups) for(const s of g.streams||[]){
+    const owner=PEOPLE[s.owner]?s.owner:"lu";
+    add(owner,s,g,"owns");
+    const who=(s.flag&&s.flag.who||"").toLowerCase();
+    if(who) for(const [pid,p] of Object.entries(PEOPLE)){
+      if(pid===owner) continue;
+      if(p.al.some(a=>who.includes(a))||who.includes(p.n.toLowerCase())) add(pid,s,g,"named");
+    }
+  }
+}
+const counts=pid=>{const it=ITEMS[pid]||[];return {n:it.length,f:it.filter(x=>x.s.flag).length,hot:it.filter(x=>x.s.flag&&x.s.flag.hot).length};};
+
+/* =====================================================================
+   3. Render helpers
+   ===================================================================== */
+const $=s=>document.querySelector(s);
+function el(tag,cls,html){const e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e;}
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function avatar(p,sm){const a=el("div","av"+(sm?" sm":"")+(p.ai?" ai":""),p.i); a.style.setProperty("--ac",p.c); return a;}
+function fmtBy(iso){const d=new Date(iso+"T00:00:00"); return isNaN(d)?iso:d.toLocaleDateString("en-GB",{day:"2-digit",month:"short"});}
+/* A `due` flag whose date has passed reads as LATE. */
+function flagKind(f){if(!f)return null; if(f.k==="due"&&f.by&&new Date(f.by+"T23:59:59")<new Date())return "late"; return f.k||"decide";}
+
+/* Person chip (inside the tree): avatar + name + "n · f" count. */
+function chip(pid){
+  const p=PEOPLE[pid]; const b=el("button","chip"); b.type="button"; b.style.setProperty("--ac",p.c);
+  b.setAttribute("aria-label",p.n+" — see items");
+  b.appendChild(avatar(p,true));
+  b.appendChild(el("span","cn",esc(p.n)));
+  const cc=el("span","cc"); b.appendChild(cc);
+  b.dataset.pid=pid; b.addEventListener("click",()=>openPerson(pid));
+  return b;
+}
+function chipsFor(ownerStr){const w=el("div","chips"); ownersOf(ownerStr).forEach(id=>w.appendChild(chip(id))); return w;}
+
+/* Refresh every chip's count text after the feed lands (or fails). */
+function paintCounts(){
+  document.querySelectorAll(".chip").forEach(b=>{
+    const cc=b.querySelector(".cc");
+    if(!FEED){cc.textContent="—";cc.classList.add("none");return;}
+    const c=counts(b.dataset.pid); cc.classList.remove("none");
+    cc.innerHTML=c.n?`${c.n}${c.f?` · <b>${c.f}</b>`:""}`:"0";
+    b.title=c.n?`${c.n} item${c.n>1?"s":""} · ${c.f} need action`:"no items in the feed";
+  });
+}
+
+/* ---------- the tree ---------- */
+function renderTree(){
+  const t=$("#tree"); t.innerHTML="";
+  // directors
+  const apex=el("div","node apex"); apex.appendChild(el("div","top"));
+  const ab=el("div","nb"); ab.appendChild(el("div","nk","Shareholders")); ab.appendChild(el("div","nt",esc(ORG.directors.t)));
+  const ach=chipsFor(ORG.directors.o); ach.appendChild(chip("parents")); ab.appendChild(ach); apex.appendChild(ab); t.appendChild(apex);
+  t.appendChild(el("div","link"));
+  // ceo
+  const ceo=el("div","node ceo"); ceo.appendChild(el("div","top"));
+  const cb=el("div","nb"); cb.appendChild(el("div","nk","Executive")); cb.appendChild(el("div","nt",esc(ORG.ceo.t))); cb.appendChild(chipsFor(ORG.ceo.o)); ceo.appendChild(cb); t.appendChild(ceo);
+  t.appendChild(el("div","link")); t.appendChild(el("div","bus"));
+  // divisions
+  const divs=el("div","divs");
+  ORG.divisions.forEach((d,i)=>{
+    const col=el("div","div"); const n=el("div","node"); n.style.setProperty("--ac",d.c); n.appendChild(el("div","top"));
+    const nb=el("div","nb"); nb.appendChild(el("div","nk","Division "+(i+1))); nb.appendChild(el("div","nt",esc(d.n))); nb.appendChild(chipsFor(d.o)); n.appendChild(nb);
+    const dl=el("div","depts");
+    d.depts.forEach(x=>{const c=el("div","dept"); c.id="dept-"+x.id; c.appendChild(el("div","dk","Dept")); c.appendChild(el("div","dn",esc(x.n))); c.appendChild(chipsFor(x.o)); dl.appendChild(c);});
+    n.appendChild(dl); col.appendChild(n); divs.appendChild(col);
+  });
+  t.appendChild(divs);
+}
+
+/* ---------- "who holds the ball" strip ---------- */
+function renderBall(){
+  const b=$("#ball"); b.innerHTML="";
+  const ids=Object.keys(PEOPLE);
+  if(FEED) ids.sort((x,y)=>{const a=counts(x),c=counts(y); return (c.f-a.f)||(c.hot-a.hot)||(c.n-a.n);});
+  ids.forEach(pid=>{
+    const p=PEOPLE[pid]; const c=el("button","pcard"); c.type="button"; c.style.setProperty("--ac",p.c);
+    c.appendChild(avatar(p));
+    const tx=el("div"); tx.appendChild(el("div","n",esc(p.n))); tx.appendChild(el("div","r",esc(p.r)));
+    let ct;
+    if(!FEED) ct="—";
+    else{const k=counts(pid); ct=k.n?`<b>${k.n}</b> item${k.n>1?"s":""} · <b class="${k.f?"hot":""}">${k.f}</b> need action`:"nothing in the feed";}
+    tx.appendChild(el("div","c",ct)); c.appendChild(tx);
+    c.addEventListener("click",()=>openPerson(pid)); b.appendChild(c);
+  });
+  const m=$("#ballm");
+  if(FEED){const total=FEED.groups.reduce((a,g)=>a+(g.streams||[]).length,0); const fl=FEED.groups.reduce((a,g)=>a+(g.streams||[]).filter(s=>s.flag).length,0); m.textContent=`${total} streams · ${fl} flagged`; m.className="m";}
+  else{m.textContent="task feed unavailable"; m.className="m bad";}
+}
+
+/* =====================================================================
+   4. Slide-in panel — one person, their items grouped by pillar/foundation
+   ===================================================================== */
+let lastFocus=null, CUR=null;
+function openPerson(pid){
+  const p=PEOPLE[pid]; if(!p)return;
+  if(!document.body.classList.contains("panel-open")) lastFocus=document.activeElement;
+  CUR=pid;
+  const av=$("#dav"); av.className="av"+(p.ai?" ai":""); av.textContent=p.i; av.style.setProperty("--ac",p.c);
+  $("#dhead").style.setProperty("--ac",p.c);
+  $("#dkicker").textContent=p.r; $("#dtitle").textContent=p.n;
+  const body=$("#dbody"); body.innerHTML="";
+  // org roles held (from the static chart)
+  const roles=[]; ORG.divisions.forEach(d=>{if(ownersOf(d.o).includes(pid))roles.push(d.n); d.depts.forEach(x=>{if(ownersOf(x.o).includes(pid))roles.push(x.n);});});
+  if(ownersOf(ORG.ceo.o).includes(pid))roles.unshift(ORG.ceo.t);
+  if(ownersOf(ORG.directors.o).includes(pid)||pid==="parents")roles.unshift("Director");
+  $("#done").textContent=roles.length?"owns · "+roles.join(" · "):"outside the org chart";
+  if(!FEED){body.appendChild(el("div","dempty","task feed unavailable — nothing to list.")); }
+  else{
+    const items=ITEMS[pid]||[]; const c=counts(pid);
+    if(!items.length) body.appendChild(el("div","dempty","No streams owned or named in the current feed."));
+    // group by pillar/foundation in feed order
+    FEED.groups.forEach(g=>{
+      const rows=items.filter(x=>x.g.id===g.id); if(!rows.length)return;
+      const sec=el("div","dsec"); sec.style.setProperty("--gc",g.color||"var(--dim)");
+      sec.appendChild(el("h3",null,`${esc(g.name)} <small>${esc(g.num||"")}</small>`));
+      rows.sort((a,b)=>(!!b.s.flag-!!a.s.flag)).forEach(({s,why})=>{
+        const k=flagKind(s.flag);
+        const a=el("a","irow"+(k?" flag k-"+k:"")+(s.flag&&s.flag.hot?" hot":"")); a.href="/dashboard/tasks#s="+encodeURIComponent(s.id);
+        a.appendChild(el("i","sdot "+(s.dot||"parked")));
+        a.appendChild(el("div","sname",esc(s.name)+(why==="named"?`<span class="why">named in ask</span>`:"")));
+        a.appendChild(el("span","schip",esc(s.chip||"")));
+        if(k){
+          const fl=el("div","fl"); fl.appendChild(el("span","atag",k));
+          fl.appendChild(el("div","aask",esc(s.flag.w||"")+(s.flag.by?`<span class="aby">by ${esc(fmtBy(s.flag.by))}</span>`:""))); a.appendChild(fl);
+        }
+        sec.appendChild(a);
+      });
+      body.appendChild(sec);
+    });
+    body.appendChild(el("div","dfoot",`${c.n} item${c.n===1?"":"s"} · ${c.f} need action${c.hot?` · ${c.hot} hot`:""}<br>each row opens the Task Tracker at that stream`));
+  }
+  document.body.classList.add("panel-open"); $("#detail").setAttribute("aria-hidden","false");
+  history.replaceState(null,"","#p="+pid);
+  $("#dclose").focus();
+}
+function closePanel(){
+  if(!document.body.classList.contains("panel-open"))return;
+  document.body.classList.remove("panel-open"); $("#detail").setAttribute("aria-hidden","true"); CUR=null;
+  history.replaceState(null,""," "); if(lastFocus&&lastFocus.focus)lastFocus.focus();
+}
+$("#scrim").addEventListener("click",closePanel);
+$("#dclose").addEventListener("click",closePanel);
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closePanel();});
+/* Keep Tab inside the dialog while it is open. */
+$("#detail").addEventListener("keydown",e=>{
+  if(e.key!=="Tab")return;
+  const f=[...$("#detail").querySelectorAll("button,a[href]")].filter(x=>x.offsetParent!==null); if(!f.length)return;
+  const first=f[0],last=f[f.length-1];
+  if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+  else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+});
+
+/* =====================================================================
+   5. Boot: draw the chart immediately, then hydrate from the feed
+   ===================================================================== */
+renderTree(); renderBall(); paintCounts();
+(async()=>{
+  try{
+    const r=await fetch(HQ_URL+"?t="+Date.now(),{cache:"no-store"});
+    if(!r.ok)throw new Error("HTTP "+r.status);
+    const j=await r.json();
+    FEED={groups:[...(j.pillars||[]),...(j.foundations||[])]};
+    const asof=j.meta&&(j.meta.asof||j.meta.asOf); if(asof) $("#sub").textContent="who owns what · feed as at "+asof+" · tap a person";
+  }catch(e){FEED=null; console.warn("org: hq.json unavailable",e);}
+  computeItems(); renderBall(); paintCounts();
+  // deep link: /dashboard/org#p=emily opens that person
+  const m=location.hash.match(/#p=([a-z]+)/); if(m&&PEOPLE[m[1]])openPerson(m[1]);
+})();
+</script>
+</body>
+</html>

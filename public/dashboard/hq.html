@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>iSmile HQ</title>
+<title>iSmile Task Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -62,6 +62,47 @@
   .counts span:hover{border-color:#3A5382;color:var(--ink);transform:translateY(-1px)}
   .counts span.active{border-color:var(--p1);color:var(--ink);box-shadow:0 0 14px -5px var(--p1)}
   .counts b{color:var(--ink);font-weight:500}
+
+  /* ---------- top nav + view switch ---------- */
+  .topnav{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+  .topnav a{font-family:var(--mono);font-size:11px;color:var(--mut);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:rgba(16,27,48,.7)}
+  .topnav a:hover{border-color:#3A5382;color:var(--ink)}
+  .topnav a.active{border-color:var(--p1);color:var(--ink)}
+  .views{display:flex;gap:4px;margin-left:auto;align-self:center;background:rgba(16,27,48,.7);border:1px solid var(--line);border-radius:999px;padding:3px}
+  .views button{font-family:var(--disp);font-size:11px;letter-spacing:.1em;text-transform:uppercase;border:0;background:transparent;color:var(--mut);padding:5px 12px;border-radius:999px;cursor:pointer}
+  .views button.active{background:var(--panel2);color:var(--ink);box-shadow:inset 0 0 0 1px #3A5382}
+  .asof{margin-left:0}
+  @media(max-width:760px){.views{margin-left:0;width:100%;justify-content:center}}
+  body[data-view="timeline"] .secthead.only-board,body[data-view="timeline"] #decisions,body[data-view="timeline"] .legendrow,body[data-view="timeline"] #pillars,body[data-view="timeline"] #foundations,body[data-view="timeline"] #sideboard{display:none}
+  body[data-view="kanban"] .secthead.only-board,body[data-view="kanban"] #decisions,body[data-view="kanban"] .rail,body[data-view="kanban"] .secthead.only-rail,body[data-view="kanban"] .legendrow,body[data-view="kanban"] #pillars,body[data-view="kanban"] #foundations,body[data-view="kanban"] #sideboard{display:none}
+  #timeline,#kanban{display:none} body[data-view="timeline"] #timeline{display:block} body[data-view="kanban"] #kanban{display:block}
+  /* timeline */
+  .tl{position:relative;padding-left:26px;margin-top:6px}
+  .tl::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--p1),var(--p2),var(--p3));opacity:.5;border-radius:2px}
+  .tli{position:relative;padding:8px 12px;margin-bottom:8px;background:var(--panel);border:1px solid var(--line);border-radius:9px;cursor:pointer;transition:transform .15s,border-color .15s}
+  .tli:hover{transform:translateX(3px);border-color:#3A5382}
+  .tli::before{content:"";position:absolute;left:-22px;top:14px;width:10px;height:10px;border-radius:50%;background:var(--bg);border:2px solid var(--dim)}
+  .tli.done::before{background:var(--ok);border-color:var(--ok)} .tli.now::before{background:var(--p1);border-color:var(--p1);box-shadow:0 0 0 4px rgba(69,196,255,.18)} .tli.late::before{background:var(--bad);border-color:var(--bad)}
+  .tli .d{font-family:var(--mono);font-size:10.5px;color:var(--dim)} .tli.now .d{color:var(--p1)} .tli.late .d{color:var(--bad)}
+  .tli .t{font-weight:600;font-size:13px} .tli .t small{font-family:var(--mono);font-weight:400;font-size:10px;color:var(--mut);margin-left:8px}
+  .tli .w{font-size:12px;color:var(--mut)}
+  .tlmonth{font-family:var(--disp);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin:18px 0 8px}
+  /* kanban */
+  .kb{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;align-items:start;margin-top:6px}
+  .kcol{background:rgba(16,27,48,.5);border:1px solid var(--line);border-radius:10px;padding:8px}
+  .kcol h3{font-family:var(--disp);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);padding:2px 4px 8px;display:flex;justify-content:space-between}
+  .kcol h3 b{color:var(--ink);font-weight:500;font-family:var(--mono)}
+  .kc{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--kc,var(--dim));border-radius:8px;padding:8px 10px;margin-bottom:6px;cursor:pointer;transition:transform .15s,border-color .15s}
+  .kc:hover{transform:translateY(-1px);border-color:#3A5382}
+  .kc .t{font-weight:600;font-size:12.5px;line-height:1.3}
+  .kc .m{display:flex;gap:6px;flex-wrap:wrap;margin-top:5px;font-family:var(--mono);font-size:9.5px;color:var(--dim)}
+  .kc .m span{border:1px solid var(--line);border-radius:4px;padding:1px 5px}
+  .kc .m .ow{color:var(--ink);border-color:#3A5382}
+  .kc .n{font-size:11.5px;color:var(--mut);margin-top:5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .kfilter{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 4px}
+  .kfilter span{font-family:var(--mono);font-size:10.5px;color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:3px 10px;cursor:pointer}
+  .kfilter span.on{border-color:var(--p1);color:var(--ink)}
+  .owner{font-family:var(--mono);font-size:10px;color:var(--mut);border:1px solid var(--line);border-radius:4px;padding:1px 6px;margin-left:8px;vertical-align:middle}
 
   /* ---------- decision queue ---------- */
   .secthead{font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin:26px 0 10px;display:flex;align-items:center;gap:10px}
@@ -285,20 +326,22 @@
 <div class="wrap">
   <header>
     <div class="brand">
-      <h1>iSmile <b>HQ</b></h1>
+      <h1>iSmile <b>Task Tracker</b></h1>
       <div class="sub">Three pillars · two foundations · everything chronological. Click anything to drill in.</div>
+      <nav class="topnav"><a href="/dashboard">Dashboard</a><a href="/dashboard/org">Org Chart</a><a href="/dashboard/tasks" class="active">Task Tracker</a><a href="/dashboard/profitability">Profitability</a><a href="/dashboard/analytics">Analytics</a><a href="/dashboard/office">Office</a></nav>
       <div class="counts" id="counts"></div>
     </div>
+    <div class="views" id="views"><button data-v="board" class="active">Board</button><button data-v="timeline">Timeline</button><button data-v="kanban">Kanban</button></div>
     <div class="asof"><div class="ring"></div><div><span class="pulse"></span>AS AT <span id="asofDate">THU 28 AUG 2026</span><br>programme horizon: <span id="asofHz">Q4 2026</span></div></div>
   </header>
 
-  <div class="secthead">Needs your decision</div>
+  <div class="secthead only-board">Needs your decision</div>
   <div class="decisions" id="decisions"></div>
 
-  <div class="secthead">The next 60 days</div>
+  <div class="secthead only-rail">The next 60 days</div>
   <div class="rail"><div class="rail-inner" id="rail"></div></div>
 
-  <div class="secthead">Pillars</div>
+  <div class="secthead only-board">Pillars</div>
   <div class="legendrow">
     <span><i class="sdot live"></i>live</span>
     <span><i class="sdot now"></i>in motion</span>
@@ -311,12 +354,15 @@
 
   <div id="foundations"></div>
 
+  <div id="timeline"></div>
+  <div id="kanban"></div>
+
   <div class="sideboard" id="sideboard">
     <button type="button" id="sbtoggle">Side board — smaller open items <span class="n" id="sbcount"></span><span class="caret">▾</span></button>
     <ul class="sblist" id="sblist"></ul>
   </div>
 
-  <footer>iSmile HQ · <a href="/dashboard">Command Center</a> · <a href="/dashboard/margin">margin</a> · <a href="/dashboard/analytics">analytics</a><br>data loads live from <span style="font-family:var(--mono)">hq.json</span> on the status branch — ask Claude or Edith to update any card</footer>
+  <footer>iSmile HQ · <a href="/dashboard">Command Center</a> · <a href="/dashboard/margin">margin</a> · <a href="/dashboard/analytics">analytics</a><br>data loads live from <span style="font-family:var(--mono)">hq.json</span> (board · timeline) and <span style="font-family:var(--mono)">initiatives.json</span> (kanban) on the status branch — ask Claude or Edith to update any card</footer>
 </div>
 
 <div id="tip"></div>
@@ -2080,6 +2126,7 @@ function slideTo(dir,fn){
   },170);
 }
 function buildNav(){
+  if(PANELCTX&&PANELCTX.kind==="initiative"){$("#dnav").innerHTML="";return;}
   const nav=$("#dnav"); nav.innerHTML="";
   if(!PANELCTX)return;
   if(PANELCTX.kind==="stream"){
@@ -2104,7 +2151,7 @@ function buildNav(){
 function openStream(s,parent){
   if(!document.body.classList.contains("panel-open")) lastFocus=document.activeElement;
   PANELCTX={kind:"stream",p:parent,idx:parent.streams.indexOf(s)};
-  $("#dkicker").textContent=`${parent.num} · ${parent.name} · ${DOTLBL[s.dot]||s.dot}`;
+  $("#dkicker").textContent=`${parent.num} · ${parent.name} · ${DOTLBL[s.dot]||s.dot}`+(s.owner?` · owner: ${PEOPLE[s.owner]||s.owner}`:"");
   $("#dkicker").style.color="";
   const cv=parent.color||"var(--p1)";
   $("#dkicker").style.color=cv.startsWith("var")?getComputedStyle(document.documentElement).getPropertyValue(cv.slice(4,-1)):cv;
@@ -2266,6 +2313,94 @@ document.addEventListener("keydown",e=>{
   if(reduce) draw(false); else requestAnimationFrame(loop);
 })();
 
+/* ---------- people (owners) ---------- */
+const PEOPLE={lu:"Lu",jean:"Dr Ong",tianchen:"Lau Tian Chen",emily:"Emily",lydia:"Lydia",ling:"Dr Ling",edith:"Edith",codecapsule:"Code Capsule",parents:"Lu's parents"};
+
+/* ---------- views: board · timeline · kanban (+ #s=<id> opens one item, #v=<view> picks a view) ---------- */
+let VIEW="board", INITS=null;
+function setView(v){
+  VIEW=v; document.body.dataset.view=v;
+  document.querySelectorAll("#views button").forEach(b=>b.classList.toggle("active",b.dataset.v===v));
+  const h=new URLSearchParams(location.hash.slice(1)); if(v==="board")h.delete("v"); else h.set("v",v);
+  history.replaceState(null,"","#"+h.toString());
+  if(v==="timeline")renderTimeline(); if(v==="kanban")renderKanban();
+}
+document.querySelectorAll("#views button").forEach(b=>b.addEventListener("click",()=>setView(b.dataset.v)));
+
+function parseW(w){ // "5 Sep" · "Sat 5 Sep" · "7–11 Sep" · "Jun: 1 Sep" · "~3 Sep" · "26–27 Aug" → ISO (first day), year from the board's as-of
+  if(!w)return null; const m=String(w).match(/(\d{1,2})(?:\s*[–-]\s*\d{1,2})?\s+([A-Z][a-z]{2})/); if(!m)return null;
+  const mi=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"].indexOf(m[2]); if(mi<0)return null;
+  const base=DATA.meta&&DATA.meta.updated?new Date(DATA.meta.updated):new Date(); let y=base.getFullYear();
+  if(mi<=1&&base.getMonth()>=10)y+=1; // Jan/Feb dates written late in the year roll forward
+  return `${y}-${String(mi+1).padStart(2,"0")}-${String(+m[1]).padStart(2,"0")}`;
+}
+function renderTimeline(){
+  const box=$("#timeline"); box.innerHTML="";
+  const items=[];
+  (DATA.rail||[]).forEach(m=>items.push({iso:m.iso,d:m.d,t:m.l,w:m.tip,s:m.s,kind:"milestone"}));
+  [...DATA.pillars,...DATA.foundations].forEach(p=>p.streams.forEach(s=>{
+    s.steps.forEach(st=>{const iso=parseW(st.w); if(iso)items.push({iso,d:st.w,t:st.t,w:s.name,s:st.s,kind:"step",stream:s,parent:p});});
+    if(s.flag&&s.flag.by)items.push({iso:s.flag.by,d:fmtBy(s.flag.by,"due").replace("by ",""),t:s.flag.w,w:s.name+" · needs you",s:"",kind:"flag",stream:s,parent:p});
+  }));
+  items.sort((a,b)=>a.iso.localeCompare(b.iso));
+  const today=new Date().toISOString().slice(0,10); let month="";
+  const tl=el("div","tl");
+  items.forEach(it=>{
+    const mo=it.iso.slice(0,7); if(mo!==month){month=mo;const d=new Date(it.iso+"T00:00:00");tl.appendChild(el("div","tlmonth",d.toLocaleString("en-GB",{month:"long",year:"numeric"})));}
+    const late=it.s!=="done"&&it.iso<today;
+    const li=el("div","tli"+(it.s==="done"?" done":it.s==="now"?" now":late?" late":""));
+    li.innerHTML=`<div class="d">${it.d}${late?" · overdue":""}</div><div class="t">${it.t}<small>${it.kind==="milestone"?"milestone":it.kind==="flag"?"needs you":"step"}</small></div><div class="w">${it.w||""}</div>`;
+    if(it.stream)li.addEventListener("click",()=>openStream(it.stream,it.parent));
+    tl.appendChild(li);
+  });
+  box.appendChild(el("div","secthead","Everything dated, in order"));
+  box.appendChild(tl);
+}
+const KSTAT=[["active","Active","var(--p1)"],["review","In review","var(--p2)"],["planned","Planned","var(--dim)"],["blocked","Blocked","var(--bad)"],["paused","Paused","var(--warn)"],["parked","Parked","var(--dim)"],["done","Done","var(--ok)"]];
+const KDEPT={growth:"Growth",crm:"CRM",clinical:"Clinical",people:"People",finance:"Finance",tech:"Tech"};
+let KSHOW=new Set(["active","review","planned","blocked","paused","parked"]);
+async function renderKanban(){
+  const box=$("#kanban"); box.innerHTML=el("div","secthead","Initiatives — the kanban").outerHTML;
+  if(!INITS){try{const r=await fetch("https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/initiatives.json?t="+Date.now(),{cache:"no-store"});INITS=await r.json();}catch(e){box.appendChild(el("div","pmiss","initiatives.json not available"));return;}}
+  const f=el("div","kfilter");
+  KSTAT.forEach(([k,l])=>{const sp=el("span",KSHOW.has(k)?"on":"",l);sp.addEventListener("click",()=>{KSHOW.has(k)?KSHOW.delete(k):KSHOW.add(k);renderKanban();});f.appendChild(sp);});
+  box.appendChild(f);
+  const kb=el("div","kb");
+  KSTAT.filter(([k])=>KSHOW.has(k)).forEach(([k,l,c])=>{
+    const rows=(INITS.initiatives||[]).filter(i=>i.status===k); if(!rows.length&&k!=="active")return;
+    const col=el("div","kcol"); col.style.setProperty("--kc",c);
+    col.appendChild(el("h3",null,`${l}<b>${rows.length}</b>`));
+    rows.forEach(i=>{
+      const card=el("div","kc"); card.style.setProperty("--kc",c);
+      const ow=INITS.owners&&INITS.owners[i.owner]; 
+      card.innerHTML=`<div class="t">${i.title}</div><div class="m"><span class="ow" style="border-color:${ow?ow.color:"var(--line)"}">${ow?ow.init:i.owner||""}</span><span>${KDEPT[i.dept]||i.dept||""}</span>${i.lens?`<span>${i.lens}</span>`:""}${i.endMonth?`<span>→ ${i.endMonth}</span>`:""}</div>${i.next?`<div class="n">Next: ${i.next}</div>`:i.why?`<div class="n">${i.why}</div>`:""}`;
+      card.addEventListener("click",()=>openInitiative(i));
+      col.appendChild(card);
+    });
+    kb.appendChild(col);
+  });
+  box.appendChild(kb);
+  box.appendChild(el("div","pmiss",`Source: initiatives.json (${INITS.updated||""}) — the Command Center board Edith maintains. The pillar board and this kanban are still two stores; merging them is a data job.`));
+}
+function openInitiative(i){
+  if(!document.body.classList.contains("panel-open")) lastFocus=document.activeElement;
+  PANELCTX={kind:"initiative",i};
+  $("#dkicker").textContent=`initiative ${i.id} · ${KDEPT[i.dept]||i.dept||""} · ${i.status}`+(i.owner?` · owner: ${i.owner}`:"");
+  $("#dkicker").style.color="";
+  $("#dtitle").textContent=i.title; $("#done").textContent=i.why||"";
+  const b=$("#dbody"); b.innerHTML="";
+  const kv=[["Next",i.next],["Gate",i.gate],["Blocked on",i.blockedOn],["Timeline",i.timeline||((i.startMonth||"")+(i.endMonth?" → "+i.endMonth:""))],["Depends on",Array.isArray(i.deps)?i.deps.join(", "):i.deps],["Note",i.note]].filter(([k,v])=>v);
+  if(kv.length){const sec=el("div","dsec","<h3>Where it stands</h3>");const ul=el("ul","opens");kv.forEach(([k,v])=>ul.appendChild(el("li",null,`<b>${k}:</b> ${v}`)));sec.appendChild(ul);b.appendChild(sec);}
+  if(Array.isArray(i.tasks)&&i.tasks.length){const sec=el("div","dsec","<h3>Tasks</h3>");const ol=el("ol","steps");i.tasks.forEach(t=>{const done=typeof t==="object"?t.done:false;const txt=typeof t==="object"?(t.t||t.text||t.title||JSON.stringify(t)):t;ol.appendChild(el("li",done?"done":null,txt));});sec.appendChild(ol);b.appendChild(sec);}
+  $("#dnav").innerHTML=""; openPanel(); $("#dclose").focus();
+}
+function applyHash(){
+  const h=new URLSearchParams(location.hash.slice(1));
+  const v=h.get("v"); if(v&&["board","timeline","kanban"].includes(v)&&v!==VIEW)setView(v);
+  const sid=h.get("s"); if(sid){const r=findStream(sid); if(r){openStream(r.stream,r.parent);}}
+}
+window.addEventListener("hashchange",applyHash);
+
 /* ---------- boot: fetch live data from the status branch, fall back to embedded ---------- */
 const HQ_DATA_URL="https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/hq.json";
 function renderAll(){
@@ -2281,6 +2416,7 @@ function renderAll(){
   const seq=[...document.querySelectorAll("header, .secthead, .dcard, .legendrow, .rail, .pillar, .found, .sideboard, footer")];
   seq.forEach(t=>t.classList.add("reveal"));
   seq.forEach((t,i)=>setTimeout(()=>t.classList.add("in"), 80+i*40));
+  applyHash();
 }
 (async()=>{
   try{
