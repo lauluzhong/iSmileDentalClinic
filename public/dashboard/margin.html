@@ -1158,6 +1158,8 @@ renderTable();
 renderSummary();
 renderDay();
 } /* end main() — runs only after margin.json has loaded */
+/* deep link: /dashboard/margin#day opens that tab (the Deck links here) */
+(function(){const h=location.hash.replace("#","");const b=h&&document.getElementById("tab-"+h);if(b){setTimeout(()=>b.click(),0);}})();
 </script>
 </body>
 </html>
