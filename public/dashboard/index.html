@@ -480,12 +480,14 @@ function renderRecall(){
   const row=(lab,a,m,cls)=>{const d=el("div","rrow");d.innerHTML=`<span class="l">${lab}</span><b class="${cls||""}">${a}</b><b class="${cls||""}">${m}</b>`;return d;};
   const t=el("div","rtab");
   t.appendChild(row("","<small>all time</small>","<small>this month</small>"));
-  t.appendChild(row("Conversion",pct(A.conversion_pct,1),M.conversion_pct==null?"—":pct(M.conversion_pct,1),"ok"));
+  const cv=r.conversion||{};
+  t.appendChild(row("Booked · per message",cv.available?pct(cv.conversion_pct,1):"—","—","ok"));
+  t.appendChild(row("Came in · per patient",pct(A.conversion_pct,1),M.conversion_pct==null?"—":pct(M.conversion_pct,1),"ok"));
   t.appendChild(row("RM converted",fmtK(A.production),fmtK(M.production),"ok"));
   t.appendChild(row("Patients",A.patients_converted.toLocaleString(),M.patients_converted.toLocaleString()));
   t.appendChild(row("Appointments",A.visits.toLocaleString(),M.visits.toLocaleString()));
   box.appendChild(t);
-  box.appendChild(el("div","note",`Production by recalled patients within ${v.attrib_window_days} days of their recall, credited to the treating doctor — correlation, not proven lift. ${A.patients_reached.toLocaleString()} patients reached. Doctor breakdown and the send funnel are on the Analytics page.`));
+  box.appendChild(el("div","note",`Booked = share of recalled numbers that made an appointment within ${v.attrib_window_days} days (message effectiveness). Came in = share of reached patients who had treatment done in that window (patient effectiveness — the RM sits on this). Correlation, not proven lift. Doctor breakdown and the send funnel are on the Analytics page.`));
 }
 
 /* ============================== brain ============================== */
