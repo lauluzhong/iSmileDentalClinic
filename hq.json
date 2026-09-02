@@ -262,7 +262,8 @@
       "k": "due",
       "by": "2026-09-05",
       "w": "Confirm Saturday 5 Sep with Bob for the OpenDent switch-over. If the hardware lands late it moves to 12 Sep."
-     }
+     },
+     "owner": "codecapsule"
     },
     {
      "id": "d2",
@@ -290,7 +291,8 @@
      ],
      "open": [
       "Confirm the >RM10k threshold mechanics and consolidated-invoice rules with the AutoCount rep before design"
-     ]
+     ],
+     "owner": "codecapsule"
     },
     {
      "id": "d3",
@@ -323,7 +325,8 @@
      "flag": {
       "k": "decide",
       "w": "Set the FOH training date \u2014 a Saturday after work, then dinner. Scope is already fixed."
-     }
+     },
+     "owner": "emily"
     },
     {
      "id": "d4",
@@ -363,7 +366,8 @@
       "by": "2026-08-31",
       "who": "Emily",
       "w": "Emily's full supplier list was committed for end of August. The largest cost line of all \u2014 RM246k of dental sundries \u2014 is still missing from it."
-     }
+     },
+     "owner": "emily"
     },
     {
      "id": "d5",
@@ -399,7 +403,8 @@
      "open": [
       "Headcount add-ons later are pay-the-difference only; renewal date stays anchored to first payment",
       "Decide the cut-over month for live payroll"
-     ]
+     ],
+     "owner": "emily"
     },
     {
      "id": "d6",
@@ -437,7 +442,8 @@
      "flag": {
       "k": "decide",
       "w": "When a patient pays, OpenDental almost never records which treatment the money was for. Agree how payments get matched to procedures and the doctor statements can be built."
-     }
+     },
+     "owner": "lu"
     },
     {
      "id": "d7",
@@ -467,7 +473,8 @@
      ],
      "open": [
       "Every OpenDent PC needs reconfiguring after the server moves \u2014 more touch-time than the Saturday itself"
-     ]
+     ],
+     "owner": "codecapsule"
     },
     {
      "id": "d8",
@@ -497,7 +504,8 @@
       "Sheet holds IC numbers + medical history \u2014 settle access + row-deletion policy",
       "Delete the TEST PATIENT row",
       "Parked: Dr Ling's segment questionnaires (airway pre-visit set) as a form module"
-     ]
+     ],
+     "owner": "lu"
     },
     {
      "id": "d9",
@@ -533,7 +541,8 @@
       "<b>Rate column shipped 30 Aug</b> (PR #220): every line now shows 40/45/50, marks lines lifted by the RM55k whole-month volume rule, and flags a rate as provisional while its month is still open. Validated against April 2026 (Ling/Ong/Mah at 50%)",
       "\u26a0\ufe0f Display only \u2014 it does not change how anyone is paid, and 'rate follows the production month' stays out of the engine until the agreement is signed",
       "Next real blocker is the allocation convention: only ~9% of paysplits carry a ProcNum"
-     ]
+     ],
+     "owner": "edith"
     },
     {
      "id": "d11",
@@ -562,7 +571,8 @@
      "open": [
       "Keep Edith mention-gated in the management group until Ling responds",
       "Transcripts live on the Contabo vault \u2014 check them before flagging anything as pending"
-     ]
+     ],
+     "owner": "edith"
     },
     {
      "id": "d10",
@@ -590,7 +600,8 @@
      ],
      "open": [
       "Deliberately sequenced after go-live \u2014 don't let it pull focus from the integration"
-     ]
+     ],
+     "owner": "lu"
     }
    ]
   },
@@ -672,7 +683,8 @@
       "who": "your parents",
       "hot": true,
       "w": "Chase their answer on the three changes to how the doctors are paid. Nothing else in Legal & Governance can move until they reply."
-     }
+     },
+     "owner": "lydia"
     },
     {
      "id": "l2",
@@ -702,7 +714,8 @@
      "open": [
       "Not yet modelled in the engine \u2014 don't change the live calc until the agreement signs",
       "Simulated: RM0 net effect over 12 months, \u00b110.8% monthly; 96% settles within a month"
-     ]
+     ],
+     "owner": "lu"
     },
     {
      "id": "l3",
@@ -731,7 +744,8 @@
      "open": [
       "<b>Costed honestly: \u2212RM57k/yr ex-Ong; 2026 EBITDA ~34k \u2192 ~\u221223k.</b> The offsets recover only ~RM3.3k \u2014 this is bought simplicity, own it as such",
       "Ling's exemption bucket disappears with the rule \u2014 one story, not two"
-     ]
+     ],
+     "owner": "lu"
     },
     {
      "id": "l4",
@@ -766,7 +780,8 @@
       "Family benefit stays verbal for contractors (handbook only): free treatment for immediate family, invoiced costs (crowns/implants/aligners) borne by doctor or member",
       "Scope IPP as \u226512-month treatment courses >RM10k \u2014 justification, not money",
       "Sim says doctor +RM22.6k / clinic \u2212RM2.3k on scenario A \u2014 everybody earns more than discounting"
-     ]
+     ],
+     "owner": "lu"
     },
     {
      "id": "l5",
@@ -796,7 +811,8 @@
      "open": [
       "Azelia is the sole below-pricer \u2014 handled via training, not confrontation",
       "Doctor OpenDent training carries this: discount = a line, never an edited price"
-     ]
+     ],
+     "owner": "emily"
     },
     {
      "id": "l8",
@@ -850,7 +866,8 @@
       "k": "decide",
       "by": "2026-09-04",
       "w": "Hand the contractor agreements over in one sit-down, or send them to each doctor first and take questions after?"
-     }
+     },
+     "owner": "lu"
     },
     {
      "id": "l6",
@@ -879,7 +896,8 @@
      "open": [
       "Say it out loud: this is blocked on Lydia, not Emily",
       "Family-treatment benefit written here (employees), verbal for contractors"
-     ]
+     ],
+     "owner": "lydia"
     }
    ]
   },
@@ -951,7 +969,8 @@
       "k": "due",
       "by": "2026-09-07",
       "w": "Four things before the send: Meta's approval, Suraya's filter page, the checks that keep already-booked and opted-out patients off the list, and a re-run on fresh data."
-     }
+     },
+     "owner": "lu"
     },
     {
      "id": "g2",
@@ -975,7 +994,8 @@
      ],
      "open": [
       "Only dependency: keep the Alibaba account topped up (alerts to the iSmile inbox)"
-     ]
+     ],
+     "owner": "edith"
     },
     {
      "id": "g3",
@@ -1010,7 +1030,8 @@
       "<b>Saturday is the leak: 38% on the 2nd-busiest day</b>; new patients rebook at 22% vs 49% returning",
       "Flat targets read as unfair \u2014 cleaning-heavy days can't match ortho days; target eligible patients or per-weekday",
       "159 past-dated appointments still 'Scheduled' \u2014 desk hygiene"
-     ]
+     ],
+     "owner": "emily"
     },
     {
      "id": "g4",
@@ -1081,7 +1102,8 @@
       "by": "2026-09-01",
       "hot": true,
       "w": "Jun's offer letter is owed \u2014 she resigned on a handshake and carries the risk until it exists."
-     }
+     },
+     "owner": "lu"
     },
     {
      "id": "g5",
@@ -1125,7 +1147,8 @@
      "flag": {
       "k": "decide",
       "w": "US$50 to top up the search-data account the SEO tooling runs on. New vendor spend, so it needs your approval."
-     }
+     },
+     "owner": "edith"
     },
     {
      "id": "g6",
@@ -1155,7 +1178,8 @@
      "open": [
       "Stalled on your time \u2014 decide whether Mandy/DSAs can run it without you",
       "Consent forms before any face-on-camera recording (parents sign for minors)"
-     ]
+     ],
+     "owner": "lu"
     },
     {
      "id": "g7",
@@ -1194,7 +1218,8 @@
      "open": [
       "This is a brand/perceived-value play, not cost reduction \u2014 the owner's own read",
       "15-character plush series only works if costumes share one base body"
-     ]
+     ],
+     "owner": "lu"
     },
     {
      "id": "g8",
@@ -1223,7 +1248,8 @@
      "open": [
       "Cross-check: anniversary names must be excluded from the cold blast (already flagged in the blast pack)",
       "Bespoke beats branded merch here \u2014 these are relationship gifts"
-     ]
+     ],
+     "owner": "emily"
     }
    ]
   }
@@ -1263,7 +1289,8 @@
      "flag": {
       "k": "talk",
       "w": "Confirm Dr Mah's birthday date and settle the check-in rhythm."
-     }
+     },
+     "owner": "jean"
     },
     {
      "id": "h2",
@@ -1298,7 +1325,8 @@
       "k": "talk",
       "who": "Dr Ong",
       "w": "Dr Ong still has not sat down with Elaine about her job description."
-     }
+     },
+     "owner": "lu"
     },
     {
      "id": "h3",
@@ -1327,7 +1355,8 @@
       "k": "talk",
       "who": "Emily",
       "w": "Check with Emily whether a junior really was left alone with a patient. This is patient safety \u2014 keep it apart from the conduct complaints."
-     }
+     },
+     "owner": "emily"
     },
     {
      "id": "h4",
@@ -1351,7 +1380,8 @@
      ],
      "open": [
       "CRM calling itself is deprioritised \u2014 the redeployment still needs a real cadence eventually"
-     ]
+     ],
+     "owner": "jean"
     }
    ]
   },
@@ -1384,7 +1414,8 @@
      ],
      "open": [
       "Break-even \u2248 RM5.5k/day \u2014 the number the team can hold"
-     ]
+     ],
+     "owner": "edith"
     },
     {
      "id": "f2",
@@ -1413,7 +1444,8 @@
      "flag": {
       "k": "decide",
       "w": "Dropping the 10% deduction moves EBITDA from about +RM34k to about \u2212RM23k. Carry that into the forecast before the sit-down with your parents."
-     }
+     },
+     "owner": "lu"
     },
     {
      "id": "f3",
@@ -1444,7 +1476,8 @@
      "flag": {
       "k": "decide",
       "w": "Confirm the cash covers what is left to pay for the digitisation, plus December's bonus and increments."
-     }
+     },
+     "owner": "emily"
     }
    ]
   }
@@ -1473,6 +1506,6 @@
  ],
  "meta": {
   "asof": "WED 02 SEP 2026",
-  "updated": "2026-09-02T11:39:35+08:00"
+  "updated": "2026-09-02T14:29:12+08:00"
  }
 }
