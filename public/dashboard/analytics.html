@@ -149,6 +149,11 @@
   header>nav a.active,.topnav a.active{color:var(--ink) !important}
   header>nav a.active::after,.topnav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1.5px;background:var(--p1);box-shadow:0 0 8px var(--p1)}
   @media(max-width:760px){header>nav,.topnav{justify-content:center}header>nav a:not(:first-child),.topnav a:not(:first-child){margin-left:16px !important}header>nav a:not(:first-child)::before,.topnav a:not(:first-child)::before{left:-11px}}
+  .kfilter{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0 10px}
+  .kfilter span{font-family:var(--mono);font-size:10.5px;color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:3px 10px;cursor:pointer}
+  .kfilter span.on{border-color:var(--p1);color:var(--ink)}
+  .tw table{width:100%;border-collapse:collapse;font-size:12.5px} .tw th{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);text-align:left;padding:6px 8px;border-bottom:1px solid var(--line)}
+  .tw td{padding:6px 8px;border-bottom:1px solid rgba(34,50,82,.5)} .tw .num{text-align:right;font-family:var(--mono)} .tw tr:nth-child(even) td{background:rgba(20,33,56,.5)}
 </style>
 </head>
 <body>
@@ -230,8 +235,12 @@
   </div>
 
   <!-- ================= RECALL ================= -->
-  <div class="secthead">Recall <small>automated WhatsApp recall · recall.json on the status branch</small></div>
+  <div class="secthead" id="recall">Recall <small>automated WhatsApp recall · recall.json on the status branch</small></div>
   <div class="grid">
+    <div class="card rec wide reveal"><div class="top"></div>
+      <div class="ch"><span class="k">Recall → ringgit · by doctor</span><span class="m" id="m-val">recall.json · value</span></div>
+      <div class="cb" id="c-val"><div class="empty">loading…</div></div>
+    </div>
     <div class="card rec wide reveal"><div class="top"></div>
       <div class="ch"><span class="k">Recall funnel</span><span class="m" id="m-rec">recall.json</span></div>
       <div class="cb" id="c-rec"><div class="empty">loading…</div></div>
@@ -451,7 +460,29 @@ function renderSocial(){
   box.appendChild(el("div","note","Engagement (reach, likes, saves) only appears for posts published through Zernio — none so far."+(so.note?" "+esc(so.note):"")));
 }
 /* ============================== recall ============================== */
+let VAL_VIEW="all_time";
+function renderValue(){
+  const r=D.recall, v=r&&r.value; const box=$("#c-val"); if(!box)return; box.innerHTML="";
+  if(!(v&&v.available)){setMeta("m-val","not published","bad");fail("c-val","<b>Ringgit attribution not available.</b> "+esc((v&&v.reason)||""));return;}
+  setMeta("m-val",`as at ${esc(v.as_of)} · ${esc(v.bridge)} · ${v.production_lines.toLocaleString()} production lines`);
+  const S=v[VAL_VIEW];
+  const sw=el("div","kfilter"); [["all_time","All time"],["mtd","This month ("+esc(v.month)+")"]].forEach(([k,l])=>{const sp=el("span",VAL_VIEW===k?"on":"",l);sp.addEventListener("click",()=>{VAL_VIEW=k;renderValue();});sw.appendChild(sp);}); box.appendChild(sw);
+  let g=el("div","stats three");
+  g.appendChild(stat("Conversion",S.conversion_pct==null?"—":pct(S.conversion_pct,1)+`<small>${S.patients_converted} of ${S.patients_reached.toLocaleString()} reached${VAL_VIEW==="mtd"?" · first visits this month":""}</small>`,"ok"));
+  g.appendChild(stat("RM converted","RM"+Math.round(S.production).toLocaleString()+`<small>production in window</small>`,"ok"));
+  g.appendChild(stat("Patients · appointments",`${S.patients_converted} · ${S.visits}<small>${S.repeat_patients} came back twice or more</small>`));
+  box.appendChild(g);
+  box.appendChild(el("div","sec","<b>By doctor</b> · who the recalled patients saw"));
+  const tw=el("div","tw"); const tb=el("table"); tb.innerHTML="<thead><tr><th>Doctor</th><th class=num>Patients</th><th class=num>Appointments</th><th class=num>Repeat visits</th><th class=num>RM</th><th class=num>Share</th></tr></thead>";
+  const body=el("tbody"); const tot=S.production||1;
+  S.by_doctor.forEach(d=>{const tr=el("tr");tr.innerHTML=`<td>${esc(d.name||d.abbr)}</td><td class=num>${d.patients}</td><td class=num>${d.visits}</td><td class=num>${d.repeat_visits}</td><td class=num>RM${d.production.toLocaleString()}</td><td class=num><div class="bar" style="min-width:70px"><i data-w="${(100*d.production/tot).toFixed(1)}"></i></div> ${(100*d.production/tot).toFixed(0)}%</td>`;body.appendChild(tr);});
+  if(!S.by_doctor.length)body.appendChild(el("tr",null,"<td colspan=6 class=empty>nothing in this window yet</td>"));
+  tb.appendChild(body); tw.appendChild(tb); box.appendChild(tw);
+  box.appendChild(el("div","note",esc(v.rule)+". A phone number can belong to a household, so every patient on a recalled number is in the reach count. The older per-phone conversion (${cv}) counts bookings, this one counts patients who actually came in and produced.".replace("${cv}",r.conversion&&r.conversion.available?pct(r.conversion.conversion_pct,1):"—")));
+  box.querySelectorAll("[data-w]").forEach(i=>setTimeout(()=>{i.style.width=i.dataset.w+"%";},200));
+}
 function renderRecall(){
+  try{renderValue();}catch(e){fail("c-val","Could not render: "+esc(e.message));}
   const r=D.recall;
   if(!r){setMeta("m-rec","recall.json · no data","bad");fail("c-rec",`<b>Recall feed not available.</b> ${esc(D.err.recall||"")}`);return;}
   setMeta("m-rec",`${esc(r.source||"recall.json")} · as at ${esc(r.as_of||"—")}`);

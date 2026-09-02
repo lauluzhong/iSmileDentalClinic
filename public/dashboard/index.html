@@ -128,6 +128,12 @@
   .fun{display:grid;grid-template-columns:auto 1fr auto;gap:4px 8px;align-items:center;font-family:var(--mono);font-size:10.5px;color:var(--mut)}
   .fun .b{height:8px;background:#1B2A47;border-radius:6px;overflow:hidden}.fun .b i{display:block;height:100%;background:var(--p3);width:0;transition:width .9s ease}
   .fun b{color:var(--ink);font-weight:500;text-align:right}
+  .rtab{display:flex;flex-direction:column;gap:3px}
+  .rrow{display:grid;grid-template-columns:1.2fr 1fr 1fr;align-items:baseline;gap:8px;padding:3px 0;border-bottom:1px solid rgba(34,50,82,.5)}
+  .rrow:first-child{border-bottom:1px solid var(--line)} .rrow:last-child{border-bottom:0}
+  .rrow .l{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+  .rrow b{font-family:var(--disp);font-size:18px;font-weight:600;text-align:right} .rrow b.ok{color:var(--ok)}
+  .rrow small{font-family:var(--mono);font-size:10px;color:var(--dim);font-weight:400;letter-spacing:.08em;text-transform:uppercase}
   .web{--ac:var(--p3)} .rec{--ac:var(--p3)} .seo{--ac:var(--p2)} .vps{--ac:var(--p1)} .fin{--ac:var(--ffin)}
   .note{font-size:11px;color:var(--dim);margin-top:8px;line-height:1.4}
   .stars{color:var(--warn);letter-spacing:1px}
@@ -185,7 +191,7 @@
         <div class="cb" id="fin"><div class="empty">loading…</div></div>
       </div>
       <div class="card rec"><div class="top"></div>
-        <a class="ch go" href="/dashboard/analytics#recall" title="Open the recall analytics"><span class="k">Recall</span><span class="arr">→</span><span class="m" id="recm">—</span></a>
+        <a class="ch go" href="/dashboard/analytics#recall" title="Open recall: doctor attribution and the send funnel"><span class="k">Recall</span><span class="arr">→</span><span class="m" id="recm">—</span></a>
         <div class="cb" id="rec"><div class="empty">loading…</div></div>
       </div>
     </div>
@@ -464,20 +470,22 @@ function renderRecall(){
   const box=$("#rec"); box.innerHTML="";
   const r=D.recall; if(!r){box.appendChild(el("div","empty","recall.json not available"));return;}
   $("#recm").textContent="as at "+isoLabel(r.as_of);
-  const c=r.cumulative||{}, m=r.this_month||{}, cv=r.conversion||{};
-  const g=el("div","stats");
-  g.appendChild(stat("Booked after recall",cv.available?pct(cv.conversion_pct,1)+`<small>${cv.attrib_window_days}-day window</small>`:"—",cv.available?"ok":""));
-  g.appendChild(stat("This month",`${m.sent??0}<small>sent · ${m.replies??0} replied</small>`));
-  box.appendChild(g);
-  box.appendChild(el("div","sec","<b>Cumulative funnel</b>"));
-  const fun=el("div","fun"); const max=Math.max(c.sent||1,c.delivered||1);
-  [["sent",c.sent],["delivered",c.delivered],["read",c.read],["replied",c.replies],["clicked",c.clicks]].forEach(([l,v])=>{
-    const b=el("div","b"); const i=el("i"); b.appendChild(i);
-    fun.appendChild(el("span",null,l)); fun.appendChild(b); fun.appendChild(el("b",null,(v||0).toLocaleString()));
-    setTimeout(()=>{i.style.width=Math.min(100,100*(v||0)/max)+"%";},250);
-  });
-  box.appendChild(fun);
-  box.appendChild(el("div","note","Funnel counts message events, not distinct patients. Conversion is the matured cohort's recall→appointment rate — a correlation, not proven lift."));
+  const v=r.value;
+  if(!(v&&v.available)){ // older feed: fall back to the funnel view
+    const c=r.cumulative||{}, cv=r.conversion||{};
+    const g=el("div","stats"); g.appendChild(stat("Booked after recall",cv.available?pct(cv.conversion_pct,1):"—",cv.available?"ok":"")); g.appendChild(stat("Sent · all time",(c.sent||0).toLocaleString()));
+    box.appendChild(g); box.appendChild(el("div","note",(v&&v.reason)||"Ringgit attribution not published yet.")); return;
+  }
+  const A=v.all_time, M=v.mtd;
+  const row=(lab,a,m,cls)=>{const d=el("div","rrow");d.innerHTML=`<span class="l">${lab}</span><b class="${cls||""}">${a}</b><b class="${cls||""}">${m}</b>`;return d;};
+  const t=el("div","rtab");
+  t.appendChild(row("","<small>all time</small>","<small>this month</small>"));
+  t.appendChild(row("Conversion",pct(A.conversion_pct,1),M.conversion_pct==null?"—":pct(M.conversion_pct,1),"ok"));
+  t.appendChild(row("RM converted",fmtK(A.production),fmtK(M.production),"ok"));
+  t.appendChild(row("Patients",A.patients_converted.toLocaleString(),M.patients_converted.toLocaleString()));
+  t.appendChild(row("Appointments",A.visits.toLocaleString(),M.visits.toLocaleString()));
+  box.appendChild(t);
+  box.appendChild(el("div","note",`Production by recalled patients within ${v.attrib_window_days} days of their recall, credited to the treating doctor — correlation, not proven lift. ${A.patients_reached.toLocaleString()} patients reached. Doctor breakdown and the send funnel are on the Analytics page.`));
 }
 
 /* ============================== brain ============================== */
@@ -604,7 +612,8 @@ function brief(){
   }
   if(d&&d.finance&&d.finance.ytd) L.push(`Year to date, production stands at ${fmtRM(d.finance.ytd.production)} with a true margin of ${fmtRM(d.finance.ytd.true_margin)}.`);
   if(d&&d.vps){const v=d.vps;L.push(v.gateway_ok&&!(v.crons.failed||[]).length?`The box is healthy: gateway up, ${v.crons.total} jobs, none failed, CPU at ${Math.round(v.cpu_pct)} percent.`:`Attention on the box: ${v.gateway_ok?"":"the gateway is down. "}${(v.crons.failed||[]).length?"failed jobs: "+v.crons.failed.join(", ")+".":""}`);}
-  if(r&&r.conversion&&r.conversion.available) L.push(`Recall is converting at ${r.conversion.conversion_pct.toFixed(0)} percent within ninety days.`);
+  if(r&&r.value&&r.value.available) L.push(`Recall has brought back ${r.value.all_time.patients_converted} patients and ${fmtRM(r.value.all_time.production)} of production all time${r.value.mtd.production?`, ${fmtRM(r.value.mtd.production)} of it this month`:""}.`);
+  else if(r&&r.conversion&&r.conversion.available) L.push(`Recall is converting at ${r.conversion.conversion_pct.toFixed(0)} percent within ninety days.`);
   if(items.length){
     L.push(`${items.length} task${items.length==1?"":"s"} need${items.length==1?"s":""} you. The top ${Math.min(3,items.length)}:`);
     items.slice(0,3).forEach(({s,a},i)=>L.push(`${i+1}. ${AKIND[a.k].lab}${a.by?" "+fmtBy(a.by,a.k).replace(/(\d+) (\w+)$/,(m,d,mo)=>ord(+d)+" of "+MONL[MON.indexOf(mo)]):""}: ${s.name.replace(/ · /g," ")}. ${a.w}`));
