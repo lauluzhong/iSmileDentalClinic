@@ -5,9 +5,9 @@
  * browser attaches the cached credentials itself. The middleware rewrites here, and this function re-checks
  * the Authorization header against DASHBOARD_PASSWORD so a direct hit on /api/edith is refused.
  *
- * Bridge contract (box side, see Contabo loop/edith_bridge.py):
- *   POST EDITH_BRIDGE_URL   headers: Authorization: Bearer EDITH_BRIDGE_TOKEN
- *   body: { message, user, session }     →   { reply, session }
+ * Bridge contract (box side, see Contabo loop/edith_bridge.py) — asynchronous, because Edith can take minutes:
+ *   POST { message, user, session } → 202 { job, session }   then   POST { poll: job } → { status: pending|done|error, reply?, elapsed }
+ *   The page polls; this function never waits on the model.
  * The bridge presents a self-signed certificate; its PEM is pinned via EDITH_BRIDGE_CA so the hop is
  * encrypted and authenticated without a public CA. Until those three env vars exist the line reports
  * `not_connected` and the page says so — nothing is faked.
@@ -41,7 +41,7 @@ function callBridge(payload) {
     },
     ca: process.env.EDITH_BRIDGE_CA,      // pinned self-signed cert
     servername: url.hostname,
-    timeout: 55000,
+    timeout: 25000,
   };
   return new Promise((resolve, reject) => {
     const req = https.request(opts, (res) => {
@@ -64,17 +64,20 @@ export default async function handler(req, res) {
   if (!authed(req)) return res.status(401).json({ error: 'unauthorized' });
   if (req.method !== 'POST') return res.status(405).json({ error: 'method' });
 
-  const { message, session } = req.body || {};
-  if (!message || typeof message !== 'string' || message.length > 4000) {
+  const { message, session, poll } = req.body || {};
+  if (poll) {
+    if (typeof poll !== 'string' || poll.length > 64) return res.status(400).json({ error: 'bad_request' });
+  } else if (!message || typeof message !== 'string' || message.length > 4000) {
     return res.status(400).json({ error: 'bad_request' });
   }
   if (!process.env.EDITH_BRIDGE_URL || !process.env.EDITH_BRIDGE_TOKEN || !process.env.EDITH_BRIDGE_CA) {
     return res.status(503).json({ error: 'not_connected' });
   }
   try {
-    const out = await callBridge({ message, user: 'lu-deck', session: session || 'deck' });
-    if (out.status !== 200) return res.status(502).json({ error: 'bridge_error', detail: out.json });
-    return res.status(200).json(out.json);
+    const out = await callBridge(poll ? { poll } : { message, user: 'lu-deck', session: session || 'deck' });
+    if (out.status === 200 || out.status === 202) return res.status(out.status).json(out.json);
+    if (out.status === 404 && poll) return res.status(404).json(out.json);
+    return res.status(502).json({ error: 'bridge_error', detail: out.json });
   } catch (e) {
     return res.status(502).json({ error: 'bridge_unreachable', detail: e.message });
   }

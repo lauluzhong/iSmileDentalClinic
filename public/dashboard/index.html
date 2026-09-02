@@ -40,7 +40,7 @@
   nav a.active{border-color:var(--p1);color:var(--ink)}
 
   /* ---------- grid ---------- */
-  .deck{display:grid;grid-template-columns:minmax(340px,1.15fr) minmax(0,1.2fr) minmax(360px,1.15fr);gap:14px;align-items:start}
+  .deck{display:grid;grid-template-columns:minmax(330px,1fr) minmax(0,1.45fr) minmax(350px,1fr);gap:14px;align-items:start}
   .col{display:flex;flex-direction:column;gap:14px;min-width:0}
   .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;position:relative}
   .card::before{content:"";position:absolute;top:8px;right:8px;width:9px;height:9px;border-top:1.5px solid var(--ac,var(--p1));border-right:1.5px solid var(--ac,var(--p1));opacity:.55;pointer-events:none}
@@ -153,11 +153,11 @@
   /* ---------- page nav: quiet text, not pills (owner, 2 Sep 2026) ---------- */
   nav.pagenav,nav.topnav,.topnav,header>nav{display:flex;flex-wrap:wrap;gap:0 !important;align-items:center;justify-content:flex-end}
   header>nav a,.topnav a{border:0 !important;background:transparent !important;border-radius:0 !important;padding:2px 0 !important;margin:0 !important;
-    font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim) !important;position:relative;text-decoration:none;
+    font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut) !important;position:relative;text-decoration:none;
     box-shadow:none !important;transform:none !important;white-space:nowrap;transition:color .15s}
   header>nav a:not(:first-child),.topnav a:not(:first-child){margin-left:22px !important}
-  header>nav a:not(:first-child)::before,.topnav a:not(:first-child)::before{content:"·";position:absolute;left:-14px;color:var(--line)}
-  header>nav a:hover,.topnav a:hover{color:var(--mut) !important}
+  header>nav a:not(:first-child)::before,.topnav a:not(:first-child)::before{content:"·";position:absolute;left:-14px;color:var(--dim)}
+  header>nav a:hover,.topnav a:hover{color:var(--ink) !important}
   header>nav a.active,.topnav a.active{color:var(--ink) !important}
   header>nav a.active::after,.topnav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1.5px;background:var(--p1);box-shadow:0 0 8px var(--p1)}
   @media(max-width:760px){header>nav,.topnav{justify-content:center}header>nav a:not(:first-child),.topnav a:not(:first-child){margin-left:16px !important}header>nav a:not(:first-child)::before,.topnav a:not(:first-child)::before{left:-11px}}
@@ -600,13 +600,24 @@ async function handleUser(text){
   if(/\b(brief|update|status|what's new|catch me up|summary)\b/.test(t)&&t.split(" ").length<=8){const b=brief();say("e",b);speak(b,afterSpeaking);return;}
   if(/\b(stop|quiet|shush)\b/.test(t)&&t.split(" ").length<=3){hush();return;}
   const m=say("s","asking Edith…");
+  const post=(body)=>fetch("/dashboard/edith",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(body)});
   try{
-    const r=await fetch("/dashboard/edith",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({message:text,session:"deck"})});
+    const r=await post({message:text,session:"deck"});
     const j=await r.json().catch(()=>({}));
-    m.remove();
-    if(r.ok&&j.reply){say("e",j.reply);speak(j.reply,afterSpeaking);}
-    else if(r.status===503){const s="The line to Edith is not connected yet, so I can only give you the brief from the board. Ask me for the update any time.";say("e",s);speak(s,afterSpeaking);}
-    else{const s="The bridge did not answer. "+(j.error||r.status)+".";say("s",s);speak("The bridge did not answer.",afterSpeaking);}
+    if(r.status===503){m.remove();const s="The line to Edith is not connected yet, so I can only give you the brief from the board. Ask me for the update any time.";say("e",s);speak(s,afterSpeaking);return;}
+    if(r.ok&&j.reply){m.remove();say("e",j.reply);speak(j.reply,afterSpeaking);return;}
+    if(r.status!==202||!j.job){m.remove();const s="The bridge did not answer ("+(j.error||r.status)+").";say("s",s);speak("The bridge did not answer.",afterSpeaking);return;}
+    // she is working — poll until done (she may use tools; give her up to 8 minutes)
+    const t0=Date.now(); let last=null;
+    while(Date.now()-t0<8*60*1000){
+      await new Promise(res=>setTimeout(res,2500));
+      const sec=Math.round((Date.now()-t0)/1000); m.textContent=sec<8?"asking Edith…":`Edith is working… ${sec}s${sec>45?" — she is probably checking with her tools":""}`;
+      let pr; try{pr=await post({poll:j.job});}catch(e){continue;}
+      last=await pr.json().catch(()=>({}));
+      if(last.status==="done"){m.remove();const rep=last.reply||"(she sent an empty reply)";say("e",rep);speak(rep,afterSpeaking);return;}
+      if(last.status==="error"||pr.status===404){m.remove();const s="Edith's gateway returned an error ("+(last.error||pr.status)+").";say("s",s);speak("Edith's gateway returned an error.",afterSpeaking);return;}
+    }
+    m.remove();say("s","No reply after 8 minutes — she may still finish; check WhatsApp or ask again.");
   }catch(e){m.remove();say("s","Network error: "+e.message);}
 }
 function startCall(){

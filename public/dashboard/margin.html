@@ -275,11 +275,11 @@
   /* ---------- page nav: quiet text, not pills (owner, 2 Sep 2026) ---------- */
   nav.pagenav,nav.topnav,.topnav,header>nav{display:flex;flex-wrap:wrap;gap:0 !important;align-items:center;justify-content:flex-end}
   header>nav a,.topnav a{border:0 !important;background:transparent !important;border-radius:0 !important;padding:2px 0 !important;margin:0 !important;
-    font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim) !important;position:relative;text-decoration:none;
+    font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut) !important;position:relative;text-decoration:none;
     box-shadow:none !important;transform:none !important;white-space:nowrap;transition:color .15s}
   header>nav a:not(:first-child),.topnav a:not(:first-child){margin-left:22px !important}
-  header>nav a:not(:first-child)::before,.topnav a:not(:first-child)::before{content:"·";position:absolute;left:-14px;color:var(--line)}
-  header>nav a:hover,.topnav a:hover{color:var(--mut) !important}
+  header>nav a:not(:first-child)::before,.topnav a:not(:first-child)::before{content:"·";position:absolute;left:-14px;color:var(--dim)}
+  header>nav a:hover,.topnav a:hover{color:var(--ink) !important}
   header>nav a.active,.topnav a.active{color:var(--ink) !important}
   header>nav a.active::after,.topnav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1.5px;background:var(--p1);box-shadow:0 0 8px var(--p1)}
   @media(max-width:760px){header>nav,.topnav{justify-content:center}header>nav a:not(:first-child),.topnav a:not(:first-child){margin-left:16px !important}header>nav a:not(:first-child)::before,.topnav a:not(:first-child)::before{left:-11px}}
