@@ -435,8 +435,8 @@
       "60-day backstop for implant-case invoices"
      ],
      "flag": {
-      "k": "blocked",
-      "w": "Only ~9% of paysplits carry a ProcNum \u2014 an allocation convention has to be agreed before statements can run."
+      "k": "decide",
+      "w": "When a patient pays, OpenDental almost never records which treatment the money was for. Agree how payments get matched to procedures and the doctor statements can be built."
      }
     },
     {
@@ -1472,7 +1472,7 @@
   "X-ray compliance \u2705 resolved \u2014 one AELB-compliant person in the building suffices, and one is always present"
  ],
  "meta": {
-  "asof": "TUE 01 SEP 2026",
-  "updated": "2026-09-01T21:33:40+08:00"
+  "asof": "WED 02 SEP 2026",
+  "updated": "2026-09-02T11:14:25+08:00"
  }
 }
