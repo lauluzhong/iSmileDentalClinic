@@ -64,8 +64,10 @@ export default async function handler(req, res) {
   if (!authed(req)) return res.status(401).json({ error: 'unauthorized' });
   if (req.method !== 'POST') return res.status(405).json({ error: 'method' });
 
-  const { message, session, poll } = req.body || {};
-  if (poll) {
+  const { message, session, poll, tts } = req.body || {};
+  if (tts) {
+    if (typeof tts !== 'string' || tts.length > 3000) return res.status(400).json({ error: 'bad_request' });
+  } else if (poll) {
     if (typeof poll !== 'string' || poll.length > 64) return res.status(400).json({ error: 'bad_request' });
   } else if (!message || typeof message !== 'string' || message.length > 4000) {
     return res.status(400).json({ error: 'bad_request' });
@@ -74,7 +76,8 @@ export default async function handler(req, res) {
     return res.status(503).json({ error: 'not_connected' });
   }
   try {
-    const out = await callBridge(poll ? { poll } : { message, user: 'lu-deck', session: session || 'deck' });
+    const out = await callBridge(tts ? { tts } : poll ? { poll } : { message, user: 'lu-deck', session: session || 'deck' });
+    if (tts && out.status === 503) return res.status(503).json({ error: 'voice_not_configured' });
     if (out.status === 200 || out.status === 202) return res.status(out.status).json(out.json);
     if (out.status === 404 && poll) return res.status(404).json(out.json);
     return res.status(502).json({ error: 'bridge_error', detail: out.json });

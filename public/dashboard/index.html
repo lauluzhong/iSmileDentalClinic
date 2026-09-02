@@ -523,7 +523,10 @@ async function probeLine(){
     const r=await fetch("/dashboard/edith",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({message:"ping",session:"probe"})});
     if(r.status===503){LINE="not_connected";st.innerHTML='<i class="off"></i>line not connected yet — brief works, questions wait for the bridge';}
     else if(r.status===401){LINE="not_connected";st.innerHTML='<i class="off"></i>not signed in';}
-    else if(r.ok||r.status===502){LINE=r.ok?"connected":"not_connected";st.innerHTML=r.ok?'<i class="on"></i>line open':'<i class="off"></i>bridge unreachable';}
+    else if(r.ok||r.status===502){LINE=r.ok?"connected":"not_connected";st.innerHTML=r.ok?'<i class="on"></i>line open':'<i class="off"></i>bridge unreachable';
+      if(r.ok){ // is a real voice configured? one tiny render tells us, and we keep the answer for the session
+        fetch("/dashboard/edith",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({tts:"Hello."})}).then(v=>v.ok?v.json():null).then(j=>{if(j&&j.audio_b64){VOICE_PROVIDER=j.provider||"remote";st.innerHTML='<i class="on"></i>line open · voice: '+VOICE_PROVIDER;}else{st.innerHTML='<i class="on"></i>line open · browser voice';}}).catch(()=>{});
+      }}
     else{LINE="not_connected";st.innerHTML='<i class="off"></i>line status '+r.status;}
   }catch(e){LINE="not_connected";st.innerHTML='<i class="off"></i>line not reachable';}
 }
@@ -538,8 +541,31 @@ function pickVoice(){
   VOICE=pref.map(n=>vs.find(v=>v.name===n)).find(Boolean)||vs.find(v=>/en-(GB|AU|US)/i.test(v.lang))||vs[0];
 }
 if(synth){pickVoice();synth.onvoiceschanged=pickVoice;}
-let SPEAKING=false;
+let SPEAKING=false, VOICE_PROVIDER="browser", AUDIO=null;
+/* Edith's real voice: the bridge renders speech (ElevenLabs / Deepgram / OpenAI / a local model, whichever key is on the box);
+   the browser voice is the fallback and stays the default until a provider is configured. */
+async function speakRemote(text){
+  const r=await fetch("/dashboard/edith",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({tts:text.slice(0,3000)})});
+  if(!r.ok) throw new Error("voice "+r.status);
+  const j=await r.json(); if(!j.audio_b64) throw new Error("no audio");
+  return "data:"+(j.mime||"audio/mpeg")+";base64,"+j.audio_b64;
+}
 function speak(text,done){
+  if(VOICE_PROVIDER!=="browser"){
+    SPEAKING=true; $("#wave").classList.add("on");
+    speakRemote(text).then(src=>{
+      if(!SPEAKING){return;}
+      if(AUDIO){AUDIO.pause();}
+      AUDIO=new Audio(src);
+      AUDIO.onended=()=>{SPEAKING=false;$("#wave").classList.remove("on");if(done)done();};
+      AUDIO.onerror=()=>{SPEAKING=false;$("#wave").classList.remove("on");speakBrowser(text,done);};
+      AUDIO.play().catch(()=>{SPEAKING=false;$("#wave").classList.remove("on");speakBrowser(text,done);});
+    }).catch(()=>{speakBrowser(text,done);});
+    return;
+  }
+  speakBrowser(text,done);
+}
+function speakBrowser(text,done){
   if(!synth){if(done)done();return;}
   synth.cancel();
   const parts=text.replace(/RM(\d)/g,"ringgit $1").replace(/ · /g,", ").replace(/ — /g,", ").match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[text];
@@ -551,7 +577,7 @@ function speak(text,done){
   };
   next();
 }
-function hush(){SPEAKING=false;if(synth)synth.cancel();$("#wave").classList.remove("on");}
+function hush(){SPEAKING=false;if(synth)synth.cancel();if(AUDIO){AUDIO.pause();AUDIO=null;}$("#wave").classList.remove("on");}
 
 function greeting(){const h=nowMYT().getHours();return (h<12?"Good morning":h<18?"Good afternoon":"Good evening")+", Lu.";}
 function brief(){
