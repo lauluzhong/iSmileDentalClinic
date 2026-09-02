@@ -256,14 +256,22 @@
       "<b>5 Sep looks on track</b> \u2014 Jason: hardware ETA 3 Sep per Taobao, and he has already briefed Bob. 12 Sep remains the fallback if shipping slips",
       "<b>Three confirmations asked of Jason 29 Aug</b> (awaiting reply): is 5 Sep 3pm locked and Bob aware \u00b7 does the 3 Sep hardware estimate still hold \u00b7 can Leow upgrade the trial AutoCount to the paid licence in time",
       "EasyDent (X-ray) + CCTV stay on the old PC \u2014 do not migrate",
-      "Clinic confirmed open 1 Sep (Emily)"
+      "Clinic confirmed open 1 Sep (Emily)",
+      "From the initiatives board: Opportunistic add-ons in scope: digital WhatsApp receipts, payroll SaaS, procurement, inventory module. Share Code Capsule's SOW with Claude once received."
      ],
      "flag": {
       "k": "due",
       "by": "2026-09-05",
       "w": "Confirm Saturday 5 Sep with Bob for the OpenDent switch-over. If the hardware lands late it moves to 12 Sep."
      },
-     "owner": "codecapsule"
+     "owner": "codecapsule",
+     "dept": "tech",
+     "lens": "efficiency",
+     "from_initiatives": [
+      1
+     ],
+     "next": "Issue the AutoCount payment and PO on 26 Aug, then confirm the hardware arrival date so the clinic knows which Saturday loses OpenDent for seven to eight hours and can plan the appointment book around it.",
+     "endMonth": "2026-09"
     },
     {
      "id": "d2",
@@ -292,7 +300,11 @@
      "open": [
       "Confirm the >RM10k threshold mechanics and consolidated-invoice rules with the AutoCount rep before design"
      ],
-     "owner": "codecapsule"
+     "owner": "codecapsule",
+     "dept": "tech",
+     "lens": "efficiency",
+     "from_initiatives": [],
+     "next": "Integration live (see spine)"
     },
     {
      "id": "d3",
@@ -320,13 +332,21 @@
      ],
      "open": [
       "Receipt-name nuance: AutoCount name changes stick (parent paying for child, company claims) \u2014 teach it explicitly",
-      "Physical receipts continue until training done \u2014 decided, not a slip"
+      "Physical receipts continue until training done \u2014 decided, not a slip",
+      "From the initiatives board: AutoCount's digital receipting is an add-on from the existing contract. Eliminates a paper process, creates a searchable record, and is required for full e-invoicing compliance."
      ],
      "flag": {
       "k": "decide",
       "w": "Set the FOH training date \u2014 a Saturday after work, then dinner. Scope is already fixed."
      },
-     "owner": "emily"
+     "owner": "emily",
+     "dept": "clinical",
+     "lens": "efficiency",
+     "from_initiatives": [
+      15
+     ],
+     "next": "After #1 go-live, configure the digital receipt module in AutoCount.",
+     "endMonth": "2026-10"
     },
     {
      "id": "d4",
@@ -359,7 +379,11 @@
      "open": [
       "<b>RM246k dental-sundries group is not on the register at all</b> \u2014 the largest single COGS line",
       "Register also produces the >7-day lab list that stress-tests the locum carry-forward rule",
-      "Stock-count design: DSA or FOH rotated weekly; maybe WhatsApp photo/count \u2192 brain \u2192 Emily or direct entry"
+      "Stock-count design: DSA or FOH rotated weekly; maybe WhatsApp photo/count \u2192 brain \u2192 Emily or direct entry",
+      "From the initiatives board: Cost lever: ~50/50 lab vs sundries today, untracked. Real value = per-case lab-cost traceability.",
+      "From the initiatives board: Pairs with procurement (#13) on the cost-visibility side. From the AutoCount HR/AP module (RM755/yr).",
+      "From the initiatives board: The register is the navigation map: it tells management whom to liaise with, which doctor-mediated relationships to take over, and where negotiated terms can improve cash flow or stop rebates being missed.",
+      "From the initiatives board: Volume-tier pricing on aligners is a cost-line rebate under the rebates policy."
      ],
      "flag": {
       "k": "due",
@@ -367,7 +391,17 @@
       "who": "Emily",
       "w": "Emily's full supplier list was committed for end of August. The largest cost line of all \u2014 RM246k of dental sundries \u2014 is still missing from it."
      },
-     "owner": "emily"
+     "owner": "emily",
+     "dept": "finance",
+     "lens": "cost",
+     "from_initiatives": [
+      13,
+      14,
+      21,
+      23
+     ],
+     "next": "After #1 go-live, stand up the AutoCount procurement/inventory module and define the SKUs/labs to track.",
+     "endMonth": "2026-11"
     },
     {
      "id": "d5",
@@ -404,7 +438,13 @@
       "Headcount add-ons later are pay-the-difference only; renewal date stays anchored to first payment",
       "Decide the cut-over month for live payroll"
      ],
-     "owner": "emily"
+     "owner": "emily",
+     "dept": "finance",
+     "lens": "efficiency",
+     "from_initiatives": [
+      38
+     ],
+     "next": "Quotation expected 27 Aug. Compare the annual fee against the manual effort it removes before committing, and decide whether it goes live with the accounting system or after the front desk has settled - stacking two new systems on the same team at once is the main risk."
     },
     {
      "id": "d6",
@@ -437,13 +477,21 @@
      ],
      "open": [
       "<b>Blocker is data, not rules:</b> only ~9% of paysplits carry a ProcNum \u2014 need an allocation convention (e.g. oldest-unpaid-first per patient+doctor), built into the tool, never manual",
-      "60-day backstop for implant-case invoices"
+      "60-day backstop for implant-case invoices",
+      "From the initiatives board: 100% deterministic arithmetic \u2014 NO LLM, offline. Volume rule: production \u2265 RM55k \u2192 whole month at 50%. Ortho/Invisalign 10%-exemption is Dr LING's deal (corrected \u2014 not Mah). GM write-up sent; awaiting answers + workbooks."
      ],
      "flag": {
       "k": "decide",
       "w": "When a patient pays, OpenDental almost never records which treatment the money was for. Agree how payments get matched to procedures and the doctor statements can be built."
      },
-     "owner": "lu"
+     "owner": "lu",
+     "dept": "finance",
+     "lens": "efficiency",
+     "from_initiatives": [
+      3
+     ],
+     "next": "CORRECTION 19 Aug: VPS feed is NOT stale \u2014 daily push lands in loop/inbox ~19:31 MYT w/ procedure-level production. Real gaps = paysplit-to-procedure allocation + lab AP. Owner has the allocation query; adding it as e7 to the nightly push closes the main gap. Revised effort likely well under the 7-9 day estimate.",
+     "endMonth": "2026-08"
     },
     {
      "id": "d7",
@@ -474,7 +522,11 @@
      "open": [
       "Every OpenDent PC needs reconfiguring after the server moves \u2014 more touch-time than the Saturday itself"
      ],
-     "owner": "codecapsule"
+     "owner": "codecapsule",
+     "dept": "tech",
+     "lens": "efficiency",
+     "from_initiatives": [],
+     "next": "PCs in transit \u2014 Taobao ETA 3 Sep"
     },
     {
      "id": "d8",
@@ -505,7 +557,14 @@
       "Delete the TEST PATIENT row",
       "Parked: Dr Ling's segment questionnaires (airway pre-visit set) as a form module"
      ],
-     "owner": "lu"
+     "owner": "lu",
+     "dept": "crm",
+     "lens": "efficiency",
+     "from_initiatives": [
+      10
+     ],
+     "next": "Form backend LIVE 20 Aug (e2e tested): submissions append to the private iSmile Patient Registrations Google Sheet (clinic account) + Telegram ping. Next: give front desk the Sheet + staff URL, decide row-retention after OpenDental entry, then un-gate the form WhatsApp shortcut.",
+     "endMonth": "2026-07"
     },
     {
      "id": "d9",
@@ -540,9 +599,17 @@
       "Owner ruling 28 Aug: this block belongs under Pillar 1, not finance \u2014 it becomes the locum-attribution substrate",
       "<b>Rate column shipped 30 Aug</b> (PR #220): every line now shows 40/45/50, marks lines lifted by the RM55k whole-month volume rule, and flags a rate as provisional while its month is still open. Validated against April 2026 (Ling/Ong/Mah at 50%)",
       "\u26a0\ufe0f Display only \u2014 it does not change how anyone is paid, and 'rate follows the production month' stays out of the engine until the agreement is signed",
-      "Next real blocker is the allocation convention: only ~9% of paysplits carry a ProcNum"
+      "Next real blocker is the allocation convention: only ~9% of paysplits carry a ProcNum",
+      "From the initiatives board: Headline: Yeoh RM1,508/chair-h vs Mah RM6/chair-h = 237\u00d7 spread. Burn recovers ~RM60k/mo of ~RM118k/mo overhead; the ~RM58k/mo unrecovered = idle-chair cost = the fill-chairs lever."
      ],
-     "owner": "edith"
+     "owner": "edith",
+     "dept": "tech",
+     "lens": "efficiency",
+     "from_initiatives": [
+      4
+     ],
+     "next": "CLOSED 19 Aug: dashboards are live (gated /dashboard hub: command center, margin, analytics, recall funnel, strategy board).",
+     "endMonth": "2026-11"
     },
     {
      "id": "d11",
@@ -572,7 +639,14 @@
       "Keep Edith mention-gated in the management group until Ling responds",
       "Transcripts live on the Contabo vault \u2014 check them before flagging anything as pending"
      ],
-     "owner": "edith"
+     "owner": "edith",
+     "dept": "tech",
+     "lens": "efficiency",
+     "from_initiatives": [
+      24
+     ],
+     "next": "Experiment with Dr Ling: clip-on mic during consultations doubles as (a) content recording for the social shoots (id 32) and (b) transcription source. Run both at the same shoot.",
+     "endMonth": "2026-11"
     },
     {
      "id": "d10",
@@ -601,7 +675,11 @@
      "open": [
       "Deliberately sequenced after go-live \u2014 don't let it pull focus from the integration"
      ],
-     "owner": "lu"
+     "owner": "lu",
+     "dept": "tech",
+     "lens": "efficiency",
+     "from_initiatives": [],
+     "next": "All data lands on one server"
     }
    ]
   },
@@ -676,7 +754,8 @@
       "Keep the parents' register: item 2 pays for item 1, leaving a gap of about RM10\u201312k a year",
       "Clause 2.6 names the GM for below-band sign-off \u2014 Emily now knows",
       "\u26a0\ufe0f Item 3b cannot be operated for real yet (only ~8% of paysplits carry a ProcNum) \u2014 agree the principle, never give the doctors a start date",
-      "<b>Jun's offer letter IS her copy of this agreement</b> \u2014 it cannot go out ahead of approval"
+      "<b>Jun's offer letter IS her copy of this agreement</b> \u2014 it cannot go out ahead of approval",
+      "From the initiatives board: All eight doctors are currently unpapered, several at about fifteen years' standing. Working papers are in People & Competence/Contracts/ \u2014 the review note and the marked-up agreement."
      ],
      "flag": {
       "k": "talk",
@@ -684,7 +763,14 @@
       "hot": true,
       "w": "Chase their answer on the three changes to how the doctors are paid. Nothing else in Legal & Governance can move until they reply."
      },
-     "owner": "lydia"
+     "owner": "lydia",
+     "dept": "people",
+     "lens": "efficiency",
+     "from_initiatives": [
+      16
+     ],
+     "next": "Review Lydia's final Independent Dental Practitioner Agreement with Emily on 25 Aug, then carry any agreed points into the contractor-agreement rollout (Emily -> Dr Ong -> per-doctor copies -> night Q&A -> sign).",
+     "endMonth": "2026-08"
     },
     {
      "id": "l2",
@@ -713,9 +799,17 @@
      ],
      "open": [
       "Not yet modelled in the engine \u2014 don't change the live calc until the agreement signs",
-      "Simulated: RM0 net effect over 12 months, \u00b110.8% monthly; 96% settles within a month"
+      "Simulated: RM0 net effect over 12 months, \u00b110.8% monthly; 96% settles within a month",
+      "From the initiatives board: Digital calculation can reduce Emily's work, but it does not by itself solve invoice crossover. A one-month lag is only safe if late deductions retain the originating month's rate; otherwise the RM55k whole-month volume rule can price the cost incorrectly."
      ],
-     "owner": "lu"
+     "owner": "lu",
+     "dept": "finance",
+     "lens": "efficiency",
+     "from_initiatives": [
+      20
+     ],
+     "next": "RESOLVED: dollar stays tied to the transaction/production month (rate-follows-production-month principle, baked into the contractor agreement Schedule).",
+     "endMonth": "2026-11"
     },
     {
      "id": "l3",
@@ -745,7 +839,14 @@
       "<b>Costed honestly: \u2212RM57k/yr ex-Ong; 2026 EBITDA ~34k \u2192 ~\u221223k.</b> The offsets recover only ~RM3.3k \u2014 this is bought simplicity, own it as such",
       "Ling's exemption bucket disappears with the rule \u2014 one story, not two"
      ],
-     "owner": "lu"
+     "owner": "lu",
+     "dept": "finance",
+     "lens": "cost",
+     "from_initiatives": [
+      18
+     ],
+     "next": "Scenario C run 19 Aug (the intended rule: pay on collections, rate follows production month): would have SAVED ~RM20k over 12mo (range 18.9-22.2k) \u2014 BUT RM72k unassigned cash could flip it to a RM4-17k cost. Decider = owner runs the payment-allocation query in OpenDental (file in Financials/03_Locum Calculation), then re-run exact.",
+     "endMonth": "2026-12"
     },
     {
      "id": "l4",
@@ -781,7 +882,14 @@
       "Scope IPP as \u226512-month treatment courses >RM10k \u2014 justification, not money",
       "Sim says doctor +RM22.6k / clinic \u2212RM2.3k on scenario A \u2014 everybody earns more than discounting"
      ],
-     "owner": "lu"
+     "owner": "lu",
+     "dept": "finance",
+     "lens": "cost",
+     "from_initiatives": [
+      29
+     ],
+     "next": "The pricing baseline question is now answered - see the fee schedule initiative. Doctors do follow the list where a price exists (60% exactly at base, and charging above and below cancels out), so the list is usable as an anchor once the gaps are filled. The blocker is that price reductions are recorded as edits to the procedure line rather than as discounts, so the clause needs the keying rule alongside it.",
+     "endMonth": "2026-12"
     },
     {
      "id": "l5",
@@ -812,7 +920,13 @@
       "Azelia is the sole below-pricer \u2014 handled via training, not confrontation",
       "Doctor OpenDent training carries this: discount = a line, never an edited price"
      ],
-     "owner": "emily"
+     "owner": "emily",
+     "dept": "finance",
+     "lens": "efficiency",
+     "from_initiatives": [
+      35
+     ],
+     "next": "Hold the repricing sitting with the practice manager first, then run the practitioner session off a finished price list. Frame it as writing down a standard that was never written down, not as retraining - most of the content is genuinely new, and the two most accurate keyers would otherwise be the ones who feel accused. Keep all per-practitioner comparisons out of the group room and handle those individually."
     },
     {
      "id": "l8",
@@ -867,7 +981,11 @@
       "by": "2026-09-04",
       "w": "Hand the contractor agreements over in one sit-down, or send them to each doctor first and take questions after?"
      },
-     "owner": "lu"
+     "owner": "lu",
+     "dept": "finance",
+     "lens": "efficiency",
+     "from_initiatives": [],
+     "next": "Decide the format: sit-down while sharing, or send individually then take questions"
     },
     {
      "id": "l6",
@@ -897,7 +1015,11 @@
       "Say it out loud: this is blocked on Lydia, not Emily",
       "Family-treatment benefit written here (employees), verbal for contractors"
      ],
-     "owner": "lydia"
+     "owner": "lydia",
+     "dept": "finance",
+     "lens": "efficiency",
+     "from_initiatives": [],
+     "next": "Handbook finalised by Lydia"
     }
    ]
   },
@@ -963,14 +1085,22 @@
       "Jason still owes the price",
       "PDPA check with Lydia",
       "<b>Cert expires 16 Oct</b> \u2014 renewal cron should fire ~15 Sep; Jason reminded 28 Aug, confirm it actually renews",
-      "250 sends/day cap shapes the wave calendar"
+      "250 sends/day cap shapes the wave calendar",
+      "From the initiatives board: Birthday trigger de-prioritised by the owner. The review ask moves a lever that already feeds the website automatically."
      ],
      "flag": {
       "k": "due",
       "by": "2026-09-07",
       "w": "Four things before the send: Meta's approval, Suraya's filter page, the checks that keep already-booked and opted-out patients off the list, and a re-run on fresh data."
      },
-     "owner": "lu"
+     "owner": "lu",
+     "dept": "crm",
+     "lens": "revenue",
+     "from_initiatives": [
+      28
+     ],
+     "next": "Code Capsule builds the mini-CRM pieces (excluded-names master list via CSV upload + recall/birthday-recipient exclusion tick, per Jason 24 Aug) and submits the 3 templates for Meta approval. Then: blacklist export back to us, fresh-data re-run of the send list, Lydia PDPA read (L11), price from Jason, final go.",
+     "endMonth": "2026-10"
     },
     {
      "id": "g2",
@@ -993,9 +1123,17 @@
       }
      ],
      "open": [
-      "Only dependency: keep the Alibaba account topped up (alerts to the iSmile inbox)"
+      "Only dependency: keep the Alibaba account topped up (alerts to the iSmile inbox)",
+      "From the initiatives board: <b>\u26a0\ufe0f Corrected figure:</b> individual conversion is <b>5.9%</b> (42/706). The earlier <b>18% \"family ripple\" is RETRACTED as confounded</b> (~95% coincidental). <b>Latest (20 Jul):</b> matured-cohort booking conversion <b>6.7%</b> (49 of 729 recalled patients booked within 90 days) on 3,618 message"
      ],
-     "owner": "edith"
+     "owner": "edith",
+     "dept": "crm",
+     "lens": "revenue",
+     "from_initiatives": [
+      7
+     ],
+     "next": "CLOSED 19 Aug: live and connected \u2014 daily cron, dashboard bridge, conversion reporting all running.",
+     "endMonth": "2026-06"
     },
     {
      "id": "g3",
@@ -1031,7 +1169,11 @@
       "Flat targets read as unfair \u2014 cleaning-heavy days can't match ortho days; target eligible patients or per-weekday",
       "159 past-dated appointments still 'Scheduled' \u2014 desk hygiene"
      ],
-     "owner": "emily"
+     "owner": "emily",
+     "dept": "growth",
+     "lens": "revenue",
+     "from_initiatives": [],
+     "next": "Coffee targets running (70% any 3 days)"
     },
     {
      "id": "g4",
@@ -1095,7 +1237,8 @@
       "Close in the letter: 55k\u219250% tier (leaning: keep, consistency), Oct pro-rating (26 Oct start = part month)",
       "Ling arrangement: apprentice override vs independent \u2014 fair remuneration expected; design as clinic-paid supervision fee, not fee-splitting",
       "<b>She builds her own book</b> \u2014 the RM7k floor is the ramp support; blast + call-list patients route to her",
-      "Time Wave 1 of the blast so replies land as her book opens"
+      "Time Wave 1 of the blast so replies land as her book opens",
+      "From the initiatives board: Shape under discussion is a guaranteed monthly minimum or the calculated fee, whichever is higher, for the first six months. That plus supervision looks a lot like employment, so the engagement basis needs a legal answer before it is offered. Communication to the existing doctors remains the main ri"
      ],
      "flag": {
       "k": "due",
@@ -1103,7 +1246,14 @@
       "hot": true,
       "w": "Jun's offer letter is owed \u2014 she resigned on a handshake and carries the risk until it exists."
      },
-     "owner": "lu"
+     "owner": "lu",
+     "dept": "clinical",
+     "lens": "revenue",
+     "from_initiatives": [
+      27
+     ],
+     "next": "Jun (Dr Jia Yin) offer landed 17 Aug: RM7k/6mo or 40% locum. She talks to her boss ~18-19 Aug, then offer letter -> sign -> ~2mo notice. Mom chat + Dr Ling chemistry chat follow.",
+     "endMonth": "2026-12"
     },
     {
      "id": "g5",
@@ -1148,7 +1298,11 @@
       "k": "decide",
       "w": "US$50 to top up the search-data account the SEO tooling runs on. New vendor spend, so it needs your approval."
      },
-     "owner": "edith"
+     "owner": "edith",
+     "dept": "growth",
+     "lens": "revenue",
+     "from_initiatives": [],
+     "next": "Prerender service pages"
     },
     {
      "id": "g6",
@@ -1177,9 +1331,19 @@
      ],
      "open": [
       "Stalled on your time \u2014 decide whether Mandy/DSAs can run it without you",
-      "Consent forms before any face-on-camera recording (parents sign for minors)"
+      "Consent forms before any face-on-camera recording (parents sign for minors)",
+      "From the initiatives board: Overlaps the marketing agent vehicle (Edith runs reviews, GBP and the website); keep the split clear \u2014 this is brand voice and social content, not infrastructure.",
+      "From the initiatives board: Overlaps id 32 (Mandy branding/social refresh \u2014 bring this to the 18 Aug meeting) and the marketing agent vehicle (Edith/website infra). Governance: CONTENT-CONTRACT currently steers blog copy away from named dentists \u2014 this initiative deliberately creates a consented, doctor-attributed lane; update"
      ],
-     "owner": "lu"
+     "owner": "lu",
+     "dept": "growth",
+     "lens": "revenue",
+     "from_initiatives": [
+      32,
+      33
+     ],
+     "next": "Content plan (first cut) written 18 Aug: experience + educational pillars, Dr Ling first shoot, front-desk appointment checklist. Next: front desk flags shootable appointments, assign DSA videographers, buy clip-on mic, ask Dr Ling.",
+     "endMonth": "2026-12"
     },
     {
      "id": "g7",
@@ -1219,7 +1383,13 @@
       "This is a brand/perceived-value play, not cost reduction \u2014 the owner's own read",
       "15-character plush series only works if costumes share one base body"
      ],
-     "owner": "lu"
+     "owner": "lu",
+     "dept": "growth",
+     "lens": "revenue",
+     "from_initiatives": [
+      37
+     ],
+     "next": "Order quantity sent to the supplier 26 Aug: roughly 220 to 300 cases a year, with a first order framed as six to twelve months of stock. We asked them to quote the ready made route - an existing colour swatch with our logo applied - and to state the lowest minimum that supports, plus a fully custom comparison if it is close. Awaiting their quote. Only the current unit cost still needs the practice manager."
     },
     {
      "id": "g8",
@@ -1249,7 +1419,229 @@
       "Cross-check: anniversary names must be excluded from the cold blast (already flagged in the blast pack)",
       "Bespoke beats branded merch here \u2014 these are relationship gifts"
      ],
-     "owner": "emily"
+     "owner": "emily",
+     "dept": "growth",
+     "lens": "revenue",
+     "from_initiatives": [],
+     "next": "Vetting with Dr Ong"
+    },
+    {
+     "id": "g9",
+     "dot": "now",
+     "chip": "concepts done",
+     "name": "CX & physical space",
+     "one": "As families return, the arrival experience must justify the premium. CX is stagnating / team too comfortable. The first visit back is the moment of truth for a reactivated patient.",
+     "steps": [
+      {
+       "t": "Site walk \u2014 measurements and photographs",
+       "s": "done"
+      },
+      {
+       "t": "Concept renders for both waiting areas, including the children's zones",
+       "s": "done"
+      },
+      {
+       "t": "Pick the winning direction per area",
+       "s": ""
+      },
+      {
+       "t": "Source furnishings secondhand \u2014 marketplace hunting, low budget",
+       "s": ""
+      },
+      {
+       "t": "Belongings storage \u2014 the gap patients notice most",
+       "s": ""
+      },
+      {
+       "t": "Next: Fourteen concept renders are done across both waiting areas, including the children's zones. The hold is procurement \u2014 this is a low-budget restyle, so furnishings need to be sourced secondhand rather than bought new.",
+       "s": "now"
+      }
+     ],
+     "open": [
+      "Quick wins (<~RM1k): front-desk recognition, rebook-at-checkout. \"Mirror-in-a-lift\" trick = manage <b>perceived</b> wait, not just actual wait."
+     ],
+     "owner": "lu",
+     "dept": "crm",
+     "lens": "revenue",
+     "from_initiatives": [
+      5
+     ],
+     "next": "Fourteen concept renders are done across both waiting areas, including the children's zones. The hold is procurement \u2014 this is a low-budget restyle, so furnishings need to be sourced secondhand rather than bought new.",
+     "endMonth": "2026-09"
+    },
+    {
+     "id": "g10",
+     "dot": "horizon",
+     "chip": "revisit Dec",
+     "name": "Physio referral partnership",
+     "one": "A physiotherapist the family uses closely; his primary market is independent elderly in PJ. Reframed 21 Jul: not a standing referral pipeline \u2014 a seasonal goodwill channel into exactly the demographic we want.",
+     "steps": [
+      {
+       "t": "Lu texted Asher (The Physio Room) \u2014 initial contact made 24 Jun",
+       "s": "done"
+      },
+      {
+       "t": "Reframed: seasonal goodwill, not a BAU referral pipeline",
+       "s": "done"
+      },
+      {
+       "t": "Dec: design the iSmile card that goes into the CNY hampers",
+       "s": ""
+      },
+      {
+       "t": "Agree the reciprocal gesture \u2014 what we do for his patients in return",
+       "s": ""
+      },
+      {
+       "t": "Track anyone who arrives from it (needs #10 front-desk referral tracking)",
+       "s": ""
+      },
+      {
+       "t": "Next: Nothing to chase now. Revisit around December so the card and the offer are ready before the CNY hamper run.",
+       "s": "now"
+      }
+     ],
+     "open": [
+      "Premium, trust-based \u2014 clinician-to-clinician, never paid lead-gen. The clinical overlap (jaw pain, posture, airway/myofunctional) is still the honest hook if a closer partnership ever makes sense."
+     ],
+     "owner": "lu",
+     "dept": "growth",
+     "lens": "revenue",
+     "from_initiatives": [
+      8
+     ],
+     "next": "Nothing to chase now. Revisit around December so the card and the offer are ready before the CNY hamper run.",
+     "endMonth": "2027-02"
+    },
+    {
+     "id": "g11",
+     "dot": "now",
+     "chip": "in motion",
+     "name": "Referral engine (CX-driven, opt-in)",
+     "one": "We're a premium, trust-based practice \u2014 referrals must be earned through experience, not bought (no MLM, no discounts; the segment isn't price-sensitive). A great end-to-end experience makes referral automatic.",
+     "steps": [
+      {
+       "t": "Call with Lu Zheng \u2014 CRM handover and the referral engine",
+       "s": ""
+      },
+      {
+       "t": "One-time: identify loyal / high-frequency / high-value / complex-case patients",
+       "s": ""
+      },
+      {
+       "t": "Lu Zheng building the high-value referral list (moved off the intern)",
+       "s": ""
+      },
+      {
+       "t": "Lists complete \u2192 Lu presents to GM \u2192 gate Elaine-as-caller \u2192 trigger",
+       "s": ""
+      },
+      {
+       "t": "Design post-referral thank-you (text and/or RM50 NGO food voucher)",
+       "s": ""
+      },
+      {
+       "t": "Decide if an opt-in program is needed; pilot with the loyal cohort",
+       "s": ""
+      },
+      {
+       "t": "Next: Call with Lu Zheng scheduled to work through the CRM and the referral engine together. He owns the CRM and is building the high-value list. The same caller constraint as the cold-calling applies once the list is ready.",
+       "s": "now"
+      }
+     ],
+     "open": [
+      "Box 1 = Customer Experience (pre/in/post-visit + physical space = #5). Box 2 = the referral. Box 3 = thank the referrer when their referral shows up + produces. NGO voucher = food money for them + goodwill/moral gain (clinic invests in an NGO).",
+      "From the initiatives board: Query saved at CRM/referral-baseline-audit.sql. Schema note: this version of the practice system uses IsFrom, not RefType \u2014 the later column name errors out."
+     ],
+     "owner": "lu",
+     "dept": "crm",
+     "lens": "revenue",
+     "from_initiatives": [
+      9,
+      31
+     ],
+     "next": "Call with Lu Zheng scheduled to work through the CRM and the referral engine together. He owns the CRM and is building the high-value list. The same caller constraint as the cold-calling applies once the list is ready.",
+     "endMonth": "2026-10"
+    },
+    {
+     "id": "g12",
+     "dot": "horizon",
+     "chip": "idea",
+     "name": "Extend operating hours",
+     "one": "Raises the hard 762-chair-hour/month capacity ceiling \u2014 the one lever that lifts the cap. Also serves the 'can't come during working hours' churn segment and may open new markets.",
+     "steps": [
+      {
+       "t": "Size the can't-make-working-hours demand (from CRM calls + recall replies)",
+       "s": ""
+      },
+      {
+       "t": "Model staffing/locum cost vs expected fill",
+       "s": ""
+      },
+      {
+       "t": "Pilot an evening / weekend block",
+       "s": ""
+      },
+      {
+       "t": "Next: Dr Priscilla mentioned (Aug) she is OPEN TO WORKING NIGHTS \u2014 possibly not mornings. A concrete staffing option for extended hours.",
+       "s": "now"
+      }
+     ],
+     "open": [
+      "Capacity insight: today ~554/762 chair-hrs used (~73%); maxing hours alone caps ~RM367k/mo \u2014 extending hours lifts the ceiling itself. Pairs with CRM/retention (families lost to working-hours conflict)."
+     ],
+     "owner": "lu",
+     "dept": "clinical",
+     "lens": "revenue",
+     "from_initiatives": [
+      11
+     ],
+     "next": "Dr Priscilla mentioned (Aug) she is OPEN TO WORKING NIGHTS \u2014 possibly not mornings. A concrete staffing option for extended hours.",
+     "endMonth": "2026-10"
+    },
+    {
+     "id": "g13",
+     "dot": "now",
+     "chip": "backup pending",
+     "name": "WhatsApp shortcuts & chat automation",
+     "one": "The website now opens WhatsApp conversations with a pre-typed, procedure-specific first line (CTA pop-up, live 10 Aug 2026), so incoming chats arrive already labelled by intent: aligners, wisdom tooth, implants, whitenin",
+     "steps": [
+      {
+       "t": "Tier 1 (7 shortcuts) loaded on clinic phone 17 Aug (hours/book/firstvisit/fees/pain/cleaning/form \u2014 form gated on backend)",
+       "s": "done"
+      },
+      {
+       "t": "Collect chat history at clinic (19 Aug): confirm E2E re-encryption done, USB-copy msgstore.db.crypt15 + 64-digit key",
+       "s": ""
+      },
+      {
+       "t": "Decrypt with whatsapp-chat-exporter, verify Dr Ling group intact",
+       "s": ""
+      },
+      {
+       "t": "Mine history -> tier 2 (filling/extraction/gums/rootcanal/kids) + tier 3 tx- drafts + desk training sheet",
+       "s": ""
+      },
+      {
+       "t": "Registration-form backend (Google Sheet webhook) so the form shortcut can go live \u2014 in build (id 10)",
+       "s": ""
+      },
+      {
+       "t": "Next: Owner collecting the encrypted backup + key at the clinic 19 Aug; then decrypt and mine for tier 2/3.",
+       "s": "now"
+      }
+     ],
+     "open": [
+      "Chats opening with the pop-up pre-typed lines are pop-up leads; front desk should tag them so click-to-booking attribution stays cheap."
+     ],
+     "owner": "lu",
+     "dept": "crm",
+     "lens": "revenue",
+     "from_initiatives": [
+      30
+     ],
+     "next": "Owner collecting the encrypted backup + key at the clinic 19 Aug; then decrypt and mine for tier 2/3.",
+     "endMonth": "2026-11"
     }
    ]
   }
@@ -1284,13 +1676,21 @@
       }
      ],
      "open": [
-      "Front desk to pick safe long-tenured patients of Mah's for the notes \u2014 quiet until executed"
+      "Front desk to pick safe long-tenured patients of Mah's for the notes \u2014 quiet until executed",
+      "From the initiatives board: People & Competence initiative. Handle discreetly."
      ],
      "flag": {
       "k": "talk",
       "w": "Confirm Dr Mah's birthday date and settle the check-in rhythm."
      },
-     "owner": "jean"
+     "owner": "jean",
+     "dept": "people",
+     "lens": "efficiency",
+     "from_initiatives": [
+      34
+     ],
+     "next": "Confirm the birthday date (via Emily). Nearer the time: front desk selects safe long-tenured patients to write notes.",
+     "endMonth": "2026-12"
     },
     {
      "id": "h2",
@@ -1319,14 +1719,22 @@
      ],
      "open": [
       "Emily is aware and planning for EOY",
-      "Funded from reserves, not profit \u2014 hold that framing"
+      "Funded from reserves, not profit \u2014 hold that framing",
+      "From the initiatives board: Deliberate design: bonus <b>early</b> (cash goodwill now, when the team can feel it) and increment <b>late</b> (a permanent cost \u2014 hold it until the year is known). Announced at clinic level with \"details one-to-one\" as the safety valve, so no individual number was disclosed in the room. Individual "
      ],
      "flag": {
       "k": "talk",
       "who": "Dr Ong",
       "w": "Dr Ong still has not sat down with Elaine about her job description."
      },
-     "owner": "lu"
+     "owner": "lu",
+     "dept": "people",
+     "lens": "cost",
+     "from_initiatives": [
+      17
+     ],
+     "next": "Remaining scope = the YEAR-END INCREMENT only (bonus paid Jul). Owner + Emily to sit down and set per-person amounts. Easy call already made: staff under 1 year (Erincy/Ruth/Suriza) get NO increment.",
+     "endMonth": "2026-12"
     },
     {
      "id": "h3",
@@ -1349,14 +1757,22 @@
       }
      ],
      "open": [
-      "Keep the safety question and the conduct question as two different conversations"
+      "Keep the safety question and the conduct question as two different conversations",
+      "From the initiatives board: Keep the training night and the conduct standard apart. The session is a reward and a skills exercise; if the grievances are read out that evening it becomes a reprimand with food. The durable fix is filling the chairs so the idle time does not exist \u2014 but that is a six-month lever and the standard "
      ],
      "flag": {
       "k": "talk",
       "who": "Emily",
       "w": "Check with Emily whether a junior really was left alone with a patient. This is patient safety \u2014 keep it apart from the conduct complaints."
      },
-     "owner": "emily"
+     "owner": "emily",
+     "dept": "people",
+     "lens": "efficiency",
+     "from_initiatives": [
+      26
+     ],
+     "next": "Held by the owner on 26 Aug. The intended approach is to raise utilisation so the team is properly occupied, rather than to run a conduct process now. The supervision question should still be verified with the practice manager separately, since that one is about patient safety rather than professionalism.",
+     "endMonth": "2026-12"
     },
     {
      "id": "h4",
@@ -1381,7 +1797,79 @@
      "open": [
       "CRM calling itself is deprioritised \u2014 the redeployment still needs a real cadence eventually"
      ],
-     "owner": "jean"
+     "owner": "jean",
+     "dept": "people",
+     "lens": "efficiency",
+     "from_initiatives": [],
+     "next": "Jessy FOH stretch posting running"
+    },
+    {
+     "id": "h5",
+     "dot": "now",
+     "chip": "training date TBD",
+     "name": "Front-of-house SOP, training & bench",
+     "one": "The clinic has no SOP for issuing letters to patients \u2014 medical certificates, referral letters, insurance reports, quotations. Nobody had ever said whose job it was, and that gap caused real friction between a doctor and",
+     "steps": [
+      {
+       "t": "Scope written \u2014 ~25 front-of-house duties mapped, P1 vs P2",
+       "s": "done"
+      },
+      {
+       "t": "Letters SOP: templates, request path, turnaround, sign-off, filing, register",
+       "s": ""
+      },
+      {
+       "t": "Erincy on the front desk about 30% of her time inside her first three months",
+       "s": ""
+      },
+      {
+       "t": "Escalation matrix \u2014 what the desk answers vs what needs a doctor",
+       "s": ""
+      },
+      {
+       "t": "Answer bank \u2014 the 30\u201340 most common questions, approved once by a doctor",
+       "s": ""
+      },
+      {
+       "t": "Combined front-desk training, timed to digital receipts",
+       "s": ""
+      },
+      {
+       "t": "Ruth rotated in",
+       "s": ""
+      },
+      {
+       "t": "Training scope agreed \u2014 receipts, the digital form, letters, and difficult conversations",
+       "s": "done"
+      },
+      {
+       "t": "Attendance agreed \u2014 four required, the rest of the assistants welcome",
+       "s": "done"
+      },
+      {
+       "t": "Letters: obtain the example from the office, then build the letterhead templates",
+       "s": ""
+      },
+      {
+       "t": "Check whether a clinic stamp can stand in for a doctor's signature on external letters",
+       "s": ""
+      },
+      {
+       "t": "Next: Consolidated all training inputs onto this card (see note). Next: owner picks a date to build the FOH training deck.",
+       "s": "now"
+      }
+     ],
+     "open": [
+      "Merges the two front-of-house items raised on 20 Jul \u2014 the SOP gap and the upskilling/bench \u2014 because they are the same problem. TRAINING SYLLABUS INPUTS (consolidated 19 Aug, for the future training deck): (1) FOH training compulsory attendees Joanna/Erincy/Jessy/Ida; (2) FOH-01 patient-letters SOP (5 templates, 7-step process, Joanna pilot); (3) WhatsApp quick replies house voice + desk usage, plus desk-training sheet coming from chat-history mining (id 30); (4) DSA professionalism standards (noise, phones, occupied rooms; Siti/Eda peer-led training night model); (5) digital registration form staff flow (?staff=1); (6) rebooking-at-checkout habit (real baseline ~55-65%); (7) AutoCount front-desk training once migration timeline lands (invoice edits in OpenDent only - 30s rule); (8) phone/WhatsApp etiquette + name sign-offs. Detail lives in local memory/chat archives - enough to whip up a deck on request."
+     ],
+     "owner": "emily",
+     "dept": "people",
+     "lens": "efficiency",
+     "from_initiatives": [
+      19
+     ],
+     "next": "Consolidated all training inputs onto this card (see note). Next: owner picks a date to build the FOH training deck.",
+     "endMonth": "2026-11"
     }
    ]
   },
@@ -1415,7 +1903,11 @@
      "open": [
       "Break-even \u2248 RM5.5k/day \u2014 the number the team can hold"
      ],
-     "owner": "edith"
+     "owner": "edith",
+     "dept": "finance",
+     "lens": "efficiency",
+     "from_initiatives": [],
+     "next": "Add a bank-balance line to the daily view"
     },
     {
      "id": "f2",
@@ -1445,7 +1937,11 @@
       "k": "decide",
       "w": "Dropping the 10% deduction moves EBITDA from about +RM34k to about \u2212RM23k. Carry that into the forecast before the sit-down with your parents."
      },
-     "owner": "lu"
+     "owner": "lu",
+     "dept": "finance",
+     "lens": "efficiency",
+     "from_initiatives": [],
+     "next": "Track landing vs actuals monthly"
     },
     {
      "id": "f3",
@@ -1477,7 +1973,59 @@
       "k": "decide",
       "w": "Confirm the cash covers what is left to pay for the digitisation, plus December's bonus and increments."
      },
-     "owner": "emily"
+     "owner": "emily",
+     "dept": "finance",
+     "lens": "efficiency",
+     "from_initiatives": [],
+     "next": "Confirm cash covers remaining capex + Dec bonus/increment wave"
+    },
+    {
+     "id": "f4",
+     "dot": "wait",
+     "chip": "policy",
+     "name": "Supplier rebates & benefits policy",
+     "one": "Suppliers give us more than goods \u2014 early-payment cashback, volume discounts, seasonal promotions, free units, sponsored courses. Today there is no rule about who those benefits belong to, which means every case is a neg",
+     "steps": [
+      {
+       "t": "Policy drafted \u2014 three buckets, with a worked example table",
+       "s": "done"
+      },
+      {
+       "t": "Key insight captured: cost-linked rebates are ALREADY shared, because lab and material costs are deducted before the doctor's share",
+       "s": "done"
+      },
+      {
+       "t": "Confirm rebates are actually booked against the cost line in the month they relate to \u2014 the policy fails quietly if they are not",
+       "s": ""
+      },
+      {
+       "t": "Legal to confirm the ethics and inducement position",
+       "s": ""
+      },
+      {
+       "t": "Communicate to the doctors, leading with the good news",
+       "s": ""
+      },
+      {
+       "t": "Fold into the contractor agreement",
+       "s": ""
+      },
+      {
+       "t": "Next: Confirm the mechanics with the office, get the ethics position confirmed, then communicate it and fold it into the contractor agreement.",
+       "s": "now"
+      }
+     ],
+     "open": [
+      "Cash-flow-earned benefits are the clinic's outright. Case-cost-earned benefits reduce the cost line and reach the doctors automatically \u2014 paying them on top would be double-counting. Personal benefits are declared and logged."
+     ],
+     "owner": "lu",
+     "dept": "finance",
+     "lens": "cost",
+     "from_initiatives": [
+      22
+     ],
+     "next": "Confirm the mechanics with the office, get the ethics position confirmed, then communicate it and fold it into the contractor agreement.",
+     "endMonth": "2026-09"
     }
    ]
   }
@@ -1502,10 +2050,88 @@
   "Registration/admin fee idea \u2014 parked (RM10\u201315 break-even, Lydia same convo as discounts)",
   "holidays.txt repopulate each January (closed-day digest guard)",
   "CRM 172-name call list \u2014 built, idle, deprioritised by choice",
-  "X-ray compliance \u2705 resolved \u2014 one AELB-compliant person in the building suffices, and one is always present"
+  "X-ray compliance \u2705 resolved \u2014 one AELB-compliant person in the building suffices, and one is always present",
+  "CRM Reactivation Cold-Calling \u2014 Deprioritised by the owner on 26 Aug. Caller capacity remains the constraint and there is no spare capacity to allocate right now, so the ra (parked)"
  ],
+ "archive": [
+  {
+   "initiative": 4,
+   "title": "Data-Visibility Dashboard",
+   "dept": "tech",
+   "lens": "efficiency",
+   "owner": "lu",
+   "closed": "CLOSED 19 Aug: dashboards are live (gated /dashboard hub: command center, margin, analytics, recall funnel, strategy board).",
+   "endMonth": "2026-11",
+   "stream": "d9"
+  },
+  {
+   "initiative": 6,
+   "title": "Marketing Agent Vehicle (Contabo / Edith)",
+   "dept": "growth",
+   "lens": "revenue",
+   "owner": "edith",
+   "closed": "CLOSED 19 Aug (owner): vehicle is live and autonomous; credential rotation deliberately dropped (low importance), route change not happening now.",
+   "endMonth": "2026-06",
+   "stream": null
+  },
+  {
+   "initiative": 7,
+   "title": "Automated Recall + ROI Attribution",
+   "dept": "crm",
+   "lens": "revenue",
+   "owner": "codecapsule",
+   "closed": "CLOSED 19 Aug: live and connected \u2014 daily cron, dashboard bridge, conversion reporting all running.",
+   "endMonth": "2026-06",
+   "stream": "g2"
+  },
+  {
+   "initiative": 20,
+   "title": "Locum Invoice Crossover & Payment Date",
+   "dept": "finance",
+   "lens": "efficiency",
+   "owner": "lu",
+   "closed": "RESOLVED: dollar stays tied to the transaction/production month (rate-follows-production-month principle, baked into the contractor agreement Schedule).",
+   "endMonth": "2026-11",
+   "stream": "l2"
+  },
+  {
+   "initiative": 25,
+   "title": "Patient Conversation Context for Doctors",
+   "dept": "clinical",
+   "lens": "efficiency",
+   "owner": "lu",
+   "closed": "CLOSED 19 Aug (owner): WhatsApp stays open in Surgery 4 (unused room) + front desk only; no other surgery gets it.",
+   "endMonth": "2026-09",
+   "stream": null
+  },
+  {
+   "initiative": 36,
+   "title": "Practice Manager Working Session - Aug 2026",
+   "dept": "people",
+   "lens": "efficiency",
+   "owner": "lu",
+   "closed": "Session held 26 Aug. Settled: the subscription timing, the 5 Sep configuration slot with the engineer arriving mid-afternoon so the trading day is not lost, the software list, the contractor agreement walkthrough, the pricing and discount findings, the locum timing approach, the shortcut set and the year-end increment timing. Still open: the supplier register and what we currently pay for cases; a date for the front-desk training, to run on a Saturday after work with dinner; and a new mailbox the practice manager proposed for the registration sheet. Four items were not reached at all - the checkout rebooking leak, the loss-making weekdays, the chairside conduct matter and caller capacity - and these should open the next session.",
+   "endMonth": null,
+   "stream": null
+  }
+ ],
+ "people": {
+  "lu": "Lu",
+  "jean": "Dr Ong",
+  "tianchen": "Lau Tian Chen",
+  "emily": "Emily",
+  "lydia": "Lydia",
+  "ling": "Dr Ling",
+  "edith": "Edith",
+  "codecapsule": "Code Capsule",
+  "parents": "Lu's parents"
+ },
+ "merged_from_initiatives": {
+  "date": "2026-09-02",
+  "note": "initiatives.store.json folded into this store; initiatives.json is now DERIVED from it by hq_publish.py for the legacy page."
+ },
  "meta": {
   "asof": "WED 02 SEP 2026",
-  "updated": "2026-09-02T14:29:12+08:00"
+  "updated": "2026-09-02T17:05:16+08:00"
  }
 }
