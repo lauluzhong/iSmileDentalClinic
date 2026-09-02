@@ -261,7 +261,7 @@
      "flag": {
       "k": "due",
       "by": "2026-09-05",
-      "w": "Confirm the Sat 5 Sep downtime with Bob \u2014 the hardware ETA decides 5 vs 12 Sep."
+      "w": "Confirm Saturday 5 Sep with Bob for the OpenDent switch-over. If the hardware lands late it moves to 12 Sep."
      }
     },
     {
@@ -362,7 +362,7 @@
       "k": "due",
       "by": "2026-08-31",
       "who": "Emily",
-      "w": "The supplier register was committed for end of August; the RM246k sundries group is still not on it."
+      "w": "Emily's full supplier list was committed for end of August. The largest cost line of all \u2014 RM246k of dental sundries \u2014 is still missing from it."
      }
     },
     {
@@ -671,7 +671,7 @@
       "k": "talk",
       "who": "your parents",
       "hot": true,
-      "w": "Chase the reply on the three comp changes \u2014 everything else in this pillar is held behind it."
+      "w": "Chase their answer on the three changes to how the doctors are paid. Nothing else in Legal & Governance can move until they reply."
      }
     },
     {
@@ -849,7 +849,7 @@
      "flag": {
       "k": "decide",
       "by": "2026-09-04",
-      "w": "Hand the agreements over in a sit-down, or send them individually and take questions after?"
+      "w": "Hand the contractor agreements over in one sit-down, or send them to each doctor first and take questions after?"
      }
     },
     {
@@ -950,7 +950,7 @@
      "flag": {
       "k": "due",
       "by": "2026-09-07",
-      "w": "Meta approval, Suraya's filter page, exclusion cross-checks and a fresh-data re-run before the send."
+      "w": "Four things before the send: Meta's approval, Suraya's filter page, the checks that keep already-booked and opted-out patients off the list, and a re-run on fresh data."
      }
     },
     {
@@ -1124,7 +1124,7 @@
      ],
      "flag": {
       "k": "decide",
-      "w": "US$50 DataForSEO top-up \u2014 new vendor spend, so it needs you."
+      "w": "US$50 to top up the search-data account the SEO tooling runs on. New vendor spend, so it needs your approval."
      }
     },
     {
@@ -1297,7 +1297,7 @@
      "flag": {
       "k": "talk",
       "who": "Dr Ong",
-      "w": "The Dr Ong \u00d7 Elaine JD talk is confirmed not to have happened yet."
+      "w": "Dr Ong still has not sat down with Elaine about her job description. Her increment waits on that conversation."
      }
     },
     {
@@ -1326,7 +1326,7 @@
      "flag": {
       "k": "talk",
       "who": "Emily",
-      "w": "Verify the junior-left-alone supervision allegation \u2014 patient safety, kept separate from the conduct thread."
+      "w": "Check with Emily whether a junior really was left alone with a patient. This is patient safety \u2014 keep it apart from the conduct complaints."
      }
     },
     {
@@ -1412,7 +1412,7 @@
      ],
      "flag": {
       "k": "decide",
-      "w": "Carry the 10%-removal hit (EBITDA ~34k \u2192 ~\u221223k) into the projection before the parents sit-down."
+      "w": "Dropping the 10% deduction moves EBITDA from about +RM34k to about \u2212RM23k. Carry that into the forecast before the sit-down with your parents."
      }
     },
     {
@@ -1443,7 +1443,7 @@
      ],
      "flag": {
       "k": "decide",
-      "w": "Confirm cash covers the remaining capex plus the December bonus and increment wave."
+      "w": "Confirm the cash covers what is left to pay for the digitisation, plus December's bonus and increments."
      }
     }
    ]
@@ -1473,6 +1473,6 @@
  ],
  "meta": {
   "asof": "WED 02 SEP 2026",
-  "updated": "2026-09-02T11:14:25+08:00"
+  "updated": "2026-09-02T11:16:11+08:00"
  }
 }
