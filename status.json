@@ -1,6 +1,8 @@
 {
-  "updated": "2026-09-02 18:00 MYT",
-  "running": [],
+  "updated": "2026-09-02 18:16 MYT",
+  "running": [
+    "seo_geo_audit"
+  ],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -49,6 +51,9 @@
     "deck_stats": {
       "state": "idle",
       "last": "2026-09-02 18:00 MYT"
+    },
+    "seo_geo_audit": {
+      "state": "running"
     }
   }
 }
