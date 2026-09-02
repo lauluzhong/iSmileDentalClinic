@@ -1,6 +1,8 @@
 {
-  "updated": "2026-09-03 06:05 MYT",
-  "running": [],
+  "updated": "2026-09-03 06:20 MYT",
+  "running": [
+    "review_stats_sync"
+  ],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -27,7 +29,7 @@
       "last": "2026-09-02 17:49 MYT"
     },
     "review_stats_sync": {
-      "state": "idle",
+      "state": "running",
       "last": "2026-09-02 06:20 MYT"
     },
     "cash_digest": {
