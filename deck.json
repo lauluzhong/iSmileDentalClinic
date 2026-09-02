@@ -1,21 +1,21 @@
 {
- "generated_myt": "2026-09-02 18:00",
- "generated_at": "2026-09-02T18:00:10+08:00",
+ "generated_myt": "2026-09-02 18:30",
+ "generated_at": "2026-09-02T18:30:09+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 79.0,
   "nproc": 4,
   "load": [
-   0.49,
-   0.26,
-   0.23
+   0.18,
+   0.58,
+   0.59
   ],
-  "cpu_pct": 10.7,
+  "cpu_pct": 4.3,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 2585,
-   "avail_mb": 5355,
-   "pct": 32.6,
+   "used_mb": 2038,
+   "avail_mb": 5903,
+   "pct": 25.7,
    "swap_total_mb": 2047,
    "swap_used_mb": 211
   },
@@ -27,12 +27,12 @@
   "gateway_ok": true,
   "walogger_ok": true,
   "crons": {
-   "total": 12,
+   "total": 13,
    "failed": [],
    "running": [
     "deck_stats"
    ],
-   "status_updated": "2026-09-02 18:00 MYT"
+   "status_updated": "2026-09-02 18:30 MYT"
   },
   "last_clinic_push": "2026-09-02"
  },
@@ -53,9 +53,9 @@
    "role": "cron worker",
    "kind": "cron",
    "model": null,
-   "sessions_total": 2,
-   "sessions_30d": 2,
-   "last_active_myt": "2026-09-01 07:05"
+   "sessions_total": 6,
+   "sessions_30d": 6,
+   "last_active_myt": "2026-09-02 18:27"
   },
   {
    "id": "cron-gbp",
@@ -105,7 +105,7 @@
    "model": null,
    "sessions_total": 60,
    "sessions_30d": 38,
-   "last_active_myt": "2026-09-02 18:00"
+   "last_active_myt": "2026-09-02 18:19"
   }
  ],
  "finance": {
@@ -239,7 +239,19 @@
   "source": "Zernio MCP (Edith's connection)",
   "as_of": "2026-09-02",
   "window_days": 30,
-  "accounts": [],
+  "accounts": [
+   {
+    "platform": "instagram",
+    "username": "ismiledentalclinicmy",
+    "display": "iSmile Dental Clinic",
+    "followers": 98.0,
+    "growth_30d": -1.0,
+    "growth_pct_30d": -1.01,
+    "posts_on_platform": 13.0,
+    "last_updated": "2026-09-02T04:33:57.451000Z",
+    "active": true
+   }
+  ],
   "instagram_30d": null,
   "posts_published_via_zernio": 0,
   "note": "Instagram @ismiledentalclinicmy is connected through Zernio. Posts published outside Zernio are not counted in posts_published_via_zernio."
