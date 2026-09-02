@@ -362,7 +362,7 @@
     <ul class="sblist" id="sblist"></ul>
   </div>
 
-  <footer>iSmile HQ · <a href="/dashboard">Command Center</a> · <a href="/dashboard/margin">margin</a> · <a href="/dashboard/analytics">analytics</a><br>data loads live from <span style="font-family:var(--mono)">hq.json</span> (board · timeline) and <span style="font-family:var(--mono)">initiatives.json</span> (kanban) on the status branch — ask Claude or Edith to update any card</footer>
+  <footer>iSmile HQ · <a href="/dashboard">Command Center</a> · <a href="/dashboard/margin">margin</a> · <a href="/dashboard/analytics">analytics</a><br>data loads live from <span style="font-family:var(--mono)">hq.json</span> on the status branch — one store for board, timeline and kanban — ask Claude or Edith to update any card</footer>
 </div>
 
 <div id="tip"></div>
@@ -2126,7 +2126,6 @@ function slideTo(dir,fn){
   },170);
 }
 function buildNav(){
-  if(PANELCTX&&PANELCTX.kind==="initiative"){$("#dnav").innerHTML="";return;}
   const nav=$("#dnav"); nav.innerHTML="";
   if(!PANELCTX)return;
   if(PANELCTX.kind==="stream"){
@@ -2158,6 +2157,7 @@ function openStream(s,parent){
   $("#dtitle").textContent=s.name;
   $("#done").textContent=s.one;
   const b=$("#dbody"); b.innerHTML="";
+  if(s.next){b.appendChild(el("div","dflag k-due",`<span class="atag">next</span><span class="aask">${s.next}</span>`));}
   const a=attentionOf(s);
   if(a){
     const by=a.by?fmtBy(a.by,a.k):(a.who?"on "+a.who:"");
@@ -2317,7 +2317,7 @@ document.addEventListener("keydown",e=>{
 const PEOPLE={lu:"Lu",jean:"Dr Ong",tianchen:"Lau Tian Chen",emily:"Emily",lydia:"Lydia",ling:"Dr Ling",edith:"Edith",codecapsule:"Code Capsule",parents:"Lu's parents"};
 
 /* ---------- views: board · timeline · kanban (+ #s=<id> opens one item, #v=<view> picks a view) ---------- */
-let VIEW="board", INITS=null;
+let VIEW="board";
 function setView(v){
   VIEW=v; document.body.dataset.view=v;
   document.querySelectorAll("#views button").forEach(b=>b.classList.toggle("active",b.dataset.v===v));
@@ -2356,43 +2356,35 @@ function renderTimeline(){
   box.appendChild(el("div","secthead","Everything dated, in order"));
   box.appendChild(tl);
 }
-const KSTAT=[["active","Active","var(--p1)"],["review","In review","var(--p2)"],["planned","Planned","var(--dim)"],["blocked","Blocked","var(--bad)"],["paused","Paused","var(--warn)"],["parked","Parked","var(--dim)"],["done","Done","var(--ok)"]];
+/* kanban: one store. Columns come from each stream's dot; Done comes from the archive. */
+const KCOLS=[["now","Active","var(--p1)"],["wait","Waiting","var(--warn)"],["blocked","Blocked","var(--bad)"],["live","Live","var(--ok)"],["horizon","Planned","var(--dim)"],["parked","Parked","var(--dim)"],["done","Done","var(--ok)"]];
 const KDEPT={growth:"Growth",crm:"CRM",clinical:"Clinical",people:"People",finance:"Finance",tech:"Tech"};
-let KSHOW=new Set(["active","review","planned","blocked","paused","parked"]);
-async function renderKanban(){
-  const box=$("#kanban"); box.innerHTML=el("div","secthead","Initiatives — the kanban").outerHTML;
-  if(!INITS){try{const r=await fetch("https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/initiatives.json?t="+Date.now(),{cache:"no-store"});INITS=await r.json();}catch(e){box.appendChild(el("div","pmiss","initiatives.json not available"));return;}}
+let KSHOW=new Set(["now","wait","blocked","live","horizon","parked"]);
+function renderKanban(){
+  const box=$("#kanban"); box.innerHTML=el("div","secthead","Kanban — every workstream by state").outerHTML;
   const f=el("div","kfilter");
-  KSTAT.forEach(([k,l])=>{const sp=el("span",KSHOW.has(k)?"on":"",l);sp.addEventListener("click",()=>{KSHOW.has(k)?KSHOW.delete(k):KSHOW.add(k);renderKanban();});f.appendChild(sp);});
+  KCOLS.forEach(([k,l])=>{const sp=el("span",KSHOW.has(k)?"on":"",l);sp.addEventListener("click",()=>{KSHOW.has(k)?KSHOW.delete(k):KSHOW.add(k);renderKanban();});f.appendChild(sp);});
   box.appendChild(f);
   const kb=el("div","kb");
-  KSTAT.filter(([k])=>KSHOW.has(k)).forEach(([k,l,c])=>{
-    const rows=(INITS.initiatives||[]).filter(i=>i.status===k); if(!rows.length&&k!=="active")return;
+  const all=[...DATA.pillars,...DATA.foundations].flatMap(p=>p.streams.map(s=>({s,p})));
+  KCOLS.filter(([k])=>KSHOW.has(k)).forEach(([k,l,c])=>{
+    const rows=k==="done"?(DATA.archive||[]).map(a=>({a})):all.filter(({s})=>s.dot===k);
+    if(!rows.length&&k!=="now")return;
     const col=el("div","kcol"); col.style.setProperty("--kc",c);
     col.appendChild(el("h3",null,`${l}<b>${rows.length}</b>`));
-    rows.forEach(i=>{
+    rows.forEach(r=>{
       const card=el("div","kc"); card.style.setProperty("--kc",c);
-      const ow=INITS.owners&&INITS.owners[i.owner]; 
-      card.innerHTML=`<div class="t">${i.title}</div><div class="m"><span class="ow" style="border-color:${ow?ow.color:"var(--line)"}">${ow?ow.init:i.owner||""}</span><span>${KDEPT[i.dept]||i.dept||""}</span>${i.lens?`<span>${i.lens}</span>`:""}${i.endMonth?`<span>→ ${i.endMonth}</span>`:""}</div>${i.next?`<div class="n">Next: ${i.next}</div>`:i.why?`<div class="n">${i.why}</div>`:""}`;
-      card.addEventListener("click",()=>openInitiative(i));
+      if(r.a){const a=r.a;card.innerHTML=`<div class="t">${a.title}</div><div class="m"><span class="ow">${PEOPLE[a.owner]||a.owner||""}</span><span>${KDEPT[a.dept]||a.dept||""}</span>${a.endMonth?`<span>${a.endMonth}</span>`:""}</div>${a.closed?`<div class="n">${a.closed}</div>`:""}`;
+        if(a.stream){const r2=findStream(a.stream);if(r2)card.addEventListener("click",()=>openStream(r2.stream,r2.parent));}}
+      else{const {s,p}=r;
+        card.innerHTML=`<div class="t">${s.name}</div><div class="m"><span class="ow" style="border-color:${p.color||"var(--line)"}">${PEOPLE[s.owner]||s.owner||"Lu"}</span><span style="color:${p.color||"var(--dim)"}">${(p.num||"").replace("Pillar ","P").replace("Foundation","F")}</span><span>${KDEPT[s.dept]||s.dept||""}</span>${s.lens?`<span>${s.lens}</span>`:""}${s.endMonth?`<span>→ ${s.endMonth}</span>`:""}${s.flag?`<span class="atag k-${s.flag.k}" style="color:var(--ak);border-color:var(--ak)">${s.flag.k}</span>`:""}</div>${s.next?`<div class="n">Next: ${s.next}</div>`:s.one?`<div class="n">${s.one}</div>`:""}`;
+        card.addEventListener("click",()=>openStream(s,p));}
       col.appendChild(card);
     });
     kb.appendChild(col);
   });
   box.appendChild(kb);
-  box.appendChild(el("div","pmiss",`Source: initiatives.json (${INITS.updated||""}) — the Command Center board Edith maintains. The pillar board and this kanban are still two stores; merging them is a data job.`));
-}
-function openInitiative(i){
-  if(!document.body.classList.contains("panel-open")) lastFocus=document.activeElement;
-  PANELCTX={kind:"initiative",i};
-  $("#dkicker").textContent=`initiative ${i.id} · ${KDEPT[i.dept]||i.dept||""} · ${i.status}`+(i.owner?` · owner: ${i.owner}`:"");
-  $("#dkicker").style.color="";
-  $("#dtitle").textContent=i.title; $("#done").textContent=i.why||"";
-  const b=$("#dbody"); b.innerHTML="";
-  const kv=[["Next",i.next],["Gate",i.gate],["Blocked on",i.blockedOn],["Timeline",i.timeline||((i.startMonth||"")+(i.endMonth?" → "+i.endMonth:""))],["Depends on",Array.isArray(i.deps)?i.deps.join(", "):i.deps],["Note",i.note]].filter(([k,v])=>v);
-  if(kv.length){const sec=el("div","dsec","<h3>Where it stands</h3>");const ul=el("ul","opens");kv.forEach(([k,v])=>ul.appendChild(el("li",null,`<b>${k}:</b> ${v}`)));sec.appendChild(ul);b.appendChild(sec);}
-  if(Array.isArray(i.tasks)&&i.tasks.length){const sec=el("div","dsec","<h3>Tasks</h3>");const ol=el("ol","steps");i.tasks.forEach(t=>{const done=typeof t==="object"?t.done:false;const txt=typeof t==="object"?(t.t||t.text||t.title||JSON.stringify(t)):t;ol.appendChild(el("li",done?"done":null,txt));});sec.appendChild(ol);b.appendChild(sec);}
-  $("#dnav").innerHTML=""; openPanel(); $("#dclose").focus();
+  box.appendChild(el("div","pmiss","One store: the board, the timeline and this kanban all read hq.json. Done cards are the archive of closed initiatives."));
 }
 function applyHash(){
   const h=new URLSearchParams(location.hash.slice(1));
