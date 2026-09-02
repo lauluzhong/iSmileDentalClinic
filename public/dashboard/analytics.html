@@ -1,332 +1,492 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iSmile Analytics Dashboard</title>
-  <style>
-    :root {
-      /* White theme — matched to the margin dashboard (Initiative 4) */
-      --bg: #F4F8FA;
-      --surface-2: #F9FBFC;
-      --card: #FFFFFF;
-      --border: #E4ECF0;
-      --text: #10212A;
-      --muted: #7C939E;
-      --teal: #00A0C6;
-      --teal-d: #0B7E9C;
-      --green: #1D9E75;
-      --amber: #BA7517;
-      --red: #D8503A;
-      --purple: #9a6cf0;
-      --shadow: 0 1px 2px rgba(16,33,42,.06), 0 4px 14px rgba(16,33,42,.05);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      padding: 24px;
-    }
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 32px;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .header h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--teal);
-    }
-    .header .meta {
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-    .refresh-btn {
-      background: var(--card);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 8px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 0.85rem;
-    }
-    .refresh-btn:hover { border-color: var(--teal); }
-    .summary-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-bottom: 32px;
-    }
-    .summary-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: var(--shadow);
-    }
-    .summary-card .label { color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
-    .summary-card .value { font-size: 2rem; font-weight: 700; color: var(--teal); }
-    .summary-card .sub { color: var(--muted); font-size: 0.8rem; margin-top: 4px; }
-    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; margin-bottom: 32px; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; box-shadow: var(--shadow); }
-    .card h2 { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
-    .card .muted { color: var(--muted); font-size: 0.8rem; }
-    table { width: 100%; border-collapse: collapse; }
-    th { text-align: left; color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 8px 12px; border-bottom: 1px solid var(--border); }
-    td { padding: 10px 12px; font-size: 0.875rem; border-bottom: 1px solid var(--border); color: var(--text); }
-    tr:last-child td { border-bottom: none; }
-    tr:hover td { background: var(--surface-2); }
-    .num { text-align: right; font-variant-numeric: tabular-nums; }
-    .bar-cell { display: flex; align-items: center; gap: 8px; }
-    .bar-bg { flex: 1; height: 4px; background: var(--border); border-radius: 2px; }
-    .bar-fill { height: 4px; background: var(--teal); border-radius: 2px; }
-    .funnel { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
-    .funnel-step { display: flex; align-items: center; gap: 16px; }
-    .funnel-label { min-width: 180px; font-size: 0.875rem; color: var(--muted); }
-    .funnel-bar { flex: 1; height: 36px; background: var(--border); border-radius: 6px; overflow: hidden; position: relative; display: flex; align-items: center; }
-    .funnel-fill { height: 100%; border-radius: 6px; display: flex; align-items: center; padding: 0 12px; font-size: 0.8rem; font-weight: 600; white-space: nowrap; }
-    .funnel-count { font-size: 0.8rem; color: var(--muted); min-width: 60px; text-align: right; }
-    .source-row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-    .source-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-    .source-name { flex: 1; font-size: 0.875rem; }
-    .source-sessions { font-size: 0.875rem; color: var(--muted); min-width: 60px; text-align: right; }
-    .source-bar { height: 4px; background: var(--border); border-radius: 2px; margin-top: 4px; }
-    .source-bar-fill { height: 100%; border-radius: 2px; }
-    .loading { display: flex; align-items: center; justify-content: center; height: 200px; color: var(--muted); }
-    .error { background: rgba(239,68,68,0.1); border: 1px solid var(--red); border-radius: 8px; padding: 16px; color: var(--red); font-size: 0.875rem; }
-    .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; }
-    .badge-green { background: rgba(62,207,142,0.15); color: var(--green); }
-    .badge-amber { background: rgba(245,158,11,0.15); color: var(--amber); }
-    .badge-red { background: rgba(239,68,68,0.15); color: var(--red); }
-    .page-link { color: var(--teal); text-decoration: none; font-size: 0.8rem; }
-    .page-link:hover { text-decoration: underline; }
-    .drop-rate { color: var(--red); font-size: 0.8rem; }
-    .section-title { font-size: 1.1rem; font-weight: 600; margin: 32px 0 16px; }
-    .full-width { grid-column: 1 / -1; }
-    @media (max-width: 600px) {
-      .grid-2 { grid-template-columns: 1fr; }
-      body { padding: 16px; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>iSmile Analytics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* Single-theme by design: the same dark mission-control as /dashboard/hq and /dashboard/deck. */
+  :root{
+    --bg:#0A101E; --panel:#101B30; --panel2:#142138; --line:#223252;
+    --ink:#E9F0FA; --mut:#93A5C4; --dim:#5E7196;
+    --p1:#45C4FF; --p2:#B195FF; --p3:#3FDDA0; --fhr:#F0B152; --ffin:#EF7E93;
+    --ok:#56C271; --warn:#F5B84A; --bad:#FF6B6B;
+    --disp:"Chakra Petch",system-ui,sans-serif; --body:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scrollbar-color:#2A3B5E var(--bg)}
+  body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:13.5px;line-height:1.45;min-height:100vh;
+    background-image:radial-gradient(900px 500px at 50% -10%, rgba(69,196,255,.08), transparent 60%),
+      linear-gradient(rgba(34,50,82,.16) 1px, transparent 1px),linear-gradient(90deg, rgba(34,50,82,.16) 1px, transparent 1px);
+    background-size:auto,44px 44px,44px 44px}
+  a{color:var(--mut)}
+  .wrap{max-width:1440px;margin:0 auto;padding:18px 18px 40px}
+
+  /* ---------- header ---------- */
+  header{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-bottom:6px}
+  .brand h1{font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:.06em;text-transform:uppercase}
+  .brand h1 b{color:var(--p1)}
+  .brand .sub{color:var(--dim);font-family:var(--mono);font-size:11px;margin-top:2px}
+  nav{display:flex;justify-content:flex-end;gap:6px;flex-wrap:wrap;margin-left:auto}
+  nav a{font-family:var(--mono);font-size:11px;color:var(--mut);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 11px;background:rgba(16,27,48,.7);transition:border-color .15s,color .15s}
+  nav a:hover{border-color:#3A5382;color:var(--ink)}
+  nav a.active{border-color:var(--p1);color:var(--ink)}
+  .status{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-family:var(--mono);font-size:11px;color:var(--dim);margin:4px 0 2px}
+  .status .pulse{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ok);margin-right:6px;animation:pulse 2.4s infinite;vertical-align:middle}
+  .status .pulse.bad{background:var(--bad)} .status .pulse.warn{background:var(--warn)}
+  .status button{all:unset;cursor:pointer;font-family:var(--mono);font-size:10.5px;color:var(--mut);border:1px solid var(--line);border-radius:6px;padding:3px 9px;transition:color .15s,border-color .15s}
+  .status button:hover{color:var(--ink);border-color:#3A5382}
+
+  /* ---------- sections + grid ---------- */
+  .secthead{font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin:22px 0 10px;display:flex;align-items:center;gap:10px}
+  .secthead::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+  .secthead small{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:none;color:var(--dim)}
+  .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start}
+  .grid .card.wide{grid-column:span 2}
+  .grid .card.full{grid-column:1/-1}
+  @media(max-width:1080px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.grid .card.wide{grid-column:span 2}}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}.grid .card.wide,.grid .card.full{grid-column:auto}}
+
+  /* ---------- card chrome ---------- */
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;position:relative;min-width:0}
+  .card::before{content:"";position:absolute;top:8px;right:8px;width:9px;height:9px;border-top:1.5px solid var(--ac,var(--p1));border-right:1.5px solid var(--ac,var(--p1));opacity:.55;pointer-events:none}
+  .card>.top{height:3px;background:var(--ac,var(--p1))}
+  .card.na>.top{background:repeating-linear-gradient(90deg,var(--ac,var(--dim)) 0 8px,transparent 8px 14px);opacity:.7}
+  .ch{display:flex;align-items:baseline;gap:10px;padding:11px 14px 6px;flex-wrap:wrap}
+  .ch .k{font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ac,var(--p1))}
+  .ch .m{font-family:var(--mono);font-size:10px;color:var(--dim);margin-left:auto;white-space:nowrap;text-align:right}
+  .ch .m.bad{color:var(--bad)} .ch .m.warn{color:var(--warn)}
+  .cb{padding:4px 14px 14px}
+  .empty{color:var(--dim);font-family:var(--mono);font-size:11px;padding:6px 0 4px;line-height:1.5}
+  .empty b{color:var(--mut);font-weight:500}
+
+  /* stat rows */
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px}
+  .stats.three{grid-template-columns:1fr 1fr 1fr}
+  @media(max-width:420px){.stats.three{grid-template-columns:1fr 1fr}}
+  .stat .l{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+  .stat .v{font-family:var(--disp);font-size:20px;font-weight:600;line-height:1.15;font-variant-numeric:tabular-nums}
+  .stat .v small{font-size:11px;color:var(--mut);font-family:var(--mono);font-weight:400;margin-left:4px}
+  .stat .v.ok{color:var(--ok)} .stat .v.bad{color:var(--bad)} .stat .v.warn{color:var(--warn)} .stat .v.na{color:var(--dim)}
+  .sec{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);display:flex;align-items:center;gap:8px;margin:10px 0 6px}
+  .sec::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+  .sec b{color:var(--ink);font-weight:500}
+  .note{font-size:11px;color:var(--dim);margin-top:8px;line-height:1.4}
+  .note b{color:var(--mut);font-weight:500}
+  .stars{color:var(--warn);letter-spacing:1px}
+  .bar{height:6px;background:#1B2A47;border-radius:6px;overflow:hidden;margin-top:4px}
+  .bar i{display:block;height:100%;border-radius:6px;background:var(--ac,var(--p1));width:0;transition:width .9s ease}
+  .bar i.warn{background:var(--warn)} .bar i.bad{background:var(--bad)}
+
+  /* bar list (traffic sources) + funnel */
+  .fun{display:grid;grid-template-columns:auto 1fr auto;gap:4px 8px;align-items:center;font-family:var(--mono);font-size:10.5px;color:var(--mut)}
+  .fun .b{height:8px;background:#1B2A47;border-radius:6px;overflow:hidden}.fun .b i{display:block;height:100%;background:var(--ac,var(--p3));width:0;transition:width .9s ease}
+  .fun b{color:var(--ink);font-weight:500;text-align:right;white-space:nowrap}
+  .fun b small{color:var(--dim);font-weight:400;margin-left:4px}
+
+  /* tables */
+  .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  th{text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);font-weight:500;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+  td{padding:6px 8px;border-bottom:1px solid rgba(34,50,82,.6);vertical-align:middle;white-space:nowrap}
+  tbody tr:nth-child(even) td{background:rgba(20,33,56,.5)}
+  tbody tr:hover td{background:rgba(69,196,255,.07)}
+  tr:last-child td{border-bottom:none}
+  th.num,td.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+  td .path{color:var(--ink);text-decoration:none;max-width:260px;overflow:hidden;text-overflow:ellipsis;display:inline-block;vertical-align:bottom}
+  td .path:hover{color:var(--p1)}
+  td.barcell{width:26%;min-width:90px}
+  td.barcell .bar{margin:0}
+  .tag{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--p3);color:var(--p3);border-radius:4px;padding:0 5px;margin-left:6px;vertical-align:1px}
+  .tag.p1{border-color:var(--p1);color:var(--p1)}
+  .pct.ok{color:var(--ok)} .pct.warn{color:var(--warn)} .pct.bad{color:var(--bad)}
+
+  /* placeholder cards */
+  .placeholder{display:flex;gap:12px;align-items:flex-start;padding:4px 0 2px}
+  .placeholder .glyph{flex:none;width:38px;height:38px;border-radius:9px;border:1.5px dashed var(--dim);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:14px;color:var(--dim)}
+  .placeholder p{font-size:12.5px;color:var(--mut);line-height:1.5}
+  .placeholder p b{color:var(--ink);font-weight:600}
+  .placeholder .why{font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-top:6px}
+
+  /* accents per feed */
+  .ga{--ac:var(--p3)} .gsc{--ac:var(--p1)} .geo{--ac:var(--p2)} .rev{--ac:var(--warn)} .soc{--ac:var(--ffin)} .rec{--ac:var(--p3)}
+
+  /* tooltip */
+  #tip{position:fixed;z-index:90;background:#0D1526;border:1px solid #2C4066;border-radius:8px;padding:8px 11px;max-width:260px;pointer-events:none;opacity:0;transform:translateY(5px);transition:opacity .15s,transform .18s cubic-bezier(.22,.9,.3,1);box-shadow:0 12px 30px rgba(0,0,0,.55),0 0 0 1px rgba(69,196,255,.06)}
+  #tip.show{opacity:1;transform:none}
+  #tip .tk{font-family:var(--mono);font-size:9.5px;color:var(--p1);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px}
+  #tip .tb{font-size:12px;color:var(--mut);line-height:1.45}
+  [data-tip]{cursor:help;border-bottom:1px dotted var(--dim)}
+
+  footer{margin-top:24px;text-align:center;color:var(--dim);font-family:var(--mono);font-size:10.5px;line-height:1.7}
+  footer a{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--dim)}
+
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .reveal{opacity:0;transform:translateY(10px)}
+  .reveal.in{opacity:1;transform:none;transition:opacity .45s ease,transform .5s cubic-bezier(.22,.9,.3,1)}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+  @media(max-width:760px){
+    .wrap{padding:14px 12px 30px}
+    header{justify-content:center;text-align:center;gap:8px}
+    .brand{width:100%} .brand h1{font-size:20px}
+    nav{margin-left:0;justify-content:center;width:100%}
+    .status{justify-content:center}
+    .stat .v{font-size:18px}
+    .ch .m{margin-left:0;white-space:normal;text-align:left;width:100%}
+  }
+</style>
 </head>
 <body>
-  <div class="header">
-    <div>
-      <a href="/dashboard" class="page-link" style="display:inline-block;margin-bottom:6px">‹ Command Center</a>
-      <h1>🦷 iSmile Analytics Dashboard</h1>
-      <div class="meta" id="meta">Loading...</div>
-    </div>
-    <button class="refresh-btn" onclick="loadData()">↻ Refresh</button>
+<div class="wrap">
+  <header>
+    <div class="brand"><h1>iSmile <b>Analytics</b></h1><div class="sub">every marketing number in one place · labelled by source and as-of · nothing is estimated</div></div>
+    <nav>
+      <a href="/dashboard">Dashboard</a><a href="/dashboard/org">Org Chart</a><a href="/dashboard/tasks">Task Tracker</a><a href="/dashboard/profitability">Profitability</a><a href="/dashboard/analytics" class="active">Analytics</a><a href="/dashboard/office">Office</a>
+    </nav>
+  </header>
+  <div class="status">
+    <span id="st-ga"><i class="pulse warn"></i>GA4 · loading…</span>
+    <span id="st-deck"><i class="pulse warn"></i>status branch · loading…</span>
+    <span id="st-recall"><i class="pulse warn"></i>recall · loading…</span>
+    <button type="button" id="refresh">↻ refresh</button>
   </div>
 
-  <div id="summary-grid" class="summary-grid"></div>
-
-  <div id="funnel-card" class="card" style="margin-bottom:32px; display:none;">
-    <h2>Conversion Funnel — 7 Days</h2>
-    <div class="funnel" id="funnel"></div>
-    <p class="muted" style="margin-top:12px;">Data: Rolling 7 days</p>
-  </div>
-
-  <div class="grid-2">
-    <div class="card">
-      <h2>Top Pages by Views</h2>
-      <table id="pages-table">
-        <thead><tr><th>Page</th><th class="num">Views</th><th class="num">Sessions</th><th>Traffic Bar</th></tr></thead>
-        <tbody id="pages-body"></tbody>
-      </table>
+  <!-- ================= WEBSITE ================= -->
+  <div class="secthead">Website <small>Google Analytics 4 · rolling 7 days · same-origin /api/analytics</small></div>
+  <div class="grid">
+    <div class="card ga reveal"><div class="top"></div>
+      <div class="ch"><span class="k">Traffic &amp; leads</span><span class="m" id="m-ga">GA4 · 7d</span></div>
+      <div class="cb" id="c-ga"><div class="empty">loading…</div></div>
     </div>
-    <div class="card">
-      <h2>Traffic Sources</h2>
-      <div id="sources-list"></div>
+    <div class="card ga reveal"><div class="top"></div>
+      <div class="ch"><span class="k">Traffic sources</span><span class="m" id="m-src">GA4 · 7d</span></div>
+      <div class="cb" id="c-src"><div class="empty">loading…</div></div>
     </div>
-    <div class="card">
-      <h2>Custom Events (7 days)</h2>
-      <table>
-        <thead><tr><th>Event</th><th class="num">Count</th><th class="num">% of Total</th></tr></thead>
-        <tbody id="events-body"></tbody>
-      </table>
+    <div class="card ga reveal"><div class="top"></div>
+      <div class="ch"><span class="k">Events</span><span class="m" id="m-ev">GA4 · 7d</span></div>
+      <div class="cb" id="c-ev"><div class="empty">loading…</div></div>
     </div>
-    <div class="card">
-      <h2>Page Engagement</h2>
-      <table>
-        <thead><tr><th>Page</th><th class="num">Bounce Rate</th><th class="num">Avg Time</th><th class="num">Views</th></tr></thead>
-        <tbody id="engagement-body"></tbody>
-      </table>
+    <div class="card ga wide reveal"><div class="top"></div>
+      <div class="ch"><span class="k">Top pages</span><span class="m" id="m-pages">GA4 · 7d</span></div>
+      <div class="cb" id="c-pages"><div class="empty">loading…</div></div>
     </div>
-    <div class="card">
-      <h2>CTA Events by Page (7 days)</h2>
-      <table>
-        <thead><tr><th>Event</th><th>Page</th><th class="num">Count</th></tr></thead>
-        <tbody id="page-events-body"></tbody>
-      </table>
+    <div class="card ga reveal"><div class="top"></div>
+      <div class="ch"><span class="k">Lead clicks by page</span><span class="m" id="m-evp">GA4 · 7d</span></div>
+      <div class="cb" id="c-evp"><div class="empty">loading…</div></div>
     </div>
-    <div class="card">
-      <h2>Landing Page → Source Flow</h2>
-      <table>
-        <thead><tr><th>Page</th><th>Source</th><th class="num">Sessions</th></tr></thead>
-        <tbody id="flow-body"></tbody>
-      </table>
+    <div class="card ga full reveal"><div class="top"></div>
+      <div class="ch"><span class="k">Page engagement</span><span class="m" id="m-eng">GA4 · 7d</span></div>
+      <div class="cb" id="c-eng"><div class="empty">loading…</div></div>
     </div>
   </div>
 
-  <div id="error-box" class="error" style="display:none;"></div>
-
-  <script>
-    const CTA_EVENTS = ['whatsapp_click', 'whatsapp_submit_click', 'booking_complete', 'booking_modal_open', 'form_start', 'booking_modal_open_schedule', 'booking_modal_open_consultation'];
-
-    async function loadData() {
-      document.getElementById('meta').textContent = 'Loading...';
-      document.getElementById('error-box').style.display = 'none';
-      try {
-        const resp = await fetch('/api/analytics');
-        if (!resp.ok) throw new Error('API returned ' + resp.status + ' — ' + await resp.text());
-        const data = await resp.json();
-
-        if (data.error) {
-          throw new Error(data.message || data.error);
-        }
-
-        render(data);
-      } catch (e) {
-        document.getElementById('error-box').textContent = 'Error loading data: ' + e.message;
-        document.getElementById('error-box').style.display = 'block';
-        document.getElementById('meta').textContent = 'Failed to load — ' + new Date().toLocaleString();
-      }
-    }
-
-    function render(data) {
-      document.getElementById('meta').textContent = 'Last updated: ' + new Date(data.generatedAt).toLocaleString('en-MY', { timeZone: 'Asia/Kuala_Lumpur' }) + ' (MYT) | Data: ' + data.dateRange;
-
-      // Summary
-      const s = data.summary;
-      document.getElementById('summary-grid').innerHTML = [
-        { label: 'Total Page Views', value: s.totalPageViews.toLocaleString(), sub: '7 days' },
-        { label: 'Total Sessions', value: s.totalSessions.toLocaleString(), sub: '7 days' },
-        { label: 'Unique Users', value: s.totalUsers.toLocaleString(), sub: '7 days' },
-        { label: 'Custom Events', value: (data.events || []).reduce((a,e) => a + e.eventCount, 0).toLocaleString(), sub: '7 days (all custom)' },
-        { label: 'WhatsApp Clicks', value: ((data.events || []).find(e => e.eventName === 'whatsapp_click') || {eventCount:0}).eventCount.toLocaleString(), sub: '7 days' },
-        { label: 'Booking Modal Opens', value: ((data.events || []).filter(e => e.eventName.startsWith('booking_modal_open')).reduce((a,e) => a + e.eventCount, 0)).toLocaleString(), sub: '7 days' },
-      ].map(c => `
-        <div class="summary-card">
-          <div class="label">${c.label}</div>
-          <div class="value">${c.value}</div>
-          <div class="sub">${c.sub}</div>
-        </div>`).join('');
-
-      // Funnel
-      renderFunnel(data);
-
-      // Pages
-      const maxViews = Math.max(...(data.topPages || []).map(p => p.screenPageViews || 0));
-      document.getElementById('pages-body').innerHTML = (data.topPages || []).slice(0, 15).map(p => {
-        const views = p.screenPageViews || 0;
-        const sessions = p.sessions || 0;
-        const barPct = maxViews > 0 ? (views / maxViews * 100).toFixed(1) : 0;
-        const path = p.pagePath || '/';
-        return `<tr>
-          <td><a class="page-link" href="${path}" target="_blank">${path.length > 45 ? path.slice(0,45)+'…' : path}</a></td>
-          <td class="num">${views.toLocaleString()}</td>
-          <td class="num">${sessions.toLocaleString()}</td>
-          <td class="bar-cell"><div class="bar-bg"><div class="bar-fill" style="width:${barPct}%"></div></div></td>
-        </tr>`;
-      }).join('');
-
-      // Sources
-      const maxSrc = Math.max(...(data.trafficSources || []).map(s => s.sessions || 0));
-      const colors = ['#4fa3c2','#3ecf8e','#a78bfa','#f59e0b','#ef4444','#60a5fa','#f472b6','#34d399'];
-      document.getElementById('sources-list').innerHTML = (data.trafficSources || []).map((s, i) => {
-        const pct = maxSrc > 0 ? (s.sessions / maxSrc * 100).toFixed(1) : 0;
-        const color = colors[i % colors.length];
-        return `<div class="source-row">
-          <div class="source-dot" style="background:${color}"></div>
-          <div class="source-name">${s.sessionDefaultChannelGrouping || s.source || 'Unknown'}</div>
-          <div class="source-sessions">${(s.sessions||0).toLocaleString()} (${pct}%)</div>
-        </div><div class="source-bar"><div class="source-bar-fill" style="width:${pct}%;background:${color}"></div></div>`;
-      }).join('');
-
-      // Events
-      const totalEvents = (data.events || []).reduce((a,e) => a + e.eventCount, 0);
-      const customEvents = (data.events || []).filter(e => !['page_view','session_start','first_visit','scroll','user_engagement'].includes(e.eventName));
-      document.getElementById('events-body').innerHTML = (data.events || []).slice(0, 12).map(e => {
-        const isCTA = CTA_EVENTS.includes(e.eventName);
-        const pct = totalEvents > 0 ? (e.eventCount / totalEvents * 100).toFixed(1) : 0;
-        const badge = isCTA ? '<span class="badge badge-green" style="margin-left:6px">CTA</span>' : '';
-        return `<tr>
-          <td>${e.eventName}${badge}</td>
-          <td class="num">${e.eventCount.toLocaleString()}</td>
-          <td class="num">${pct}%</td>
-        </tr>`;
-      }).join('');
-
-      // Engagement
-      document.getElementById('engagement-body').innerHTML = (data.engagement || []).filter(p => (p.screenPageViews||0) >= 3).slice(0, 12).map(p => {
-        const br = ((p.bounceRate||0) * 100).toFixed(0);
-        const brColor = br > 70 ? 'var(--red)' : br > 40 ? 'var(--amber)' : 'var(--green)';
-        const dur = (p.averageSessionDuration || 0);
-        const mins = Math.floor(dur / 60);
-        const secs = Math.floor(dur % 60);
-        const path = p.pagePath || '/';
-        return `<tr>
-          <td><a class="page-link" href="${path}" target="_blank">${path.length > 40 ? path.slice(0,40)+'…' : path}</a></td>
-          <td class="num" style="color:${brColor}">${br}%</td>
-          <td class="num">${mins}m ${secs}s</td>
-          <td class="num">${(p.screenPageViews||0).toLocaleString()}</td>
-        </tr>`;
-      }).join('');
-
-      // CTA events by page
-      const ctaPageEvents = (data.eventsByPage || []).filter(e => CTA_EVENTS.includes(e.eventName));
-      document.getElementById('page-events-body').innerHTML = ctaPageEvents.slice(0, 20).map(e => {
-        const badge = e.eventName === 'whatsapp_submit_click' ? '<span class="badge badge-green" style="margin-left:4px">CONVERSION</span>' : '';
-        return `<tr>
-          <td>${e.eventName}${badge}</td>
-          <td><a class="page-link" href="${e.pagePath||'/'}" target="_blank">${(e.pagePath||'/').split('?')[0]}</a></td>
-          <td class="num">${e.eventCount.toLocaleString()}</td>
-        </tr>`;
-      }).join('') || '<tr><td colspan="3" style="color:var(--muted);padding:20px;text-align:center">No CTA events recorded yet</td></tr>';
-
-      // Landing page + source flow
-      document.getElementById('flow-body').innerHTML = (data.landingPageSources || []).slice(0, 15).map(f => {
-        return `<tr>
-          <td><a class="page-link" href="${f.pagePath||'/'}" target="_blank">${(f.pagePath||'/').length > 35 ? (f.pagePath||'/').slice(0,35)+'…' : (f.pagePath||'/')}</a></td>
-          <td>${f.sessionDefaultChannelGrouping || 'Unknown'}</td>
-          <td class="num">${(f.sessions||0).toLocaleString()}</td>
-        </tr>`;
-      }).join('');
-    }
-
-    function renderFunnel(data) {
-      const events = data.events || [];
-      const funnelSteps = [
-        { label: '📄 Page Views', key: 'page_view', color: '#4fa3c2' },
-        { label: '🗓️ Modal Opens', key: 'booking_modal_open', color: '#a78bfa' },
-        { label: '✍️ Form Started', key: 'form_start', color: '#f59e0b' },
-        { label: '📱 WhatsApp Clicked', key: 'whatsapp_submit_click', color: '#3ecf8e' },
-      ];
-
-      const maxVal = (data.summary?.totalPageViews || 1);
-      document.getElementById('funnel-card').style.display = 'block';
-      document.getElementById('funnel').innerHTML = funnelSteps.map(step => {
-        const count = events.find(e => e.eventName === step.key)?.eventCount || 0;
-        const pct = (count / maxVal * 100).toFixed(1);
-        return `<div class="funnel-step">
-          <div class="funnel-label">${step.label}</div>
-          <div class="funnel-bar">
-            <div class="funnel-fill" style="width:${Math.max(pct, 3)}%;background:${step.color};color:white">${count.toLocaleString()}</div>
+  <!-- ================= SEARCH ================= -->
+  <div class="secthead">Search &amp; discovery <small>Google Search Console · last full month · via deck.json on the status branch</small></div>
+  <div class="grid">
+    <div class="card gsc wide reveal"><div class="top"></div>
+      <div class="ch"><span class="k">Google Search</span><span class="m" id="m-seo">GSC · last full month</span></div>
+      <div class="cb" id="c-seo"><div class="empty">loading…</div></div>
+    </div>
+    <div class="card geo na reveal"><div class="top"></div>
+      <div class="ch"><span class="k">GEO · AI visibility</span><span class="m">not wired</span></div>
+      <div class="cb">
+        <div class="placeholder">
+          <div class="glyph">AI</div>
+          <div>
+            <p><b>Not measured yet.</b> Needs the OpenSEO rank-grid + AI-visibility tooling, which is blocked on a US$50 DataForSEO top-up.</p>
+            <div class="why">no feed · no number is shown until one exists</div>
           </div>
-          <div class="funnel-count">${pct}%</div>
-        </div>`;
-      }).join('');
-    }
+        </div>
+      </div>
+    </div>
+  </div>
 
-    loadData();
-    // Auto-refresh every 5 minutes
-    setInterval(loadData, 5 * 60 * 1000);
-  </script>
+  <!-- ================= REPUTATION & SOCIAL ================= -->
+  <div class="secthead">Reputation &amp; social <small>Google Business Profile · Zernio social feed · via deck.json on the status branch</small></div>
+  <div class="grid">
+    <div class="card rev reveal"><div class="top"></div>
+      <div class="ch"><span class="k">Google reviews</span><span class="m" id="m-rev">GBP</span></div>
+      <div class="cb" id="c-rev"><div class="empty">loading…</div></div>
+    </div>
+    <div class="card soc reveal"><div class="top"></div>
+      <div class="ch"><span class="k">Social</span><span class="m" id="m-soc">social</span></div>
+      <div class="cb" id="c-soc"><div class="empty">loading…</div></div>
+    </div>
+  </div>
+
+  <!-- ================= RECALL ================= -->
+  <div class="secthead">Recall <small>automated WhatsApp recall · recall.json on the status branch</small></div>
+  <div class="grid">
+    <div class="card rec wide reveal"><div class="top"></div>
+      <div class="ch"><span class="k">Recall funnel</span><span class="m" id="m-rec">recall.json</span></div>
+      <div class="cb" id="c-rec"><div class="empty">loading…</div></div>
+    </div>
+  </div>
+
+  <footer>iSmile Analytics · GA4 via <span style="font-family:var(--mono)">/api/analytics</span> (rolling 7 days) · Search Console, reviews and recall via the <span style="font-family:var(--mono)">status</span> branch · refreshes itself every 5 minutes<br>
+    Every card names its source and as-of. A card that has no feed says so rather than showing a number. <a href="/dashboard/hq">HQ</a> is where the action lives.</footer>
+</div>
+<div id="tip"><div class="tk"></div><div class="tb"></div></div>
+
+<script>
+/* ============================================================
+   iSmile Analytics — all marketing metrics, honestly labelled.
+   Feeds: /api/analytics (GA4, rolling 7d, same origin),
+          status branch deck.json (GSC last full month, GBP reviews, social flag),
+          status branch recall.json (WhatsApp recall funnel + conversion).
+   Every card fails on its own — one dead feed never blanks the page.
+   ============================================================ */
+const RAW="https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/";
+const LEAD_EVENTS=["whatsapp_submit_click","whatsapp_click","phone_click"];
+const CTA_EVENTS=new Set(LEAD_EVENTS.concat(["booking_complete","booking_modal_open","form_start","booking_modal_open_schedule","booking_modal_open_consultation"]));
+const NOISE=new Set(["page_view","session_start","first_visit","scroll","user_engagement"]);
+const D={ga:null,deck:null,recall:null,err:{}};
+
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const num=v=>{const n=typeof v==="number"?v:parseFloat(String(v==null?"":v).replace(/,/g,""));return isFinite(n)?n:0;};
+const fmt=v=>num(v).toLocaleString("en-MY");
+const pct=(v,d=1)=>isFinite(v)?num(v).toFixed(d)+"%":"—";
+function el(tag,cls,html){const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;}
+function stat(l,v,cls){const s=el("div","stat");s.appendChild(el("div","l",l));s.appendChild(el("div","v"+(cls?" "+cls:""),v));return s;}
+function setMeta(id,html,cls){const m=$("#"+id);if(!m)return;m.innerHTML=html;m.className="m"+(cls?" "+cls:"");} /* callers esc() their inputs */
+function fail(id,html){const b=$("#"+id);if(b)b.innerHTML='<div class="empty">'+html+'</div>';}
+function myt(iso){try{const d=new Date(iso);if(isNaN(d))return String(iso||"—");return d.toLocaleString("en-MY",{timeZone:"Asia/Kuala_Lumpur",day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit",hour12:false})+" MYT";}catch(e){return String(iso||"—");}}
+function shortPath(p,n){p=p||"/";p=p.split("?")[0];return p.length>n?p.slice(0,n-1)+"…":p;}
+function pathCell(p){return `<a class="path" href="${esc(p||"/")}" target="_blank" rel="noopener" title="${esc(p||"/")}">${esc(shortPath(p,44))}</a>`;}
+function fillBars(){setTimeout(()=>{document.querySelectorAll("[data-w]").forEach(i=>{i.style.width=i.dataset.w+"%";});},120);}
+async function getJSON(u,opts){const r=await fetch(u,Object.assign({cache:"no-store"},opts||{}));if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}
+function status(id,ok,text){const s=$("#"+id);if(!s)return;s.innerHTML=`<i class="pulse ${ok?"":"bad"}"></i>${esc(text)}`;}
+
+/* ============================== GA4 ============================== */
+function gaDead(reason){
+  const why=`<b>GA4 feed not available.</b> ${esc(reason)}<br>The live site answers <span style="font-family:var(--mono)">/api/analytics</span> from the same origin; this host did not.`;
+  ["c-ga","c-src","c-pages","c-ev","c-evp","c-eng"].forEach(id=>fail(id,why));
+  ["m-ga","m-src","m-pages","m-ev","m-evp","m-eng"].forEach(id=>setMeta(id,"GA4 · no data","bad"));
+}
+function renderGA(){
+  const ga=D.ga;
+  if(!ga||!ga.summary){gaDead(D.err.ga||"empty response");return;}
+  const asof=`GA4 · ${esc(ga.dateRange||"rolling 7d")} · ${myt(ga.generatedAt)}`;
+  ["m-ga","m-src","m-pages","m-ev","m-evp","m-eng"].forEach(id=>{$("#"+id).innerHTML=asof;});
+  const ev=(ga.events||[]).map(e=>({name:e.eventName,count:num(e.eventCount)}));
+  const count=name=>{const r=ev.find(x=>x.name===name);return r?r.count:0;};
+
+  /* traffic & leads */
+  try{
+    const box=$("#c-ga");box.innerHTML="";
+    const s=ga.summary;
+    const leads=LEAD_EVENTS.reduce((a,n)=>a+count(n),0);
+    let g=el("div","stats");
+    g.appendChild(stat("Sessions · 7d",fmt(s.totalSessions)));
+    g.appendChild(stat("Users · 7d",fmt(s.totalUsers)));
+    g.appendChild(stat("Page views · 7d",fmt(s.totalPageViews)));
+    g.appendChild(stat("Lead clicks · 7d",fmt(leads)+`<small>WhatsApp + phone</small>`,leads>0?"ok":""));
+    box.appendChild(g);
+    box.appendChild(el("div","sec","<b>Lead clicks</b> · by event"));
+    g=el("div","stats three");
+    LEAD_EVENTS.forEach(n=>g.appendChild(stat(n.replace(/_/g," "),fmt(count(n)))));
+    box.appendChild(g);
+    box.appendChild(el("div","sec","<b>Today</b> · MYT so far"));
+    if(Array.isArray(ga.today)&&ga.today.length){
+      const tv=ga.today.reduce((a,r)=>a+num(r.screenPageViews),0), ts=ga.today.reduce((a,r)=>a+num(r.sessions),0);
+      g=el("div","stats");
+      g.appendChild(stat("Page views",fmt(tv)));g.appendChild(stat("Sessions",fmt(ts)));
+      box.appendChild(g);
+    } else box.appendChild(el("div","empty","GA4 has not reported today's rows yet (realtime lag is normal)."));
+    box.appendChild(el("div","note","Lead clicks = whatsapp_submit_click + whatsapp_click + phone_click. Clicks, not conversations — a click that never sends a message still counts."));
+  }catch(e){fail("c-ga","Could not render: "+esc(e.message));}
+
+  /* traffic sources */
+  try{
+    const box=$("#c-src");box.innerHTML="";
+    const src=(ga.trafficSources||[]).map(r=>({n:r.sessionDefaultChannelGrouping||r.source||"Unknown",s:num(r.sessions),u:num(r.totalUsers)})).sort((a,b)=>b.s-a.s);
+    if(!src.length){box.appendChild(el("div","empty","No sessions in the window."));return;}
+    const tot=src.reduce((a,r)=>a+r.s,0)||1, max=src[0].s||1;
+    const fun=el("div","fun");
+    src.forEach(r=>{
+      fun.appendChild(el("span",null,esc(r.n)));
+      fun.appendChild(el("div","b",`<i data-w="${(100*r.s/max).toFixed(1)}"></i>`));
+      fun.appendChild(el("b",null,fmt(r.s)+`<small>${(100*r.s/tot).toFixed(0)}%</small>`));
+    });
+    box.appendChild(fun);
+    box.appendChild(el("div","note","Sessions by GA4 default channel grouping. Organic Search is the Search Console story below; Direct includes WhatsApp link taps GA4 cannot attribute."));
+  }catch(e){fail("c-src","Could not render: "+esc(e.message));}
+
+  /* top pages */
+  try{
+    const box=$("#c-pages");box.innerHTML="";
+    const rows=(ga.topPages||[]).map(r=>({p:r.pagePath,v:num(r.screenPageViews),s:num(r.sessions),u:num(r.totalUsers)})).sort((a,b)=>b.v-a.v).slice(0,15);
+    if(!rows.length){box.appendChild(el("div","empty","No page views in the window."));return;}
+    const max=rows[0].v||1;
+    box.innerHTML=`<div class="tw"><table><thead><tr><th>Page</th><th class="num">Views</th><th class="num">Sessions</th><th class="num">Users</th><th></th></tr></thead><tbody>`+
+      rows.map(r=>`<tr><td>${pathCell(r.p)}</td><td class="num">${fmt(r.v)}</td><td class="num">${fmt(r.s)}</td><td class="num">${fmt(r.u)}</td><td class="barcell"><div class="bar"><i data-w="${(100*r.v/max).toFixed(1)}"></i></div></td></tr>`).join("")+
+      `</tbody></table></div>`;
+  }catch(e){fail("c-pages","Could not render: "+esc(e.message));}
+
+  /* events */
+  try{
+    const box=$("#c-ev");box.innerHTML="";
+    const rows=ev.filter(e=>!NOISE.has(e.name)).sort((a,b)=>b.count-a.count);
+    const all=ev.reduce((a,e)=>a+e.count,0)||1;
+    if(!rows.length){box.appendChild(el("div","empty","No custom events in the window."));return;}
+    box.innerHTML=`<div class="tw"><table><thead><tr><th>Event</th><th class="num">Count</th><th class="num">% of all</th></tr></thead><tbody>`+
+      rows.slice(0,14).map(e=>`<tr><td>${esc(e.name)}${LEAD_EVENTS.includes(e.name)?'<span class="tag">lead</span>':CTA_EVENTS.has(e.name)?'<span class="tag p1">cta</span>':""}</td><td class="num">${fmt(e.count)}</td><td class="num">${(100*e.count/all).toFixed(1)}%</td></tr>`).join("")+
+      `</tbody></table></div><div class="note">Automatic GA4 events (page_view, scroll, session_start…) are hidden; the share is of every event, including them.</div>`;
+  }catch(e){fail("c-ev","Could not render: "+esc(e.message));}
+
+  /* lead clicks by page */
+  try{
+    const box=$("#c-evp");box.innerHTML="";
+    const rows=(ga.eventsByPage||[]).filter(r=>CTA_EVENTS.has(r.eventName)).map(r=>({e:r.eventName,p:r.pagePath,c:num(r.eventCount)})).sort((a,b)=>b.c-a.c).slice(0,16);
+    if(!rows.length){box.appendChild(el("div","empty","No lead or CTA events recorded on any page in the last 7 days."));return;}
+    box.innerHTML=`<div class="tw"><table><thead><tr><th>Event</th><th>Page</th><th class="num">Count</th></tr></thead><tbody>`+
+      rows.map(r=>`<tr><td>${esc(r.e)}${LEAD_EVENTS.includes(r.e)?'<span class="tag">lead</span>':""}</td><td>${pathCell(r.p)}</td><td class="num">${fmt(r.c)}</td></tr>`).join("")+
+      `</tbody></table></div>`;
+  }catch(e){fail("c-evp","Could not render: "+esc(e.message));}
+
+  /* engagement */
+  try{
+    const box=$("#c-eng");box.innerHTML="";
+    const rows=(ga.engagement||[]).map(r=>({p:r.pagePath,br:num(r.bounceRate),d:num(r.averageSessionDuration),v:num(r.screenPageViews)})).filter(r=>r.v>=3).sort((a,b)=>b.v-a.v).slice(0,12);
+    if(!rows.length){box.appendChild(el("div","empty","No page with 3+ views in the window."));return;}
+    box.innerHTML=`<div class="tw"><table><thead><tr><th>Page</th><th class="num">Bounce</th><th class="num">Avg session</th><th class="num">Views</th></tr></thead><tbody>`+
+      rows.map(r=>{const b=r.br<=1?r.br*100:r.br;const cls=b>70?"bad":b>40?"warn":"ok";const m=Math.floor(r.d/60),s=Math.floor(r.d%60);
+        return `<tr><td>${pathCell(r.p)}</td><td class="num pct ${cls}">${b.toFixed(0)}%</td><td class="num">${m}m ${String(s).padStart(2,"0")}s</td><td class="num">${fmt(r.v)}</td></tr>`;}).join("")+
+      `</tbody></table></div><div class="note">Pages with fewer than 3 views are hidden — a bounce rate on 1 visit is noise.</div>`;
+  }catch(e){fail("c-eng","Could not render: "+esc(e.message));}
+}
+
+/* ============================== Search Console ============================== */
+function renderSEO(){
+  const d=D.deck, seo=d&&d.seo;
+  if(!seo){setMeta("m-seo","GSC · no data","bad");fail("c-seo",`<b>Search Console feed not available.</b> ${esc(D.err.deck||"deck.json carries no seo block")}`);return;}
+  const w=seo.window||[]; const label=w[0]?w[0].slice(0,7):"last full month";
+  setMeta("m-seo",`GSC · ${label} · ${esc(seo.source||"deck.json")} · generated ${esc(d.generated_myt||"—")} MYT`);
+  const box=$("#c-seo");box.innerHTML="";
+  const ctr=num(seo.nonbrand_ctr_pct), ctrCls=ctr<1?"warn":"ok";
+  const org=num(seo.organic_sessions), orgM=num(seo.organic_sessions_mobile), mshare=org?100*orgM/org:NaN;
+  let g=el("div","stats three");
+  g.appendChild(stat("Clicks",fmt(seo.clicks)));
+  g.appendChild(stat("Impressions",fmt(seo.impressions)));
+  g.appendChild(stat("Avg position",num(seo.avg_position).toFixed(1)));
+  box.appendChild(g);
+  box.appendChild(el("div","sec","<b>Non-brand</b> · the problem metric"));
+  g=el("div","stats three");
+  g.appendChild(stat("Non-brand clicks",fmt(seo.nonbrand_clicks)));
+  g.appendChild(stat("Non-brand CTR",pct(ctr,2),ctrCls));
+  g.appendChild(stat("Brand share of clicks",num(seo.clicks)?pct(100*(num(seo.clicks)-num(seo.nonbrand_clicks))/num(seo.clicks),0):"—"));
+  box.appendChild(g);
+  const bar=el("div","bar",`<i class="${ctrCls}" data-w="${Math.min(100,ctr*20).toFixed(1)}"></i>`); bar.title="non-brand CTR against a 5% scale"; box.appendChild(bar);
+  box.appendChild(el("div","sec","<b>Organic sessions</b> · GA4, same month"));
+  g=el("div","stats three");
+  g.appendChild(stat("Organic sessions",fmt(org)));
+  g.appendChild(stat("Mobile share",isFinite(mshare)?pct(mshare,0)+`<small>${fmt(orgM)} mobile</small>`:"—"));
+  g.appendChild(stat("WhatsApp submits",fmt(seo.whatsapp_submit_click)+`<small>month</small>`));
+  box.appendChild(g);
+  box.appendChild(el("div","note",`Non-brand CTR ${ctr<1?"is below 1% — page-1 rankings that nobody clicks":"is above 1%"}. The window is the last full month (${esc(w[0]||"?")} → ${esc(w[1]||"?")}); Search Console lags ~2 days, so the current month is never shown.`));
+}
+
+/* ============================== reviews + social ============================== */
+function renderReviews(){
+  const d=D.deck, rv=d&&d.reviews;
+  if(!rv){setMeta("m-rev","GBP · no data","bad");fail("c-rev",`<b>Review stats not available.</b> ${esc(D.err.deck||"deck.json carries no reviews block")}`);return;}
+  setMeta("m-rev",`${esc(rv.source||"Google Business Profile")} · as at ${esc(rv.updated||"—")}`);
+  const box=$("#c-rev");box.innerHTML="";
+  const r=num(rv.rating), full=Math.round(r);
+  const g=el("div","stats");
+  g.appendChild(stat("Rating",`<span class="stars">${"★".repeat(Math.max(0,Math.min(5,full)))}</span> ${esc(rv.rating)}`));
+  g.appendChild(stat("Reviews",fmt(rv.count)+`<small>as at ${esc(rv.updated||"—")}</small>`));
+  box.appendChild(g);
+  box.appendChild(el("div","note","Count and rating come from the Google Business Profile API on the status branch, not from scraping Maps. 1–4★ reviews are drafted for reply in the WhatsApp review group; 5★ are auto-notified."));
+}
+function renderSocial(){
+  const d=D.deck, so=d&&d.social;
+  const box=$("#c-soc");box.innerHTML="";
+  const card=box.closest(".card");
+  if(!so){setMeta("m-soc","social · no data","bad");card.classList.add("na");box.innerHTML=`<div class="empty"><b>Social feed not available.</b> ${esc(D.err.deck||"deck.json carries no social block")}</div>`;return;}
+  if(!so.available){
+    setMeta("m-soc","not wired");card.classList.add("na");
+    box.innerHTML=`<div class="placeholder"><div class="glyph">◎</div><div><p><b>Not wired.</b> ${esc(so.note||"No social analytics integration is wired yet.")}</p><div class="why">no feed · no number is shown until one exists</div></div></div>`;
+    return;
+  }
+  card.classList.remove("na");
+  setMeta("m-soc",`${esc(so.source||"Zernio")} · ${so.window_days?so.window_days+"-day window · ":""}as at ${esc(so.as_of||d.generated_myt||"—")}`);
+  const accts=Array.isArray(so.accounts)?so.accounts:[];
+  if(!accts.length){box.appendChild(el("div","empty","Feed is live but reports no connected accounts yet."));}
+  accts.forEach(a=>{
+    const g=num(a.growth_30d), gp=a.growth_pct_30d==null?null:num(a.growth_pct_30d);
+    const gcls=g>0?"ok":g<0?"bad":"";
+    const gtxt=(g>0?"+":"")+fmt(g)+(gp==null?"":`<small>${gp>0?"+":""}${gp.toFixed(1)}% · 30d</small>`);
+    const head=el("div","sec",`<b>${esc(a.platform||"account")}</b> · @${esc(a.username||"—")}${a.display?" · "+esc(a.display):""}${a.active===false?' · <span style="color:var(--warn)">inactive</span>':""}`);
+    box.appendChild(head);
+    const s=el("div","stats three");
+    s.appendChild(stat("Followers",fmt(a.followers)));
+    s.appendChild(stat("30-day growth",gtxt,gcls));
+    s.appendChild(stat("Posts on platform",fmt(a.posts_on_platform)+(a.last_updated?`<small>synced ${esc(String(a.last_updated).slice(0,10))}</small>`:"")));
+    box.appendChild(s);
+  });
+  box.appendChild(el("div","sec","<b>Engagement</b> · posts via Zernio"));
+  const eng=so.instagram_30d&&typeof so.instagram_30d==="object"?Object.entries(so.instagram_30d).filter(([k,v])=>typeof v==="number"&&isFinite(v)):[];
+  if(eng.length){
+    const s=el("div","stats three");
+    eng.slice(0,6).forEach(([k,v])=>s.appendChild(stat(k.replace(/_/g," "),fmt(v))));
+    box.appendChild(s);
+  } else box.appendChild(el("div","empty",`No engagement data yet · ${fmt(so.posts_published_via_zernio)} posts published through Zernio.`));
+  box.appendChild(el("div","note","Engagement (reach, likes, saves) only appears for posts published through Zernio — none so far."+(so.note?" "+esc(so.note):"")));
+}
+/* ============================== recall ============================== */
+function renderRecall(){
+  const r=D.recall;
+  if(!r){setMeta("m-rec","recall.json · no data","bad");fail("c-rec",`<b>Recall feed not available.</b> ${esc(D.err.recall||"")}`);return;}
+  setMeta("m-rec",`${esc(r.source||"recall.json")} · as at ${esc(r.as_of||"—")}`);
+  const box=$("#c-rec");box.innerHTML="";
+  const c=r.cumulative||{}, m=r.this_month||{}, cv=r.conversion||{};
+  let g=el("div","stats three");
+  g.appendChild(stat("Booked after recall",cv.available?pct(cv.conversion_pct,1)+`<small>${esc(cv.attrib_window_days)}-day window</small>`:"—",cv.available?"ok":"na"));
+  g.appendChild(stat("This month · sent",fmt(m.sent)+`<small>${fmt(m.replies)} replied · ${fmt(m.clicks)} clicked</small>`));
+  g.appendChild(stat("Cumulative sent",fmt(c.sent)+`<small>${fmt(c.failed)} failed</small>`));
+  box.appendChild(g);
+  box.appendChild(el("div","sec","<b>Cumulative funnel</b> · message events"));
+  const fun=el("div","fun"); const max=Math.max(num(c.sent)||1,num(c.delivered)||1);
+  [["sent",c.sent],["delivered",c.delivered],["read",c.read],["replied",c.replies],["clicked",c.clicks]].forEach(([l,v])=>{
+    fun.appendChild(el("span",null,l)); fun.appendChild(el("div","b",`<i data-w="${Math.min(100,100*num(v)/max).toFixed(1)}"></i>`)); fun.appendChild(el("b",null,fmt(v)));
+  });
+  box.appendChild(fun);
+  box.appendChild(el("div","note","Funnel counts message events, not distinct patients. Conversion is the matured cohort's recall→appointment rate — a correlation, not proven lift."+(cv.available?` Cohort matures after ${esc(cv.mature_days)} days; appointments as of ${esc(cv.data_as_of||r.as_of||"—")}.`:"")));
+}
+
+/* ============================== tooltip ============================== */
+(function(){const t=$("#tip");document.addEventListener("mouseover",e=>{const n=e.target.closest("[data-tip]");if(!n){t.classList.remove("show");return;}t.querySelector(".tk").textContent=n.dataset.tipk||"";t.querySelector(".tb").textContent=n.dataset.tip;t.classList.add("show");});
+document.addEventListener("mousemove",e=>{if(!t.classList.contains("show"))return;const x=Math.min(e.clientX+14,window.innerWidth-270),y=Math.min(e.clientY+16,window.innerHeight-80);t.style.left=x+"px";t.style.top=y+"px";});})();
+
+/* ============================== load ============================== */
+async function load(){
+  const q="?t="+Date.now();
+  const [ga,deck,recall]=await Promise.all([
+    getJSON("/api/analytics").then(j=>{if(j&&j.error)throw new Error(j.message||j.error);return j;}).catch(e=>{D.err.ga=e.message;return null;}),
+    getJSON(RAW+"deck.json"+q).catch(e=>{D.err.deck=e.message;return null;}),
+    getJSON(RAW+"recall.json"+q).catch(e=>{D.err.recall=e.message;return null;})
+  ]);
+  Object.assign(D,{ga,deck,recall});
+  status("st-ga",!!(ga&&ga.summary),ga&&ga.summary?"GA4 · "+myt(ga.generatedAt):"GA4 · /api/analytics "+(D.err.ga||"unavailable"));
+  status("st-deck",!!deck,deck?"status branch · deck.json "+(deck.generated_myt||"")+" MYT":"status branch · deck.json "+(D.err.deck||"unavailable"));
+  status("st-recall",!!recall,recall?"recall · as at "+(recall.as_of||""):"recall · "+(D.err.recall||"unavailable"));
+  try{renderGA();}catch(e){gaDead(e.message);}
+  try{renderSEO();}catch(e){fail("c-seo","Could not render: "+esc(e.message));}
+  try{renderReviews();}catch(e){fail("c-rev","Could not render: "+esc(e.message));}
+  try{renderSocial();}catch(e){fail("c-soc","Could not render: "+esc(e.message));}
+  try{renderRecall();}catch(e){fail("c-rec","Could not render: "+esc(e.message));}
+  fillBars();
+  document.querySelectorAll(".reveal").forEach((n,i)=>setTimeout(()=>n.classList.add("in"),40*i));
+}
+$("#refresh").addEventListener("click",load);
+load();
+setInterval(load,5*60*1000);
+</script>
 </body>
 </html>
