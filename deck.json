@@ -1,21 +1,21 @@
 {
  "generated_myt": "2026-09-02 14:29",
- "generated_at": "2026-09-02T14:29:15+08:00",
+ "generated_at": "2026-09-02T14:29:35+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 78.9,
   "nproc": 4,
   "load": [
-   0.65,
+   0.59,
    0.46,
    0.45
   ],
-  "cpu_pct": 9.9,
+  "cpu_pct": 1.3,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 2506,
-   "avail_mb": 5434,
-   "pct": 31.6,
+   "used_mb": 2514,
+   "avail_mb": 5426,
+   "pct": 31.7,
    "swap_total_mb": 2047,
    "swap_used_mb": 211
   },
@@ -48,16 +48,6 @@
   {
    "id": "blog-content-creator",
    "name": "blog-content-creator",
-   "role": "specialist",
-   "kind": "specialist",
-   "model": null,
-   "sessions_total": 0,
-   "sessions_30d": 0,
-   "last_active_myt": null
-  },
-  {
-   "id": "briefing-agent.json",
-   "name": "briefing-agent.json",
    "role": "specialist",
    "kind": "specialist",
    "model": null,
