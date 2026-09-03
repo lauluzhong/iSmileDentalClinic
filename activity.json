@@ -5,6 +5,13 @@
       "ts": "2026-09-04 05:00 MYT",
       "agent": "analytics",
       "job": "deck_stats",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-09-04 05:00 MYT",
+      "agent": "analytics",
+      "job": "deck_stats",
       "event": "started",
       "result": ""
     },
@@ -273,13 +280,6 @@
       "job": "deck_stats",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-09-03 20:00 MYT",
-      "agent": "analytics",
-      "job": "deck_stats",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
