@@ -1,24 +1,14 @@
 {
- "updated": "2026-09-03T18:49:25+08:00",
+ "updated": "2026-09-04T00:54:38+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Edith": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Emily": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Lau": {
    "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +17,18 @@
    "role": "",
    "color": "#45C4FF"
   },
+  "Emily": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Code Capsule": {
    "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -257,10 +257,10 @@
   {
    "id": "l1",
    "title": "Contractor agreement",
-   "status": "active",
+   "status": "review",
    "owner": "Lydia",
    "why": "Synthesised 13 Aug, with Lydia since 17 Aug. Body is a pure template; every per-doctor input lives in Schedule 1.",
-   "next": "Lydia updates the agreement with the approved changes, then issue Jun's Schedule 1 offer letter and prepare the per-doctor copies for the 15 Sep rollout.",
+   "next": "Emily reviews the final agreement; then complete Jun's Schedule 1 with her personal information and prepare the per-doctor copies for the 15 Sep rollout.",
    "dept": "people",
    "lens": "efficiency",
    "endMonth": "2026-08",
@@ -273,6 +273,7 @@
     "3 comp changes briefed to parents (PDF sent)",
     "Parents approved the 3 compensation changes (discount approval threshold amended to 15%)",
     "Update Schedule 2: strike the 10% deduction and apply the 15% discount-approval threshold \u00b7 accept 2.10\u20132.12",
+    "Final contractor agreement sent to Emily for review",
     "Per-doctor Schedule 1 copies drafted (Jun's = her offer letter)",
     "Hand over to the doctors \u2014 see Doctor rollout & communication"
    ],
@@ -461,8 +462,8 @@
    "title": "Dr Jun (new doctor)",
    "status": "review",
    "owner": "Lau",
-   "why": "She has tendered on a handshake for a 26 Oct start. Her offer letter IS the contractor agreement, so it goes to her only once the parents approve and the agreement is final.",
-   "next": "Jun (Dr Jia Yin) offer landed 17 Aug: RM7k/6mo or 40% locum. She talks to her boss ~18-19 Aug, then offer letter -> sign -> ~2mo notice. Mom chat + Dr Ling chemistry chat follow.",
+   "why": "She has tendered on a handshake for a 26 Oct start. Her offer letter IS the contractor agreement; the final agreement is with Emily for review and Jun's personal information is needed for Schedule 1.",
+   "next": "Receive Jun's personal information, complete Schedule 1, then send her the agreement for signature. Mom chat + Dr Ling chemistry chat follow.",
    "dept": "clinical",
    "lens": "revenue",
    "endMonth": "2026-12",
@@ -472,7 +473,8 @@
     "Boss talk done \u00b7 Elite 2 Sats/mo transition",
     "First date confirmed with her boss: Mon 26 Oct",
     "She has TENDERED \u2014 ahead of any paper",
-    "\u26d4 Waiting on the contractor agreement (parents' approval)",
+    "Contractor agreement finalised and sent to Emily for review",
+    "Ask Jun for personal information for Schedule 1",
     "Offer letter = her Schedule 1, issued on the new terms",
     "She signs",
     "Jun \u2194 Dr Ong practitioner chat",
