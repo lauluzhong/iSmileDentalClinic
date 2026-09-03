@@ -1,31 +1,31 @@
 {
-  "as_of": "2026-09-03",
+  "as_of": "2026-09-04",
   "source": "redirect.ismile.com.my/admin/webhook/webhooklog",
   "note": "Funnel = event counts (per-message callbacks), not distinct patients. Conversion = matured-cohort recall->appointment rate (correlation, not proven causal lift); as-of the latest OpenDent export only.",
   "funnel_live": true,
-  "funnel_as_of": "2026-09-03",
+  "funnel_as_of": "2026-09-04",
   "cumulative": {
-    "total": 14596,
-    "sent": 4998,
-    "delivered": 5856,
-    "read": 2007,
-    "failed": 456,
-    "clicks": 166,
-    "replies": 1113
+    "total": 14689,
+    "sent": 5028,
+    "delivered": 5883,
+    "read": 2028,
+    "failed": 462,
+    "clicks": 172,
+    "replies": 1116
   },
   "this_month": {
-    "sent": 66,
-    "clicks": 6,
-    "replies": 15
+    "sent": 96,
+    "clicks": 12,
+    "replies": 18
   },
   "conversion": {
     "mature_days": 21,
     "attrib_window_days": 90,
-    "data_as_of": "2026-09-02",
-    "appt_export": "inbox/2026-09-02 e5+e6+backfill",
+    "data_as_of": "2026-09-03",
+    "appt_export": "inbox/2026-09-03 e5+e6+backfill",
     "appt_range": [
       "2024-08-12",
-      "2026-12-30"
+      "2026-12-31"
     ],
     "stale": false,
     "available": true,
@@ -34,27 +34,27 @@
     "matured_cohort": 767,
     "resolved_to_patient": 729,
     "resolved_via_patnum": 729,
-    "booked_within_window": 199,
-    "booked_anytime": 242,
-    "conversion_pct": 27.3
+    "booked_within_window": 200,
+    "booked_anytime": 244,
+    "conversion_pct": 27.4
   },
   "value": {
     "available": true,
-    "as_of": "2026-09-03",
+    "as_of": "2026-09-04",
     "bridge": "e8_patient_master.tsv (2026-08-30)",
     "sends": 767,
     "patients_in_cohort": 1138,
     "attrib_window_days": 90,
     "mature_days": 21,
-    "production_lines": 19449,
+    "production_lines": 19472,
     "month": "2026-09",
     "rule": "production by a recalled patient within 90 days after their first recall send, credited to the line's doctor; correlation, not proven lift",
     "all_time": {
       "patients_reached": 1138,
       "patients_converted": 227,
-      "visits": 294,
+      "visits": 295,
       "repeat_patients": 41,
-      "production": 111940,
+      "production": 111990,
       "conversion_pct": 19.9,
       "by_doctor": [
         {
@@ -80,9 +80,9 @@
           "abbr": "Azeli",
           "name": "Dr Azelia",
           "patients": 40,
-          "visits": 47,
-          "repeat_visits": 7,
-          "production": 12110
+          "visits": 48,
+          "repeat_visits": 8,
+          "production": 12160
         },
         {
           "provnum": "7",
@@ -133,10 +133,10 @@
     },
     "mtd": {
       "patients_reached": 775,
-      "patients_converted": 5,
-      "visits": 5,
+      "patients_converted": 6,
+      "visits": 6,
       "repeat_patients": 0,
-      "production": 1170,
+      "production": 1220,
       "conversion_pct": 0.5,
       "by_doctor": [
         {
@@ -156,6 +156,15 @@
           "visits": 2,
           "repeat_visits": 0,
           "production": 200
+        },
+        {
+          "provnum": "8",
+          "abbr": "Azeli",
+          "name": "Dr Azelia",
+          "patients": 1,
+          "visits": 1,
+          "repeat_visits": 0,
+          "production": 50
         }
       ],
       "patients_first_converted": 4
