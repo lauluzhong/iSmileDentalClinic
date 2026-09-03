@@ -3,6 +3,13 @@
   "entries": [
     {
       "ts": "2026-09-03 21:30 MYT",
+      "agent": "analytics",
+      "job": "deck_stats",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-09-03 21:30 MYT",
       "agent": "edith",
       "job": "wa_group_digest",
       "event": "started",
@@ -273,13 +280,6 @@
       "job": "cash_digest",
       "event": "finished",
       "result": "ok"
-    },
-    {
-      "ts": "2026-09-03 12:05 MYT",
-      "agent": "analytics",
-      "job": "cash_digest",
-      "event": "started",
-      "result": ""
     }
   ]
 }
