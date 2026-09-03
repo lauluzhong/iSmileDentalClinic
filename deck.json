@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-09-04 05:30",
- "generated_at": "2026-09-04T05:30:12+08:00",
+ "generated_myt": "2026-09-04 06:00",
+ "generated_at": "2026-09-04T06:00:16+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 80.5,
   "nproc": 4,
   "load": [
-   0.58,
+   0.43,
    0.27,
-   0.2
+   0.23
   ],
-  "cpu_pct": 14.5,
-  "cpu_pct_sample": 0.5,
+  "cpu_pct": 10.8,
+  "cpu_pct_sample": 32.4,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 2692,
-   "avail_mb": 5249,
-   "pct": 33.9,
+   "used_mb": 3110,
+   "avail_mb": 4830,
+   "pct": 39.2,
    "swap_total_mb": 2047,
    "swap_used_mb": 211
   },
@@ -30,8 +30,10 @@
   "crons": {
    "total": 13,
    "failed": [],
-   "running": [],
-   "status_updated": "2026-09-04 05:30 MYT"
+   "running": [
+    "gbp_reply"
+   ],
+   "status_updated": "2026-09-04 06:00 MYT"
   },
   "last_clinic_push": "2026-09-03"
  },
@@ -104,7 +106,7 @@
    "model": null,
    "sessions_total": 90,
    "sessions_30d": 68,
-   "last_active_myt": "2026-09-04 05:18"
+   "last_active_myt": "2026-09-04 05:48"
   }
  ],
  "finance": {
@@ -236,7 +238,7 @@
  "social": {
   "available": true,
   "source": "Zernio MCP (Edith's connection)",
-  "as_of": "2026-09-03",
+  "as_of": "2026-09-04",
   "window_days": 30,
   "accounts": [
    {
