@@ -1,7 +1,12 @@
 {
- "updated": "2026-09-02T20:36:54+08:00",
+ "updated": "2026-09-03T18:49:25+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
+  "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Lydia": {
    "init": "L",
    "role": "",
@@ -12,23 +17,18 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Lau": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   }
@@ -52,7 +52,7 @@
     "AutoCount invoice paid (RM4,200 incl. API module, +2 stock users)",
     "Licence issued \u00b7 data migration \u00b7 config change (Leow to upgrade the trial)",
     "Preliminary config check only \u2014 end-to-end is NOT possible yet",
-    "Hardware lands \u2014 Taobao tracking says 3 Sep",
+    "Hardware arrived and items checked",
     "OpenDent migration & configuration, 7\u20138 hrs from 3pm \u2014 Bob informed",
     "Reconfigure every other OpenDent PC in the clinic",
     "True end-to-end integration test",
@@ -172,7 +172,7 @@
    "tasks": [
     "Server CPU brought in",
     "Hardware + OpenDent rep invoices paid (Code Capsule)",
-    "PCs in transit \u2014 Taobao ETA 3 Sep",
+    "PCs arrived and items checked",
     "Server swap on downtime day"
    ],
    "pillar": "P1"
@@ -401,7 +401,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
-   "next": "Code Capsule builds the mini-CRM pieces (excluded-names master list via CSV upload + recall/birthday-recipient exclusion tick, per Jason 24 Aug) and submits the 3 templates for Meta approval. Then: blacklist export back to us, fresh-data re-run of the send list, Lydia PDPA read (L11), price from Jason, final go.",
+   "next": "Complete the blacklist and family cross-check, re-run the send list on fresh data, then hold the demo before activating the approved Wave 1 template.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-10",

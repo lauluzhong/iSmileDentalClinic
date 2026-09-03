@@ -11,14 +11,14 @@
    "hot": false,
    "k": "This week",
    "t": "Confirm Sat 5 Sep downtime",
-   "w": "Bob from 3pm after trading; hardware ETA decides 5 vs 12 Sep. Emily plans the book either way.",
+   "w": "Lock Bob's start time for Sat 5 Sep after trading and confirm the OpenDent switch-over plan. The work may run until 7\u20138pm; move to 12 Sep only if needed.",
    "ref": "d1"
   },
   {
    "hot": false,
    "k": "Send 7\u20138 Sep",
    "t": "Fire the cold blast",
-   "w": "Date is set, no further delay. Before then: Meta approval, Suraya's filter page, exclusion cross-checks, fresh-data re-run.",
+   "w": "Before the 7\u20138 Sep send: complete the exclusion cross-checks and fresh-data re-run, then activate after Monday's demo.",
    "ref": "g1"
   },
   {
@@ -89,9 +89,9 @@
   {
    "d": "3 Sep",
    "l": "Hardware lands (Taobao tracking)",
-   "s": "",
+   "s": "done",
    "iso": "2026-09-03",
-   "tip": "Jason, 28 Aug: Taobao shipping update puts arrival at 3 Sep, which keeps the 5 Sep configuration slot alive. He has already briefed Bob."
+   "tip": "Jason confirmed on 3 Sep that the shipment arrived and the items were checked. Delivery to the clinic is expected 3 Sep or 5 Sep; Bob's exact start time is still being arranged."
   },
   {
    "d": "4 Sep",
@@ -222,9 +222,9 @@
        "w": "2 Sep"
       },
       {
-       "t": "Hardware lands \u2014 Taobao tracking says 3 Sep",
-       "s": "",
-       "w": "~3 Sep"
+       "t": "Hardware arrived and items checked",
+       "s": "done",
+       "w": "3 Sep"
       },
       {
        "t": "OpenDent migration & configuration, 7\u20138 hrs from 3pm \u2014 Bob informed",
@@ -246,8 +246,8 @@
       }
      ],
      "open": [
-      "<b>5 Sep looks on track</b> \u2014 Jason: hardware ETA 3 Sep per Taobao, and he has already briefed Bob. 12 Sep remains the fallback if shipping slips",
-      "<b>Three confirmations asked of Jason 29 Aug</b> (awaiting reply): is 5 Sep 3pm locked and Bob aware \u00b7 does the 3 Sep hardware estimate still hold \u00b7 can Leow upgrade the trial AutoCount to the paid licence in time",
+      "<b>Hardware arrived and was checked</b> \u2014 delivery is expected by 3 or 5 Sep. Bob's start time is not yet locked: the latest discussion points to 3pm after trading, with work potentially ending 7\u20138pm.",
+      "<b>Saturday plan still needs confirmation</b> \u2014 Emily will stay until completion, and the team explicitly needs to protect data continuity during the upgrade. 12 Sep remains the fallback if required.",
       "EasyDent (X-ray) + CCTV stay on the old PC \u2014 do not migrate",
       "Clinic confirmed open 1 Sep (Emily)",
       "From the initiatives board: Opportunistic add-ons in scope: digital WhatsApp receipts, payroll SaaS, procurement, inventory module. Share Code Capsule's SOW with Claude once received."
@@ -503,8 +503,9 @@
        "w": "27\u201328 Aug"
       },
       {
-       "t": "PCs in transit \u2014 Taobao ETA 3 Sep",
-       "s": "now"
+       "t": "PCs arrived and items checked",
+       "s": "done",
+       "w": "3 Sep"
       },
       {
        "t": "Server swap on downtime day",
@@ -513,7 +514,8 @@
       }
      ],
      "open": [
-      "Every OpenDent PC needs reconfiguring after the server moves \u2014 more touch-time than the Saturday itself"
+      "Every OpenDent PC needs reconfiguring after the server moves \u2014 more touch-time than the Saturday itself",
+      "Delivery to the clinic and Bob's exact start time still need closing"
      ],
      "owner": "codecapsule",
      "dept": "tech",
@@ -1056,7 +1058,8 @@
       },
       {
        "t": "Meta template approval",
-       "s": "now"
+       "s": "done",
+       "w": "3 Sep"
       },
       {
        "t": "Blacklist + family cross-check \u00b7 anniversary-list exclusion",
@@ -1076,7 +1079,7 @@
       }
      ],
      "open": [
-      "<b>Filter-page additions are built (1 Sep).</b> One Wave template is under testing; two more were submitted to Meta. Confirm approval and overall blast timing before sending",
+      "<b>Templates approved; Wave 1 deployed and tested (3 Sep).</b> Marketing Blast Training / demo is booked for Mon 7 Sep, 10\u201311am; activation follows the demo",
       "Jason still owes the price",
       "PDPA check with Lydia",
       "<b>Cert expires 16 Oct</b> \u2014 renewal cron should fire ~15 Sep; Jason reminded 28 Aug, confirm it actually renews",
@@ -1094,7 +1097,7 @@
      "from_initiatives": [
       28
      ],
-     "next": "Code Capsule builds the mini-CRM pieces (excluded-names master list via CSV upload + recall/birthday-recipient exclusion tick, per Jason 24 Aug) and submits the 3 templates for Meta approval. Then: blacklist export back to us, fresh-data re-run of the send list, Lydia PDPA read (L11), price from Jason, final go.",
+     "next": "Complete the blacklist and family cross-check, re-run the send list on fresh data, then hold the demo before activating the approved Wave 1 template.",
      "endMonth": "2026-10"
     },
     {
@@ -2126,7 +2129,7 @@
   "note": "initiatives.store.json folded into this store; initiatives.json is now DERIVED from it by hq_publish.py for the legacy page."
  },
  "meta": {
-  "asof": "WED 02 SEP 2026",
-  "updated": "2026-09-02T20:36:54+08:00"
+  "asof": "THU 03 SEP 2026",
+  "updated": "2026-09-03T18:49:25+08:00"
  }
 }
