@@ -1,20 +1,20 @@
 {
- "generated_myt": "2026-09-03 19:30",
- "generated_at": "2026-09-03T19:30:11+08:00",
+ "generated_myt": "2026-09-03 20:00",
+ "generated_at": "2026-09-03T20:00:09+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 80.1,
   "nproc": 4,
   "load": [
-   0.45,
-   0.21,
-   0.27
+   0.46,
+   0.31,
+   0.23
   ],
-  "cpu_pct": 61.2,
+  "cpu_pct": 8.7,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 2654,
-   "avail_mb": 5286,
+   "used_mb": 2655,
+   "avail_mb": 5285,
    "pct": 33.4,
    "swap_total_mb": 2047,
    "swap_used_mb": 211
@@ -32,7 +32,7 @@
    "running": [
     "deck_stats"
    ],
-   "status_updated": "2026-09-03 19:30 MYT"
+   "status_updated": "2026-09-03 20:00 MYT"
   },
   "last_clinic_push": "2026-09-03"
  },
@@ -105,33 +105,33 @@
    "model": null,
    "sessions_total": 90,
    "sessions_30d": 68,
-   "last_active_myt": "2026-09-03 19:18"
+   "last_active_myt": "2026-09-03 19:50"
   }
  ],
  "finance": {
-  "as_of": "2026-09-02",
-  "generated_myt": "2026-09-02 19:40",
+  "as_of": "2026-09-03",
+  "generated_myt": "2026-09-03 19:40",
   "basis": "margin dashboard: true margin = production \u2212 locum est \u2212 lab est \u2212 chair-time burn (RM160/h loaded). Not the statutory P&L.",
   "mtd": {
-   "production": 35280,
-   "visits": 52,
-   "chair_hours": 37.5,
-   "lab_est": 3923,
-   "locum_est": 10059,
-   "burn_loaded": 6000,
-   "true_margin": 15298,
+   "production": 47840,
+   "visits": 69,
+   "chair_hours": 51.7,
+   "lab_est": 5776,
+   "locum_est": 15406,
+   "burn_loaded": 8267,
+   "true_margin": 18391,
    "months": [
     "2026-09"
    ]
   },
   "ytd": {
-   "production": 1798178,
-   "visits": 4363,
-   "chair_hours": 3143.9,
-   "lab_est": 164417,
-   "locum_est": 657115,
-   "burn_loaded": 503026,
-   "true_margin": 473620,
+   "production": 1810738,
+   "visits": 4380,
+   "chair_hours": 3158.1,
+   "lab_est": 166270,
+   "locum_est": 662664,
+   "burn_loaded": 505293,
+   "true_margin": 476511,
    "months": [
     "2026-01",
     "2026-02",
@@ -204,12 +204,12 @@
    {
     "month": "2026-08",
     "production": 213650,
-    "true_margin": 48150
+    "true_margin": 47948
    },
    {
     "month": "2026-09",
-    "production": 35280,
-    "true_margin": 15298
+    "production": 47840,
+    "true_margin": 18391
    }
   ]
  },
