@@ -145,6 +145,7 @@
   .doc{display:inline-flex;align-items:center;gap:7px;}
   .dot{width:8px;height:8px;border-radius:50%;flex:none;box-shadow:0 0 6px currentColor;}
   .rate-flag{color:var(--warn);margin-left:3px;font-size:9px;vertical-align:1px}
+  .sal{font-size:11px;letter-spacing:.03em;color:var(--muted,#8aa);font-style:italic}
   .rate-prov{color:var(--dim);margin-left:2px;font-weight:700}
   .cm-pct{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:500;padding:1px 6px;border-radius:5px;margin-left:5px;}
   .pos{color:var(--ok);} .neg{color:var(--bad);}
@@ -534,6 +535,7 @@ function marginLoadFailed(msg){
      stands in where the old baked file exposed the patient name. */
   window.MARGIN_DATA = {
     meta: MJ.meta,
+    doctors: MJ.doctors || [],
     visits: MJ.visits.map(v => ({date:v.date, patient:v.id, doctor:v.doctor,
       cat:v.cat, proc:v.proc, nlines:v.nlines, production:v.production,
       lab:v.lab, dur:v.dur, locum:v.locum, matched:v.matched,
@@ -949,10 +951,13 @@ function renderSummary(){
   document.querySelector('#locum-table tbody').innerHTML = docAgg
     .sort((a,b)=>b.locum-a.locum).map(x=>{
     const d=DOCTORS[x.d]||{tier:0,exempt10:false};
-    const blendedDiffersFromBase = d.tier && Math.abs(x.rate-d.tier)>0.0001;
+    const fd=(MD.doctors||[]).find(z=>z.name===x.d)||{};
+    const salaried=!!fd.salaried;
+    const base=(fd.tier!=null?fd.tier:d.tier);
+    const blendedDiffersFromBase = !salaried && base && Math.abs(x.rate-base)>0.0001;
     return `<tr data-doctor="${x.d}">
       <td><span class="doc"><span class="dot" style="background:${x.color}"></span>${x.d}</span></td>
-      <td title="Production-weighted blended locum rate for this window">${pct(x.rate)}${blendedDiffersFromBase?'<span class="rate-flag" title="Blended rate differs from the base tier">▲</span>':''}${d.exempt10?' · no-10%':''}</td>
+      <td title="${salaried?'Salaried — draws no locum; remuneration sits in fixed overhead and is absorbed through burn':'Production-weighted blended locum rate for this window'}">${salaried?'<span class="sal">salaried</span>':pct(x.rate)+(blendedDiffersFromBase?'<span class="rate-flag" title="Blended rate differs from the base tier">▲</span>':'')+(d.exempt10?' · no-10%':'')}</td>
       <td class="num mono">${rm0(x.locum)}</td>
       <td class="num mono">${pct(x.production?x.locum/x.production:0)}</td>
     </tr>`;
@@ -968,7 +973,7 @@ function renderSummary(){
       : `<b>Burn</b> = booked appointment length × RM${burnBasis.dep==='net'?BURN.loaded:BURN.ebitda}/hour (${burnBasis.dep==='net'?'Net, incl. depreciation':'EBITDA, excl. depreciation'}) — ${MD.meta.durCoverage}% of visits have a matched appointment duration (booked length; real seated→dismissed chair time is not yet populated in the extract — rest ★ category estimate). `+
         `<b>⚠ Read the bottom line carefully:</b> this burn is only the chair-time actually billed, not the clinic's full ~RM${PNL?rm0(PNL.overhead_day*(PNL.trading_days_month||26)):'—'}/mo fixed overhead. The unrecovered remainder is <b>under-absorbed overhead — idle chairs + support/admin time</b>, i.e. the "fill empty chairs" lever; charging full overhead lands the clinic near break-even (consistent with the P&L). Switch the Burn basis to <b>Full day (÷26)</b> to charge it in full. `)+
     `<b>Lab cost = %-of-production estimate</b> (real per-case lab pending AutoCount). <b>Locum = collection-based estimate</b> (doctor-month earned collections × locum rules, allocated to visits pro-rata by production); authoritative = the monthly locum engine. `+
-    `<b>Rate</b> is the locum percentage that sticks to the line: the doctor's base tier (40/45/50), or 50% where that doctor's <b>production</b> for the month crossed RM55,000 — the whole-month volume rule, marked <span class="rate-flag">▲</span>. A <span class="rate-prov">?</span> means the month is still open and the rate is <b>provisional</b>: crossing RM55,000 lifts the entire month to 50% retrospectively. The totals row shows the blended rate, weighted by production. Rates are exact; the ringgit amounts beside them remain estimates.`;
+    `<b>Rate</b> is the locum percentage that sticks to the line: the doctor's base tier (40/45/50), or 50% where that doctor's <b>production</b> for the month crossed RM55,000 — the whole-month volume rule, marked <span class="rate-flag">▲</span>. A <b>salaried</b> clinician draws no locum at all, so nothing is charged against her production; her remuneration sits in fixed overhead and is already absorbed through burn. A <span class="rate-prov">?</span> means the month is still open and the rate is <b>provisional</b>: crossing RM55,000 lifts the entire month to 50% retrospectively. The totals row shows the blended rate, weighted by production. Rates are exact; the ringgit amounts beside them remain estimates.`;
 
   // drill handlers
   document.querySelectorAll('[data-doctor]').forEach(el=>el.onclick=()=>drill({doctor:el.dataset.doctor}));
