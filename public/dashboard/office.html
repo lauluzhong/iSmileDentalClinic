@@ -323,6 +323,8 @@ const SPEC={
   review_stats_sync:{name:"Review stats sync",         sch:"Daily 06:20 MYT",    kind:"det", agent:"box",       cad:"daily",  group:"daily",  purpose:"GBP rating/count → review-stats.json, commits to the website"},
   context_sync_check:{name:"Context sync check",       sch:"Daily 09:00 MYT",    kind:"det", agent:"box",       cad:"daily",  group:"daily",  purpose:"Check that the local context pack and the server copy are in sync"},
   today_publish:    {name:"Publish today briefing",    sch:"Every 30 min",       kind:"det", agent:"box",       cad:"m30",    group:"poll",   purpose:"Write the today briefing the agent reads before answering"},
+  hq_publish:       {name:"Publish the task board",     sch:"On edit",            kind:"det", agent:"box",       cad:"none",   group:"poll",   purpose:"Push hq.store.json to the status branch; the board is hand-edited, so it publishes when someone changes it rather than on a schedule"},
+  hq_freshness:     {name:"Task board freshness",       sch:"Daily 09:05 MYT",    kind:"det", agent:"box",       cad:"daily",  group:"daily",  purpose:"Nag if the task board has gone more than 7 days without a publish — a nudge about neglect, not a job monitor"},
   watchdog:         {name:"Watchdog",                  sch:"Daily 08:00 MYT",    kind:"det", agent:"main",      cad:"daily",  group:"daily",  purpose:"Silent health check; Sunday heartbeat; disk > 85% alert"},
   cash_digest:      {name:"Cash digest",               sch:"12:05 + 19:50 MYT",  kind:"det", agent:"cron-analytics",cad:"daily",group:"daily", purpose:"Midday + end-of-day cash digest (Telegram + WhatsApp) → cashflow.json"},
   margin_build:     {name:"Margin build",              sch:"Daily 19:40 MYT",    kind:"det", agent:"cron-analytics",cad:"daily",group:"daily", purpose:"OpenDent extracts → margin.json (profitability page)"},
@@ -407,7 +409,7 @@ function computeJobs(){
     const th=s.cad?CAD[s.cad]:null;
     j.stale=!!(th&&(j.lastMs==null||Date.now()-j.lastMs>th));
     if(!L&&!s.generic){j.stale=false;j.noStatus=true;} // baked job the box does not report: say so, don't cry stale
-    if((id==="review_approvals"||id==="watchdog")&&!L){
+    if((id==="review_approvals"||id==="watchdog"||id==="hq_publish")&&!L){
       const heartbeat=deckSignal([id,id+"_heartbeat",id+"_last_myt"]),last=signalTime(heartbeat)||((typeof heartbeat==="string")?heartbeat:null);
       if(last){j.last=last;j.lastMs=parseMYT(last);j.state="up";j.stale=!!(s.cad&&j.lastMs!=null&&Date.now()-j.lastMs>CAD[s.cad]);j.noStatus=false;j.heartbeat=true;}
       else j.noStatusLabel="does not report status";
