@@ -1,8 +1,6 @@
 {
-  "updated": "2026-09-04 21:51 MYT",
-  "running": [
-    "wa_group_digest"
-  ],
+  "updated": "2026-09-04 21:53 MYT",
+  "running": [],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -41,8 +39,8 @@
       "last": "2026-09-04 19:40 MYT"
     },
     "wa_group_digest": {
-      "state": "running",
-      "last": "2026-09-03 21:33 MYT"
+      "state": "idle",
+      "last": "2026-09-04 21:53 MYT"
     },
     "cert_check": {
       "state": "idle",
