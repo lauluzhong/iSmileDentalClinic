@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-09-04 08:30",
- "generated_at": "2026-09-04T08:30:07+08:00",
+ "generated_myt": "2026-09-04 09:00",
+ "generated_at": "2026-09-04T09:00:09+08:00",
  "vps": {
   "hostname": "vmi3374460",
-  "uptime_days": 80.6,
+  "uptime_days": 80.7,
   "nproc": 4,
   "load": [
-   0.33,
-   0.12,
-   0.11
+   0.69,
+   0.84,
+   0.49
   ],
-  "cpu_pct": 8.2,
-  "cpu_pct_sample": 1.1,
+  "cpu_pct": 17.2,
+  "cpu_pct_sample": 0.6,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 2699,
-   "avail_mb": 5241,
-   "pct": 34.0,
+   "used_mb": 2728,
+   "avail_mb": 5212,
+   "pct": 34.4,
    "swap_total_mb": 2047,
    "swap_used_mb": 211
   },
@@ -31,7 +31,7 @@
    "total": 13,
    "failed": [],
    "running": [],
-   "status_updated": "2026-09-04 08:30 MYT"
+   "status_updated": "2026-09-04 09:00 MYT"
   },
   "last_clinic_push": "2026-09-03"
  },
@@ -102,9 +102,9 @@
    "role": "Edith \u2014 Director of Digital Growth",
    "kind": "main",
    "model": null,
-   "sessions_total": 90,
-   "sessions_30d": 68,
-   "last_active_myt": "2026-09-04 08:18"
+   "sessions_total": 92,
+   "sessions_30d": 70,
+   "last_active_myt": "2026-09-04 08:58"
   }
  ],
  "finance": {
