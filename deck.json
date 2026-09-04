@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-09-04 10:30",
- "generated_at": "2026-09-04T10:30:11+08:00",
+ "generated_myt": "2026-09-04 10:48",
+ "generated_at": "2026-09-04T10:48:48+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 80.7,
   "nproc": 4,
   "load": [
-   0.52,
-   0.29,
-   0.31
+   0.58,
+   0.34,
+   0.29
   ],
-  "cpu_pct": 13.0,
-  "cpu_pct_sample": 0.8,
+  "cpu_pct": 14.5,
+  "cpu_pct_sample": 1.0,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 2862,
-   "avail_mb": 5078,
-   "pct": 36.0,
+   "used_mb": 2784,
+   "avail_mb": 5157,
+   "pct": 35.1,
    "swap_total_mb": 2047,
    "swap_used_mb": 211
   },
@@ -26,52 +26,49 @@
    "pct": 16.6
   },
   "gateway_ok": true,
+  "bridge_ok": true,
+  "pollers": {
+   "review_approvals": {
+    "age_s": 542,
+    "last_myt": "2026-09-04 10:40 MYT"
+   }
+  },
   "walogger_ok": true,
   "crons": {
    "total": 13,
    "failed": [],
    "running": [],
-   "status_updated": "2026-09-04 10:30 MYT"
+   "status_updated": "2026-09-04 10:48 MYT"
   },
   "last_clinic_push": "2026-09-03"
  },
  "agents": [
   {
+   "id": "main",
+   "name": "Edith",
+   "role": "Edith \u2014 Director of Digital Growth",
+   "kind": "main",
+   "model": "openai/gpt-5.6-luna",
+   "sessions_total": 93,
+   "sessions_30d": 71,
+   "last_active_myt": "2026-09-04 10:48"
+  },
+  {
    "id": "analytics-agent",
    "name": "analytics-agent",
    "role": "specialist",
    "kind": "specialist",
-   "model": null,
+   "model": "openai/gpt-5.6-luna",
    "sessions_total": 25,
    "sessions_30d": 5,
    "last_active_myt": "2026-09-02 20:12"
-  },
-  {
-   "id": "cron-analytics",
-   "name": "cron-analytics",
-   "role": "cron worker",
-   "kind": "cron",
-   "model": null,
-   "sessions_total": 6,
-   "sessions_30d": 6,
-   "last_active_myt": "2026-09-02 18:27"
-  },
-  {
-   "id": "cron-gbp",
-   "name": "cron-gbp",
-   "role": "cron worker",
-   "kind": "cron",
-   "model": null,
-   "sessions_total": 66,
-   "sessions_30d": 66,
-   "last_active_myt": "2026-09-04 06:04"
   },
   {
    "id": "cron-main",
    "name": "cron-main",
    "role": "cron worker",
    "kind": "cron",
-   "model": null,
+   "model": "openai/gpt-5.6-luna",
    "sessions_total": 30,
    "sessions_30d": 30,
    "last_active_myt": "2026-09-03 21:33"
@@ -81,30 +78,30 @@
    "name": "cron-seo",
    "role": "cron worker",
    "kind": "cron",
-   "model": null,
+   "model": "openai/gpt-5.6-luna",
    "sessions_total": 8,
    "sessions_30d": 8,
    "last_active_myt": "2026-08-30 06:03"
   },
   {
-   "id": "gbp-agent",
-   "name": "gbp-agent",
-   "role": "specialist",
-   "kind": "specialist",
-   "model": null,
-   "sessions_total": 0,
-   "sessions_30d": 0,
-   "last_active_myt": null
+   "id": "cron-analytics",
+   "name": "cron-analytics",
+   "role": "cron worker",
+   "kind": "cron",
+   "model": "openai/gpt-5.6-luna",
+   "sessions_total": 6,
+   "sessions_30d": 6,
+   "last_active_myt": "2026-09-02 18:27"
   },
   {
-   "id": "main",
-   "name": "Edith",
-   "role": "Edith \u2014 Director of Digital Growth",
-   "kind": "main",
-   "model": null,
-   "sessions_total": 93,
-   "sessions_30d": 71,
-   "last_active_myt": "2026-09-04 10:18"
+   "id": "cron-gbp",
+   "name": "cron-gbp",
+   "role": "cron worker",
+   "kind": "cron",
+   "model": "openai/gpt-5.6-luna",
+   "sessions_total": 66,
+   "sessions_30d": 66,
+   "last_active_myt": "2026-09-04 06:04"
   }
  ],
  "finance": {
@@ -231,7 +228,8 @@
   "rating": "4.8",
   "count": 94,
   "updated": "2026-08-28",
-  "source": "Google Business Profile API"
+  "source": "Google Business Profile API",
+  "checked": "2026-09-04"
  },
  "social": {
   "available": true,
