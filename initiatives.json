@@ -1,18 +1,8 @@
 {
- "updated": "2026-09-04T10:39:32+08:00",
+ "updated": "2026-09-04T10:40:28+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
+  "Emily": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
@@ -22,13 +12,23 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
+  "Code Capsule": {
+   "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   }
@@ -350,7 +350,7 @@
    "note": "",
    "tasks": [
     "Full audit vs the Sep-2024 standard list",
-    "Emily reviewing code-consolidation advice",
+    "Emily reviewing code-consolidation advice (still pending)",
     "Repricing pass \u2014 Fee Guide v1 drafted 4 Sep (161 codes, 138 priced, 83 owner flags)",
     "Becomes the floor the discount clause references"
    ],

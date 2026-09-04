@@ -881,8 +881,8 @@
        "w": "24 Aug"
       },
       {
-       "t": "Emily reviewing code-consolidation advice",
-       "s": "now"
+       "t": "Emily reviewing code-consolidation advice (still pending)",
+       "s": ""
       },
       {
        "t": "Repricing pass \u2014 Fee Guide v1 drafted 4 Sep (161 codes, 138 priced, 83 owner flags)",
@@ -1904,7 +1904,7 @@
       },
       {
        "t": "Bake the approved abolition of the 10% deduction into Model v6 and reforecast the FY2026 landing",
-       "s": "now",
+       "s": "",
        "w": "2 Sep"
       }
      ],
@@ -2137,6 +2137,6 @@
  },
  "meta": {
   "asof": "FRI 04 SEP 2026",
-  "updated": "2026-09-04T10:39:32+08:00"
+  "updated": "2026-09-04T10:40:28+08:00"
  }
 }
