@@ -734,6 +734,7 @@
      "open": [
       "<b>Parents approved all three changes on 2 Sep:</b> abolish the 10% \u00b7 floor price with doctor-borne discounts \u00b7 economics follow the production month. Discount approval threshold amended to 15%.",
       "<b>Final contractor agreement sent to Emily for review on 3 Sep.</b>",
+      "Lydia is still waiting for the Schedule 1 input at clause 2.2 and must finalise the Professional Fee clauses in Schedule 2 before sending to Dr Ong for signature.",
       "Keep the parents' register: item 2 pays for item 1, leaving a gap of about RM10\u201312k a year",
       "Clause 2.6 names the GM for below-band sign-off \u2014 Emily now knows",
       "\u26a0\ufe0f Item 3b cannot be operated for real yet (only ~8% of paysplits carry a ProcNum) \u2014 agree the principle, never give the doctors a start date",
@@ -746,7 +747,7 @@
      "from_initiatives": [
       16
      ],
-     "next": "Emily reviews the final agreement; then complete Jun's Schedule 1 with her personal information and prepare the per-doctor copies for the 15 Sep rollout.",
+     "next": "Complete the outstanding Schedule 1 input and finalise Schedule 2; then send the agreement to Dr Ong for signature and prepare the 15 Sep rollout copies.",
      "endMonth": "2026-09"
     },
     {
@@ -1367,7 +1368,9 @@
      ],
      "open": [
       "This is a brand/perceived-value play, not cost reduction \u2014 the owner's own read",
-      "15-character plush series only works if costumes share one base body"
+      "15-character plush series only works if costumes share one base body",
+      "Blind-box plush estimate: MOQ 300 per design; RM32\u201335 per boxed unit, with four designs estimated at about 1,200 units / RM42,000. Plush-only estimate is RM30\u201331 each; no purchase decision yet.",
+      "Case specification is still open: larger boxes for dentures, usual case for retainers, and Invisalign cases generally supplied by Invisalign."
      ],
      "owner": "lu",
      "dept": "growth",
@@ -1375,7 +1378,7 @@
      "from_initiatives": [
       37
      ],
-     "next": "Order quantity sent to the supplier 26 Aug: roughly 220 to 300 cases a year, with a first order framed as six to twelve months of stock. We asked them to quote the ready made route - an existing colour swatch with our logo applied - and to state the lowest minimum that supports, plus a fully custom comparison if it is close. Awaiting their quote. Only the current unit cost still needs the practice manager."
+     "next": "Confirm the separate retainer/denture case specifications, then judge the ready-made case quote on MOQ and fit. The blind-box plush estimate is now a high-cost sense-check, not a purchase commitment."
     },
     {
      "id": "g8",
@@ -2141,6 +2144,6 @@
  },
  "meta": {
   "asof": "FRI 04 SEP 2026",
-  "updated": "2026-09-04T17:24:52+08:00"
+  "updated": "2026-09-04T21:40:10+08:00"
  }
 }

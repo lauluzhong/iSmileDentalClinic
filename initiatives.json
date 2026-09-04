@@ -1,19 +1,19 @@
 {
- "updated": "2026-09-04T17:24:52+08:00",
+ "updated": "2026-09-04T21:40:10+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
+  "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Code Capsule": {
    "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
+  "Lau": {
    "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -22,12 +22,12 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
-   "init": "E",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
+  "Lydia": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
@@ -260,7 +260,7 @@
    "status": "review",
    "owner": "Lydia",
    "why": "Synthesised 13 Aug, with Lydia since 17 Aug. Body is a pure template; every per-doctor input lives in Schedule 1.",
-   "next": "Emily reviews the final agreement; then complete Jun's Schedule 1 with her personal information and prepare the per-doctor copies for the 15 Sep rollout.",
+   "next": "Complete the outstanding Schedule 1 input and finalise Schedule 2; then send the agreement to Dr Ong for signature and prepare the 15 Sep rollout copies.",
    "dept": "people",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -530,7 +530,7 @@
    "status": "review",
    "owner": "Lau",
    "why": "TOC engaged and quoting. MOQ answer is in: ready-made = low MOQ, custom moulds = 300\u2013500+. The case is the strongest first buy.",
-   "next": "Order quantity sent to the supplier 26 Aug: roughly 220 to 300 cases a year, with a first order framed as six to twelve months of stock. We asked them to quote the ready made route - an existing colour swatch with our logo applied - and to state the lowest minimum that supports, plus a fully custom comparison if it is close. Awaiting their quote. Only the current unit cost still needs the practice manager.",
+   "next": "Confirm the separate retainer/denture case specifications, then judge the ready-made case quote on MOQ and fit. The blind-box plush estimate is now a high-cost sense-check, not a purchase commitment.",
    "dept": "growth",
    "lens": "revenue",
    "endMonth": null,
