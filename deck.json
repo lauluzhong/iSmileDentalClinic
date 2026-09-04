@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-09-05 06:00",
- "generated_at": "2026-09-05T06:00:21+08:00",
+ "generated_myt": "2026-09-05 06:30",
+ "generated_at": "2026-09-05T06:30:10+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 81.5,
   "nproc": 4,
   "load": [
-   0.9,
-   0.31,
-   0.2
+   0.58,
+   0.34,
+   0.37
   ],
-  "cpu_pct": 22.5,
-  "cpu_pct_sample": 35.9,
+  "cpu_pct": 14.5,
+  "cpu_pct_sample": 1.9,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 3417,
-   "avail_mb": 4523,
-   "pct": 43.0,
+   "used_mb": 2734,
+   "avail_mb": 5206,
+   "pct": 34.4,
    "swap_total_mb": 2047,
    "swap_used_mb": 211
   },
@@ -29,11 +29,11 @@
   "bridge_ok": false,
   "pollers": {
    "review_approvals": {
-    "age_s": 35,
-    "last_myt": "2026-09-05 06:00 MYT"
+    "age_s": 24,
+    "last_myt": "2026-09-05 06:30 MYT"
    },
    "hq_publish": {
-    "age_s": 30025,
+    "age_s": 31814,
     "last_myt": "2026-09-04 21:40 MYT",
     "detail": "asof=FRI 04 SEP 2026 streams=40 sideboard=15 decisions=3 archive=10"
    }
@@ -42,10 +42,8 @@
   "crons": {
    "total": 13,
    "failed": [],
-   "running": [
-    "gbp_reply"
-   ],
-   "status_updated": "2026-09-05 06:00 MYT"
+   "running": [],
+   "status_updated": "2026-09-05 06:30 MYT"
   },
   "last_clinic_push": "2026-09-04"
  },
@@ -58,7 +56,7 @@
    "model": "openai/gpt-5.6-luna",
    "sessions_total": 93,
    "sessions_30d": 71,
-   "last_active_myt": "2026-09-05 05:48"
+   "last_active_myt": "2026-09-05 06:18"
   },
   {
    "id": "analytics-agent",
@@ -106,9 +104,9 @@
    "role": "cron worker",
    "kind": "cron",
    "model": "openai/gpt-5.6-luna",
-   "sessions_total": 66,
-   "sessions_30d": 66,
-   "last_active_myt": "2026-09-04 06:04"
+   "sessions_total": 68,
+   "sessions_30d": 68,
+   "last_active_myt": "2026-09-05 06:06"
   }
  ],
  "finance": {
@@ -236,7 +234,7 @@
   "count": 94,
   "updated": "2026-08-28",
   "source": "Google Business Profile API",
-  "checked": "2026-09-04"
+  "checked": "2026-09-05"
  },
  "social": {
   "available": true,
