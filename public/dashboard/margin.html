@@ -330,7 +330,7 @@
       <div class="field"><label>From</label><input type="date" id="f-from"></div>
       <div class="field"><label>To</label><input type="date" id="f-to"></div>
       <div class="field"><label>Quick range</label><select id="f-preset">
-        <option value="today">Today</option>
+        <option value="today">Latest day</option>
         <option value="mtd">This month</option>
         <option value="last">Last month</option>
         <option value="qtd">Quarter to date</option>
@@ -355,7 +355,7 @@
         </div>
       </div>
       <div class="field"><label>Duration source</label><select id="f-show">
-        <option value="">All visits</option><option value="show">Real appt duration</option><option value="noshow">Estimated duration</option>
+        <option value="">All visits</option><option value="show">Booked appointment length</option><option value="noshow">Estimated duration</option>
       </select></div>
       <div class="field"><label>Search procedure / visit ref</label><input type="search" id="f-search" placeholder="e.g. implant, crown…"></div>
       <button class="btn" id="f-clear">↺ Reset</button>
@@ -375,7 +375,7 @@
     <!-- GM reconciliation strip -->
     <div class="recon">
       <h3>◷ GM month-end reconciliation</h3>
-      <p>The sum of the locum-payout column ties out to the branch manager's monthly locum calc. True margin = contribution − locum − <b>burn</b>, allocated per the Burn basis control above (chair-hours used, or each day's full fixed cost ÷26). Production & collection are real (DailyP&I 2026); lab cost is a category estimate; durations are real where matched (★ = estimated).</p>
+      <p>The sum of the locum-payout column ties out to the branch manager's monthly locum calc. True margin = contribution − locum − <b>burn</b>, allocated per the Burn basis control above (chair-hours used, or each day's full fixed cost ÷26). Production & collection are real (DailyP&I 2026); lab cost is a category estimate; durations are booked appointment lengths where matched (★ = estimated).</p>
       <div class="recon-grid" id="recon-grid"></div>
     </div>
 
@@ -414,7 +414,7 @@
     <div class="grid2">
       <div class="panel">
         <h3>Daily trend</h3>
-        <p class="ph-sub">Production (light) with true margin (teal) stacked inside — June working days.</p>
+        <p class="ph-sub">Production (light) with true margin (teal) stacked inside — selected days.</p>
         <div class="daily" id="daily"></div>
         <div class="legend">
           <span><span class="lg-sq" style="background:var(--funnel-3)"></span> production</span>
@@ -561,7 +561,7 @@ const XRAY_ADDBACK = {none:0, intraoral:30, opg:75, ceph:75, cbct:165};
 
 /* ---- REAL DATA from the clinic's own exports (build_margin_data.py) ----
    window.MARGIN_DATA.visits = real DailyP&I 2026 visits (production + collection),
-   grouped patient+date, with REAL appointment durations where matched (else a
+   grouped patient+date, with booked appointment lengths where matched (else a
    category default). Burn is the true fixed cost prorated PER VISIT by chair-
    time — a 60-min visit bears 60 min of burn, NOT per production line.
    Burn basis (owner toggle, persisted): allocation = chair-hours used
@@ -596,7 +596,7 @@ function burnFor(v){
 }
 const basisLabel = () =>
   'burn: ' + (burnBasis.alloc==='fullday' ? 'full day ÷26' : 'chair-hours') +
-  ' · ' + (burnBasis.dep==='net' ? 'Net' : 'EBITDA');
+  ' · ' + (burnBasis.dep==='net' ? 'incl. depreciation' : 'excl. depreciation');
 function buildRow(v){
   const production=v.production, lab=v.lab;
   const contribution=production-lab;
@@ -690,8 +690,8 @@ function computeRow(r){
 /* ---- Formatting helpers ---- */
 const rm  = v => 'RM ' + Math.round(v).toLocaleString('en-MY');
 const rm0 = v => Math.round(v).toLocaleString('en-MY');
-const pct = v => (v*100).toFixed(0) + '%';
-const pct1= v => (v*100).toFixed(1) + '%';
+const pct = v => Number.isFinite(v) ? (v*100).toFixed(0) + '%' : '—';
+const pct1= v => Number.isFinite(v) ? (v*100).toFixed(1) + '%' : '—';
 const TIER_LABEL = {c1:'C1',c2:'C2',c3:'C3',c4:'C4'};
 
 /* ---- Local-date helpers ----
@@ -757,10 +757,10 @@ function renderFunnel(rows){
     {cls:'s1', l:'Visits',       i:'▸', v:rows.length+' · '+Math.round(t.dur/60)+'h chair'},
     {cls:'s1', l:'Production',   i:'▸', v:rm(t.production)},
     {cls:'s2', l:'− Lab (est.)', i:'▸', v:rm(t.lab)},
-    {cls:'s3', l:'Contribution', i:'▸', v:rm(t.contribution)+' ('+pct(t.production?t.contribution/t.production:0)+')'},
+    {cls:'s3', l:'Contribution', i:'▸', v:rm(t.contribution)+' ('+pct(t.production?t.contribution/t.production:NaN)+')'},
     {cls:'s4', l:'− Locum',      i:'▸', v:rm(t.locum)},
     {cls:'s4', l:'− Burn',       i:'▸', v:rm(t.burn)},
-    {cls:'final', l:'True margin', i:'', v:rm(t.trueMargin)+' ('+pct(t.production?t.trueMargin/t.production:0)+')'}
+    {cls:'final', l:'True margin', i:'', v:rm(t.trueMargin)+' ('+pct(t.production?t.trueMargin/t.production:NaN)+')'}
   ];
   document.getElementById('funnel').innerHTML = steps.map((s,i)=>`
     <div class="fstep ${s.cls}">
@@ -816,7 +816,7 @@ function renderTable(){
       <td class="num mono">${r.production?rm0(r.production):'—'}</td>
       <td class="num mono">${r.lab?rm0(r.lab):'—'}</td>
       <td class="num mono">${rm0(r.contribution)}<span class="cm-pct ${cmClass(r.contribPct)}">${r.production?pct(r.contribPct):'–'}</span></td>
-      <td class="num mono" title="${r.matched?'real appointment duration':'estimated (no appt match)'}">${r.dur}${r.matched?'':'<span style="color:var(--warn)">*</span>'}</td>
+      <td class="num mono" title="${r.matched?'booked appointment length':'estimated (no appointment match)'}">${r.dur}${r.matched?'':'<span style="color:var(--warn)">*</span>'}</td>
       <td class="num mono">${rm0(r.burn)}</td>
       <td class="num mono" title="${rateTitle(r)}">${r.rate?Math.round(r.rate*100)+'%':'—'}${r.vol?'<span class="rate-flag">▲</span>':''}${r.prov?'<span class="rate-prov">?</span>':''}</td>
       <td class="num mono">${r.locum?rm0(r.locum):'—'}</td>
@@ -883,9 +883,9 @@ function renderSummary(){
   // KPIs
   const kpis=[
     {l:'Total production', i:'▦', v:rm(t.production), s:WIN.length+' visits in window'},
-    {l:'Total true margin', i:'◆', v:rm(t.trueMargin), s:pct(t.trueMargin/t.production)+' of production · '+basisLabel(), accent:true},
-    {l:'Contribution margin', i:'◇', v:pct1(t.contribution/t.production), s:rm(t.contribution)+' before locum & burn'},
-    {l:'Locum % of production', i:'◷', v:pct1(t.locum/t.production), s:rm(t.locum)+' total payout'}
+    {l:'Total true margin', i:'◆', v:rm(t.trueMargin), s:pct(t.production?t.trueMargin/t.production:NaN)+' of production · production − lab − locum − '+(burnBasis.alloc==='fullday'?'full-day fixed-cost share':'booked chair-time burn')+'; not full overhead · '+basisLabel(), accent:true},
+    {l:'Contribution margin', i:'◇', v:pct1(t.production?t.contribution/t.production:NaN), s:rm(t.contribution)+' before locum & burn'},
+    {l:'Locum % of production', i:'◷', v:pct1(t.production?t.locum/t.production:NaN), s:rm(t.locum)+' total payout'}
   ];
   document.getElementById('kpis').innerHTML = kpis.map(k=>`
     <div class="kpi ${k.accent?'accent':''}">
@@ -908,7 +908,7 @@ function renderSummary(){
         <div class="bar-fill" style="width:${Math.max(0,mw)}%;background:var(--teal)"></div>
         <span class="blabel" style="color:var(--teal-dd);position:relative;z-index:2">${rm0(x.production)}</span>
       </div></div>
-      <div class="brv">${rm0(x.trueMargin)}<small>${pct(x.trueMargin/x.production)} mgn</small></div>
+      <div class="brv">${rm0(x.trueMargin)}<small>${pct(x.production?x.trueMargin/x.production:NaN)} mgn</small></div>
     </div>`;
   }).join('');
 
@@ -949,9 +949,10 @@ function renderSummary(){
   document.querySelector('#locum-table tbody').innerHTML = docAgg
     .sort((a,b)=>b.locum-a.locum).map(x=>{
     const d=DOCTORS[x.d]||{tier:0,exempt10:false};
+    const blendedDiffersFromBase = d.tier && Math.abs(x.rate-d.tier)>0.0001;
     return `<tr data-doctor="${x.d}">
       <td><span class="doc"><span class="dot" style="background:${x.color}"></span>${x.d}</span></td>
-      <td>${pct(d.tier)}${d.exempt10?' · no-10%':''}</td>
+      <td title="Production-weighted blended locum rate for this window">${pct(x.rate)}${blendedDiffersFromBase?'<span class="rate-flag" title="Blended rate differs from the base tier">▲</span>':''}${d.exempt10?' · no-10%':''}</td>
       <td class="num mono">${rm0(x.locum)}</td>
       <td class="num mono">${pct(x.production?x.locum/x.production:0)}</td>
     </tr>`;
@@ -964,8 +965,8 @@ function renderSummary(){
     (burnBasis.alloc==='fullday'
       ? `<b>Burn</b> = each trading day's full fixed cost (overhead RM${rm0(PNL.overhead_day)}/day${burnBasis.dep==='net'?' + depreciation RM'+rm0(PNL.depreciation_day)+'/day':''}, ÷${PNL.trading_days_month||26}) allocated to that day's visits pro-rata by duration — so the window's total true margin matches the By-day P&amp;L (${burnBasis.dep==='net'?'Net, incl. depreciation':'EBITDA, excl. depreciation'}). ${MD.meta.durCoverage}% of visits have a matched appointment duration (rest ★ category estimate). `+
         `<b>Read the bottom line:</b> on this basis every day's visits absorb the day's whole fixed cost, so quiet days drag their visits' margins down — this answers "did we make money", the same as the nightly Telegram digest. `
-      : `<b>Burn</b> = appointment duration × RM${burnBasis.dep==='net'?BURN.loaded:BURN.ebitda}/hour (${burnBasis.dep==='net'?'Net, incl. depreciation':'EBITDA, excl. depreciation'}) — ${MD.meta.durCoverage}% of visits have a matched appointment duration (booked length; real seated→dismissed chair time is not yet populated in the extract — rest ★ category estimate). `+
-        `<b>⚠ Read the bottom line carefully:</b> this burn is only the chair-time actually billed, not the clinic's full ~RM118,000/mo fixed overhead. The unrecovered remainder is <b>under-absorbed overhead — idle chairs + support/admin time</b>, i.e. the "fill empty chairs" lever; charging full overhead lands the clinic near break-even (consistent with the P&L). Switch the Burn basis to <b>Full day (÷26)</b> to charge it in full. `)+
+      : `<b>Burn</b> = booked appointment length × RM${burnBasis.dep==='net'?BURN.loaded:BURN.ebitda}/hour (${burnBasis.dep==='net'?'Net, incl. depreciation':'EBITDA, excl. depreciation'}) — ${MD.meta.durCoverage}% of visits have a matched appointment duration (booked length; real seated→dismissed chair time is not yet populated in the extract — rest ★ category estimate). `+
+        `<b>⚠ Read the bottom line carefully:</b> this burn is only the chair-time actually billed, not the clinic's full ~RM${PNL?rm0(PNL.overhead_day*(PNL.trading_days_month||26)):'—'}/mo fixed overhead. The unrecovered remainder is <b>under-absorbed overhead — idle chairs + support/admin time</b>, i.e. the "fill empty chairs" lever; charging full overhead lands the clinic near break-even (consistent with the P&L). Switch the Burn basis to <b>Full day (÷26)</b> to charge it in full. `)+
     `<b>Lab cost = %-of-production estimate</b> (real per-case lab pending AutoCount). <b>Locum = collection-based estimate</b> (doctor-month earned collections × locum rules, allocated to visits pro-rata by production); authoritative = the monthly locum engine. `+
     `<b>Rate</b> is the locum percentage that sticks to the line: the doctor's base tier (40/45/50), or 50% where that doctor's <b>production</b> for the month crossed RM55,000 — the whole-month volume rule, marked <span class="rate-flag">▲</span>. A <span class="rate-prov">?</span> means the month is still open and the rate is <b>provisional</b>: crossing RM55,000 lifts the entire month to 50% retrospectively. The totals row shows the blended rate, weighted by production. Rates are exact; the ringgit amounts beside them remain estimates.`;
 
@@ -1091,7 +1092,7 @@ function renderEfficiency(){
 
   const all=totals(W), H=all.dur/60, best=docs[0], worst=docs[docs.length-1];
   const k=[
-    {l:'Avg true margin / chair-hr', v:rm(H?all.trueMargin/H:0), s:H.toFixed(0)+' chair-hrs in window · '+basisLabel(), accent:true},
+    {l:'Avg true margin / chair-hr', v:H?rm(all.trueMargin/H):'—', s:H.toFixed(0)+' chair-hrs in window · '+basisLabel(), accent:true},
     {l:'Most efficient', v:best?best.d.replace('Dr ',''):'—', s:best?rm(best.mph)+'/chair-hr':''},
     {l:'Least efficient', v:worst?worst.d.replace('Dr ',''):'—', s:worst?rm(worst.mph)+'/chair-hr':''},
     {l:'Top-vs-bottom spread', v:(best&&worst&&worst.mph>0)?Math.round(best.mph/worst.mph)+'×':'—', s:'true margin per chair-hr'}
@@ -1104,7 +1105,7 @@ function renderEfficiency(){
   document.getElementById('eff-note').innerHTML =
     `<b>Why this matters.</b> A chair-hour is the clinic's scarcest resource. <i>Production/hr</i> is raw throughput; <i>true-margin/hr</i> is what actually reaches the bottom line after locum & burn. `+
     `A specialist doing implants can earn many times the true margin per chair-hour of high-volume low-value work — so the two levers are <b>case-mix</b> (steer chair-time toward higher-margin work) and <b>utilisation</b> (fill idle chairs). `+
-    `Same caveats as Summary: burn uses ${MD.meta.durCoverage}% real durations; lab is a %-of-production estimate.`;
+    `Same caveats as Summary: burn uses ${MD.meta.durCoverage}% matched booked appointment lengths; lab is a %-of-production estimate.`;
 
   document.querySelectorAll('#view-efficiency [data-doctor]').forEach(el=>el.onclick=()=>drill({doctor:el.dataset.doctor}));
   document.querySelectorAll('#view-efficiency [data-cat]').forEach(el=>el.onclick=()=>drill({cat:el.dataset.cat}));
@@ -1122,7 +1123,8 @@ function switchView(v){
 /* ---- Filters wiring ---- */
 function initFilters(){
   const fd=document.getElementById('f-doctor');
-  fd.innerHTML='<option value="">All doctors</option>'+Object.keys(DOCTORS).map(d=>`<option>${d}</option>`).join('');
+  const doctors=[...new Set(ROWS.map(r=>r.doctor))].sort();
+  fd.innerHTML='<option value="">All doctors</option>'+doctors.map(d=>`<option>${d}</option>`).join('');
   const cats=[...new Set(ROWS.map(r=>r.cat))].sort();
   const fc=document.getElementById('f-cat');
   fc.innerHTML='<option value="">All categories</option>'+cats.map(c=>`<option>${c}</option>`).join('');
@@ -1175,14 +1177,13 @@ function initFilters(){
 }
 // Re-render both the ledger and the summary (date window affects both).
 function renderAll(){ renderTable(); renderSummary(); renderDay(); renderEfficiency(); }
-// Presets are anchored to the latest data date (acts as "today" for the demo).
+// Presets are anchored to the latest data date.
 // All boundaries are built from LOCAL date parts (ymd/dparts) — never via
 // toISOString(), which shifts MYT local midnight back a day through UTC.
 function applyPreset(p){
   const [Y,M] = dparts(DATA_MAX);            // anchor year / month (1-12)
   let from=DATA_MIN, to=DATA_MAX;
-  if(p==='today'){ const n=new Date();       // REAL local today (from = to)
-    from=to=ymd(n.getFullYear(), n.getMonth()+1, n.getDate()); }
+  if(p==='today'){ from=to=DATA_MAX; }
   else if(p==='mtd'){ from=ymd(Y,M,1); }
   else if(p==='last'){ const y=(M===1?Y-1:Y), m=(M===1?12:M-1);
     from=ymd(y,m,1); to=ymd(y,m,new Date(y,m,0).getDate()); }   // day 0 of next monthIndex = last day of m

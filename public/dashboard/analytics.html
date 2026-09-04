@@ -386,7 +386,8 @@ function renderSEO(){
   const d=D.deck, seo=d&&d.seo;
   if(!seo){setMeta("m-seo","GSC · no data","bad");fail("c-seo",`<b>Search Console feed not available.</b> ${esc(D.err.deck||"deck.json carries no seo block")}`);return;}
   const w=seo.window||[]; const label=w[0]?w[0].slice(0,7):"last full month";
-  setMeta("m-seo",`GSC · ${label} · ${esc(seo.source||"deck.json")} · generated ${esc(d.generated_myt||"—")} MYT`);
+  const scorecardProduced=seo.generated_myt||seo.generated_at||seo.as_of||seo.run_at;
+  setMeta("m-seo",`GSC · ${label}${scorecardProduced?` · scorecard produced ${esc(scorecardProduced)} MYT`:""}`);
   const box=$("#c-seo");box.innerHTML="";
   const ctr=num(seo.nonbrand_ctr_pct), ctrCls=ctr<1?"warn":"ok";
   const org=num(seo.organic_sessions), orgM=num(seo.organic_sessions_mobile), mshare=org?100*orgM/org:NaN;
@@ -468,7 +469,7 @@ function renderValue(){
   const S=v[VAL_VIEW];
   const sw=el("div","kfilter"); [["all_time","All time"],["mtd","This month ("+esc(v.month)+")"]].forEach(([k,l])=>{const sp=el("span",VAL_VIEW===k?"on":"",l);sp.addEventListener("click",()=>{VAL_VIEW=k;renderValue();});sw.appendChild(sp);}); box.appendChild(sw);
   let g=el("div","stats three");
-  g.appendChild(stat("Conversion",S.conversion_pct==null?"—":pct(S.conversion_pct,1)+`<small>${S.patients_converted} of ${S.patients_reached.toLocaleString()} reached${VAL_VIEW==="mtd"?" · first visits this month":""}</small>`,"ok"));
+  g.appendChild(stat("Came in · per patient",S.conversion_pct==null?"—":pct(S.conversion_pct,1)+`<small>${S.patients_converted} of ${S.patients_reached.toLocaleString()} reached${VAL_VIEW==="mtd"?" · first visits this month":""}</small>`,"ok"));
   g.appendChild(stat("RM converted","RM"+Math.round(S.production).toLocaleString()+`<small>production in window</small>`,"ok"));
   g.appendChild(stat("Patients · appointments",`${S.patients_converted} · ${S.visits}<small>${S.repeat_patients} came back twice or more</small>`));
   box.appendChild(g);
@@ -478,7 +479,7 @@ function renderValue(){
   S.by_doctor.forEach(d=>{const tr=el("tr");tr.innerHTML=`<td>${esc(d.name||d.abbr)}</td><td class=num>${d.patients}</td><td class=num>${d.visits}</td><td class=num>${d.repeat_visits}</td><td class=num>RM${d.production.toLocaleString()}</td><td class=num><div class="bar" style="min-width:70px"><i data-w="${(100*d.production/tot).toFixed(1)}"></i></div> ${(100*d.production/tot).toFixed(0)}%</td>`;body.appendChild(tr);});
   if(!S.by_doctor.length)body.appendChild(el("tr",null,"<td colspan=6 class=empty>nothing in this window yet</td>"));
   tb.appendChild(body); tw.appendChild(tb); box.appendChild(tw);
-  box.appendChild(el("div","note",esc(v.rule)+". A phone number can belong to a household, so every patient on a recalled number is in the reach count. The older per-phone conversion (${cv}) counts bookings, this one counts patients who actually came in and produced.".replace("${cv}",r.conversion&&r.conversion.available?pct(r.conversion.conversion_pct,1):"—")));
+  box.appendChild(el("div","note",esc(v.rule)+". A phone number can belong to a household, so every patient on a recalled number is in the reach count. The older per-message conversion (${cv}) counts bookings, this one counts patients who actually came in and produced.".replace("${cv}",r.conversion&&r.conversion.available?pct(r.conversion.conversion_pct,1):"—")));
   box.querySelectorAll("[data-w]").forEach(i=>setTimeout(()=>{i.style.width=i.dataset.w+"%";},200));
 }
 function renderRecall(){
@@ -489,7 +490,7 @@ function renderRecall(){
   const box=$("#c-rec");box.innerHTML="";
   const c=r.cumulative||{}, m=r.this_month||{}, cv=r.conversion||{};
   let g=el("div","stats three");
-  g.appendChild(stat("Booked after recall",cv.available?pct(cv.conversion_pct,1)+`<small>${esc(cv.attrib_window_days)}-day window</small>`:"—",cv.available?"ok":"na"));
+  g.appendChild(stat("Booked · per message",cv.available?pct(cv.conversion_pct,1)+`<small>${esc(cv.attrib_window_days)}-day window</small>`:"—",cv.available?"ok":"na"));
   g.appendChild(stat("This month · sent",fmt(m.sent)+`<small>${fmt(m.replies)} replied · ${fmt(m.clicks)} clicked</small>`));
   g.appendChild(stat("Cumulative sent",fmt(c.sent)+`<small>${fmt(c.failed)} failed</small>`));
   box.appendChild(g);

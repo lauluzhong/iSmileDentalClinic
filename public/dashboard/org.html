@@ -192,7 +192,7 @@
   </div>
   <div class="tree" id="tree"></div>
 
-  <footer>iSmile Org Chart · <a href="/dashboard/hq">HQ</a> · <a href="/dashboard/tasks">Task Tracker</a><br>ownership is fixed on this page; the items come live from <span style="font-family:var(--mono)">hq.json</span> on the status branch (stream <span style="font-family:var(--mono)">owner</span> + <span style="font-family:var(--mono)">flag.who</span>)</footer>
+  <footer>iSmile Org Chart · <a href="/dashboard/tasks">Task Tracker</a><br>ownership is fixed on this page; the items come live from <span style="font-family:var(--mono)">hq.json</span> on the status branch (stream <span style="font-family:var(--mono)">owner</span> + <span style="font-family:var(--mono)">flag.who</span>)</footer>
 </div>
 
 <div class="scrim" id="scrim"></div>
@@ -247,7 +247,6 @@ const PEOPLE={
   ling:       {n:"Dr Ling",          r:"Orthodontist",                      c:"var(--ffin)",i:"DL", al:["dr ling","ling"]},
   edith:      {n:"Edith",            r:"AI Director of Digital Growth",     c:"var(--p1)",  i:"ED", al:["edith"], ai:true},
   codecapsule:{n:"Code Capsule",     r:"Vendor · OpenDent / AutoCount",     c:"var(--dim)", i:"CC", al:["code capsule","suraya","bob"]},
-  parents:    {n:"Lu's parents",     r:"Directors · decision gate",         c:"var(--warn)",i:"LP", al:["parents"]},
 };
 /* Owner strings in ORG → people ids. */
 const OWNER_ID={"Lau Lu-Zhong":"lu","Ong Nguk Jean":"jean","Lau Tian Chen":"tianchen","Emily":"emily","Lydia":"lydia"};
@@ -261,7 +260,8 @@ let FEED=null;            // {groups:[{id,num,name,color,streams}]} or null when
 let ITEMS={};             // personId → [{s,g,why}]  (why: "owns" | "named")
 
 /* Build per-person item lists: streams they own (missing owner → lu) plus
-   streams whose flag.who names them. Deduped per person; owner wins. */
+   streams whose flag.who names them. Parent-owned asks belong to both named
+   shareholders. Deduped per person; owner wins. */
 function computeItems(){
   ITEMS={}; Object.keys(PEOPLE).forEach(id=>ITEMS[id]=[]);
   if(!FEED) return;
@@ -271,9 +271,12 @@ function computeItems(){
     const owner=PEOPLE[s.owner]?s.owner:"lu";
     add(owner,s,g,"owns");
     const who=(s.flag&&s.flag.who||"").toLowerCase();
-    if(who) for(const [pid,p] of Object.entries(PEOPLE)){
-      if(pid===owner) continue;
-      if(p.al.some(a=>who.includes(a))||who.includes(p.n.toLowerCase())) add(pid,s,g,"named");
+    if(who){
+      if(who.includes("parents")) ["jean","tianchen"].forEach(pid=>{if(pid!==owner)add(pid,s,g,"named");});
+      for(const [pid,p] of Object.entries(PEOPLE)){
+        if(pid===owner) continue;
+        if(p.al.some(a=>who.includes(a))||who.includes(p.n.toLowerCase())) add(pid,s,g,"named");
+      }
     }
   }
 }
@@ -287,8 +290,8 @@ function el(tag,cls,html){const e=document.createElement(tag); if(cls)e.classNam
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 function avatar(p,sm){const a=el("div","av"+(sm?" sm":"")+(p.ai?" ai":""),p.i); a.style.setProperty("--ac",p.c); return a;}
 function fmtBy(iso){const d=new Date(iso+"T00:00:00"); return isNaN(d)?iso:d.toLocaleDateString("en-GB",{day:"2-digit",month:"short"});}
-/* A `due` flag whose date has passed reads as LATE. */
-function flagKind(f){if(!f)return null; if(f.k==="due"&&f.by&&new Date(f.by+"T23:59:59")<new Date())return "late"; return f.k||"decide";}
+/* Any dated flag whose date has passed reads as LATE. */
+function flagKind(f){if(!f)return null; if(f.by&&new Date(f.by+"T23:59:59+08:00")<new Date())return "late"; return f.k||"decide";}
 
 /* Person chip (inside the tree): avatar + name + "n · f" count. */
 function chip(pid){
@@ -319,7 +322,7 @@ function renderTree(){
   // directors
   const apex=el("div","node apex"); apex.appendChild(el("div","top"));
   const ab=el("div","nb"); ab.appendChild(el("div","nk","Shareholders")); ab.appendChild(el("div","nt",esc(ORG.directors.t)));
-  const ach=chipsFor(ORG.directors.o); ach.appendChild(chip("parents")); ab.appendChild(ach); apex.appendChild(ab); t.appendChild(apex);
+  const ach=chipsFor(ORG.directors.o); ab.appendChild(ach); apex.appendChild(ab); t.appendChild(apex);
   t.appendChild(el("div","link"));
   // ceo
   const ceo=el("div","node ceo"); ceo.appendChild(el("div","top"));
@@ -372,7 +375,7 @@ function openPerson(pid){
   // org roles held (from the static chart)
   const roles=[]; ORG.divisions.forEach(d=>{if(ownersOf(d.o).includes(pid))roles.push(d.n); d.depts.forEach(x=>{if(ownersOf(x.o).includes(pid))roles.push(x.n);});});
   if(ownersOf(ORG.ceo.o).includes(pid))roles.unshift(ORG.ceo.t);
-  if(ownersOf(ORG.directors.o).includes(pid)||pid==="parents")roles.unshift("Director");
+  if(ownersOf(ORG.directors.o).includes(pid))roles.unshift("Director");
   $("#done").textContent=roles.length?"owns · "+roles.join(" · "):"outside the org chart";
   if(!FEED){body.appendChild(el("div","dempty","task feed unavailable — nothing to list.")); }
   else{
