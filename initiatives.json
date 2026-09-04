@@ -1,9 +1,14 @@
 {
- "updated": "2026-09-04T00:54:38+08:00",
+ "updated": "2026-09-04T10:39:32+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
   "Lau": {
    "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -12,8 +17,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
@@ -26,11 +31,6 @@
    "init": "CC",
    "role": "",
    "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
   }
  },
  "initiatives": [
@@ -40,7 +40,7 @@
    "status": "active",
    "owner": "Code Capsule",
    "why": "The spine. Sandbox proven, licence paid \u2014 the true integration happens 1\u20135 Sep.",
-   "next": "Issue the AutoCount payment and PO on 26 Aug, then confirm the hardware arrival date so the clinic knows which Saturday loses OpenDent for seven to eight hours and can plan the appointment book around it.",
+   "next": "Hardware is in and checked. Bob migrates OpenDent on Saturday 5 Sep from 3 PM (ending 7\u20138 PM, Emily staying). Then reconfigure every other OpenDent PC and run the true end-to-end test 7\u201311 Sep.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -50,10 +50,10 @@
     "Software / Windows list + licences done, passed to Code Capsule",
     "Hardware purchased",
     "AutoCount invoice paid (RM4,200 incl. API module, +2 stock users)",
-    "Licence issued \u00b7 data migration \u00b7 config change (Leow to upgrade the trial)",
+    "AutoCount licence + data migration done (19,206 debtors \u2192 AED_ISMILE)",
     "Preliminary config check only \u2014 end-to-end is NOT possible yet",
     "Hardware arrived and items checked",
-    "OpenDent migration & configuration, 7\u20138 hrs from 3pm \u2014 Bob informed",
+    "OpenDent migration & configuration, 7\u20138 hrs from 3 PM \u2014 Bob confirmed, Emily stays to completion",
     "Reconfigure every other OpenDent PC in the clinic",
     "True end-to-end integration test",
     "AR sync live \u2014 parallel run with paper receipts"
@@ -124,7 +124,7 @@
    "status": "active",
    "owner": "Emily",
    "why": "AutoCount Cloud HRMS bought: RM1,139.05/yr \u2014 Payroll 14 \u00b7 E-leave & E-claim 12 \u00b7 E-attendance 10. Attendance feeds the same environment.",
-   "next": "Quotation expected 27 Aug. Compare the annual fee against the manual effort it removes before committing, and decide whether it goes live with the accounting system or after the front desk has settled - stacking two new systems on the same team at once is the main risk.",
+   "next": "Bought and registered 27 Aug. Next: employee data entry and configuration, then choose the cut-over month for the first parallel payroll run.",
    "dept": "finance",
    "lens": "efficiency",
    "endMonth": null,
@@ -164,7 +164,7 @@
    "status": "active",
    "owner": "Code Capsule",
    "why": "New reception PC + the home CPU as the new server beside the old one; OpenDent rep reconfigures everything.",
-   "next": "PCs in transit \u2014 Taobao ETA 3 Sep",
+   "next": "PCs arrived and checked 3 Sep; server swap with Bob on Saturday 5 Sep from 3 PM.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": null,
@@ -210,7 +210,7 @@
    "tasks": [
     "Push pipeline + dashboard live",
     "Daily cash-cover notification running",
-    "Per-line locum-rate column live on /dashboard/margin",
+    "Per-line locum-rate column live on /dashboard/profitability",
     "Agree the payment\u2192procedure allocation convention with Emily",
     "Locum attribution view feeds per-doctor statements"
    ],
@@ -263,7 +263,7 @@
    "next": "Emily reviews the final agreement; then complete Jun's Schedule 1 with her personal information and prepare the per-doctor copies for the 15 Sep rollout.",
    "dept": "people",
    "lens": "efficiency",
-   "endMonth": "2026-08",
+   "endMonth": "2026-09",
    "note": "",
    "tasks": [
     "Synthesised draft with owner rulings",
@@ -304,7 +304,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "Abolish it clinic-wide; offset by doctors bearing their own discounts. Cleaner \u2014 especially for Jun \u2014 but a real net cost.",
-   "next": "Scenario C run 19 Aug (the intended rule: pay on collections, rate follows production month): would have SAVED ~RM20k over 12mo (range 18.9-22.2k) \u2014 BUT RM72k unassigned cash could flip it to a RM4-17k cost. Decider = owner runs the payment-allocation query in OpenDental (file in Financials/03_Locum Calculation), then re-run exact.",
+   "next": "Approved 2 Sep. It now rides on the agreement: struck from Schedule 2 on 3 Sep, and lands with the doctors at the 15 Sep meeting. Cost owned honestly: about \u2212RM57k a year excluding the principal, with offsets recovering only about RM3.3k.",
    "dept": "finance",
    "lens": "cost",
    "endMonth": "2026-12",
@@ -313,7 +313,7 @@
     "Simulated across Jun-25\u2192May-26",
     "Direction chosen: remove, offset via doctor-borne discounts",
     "Approved by parents, with the discount-approval threshold amended to 15%",
-    "Lands in Schedule 1 + doctor briefing"
+    "Struck in Schedule 2 (drafted 3 Sep, awaiting Lydia) \u00b7 doctor briefing 15 Sep"
    ],
    "pillar": "P2"
   },
@@ -323,7 +323,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "Floor price + mandatory discount lines, 100% doctor-borne. IPP as the alternative to upfront discounts \u2014 doctor bears MDR above the 0.85% BAU.",
-   "next": "The pricing baseline question is now answered - see the fee schedule initiative. Doctors do follow the list where a price exists (60% exactly at base, and charging above and below cancels out), so the list is usable as an anchor once the gaps are filled. The blocker is that price reductions are recorded as edits to the procedure line rather than as discounts, so the clause needs the keying rule alongside it.",
+   "next": "The floor now exists in draft: Fee Guide v1 was built on 4 Sep. What still has to travel with the clause is the keying rule \u2014 a reduction is a discount line, never an edited production price.",
    "dept": "finance",
    "lens": "cost",
    "endMonth": "2026-12",
@@ -332,7 +332,7 @@
     "20-yr discount forensics (all clean cases = Dr Ling, ~10%)",
     "Pine Labs rate card + 12-month simulation",
     "Scenario A chosen: doctor bears MDR \u2014 self-policing",
-    "Approved by parents; discount-approval threshold set at 15% \u00b7 Lydia updates clause",
+    "Approved 2 Sep at a 15% gate; amendments sit in the Google Doc as suggestions \u2014 waiting on Lydia to accept",
     "Doctor briefing: discount lines, never touch production price"
    ],
    "pillar": "P2"
@@ -351,7 +351,7 @@
    "tasks": [
     "Full audit vs the Sep-2024 standard list",
     "Emily reviewing code-consolidation advice",
-    "Repricing pass on the 90 unpriced codes",
+    "Repricing pass \u2014 Fee Guide v1 drafted 4 Sep (161 codes, 138 priced, 83 owner flags)",
     "Becomes the floor the discount clause references"
    ],
    "pillar": "P2"
@@ -359,7 +359,7 @@
   {
    "id": "l8",
    "title": "Doctor rollout & communication",
-   "status": "review",
+   "status": "active",
    "owner": "Lau",
    "why": "How the agreement actually lands with the doctors. The narrative carries as much weight as the terms.",
    "next": "Decide the format: sit-down while sharing, or send individually then take questions",
@@ -424,7 +424,7 @@
    "title": "Recall funnel (automated)",
    "status": "active",
    "owner": "Edith",
-   "why": "The 03-number WhatsApp recall runs daily on cron; you get the number from Edith every morning. 6.7% booking conversion is the floor.",
+   "why": "The 03-number WhatsApp recall runs daily on cron; you get the number from Edith every morning. Booked 27% per message, came in 20% per patient; RM111.7k of production attributed all-time (correlation, not lift).",
    "next": "CLOSED 19 Aug: live and connected \u2014 daily cron, dashboard bridge, conversion reporting all running.",
    "dept": "crm",
    "lens": "revenue",
@@ -489,7 +489,7 @@
    "title": "SEO & website",
    "status": "active",
    "owner": "Edith",
-   "why": "Diagnosis landed: service pages render as 160-word stubs to Google \u2014 prerendering them is the single highest-impact fix. Reviews velocity 2/mo vs 6\u20138 target.",
+   "why": "Stub pages fixed 31 Aug (~2,600 visible words each). The remaining local lever is review velocity - 2/mo against a 6-8 target. First CTR read ~10 Sep.",
    "next": "Prerender service pages",
    "dept": "growth",
    "lens": "revenue",
@@ -520,7 +520,7 @@
     "Strategy + first-cut plan written",
     "Buy clip-on mic \u00b7 pick shoot days",
     "First Dr Ling consult footage",
-    "Zernio tracking across channels"
+    "Zernio wired - Instagram feed live 2 Sep; connect the remaining channels and check Threads-reply support"
    ],
    "pillar": "P3"
   },
@@ -570,7 +570,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "As families return, the arrival experience must justify the premium. CX is stagnating / team too comfortable. The first visit back is the moment of truth for a reactivated patient.",
-   "next": "Fourteen concept renders are done across both waiting areas, including the children's zones. The hold is procurement \u2014 this is a low-budget restyle, so furnishings need to be sourced secondhand rather than bought new.",
+   "next": "Fourteen renders done. Before any fixed joinery: the 2-week front-desk tally of accompanying children (Emily) - the age data says power/USB and Wi-Fi at adult seats beats a toddler corner. The RM0 fixes can go today.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-09",
@@ -581,7 +581,7 @@
     "Pick the winning direction per area",
     "Source furnishings secondhand \u2014 marketplace hunting, low budget",
     "Belongings storage \u2014 the gap patients notice most",
-    "Next: Fourteen concept renders are done across both waiting areas, including the children's zones. The hold is procurement \u2014 this is a low-budget restyle, so furnishings need to be sourced secondhand rather than bought new."
+    "2-week front-desk tally of accompanying children, before any fixed joinery"
    ],
    "pillar": "P3"
   },
@@ -601,8 +601,7 @@
     "Reframed: seasonal goodwill, not a BAU referral pipeline",
     "Dec: design the iSmile card that goes into the CNY hampers",
     "Agree the reciprocal gesture \u2014 what we do for his patients in return",
-    "Track anyone who arrives from it (needs #10 front-desk referral tracking)",
-    "Next: Nothing to chase now. Revisit around December so the card and the offer are ready before the CNY hamper run."
+    "Track anyone who arrives from it (needs #10 front-desk referral tracking)"
    ],
    "pillar": "P3"
   },
@@ -612,19 +611,18 @@
    "status": "active",
    "owner": "Lau",
    "why": "We're a premium, trust-based practice \u2014 referrals must be earned through experience, not bought (no MLM, no discounts; the segment isn't price-sensitive). A great end-to-end experience makes referral automatic.",
-   "next": "Call with Lu Zheng scheduled to work through the CRM and the referral engine together. He owns the CRM and is building the high-value list. The same caller constraint as the cold-calling applies once the list is ready.",
+   "next": "Capture-first: the 'Who referred you?' question is already live on the registration form. Remaining: the front-desk script and writing answers into OpenDental's native referral field, then Lydia's MDC inducement view before any reward.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-10",
    "note": "",
    "tasks": [
-    "Call with Lu Zheng \u2014 CRM handover and the referral engine",
-    "One-time: identify loyal / high-frequency / high-value / complex-case patients",
-    "Lu Zheng building the high-value referral list (moved off the intern)",
-    "Lists complete \u2192 Lu presents to GM \u2192 gate Elaine-as-caller \u2192 trigger",
-    "Design post-referral thank-you (text and/or RM50 NGO food voucher)",
-    "Decide if an opt-in program is needed; pilot with the loyal cohort",
-    "Next: Call with Lu Zheng scheduled to work through the CRM and the referral engine together. He owns the CRM and is building the high-value list. The same caller constraint as the cold-calling applies once the list is ready."
+    "Referral question live on the digital registration form (condReferrer/referrerName)",
+    "Front-desk script + write answers into OpenDental's IsFrom referral field",
+    "90-day capture baseline before any reward is designed",
+    "Lydia's view on MDC inducement rules before offering anything of value",
+    "Only then: design the post-referral thank-you",
+    "Decide if a formal opt-in programme is needed; pilot with the loyal cohort"
    ],
    "pillar": "P3"
   },
@@ -642,8 +640,7 @@
    "tasks": [
     "Size the can't-make-working-hours demand (from CRM calls + recall replies)",
     "Model staffing/locum cost vs expected fill",
-    "Pilot an evening / weekend block",
-    "Next: Dr Priscilla mentioned (Aug) she is OPEN TO WORKING NIGHTS \u2014 possibly not mornings. A concrete staffing option for extended hours."
+    "Pilot an evening / weekend block"
    ],
    "pillar": "P3"
   },
@@ -653,7 +650,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "The website now opens WhatsApp conversations with a pre-typed, procedure-specific first line (CTA pop-up, live 10 Aug 2026), so incoming chats arrive already labelled by intent: aligners, wisdom tooth, implants, whitenin",
-   "next": "Owner collecting the encrypted backup + key at the clinic 19 Aug; then decrypt and mine for tier 2/3.",
+   "next": "15 quick replies drafted from 299k real messages; 11 are unblocked - load them onto the clinic phone and train the desk. Gated: /fees + /braces on Dr Ling's pricing answers, /pay on Emily verifying the bank line, /doctors on a weekly refresh owner.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-11",
@@ -662,9 +659,9 @@
     "Tier 1 (7 shortcuts) loaded on clinic phone 17 Aug (hours/book/firstvisit/fees/pain/cleaning/form \u2014 form gated on backend)",
     "Collect chat history at clinic (19 Aug): confirm E2E re-encryption done, USB-copy msgstore.db.crypt15 + 64-digit key",
     "Decrypt with whatsapp-chat-exporter, verify Dr Ling group intact",
-    "Mine history -> tier 2 (filling/extraction/gums/rootcanal/kids) + tier 3 tx- drafts + desk training sheet",
+    "History mined (6,087 chats / 299,149 msgs) -> v1 set of 15 quick replies + Wave 2/3 backlog",
     "Registration-form backend (Google Sheet webhook) so the form shortcut can go live \u2014 in build (id 10)",
-    "Next: Owner collecting the encrypted backup + key at the clinic 19 Aug; then decrypt and mine for tier 2/3."
+    "Load the 11 unblocked quick replies onto the clinic phone, then desk training"
    ],
    "pillar": "P3"
   },
@@ -691,8 +688,8 @@
    "title": "Year-end increments",
    "status": "review",
    "owner": "Lau",
-   "why": "Decided: year end, BASE only, <1yr staff none, Elaine none. Amounts = the Q4 sit-down.",
-   "next": "Remaining scope = the YEAR-END INCREMENT only (bonus paid Jul). Owner + Emily to sit down and set per-person amounts. Easy call already made: staff under 1 year (Erincy/Ruth/Suriza) get NO increment.",
+   "why": "Decided: year end, BASE only, <1yr staff pro-rated, Elaine none. Amounts = the Q4 sit-down.",
+   "next": "Remaining scope = the YEAR-END INCREMENT only (bonus paid Jul). Owner + Emily to sit down and set per-person amounts. Settled: staff under 1 year (Erincy/Ruth/Suriza) are PRO-RATED in their one-to-ones; Elaine gets none (decided 2 Sep).",
    "dept": "people",
    "lens": "cost",
    "endMonth": "2026-12",
@@ -754,7 +751,7 @@
    "note": "",
    "tasks": [
     "Scope written \u2014 ~25 front-of-house duties mapped, P1 vs P2",
-    "Letters SOP: templates, request path, turnaround, sign-off, filing, register",
+    "Letters SOP FOH-01 drafted (v1.0, 30 Jul) - put it in force: Google Docs masters + Joanna walkthrough; filing location still unresolved",
     "Erincy on the front desk about 30% of her time inside her first three months",
     "Escalation matrix \u2014 what the desk answers vs what needs a doctor",
     "Answer bank \u2014 the 30\u201340 most common questions, approved once by a doctor",
@@ -763,8 +760,7 @@
     "Training scope agreed \u2014 receipts, the digital form, letters, and difficult conversations",
     "Attendance agreed \u2014 four required, the rest of the assistants welcome",
     "Letters: obtain the example from the office, then build the letterhead templates",
-    "Check whether a clinic stamp can stand in for a doctor's signature on external letters",
-    "Next: Consolidated all training inputs onto this card (see note). Next: owner picks a date to build the FOH training deck."
+    "Check whether a clinic stamp can stand in for a doctor's signature on external letters"
    ],
    "pillar": "F1"
   },
@@ -800,7 +796,8 @@
    "tasks": [
     "V6 rebuilt",
     "Track landing vs actuals monthly",
-    "Year-end close + FY2027 base"
+    "Year-end close + FY2027 base",
+    "Bake the approved abolition of the 10% deduction into Model v6 and reforecast the FY2026 landing"
    ],
    "pillar": "F2"
   },
@@ -809,7 +806,7 @@
    "title": "Capex & cash runway",
    "status": "active",
    "owner": "Emily",
-   "why": "The digitisation bill is paid \u2014 hardware ~10k, Code Capsule 10k, AutoCount RM4.2k + HRMS RM1.1k/yr. What's left is confirming cash covers the Dec wave.",
+   "why": "...What's left is confirming cash covers the September legal fee and the January 2027 increment step-up.",
    "next": "Confirm cash covers remaining capex + Dec bonus/increment wave",
    "dept": "finance",
    "lens": "efficiency",
@@ -818,7 +815,7 @@
    "tasks": [
     "AutoCount licence + Cloud HRMS paid",
     "Code Capsule + hardware invoices paid",
-    "Confirm cash covers remaining capex + Dec bonus/increment wave"
+    "Confirm cash covers remaining capex, the RM15k Sep legal fee, and the Jan-2027 increment step-up"
    ],
    "pillar": "F2"
   },
@@ -839,8 +836,7 @@
     "Confirm rebates are actually booked against the cost line in the month they relate to \u2014 the policy fails quietly if they are not",
     "Legal to confirm the ethics and inducement position",
     "Communicate to the doctors, leading with the good news",
-    "Fold into the contractor agreement",
-    "Next: Confirm the mechanics with the office, get the ethics position confirmed, then communicate it and fold it into the contractor agreement."
+    "Fold into the contractor agreement"
    ],
    "pillar": "F2"
   },
@@ -913,6 +909,54 @@
    "next": "Session held 26 Aug. Settled: the subscription timing, the 5 Sep configuration slot with the engineer arriving mid-afternoon so the trading day is not lost, the software list, the contractor agreement walkthrough, the pricing and discount findings, the locum timing approach, the shortcut set and the year-end increment timing. Still open: the supplier register and what we currently pay for cases; a date for the front-desk training, to run on a Saturday after work with dinner; and a new mailbox the practice manager proposed for the registration sheet. Four items were not reached at all - the checkout rebooking leak, the loss-making weekdays, the chairside conduct matter and caller capacity - and these should open the next session.",
    "dept": "people",
    "lens": "efficiency",
+   "endMonth": null,
+   "tasks": []
+  },
+  {
+   "id": "done-None",
+   "title": "CRM Reactivation Cold-Calling",
+   "status": "done",
+   "owner": "Lau",
+   "why": "",
+   "next": "PARKED 26 Aug 2026 (owner): caller capacity is the constraint, not data. The 172-name ranked call list stays built and idle; one call made since 1 Jul.",
+   "dept": "crm",
+   "lens": "revenue",
+   "endMonth": null,
+   "tasks": []
+  },
+  {
+   "id": "done-None",
+   "title": "X-ray compliance (AELB)",
+   "status": "done",
+   "owner": "Emily",
+   "why": "",
+   "next": "RESOLVED: one AELB-compliant person in the building suffices and one is always present. X-ray sharing separately ruled off the table as a funding lever (28 Aug).",
+   "dept": "clinical",
+   "lens": "efficiency",
+   "endMonth": null,
+   "tasks": []
+  },
+  {
+   "id": "done-None",
+   "title": "Credential rotation (marketing box)",
+   "status": "done",
+   "owner": "Lau",
+   "why": "",
+   "next": "DROPPED by the owner 19 Aug 2026 (low importance) \u2014 RECALL_PASS, Firehose and openclaw keys stay as they are. Newer secrets (Zernio bearer, GBP bot tokens, Deepgram key) are a separate question if ever raised.",
+   "dept": "tech",
+   "lens": "efficiency",
+   "endMonth": null,
+   "tasks": []
+  },
+  {
+   "id": "done-None",
+   "title": "Registration / admin fee",
+   "status": "done",
+   "owner": "Lau",
+   "why": "",
+   "next": "PARKED 28 Aug 2026 with comps and zero-fee enforcement. Researched 5 Aug (Klang Valley RM5\u201319; clinic revenue outside the locum share base); per-visit vs one-off never settled.",
+   "dept": "finance",
+   "lens": "revenue",
    "endMonth": null,
    "tasks": []
   }
