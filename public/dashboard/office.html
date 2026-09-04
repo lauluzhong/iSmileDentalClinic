@@ -257,7 +257,7 @@
   </div>
 
   <footer>iSmile Office · data from the <span style="font-family:var(--mono)">status</span> branch (deck · status · activity) · refreshes itself every minute<br>
-    Berlin clock on the box; all times shown in MYT. <a href="/dashboard">Dashboard</a> · <a href="/dashboard/hq">HQ</a> · <a href="/dashboard/deck">Deck</a></footer>
+    Berlin clock on the box; all times shown in MYT. <a href="/dashboard">Dashboard</a> · <a href="/dashboard/tasks">HQ</a> · <a href="/dashboard">Deck</a></footer>
 </div>
 
 <div id="tip"></div>
@@ -313,41 +313,36 @@ async function getJSON(u){const r=await fetch(u+"?t="+Date.now(),{cache:"no-stor
 /* cadence -> "stale" threshold = 2x cadence */
 const CAD={daily:48*H,weekly:15*DAY,monthly:62*DAY,m10:1*H,m30:2*H,m5:15*60e3};
 const SPEC={
-  gbp_reply:        {name:"Reply to Google reviews",   sch:"Daily 06:00 MYT",    kind:"llm", agent:"gbp",       cad:"daily",  group:"daily",  purpose:"Reply to new Google reviews: 5★ auto-posted, 1–4★ drafted to the owner's approval group"},
-  competitor_watch: {name:"Competitor watch",          sch:"Sun 06:00 MYT",      kind:"det", agent:"seo",       cad:"weekly", group:"weekly", purpose:"Diff 17 competitor sites + Firehose radar → digest"},
-  review_curation:  {name:"Review curation",           sch:"Sun 06:30 MYT",      kind:"llm", agent:"engineer",  cad:"weekly", group:"weekly", purpose:"Pick a genuine review → site PR for approval"},
-  seo_outcome:      {name:"SEO outcome scorecard",     sch:"Monthly 1st 07:00",  kind:"det", agent:"analytics", cad:"monthly",group:"weekly", purpose:"GSC + GA4 scorecard → seo_scorecard_<month>.json, Telegram verdict"},
-  weekly_digest:    {name:"Weekly digest",             sch:"Sun 18:00 MYT",      kind:"llm", agent:"reporting", cad:"weekly", group:"weekly", purpose:"Weekly digest to the owner"},
-  recall_funnel:    {name:"Recall funnel refresh",     sch:"Daily 07:30 MYT",    kind:"det", agent:"analytics", cad:"daily",  group:"daily",  purpose:"Scrape the recall mini-CRM → recall.json"},
-  gen_initiatives:  {name:"Publish initiatives board", sch:"Daily 06:15 MYT",    kind:"det", agent:"edith",     cad:"daily",  group:"daily",  purpose:"initiatives.store.json → initiatives.json"},
-  review_stats_sync:{name:"Review stats sync",         sch:"Daily 06:20 MYT",    kind:"det", agent:"gbp",       cad:"daily",  group:"daily",  purpose:"GBP rating/count → review-stats.json, commits to the website"},
-  watchdog:         {name:"Watchdog",                  sch:"Daily 08:00 MYT",    kind:"det", agent:"edith",     cad:"daily",  group:"daily",  purpose:"Silent health check; Sunday heartbeat; disk > 85% alert"},
-  cash_digest:      {name:"Cash digest",               sch:"12:05 + 19:50 MYT",  kind:"det", agent:"analytics", cad:"daily",  group:"daily",  purpose:"Midday + end-of-day cash digest (Telegram + WhatsApp) → cashflow.json"},
-  margin_build:     {name:"Margin build",              sch:"Daily 19:40 MYT",    kind:"det", agent:"analytics", cad:"daily",  group:"daily",  purpose:"OpenDent extracts → margin.json (profitability page)"},
-  review_approvals: {name:"Review approvals poller",   sch:"Every 10 min",       kind:"det", agent:"gbp",       cad:"m10",    group:"poll",   purpose:"Poll the approval group; post approved 1–4★ replies to Google"},
-  wa_group_digest:  {name:"WhatsApp group digest",     sch:"Daily 21:30 MYT",    kind:"llm", agent:"edith",     cad:"daily",  group:"daily",  purpose:"WhatsApp group transcripts → daily digest"},
-  cert_check:       {name:"Cert expiry check",         sch:"Daily 08:20 MYT",    kind:"det", agent:"edith",     cad:"daily",  group:"daily",  purpose:"Blast WhatsApp cert expiry watch (renew by 16 Oct)"},
-  deck_stats:       {name:"Deck stats",                sch:"Every 30 min",       kind:"det", agent:"analytics", cad:"m30",    group:"poll",   purpose:"VPS health + MTD/YTD + SEO + reviews → deck.json (this page's feed)"},
-  gateway_up:       {name:"Gateway keep-alive",        sch:"Boot + every 5 min", kind:"heal",agent:"edith",     cad:"m5",     group:"poll",   purpose:"Keep the OpenClaw gateway up", heal:"gateway"},
-  edith_bridge_up:  {name:"Voice-line bridge keep-alive",sch:"Boot + every 5 min",kind:"heal",agent:"edith",    cad:"m5",     group:"poll",   purpose:"Keep the Edith voice-line bridge up (port 8443)", heal:"bridge"},
-  walogger:         {name:"WhatsApp logger keep-alive",sch:"Boot + every 5 min", kind:"heal",agent:"edith",     cad:"m5",     group:"poll",   purpose:"Keep the WhatsApp transcript logger up", heal:"walogger"},
+  gbp_reply:        {name:"Reply to Google reviews",   sch:"Daily 06:00 MYT",    kind:"llm", agent:"cron-gbp",  cad:"daily",  group:"daily",  purpose:"Reply to new Google reviews: 5★ auto-posted, 1–4★ drafted to the owner's approval group"},
+  competitor_watch: {name:"Competitor watch",          sch:"Sun 06:00 MYT",      kind:"det", agent:"cron-seo",  cad:"weekly", group:"weekly", purpose:"Diff 17 competitor sites + Firehose radar → digest"},
+  review_curation:  {name:"Review curation",           sch:"Sun 06:30 MYT",      kind:"llm", agent:"cron-gbp",  cad:"weekly", group:"weekly", purpose:"Pick a genuine review → site PR for approval"},
+  seo_outcome:      {name:"SEO outcome scorecard",     sch:"Monthly 1st 07:00",  kind:"det", agent:"cron-analytics",cad:"monthly",group:"weekly", purpose:"GSC + GA4 scorecard → seo_scorecard_<month>.json, Telegram verdict"},
+  weekly_digest:    {name:"Weekly digest",             sch:"Sun 18:00 MYT",      kind:"llm", agent:"cron-main", cad:"weekly", group:"weekly", purpose:"Weekly digest to the owner"},
+  seo_geo_audit:    {name:"SEO/GEO audit",             sch:"Sun 16:30 MYT",      kind:"llm", agent:"cron-analytics",cad:"weekly",group:"weekly", purpose:"Weekly SEO and generative-engine-optimisation audit feeding the Sunday 18:00 digest"},
+  recall_funnel:    {name:"Recall funnel refresh",     sch:"Daily 07:30 MYT",    kind:"det", agent:"cron-analytics",cad:"daily",group:"daily", purpose:"Scrape the recall mini-CRM → recall.json"},
+  review_stats_sync:{name:"Review stats sync",         sch:"Daily 06:20 MYT",    kind:"det", agent:"box",       cad:"daily",  group:"daily",  purpose:"GBP rating/count → review-stats.json, commits to the website"},
+  context_sync_check:{name:"Context sync check",       sch:"Daily 09:00 MYT",    kind:"det", agent:"box",       cad:"daily",  group:"daily",  purpose:"Check that the local context pack and the server copy are in sync"},
+  today_publish:    {name:"Publish today briefing",    sch:"Every 30 min",       kind:"det", agent:"box",       cad:"m30",    group:"poll",   purpose:"Write the today briefing the agent reads before answering"},
+  watchdog:         {name:"Watchdog",                  sch:"Daily 08:00 MYT",    kind:"det", agent:"main",      cad:"daily",  group:"daily",  purpose:"Silent health check; Sunday heartbeat; disk > 85% alert"},
+  cash_digest:      {name:"Cash digest",               sch:"12:05 + 19:50 MYT",  kind:"det", agent:"cron-analytics",cad:"daily",group:"daily", purpose:"Midday + end-of-day cash digest (Telegram + WhatsApp) → cashflow.json"},
+  margin_build:     {name:"Margin build",              sch:"Daily 19:40 MYT",    kind:"det", agent:"cron-analytics",cad:"daily",group:"daily", purpose:"OpenDent extracts → margin.json (profitability page)"},
+  review_approvals: {name:"Review approvals poller",   sch:"Every 10 min",       kind:"det", agent:"cron-gbp",  cad:"m10",    group:"poll",   purpose:"Poll the approval group; post approved 1–4★ replies to Google"},
+  wa_group_digest:  {name:"WhatsApp group digest",     sch:"Daily 21:30 MYT",    kind:"llm", agent:"cron-main", cad:"daily",  group:"daily",  purpose:"WhatsApp group transcripts → daily digest"},
+  cert_check:       {name:"Cert expiry check",         sch:"Daily 08:20 MYT",    kind:"det", agent:"box",       cad:"daily",  group:"daily",  purpose:"Guard the certificate used in recall and marketing links; alert if auto-renewal has not fired three weeks out"},
+  deck_stats:       {name:"Deck stats",                sch:"Every 30 min",       kind:"det", agent:"cron-analytics",cad:"m30",  group:"poll",   purpose:"VPS health + MTD/YTD + SEO + reviews → deck.json (this page's feed)"},
+  gateway_up:       {name:"Gateway keep-alive",        sch:"Boot + every 5 min", kind:"heal",agent:"main",      cad:"m5",     group:"poll",   purpose:"Keep the OpenClaw gateway up", heal:"gateway"},
+  edith_bridge_up:  {name:"Voice-line bridge keep-alive",sch:"Boot + every 5 min",kind:"heal",agent:"main",     cad:"m5",     group:"poll",   purpose:"Keep the Edith voice-line bridge up (port 8443)", heal:"bridge"},
+  walogger:         {name:"WhatsApp logger keep-alive",sch:"Boot + every 5 min", kind:"heal",agent:"main",      cad:"m5",     group:"poll",   purpose:"Keep the WhatsApp transcript logger up", heal:"walogger"},
 };
-const LLMLAB={gbp_reply:"LLM (gbp)",review_curation:"LLM (engineer)",weekly_digest:"LLM (reporting)",wa_group_digest:"LLM (main)"};
+const LLMLAB={gbp_reply:"LLM (cron-gbp)",review_curation:"LLM (cron-gbp)",weekly_digest:"LLM (cron-main)",seo_geo_audit:"LLM (cron-analytics)",wa_group_digest:"LLM (cron-main)"};
 /* roster used only when deck.json carries no agents[] */
 const BAKED_AGENTS=[
-  {id:"edith",    name:"Edith",     role:"Main agent · orchestrator, truth-gate, owner's line", model:"GPT-5.6", kind:"main"},
-  {id:"seo",      name:"SEO",       role:"Competitor intel · search",  kind:"specialist"},
-  {id:"content",  name:"Content",   role:"Briefs · blog · SEO copy",   kind:"specialist"},
-  {id:"gbp",      name:"GBP",       role:"Google reviews · profile",   kind:"specialist"},
-  {id:"analytics",name:"Analytics", role:"GA4 · GSC · cash · deck",    kind:"specialist"},
-  {id:"creative", name:"Creative",  role:"Imagery",                    kind:"specialist"},
-  {id:"engineer", name:"Engineer",  role:"Site PRs",                   kind:"specialist"},
-  {id:"reporting",name:"Reporting", role:"Digest",                     kind:"specialist"},
-  {id:"counsellor",name:"Counsellor",role:"Owner's sounding board",    kind:"specialist"},
-  {id:"cron-gbp_reply",      name:"cron-gbp_reply",      role:"Isolated cron agent for gbp_reply",      kind:"cron"},
-  {id:"cron-review_curation",name:"cron-review_curation",role:"Isolated cron agent for review_curation",kind:"cron"},
-  {id:"cron-weekly_digest",  name:"cron-weekly_digest",  role:"Isolated cron agent for weekly_digest",  kind:"cron"},
-  {id:"cron-wa_group_digest",name:"cron-wa_group_digest",role:"Isolated cron agent for wa_group_digest",kind:"cron"},
+  {id:"main",           name:"Edith",          role:"Main agent · orchestrator, truth-gate, owner's line", model:"GPT-5.6", kind:"main"},
+  {id:"analytics-agent",name:"analytics-agent",role:"Analytics agent", kind:"specialist"},
+  {id:"cron-main",      name:"cron-main",      role:"Cron agent", kind:"cron"},
+  {id:"cron-analytics", name:"cron-analytics", role:"Cron analytics agent", kind:"cron"},
+  {id:"cron-gbp",       name:"cron-gbp",       role:"Cron Google Business Profile agent", kind:"cron"},
+  {id:"cron-seo",       name:"cron-seo",       role:"Cron SEO agent", kind:"cron"},
 ];
 const AGCOL={edith:"#F0B152",seo:"#3FDDA0",content:"#45C4FF",gbp:"#4FB3D1",analytics:"#B195FF",creative:"#EF7E93",engineer:"#8AA6B8",reporting:"#00A0C6",counsellor:"#F7CE8A"};
 /* the box names agents "main" / "gbp-agent" / "cron-gbp"; the activity feed says "edith" / "gbp". One key for all of them. */
@@ -364,10 +359,26 @@ let ROSTER_LIVE=false;
 
 /* ============================== compute ============================== */
 function agentOfJob(id){
-  // activity feed knows who actually ran it; fall back to the baked spec
+  // Baked specs name the current route; activity may retain an old historical agent name.
   const ents=(D.activity&&D.activity.entries)||[];
+  if(SPEC[id])return SPEC[id].agent;
   const e=ents.find(x=>x.job===id&&x.agent); if(e)return e.agent;
-  return SPEC[id]?SPEC[id].agent:"edith";
+  return "main";
+}
+function deckSignal(ids){
+  const d=D.deck||{},v=d.vps||{}, pools=[d,v,v.pollers,d.probes,v.probes,d.heartbeats,v.heartbeats,d.job_heartbeats,v.job_heartbeats,d.crons,v.crons,d.crons&&d.crons.heartbeats,v.crons&&v.crons.heartbeats];
+  for(const p of pools)if(p&&typeof p==="object")for(const id of ids)if(p[id]!=null)return p[id];
+  return null;
+}
+function signalTime(signal){
+  if(typeof signal==="string")return signal;
+  if(signal&&typeof signal==="object")return signal.last_myt||signal.last||signal.timestamp||signal.updated_myt||signal.updated||null;
+  return null;
+}
+function signalOK(signal){
+  if(typeof signal==="boolean")return signal;
+  if(signal&&typeof signal==="object")return signal.ok??signal.up??(signal.state==="up"?true:signal.state==="down"?false:null);
+  return null;
 }
 function computeJobs(){
   const live=(D.status&&D.status.jobs)||{};
@@ -382,7 +393,7 @@ function computeJobs(){
       if(!v){j.state="na";j.stateLab="no feed";}
       else if(s.heal==="gateway"){j.state=v.gateway_ok?"up":"down";}
       else if(s.heal==="walogger"){j.state=v.walogger_ok?"up":"down";}
-      else if(s.heal==="bridge"){j.state=v.gateway_ok?"up":"down";j.probeNote="no probe yet — assumed up while the gateway is up";}
+      else if(s.heal==="bridge"){const probe=deckSignal(["bridge_ok","edith_bridge_up","edith_bridge_ok","voice_line_bridge","voice_line_bridge_ok","voice_bridge","voice_bridge_ok"]),ok=signalOK(probe);if(ok!=null){j.state=ok?"up":"down";j.probeNote="deck.json voice-line bridge probe";}else{j.state=v.gateway_ok?"up":"down";j.probeNote="no probe yet — assumed up while the gateway is up";}}
       j.lastMs=v?parseMYT(v.crons&&v.crons.status_updated||D.deck.generated_myt):null;
       j.last=v?(v.crons&&v.crons.status_updated||D.deck.generated_myt):null;
       j.inFeed=!!v; j.stale=false;
@@ -396,6 +407,11 @@ function computeJobs(){
     const th=s.cad?CAD[s.cad]:null;
     j.stale=!!(th&&(j.lastMs==null||Date.now()-j.lastMs>th));
     if(!L&&!s.generic){j.stale=false;j.noStatus=true;} // baked job the box does not report: say so, don't cry stale
+    if((id==="review_approvals"||id==="watchdog")&&!L){
+      const heartbeat=deckSignal([id,id+"_heartbeat",id+"_last_myt"]),last=signalTime(heartbeat)||((typeof heartbeat==="string")?heartbeat:null);
+      if(last){j.last=last;j.lastMs=parseMYT(last);j.state="up";j.stale=!!(s.cad&&j.lastMs!=null&&Date.now()-j.lastMs>CAD[s.cad]);j.noStatus=false;j.heartbeat=true;}
+      else j.noStatusLabel="does not report status";
+    }
     return j;
   });
 }
@@ -429,8 +445,6 @@ function computeAgents(){
     me.jobs=JOBS.filter(j=>runsJob(me,j)); me.running=runningJobs.some(j=>runsJob(me,j));
     return me;
   });
-  // any agent the activity feed names that the roster does not know about (nor its cron-* worker)
-  ents.forEach(e=>{const c=canon(e.agent);if(!e.agent||seen.has(c)||seen.has("cron-"+c))return;seen.add(c);const lastMs=parseMYT(e.ts);const me={id:e.agent,name:e.agent,role:"seen in the activity feed, not on the roster",model:"",kind:"cron",sessions:null,total:null,lastMs,cronMs:lastMs,last:e.ts,flag:"active",color:agColor(e.agent)};me.jobs=JOBS.filter(j=>runsJob(me,j));me.running=runningJobs.some(j=>runsJob(me,j));AGENTS.push(me);});
   const rank={main:0,specialist:1,cron:2};
   AGENTS.sort((a,b)=>(rank[a.kind]??3)-(rank[b.kind]??3)||a.name.localeCompare(b.name));
 }
@@ -452,7 +466,7 @@ function renderVPS(){
   const dots=el("div","dots");
   dots.innerHTML=`<span><i class="${v.gateway_ok?"":"bad"}"></i>gateway ${v.gateway_ok?"up":"DOWN"}</span>
     <span><i class="${v.walogger_ok?"":"warn"}"></i>WhatsApp logger ${v.walogger_ok?"up":"down"}</span>
-    <span><i class="${failed.length?"bad":""}"></i>${crons.total??"—"} jobs · ${failed.length?failed.length+" failed: "+esc(failed.join(", ")):"none failed"}${running.length?" · running: "+esc(running.join(", ")):""}</span>
+    <span><i class="${failed.length?"bad":""}"></i>${crons.total??"—"} tracked jobs · ${failed.length?failed.length+" failed: "+esc(failed.join(", ")):"none failed"}${running.length?" · running: "+esc(running.join(", ")):""}</span>
     <span><i class="${pushOk?"":"warn"}"></i>clinic push ${isoLabel(v.last_clinic_push)}</span>
     <span><i></i>up ${v.uptime_days??"—"} days · ${v.nproc??"—"} cores · swap ${mem.swap_used_mb??"—"} MB</span>`;
   box.appendChild(dots);
@@ -510,7 +524,7 @@ function stateDot(j){
   return `<i class="sdot idle"></i>`;
 }
 function stateLab(j){
-  const lab=j.state==="na"?(j.noStatus?"not in status feed":"no feed"):j.state;
+  const lab=j.state==="na"?(j.noStatusLabel||(j.noStatus?"not in status feed":"no feed")):j.state;
   return `<span class="st ${j.state}">${esc(lab)}</span>`;
 }
 function kindTag(j){
@@ -543,8 +557,9 @@ function renderWorkflows(){
 function renderLog(){
   const t=$("#term"); t.innerHTML="";
   const a=D.activity; if(!a||!Array.isArray(a.entries)){t.appendChild(el("div","empty","activity.json unavailable"+(D.err.activity?" · "+esc(D.err.activity):"")));$("#logm").textContent="—";$("#logn").textContent="";return;}
-  const ents=[...a.entries].sort((x,y)=>(parseMYT(y.ts)||0)-(parseMYT(x.ts)||0)).slice(0,25);
-  $("#logm").textContent="updated "+(a.updated||"—"); $("#logn").innerHTML=`<b>${a.entries.length}</b> in feed`;
+  const visible=a.entries.filter(e=>e.job!=="deck_stats");
+  const ents=[...visible].sort((x,y)=>(parseMYT(y.ts)||0)-(parseMYT(x.ts)||0)).slice(0,25);
+  $("#logm").textContent="updated "+(a.updated||"—")+" · deck stats heartbeat hidden"; $("#logn").innerHTML=`<b>${visible.length}</b> shown · ${a.entries.length-visible.length} heartbeat hidden`;
   if(!ents.length){t.appendChild(el("div","empty","nothing logged yet"));return;}
   ents.forEach(e=>{
     const r=e.event==="started"?"started":(e.result||"—");
@@ -576,10 +591,10 @@ function openJob(j){
   if(j.state==="failed")warn=`<div class="needsu bad">Last run failed. Check the box's log for <span style="font-family:var(--mono)">${esc(j.id)}</span>.</div>`;
   else if(j.state==="down")warn=`<div class="needsu bad">Probe says DOWN. The keep-alive should bring it back within 5 minutes; if it does not, restart it by hand.</div>`;
   else if(j.stale)warn=`<div class="needsu">Stale: last run ${j.lastMs!=null?ago(j.lastMs):"unknown"}, which is older than twice its cadence (${esc(j.sch)}). Either the cron is not firing or it is not reporting.</div>`;
-  else if(j.noStatus)warn=`<div class="needsu">This job is in the baked spec but the box's status feed does not report it — it may run without reporting, or it has been removed.</div>`;
+  else if(j.noStatus)warn=`<div class="needsu">This job does not report through the box's status feed.</div>`;
   const body=`${warn?`<div class="dsec">${warn}</div>`:""}
     <div class="dsec"><h3>Spec</h3>${kv([["job id",`<span style="font-family:var(--mono)">${esc(j.id)}</span>`],["schedule",esc(j.sch)],["type",kindTag(j)],["agent",esc(ag?ag.name:j.agent)],["purpose",esc(j.purpose)]])}</div>
-    <div class="dsec"><h3>State</h3>${kv([["state",stateLab(j)],["last",j.last?esc(j.last)+" · "+ago(j.lastMs):"—"],["stale after",j.cad?esc({daily:"48 h",weekly:"15 d",monthly:"62 d",m10:"1 h",m30:"2 h",m5:"15 min"}[j.cad]):"n/a"],["source",j.heal?"deck.json probes":j.inFeed?"status.json":"not reported"]])}</div>
+    <div class="dsec"><h3>State</h3>${kv([["state",stateLab(j)],["last",j.last?esc(j.last)+" · "+ago(j.lastMs):"—"],["stale after",j.cad?esc({daily:"48 h",weekly:"15 d",monthly:"62 d",m10:"1 h",m30:"2 h",m5:"15 min"}[j.cad]):"n/a"],["source",j.heal?"deck.json probes":j.heartbeat?"deck.json heartbeat":j.inFeed?"status.json":"not reported"]])}</div>
     <div class="dsec"><h3>Recent runs</h3>${jobHistory(j.id)}</div>`;
   openPanel("workflow",j.name,esc(j.sch)+" · "+esc(j.purpose),body);
 }
@@ -684,7 +699,7 @@ function hideTip(){tip.classList.remove("show");}
 function renderHUD(){
   const run=JOBS.filter(j=>j.state==="running"), work=AGENTS.filter(a=>a.running);
   $("#hud").innerHTML=`agents <b>${AGENTS.length}</b><br>at their desks <b>${work.length}</b> · idle <b>${AGENTS.length-work.length}</b>`;
-  $("#hud2").innerHTML=`crons <b>${JOBS.filter(j=>j.kind!=="heal").length}</b> · running <b>${run.length}</b><br>${run.length?esc(run.map(j=>j.name).join(", ")):"quiet — waiting for the next slot"}`;
+  $("#hud2").innerHTML=`crons <b>${JOBS.length}</b> · running <b>${run.length}</b><br>${run.length?esc(run.map(j=>j.name).join(", ")):"quiet — waiting for the next slot"}`;
 }
 
 /* ============================== boot ============================== */

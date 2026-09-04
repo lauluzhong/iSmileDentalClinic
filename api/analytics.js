@@ -4,9 +4,17 @@ import { GoogleAuth } from 'google-auth-library';
 const GA4_PROPERTY_ID = '518699898';
 
 function getRollingDate(daysAgo) {
-  const d = new Date();
-  d.setDate(d.getDate() - daysAgo);
-  return d.toISOString().split('T')[0]; // YYYY-MM-DD in local TZ
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Kuala_Lumpur',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(new Date()).reduce((out, part) => {
+    if (part.type !== 'literal') out[part.type] = part.value;
+    return out;
+  }, {});
+  const d = new Date(Date.UTC(parts.year, parts.month - 1, parts.day - daysAgo));
+  return d.toISOString().split('T')[0]; // YYYY-MM-DD in Malaysia time
 }
 
 async function getAccessToken() {
@@ -63,10 +71,14 @@ export default async function handler(req, res) {
 
   try {
     const today = getRollingDate(0);    // today
-    const weekAgo = getRollingDate(7); // 7 days ago
+    const weekAgo = getRollingDate(6); // inclusive 7-day window
     const accessToken = await getAccessToken();
 
-    const [pageData, sourceData, eventData, pageEventData, landingSourceData, engagementData] = await Promise.all([
+    const [summaryData, pageData, sourceData, eventData, pageEventData, landingSourceData, engagementData] = await Promise.all([
+      queryGA4(accessToken, {
+        dateRanges: [{ startDate: weekAgo, endDate: today }],
+        metrics: [{ name: 'totalUsers' }, { name: 'sessions' }, { name: 'screenPageViews' }],
+      }),
       queryGA4(accessToken, {
         dateRanges: [{ startDate: weekAgo, endDate: today }],
         dimensions: [{ name: 'pagePath' }],
@@ -89,6 +101,15 @@ export default async function handler(req, res) {
         dateRanges: [{ startDate: weekAgo, endDate: today }],
         dimensions: [{ name: 'eventName' }, { name: 'pagePath' }],
         metrics: [{ name: 'eventCount' }],
+        dimensionFilter: {
+          filter: {
+            fieldName: 'eventName',
+            inListFilter: {
+              values: ['whatsapp_submit_click', 'whatsapp_click', 'phone_click', 'booking_complete', 'booking_modal_open', 'form_start', 'booking_modal_open_schedule', 'booking_modal_open_consultation'],
+            },
+          },
+        },
+        orderBys: [{ metric: { metricName: 'eventCount' }, desc: true }],
         limit: 30,
       }),
       queryGA4(accessToken, {
@@ -101,7 +122,8 @@ export default async function handler(req, res) {
         dateRanges: [{ startDate: weekAgo, endDate: today }],
         dimensions: [{ name: 'pagePath' }],
         metrics: [{ name: 'bounceRate' }, { name: 'averageSessionDuration' }, { name: 'screenPageViews' }],
-        limit: 20,
+        orderBys: [{ metric: { metricName: 'screenPageViews' }, desc: true }],
+        limit: 30,
       }),
     ]);
 
@@ -115,9 +137,10 @@ export default async function handler(req, res) {
       });
     } catch (e) { /* today data may not be ready */ }
 
-    const totalPageViews = (pageData.rows || []).reduce((s, r) => s + parseInt(r.metricValues[0].value), 0);
-    const totalSessions = (sourceData.rows || []).reduce((s, r) => s + parseInt(r.metricValues[0].value), 0);
-    const totalUsers = (sourceData.rows || []).reduce((s, r) => s + parseInt(r.metricValues[1].value), 0);
+    const totals = formatRows(summaryData.rows, getDimNames(summaryData), getMetNames(summaryData))[0] || {};
+    const totalPageViews = totals.screenPageViews || 0;
+    const totalSessions = totals.sessions || 0;
+    const totalUsers = totals.totalUsers || 0;
 
     return res.status(200).json({
       generatedAt: new Date().toISOString(),

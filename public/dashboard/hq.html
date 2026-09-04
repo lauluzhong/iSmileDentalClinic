@@ -123,8 +123,10 @@
   .mile .dot{position:absolute;top:0;left:0;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--dim)}
   .mile.done .dot{border-color:var(--ok);background:var(--ok)}
   .mile.now .dot{border-color:var(--p1);background:var(--p1);box-shadow:0 0 0 4px rgba(69,196,255,.18);animation:pulse 2s infinite}
+  .mile.late .dot{border-color:var(--bad);background:var(--bad)}
   .mile .d{font-family:var(--mono);font-size:10px;color:var(--dim)}
   .mile.now .d{color:var(--p1)}
+  .mile.late .d,.mile.late .l{color:var(--bad)}
   .mile .l{font-size:10.5px;color:var(--mut);max-width:100px;line-height:1.35;margin-top:1px}
   .mile.done .l{color:var(--dim);text-decoration:line-through;text-decoration-color:rgba(147,165,196,.5)}
 
@@ -373,7 +375,7 @@
     <ul class="sblist" id="sblist"></ul>
   </div>
 
-  <footer>iSmile HQ · <a href="/dashboard">Command Center</a> · <a href="/dashboard/margin">margin</a> · <a href="/dashboard/analytics">analytics</a><br>data loads live from <span style="font-family:var(--mono)">hq.json</span> on the status branch — one store for board, timeline and kanban — ask Claude or Edith to update any card</footer>
+  <footer>iSmile HQ · <a href="/dashboard">Command Center</a> · <a href="/dashboard/profitability">profitability</a> · <a href="/dashboard/analytics">analytics</a><br>data loads live from <span style="font-family:var(--mono)">hq.json</span> on the status branch — one store for board, timeline and kanban — ask Claude or Edith to update any card</footer>
 </div>
 
 <div id="tip"></div>
@@ -1990,9 +1992,10 @@ function renderDecisions(){
 function renderRail(){
   const box=$("#rail");
   DATA.rail.forEach(m=>{
-    const d=el("div","mile"+(m.s?" "+m.s:""));
+    const late=m.s!=="done"&&m.s!=="now"&&m.iso<malaysiaToday();
+    const d=el("div","mile"+(m.s?" "+m.s:"")+(late?" late":""));
     d.innerHTML=`<span class="dot"></span><div class="d">${m.d}</div><div class="l">${m.l}</div>`;
-    d.setAttribute("data-tip-k", m.d+(m.s==="done"?" · done":m.s==="now"?" · in motion":""));
+    d.setAttribute("data-tip-k", m.d+(m.s==="done"?" · done":m.s==="now"?" · in motion":late?" · overdue":""));
     d.setAttribute("data-tip-b", m.tip||m.l);
     box.appendChild(d);
   });
@@ -2325,7 +2328,7 @@ document.addEventListener("keydown",e=>{
 })();
 
 /* ---------- people (owners) ---------- */
-const PEOPLE={lu:"Lau",jean:"Dr Ong",tianchen:"Lau Tian Chen",emily:"Emily",lydia:"Lydia",ling:"Dr Ling",edith:"Edith",codecapsule:"Code Capsule",parents:"Lu's parents"};
+const PEOPLE={lu:"Lau",jean:"Dr Ong",tianchen:"Lau Tian Chen",emily:"Emily",lydia:"Lydia",ling:"Dr Ling",edith:"Edith",codecapsule:"Code Capsule",parents:"Lau's parents"};
 
 /* ---------- views: board · timeline · kanban (+ #s=<id> opens one item, #v=<view> picks a view) ---------- */
 let VIEW="board";
@@ -2354,7 +2357,7 @@ function renderTimeline(){
     if(s.flag&&s.flag.by)items.push({iso:s.flag.by,d:fmtBy(s.flag.by,"due").replace("by ",""),t:s.flag.w,w:s.name+" · needs you",s:"",kind:"flag",stream:s,parent:p});
   }));
   items.sort((a,b)=>a.iso.localeCompare(b.iso));
-  const today=new Date().toISOString().slice(0,10); let month="";
+  const today=malaysiaToday(); let month="";
   const tl=el("div","tl");
   items.forEach(it=>{
     const mo=it.iso.slice(0,7); if(mo!==month){month=mo;const d=new Date(it.iso+"T00:00:00");tl.appendChild(el("div","tlmonth",d.toLocaleString("en-GB",{month:"long",year:"numeric"})));}
@@ -2388,7 +2391,8 @@ function renderKanban(){
       if(r.a){const a=r.a;card.innerHTML=`<div class="t">${a.title}</div><div class="m"><span class="ow">${PEOPLE[a.owner]||a.owner||""}</span><span>${KDEPT[a.dept]||a.dept||""}</span>${a.endMonth?`<span>${a.endMonth}</span>`:""}</div>${a.closed?`<div class="n">${a.closed}</div>`:""}`;
         if(a.stream){const r2=findStream(a.stream);if(r2)card.addEventListener("click",()=>openStream(r2.stream,r2.parent));}}
       else{const {s,p}=r;
-        card.innerHTML=`<div class="t">${s.name}</div><div class="m"><span class="ow" style="border-color:${p.color||"var(--line)"}">${PEOPLE[s.owner]||s.owner||"Lau"}</span><span style="color:${p.color||"var(--dim)"}">${(p.num||"").replace("Pillar ","P").replace("Foundation","F")}</span><span>${KDEPT[s.dept]||s.dept||""}</span>${s.lens?`<span>${s.lens}</span>`:""}${s.endMonth?`<span>→ ${s.endMonth}</span>`:""}${s.flag?`<span class="atag k-${s.flag.k}" style="color:var(--ak);border-color:var(--ak)">${s.flag.k}</span>`:""}</div>${s.next?`<div class="n">Next: ${s.next}</div>`:s.one?`<div class="n">${s.one}</div>`:""}`;
+        const a=attentionOf(s);
+        card.innerHTML=`<div class="t">${s.name}</div><div class="m"><span class="ow" style="border-color:${p.color||"var(--line)"}">${PEOPLE[s.owner]||s.owner||"Lau"}</span><span style="color:${p.color||"var(--dim)"}">${(p.num||"").replace("Pillar ","P").replace("Foundation","F")}</span><span>${KDEPT[s.dept]||s.dept||""}</span>${s.lens?`<span>${s.lens}</span>`:""}${s.endMonth?`<span>→ ${s.endMonth}</span>`:""}${s.flag?`<span class="atag k-${a.k}" style="color:var(--ak);border-color:var(--ak)">${a.k}</span>`:""}</div>${s.next?`<div class="n">Next: ${s.next}</div>`:s.one?`<div class="n">${s.one}</div>`:""}`;
         card.addEventListener("click",()=>openStream(s,p));}
       col.appendChild(card);
     });
@@ -2406,8 +2410,11 @@ window.addEventListener("hashchange",applyHash);
 
 /* ---------- boot: fetch live data from the status branch, fall back to embedded ---------- */
 const HQ_DATA_URL="https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/hq.json";
+let USING_FALLBACK=true;
+function malaysiaToday(){return new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Kuala_Lumpur",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());}
 function renderAll(){
-  if(DATA.meta&&DATA.meta.asof)$("#asofDate").textContent=DATA.meta.asof;
+  if(USING_FALLBACK)$("#asofDate").textContent="OFFLINE SNAPSHOT"+(DATA.meta&&DATA.meta.asof?" · "+DATA.meta.asof:"");
+  else if(DATA.meta&&DATA.meta.asof)$("#asofDate").textContent=DATA.meta.asof;
   else $("#asofDate").textContent="OFFLINE SNAPSHOT";
   if(DATA.meta&&DATA.meta.horizon)$("#asofHz").textContent=DATA.meta.horizon;
   /* the rail is authored by hand (and by Edith) — keep it chronological whatever order it arrives in,
@@ -2426,7 +2433,7 @@ function renderAll(){
     const r=await fetch(HQ_DATA_URL+"?t="+Date.now(),{cache:"no-store"});
     if(r.ok){
       const j=await r.json();
-      if(j&&Array.isArray(j.pillars)&&Array.isArray(j.foundations)) DATA=j;
+      if(j&&Array.isArray(j.pillars)&&Array.isArray(j.foundations)){DATA=j;USING_FALLBACK=false;}
     }
   }catch(e){/* offline or raw blocked — embedded fallback renders */}
   renderAll();
