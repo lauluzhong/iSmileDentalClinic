@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-09-04 17:00",
- "generated_at": "2026-09-04T17:00:09+08:00",
+ "generated_myt": "2026-09-04 17:30",
+ "generated_at": "2026-09-04T17:30:08+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 81.0,
   "nproc": 4,
   "load": [
-   0.58,
-   0.18,
-   0.12
+   0.29,
+   0.28,
+   0.23
   ],
-  "cpu_pct": 14.5,
-  "cpu_pct_sample": 1.4,
+  "cpu_pct": 7.2,
+  "cpu_pct_sample": 1.0,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 2721,
-   "avail_mb": 5219,
-   "pct": 34.3,
+   "used_mb": 2729,
+   "avail_mb": 5211,
+   "pct": 34.4,
    "swap_total_mb": 2047,
    "swap_used_mb": 211
   },
@@ -29,8 +29,8 @@
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 23,
-    "last_myt": "2026-09-04 17:00 MYT"
+    "age_s": 21,
+    "last_myt": "2026-09-04 17:30 MYT"
    }
   },
   "walogger_ok": true,
@@ -38,7 +38,7 @@
    "total": 13,
    "failed": [],
    "running": [],
-   "status_updated": "2026-09-04 17:00 MYT"
+   "status_updated": "2026-09-04 17:30 MYT"
   },
   "last_clinic_push": "2026-09-04"
  },
@@ -51,7 +51,7 @@
    "model": "openai/gpt-5.6-luna",
    "sessions_total": 93,
    "sessions_30d": 71,
-   "last_active_myt": "2026-09-04 16:48"
+   "last_active_myt": "2026-09-04 17:25"
   },
   {
    "id": "analytics-agent",
@@ -105,29 +105,29 @@
   }
  ],
  "finance": {
-  "as_of": "2026-09-03",
-  "generated_myt": "2026-09-03 19:40",
+  "as_of": "2026-09-04",
+  "generated_myt": "2026-09-04 17:27",
   "basis": "margin dashboard: true margin = production \u2212 locum est \u2212 lab est \u2212 chair-time burn (RM160/h loaded). Not the statutory P&L.",
   "mtd": {
-   "production": 47840,
-   "visits": 69,
-   "chair_hours": 51.7,
+   "production": 48090,
+   "visits": 73,
+   "chair_hours": 53.7,
    "lab_est": 5776,
-   "locum_est": 15406,
-   "burn_loaded": 8267,
-   "true_margin": 18391,
+   "locum_est": 11037,
+   "burn_loaded": 8587,
+   "true_margin": 22690,
    "months": [
     "2026-09"
    ]
   },
   "ytd": {
-   "production": 1810738,
-   "visits": 4380,
-   "chair_hours": 3158.1,
+   "production": 1810988,
+   "visits": 4384,
+   "chair_hours": 3160.1,
    "lab_est": 166270,
-   "locum_est": 662664,
-   "burn_loaded": 505293,
-   "true_margin": 476511,
+   "locum_est": 549439,
+   "burn_loaded": 505613,
+   "true_margin": 589666,
    "months": [
     "2026-01",
     "2026-02",
@@ -145,22 +145,22 @@
    {
     "month": "2025-09",
     "production": 241600,
-    "true_margin": 71173
+    "true_margin": 85047
    },
    {
     "month": "2025-10",
     "production": 209855,
-    "true_margin": 52484
+    "true_margin": 64654
    },
    {
     "month": "2025-11",
     "production": 236770,
-    "true_margin": 65892
+    "true_margin": 88284
    },
    {
     "month": "2025-12",
     "production": 311760,
-    "true_margin": 106947
+    "true_margin": 124166
    },
    {
     "month": "2026-01",
@@ -170,17 +170,17 @@
    {
     "month": "2026-02",
     "production": 160780,
-    "true_margin": 47683
+    "true_margin": 48266
    },
    {
     "month": "2026-03",
     "production": 191120,
-    "true_margin": 43471
+    "true_margin": 67805
    },
    {
     "month": "2026-04",
     "production": 287038,
-    "true_margin": 98816
+    "true_margin": 125340
    },
    {
     "month": "2026-05",
@@ -190,22 +190,22 @@
    {
     "month": "2026-06",
     "production": 282520,
-    "true_margin": 93334
+    "true_margin": 106999
    },
    {
     "month": "2026-07",
     "production": 243920,
-    "true_margin": 53030
+    "true_margin": 79465
    },
    {
     "month": "2026-08",
     "production": 213650,
-    "true_margin": 47948
+    "true_margin": 65263
    },
    {
     "month": "2026-09",
-    "production": 47840,
-    "true_margin": 18391
+    "production": 48090,
+    "true_margin": 22690
    }
   ]
  },
