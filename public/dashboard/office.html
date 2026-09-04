@@ -701,7 +701,7 @@ function hideTip(){tip.classList.remove("show");}
 function renderHUD(){
   const run=JOBS.filter(j=>j.state==="running"), work=AGENTS.filter(a=>a.running);
   $("#hud").innerHTML=`agents <b>${AGENTS.length}</b><br>at their desks <b>${work.length}</b> · idle <b>${AGENTS.length-work.length}</b>`;
-  $("#hud2").innerHTML=`crons <b>${JOBS.length}</b> · running <b>${run.length}</b><br>${run.length?esc(run.map(j=>j.name).join(", ")):"quiet — waiting for the next slot"}`;
+  $("#hud2").innerHTML=`scheduled jobs <b>${JOBS.length}</b> · running <b>${run.length}</b><br>${run.length?esc(run.map(j=>j.name).join(", ")):"quiet — waiting for the next slot"}`;
 }
 
 /* ============================== boot ============================== */
