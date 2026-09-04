@@ -1,28 +1,28 @@
 {
-  "as_of": "2026-09-04",
+  "as_of": "2026-09-05",
   "source": "redirect.ismile.com.my/admin/webhook/webhooklog",
   "note": "Funnel = event counts (per-message callbacks), not distinct patients. Conversion = matured-cohort recall->appointment rate (correlation, not proven causal lift); as-of the latest OpenDent export only.",
   "funnel_live": true,
-  "funnel_as_of": "2026-09-04",
+  "funnel_as_of": "2026-09-05",
   "cumulative": {
-    "total": 14689,
-    "sent": 5028,
-    "delivered": 5883,
-    "read": 2028,
-    "failed": 462,
-    "clicks": 172,
-    "replies": 1116
+    "total": 14774,
+    "sent": 5058,
+    "delivered": 5913,
+    "read": 2043,
+    "failed": 465,
+    "clicks": 173,
+    "replies": 1122
   },
   "this_month": {
-    "sent": 96,
-    "clicks": 12,
-    "replies": 18
+    "sent": 126,
+    "clicks": 13,
+    "replies": 24
   },
   "conversion": {
     "mature_days": 21,
     "attrib_window_days": 90,
-    "data_as_of": "2026-09-03",
-    "appt_export": "inbox/2026-09-03 e5+e6+backfill",
+    "data_as_of": "2026-09-04",
+    "appt_export": "inbox/2026-09-04 e5+e6+backfill",
     "appt_range": [
       "2024-08-12",
       "2026-12-31"
@@ -34,28 +34,28 @@
     "matured_cohort": 767,
     "resolved_to_patient": 729,
     "resolved_via_patnum": 729,
-    "booked_within_window": 200,
-    "booked_anytime": 244,
-    "conversion_pct": 27.4
+    "booked_within_window": 202,
+    "booked_anytime": 245,
+    "conversion_pct": 27.7
   },
   "value": {
     "available": true,
-    "as_of": "2026-09-04",
+    "as_of": "2026-09-05",
     "bridge": "e8_patient_master.tsv (2026-08-30)",
     "sends": 767,
     "patients_in_cohort": 1138,
     "attrib_window_days": 90,
     "mature_days": 21,
-    "production_lines": 19472,
+    "production_lines": 19506,
     "month": "2026-09",
     "rule": "production by a recalled patient within 90 days after their first recall send, credited to the line's doctor; correlation, not proven lift",
     "all_time": {
       "patients_reached": 1138,
-      "patients_converted": 227,
-      "visits": 295,
+      "patients_converted": 231,
+      "visits": 299,
       "repeat_patients": 41,
-      "production": 111990,
-      "conversion_pct": 19.9,
+      "production": 112800,
+      "conversion_pct": 20.3,
       "by_doctor": [
         {
           "provnum": "6",
@@ -70,10 +70,10 @@
           "provnum": "3",
           "abbr": "Amy",
           "name": "Dr Amy Chin",
-          "patients": 67,
-          "visits": 75,
+          "patients": 69,
+          "visits": 77,
           "repeat_visits": 8,
-          "production": 22450
+          "production": 22860
         },
         {
           "provnum": "8",
@@ -88,10 +88,10 @@
           "provnum": "7",
           "abbr": "Mah",
           "name": "Dr Mah Haw Yeng",
-          "patients": 33,
-          "visits": 50,
+          "patients": 35,
+          "visits": 52,
           "repeat_visits": 17,
-          "production": 11220
+          "production": 11620
         },
         {
           "provnum": "4",
@@ -133,11 +133,11 @@
     },
     "mtd": {
       "patients_reached": 775,
-      "patients_converted": 6,
-      "visits": 6,
+      "patients_converted": 10,
+      "visits": 10,
       "repeat_patients": 0,
-      "production": 1220,
-      "conversion_pct": 0.5,
+      "production": 2030,
+      "conversion_pct": 1.0,
       "by_doctor": [
         {
           "provnum": "1",
@@ -152,10 +152,19 @@
           "provnum": "7",
           "abbr": "Mah",
           "name": "Dr Mah Haw Yeng",
+          "patients": 4,
+          "visits": 4,
+          "repeat_visits": 0,
+          "production": 600
+        },
+        {
+          "provnum": "3",
+          "abbr": "Amy",
+          "name": "Dr Amy Chin",
           "patients": 2,
           "visits": 2,
           "repeat_visits": 0,
-          "production": 200
+          "production": 410
         },
         {
           "provnum": "8",
@@ -167,7 +176,7 @@
           "production": 50
         }
       ],
-      "patients_first_converted": 4
+      "patients_first_converted": 8
     }
   }
 }
