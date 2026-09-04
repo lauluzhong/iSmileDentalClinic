@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-09-04 12:30",
- "generated_at": "2026-09-04T12:30:15+08:00",
+ "generated_myt": "2026-09-04 13:00",
+ "generated_at": "2026-09-04T13:00:11+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 80.8,
   "nproc": 4,
   "load": [
-   0.27,
-   0.19,
-   0.18
+   0.46,
+   0.21,
+   0.2
   ],
-  "cpu_pct": 6.8,
-  "cpu_pct_sample": 3.0,
+  "cpu_pct": 11.5,
+  "cpu_pct_sample": 2.7,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 2721,
-   "avail_mb": 5219,
-   "pct": 34.3,
+   "used_mb": 2716,
+   "avail_mb": 5224,
+   "pct": 34.2,
    "swap_total_mb": 2047,
    "swap_used_mb": 211
   },
@@ -29,8 +29,8 @@
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 29,
-    "last_myt": "2026-09-04 12:30 MYT"
+    "age_s": 24,
+    "last_myt": "2026-09-04 13:00 MYT"
    }
   },
   "walogger_ok": true,
@@ -38,7 +38,7 @@
    "total": 13,
    "failed": [],
    "running": [],
-   "status_updated": "2026-09-04 12:30 MYT"
+   "status_updated": "2026-09-04 13:00 MYT"
   },
   "last_clinic_push": "2026-09-04"
  },
@@ -51,7 +51,7 @@
    "model": "openai/gpt-5.6-luna",
    "sessions_total": 93,
    "sessions_30d": 71,
-   "last_active_myt": "2026-09-04 12:18"
+   "last_active_myt": "2026-09-04 12:48"
   },
   {
    "id": "analytics-agent",
