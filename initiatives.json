@@ -1,13 +1,8 @@
 {
- "updated": "2026-09-04T10:40:28+08:00",
+ "updated": "2026-09-04T11:03:17+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Emily": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
+  "Lau": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
@@ -17,18 +12,23 @@
    "role": "",
    "color": "#45C4FF"
   },
+  "Emily": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Edith": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
-   "init": "L",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -144,7 +144,7 @@
    "status": "blocked",
    "owner": "Lau",
    "why": "Calculator already reproduces all 8 doctors to the cent \u2014 end-to-end statements now possible under the new timing rules.",
-   "next": "CORRECTION 19 Aug: VPS feed is NOT stale \u2014 daily push lands in loop/inbox ~19:31 MYT w/ procedure-level production. Real gaps = paysplit-to-procedure allocation + lab AP. Owner has the allocation query; adding it as e7 to the nightly push closes the main gap. Revised effort likely well under the 7-9 day estimate.",
+   "next": "Agree the payment\u2192procedure allocation convention (the blocker on per-doctor statements)",
    "dept": "finance",
    "lens": "efficiency",
    "endMonth": "2026-08",
@@ -202,7 +202,7 @@
    "status": "active",
    "owner": "Edith",
    "why": "Line-by-line P&L wired from the OpenDent push to the VPS; daily cash + recall numbers arrive via Edith.",
-   "next": "CLOSED 19 Aug: dashboards are live (gated /dashboard hub: command center, margin, analytics, recall funnel, strategy board).",
+   "next": "Agree the payment\u2192procedure allocation convention with Emily",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-11",
@@ -285,7 +285,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "Tiers stay 40/45/50 with the RM55k whole-month rule. One principle collapses three rules: economics follow the production month.",
-   "next": "RESOLVED: dollar stays tied to the transaction/production month (rate-follows-production-month principle, baked into the contractor agreement Schedule).",
+   "next": "Write the timing rules into Schedule 1 and the calculator",
    "dept": "finance",
    "lens": "efficiency",
    "endMonth": "2026-11",
@@ -425,7 +425,7 @@
    "status": "active",
    "owner": "Edith",
    "why": "The 03-number WhatsApp recall runs daily on cron; you get the number from Edith every morning. Booked 27% per message, came in 20% per patient; RM111.7k of production attributed all-time (correlation, not lift).",
-   "next": "CLOSED 19 Aug: live and connected \u2014 daily cron, dashboard bridge, conversion reporting all running.",
+   "next": "Fix click under-logging with Code Capsule",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-06",

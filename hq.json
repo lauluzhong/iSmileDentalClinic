@@ -448,6 +448,7 @@
       }
      ],
      "open": [
+      "Status note (moved off the Next line 4 Sep 2026): CORRECTION 19 Aug: VPS feed is NOT stale \u2014 daily push lands in loop/inbox ~19:31 MYT w/ procedure-level production. Real gaps = paysplit-to-procedure allocation + lab AP. Owner has the allocation query; adding it as e7 to the nightly push closes the main gap. Revised effort likely well under the 7-9 day estimate.",
       "<b>Blocker is data, not rules:</b> only ~9% of paysplits carry a ProcNum \u2014 need an allocation convention (e.g. oldest-unpaid-first per patient+doctor), built into the tool, never manual",
       "60-day backstop for implant-case invoices",
       "From the initiatives board: 100% deterministic arithmetic \u2014 NO LLM, offline. Volume rule: production \u2265 RM55k \u2192 whole month at 50%. Ortho/Invisalign 10%-exemption is Dr LING's deal (corrected \u2014 not Mah). GM write-up sent; awaiting answers + workbooks."
@@ -462,7 +463,7 @@
      "from_initiatives": [
       3
      ],
-     "next": "CORRECTION 19 Aug: VPS feed is NOT stale \u2014 daily push lands in loop/inbox ~19:31 MYT w/ procedure-level production. Real gaps = paysplit-to-procedure allocation + lab AP. Owner has the allocation query; adding it as e7 to the nightly push closes the main gap. Revised effort likely well under the 7-9 day estimate.",
+     "next": "Agree the payment\u2192procedure allocation convention (the blocker on per-doctor statements)",
      "endMonth": "2026-08"
     },
     {
@@ -570,6 +571,7 @@
       }
      ],
      "open": [
+      "Status note (moved off the Next line 4 Sep 2026): CLOSED 19 Aug: dashboards are live (gated /dashboard hub: command center, margin, analytics, recall funnel, strategy board).",
       "Owner ruling 28 Aug: this block belongs under Pillar 1, not finance \u2014 it becomes the locum-attribution substrate",
       "<b>Rate column shipped 30 Aug</b> (PR #220), now on /dashboard/profitability: every line shows 40/45/50, marks lines lifted by the RM55k whole-month volume rule, and flags a rate as provisional while its month is still open. Validated against April 2026.",
       "\u26a0\ufe0f Display only \u2014 it does not change how anyone is paid, and 'rate follows the production month' stays out of the engine until the agreement is signed",
@@ -582,7 +584,7 @@
      "from_initiatives": [
       4
      ],
-     "next": "CLOSED 19 Aug: dashboards are live (gated /dashboard hub: command center, margin, analytics, recall funnel, strategy board).",
+     "next": "Agree the payment\u2192procedure allocation convention with Emily",
      "endMonth": "2026-11"
     },
     {
@@ -773,6 +775,7 @@
       }
      ],
      "open": [
+      "Status note (moved off the Next line 4 Sep 2026): RESOLVED: dollar stays tied to the transaction/production month (rate-follows-production-month principle, baked into the contractor agreement Schedule).",
       "Not yet modelled in the engine \u2014 don't change the live calc until the agreement signs",
       "Simulated: RM0 net effect over 12 months, \u00b110.8% monthly; 96% settles within a month",
       "From the initiatives board: Digital calculation can reduce Emily's work, but it does not by itself solve invoice crossover. A one-month lag is only safe if late deductions retain the originating month's rate; otherwise the RM55k whole-month volume rule can price the cost incorrectly."
@@ -783,7 +786,7 @@
      "from_initiatives": [
       20
      ],
-     "next": "RESOLVED: dollar stays tied to the transaction/production month (rate-follows-production-month principle, baked into the contractor agreement Schedule).",
+     "next": "Write the timing rules into Schedule 1 and the calculator",
      "endMonth": "2026-11"
     },
     {
@@ -1103,6 +1106,7 @@
       }
      ],
      "open": [
+      "Status note (moved off the Next line 4 Sep 2026): CLOSED 19 Aug: live and connected \u2014 daily cron, dashboard bridge, conversion reporting all running.",
       "Only dependency: keep the Alibaba account topped up (alerts to the iSmile inbox)",
       "Always report both rates: Booked 27.2% per message (per phone) and Came in 19.9% per patient (226 of 1,138) - RM111,720 attributed all-time across 293 visits. Label it correlation, not lift; no holdout has run."
      ],
@@ -1112,7 +1116,7 @@
      "from_initiatives": [
       7
      ],
-     "next": "CLOSED 19 Aug: live and connected \u2014 daily cron, dashboard bridge, conversion reporting all running.",
+     "next": "Fix click under-logging with Code Capsule",
      "endMonth": "2026-06"
     },
     {
@@ -2137,6 +2141,6 @@
  },
  "meta": {
   "asof": "FRI 04 SEP 2026",
-  "updated": "2026-09-04T10:40:28+08:00"
+  "updated": "2026-09-04T11:03:17+08:00"
  }
 }
