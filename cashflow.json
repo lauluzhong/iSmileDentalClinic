@@ -1,46 +1,46 @@
 {
   "as_of": "2026-09-05",
-  "mode": "midday",
+  "mode": "eod",
   "fresh": true,
-  "generated_myt": "2026-09-05 12:05",
+  "generated_myt": "2026-09-05 19:50",
   "source_max_paydate": "2026-09-05",
   "source_max_procdate": "2026-09-05",
   "today": {
-    "collected": 1050.0,
-    "produced": 3100.0,
-    "patients_seen": 7,
-    "new_patients": 0,
+    "collected": 5770.0,
+    "produced": 7470.0,
+    "patients_seen": 20,
+    "new_patients": 1,
     "by_paytype": {
-      "Credit Card": 1050.0
+      "Credit Card": 5770.0
     }
   },
   "mtd": {
-    "collected": 50725.0,
-    "produced": 54320.0,
+    "collected": 55445.0,
+    "produced": 58690.0,
     "trading_days": 5,
-    "avg_per_trading_day": 10145.0,
-    "run_rate_26d": 263770.0,
+    "avg_per_trading_day": 11089.0,
+    "run_rate_26d": 288314.0,
     "by_paytype": {
-      "Credit Card": 36695.0,
+      "Credit Card": 41415.0,
       "PBB QR": 12450.0,
       "Cash": 1580.0
     }
   },
-  "booked_next_14d": 237,
+  "booked_next_14d": 214,
   "forward_book": {
     "next_7d": {
       "days": 7,
-      "appts": 149,
-      "booked_min": 8220,
+      "appts": 152,
+      "booked_min": 8340,
       "capacity_min": 11120,
-      "pct": 73.92086330935251
+      "pct": 75.0
     },
     "next_14d": {
       "days": 14,
-      "appts": 208,
-      "booked_min": 11640,
+      "appts": 213,
+      "booked_min": 11950,
       "capacity_min": 22240,
-      "pct": 52.33812949640287
+      "pct": 53.73201438848921
     }
   },
   "doctors_worked": {
@@ -52,9 +52,23 @@
       "Pris"
     ]
   },
-  "utilization": null,
+  "utilization": {
+    "chair_minutes": 890,
+    "operatories": 4,
+    "open_minutes": 480,
+    "capacity_minutes": 1520,
+    "pct": 58.6
+  },
   "pnl": {
-    "available": false,
-    "reason": "n/a (midday)"
+    "locum_est": 1907,
+    "lab_est": 288,
+    "gp": 5275.0,
+    "overhead_day": 3385.08,
+    "ebitda_day": 1889.92,
+    "depreciation_day": 1146.54,
+    "net_day": 743.38,
+    "visits_matched": 20,
+    "available": true,
+    "produced": 7470.0
   }
 }
