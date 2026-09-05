@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-09-06 06:00",
- "generated_at": "2026-09-06T06:00:19+08:00",
+ "generated_myt": "2026-09-06 06:30",
+ "generated_at": "2026-09-06T06:30:10+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 82.5,
   "nproc": 4,
   "load": [
-   0.82,
-   0.24,
-   0.13
+   0.18,
+   0.21,
+   0.33
   ],
-  "cpu_pct": 20.5,
-  "cpu_pct_sample": 26.2,
+  "cpu_pct": 4.5,
+  "cpu_pct_sample": 38.2,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 2922,
-   "avail_mb": 5018,
-   "pct": 36.8,
+   "used_mb": 3294,
+   "avail_mb": 4646,
+   "pct": 41.5,
    "swap_total_mb": 2047,
    "swap_used_mb": 211
   },
@@ -29,11 +29,11 @@
   "bridge_ok": false,
   "pollers": {
    "review_approvals": {
-    "age_s": 35,
-    "last_myt": "2026-09-06 06:00 MYT"
+    "age_s": 24,
+    "last_myt": "2026-09-06 06:30 MYT"
    },
    "hq_publish": {
-    "age_s": 116424,
+    "age_s": 118214,
     "last_myt": "2026-09-04 21:40 MYT",
     "detail": "asof=FRI 04 SEP 2026 streams=40 sideboard=15 decisions=3 archive=10"
    }
@@ -43,10 +43,9 @@
    "total": 13,
    "failed": [],
    "running": [
-    "competitor_watch",
-    "gbp_reply"
+    "review_curation"
    ],
-   "status_updated": "2026-09-06 06:00 MYT"
+   "status_updated": "2026-09-06 06:30 MYT"
   },
   "last_clinic_push": "2026-09-06"
  },
@@ -59,7 +58,7 @@
    "model": "openai/gpt-5.6-luna",
    "sessions_total": 93,
    "sessions_30d": 71,
-   "last_active_myt": "2026-09-06 05:48"
+   "last_active_myt": "2026-09-06 06:23"
   },
   {
    "id": "analytics-agent",
@@ -87,9 +86,9 @@
    "role": "cron worker",
    "kind": "cron",
    "model": "openai/gpt-5.6-luna",
-   "sessions_total": 8,
-   "sessions_30d": 8,
-   "last_active_myt": "2026-08-30 06:03"
+   "sessions_total": 10,
+   "sessions_30d": 10,
+   "last_active_myt": "2026-09-06 06:02"
   },
   {
    "id": "cron-analytics",
@@ -107,9 +106,9 @@
    "role": "cron worker",
    "kind": "cron",
    "model": "openai/gpt-5.6-luna",
-   "sessions_total": 68,
-   "sessions_30d": 68,
-   "last_active_myt": "2026-09-05 06:06"
+   "sessions_total": 70,
+   "sessions_30d": 70,
+   "last_active_myt": "2026-09-06 06:10"
   }
  ],
  "finance": {
@@ -237,7 +236,7 @@
   "count": 94,
   "updated": "2026-08-28",
   "source": "Google Business Profile API",
-  "checked": "2026-09-05"
+  "checked": "2026-09-06"
  },
  "social": {
   "available": true,
