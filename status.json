@@ -1,6 +1,7 @@
 {
   "updated": "2026-09-06 06:30 MYT",
   "running": [
+    "review_curation",
     "deck_stats"
   ],
   "jobs": {
@@ -13,7 +14,7 @@
       "last": "2026-09-06 06:03 MYT"
     },
     "review_curation": {
-      "state": "idle",
+      "state": "running",
       "last": "2026-08-30 06:35 MYT"
     },
     "seo_outcome": {
