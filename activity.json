@@ -3,6 +3,13 @@
   "entries": [
     {
       "ts": "2026-09-06 06:00 MYT",
+      "agent": "seo",
+      "job": "competitor_watch",
+      "event": "started",
+      "result": ""
+    },
+    {
+      "ts": "2026-09-06 06:00 MYT",
       "agent": "analytics",
       "job": "deck_stats",
       "event": "started",
@@ -1393,13 +1400,6 @@
       "job": "cash_digest",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-09-04 12:00 MYT",
-      "agent": "analytics",
-      "job": "deck_stats",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
