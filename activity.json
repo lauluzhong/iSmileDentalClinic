@@ -1,6 +1,13 @@
 {
-  "updated": "2026-09-05 23:00 MYT",
+  "updated": "2026-09-05 23:30 MYT",
   "entries": [
+    {
+      "ts": "2026-09-05 23:30 MYT",
+      "agent": "analytics",
+      "job": "deck_stats",
+      "event": "started",
+      "result": ""
+    },
     {
       "ts": "2026-09-05 23:00 MYT",
       "agent": "analytics",
@@ -1391,13 +1398,6 @@
       "ts": "2026-09-04 07:30 MYT",
       "agent": "analytics",
       "job": "recall_funnel",
-      "event": "finished",
-      "result": "ok"
-    },
-    {
-      "ts": "2026-09-04 07:30 MYT",
-      "agent": "analytics",
-      "job": "deck_stats",
       "event": "finished",
       "result": "ok"
     }
