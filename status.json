@@ -1,6 +1,7 @@
 {
   "updated": "2026-09-06 06:00 MYT",
   "running": [
+    "competitor_watch",
     "deck_stats"
   ],
   "jobs": {
@@ -9,7 +10,7 @@
       "last": "2026-09-05 06:06 MYT"
     },
     "competitor_watch": {
-      "state": "idle",
+      "state": "running",
       "last": "2026-08-30 06:03 MYT"
     },
     "review_curation": {
