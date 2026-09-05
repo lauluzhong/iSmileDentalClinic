@@ -3,6 +3,13 @@
   "entries": [
     {
       "ts": "2026-09-06 06:30 MYT",
+      "agent": "analytics",
+      "job": "deck_stats",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-09-06 06:30 MYT",
       "agent": "engineer",
       "job": "review_curation",
       "event": "started",
@@ -1393,13 +1400,6 @@
       "job": "deck_stats",
       "event": "finished",
       "result": "ok"
-    },
-    {
-      "ts": "2026-09-04 14:00 MYT",
-      "agent": "analytics",
-      "job": "deck_stats",
-      "event": "started",
-      "result": ""
     }
   ]
 }
