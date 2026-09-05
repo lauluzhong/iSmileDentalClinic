@@ -1,12 +1,13 @@
 {
   "updated": "2026-09-06 06:00 MYT",
   "running": [
+    "gbp_reply",
     "competitor_watch",
     "deck_stats"
   ],
   "jobs": {
     "gbp_reply": {
-      "state": "idle",
+      "state": "running",
       "last": "2026-09-05 06:06 MYT"
     },
     "competitor_watch": {
