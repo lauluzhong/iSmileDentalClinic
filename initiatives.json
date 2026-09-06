@@ -1,19 +1,9 @@
 {
- "updated": "2026-09-06T12:37:47+08:00",
+ "updated": "2026-09-06T12:47:34+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Emily": {
-   "init": "E",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +17,18 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Emily": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   }
@@ -39,8 +39,8 @@
    "title": "OpenDent \u2194 AutoCount integration",
    "status": "active",
    "owner": "Code Capsule",
-   "why": "The spine. OpenDent migrated and the downstairs PCs are running it; the integration should be live \u2014 now it has to be proven end to end.",
-   "next": "Confirm with Jason (CC group) that the migration succeeded, the OpenDent \u2194 AutoCount integration is healthy and AutoCount is installed downstairs \u2014 then run the true end-to-end test 7\u201311 Sep and start the AR parallel run.",
+   "why": "The spine. OpenDent is migrated and every PC is reconnected, but Bob is still monitoring and the reception PCs are not deployed \u2014 this week is stabilisation, not the end-to-end test.",
+   "next": "Monday 7 Sep: recheck every PC finds the new pathway and data. Send Jason the numbered confirmation list (migration \u00b7 integration \u00b7 AutoCount installs \u00b7 autobackup \u00b7 fan \u00b7 when he is ready for the end-to-end test). Reception PCs the week after.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -54,8 +54,11 @@
     "Preliminary config check only \u2014 end-to-end is NOT possible yet",
     "Hardware arrived and items checked",
     "OpenDent migration & configuration done \u2014 Bob completed the move",
-    "New downstairs PCs set up with OpenDent on them",
-    "Confirm with Jason: migration success \u00b7 integration healthy \u00b7 AutoCount installed downstairs",
+    "2 new PCs have OpenDental installed; all other clinic PCs reconnected to the new server",
+    "Bob monitoring the data via UltraViewer \u00b7 autobackup still to be set up",
+    "Recheck every PC finds the new pathway and data",
+    "Set up the 2 new reception PCs",
+    "Confirm with Jason: migration clean \u00b7 integration working \u00b7 AutoCount installed \u00b7 when he is ready for the end-to-end test",
     "True end-to-end integration test",
     "AR sync live \u2014 parallel run with paper receipts"
    ],
@@ -165,7 +168,7 @@
    "status": "active",
    "owner": "Code Capsule",
    "why": "New reception PC + the home CPU as the new server beside the old one; OpenDent rep reconfigures everything.",
-   "next": "Server swapped and downstairs PCs live on OpenDent. Confirm AutoCount is installed on them.",
+   "next": "Reception PCs the week of 14 Sep; resolve the cooling question and confirm the AutoCount installs with Jason.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": null,
@@ -175,8 +178,10 @@
     "Hardware + OpenDent rep invoices paid (Code Capsule)",
     "PCs arrived and items checked",
     "Server swap on downtime day",
-    "Downstairs PCs set up and running OpenDent",
-    "Confirm AutoCount is installed on the downstairs PCs"
+    "2 new PCs installed with OpenDental; all other PCs reconnected",
+    "Confirm which PCs have AutoCount installed",
+    "2 new reception PCs set up",
+    "Cooling for the new PC \u2014 it heats up on long runs"
    ],
    "pillar": "P1"
   },
