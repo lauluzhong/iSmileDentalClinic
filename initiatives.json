@@ -1,19 +1,14 @@
 {
- "updated": "2026-09-04T21:40:10+08:00",
+ "updated": "2026-09-06T12:37:47+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Edith": {
    "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
@@ -22,13 +17,18 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
+  "Lau": {
    "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   }
@@ -39,8 +39,8 @@
    "title": "OpenDent \u2194 AutoCount integration",
    "status": "active",
    "owner": "Code Capsule",
-   "why": "The spine. Sandbox proven, licence paid \u2014 the true integration happens 1\u20135 Sep.",
-   "next": "Hardware is in and checked. Bob migrates OpenDent on Saturday 5 Sep from 3 PM (ending 7\u20138 PM, Emily staying). Then reconfigure every other OpenDent PC and run the true end-to-end test 7\u201311 Sep.",
+   "why": "The spine. OpenDent migrated and the downstairs PCs are running it; the integration should be live \u2014 now it has to be proven end to end.",
+   "next": "Confirm with Jason (CC group) that the migration succeeded, the OpenDent \u2194 AutoCount integration is healthy and AutoCount is installed downstairs \u2014 then run the true end-to-end test 7\u201311 Sep and start the AR parallel run.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -53,8 +53,9 @@
     "AutoCount licence + data migration done (19,206 debtors \u2192 AED_ISMILE)",
     "Preliminary config check only \u2014 end-to-end is NOT possible yet",
     "Hardware arrived and items checked",
-    "OpenDent migration & configuration, 7\u20138 hrs from 3 PM \u2014 Bob confirmed, Emily stays to completion",
-    "Reconfigure every other OpenDent PC in the clinic",
+    "OpenDent migration & configuration done \u2014 Bob completed the move",
+    "New downstairs PCs set up with OpenDent on them",
+    "Confirm with Jason: migration success \u00b7 integration healthy \u00b7 AutoCount installed downstairs",
     "True end-to-end integration test",
     "AR sync live \u2014 parallel run with paper receipts"
    ],
@@ -164,7 +165,7 @@
    "status": "active",
    "owner": "Code Capsule",
    "why": "New reception PC + the home CPU as the new server beside the old one; OpenDent rep reconfigures everything.",
-   "next": "PCs arrived and checked 3 Sep; server swap with Bob on Saturday 5 Sep from 3 PM.",
+   "next": "Server swapped and downstairs PCs live on OpenDent. Confirm AutoCount is installed on them.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": null,
@@ -173,7 +174,9 @@
     "Server CPU brought in",
     "Hardware + OpenDent rep invoices paid (Code Capsule)",
     "PCs arrived and items checked",
-    "Server swap on downtime day"
+    "Server swap on downtime day",
+    "Downstairs PCs set up and running OpenDent",
+    "Confirm AutoCount is installed on the downstairs PCs"
    ],
    "pillar": "P1"
   },
@@ -402,7 +405,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
-   "next": "Complete the blacklist and family cross-check, re-run the send list on fresh data, then hold the demo before activating the approved Wave 1 template.",
+   "next": "Sit the training Mon 7 Sep 10 AM, finish the blacklist and family cross-check, re-run the list on fresh data, then fire Wave 1 mid to end of this week.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-10",
@@ -413,6 +416,7 @@
     "Suraya builds the filter-page additions (CSV exclusion list + recall/birthday tick)",
     "Meta template approval",
     "Blacklist + family cross-check \u00b7 anniversary-list exclusion",
+    "Marketing blast training / demo with Code Capsule",
     "Fresh-data re-run immediately before sending",
     "Wave 1 fires (13\u201336mo lapsed)",
     "Waves 2\u20133 \u00b7 funnel read via campaign tags"
@@ -460,10 +464,10 @@
   {
    "id": "g4",
    "title": "Dr Jun (new doctor)",
-   "status": "review",
+   "status": "active",
    "owner": "Lau",
-   "why": "She has tendered on a handshake for a 26 Oct start. Her offer letter IS the contractor agreement; the final agreement is with Emily for review and Jun's personal information is needed for Schedule 1.",
-   "next": "Receive Jun's personal information, complete Schedule 1, then send her the agreement for signature. Mom chat + Dr Ling chemistry chat follow.",
+   "why": "She tendered on a handshake for a 26 Oct start. Her contract went out to her on 6 Sep; what is left is her signature and the two conversations that follow.",
+   "next": "Chase Jun's signature, then the Dr Ong practitioner chat and the Dr Ling chemistry/arrangement talk before announcing to Amy, Mah and the rest.",
    "dept": "clinical",
    "lens": "revenue",
    "endMonth": "2026-12",
@@ -475,7 +479,7 @@
     "She has TENDERED \u2014 ahead of any paper",
     "Contractor agreement finalised and sent to Emily for review",
     "Ask Jun for personal information for Schedule 1",
-    "Offer letter = her Schedule 1, issued on the new terms",
+    "Contract sent to Jun (offer letter = her Schedule 1)",
     "She signs",
     "Jun \u2194 Dr Ong practitioner chat",
     "Jun \u2194 Dr Ling chemistry + arrangement talk",

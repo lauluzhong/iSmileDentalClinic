@@ -53,15 +53,15 @@
   },
   {
    "d": "1 Sep",
-   "l": "AutoCount licence \u00b7 Dr Jun's offer letter",
-   "s": "",
+   "l": "AutoCount licence \u00b7 Dr Jun's contract (sent 6 Sep)",
+   "s": "done",
    "iso": "2026-09-01",
-   "tip": "AutoCount data migration completed on 1 Sep \u2014 19,206 customer records brought over into the new AED_ISMILE database. The other half of this date slipped: Dr Jun's Schedule 1 (her offer letter) missed the 1 Sep target and is owed now."
+   "tip": "AutoCount data migration completed 1 Sep \u2014 19,206 customer records into AED_ISMILE. Dr Jun's half slipped to 6 Sep, when her contract (offer letter = Schedule 1) was sent to her."
   },
   {
    "d": "2 Sep",
    "l": "Preliminary config check only",
-   "s": "",
+   "s": "done",
    "iso": "2026-09-02",
    "tip": "\u26a0\ufe0f NOT the end-to-end test. Before the hardware lands all that can be checked is that the AutoCount \u2194 OpenDent configuration is sound. True end-to-end testing can only happen after Bob's 5 Sep configuration."
   },
@@ -81,24 +81,24 @@
   },
   {
    "d": "5 Sep",
-   "l": "OpenDent migration & configuration, from 3pm",
-   "s": "",
+   "l": "OpenDent migrated \u2014 done",
+   "s": "done",
    "iso": "2026-09-05",
-   "tip": "Bob migrates and reconfigures OpenDent for 7\u20138 hrs starting 3pm \u2014 after trading, so the Saturday list is not lost. Slips to 12 Sep if hardware lands late. Everything real gets tested after this."
+   "tip": "Bob migrated and reconfigured OpenDent on Saturday 5 Sep. The new downstairs PCs are set up with OpenDent on them. The AutoCount side should in theory be done too, but that still needs confirming with Jason."
   },
   {
    "d": "7\u20138 Sep",
-   "l": "Cold blast sends \u2014 the date is set",
+   "l": "Blast training 10 AM \u00b7 send mid-to-end of week",
    "s": "",
    "iso": "2026-09-07",
-   "tip": "Owner's cut-off: the blast goes out on 7\u20138 September, no further delay. Needs Meta approval and Suraya's filter-page work done before then."
+   "tip": "Marketing blast training with Code Capsule on Mon 7 Sep at 10 AM. The send follows it, mid to end of the same week."
   },
   {
    "d": "7\u201311 Sep",
-   "l": "True end-to-end test \u00b7 Emily firms OpenDent training",
+   "l": "True end-to-end test \u00b7 confirm integration with Jason",
    "s": "",
    "iso": "2026-09-08",
-   "tip": "The real end-to-end integration test, now that the server is configured. Same week, Emily must firm up the OpenDent corrections and training content so it is ready for the doctors on 15 Sep."
+   "tip": "The real end-to-end integration test now that OpenDent has moved. First confirm with Jason that the migration landed clean, the OpenDent \u2194 AutoCount integration is healthy and AutoCount is installed on the downstairs PCs. Same week, Emily firms up the OpenDent corrections and training content."
   },
   {
    "d": "15 Sep",
@@ -168,9 +168,9 @@
     {
      "id": "d1",
      "dot": "now",
-     "chip": "go-live wk",
+     "chip": "migrated \u00b7 prove it",
      "name": "OpenDent \u2194 AutoCount integration",
-     "one": "The spine. Sandbox proven, licence paid \u2014 the true integration happens 1\u20135 Sep.",
+     "one": "The spine. OpenDent migrated and the downstairs PCs are running it; the integration should be live \u2014 now it has to be proven end to end.",
      "steps": [
       {
        "t": "Sandbox on the side PC \u2014 integration proven",
@@ -197,7 +197,7 @@
       },
       {
        "t": "Preliminary config check only \u2014 end-to-end is NOT possible yet",
-       "s": "",
+       "s": "done",
        "w": "2 Sep"
       },
       {
@@ -206,13 +206,19 @@
        "w": "3 Sep"
       },
       {
-       "t": "OpenDent migration & configuration, 7\u20138 hrs from 3 PM \u2014 Bob confirmed, Emily stays to completion",
-       "s": "",
+       "t": "OpenDent migration & configuration done \u2014 Bob completed the move",
+       "s": "done",
        "w": "Sat 5 Sep"
       },
       {
-       "t": "Reconfigure every other OpenDent PC in the clinic",
-       "s": ""
+       "t": "New downstairs PCs set up with OpenDent on them",
+       "s": "done",
+       "w": "5\u20136 Sep"
+      },
+      {
+       "t": "Confirm with Jason: migration success \u00b7 integration healthy \u00b7 AutoCount installed downstairs",
+       "s": "now",
+       "w": "6 Sep"
       },
       {
        "t": "True end-to-end integration test",
@@ -225,16 +231,16 @@
       }
      ],
      "open": [
-      "<b>Hardware arrived and was checked on 3 Sep</b> \u2014 delivery into the clinic lands 3 Sep or Saturday morning. Bob's start time is locked at 3 PM after trading, expected to finish 7\u20138 PM.",
-      "<b>Saturday 5 Sep is confirmed.</b> Emily stays to completion; her two conditions are minimal interruption during clinic hours and no data loss in the upgrade. 12 Sep is only needed if the PCs miss the clinic.",
+      "<b>OpenDent migration is done (5 Sep)</b> and the new downstairs PCs are set up with OpenDent on them.",
+      "<b>The AutoCount integration should in theory be done too \u2014 that is not yet confirmed.</b> Drop Jason a message in the CC group to confirm three things: the OpenDent migration landed clean, the OpenDent \u2194 AutoCount integration is working, and AutoCount is installed on the downstairs computers \u2014 plus anything else still open on his side.",
+      "True end-to-end test still to run this week (7\u201311 Sep) \u2014 it is the only thing that proves the integration.",
       "EasyDent (X-ray) + CCTV stay on the old PC \u2014 do not migrate",
-      "Clinic confirmed open 1 Sep (Emily)",
       "From the initiatives board: Opportunistic add-ons in scope: digital WhatsApp receipts, payroll SaaS, procurement, inventory module. Share Code Capsule's SOW with Claude once received."
      ],
      "flag": {
       "k": "due",
-      "by": "2026-09-05",
-      "w": "Bob is confirmed for Saturday 5 Sep at 3 PM. What is left is getting the PCs physically into the clinic before he arrives."
+      "by": "2026-09-11",
+      "w": "Migration done. Message Jason in the CC group to confirm migration + integration + AutoCount downstairs, then run the true end-to-end test."
      },
      "owner": "codecapsule",
      "dept": "tech",
@@ -242,7 +248,7 @@
      "from_initiatives": [
       1
      ],
-     "next": "Hardware is in and checked. Bob migrates OpenDent on Saturday 5 Sep from 3 PM (ending 7\u20138 PM, Emily staying). Then reconfigure every other OpenDent PC and run the true end-to-end test 7\u201311 Sep.",
+     "next": "Confirm with Jason (CC group) that the migration succeeded, the OpenDent \u2194 AutoCount integration is healthy and AutoCount is installed downstairs \u2014 then run the true end-to-end test 7\u201311 Sep and start the AR parallel run.",
      "endMonth": "2026-09"
     },
     {
@@ -469,7 +475,7 @@
     {
      "id": "d7",
      "dot": "now",
-     "chip": "arrived \u00b7 swap Sat",
+     "chip": "swapped \u00b7 AC to confirm",
      "name": "Hardware & server",
      "one": "New reception PC + the home CPU as the new server beside the old one; OpenDent rep reconfigures everything.",
      "steps": [
@@ -489,19 +495,29 @@
       },
       {
        "t": "Server swap on downtime day",
-       "s": "",
-       "w": "~5 Sep"
+       "s": "done",
+       "w": "5 Sep"
+      },
+      {
+       "t": "Downstairs PCs set up and running OpenDent",
+       "s": "done",
+       "w": "5\u20136 Sep"
+      },
+      {
+       "t": "Confirm AutoCount is installed on the downstairs PCs",
+       "s": "now",
+       "w": "6 Sep"
       }
      ],
      "open": [
-      "Every OpenDent PC needs reconfiguring after the server moves \u2014 more touch-time than the Saturday itself",
-      "Bob's start time is locked at 3 PM on Saturday; only the physical delivery of the PCs into the clinic is still to close."
+      "Server swap done on 5 Sep; the new downstairs PCs are set up with OpenDent.",
+      "Open: is AutoCount installed on those downstairs computers? Confirm with Jason."
      ],
      "owner": "codecapsule",
      "dept": "tech",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "PCs arrived and checked 3 Sep; server swap with Bob on Saturday 5 Sep from 3 PM."
+     "next": "Server swapped and downstairs PCs live on OpenDent. Confirm AutoCount is installed on them."
     },
     {
      "id": "d8",
@@ -1023,7 +1039,7 @@
     {
      "id": "g1",
      "dot": "now",
-     "chip": "next 2 wks",
+     "chip": "training 7 Sep \u00b7 send this wk",
      "name": "Cold reactivation blast",
      "one": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
      "steps": [
@@ -1052,6 +1068,11 @@
        "s": "now"
       },
       {
+       "t": "Marketing blast training / demo with Code Capsule",
+       "s": "now",
+       "w": "Mon 7 Sep, 10 AM"
+      },
+      {
        "t": "Fresh-data re-run immediately before sending",
        "s": ""
       },
@@ -1065,7 +1086,7 @@
       }
      ],
      "open": [
-      "<b>Templates approved; Wave 1 deployed and tested (3 Sep).</b> Marketing Blast Training / demo is booked for Mon 7 Sep, 10\u201311am; activation follows the demo",
+      "<b>Marketing blast training is confirmed for tomorrow, Mon 7 Sep at 10 AM.</b> The send follows it \u2014 mid to end of this week.",
       "Jason still owes the price",
       "PDPA check with Lydia",
       "<b>Cert expires 16 Oct</b> \u2014 renewal cron should fire ~15 Sep; Jason reminded 28 Aug, confirm it actually renews",
@@ -1074,8 +1095,8 @@
      ],
      "flag": {
       "k": "due",
-      "by": "2026-09-07",
-      "w": "Two things before the send: the checks that keep already-booked and opted-out patients off the list, and a re-run on fresh data. Meta approved the templates on 3 Sep; demo Mon 7 Sep 10:00."
+      "by": "2026-09-11",
+      "w": "Training Mon 7 Sep 10 AM. Then the blacklist and family cross-check, a fresh-data re-run, and Wave 1 fires mid to end of week."
      },
      "owner": "lu",
      "dept": "crm",
@@ -1083,7 +1104,7 @@
      "from_initiatives": [
       28
      ],
-     "next": "Complete the blacklist and family cross-check, re-run the send list on fresh data, then hold the demo before activating the approved Wave 1 template.",
+     "next": "Sit the training Mon 7 Sep 10 AM, finish the blacklist and family cross-check, re-run the list on fresh data, then fire Wave 1 mid to end of this week.",
      "endMonth": "2026-10"
     },
     {
@@ -1162,10 +1183,10 @@
     },
     {
      "id": "g4",
-     "dot": "wait",
-     "chip": "awaiting Jun's details",
+     "dot": "now",
+     "chip": "sent 6 Sep \u00b7 awaiting signature",
      "name": "Dr Jun (new doctor)",
-     "one": "She has tendered on a handshake for a 26 Oct start. Her offer letter IS the contractor agreement; the final agreement is with Emily for review and Jun's personal information is needed for Schedule 1.",
+     "one": "She tendered on a handshake for a 26 Oct start. Her contract went out to her on 6 Sep; what is left is her signature and the two conversations that follow.",
      "steps": [
       {
        "t": "Terms agreed: RM7k/6mo or 40%, whichever higher",
@@ -1194,16 +1215,17 @@
       },
       {
        "t": "Ask Jun for personal information for Schedule 1",
-       "s": "now",
-       "w": "3 Sep"
+       "s": "done",
+       "w": "6 Sep"
       },
       {
-       "t": "Offer letter = her Schedule 1, issued on the new terms",
-       "s": ""
+       "t": "Contract sent to Jun (offer letter = her Schedule 1)",
+       "s": "done",
+       "w": "6 Sep"
       },
       {
        "t": "She signs",
-       "s": ""
+       "s": "now"
       },
       {
        "t": "Jun \u2194 Dr Ong practitioner chat",
@@ -1224,16 +1246,16 @@
       }
      ],
      "open": [
-      "<b>Schedule 1 is waiting for Jun's personal information.</b> The final agreement has been sent to Emily for review; offer letter issuance follows completion of the schedule.",
+      "<b>Contract sent to Jun on 6 Sep.</b> Waiting on her signature.",
       "Close in the letter: 55k\u219250% tier (leaning: keep, consistency), Oct pro-rating (26 Oct start = part month)",
       "Ling arrangement: apprentice override vs independent \u2014 fair remuneration expected; design as clinic-paid supervision fee, not fee-splitting",
       "<b>She builds her own book</b> \u2014 the RM7k floor is the ramp support; blast + call-list patients route to her",
-      "From the initiatives board: Shape under discussion is a guaranteed monthly minimum or the calculated fee, whichever is higher, for the first six months. That plus supervision looks a lot like employment, so the engagement basis needs a legal answer before it is offered. Communication to the existing doctors remains the main ri"
+      "From the initiatives board: Shape under discussion is a guaranteed monthly minimum or the calculated fee, whichever is higher, for the first six months. That plus supervision looks a lot like employment, so the engagement basis needs a legal answer before it is offered. Communication to the existing doctors remains the main risk."
      ],
      "flag": {
-      "k": "blocked",
+      "k": "wait",
       "who": "Jun",
-      "w": "Send Jun's personal information so her Schedule 1 offer letter can be completed."
+      "w": "Contract sent 6 Sep \u2014 awaiting her signature."
      },
      "owner": "lu",
      "dept": "clinical",
@@ -1241,7 +1263,7 @@
      "from_initiatives": [
       27
      ],
-     "next": "Receive Jun's personal information, complete Schedule 1, then send her the agreement for signature. Mom chat + Dr Ling chemistry chat follow.",
+     "next": "Chase Jun's signature, then the Dr Ong practitioner chat and the Dr Ling chemistry/arrangement talk before announcing to Amy, Mah and the rest.",
      "endMonth": "2026-12"
     },
     {
@@ -2143,7 +2165,7 @@
   "note": "initiatives.store.json folded into this store; initiatives.json is now DERIVED from it by hq_publish.py for the legacy page."
  },
  "meta": {
-  "asof": "FRI 04 SEP 2026",
-  "updated": "2026-09-04T21:40:10+08:00"
+  "asof": "SUN 06 SEP 2026",
+  "updated": "2026-09-06T12:37:47+08:00"
  }
 }
