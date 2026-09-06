@@ -574,6 +574,20 @@ const XRAY_ADDBACK = {none:0, intraoral:30, opg:75, ceph:75, cbct:165};
    aren't digitised yet). */
 const MD = window.MARGIN_DATA;
 const BURN = {loaded: MD.meta.burnLoaded, ebitda: MD.meta.burnExDep};
+/* Salaried clinicians draw no locum, so their pay sits in fixed overhead and reaches the
+   ledger only through burn — spread across EVERY doctor's chair-time, not charged to their
+   own lines. That makes their per-doctor margin structurally flattering next to a locum's.
+   Say so wherever the page invites a doctor-vs-doctor comparison. */
+const SALARIED_NAMES = () => (MD.doctors||[]).filter(d=>d.salaried).map(d=>d.name);
+function salariedCaveat(){
+  const n = SALARIED_NAMES();
+  if(!n.length) return '';
+  const who = n.length===1 ? n[0] : n.slice(0,-1).join(', ')+' and '+n[n.length-1];
+  return ` <b>Read ${who} differently:</b> ${n.length===1?'she draws':'they draw'} no locum, so `+
+         `${n.length===1?'her':'their'} pay sits in fixed overhead and reaches this page only through burn, `+
+         `spread across every doctor's chair-time rather than charged to ${n.length===1?'her':'their'} own lines. `+
+         `That lifts ${n.length===1?'her':'their'} margin per chair-hour above a locum's on a basis that is not like-for-like.`;
+}
 const PNL = MD.meta.pnl || null;             // overhead_day / depreciation_day (÷26)
 /* Burn-basis state: alloc 'chair'|'fullday' · dep 'net'|'ebitda'.
    Default = chair + net (RM160/hr) — the pre-toggle behaviour. Persisted. */
@@ -973,7 +987,7 @@ function renderSummary(){
       : `<b>Burn</b> = booked appointment length × RM${burnBasis.dep==='net'?BURN.loaded:BURN.ebitda}/hour (${burnBasis.dep==='net'?'Net, incl. depreciation':'EBITDA, excl. depreciation'}) — ${MD.meta.durCoverage}% of visits have a matched appointment duration (booked length; real seated→dismissed chair time is not yet populated in the extract — rest ★ category estimate). `+
         `<b>⚠ Read the bottom line carefully:</b> this burn is only the chair-time actually billed, not the clinic's full ~RM${PNL?rm0(PNL.overhead_day*(PNL.trading_days_month||26)):'—'}/mo fixed overhead. The unrecovered remainder is <b>under-absorbed overhead — idle chairs + support/admin time</b>, i.e. the "fill empty chairs" lever; charging full overhead lands the clinic near break-even (consistent with the P&L). Switch the Burn basis to <b>Full day (÷26)</b> to charge it in full. `)+
     `<b>Lab cost = %-of-production estimate</b> (real per-case lab pending AutoCount). <b>Locum = collection-based estimate</b> (doctor-month earned collections × locum rules, allocated to visits pro-rata by production); authoritative = the monthly locum engine. `+
-    `<b>Rate</b> is the locum percentage that sticks to the line: the doctor's base tier (40/45/50), or 50% where that doctor's <b>production</b> for the month crossed RM55,000 — the whole-month volume rule, marked <span class="rate-flag">▲</span>. A <b>salaried</b> clinician draws no locum at all, so nothing is charged against her production; her remuneration sits in fixed overhead and is already absorbed through burn. A <span class="rate-prov">?</span> means the month is still open and the rate is <b>provisional</b>: crossing RM55,000 lifts the entire month to 50% retrospectively. The totals row shows the blended rate, weighted by production. Rates are exact; the ringgit amounts beside them remain estimates.`;
+    `<b>Rate</b> is the locum percentage that sticks to the line: the doctor's base tier (40/45/50), or 50% where that doctor's <b>production</b> for the month crossed RM55,000 — the whole-month volume rule, marked <span class="rate-flag">▲</span>. A <b>salaried</b> clinician draws no locum at all, so nothing is charged against her production; her remuneration sits in fixed overhead and is already absorbed through burn. A <span class="rate-prov">?</span> means the month is still open and the rate is <b>provisional</b>: crossing RM55,000 lifts the entire month to 50% retrospectively. The totals row shows the blended rate, weighted by production. Rates are exact; the ringgit amounts beside them remain estimates.` + salariedCaveat();
 
   // drill handlers
   document.querySelectorAll('[data-doctor]').forEach(el=>el.onclick=()=>drill({doctor:el.dataset.doctor}));
@@ -1110,7 +1124,7 @@ function renderEfficiency(){
   document.getElementById('eff-note').innerHTML =
     `<b>Why this matters.</b> A chair-hour is the clinic's scarcest resource. <i>Production/hr</i> is raw throughput; <i>true-margin/hr</i> is what actually reaches the bottom line after locum & burn. `+
     `A specialist doing implants can earn many times the true margin per chair-hour of high-volume low-value work — so the two levers are <b>case-mix</b> (steer chair-time toward higher-margin work) and <b>utilisation</b> (fill idle chairs). `+
-    `Same caveats as Summary: burn uses ${MD.meta.durCoverage}% matched booked appointment lengths; lab is a %-of-production estimate.`;
+    `Same caveats as Summary: burn uses ${MD.meta.durCoverage}% matched booked appointment lengths; lab is a %-of-production estimate.` + salariedCaveat();
 
   document.querySelectorAll('#view-efficiency [data-doctor]').forEach(el=>el.onclick=()=>drill({doctor:el.dataset.doctor}));
   document.querySelectorAll('#view-efficiency [data-cat]').forEach(el=>el.onclick=()=>drill({cat:el.dataset.cat}));
