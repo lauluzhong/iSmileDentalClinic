@@ -1,8 +1,6 @@
 {
   "updated": "2026-09-06 08:20 MYT",
-  "running": [
-    "cert_check"
-  ],
+  "running": [],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -45,8 +43,8 @@
       "last": "2026-09-05 21:32 MYT"
     },
     "cert_check": {
-      "state": "running",
-      "last": "2026-09-05 08:20 MYT"
+      "state": "idle",
+      "last": "2026-09-06 08:20 MYT"
     },
     "deck_stats": {
       "state": "idle",
