@@ -1,6 +1,8 @@
 {
-  "updated": "2026-09-06 16:00 MYT",
-  "running": [],
+  "updated": "2026-09-06 16:30 MYT",
+  "running": [
+    "seo_geo_audit"
+  ],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -51,7 +53,7 @@
       "last": "2026-09-06 16:00 MYT"
     },
     "seo_geo_audit": {
-      "state": "idle",
+      "state": "running",
       "last": "2026-09-02 18:27 MYT"
     }
   }
