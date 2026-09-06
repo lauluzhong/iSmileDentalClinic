@@ -231,8 +231,8 @@
        "w": "wk of 7 Sep"
       },
       {
-       "t": "Confirm with Jason: migration clean \u00b7 integration working \u00b7 AutoCount installed \u00b7 when he is ready for the end-to-end test",
-       "s": "now",
+       "t": "8-point confirmation list sent to Jason in the CC group \u2014 awaiting his reply",
+       "s": "done",
        "w": "6 Sep"
       },
       {
@@ -248,15 +248,15 @@
      "open": [
       "<b>Migration done 5 Sep</b> (Emily): 2 new PCs have OpenDental installed and all other PCs are reconnected. Bob is still monitoring the data through UltraViewer and has yet to set up autobackup.",
       "<b>The end-to-end date is open.</b> We had pencilled 7\u201311 Sep before the migration. Bob's monitoring was not intended to run past Saturday night, and Monday every PC gets rechecked for the new pathway and data. Jason owes us a date given where all the pieces actually stand.",
-      "<b>The AutoCount side is still unconfirmed</b> \u2014 the integration is believed done, but nobody has said so. Numbered list to Jason in the CC group.",
+      "<b>8-point list sent to Jason in the CC group on 6 Sep</b> \u2014 migration clean \u00b7 autobackup \u00b7 integration working \u00b7 which PCs have AutoCount \u00b7 reception PCs \u00b7 cooling \u00b7 E2E date \u00b7 anything else open. Awaiting his reply.",
       "\u26a0\ufe0f <b>Thermal:</b> the new PC heats up when left on for long periods; Emily suggests buying a fan. Left unresolved on a machine that runs all day, this is a failure risk \u2014 get Jason's read on whether the unit is spec'd for continuous running.",
       "EasyDent (X-ray) + CCTV stay on the old PC \u2014 do not migrate",
       "From the initiatives board: Opportunistic add-ons in scope: digital WhatsApp receipts, payroll SaaS, procurement, inventory module. Share Code Capsule's SOW with Claude once received."
      ],
      "flag": {
-      "k": "due",
-      "by": "2026-09-08",
-      "w": "Monday's pathway recheck on every PC, and a numbered list to Jason \u2014 including when we can realistically run the end-to-end test."
+      "k": "wait",
+      "who": "Jason",
+      "w": "8-point confirmation list sent 6 Sep. Waiting on his answers, above all the end-to-end date."
      },
      "owner": "codecapsule",
      "dept": "tech",
@@ -264,7 +264,7 @@
      "from_initiatives": [
       1
      ],
-     "next": "Monday 7 Sep: recheck every PC finds the new pathway and data. Send Jason the numbered list (migration \u00b7 autobackup \u00b7 integration \u00b7 AutoCount installs \u00b7 reception PCs \u00b7 cooling \u00b7 E2E date). Reception PCs this coming week.",
+     "next": "Monday 7 Sep: recheck every PC finds the new pathway and data. Chase Jason's answers to the 8-point list \u2014 the end-to-end date is the one that matters. Reception PCs this coming week.",
      "endMonth": "2026-09"
     },
     {
@@ -2193,6 +2193,6 @@
  },
  "meta": {
   "asof": "SUN 06 SEP 2026",
-  "updated": "2026-09-06T12:51:30+08:00"
+  "updated": "2026-09-06T12:56:31+08:00"
  }
 }

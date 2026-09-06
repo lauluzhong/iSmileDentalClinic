@@ -1,7 +1,17 @@
 {
- "updated": "2026-09-06T12:51:30+08:00",
+ "updated": "2026-09-06T12:56:31+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Emily": {
    "init": "E",
    "role": "",
@@ -9,11 +19,6 @@
   },
   "Edith": {
    "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -26,11 +31,6 @@
    "init": "L",
    "role": "",
    "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
   }
  },
  "initiatives": [
@@ -40,7 +40,7 @@
    "status": "active",
    "owner": "Code Capsule",
    "why": "The spine. OpenDent is migrated and every PC is reconnected, but autobackup is not set up and the reception PCs are still to come \u2014 the end-to-end date is now a question for Jason.",
-   "next": "Monday 7 Sep: recheck every PC finds the new pathway and data. Send Jason the numbered list (migration \u00b7 autobackup \u00b7 integration \u00b7 AutoCount installs \u00b7 reception PCs \u00b7 cooling \u00b7 E2E date). Reception PCs this coming week.",
+   "next": "Monday 7 Sep: recheck every PC finds the new pathway and data. Chase Jason's answers to the 8-point list \u2014 the end-to-end date is the one that matters. Reception PCs this coming week.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -58,7 +58,7 @@
     "Bob monitoring the data via UltraViewer (was not meant to run past 5 Sep) \u00b7 autobackup still to be set up",
     "Recheck every PC finds the new pathway and data",
     "Set up the 2 new reception PCs",
-    "Confirm with Jason: migration clean \u00b7 integration working \u00b7 AutoCount installed \u00b7 when he is ready for the end-to-end test",
+    "8-point confirmation list sent to Jason in the CC group \u2014 awaiting his reply",
     "True end-to-end integration test",
     "AR sync live \u2014 parallel run with paper receipts"
    ],
