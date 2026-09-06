@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-09-07 06:00",
- "generated_at": "2026-09-07T06:00:12+08:00",
+ "generated_myt": "2026-09-07 06:30",
+ "generated_at": "2026-09-07T06:30:07+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 83.5,
   "nproc": 4,
   "load": [
-   1.24,
-   0.37,
-   0.18
+   0.88,
+   0.38,
+   0.43
   ],
-  "cpu_pct": 31.0,
-  "cpu_pct_sample": 37.5,
+  "cpu_pct": 22.0,
+  "cpu_pct_sample": 0.5,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 3326,
-   "avail_mb": 4614,
-   "pct": 41.9,
+   "used_mb": 2748,
+   "avail_mb": 5192,
+   "pct": 34.6,
    "swap_total_mb": 2047,
    "swap_used_mb": 211
   },
@@ -29,11 +29,11 @@
   "bridge_ok": false,
   "pollers": {
    "review_approvals": {
-    "age_s": 27,
-    "last_myt": "2026-09-07 06:00 MYT"
+    "age_s": 22,
+    "last_myt": "2026-09-07 06:30 MYT"
    },
    "hq_publish": {
-    "age_s": 61435,
+    "age_s": 63230,
     "last_myt": "2026-09-06 12:56 MYT",
     "detail": "asof=SUN 06 SEP 2026 streams=40 sideboard=15 decisions=3 archive=10"
    }
@@ -41,11 +41,11 @@
   "walogger_ok": true,
   "crons": {
    "total": 13,
-   "failed": [],
-   "running": [
+   "failed": [
     "gbp_reply"
    ],
-   "status_updated": "2026-09-07 06:00 MYT"
+   "running": [],
+   "status_updated": "2026-09-07 06:30 MYT"
   },
   "last_clinic_push": "2026-09-06"
  },
@@ -58,7 +58,7 @@
    "model": "openai/gpt-5.6-luna",
    "sessions_total": 94,
    "sessions_30d": 72,
-   "last_active_myt": "2026-09-07 05:48"
+   "last_active_myt": "2026-09-07 06:18"
   },
   {
    "id": "analytics-agent",
@@ -106,9 +106,9 @@
    "role": "cron worker",
    "kind": "cron",
    "model": "openai/gpt-5.6-luna",
-   "sessions_total": 72,
+   "sessions_total": 74,
    "sessions_30d": 72,
-   "last_active_myt": "2026-09-06 06:34"
+   "last_active_myt": "2026-09-07 06:15"
   }
  ],
  "finance": {
@@ -236,7 +236,7 @@
   "count": 94,
   "updated": "2026-08-28",
   "source": "Google Business Profile API",
-  "checked": "2026-09-06"
+  "checked": "2026-09-07"
  },
  "social": {
   "available": true,
