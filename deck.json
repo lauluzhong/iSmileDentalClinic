@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-09-06 13:00",
- "generated_at": "2026-09-06T13:00:10+08:00",
+ "generated_myt": "2026-09-06 13:30",
+ "generated_at": "2026-09-06T13:30:10+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 82.8,
   "nproc": 4,
   "load": [
-   1.49,
-   1.23,
-   0.8
+   0.41,
+   0.33,
+   0.47
   ],
-  "cpu_pct": 37.2,
-  "cpu_pct_sample": 2.1,
+  "cpu_pct": 10.2,
+  "cpu_pct_sample": 1.6,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 2715,
-   "avail_mb": 5225,
-   "pct": 34.2,
+   "used_mb": 2850,
+   "avail_mb": 5091,
+   "pct": 35.9,
    "swap_total_mb": 2047,
    "swap_used_mb": 211
   },
@@ -29,11 +29,11 @@
   "bridge_ok": false,
   "pollers": {
    "review_approvals": {
-    "age_s": 25,
-    "last_myt": "2026-09-06 13:00 MYT"
+    "age_s": 0,
+    "last_myt": "2026-09-06 13:30 MYT"
    },
    "hq_publish": {
-    "age_s": 233,
+    "age_s": 2033,
     "last_myt": "2026-09-06 12:56 MYT",
     "detail": "asof=SUN 06 SEP 2026 streams=40 sideboard=15 decisions=3 archive=10"
    }
@@ -43,7 +43,7 @@
    "total": 13,
    "failed": [],
    "running": [],
-   "status_updated": "2026-09-06 13:00 MYT"
+   "status_updated": "2026-09-06 13:30 MYT"
   },
   "last_clinic_push": "2026-09-06"
  },
@@ -54,9 +54,9 @@
    "role": "Edith \u2014 Director of Digital Growth",
    "kind": "main",
    "model": "openai/gpt-5.6-luna",
-   "sessions_total": 93,
-   "sessions_30d": 71,
-   "last_active_myt": "2026-09-06 12:59"
+   "sessions_total": 94,
+   "sessions_30d": 72,
+   "last_active_myt": "2026-09-06 13:21"
   },
   {
    "id": "analytics-agent",
