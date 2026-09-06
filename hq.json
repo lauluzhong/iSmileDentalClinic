@@ -98,7 +98,7 @@
    "l": "Stabilisation \u00b7 Monday pathway check \u00b7 confirm with Jason",
    "s": "",
    "iso": "2026-09-08",
-   "tip": "Emily's 5 Sep report changes this week's shape: Bob is still monitoring via UltraViewer and autobackup is not set up, so this is a stabilisation week. Monday every PC is rechecked for the new pathway and data. The true end-to-end test moves to after Bob signs off; reception PCs the week after."
+   "tip": "Emily's 5 Sep report changes this week's shape: autobackup is not set up and the 2 reception PCs are still to be done this week. Monday every PC is rechecked for the new pathway and data. The end-to-end date is now a question for Jason rather than the 7\u201311 Sep we penned in."
   },
   {
    "d": "15 Sep",
@@ -170,7 +170,7 @@
      "dot": "now",
      "chip": "migrated \u00b7 stabilising",
      "name": "OpenDent \u2194 AutoCount integration",
-     "one": "The spine. OpenDent is migrated and every PC is reconnected, but Bob is still monitoring and the reception PCs are not deployed \u2014 this week is stabilisation, not the end-to-end test.",
+     "one": "The spine. OpenDent is migrated and every PC is reconnected, but autobackup is not set up and the reception PCs are still to come \u2014 the end-to-end date is now a question for Jason.",
      "steps": [
       {
        "t": "Sandbox on the side PC \u2014 integration proven",
@@ -216,7 +216,7 @@
        "w": "5 Sep"
       },
       {
-       "t": "Bob monitoring the data via UltraViewer \u00b7 autobackup still to be set up",
+       "t": "Bob monitoring the data via UltraViewer (was not meant to run past 5 Sep) \u00b7 autobackup still to be set up",
        "s": "now",
        "w": "from 5 Sep"
       },
@@ -228,7 +228,7 @@
       {
        "t": "Set up the 2 new reception PCs",
        "s": "",
-       "w": "wk of 14 Sep"
+       "w": "wk of 7 Sep"
       },
       {
        "t": "Confirm with Jason: migration clean \u00b7 integration working \u00b7 AutoCount installed \u00b7 when he is ready for the end-to-end test",
@@ -238,7 +238,7 @@
       {
        "t": "True end-to-end integration test",
        "s": "",
-       "w": "after Bob signs off"
+       "w": "date owed by Jason"
       },
       {
        "t": "AR sync live \u2014 parallel run with paper receipts",
@@ -247,7 +247,7 @@
      ],
      "open": [
       "<b>Migration done 5 Sep</b> (Emily): 2 new PCs have OpenDental installed and all other PCs are reconnected. Bob is still monitoring the data through UltraViewer and has yet to set up autobackup.",
-      "<b>This week is monitoring, not testing.</b> Monday 7 Sep every PC gets rechecked that it finds the new pathway and data. The 2 new reception PCs are only being set up the following week. The true end-to-end test should follow Bob's sign-off, not the 7\u201311 Sep date we penned in before the migration.",
+      "<b>The end-to-end date is open.</b> We had pencilled 7\u201311 Sep before the migration. Bob's monitoring was not intended to run past Saturday night, and Monday every PC gets rechecked for the new pathway and data. Jason owes us a date given where all the pieces actually stand.",
       "<b>The AutoCount side is still unconfirmed</b> \u2014 the integration is believed done, but nobody has said so. Numbered list to Jason in the CC group.",
       "\u26a0\ufe0f <b>Thermal:</b> the new PC heats up when left on for long periods; Emily suggests buying a fan. Left unresolved on a machine that runs all day, this is a failure risk \u2014 get Jason's read on whether the unit is spec'd for continuous running.",
       "EasyDent (X-ray) + CCTV stay on the old PC \u2014 do not migrate",
@@ -256,7 +256,7 @@
      "flag": {
       "k": "due",
       "by": "2026-09-08",
-      "w": "Monday's pathway recheck on every PC, and a numbered confirmation list to Jason. The end-to-end test waits for Bob's sign-off."
+      "w": "Monday's pathway recheck on every PC, and a numbered list to Jason \u2014 including when we can realistically run the end-to-end test."
      },
      "owner": "codecapsule",
      "dept": "tech",
@@ -264,7 +264,7 @@
      "from_initiatives": [
       1
      ],
-     "next": "Monday 7 Sep: recheck every PC finds the new pathway and data. Send Jason the numbered confirmation list (migration \u00b7 integration \u00b7 AutoCount installs \u00b7 autobackup \u00b7 fan \u00b7 when he is ready for the end-to-end test). Reception PCs the week after.",
+     "next": "Monday 7 Sep: recheck every PC finds the new pathway and data. Send Jason the numbered list (migration \u00b7 autobackup \u00b7 integration \u00b7 AutoCount installs \u00b7 reception PCs \u00b7 cooling \u00b7 E2E date). Reception PCs this coming week.",
      "endMonth": "2026-09"
     },
     {
@@ -527,7 +527,7 @@
       {
        "t": "2 new reception PCs set up",
        "s": "",
-       "w": "wk of 14 Sep"
+       "w": "wk of 7 Sep"
       },
       {
        "t": "Cooling for the new PC \u2014 it heats up on long runs",
@@ -536,15 +536,15 @@
      ],
      "open": [
       "Server swapped 5 Sep; 2 new PCs have OpenDental and every other PC is reconnected.",
-      "The 2 new <b>reception</b> PCs are not set up yet \u2014 Emily has that for the week of 14 Sep.",
-      "\u26a0\ufe0f The new PC heats up when on for a long time; Emily suggests a fan. Confirm with Jason whether the unit is rated for all-day running before we just bolt a fan on.",
+      "The 2 new <b>reception</b> PCs are not set up yet \u2014 Emily is doing them this coming week (week of 7 Sep). Check whether Jason needs to be involved.",
+      "\u26a0\ufe0f The new PC was overheating. Ask Jason to supply the necessary cooling equipment.",
       "Open: which machines have AutoCount installed."
      ],
      "owner": "codecapsule",
      "dept": "tech",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Reception PCs the week of 14 Sep; resolve the cooling question and confirm the AutoCount installs with Jason."
+     "next": "Reception PCs this coming week; Jason to supply cooling for the new PC and confirm the AutoCount installs."
     },
     {
      "id": "d8",
@@ -2193,6 +2193,6 @@
  },
  "meta": {
   "asof": "SUN 06 SEP 2026",
-  "updated": "2026-09-06T12:47:34+08:00"
+  "updated": "2026-09-06T12:51:30+08:00"
  }
 }
