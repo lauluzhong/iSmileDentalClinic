@@ -80,7 +80,7 @@ function DentistProfile() {
     if (!d) return <Navigate to="/dentists" replace />;
 
     const seo = dentistSeo(d);
-    const others = dentists.filter((x) => x.slug !== d.slug).slice(0, 4);
+    const others = dentists.filter((x) => x.slug !== d.slug);
 
     const personSchema = {
         '@context': 'https://schema.org',
