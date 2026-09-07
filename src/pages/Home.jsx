@@ -408,13 +408,16 @@ const Home = () => {
            pure function of how close that section is to the viewport centre. */
         .ambient-wash {
             position: absolute; inset: 0; border-radius: 0 !important;
-            background: linear-gradient(180deg, rgba(79,179,209,0.16) 0%, rgba(0,110,140,0.28) 45%, rgba(0,141,176,0.18) 100%);
+            /* Kept deliberately pale (owner, 7 Sep: the saturated teal made the
+               content hard to focus on). At full wash this reads as "the page
+               turned a lighter blue", nothing more. */
+            background: linear-gradient(180deg, rgba(224,242,254,0.5) 0%, rgba(216,238,245,0.8) 50%, rgba(224,242,254,0.5) 100%);
             opacity: var(--wash);
         }
         .home-ambient span { position: absolute; border-radius: 50%; will-change: transform; }
         .ambient-a {
             width: 58vw; height: 58vw; left: -14vw; top: -18vh;
-            background: radial-gradient(circle, rgba(169,217,233,0.5) 0%, rgba(169,217,233,0) 68%);
+            background: radial-gradient(circle, rgba(169,217,233,0.38) 0%, rgba(169,217,233,0) 68%);
             transform: translate3d(calc(var(--scroll) * 20vw), calc(var(--scroll) * 64vh), 0) scale(calc(1 + var(--scroll) * 0.35));
         }
         .ambient-b {
@@ -424,7 +427,7 @@ const Home = () => {
         }
         .ambient-c {
             width: 40vw; height: 40vw; left: 28vw; bottom: -28vh;
-            background: radial-gradient(circle, rgba(0,141,176,0.14) 0%, rgba(0,141,176,0) 68%);
+            background: radial-gradient(circle, rgba(0,141,176,0.09) 0%, rgba(0,141,176,0) 68%);
             transform: translate3d(calc(var(--scroll) * -12vw), calc(var(--scroll) * -50vh), 0) scale(calc(1.15 - var(--scroll) * 0.25));
         }
 
