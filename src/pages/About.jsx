@@ -236,7 +236,7 @@ const About = () => {
                                     </div>
 
                                     {profileSlugByImg[doc.img] && (
-                                        <Link className="quiet-link team-profile-link" to={`/dentists/${profileSlugByImg[doc.img]}`}>
+                                        <Link className="team-profile-link" to={`/dentists/${profileSlugByImg[doc.img]}`}>
                                             View full profile →
                                         </Link>
                                     )}
