@@ -693,8 +693,8 @@ const Home = () => {
         .proof-author img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex: none; }
 
         .proof-actions { padding: 48px 0 0; }
-        .proof-link { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-weight: 600; color: var(--color-primary-deep); border-bottom: 1px solid rgba(0,110,140,0.35); padding-bottom: 4px; transition: gap 0.25s ease, border-color 0.25s ease; }
-        .proof-link:hover { gap: 12px; border-color: var(--color-primary-deep); }
+        .proof-link { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-weight: 600; color: var(--color-primary-deep); transition: gap 0.25s ease, color 0.25s ease; }
+        .proof-link:hover { gap: 12px; color: var(--color-primary-teal); }
 
         /* The slow roll: what we do, not who reviewed us. 64s per pass. */
         .name-marquee { margin-top: 72px; border-top: 1px solid rgba(16,42,51,0.12); padding: 28px 0; overflow: hidden; }

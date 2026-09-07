@@ -293,6 +293,23 @@ const Header = () => {
                                             {/* No Book a Visit here — the sticky action bar carries
                                                 one at all times on mobile, so this was a duplicate. */}
                                         </ul>
+                                        {/* Way home (owner, 9 Sep 2026): once scrolled, the collapsed
+                                            header is just a burger — the menu itself now carries the
+                                            logo as a route back to the homepage. */}
+                                        <Link
+                                            to="/"
+                                            className="mobile-menu-home"
+                                            aria-label="Back to the homepage"
+                                            onClick={(e) => {
+                                                if (location.pathname === '/') {
+                                                    e.preventDefault();
+                                                    scrollToTop();
+                                                }
+                                                handleMobileMenuClose();
+                                            }}
+                                        >
+                                            <img src="/logo.webp" alt="iSmile — home" height="32" loading="lazy" />
+                                        </Link>
                                     </motion.div>
                                 ) : (
                                     <motion.div
@@ -535,6 +552,16 @@ const Header = () => {
         }
         
         /* Mobile Overlay & Slide Styles */
+        .mobile-menu-home {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid var(--hairline);
+            width: 100%;
+        }
+        .mobile-menu-home img { height: 32px; width: auto; display: block; }
+
         .mobile-nav-overlay {
             position: fixed;
             top: 80px;

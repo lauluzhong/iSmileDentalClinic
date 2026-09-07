@@ -161,7 +161,7 @@ const About = () => {
                     <div className="founder-card-dark">
                         <div className="founder-content">
                             <Reveal><span className="eyebrow">Meet Our Founder</span></Reveal>
-                            <Reveal><h2 className="system-title">Dr. <em>Jean Ong</em></h2></Reveal>
+                            <Reveal><h2 className="system-title"><em>Dr. Jean Ong</em></h2></Reveal>
                             <Reveal><h3 className="founder-role">Founder & Dental Surgeon</h3></Reveal>
 
                             <Reveal delay={0.2}><div className="founder-bio">

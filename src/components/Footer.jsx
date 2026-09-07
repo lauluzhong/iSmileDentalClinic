@@ -259,7 +259,15 @@ const Footer = () => {
             text-align: left;
             max-width: 280px;
         }
-        .google-reviews-badge:hover .write-review { border-color: var(--color-primary-deep); }
+        .google-reviews-badge:hover .write-review {
+            display: inline-block;
+            color: var(--color-primary-deep);
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0;
+            transition: color 0.25s ease;
+        }
         .google-rating-row {
             display: flex;
             align-items: center;
@@ -281,17 +289,7 @@ const Footer = () => {
             font-size: 0.85rem;
             margin: 0 0 8px 0;
         }
-        .write-review {
-            display: inline-block;
-            color: var(--color-primary-deep);
-            font-family: var(--font-heading);
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin: 0;
-            border-bottom: 1px solid rgba(0,110,140,0.35);
-            padding-bottom: 2px;
-            transition: border-color 0.25s ease;
-        }
+
 
         .footer-copyright {
             font-size: 0.8rem;
