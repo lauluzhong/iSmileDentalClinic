@@ -166,6 +166,112 @@ const Home = () => {
     // ties the bands together into one surface instead of stacked stripes.
     // Written to a CSS custom property so the styling stays in CSS, and
     // rAF-coalesced so the scroll path never does layout work twice a frame.
+    // ---- The mosaic engine ----
+    // The drift used to be a CSS keyframe animation, but the owner wants to
+    // drag the strip to find a particular dentist, and a keyframe cannot be
+    // grabbed. One master offset now drives both rows from a rAF clock:
+    //   x = auto-drift (24px/s, paused on hover/drag/reduced-motion)
+    //     + whatever the hand has added.
+    // Row A shows -x, row B shows +x (opposite directions preserved), each
+    // wrapped modulo its own half-width. The scrubber thumb mirrors row A's
+    // phase and can be dragged to jump anywhere in the loop.
+    const mosaicRef = useRef(null);
+    const scrubRef = useRef(null);
+    useEffect(() => {
+        const root = mosaicRef.current;
+        const track = scrubRef.current;
+        if (!root || !track) return;
+        const rowA = root.querySelector('.mosaic-row-a');
+        const rowB = root.querySelector('.mosaic-row-b');
+        const thumb = track.querySelector('.mosaic-scrub-thumb');
+        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        let x = 0, raf = null, last = null;
+        let hover = false, dragging = false, visible = true;
+
+        const paint = (now) => {
+            raf = window.requestAnimationFrame(paint);
+            if (last === null) last = now;
+            const dt = Math.min(64, now - last) / 1000;
+            last = now;
+            if (!reduced && !hover && !dragging && visible) x += 24 * dt;
+
+            const wa = rowA.scrollWidth / 2;
+            const wb = rowB.scrollWidth / 2;
+            if (!wa || !wb) return;
+            const ma = ((x % wa) + wa) % wa;
+            const mb = ((x % wb) + wb) % wb;
+            rowA.style.transform = `translate3d(${(-ma).toFixed(2)}px,0,0)`;
+            rowB.style.transform = `translate3d(${(mb - wb).toFixed(2)}px,0,0)`;
+            const tw = track.clientWidth - thumb.clientWidth;
+            if (tw > 0) thumb.style.transform = `translate3d(${((ma / wa) * tw).toFixed(2)}px,0,0)`;
+        };
+
+        // Only spend frames while the hero is on screen.
+        const io = typeof IntersectionObserver !== 'undefined'
+            ? new IntersectionObserver(([e]) => { visible = e.isIntersecting; })
+            : null;
+        if (io) io.observe(root);
+
+        // Hand-drag on the strip itself. touch-action: pan-y (CSS) keeps
+        // vertical page scrolling native; horizontal movement is ours.
+        let startX = 0, startVal = 0, moved = 0;
+        const onDown = (e) => {
+            if (e.button !== undefined && e.button !== 0) return;
+            dragging = true; moved = 0; startX = e.clientX; startVal = x;
+            if (root.setPointerCapture && e.pointerId !== undefined) {
+                try { root.setPointerCapture(e.pointerId); } catch { /* no-op */ }
+            }
+        };
+        const onMove = (e) => {
+            if (!dragging) return;
+            const dx = e.clientX - startX;
+            moved = Math.max(moved, Math.abs(dx));
+            x = startVal - dx;
+        };
+        const onUp = () => { dragging = false; };
+        // A real drag must not fire the portrait's link on release.
+        const onClick = (e) => { if (moved > 6) { e.preventDefault(); e.stopPropagation(); } };
+        // Keyboard focus on a tile makes the browser scroll the clipped box;
+        // that fights the transforms, so undo it and let the loop position.
+        const onFocusIn = () => { root.scrollLeft = 0; };
+
+        root.addEventListener('pointerdown', onDown);
+        root.addEventListener('pointermove', onMove);
+        root.addEventListener('pointerup', onUp);
+        root.addEventListener('pointercancel', onUp);
+        root.addEventListener('click', onClick, true);
+        root.addEventListener('focusin', onFocusIn);
+        root.addEventListener('pointerenter', () => { hover = true; });
+        root.addEventListener('pointerleave', () => { hover = false; onUp(); });
+
+        // The scrubber: press or drag anywhere on the little track to jump.
+        const scrubTo = (clientX) => {
+            const rect = track.getBoundingClientRect();
+            const tw = track.clientWidth - thumb.clientWidth;
+            const wa = rowA.scrollWidth / 2;
+            if (tw <= 0 || !wa) return;
+            const frac = Math.min(1, Math.max(0, (clientX - rect.left - thumb.clientWidth / 2) / tw));
+            x = frac * wa;
+        };
+        const sDown = (e) => {
+            dragging = true; e.preventDefault(); scrubTo(e.clientX);
+            const mv = (ev) => scrubTo(ev.clientX);
+            const upf = () => { dragging = false; window.removeEventListener('pointermove', mv); };
+            window.addEventListener('pointermove', mv);
+            window.addEventListener('pointerup', upf, { once: true });
+        };
+        track.addEventListener('pointerdown', sDown);
+
+        raf = window.requestAnimationFrame(paint);
+        return () => {
+            if (raf !== null) window.cancelAnimationFrame(raf);
+            if (io) io.disconnect();
+        };
+        // Listeners on root/track die with the nodes; no manual teardown needed
+        // beyond the frame loop and the observer.
+    }, []);
+
     const ambientRef = useRef(null);
     const proofRef = useRef(null);
     useEffect(() => {
@@ -251,11 +357,15 @@ const Home = () => {
 
                     <div className="hero-visual">
                         {/* The moving mosaic: every dentist plus the words, drifting in
-                            opposite directions. Pause on hover; each portrait opens that
-                            dentist's profile. */}
-                        <div className="hero-mosaic">
+                            opposite directions. Pauses on hover, drags by hand (mouse or
+                            touch), and the small scrubber underneath jumps anywhere in
+                            the loop. Each portrait opens that dentist's profile. */}
+                        <div className="hero-mosaic" ref={mosaicRef}>
                             <MosaicRow tiles={MOSAIC_ROW_A} className="mosaic-row-a" />
                             <MosaicRow tiles={MOSAIC_ROW_B} className="mosaic-row-b" />
+                        </div>
+                        <div className="mosaic-scrub" ref={scrubRef} aria-hidden="true">
+                            <span className="mosaic-scrub-thumb" />
                         </div>
                     </div>
                 </div>
@@ -263,7 +373,7 @@ const Home = () => {
 
             {/* ============ 2. SERVICES — a wide, numbered index on an inset band ============ */}
             <section className="services-section">
-                <div className="container services-container">
+                <div className="container">
                     <div className="section-header services-header">
                         <Reveal width="100%"><span className="section-eyebrow">Our Services</span></Reveal>
                         <Reveal width="100%"><h2 className="section-title">Comprehensive care for <em>every stage of life.</em></h2></Reveal>
@@ -477,15 +587,31 @@ const Home = () => {
             -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
             mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
         }
-        .mosaic-row { display: flex; gap: 16px; width: max-content; }
-        /* Opposite directions at close-but-different speeds, so the two rows
-           never fall into visual lockstep. */
-        .mosaic-row-a { animation: mosaic-left 52s linear infinite; }
-        .mosaic-row-b { animation: mosaic-right 60s linear infinite; }
-        .hero-mosaic:hover .mosaic-row { animation-play-state: paused; }
-        @keyframes mosaic-left { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
-        @keyframes mosaic-right { from { transform: translate3d(-50%,0,0); } to { transform: translate3d(0,0,0); } }
-        @media (prefers-reduced-motion: reduce) { .mosaic-row { animation: none; } }
+        .mosaic-row { display: flex; gap: 16px; width: max-content; will-change: transform; }
+        /* Motion comes from the JS clock (drag + scrub need a graspable
+           offset, which a CSS keyframe cannot give). pan-y keeps vertical
+           page scrolling native on touch while horizontal drags are ours. */
+        .hero-mosaic { touch-action: pan-y; cursor: grab; }
+        .hero-mosaic:active { cursor: grabbing; }
+        .hero-mosaic a { -webkit-user-drag: none; user-select: none; }
+
+        /* The scrubber: a whisper of UI. A short hairline with a soft thumb —
+           no arrows, no labels; it moves with the strip and can be dragged. */
+        .mosaic-scrub {
+            position: relative; margin: 18px auto 0;
+            width: 140px; height: 14px; cursor: pointer;
+            touch-action: none;
+        }
+        .mosaic-scrub::before {
+            content: ''; position: absolute; left: 0; right: 0; top: 6px; height: 3px;
+            border-radius: 99px; background: rgba(16,42,51,0.10);
+        }
+        .mosaic-scrub-thumb {
+            position: absolute; top: 5px; left: 0; width: 34px; height: 5px;
+            border-radius: 99px; background: rgba(0,110,140,0.45);
+            transition: background 0.25s ease;
+        }
+        .mosaic-scrub:hover .mosaic-scrub-thumb { background: var(--color-primary-deep); }
 
         .mosaic-tile { flex: none; width: 192px; height: 192px; border-radius: 20px; overflow: hidden; }
         .mosaic-portrait { display: block; transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); }
@@ -504,8 +630,9 @@ const Home = () => {
         /* No filled band: the owner read the inset boxes as two giant cards.
            The section sits straight on the evolving background. */
         .services-section { padding: 96px 0 108px; }
-        /* The owner asked for this index wider than the house 1200px column. */
-        .services-container { max-width: 1360px; }
+        /* Same 1200px column as every other section — the wider 1360px run
+           made this one section misalign with the header and its neighbours
+           (owner, 7 Sep). */
         .section-header { margin-bottom: 64px; }
         .services-header { max-width: 880px; }
         .section-lead { font-size: var(--fs-lead); color: var(--color-text-slate); max-width: 620px; margin: 20px 0 0; line-height: 1.65; }
