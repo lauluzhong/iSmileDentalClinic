@@ -399,14 +399,25 @@ const Reviews = () => {
                 .reviews-page .reviews-trust-stars { gap: 2px; }
                 .reviews-page .reviews-trust-item strong { color: var(--color-text-charcoal); }
                 .reviews-page .reviews-content { padding-top: 32px; }
-                .reviews-page .reviews-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 52px; border-top: 1px solid var(--hairline); }
-                .reviews-page .review-card-large { display: flex; flex-direction: column; padding: 44px 0; border-bottom: 1px solid var(--hairline); }
+                /* Each review is one soft tinted block — the same language as
+                   the homepage mosaic's quote tiles — so the words and the
+                   reviewer read as a single group instead of table rows
+                   (owner, 8 Sep 2026: the hairline grid looked "tably"). */
+                .reviews-page .reviews-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
+                .reviews-page .review-card-large {
+                    display: flex; flex-direction: column;
+                    padding: 30px 32px;
+                    background: var(--color-tint-faint);
+                    border-radius: 22px;
+                }
+                .reviews-page .review-card-large:nth-child(4n+2),
+                .reviews-page .review-card-large:nth-child(4n+3) { background: #EBF4FA; }
                 .reviews-page .stars { display: flex; gap: 4px; margin-bottom: 18px; }
-                .reviews-page .review-body { flex: 1; margin-bottom: 24px; color: var(--color-text-slate); font-size: .96rem; line-height: 1.65; }
+                .reviews-page .review-body { flex: 1; margin-bottom: 22px; color: var(--color-text-slate); font-size: .96rem; line-height: 1.65; }
                 .reviews-page .review-body strong { color: var(--color-text-charcoal); font-weight: 600; }
                 .reviews-page .review-body p { margin: 0 0 12px; }
                 .reviews-page .review-body p:last-child { margin-bottom: 0; }
-                .reviews-page .review-footer { display: flex !important; flex-direction: row !important; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid var(--hairline); }
+                .reviews-page .review-footer { display: flex !important; flex-direction: row !important; align-items: center; gap: 12px; margin-top: auto; }
                 .reviews-page .review-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex: none; }
                 .reviews-page .proof-author { display: flex; flex-direction: column; }
                 .reviews-page .review-footer strong { color: var(--color-text-charcoal); font-family: var(--font-heading); font-size: .94rem; }
@@ -415,7 +426,7 @@ const Reviews = () => {
                 .reviews-page .reviews-closing .eyebrow { margin-bottom: 14px; }
                 .reviews-page .reviews-closing .statement { max-width: 680px; margin: 0 auto 30px; }
                 .reviews-page .reviews-closing a { display: inline-block; }
-                @media (max-width: 760px) { .reviews-page .reviews-hero-gradient { padding: 118px 0 52px; } .reviews-page .reviews-grid { grid-template-columns: 1fr; } .reviews-page .review-card-large { padding: 32px 0; } .reviews-page .reviews-trust-rule { width: 24px; } }
+                @media (max-width: 760px) { .reviews-page .reviews-hero-gradient { padding: 118px 0 52px; } .reviews-page .reviews-grid { grid-template-columns: 1fr; gap: 16px; } .reviews-page .review-card-large { padding: 24px 22px; border-radius: 18px; } .reviews-page .reviews-trust-rule { width: 24px; } }
             `}</Style>
         </div>
     );
