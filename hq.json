@@ -2072,7 +2072,8 @@
   "Priscilla: clinical practice or case allocation? Only Emily knows",
   "Free staff/family treatment \u2014 quantify + name an approver",
   "D8300 <b>Myobrace</b>: priced RM1,000 in Fee Guide v1 (confirm 1,000 vs 1,500), then apply in OpenDent \u2014 and decide whether to rename it, since Myobrace is a brand the clinic does not carry",
-  "holidays.txt repopulate each January (closed-day digest guard)"
+  "holidays.txt repopulate each January (closed-day digest guard)",
+  "<b>Reconnect financials:</b> the migrated OpenDental computer disrupted the extract/push pipeline; restore the daily cash and P&L feed."
  ],
  "archive": [
   {
@@ -2192,7 +2193,7 @@
   "note": "initiatives.store.json folded into this store; initiatives.json is now DERIVED from it by hq_publish.py for the legacy page."
  },
  "meta": {
-  "asof": "SUN 06 SEP 2026",
-  "updated": "2026-09-06T12:56:31+08:00"
+  "asof": "MON 07 SEP 2026",
+  "updated": "2026-09-07T14:09:52+08:00"
  }
 }
