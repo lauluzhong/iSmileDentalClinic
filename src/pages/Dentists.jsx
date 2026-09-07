@@ -43,22 +43,24 @@ function DentistCard({ d }) {
 
 function DentistIndex() {
     return (
-        <div className="dentists-page">
+        <div className="dentists-page dentists-page-index">
             <Helmet>
                 <title>Our Dentists in Damansara Jaya, Petaling Jaya | iSmile Dental Clinic</title>
                 <meta name="description" content="Meet the dentists at iSmile Dental Clinic in Damansara Jaya, Petaling Jaya. Eight dental surgeons with 14 to 34 years in practice across general, paediatric, orthodontic and restorative care." />
                 <link rel="canonical" href={`${SITE}/dentists`} />
             </Helmet>
 
-            <div className="container dentists-header">
-                <p className="dentists-eyebrow">Our team</p>
-                <h1>Our dentists</h1>
-                <p className="dentists-intro">
-                    Our team in Damansara Jaya covers general, paediatric, orthodontic and restorative
-                    care between them, with 14 to 34 years in practice each. If you would like to see a
-                    particular dentist, say so when you book and the front desk
-                    will arrange it for you where possible.
-                </p>
+            <div className="dentists-hero">
+                <div className="container dentists-header">
+                    <p className="dentists-eyebrow">Our team</p>
+                    <h1>Our dentists</h1>
+                    <p className="dentists-intro">
+                        Our team in Damansara Jaya covers general, paediatric, orthodontic and restorative
+                        care between them, with 14 to 34 years in practice each. If you would like to see a
+                        particular dentist, say so when you book and the front desk
+                        will arrange it for you where possible.
+                    </p>
+                </div>
             </div>
 
             <div className="container dentists-grid">
@@ -114,8 +116,10 @@ function DentistProfile() {
 
             <div className="dentist-hero">
                 <div className="container dentist-profile">
-                    <Link to="/dentists" className="dentist-back">
-                        <ArrowLeft size={16} /> All dentists
+                    {/* Humans arrive from the About team grid, so back goes there.
+                        /dentists still exists for search landers and the sitemap. */}
+                    <Link to="/about#team" className="dentist-back">
+                        <ArrowLeft size={16} /> Our team
                     </Link>
 
                     <div className="dentist-profile-head">
@@ -204,8 +208,12 @@ function DentistStyles() {
     return (
         <style>{`
             .dentists-page { padding: 170px 0 80px; }
-            .dentists-page-profile { padding-top: 0; }
+            .dentists-page-index, .dentists-page-profile { padding-top: 0; }
 
+            .dentists-hero {
+                padding: 170px 0 64px; text-align: center;
+                background: linear-gradient(135deg, #F0F7FF 0%, #E0F2FE 55%, #EAF7F0 100%);
+            }
             .dentists-eyebrow {
                 margin: 0 0 10px; font-family: var(--font-heading, sans-serif);
                 font-size: .8125rem; font-weight: 600; text-transform: uppercase;
@@ -213,7 +221,7 @@ function DentistStyles() {
             }
             .dentists-header { max-width: 720px; }
             .dentists-header h1 { margin: 0 0 16px; letter-spacing: -0.02em; }
-            .dentists-intro { font-size: 1.0625rem; line-height: 1.7; color: var(--color-text-grey, #555); }
+            .dentists-intro { margin: 0 auto; font-size: 1.0625rem; line-height: 1.7; color: var(--color-text-slate, #475569); }
 
             .dentists-grid {
                 display: grid; gap: 24px; margin-top: 48px;
@@ -255,7 +263,7 @@ function DentistStyles() {
 
             .dentist-hero {
                 padding: 150px 0 56px;
-                background: linear-gradient(180deg, #EAF4F8 0%, rgba(247, 250, 252, 0) 100%);
+                background: linear-gradient(135deg, #F0F7FF 0%, #E0F2FE 45%, rgba(247, 250, 252, 0) 100%);
             }
             .dentist-profile { max-width: 860px; }
             .dentist-back {
@@ -345,7 +353,8 @@ function DentistStyles() {
 
             @media (max-width: 768px) {
                 .dentists-page { padding: 110px 0 60px; }
-                .dentists-page-profile { padding-top: 0; }
+                .dentists-page-index, .dentists-page-profile { padding-top: 0; }
+                .dentists-hero { padding: 120px 0 44px; }
                 .dentist-hero { padding: 110px 0 40px; }
                 .dentist-profile-head { gap: 24px; }
                 .dentist-profile-imgwrap { width: 100%; }
