@@ -1,7 +1,7 @@
 import { useBooking } from '../context/BookingContext';
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Star, Heart, Shield, Sparkles, Smile, Users } from 'lucide-react';
+import { ArrowRight, Star, Heart } from 'lucide-react';
 import Button from '../components/Button';
 import { Helmet } from 'react-helmet-async';
 import { Reveal } from '../components/Reveal';
@@ -51,16 +51,6 @@ const STAGES = [
         title: 'Replace teeth',
         line: 'Premium implants, bridges and custom dentures that restore comfort and function.'
     }
-];
-
-// Mobile keeps the compact chip grid the owner chose — same five destinations,
-// same order as the desktop list so the two views never disagree.
-const CHIPS = [
-    { to: '/services/protect', label: 'Check-ups & cleaning', Icon: Shield },
-    { to: '/services/children', label: 'Children & growing smiles', Icon: Users },
-    { to: '/services/straighten', label: 'Braces & aligners', Icon: Sparkles },
-    { to: '/services/enhance', label: 'Veneers & whitening', Icon: Star },
-    { to: '/services/replace', label: 'Implants & dentures', Icon: Smile }
 ];
 
 const QUOTES = [
@@ -186,11 +176,7 @@ const Home = () => {
         let frame = null;
         const paint = () => {
             frame = null;
-            const max = document.documentElement.scrollHeight - window.innerHeight;
-            const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
-            el.style.setProperty('--scroll', p.toFixed(4));
-
-            // The teal wash: the whole page cools as the proof section
+            // The wash: the whole page cools as the proof section
             // approaches the middle of the viewport and warms back as it
             // leaves — a bell curve over the section's distance from centre,
             // so it is fully scrubbed by scroll in both directions.
@@ -225,11 +211,8 @@ const Home = () => {
                 <link rel="canonical" href="https://ismile.com.my/" />
             </Helmet>
 
-            {/* Scroll-scrubbed colour fields behind every section */}
+            {/* Scroll-scrubbed background: one uniform wash, no local shapes */}
             <div className="home-ambient" ref={ambientRef} aria-hidden="true">
-                <span className="ambient-a" />
-                <span className="ambient-b" />
-                <span className="ambient-c" />
                 <span className="ambient-wash" />
             </div>
 
@@ -282,7 +265,7 @@ const Home = () => {
             <section className="services-section">
                 <div className="container services-container">
                     <div className="section-header services-header">
-                        <Reveal width="100%"><span className="section-eyebrow">Care, through every chapter</span></Reveal>
+                        <Reveal width="100%"><span className="section-eyebrow">Our Services</span></Reveal>
                         <Reveal width="100%"><h2 className="section-title">Comprehensive care for <em>every stage of life.</em></h2></Reveal>
                         <Reveal width="100%"><p className="section-lead">A child's first check-up. Braces in the teenage years. A grandparent's new smile. One team that knows your family and grows with it.</p></Reveal>
                     </div>
@@ -298,22 +281,13 @@ const Home = () => {
                         ))}
                     </div>
 
-                    {/* Mobile chip grid — replaces the list on phones */}
-                    <div className="chip-grid">
-                        {CHIPS.map(({ to, label, Icon }) => (
-                            <Link key={to} to={to} className="service-chip">
-                                <span className="service-chip-icon"><Icon size={18} /></span>
-                                {label}
-                            </Link>
-                        ))}
-                    </div>
                 </div>
             </section>
 
             {/* ============ 3. PROOF — the teal band ============ */}
             <section className="proof-section" ref={proofRef}>
                 <div className="container">
-                    <p className="proof-eyebrow">What families say</p>
+                    <p className="proof-eyebrow">Real Stories</p>
                     <h2 className="proof-statement">Trusted by <em>families.</em></h2>
 
                     <div className="proof-quotes">
@@ -346,10 +320,7 @@ const Home = () => {
             <section className="dental-education-section">
                 <div className="container">
                     <div className="section-header dental-edu-header">
-                        <div>
-                            <span className="section-eyebrow">From the Learning Centre</span>
-                            <h2 className="section-title">Dental <em>education.</em></h2>
-                        </div>
+                        <h2 className="section-title">Dental <em>education.</em></h2>
                         <Link to="/blog" className="btn-link">Visit Learning Centre <ArrowRight size={16} /></Link>
                     </div>
 
@@ -402,10 +373,10 @@ const Home = () => {
         /* ---------- ambient layer ---------- */
         /* No blur filter: the radial gradients already fall off to transparent,
            and filter:blur on viewport-sized elements is what janks phones. */
-        .home-ambient { position: fixed; inset: 0; z-index: 0; pointer-events: none; --scroll: 0; --wash: 0; overflow: hidden; }
-        /* The evolving register: no filled band behind the reviews any more —
-           instead the entire background takes a teal wash whose opacity is a
-           pure function of how close that section is to the viewport centre. */
+        /* One UNIFORM wash, edge to edge — the earlier drifting colour blobs
+           read as stains on the screen (owner, 7 Sep) and are gone. A full-
+           surface tint cannot stain: it is the page itself changing colour. */
+        .home-ambient { position: fixed; inset: 0; z-index: 0; pointer-events: none; --wash: 0; overflow: hidden; }
         .ambient-wash {
             position: absolute; inset: 0; border-radius: 0 !important;
             /* Kept deliberately pale (owner, 7 Sep: the saturated teal made the
@@ -415,21 +386,6 @@ const Home = () => {
             opacity: var(--wash);
         }
         .home-ambient span { position: absolute; border-radius: 50%; will-change: transform; }
-        .ambient-a {
-            width: 58vw; height: 58vw; left: -14vw; top: -18vh;
-            background: radial-gradient(circle, rgba(169,217,233,0.38) 0%, rgba(169,217,233,0) 68%);
-            transform: translate3d(calc(var(--scroll) * 20vw), calc(var(--scroll) * 64vh), 0) scale(calc(1 + var(--scroll) * 0.35));
-        }
-        .ambient-b {
-            width: 46vw; height: 46vw; right: -16vw; top: 26vh;
-            background: radial-gradient(circle, rgba(216,238,245,0.75) 0%, rgba(216,238,245,0) 68%);
-            transform: translate3d(calc(var(--scroll) * -18vw), calc(var(--scroll) * -34vh), 0);
-        }
-        .ambient-c {
-            width: 40vw; height: 40vw; left: 28vw; bottom: -28vh;
-            background: radial-gradient(circle, rgba(0,141,176,0.09) 0%, rgba(0,141,176,0) 68%);
-            transform: translate3d(calc(var(--scroll) * -12vw), calc(var(--scroll) * -50vh), 0) scale(calc(1.15 - var(--scroll) * 0.25));
-        }
 
         /* ---------- the committed type system ---------- */
         .home-page h1 em, .home-page h2 em {
@@ -588,22 +544,6 @@ const Home = () => {
         .stage-arrow { color: var(--color-primary-teal); opacity: 0.3; transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
         .stage-row:hover .stage-arrow { opacity: 1; transform: translate(6px, -4px) rotate(-45deg); }
 
-        .chip-grid { display: none; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .service-chip {
-            display: flex; align-items: center; gap: 10px;
-            background: #fff; border: 1px solid rgba(16,42,51,0.08);
-            border-radius: 16px; padding: 13px 12px;
-            font-family: var(--font-heading); font-weight: 600;
-            font-size: 0.9rem; line-height: 1.2;
-            color: var(--color-text-charcoal);
-            box-shadow: var(--shadow-sm);
-        }
-        .service-chip:last-child { grid-column: 1 / -1; }
-        .service-chip-icon {
-            flex: none; width: 34px; height: 34px; border-radius: 10px;
-            background: var(--color-tint-light); color: var(--color-primary-deep);
-            display: flex; align-items: center; justify-content: center;
-        }
 
         /* ---------- 3. PROOF ---------- */
         /* No filled band here either: the register change is the background
@@ -689,13 +629,13 @@ const Home = () => {
             .hero-visual { width: 100%; }
             .hero-content { display: contents; }
             .hero-eyebrow { order: 1; margin-bottom: 20px; }
-            .hero-visual { order: 2; margin-bottom: 28px; }
-            .hero-title { order: 3; }
+            .hero-title { order: 2; }
+            .hero-visual { order: 3; margin-bottom: 26px; }
             .hero-subtitle { order: 4; }
             .hero-actions { order: 5; }
             .hero-trust { order: 6; }
             .hero-eyebrow-text { font-size: 0.76rem; }
-            .hero-title { font-size: 2.35rem; line-height: 1.1; margin-bottom: 12px; }
+            .hero-title { font-size: 2.8rem; line-height: 1.08; margin-bottom: 24px; }
             .hero-subtitle-desktop { display: none; }
             .hero-subtitle-mobile { display: block; }
             .hero-subtitle { font-size: 1rem; margin-bottom: 22px; max-width: 420px; line-height: 1.55; }
@@ -760,16 +700,18 @@ const Home = () => {
             .section-header { margin-bottom: 18px; }
 
             .hero-section { padding: 116px 0 32px; }
-            .hero-title { font-size: 2.05rem; }
+            .hero-title { font-size: 2.45rem; }
             .hero-subtitle { max-width: 340px; }
 
             .mosaic-tile { width: 126px; height: 126px; border-radius: 14px; }
             .mosaic-quote { padding: 12px; font-size: 0.8rem; }
 
-            /* Services — chip grid replaces the list on phones */
-            .stage-list { display: none; }
-            .chip-grid { display: grid; }
+            /* Services — the rows stay on phones too (chips retired, owner
+               7 Sep: the white chip cards were the card language creeping back) */
             .services-section { padding: 36px 0 44px; }
+            .stage-row { padding: 18px 2px; }
+            .stage-title { font-size: 1.2rem; }
+            .stage-line { font-size: 0.88rem; }
 
             .proof-quote { flex: 0 0 88%; }
 
