@@ -1,31 +1,31 @@
 {
-  "as_of": "2026-09-07",
+  "as_of": "2026-09-08",
   "source": "redirect.ismile.com.my/admin/webhook/webhooklog",
   "note": "Funnel = event counts (per-message callbacks), not distinct patients. Conversion = matured-cohort recall->appointment rate (correlation, not proven causal lift); as-of the latest OpenDent export only.",
   "funnel_live": true,
-  "funnel_as_of": "2026-09-07",
+  "funnel_as_of": "2026-09-08",
   "cumulative": {
-    "total": 14861,
-    "sent": 5088,
-    "delivered": 5946,
-    "read": 2052,
-    "failed": 468,
+    "total": 14924,
+    "sent": 5115,
+    "delivered": 5973,
+    "read": 2055,
+    "failed": 474,
     "clicks": 173,
     "replies": 1134
   },
   "this_month": {
-    "sent": 156,
+    "sent": 183,
     "clicks": 13,
     "replies": 36
   },
   "conversion": {
     "mature_days": 21,
     "attrib_window_days": 90,
-    "data_as_of": "2026-09-06",
-    "appt_export": "inbox/2026-09-06 e5+e6+backfill",
+    "data_as_of": "2026-09-07",
+    "appt_export": "inbox/2026-09-07 e5+e6+backfill",
     "appt_range": [
       "2024-08-12",
-      "2027-01-02"
+      "2027-01-04"
     ],
     "stale": false,
     "available": true,
@@ -40,7 +40,7 @@
   },
   "value": {
     "available": true,
-    "as_of": "2026-09-07",
+    "as_of": "2026-09-08",
     "bridge": "e8_patient_master.tsv (2026-09-06)",
     "sends": 767,
     "patients_in_cohort": 1138,
