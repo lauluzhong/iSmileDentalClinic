@@ -27,7 +27,7 @@ function DentistCard({ d }) {
             <img src={d.img} alt={d.knownAs} className="dentist-card-img" loading="lazy" width="220" height="220" />
             <div className="dentist-card-body">
                 <h2 className="dentist-card-name">{d.knownAs}</h2>
-                <p className="dentist-card-role">{d.role}{d.founder ? ' · Founder' : ''}</p>
+                <p className="dentist-card-role">{d.role}</p>
                 <p className="dentist-card-quals">{d.qualifications}</p>
             </div>
         </Link>
@@ -114,7 +114,7 @@ function DentistProfile() {
                     <div>
                         <h1 className="dentist-profile-name">{d.knownAs}</h1>
                         <p className="dentist-profile-role">
-                            {d.role}{d.founder ? ', and founder of iSmile Dental Clinic' : ''}, Damansara Jaya
+                            {d.role}, iSmile Dental Clinic, Damansara Jaya
                         </p>
                         <p className="dentist-profile-bio">{d.bio}</p>
                     </div>
@@ -186,7 +186,7 @@ function DentistProfile() {
 function DentistStyles() {
     return (
         <style>{`
-            .dentists-page { padding: 140px 0 80px; }
+            .dentists-page { padding: 170px 0 80px; }
             .dentists-header { max-width: 720px; }
             .dentists-header h1 { margin: 0 0 16px; letter-spacing: -0.02em; }
             .dentists-intro { font-size: 1.0625rem; line-height: 1.7; color: var(--color-text-grey, #555); }

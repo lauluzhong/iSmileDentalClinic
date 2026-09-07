@@ -771,8 +771,7 @@ export default function blogSSG() {
           ],
           body: [
             '    <h1>' + escapeHtml(d.knownAs) + '</h1>',
-            '    <p>' + escapeHtml(d.role + (d.founder ? ', and founder of iSmile Dental Clinic' : '') +
-                ', Damansara Jaya, Petaling Jaya.') + '</p>',
+            '    <p>' + escapeHtml(d.role + ', iSmile Dental Clinic, Damansara Jaya, Petaling Jaya.') + '</p>',
             '    <p>' + escapeHtml(d.bio) + '</p>',
             '    <ul>' +
               '<li>Qualifications: ' + escapeHtml(d.qualifications) + '</li>' +
