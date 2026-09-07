@@ -1,6 +1,13 @@
 {
-  "updated": "2026-09-07 23:00 MYT",
+  "updated": "2026-09-07 23:30 MYT",
   "entries": [
+    {
+      "ts": "2026-09-07 23:30 MYT",
+      "agent": "analytics",
+      "job": "deck_stats",
+      "event": "started",
+      "result": ""
+    },
     {
       "ts": "2026-09-07 23:00 MYT",
       "agent": "analytics",
@@ -1391,13 +1398,6 @@
       "ts": "2026-09-06 06:30 MYT",
       "agent": "engineer",
       "job": "review_curation",
-      "event": "started",
-      "result": ""
-    },
-    {
-      "ts": "2026-09-06 06:30 MYT",
-      "agent": "analytics",
-      "job": "deck_stats",
       "event": "started",
       "result": ""
     }
