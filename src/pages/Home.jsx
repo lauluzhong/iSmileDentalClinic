@@ -177,6 +177,7 @@ const Home = () => {
     // Written to a CSS custom property so the styling stays in CSS, and
     // rAF-coalesced so the scroll path never does layout work twice a frame.
     const ambientRef = useRef(null);
+    const proofRef = useRef(null);
     useEffect(() => {
         const el = ambientRef.current;
         if (!el) return;
@@ -188,6 +189,20 @@ const Home = () => {
             const max = document.documentElement.scrollHeight - window.innerHeight;
             const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
             el.style.setProperty('--scroll', p.toFixed(4));
+
+            // The teal wash: the whole page cools as the proof section
+            // approaches the middle of the viewport and warms back as it
+            // leaves — a bell curve over the section's distance from centre,
+            // so it is fully scrubbed by scroll in both directions.
+            const proof = proofRef.current;
+            if (proof) {
+                const r = proof.getBoundingClientRect();
+                const vh = window.innerHeight;
+                const dist = Math.abs((r.top + r.height / 2) - vh / 2);
+                const reach = vh * 0.85 + r.height / 2;
+                const wash = Math.max(0, 1 - dist / reach);
+                el.style.setProperty('--wash', (wash * wash).toFixed(4));
+            }
         };
         const onScroll = () => {
             if (frame === null) frame = window.requestAnimationFrame(paint);
@@ -215,6 +230,7 @@ const Home = () => {
                 <span className="ambient-a" />
                 <span className="ambient-b" />
                 <span className="ambient-c" />
+                <span className="ambient-wash" />
             </div>
 
             {/* ============ 1. HERO — the people who will actually treat you ============ */}
@@ -295,7 +311,7 @@ const Home = () => {
             </section>
 
             {/* ============ 3. PROOF — the teal band ============ */}
-            <section className="proof-section">
+            <section className="proof-section" ref={proofRef}>
                 <div className="container">
                     <p className="proof-eyebrow">What families say</p>
                     <h2 className="proof-statement">Trusted by <em>families.</em></h2>
@@ -386,7 +402,15 @@ const Home = () => {
         /* ---------- ambient layer ---------- */
         /* No blur filter: the radial gradients already fall off to transparent,
            and filter:blur on viewport-sized elements is what janks phones. */
-        .home-ambient { position: fixed; inset: 0; z-index: 0; pointer-events: none; --scroll: 0; overflow: hidden; }
+        .home-ambient { position: fixed; inset: 0; z-index: 0; pointer-events: none; --scroll: 0; --wash: 0; overflow: hidden; }
+        /* The evolving register: no filled band behind the reviews any more —
+           instead the entire background takes a teal wash whose opacity is a
+           pure function of how close that section is to the viewport centre. */
+        .ambient-wash {
+            position: absolute; inset: 0; border-radius: 0 !important;
+            background: linear-gradient(180deg, rgba(79,179,209,0.16) 0%, rgba(0,110,140,0.28) 45%, rgba(0,141,176,0.18) 100%);
+            opacity: var(--wash);
+        }
         .home-ambient span { position: absolute; border-radius: 50%; will-change: transform; }
         .ambient-a {
             width: 58vw; height: 58vw; left: -14vw; top: -18vh;
@@ -517,13 +541,10 @@ const Home = () => {
         }
         .mosaic-quote.alt { background: var(--color-tint-light); }
 
-        /* ---------- 2. SERVICES (inset band) ---------- */
-        .services-section {
-            background: var(--color-tint-faint);
-            padding: 96px 0 108px;
-            margin: 0 clamp(12px, 2.2vw, 36px);
-            border-radius: 44px;
-        }
+        /* ---------- 2. SERVICES ---------- */
+        /* No filled band: the owner read the inset boxes as two giant cards.
+           The section sits straight on the evolving background. */
+        .services-section { padding: 96px 0 108px; }
         /* The owner asked for this index wider than the house 1200px column. */
         .services-container { max-width: 1360px; }
         .section-header { margin-bottom: 64px; }
@@ -581,42 +602,39 @@ const Home = () => {
             display: flex; align-items: center; justify-content: center;
         }
 
-        /* ---------- 3. PROOF (inset teal band) ---------- */
-        .proof-section {
-            background: var(--color-primary-deep); color: #F0F7FA;
-            padding: 100px 0 0; overflow: hidden;
-            margin: 72px clamp(12px, 2.2vw, 36px) 0;
-            border-radius: 44px;
-        }
+        /* ---------- 3. PROOF ---------- */
+        /* No filled band here either: the register change is the background
+           itself cooling toward teal (the .ambient-wash above) as this section
+           reaches the middle of the screen, and warming back on the way out. */
+        .proof-section { padding: 110px 0 0; overflow: hidden; }
         .proof-eyebrow {
             font-family: var(--font-heading); font-weight: 700;
             font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
-            color: var(--color-pastel-blue); margin: 0 0 18px;
+            color: var(--color-primary-teal); margin: 0 0 18px;
         }
-        .proof-statement { color: #fff; margin-bottom: 64px; }
-        .proof-statement em { color: var(--color-pastel-blue) !important; }
+        .proof-statement { color: var(--color-text-charcoal); margin-bottom: 64px; }
 
-        .proof-quotes { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(255,255,255,0.22); }
-        .proof-quote { margin: 0; padding: 44px 40px 44px 0; border-right: 1px solid rgba(255,255,255,0.22); }
+        .proof-quotes { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(16,42,51,0.14); }
+        .proof-quote { margin: 0; padding: 44px 40px 44px 0; border-right: 1px solid rgba(16,42,51,0.14); }
         .proof-quote:last-child { border-right: none; }
         .proof-quote:not(:first-child) { padding-left: 40px; }
-        .proof-quote p { font-size: 1.05rem; line-height: 1.65; color: rgba(255,255,255,0.92); margin: 0 0 26px; }
-        .proof-author { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; letter-spacing: 0.04em; color: rgba(255,255,255,0.66); }
+        .proof-quote p { font-size: 1.05rem; line-height: 1.65; color: var(--color-text-slate); margin: 0 0 26px; }
+        .proof-author { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; letter-spacing: 0.04em; color: var(--color-text-grey); }
         .proof-author img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex: none; }
 
         .proof-actions { padding: 48px 0 0; }
-        .proof-link { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-weight: 600; color: #fff; border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 4px; transition: gap 0.25s ease, border-color 0.25s ease; }
-        .proof-link:hover { gap: 12px; border-color: #fff; color: #fff; }
+        .proof-link { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-weight: 600; color: var(--color-primary-deep); border-bottom: 1px solid rgba(0,110,140,0.35); padding-bottom: 4px; transition: gap 0.25s ease, border-color 0.25s ease; }
+        .proof-link:hover { gap: 12px; border-color: var(--color-primary-deep); }
 
         /* The slow roll: what we do, not who reviewed us. 64s per pass. */
-        .name-marquee { margin-top: 72px; border-top: 1px solid rgba(255,255,255,0.18); padding: 28px 0; overflow: hidden; }
+        .name-marquee { margin-top: 72px; border-top: 1px solid rgba(16,42,51,0.12); padding: 28px 0; overflow: hidden; }
         .name-marquee-track { display: flex; width: max-content; animation: name-marquee 64s linear infinite; }
         .name-marquee-item {
             font-family: var(--font-heading); font-size: 0.78rem; font-weight: 600;
             letter-spacing: 0.2em; text-transform: uppercase;
-            color: rgba(255,255,255,0.5); white-space: nowrap; padding-right: 28px;
+            color: var(--color-text-grey); white-space: nowrap; padding-right: 28px;
         }
-        .name-marquee-item::after { content: '·'; margin-left: 28px; color: rgba(255,255,255,0.28); }
+        .name-marquee-item::after { content: '·'; margin-left: 28px; color: rgba(16,42,51,0.25); }
         @keyframes name-marquee { from { transform: translate3d(0,0,0); } to { transform: translate3d(-33.333%,0,0); } }
         @media (prefers-reduced-motion: reduce) { .name-marquee-track { animation: none; } }
 
@@ -655,10 +673,24 @@ const Home = () => {
 
             .home-page .section-title { font-size: 2rem; line-height: 1.12; }
 
-            /* ---- Hero — stacked: copy, then the team drifting below ---- */
+            /* ---- Hero — the owner's mobile order: eyebrow line first, then
+               the mosaic, then the headline and the rest of the copy. The
+               copy wrapper dissolves (display:contents) so its children and
+               the mosaic can be ordered as siblings without touching the
+               desktop markup. ---- */
             .hero-section { min-height: 0; padding: 130px 0 40px; display: block; }
-            .hero-container { grid-template-columns: 1fr; gap: 40px; }
-            .hero-eyebrow { margin-bottom: 18px; }
+            /* align-items must be reset: the desktop grid centres its two
+               columns vertically, and that value carried into this flex column
+               and centred the CTA and trust row under left-aligned copy. */
+            .hero-container { display: flex; flex-direction: column; gap: 0; align-items: flex-start; }
+            .hero-visual { width: 100%; }
+            .hero-content { display: contents; }
+            .hero-eyebrow { order: 1; margin-bottom: 20px; }
+            .hero-visual { order: 2; margin-bottom: 28px; }
+            .hero-title { order: 3; }
+            .hero-subtitle { order: 4; }
+            .hero-actions { order: 5; }
+            .hero-trust { order: 6; }
             .hero-eyebrow-text { font-size: 0.76rem; }
             .hero-title { font-size: 2.35rem; line-height: 1.1; margin-bottom: 12px; }
             .hero-subtitle-desktop { display: none; }
@@ -676,7 +708,7 @@ const Home = () => {
             .section-lead { font-size: 1rem; margin-top: 10px; }
 
             /* Services — tighter rows, arrow drops away */
-            .services-section { padding: 48px 0 56px; margin: 0 8px; border-radius: 28px; }
+            .services-section { padding: 48px 0 56px; }
             .stage-row { grid-template-columns: 34px 1fr; gap: 8px 14px; padding: 22px 6px; }
             .stage-num { font-size: 0.72rem; }
             .stage-line { grid-column: 2; font-size: 0.92rem; }
@@ -685,12 +717,12 @@ const Home = () => {
             .stage-row:hover .stage-title { transform: none; }
 
             /* Proof — quotes become a snap carousel, matching the reading rail */
-            .proof-section { padding: 56px 0 0; margin: 40px 8px 0; border-radius: 28px; }
+            .proof-section { padding: 56px 0 0; }
             .proof-statement { margin-bottom: 32px; }
             .proof-quotes {
                 display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
                 gap: 16px; padding: 8px 0 12px; scrollbar-width: none;
-                border-top: 1px solid rgba(255,255,255,0.22);
+                border-top: 1px solid rgba(16,42,51,0.14);
             }
             .proof-quotes::-webkit-scrollbar { display: none; }
             .proof-quote {
