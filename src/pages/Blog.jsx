@@ -164,7 +164,7 @@ const Blog = () => {
                         fontWeight: 700,
                         color: 'var(--color-text-charcoal)',
                         letterSpacing: '-0.02em'
-                    }}>Learning <em>Centre.</em></h1></Reveal>
+                    }}>Learning <em>Centre</em></h1></Reveal>
                     <Reveal delay={0.2} width="100%"><p className="hero-subtitle" style={{
                         fontSize: '1.2rem',
                         color: 'var(--color-text-muted)',
@@ -233,7 +233,7 @@ const Blog = () => {
                 {featuredPost && activeCategory === 'All' && !activeQuery && (
                     <FadeIn className="featured-post">
                         <div className="featured-content">
-                            <span className="badge">Featured</span>
+                            <span className="featured-label">Featured</span>
                             <h2>{featuredPost.title}</h2>
                             <p>{featuredPost.excerpt}</p>
                             <Link to={`/blog/${featuredPost.slug}`}>
@@ -422,6 +422,17 @@ const Blog = () => {
                     background: #fff;
                     border: 1px solid var(--hairline);
                 }
+                .featured-label {
+                    display: inline-block;
+                    font-family: var(--font-heading);
+                    font-weight: 700;
+                    font-size: 0.68rem;
+                    letter-spacing: 0.2em;
+                    text-transform: uppercase;
+                    color: var(--color-primary-teal);
+                    margin-bottom: 12px;
+                }
+
                 .featured-post {
               display: grid;
               grid-template-columns: 1fr 1fr;

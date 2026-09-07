@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
 import { isFirstPaint } from '../lib/firstPaint';
 
 const PageTransition = ({ children }) => {
-  const location = useLocation();
   // Check if we are going to a dark page
   // No dark pages remain after the 8 Sep 2026 design sweep — every route
   // opens light, so the transition ground is always the page ground.

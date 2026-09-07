@@ -42,7 +42,6 @@ const BlogPost = () => {
         if (post.slug === 'clear-aligner-treatment-complexity') topic = 'clear aligner treatment';
         openBooking(`Interested in ${topic}`, `blog-post-${post.slug}`);
     };
-    const question = (() => { const tag = post.tags && post.tags.length > 0 ? post.tags[0] : (post.categories && post.categories[0]) || ''; return tag ? `Have Questions About ${tag}?` : 'Have Questions for Our Dentists?'; })();
     return <div className="blog-post-page">
         <Helmet>
             <title>{post.title} | iSmile Dental Clinic</title><meta name="description" content={post.excerpt} /><link rel="canonical" href={canonicalUrl} />

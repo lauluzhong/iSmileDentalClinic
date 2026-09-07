@@ -267,7 +267,7 @@ const Footer = () => {
             margin-bottom: 4px;
         }
         .stars {
-            color: #FBBC05;
+            color: var(--color-gold);
             font-size: 1.2rem;
             letter-spacing: 2px;
         }
@@ -371,20 +371,9 @@ const Footer = () => {
         }
         .footer-social-icon:hover { color: var(--color-primary-deep); }
 
-        @media (max-width: 1024px) {
-            .footer-social { text-align: center; }
-            .social-icons-row { justify-content: center; }
-        }
-
         .footer-accordion-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
         .accordion-icon { display: none; font-size: 1.2rem; transition: transform 0.3s; color: #94a3b8; }
         .accordion-icon.open { transform: rotate(45deg); }
-
-        @media (max-width: 1024px) {
-            .footer-grid { grid-template-columns: repeat(3, 1fr); }
-            .cta-col { grid-column: span 3; text-align: center; margin-top: 20px; }
-            .phone-block { justify-content: center; }
-        }
 
         @media (max-width: 1024px) {
             /* Compact, consistently LEFT-ALIGNED accordion footer.

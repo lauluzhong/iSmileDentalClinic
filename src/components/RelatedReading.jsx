@@ -220,15 +220,10 @@ export default function RelatedReading({ pathKey, title = 'Dental Education', li
                         scroll-snap-align: start;
                     }
 
-                    .related-reading-card { border-radius: 18px; }
+                    
                     .related-reading-media { height: 170px; }
                     .related-reading-body { padding: 20px; }
                     .related-reading-card h3 { font-size: 1.05rem; }
-                    .related-reading-card p {
-                        font-size: 0.92rem;
-                        -webkit-line-clamp: 2;
-                        margin-bottom: 14px;
-                    }
                 }
 
                 @media (prefers-reduced-motion: reduce) {

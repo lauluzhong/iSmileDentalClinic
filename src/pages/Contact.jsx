@@ -66,7 +66,7 @@ const Contact = () => {
                 .contact-page .contact-social-links a:hover { color: var(--color-primary-teal); transform: translateY(-2px); }
                 .contact-page .contact-map { overflow: hidden; border-radius: 26px; }
                 .contact-page .contact-map iframe { display: block; }
-                @media (max-width: 768px) { .contact-page .contact-container { padding-top: 130px; } .contact-page .contact-heading { margin-bottom: 36px; text-align: left; } .contact-page .contact-lead { margin-left: 0; } .contact-page .contact-detail-row { grid-template-columns: 1fr; gap: 8px; padding: 24px 0; } .contact-page .contact-social { margin: 52px auto; } }
+                @media (max-width: 768px) { .contact-page .contact-container { padding-top: 130px; } .contact-page .contact-heading { margin-bottom: 36px; text-align: left; } .contact-page .contact-lead { margin-left: 0; } .contact-page .contact-detail-row { padding: 24px 0; } .contact-page .contact-social { margin: 52px auto; } }
             
                 /* Responsive — this page previously had NO media queries at all,
                    which is why the 2x2 fact grid stayed two-across on phones

@@ -80,7 +80,6 @@ const Header = () => {
     ];
 
     const handleDropdownClick = (path, hashOrPath) => {
-        const isCurrentPath = (hashOrPath === location.pathname) || (path === location.pathname && !hashOrPath);
 
         if (hashOrPath && hashOrPath.startsWith('#')) {
             // It's a hash anchor on the parent page

@@ -336,7 +336,7 @@ const ServicesLanding = () => {
                        links all hang off one line, one item per row for the
                        links so the hierarchy stays crisp on a narrow screen. */
                     .sl-cat-grid { grid-template-columns: 1fr; gap: 0; padding: 24px 4px; }
-                    .sl-cat-num { padding-top: 0; margin-bottom: 6px; }
+                    
                     .sl-cat-num { font-size: 0.72rem; padding-top: 8px; }
                     .sl-cat-title { font-size: 1.35rem; }
                     .sl-cat-line { font-size: 0.66rem; letter-spacing: 0.14em; }

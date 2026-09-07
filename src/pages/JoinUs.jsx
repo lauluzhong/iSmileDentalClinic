@@ -524,8 +524,6 @@ const JoinUs = () => {
                 line-height: 1.6;
             }
             .join-point {
-                grid-template-columns: 38px 1fr;
-                gap: 14px;
                 padding: 20px 0;
             }
             .join-point-n {

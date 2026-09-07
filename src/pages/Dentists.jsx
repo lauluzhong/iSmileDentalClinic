@@ -196,7 +196,7 @@ function DentistStyles() {
             .dentists-page { padding: 170px 0 80px; }
             .dentists-page-index, .dentists-page-profile { padding-top: 0; }
 
-            .dentists-hero { padding: 170px 0 64px; text-align: center; }
+            .dentists-hero { text-align: center; }
             .dentists-header { max-width: 720px; }
             .dentists-header h1 { margin: 0 0 16px; letter-spacing: -0.02em; text-wrap: balance; }
             .dentists-intro { margin: 0 auto; font-size: 1.0625rem; line-height: 1.7; color: var(--color-text-slate); }
