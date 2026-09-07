@@ -6,7 +6,8 @@ import { isFirstPaint } from '../lib/firstPaint';
 const PageTransition = ({ children }) => {
   const location = useLocation();
   // Check if we are going to a dark page
-  const isDarkPage = location.pathname.startsWith('/services') && ! location.pathname.startsWith('/services/locations');
+  // No dark pages remain after the 8 Sep 2026 design sweep — every route
+  // opens light, so the transition ground is always the page ground.
   // A pre-rendered page is already on screen — fading it in from opacity:0
   // would be the browser un-painting the design it just showed. Route changes
   // after hydration still animate.
@@ -22,7 +23,7 @@ const PageTransition = ({ children }) => {
           gridArea: "content", 
           width: "100%", 
           zIndex: 1,
-          backgroundColor: isDarkPage ? '#000' : 'var(--color-background)' 
+          backgroundColor: 'var(--color-background)' 
       }}
     >
       {children}

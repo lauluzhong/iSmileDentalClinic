@@ -1,8 +1,9 @@
 import { Helmet } from 'react-helmet-async';
 import React, { useState } from 'react';
-import { Stethoscope, CheckCircle } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 import Button from '../components/Button';
 import { Reveal } from '../components/Reveal';
+import Style from '../components/Style';
 import { CORE_PAGES } from '../data/corePagesSeo';
 import { fillStats } from '../data/serviceSeo';
 import reviewStats from '../data/review-stats.json';
@@ -139,21 +140,18 @@ const JoinUs = () => {
                 <link rel="canonical" href="https://ismile.com.my/join-us" />
             </Helmet>
 
-            {/* Match the Reviews page: a full-width pastel hero band, followed
-                by content on the standard page background. */}
-            <div className="join-hero-gradient">
-                <div className="container">
+            <section className="container join-hero-section">
                 <div className="join-hero">
                     <Reveal width="100%">
-                        <span className="join-eyebrow">
-                            <span className="join-eyebrow-mark"><Stethoscope size={13} /></span>
+                        <span className="join-hero-eyebrow">
+                            <span className="join-eyebrow-mark" aria-hidden="true" />
                             <span className="join-eyebrow-text">For dental practitioners</span>
                             <span className="join-eyebrow-year">Est. 2006</span>
                         </span>
                     </Reveal>
                     <Reveal width="100%">
                         <h1 className="join-title">
-                            Practise at <span className="text-gradient">iSmile</span>
+                            Practise at <em>iSmile</em>
                         </h1>
                     </Reveal>
                     <Reveal delay={0.1} width="100%">
@@ -163,8 +161,7 @@ const JoinUs = () => {
                         </p>
                     </Reveal>
                 </div>
-                </div>
-            </div>
+            </section>
 
             <div className="section-padding join-main">
               <div className="container">
@@ -173,7 +170,7 @@ const JoinUs = () => {
                     <div className="join-points">
                         {POINTS.map((p, i) => (
                             <Reveal key={p.n} delay={0.05 * i} width="100%">
-                                <div className="join-point">
+                                <div className="join-point hairline-row">
                                     <span className="join-point-n">{p.n}</span>
                                     <div>
                                         <h2>{p.title}</h2>
@@ -185,7 +182,7 @@ const JoinUs = () => {
                     </div>
 
                     <Reveal delay={0.1} width="100%">
-                        <div className="join-team-card">
+                        <div className="join-team">
                             <div className="join-team-photos">
                                 {TEAM_PHOTOS.map((src) => (
                                     <img key={src} src={src} alt="" loading="lazy" width="160" height="160" />
@@ -210,7 +207,7 @@ const JoinUs = () => {
                 <div className="join-form-wrap">
                     {submitted ? (
                         <div className="join-success">
-                            <CheckCircle size={48} style={{ color: 'var(--color-primary-teal, #4FA3C2)' }} />
+                            <CheckCircle size={48} style={{ color: 'var(--color-primary-teal)' }} />
                             <h2>Thank you for your interest</h2>
                             <p>We have received your details and will be in touch personally within a few days.</p>
                         </div>
@@ -300,19 +297,9 @@ const JoinUs = () => {
               </div>
             </div>
 
-            <style>{`
-        .join-us-page {
-            background: var(--color-background, #f8fafc);
-        }
-
-        .join-hero-gradient {
-            background: linear-gradient(135deg, #F0F7FF 0%, #E0F2FE 55%, #EAF7F0 100%);
-            padding-top: 180px;
-            padding-bottom: 90px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+            <Style>{`
+        .join-us-page { background: var(--color-background); }
+        .join-hero-section { padding-top: 180px; padding-bottom: 72px; text-align: center; }
 
         .join-hero {
             text-align: center;
@@ -320,53 +307,49 @@ const JoinUs = () => {
             margin: 0 auto;
         }
 
-        /* Pill treatment mirrors the Reviews hero. */
-        .join-eyebrow {
+        .join-hero-eyebrow {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 7px 14px 7px 9px;
-            border-radius: 999px;
-            background: var(--color-tint-light, #E0F2FE);
-            color: var(--color-primary-deep, #006E8C);
+            gap: 12px;
+            padding: 0;
+            background: none;
             margin-bottom: 22px;
         }
         .join-eyebrow-mark {
-            display: flex; align-items: center; justify-content: center;
-            width: 24px; height: 24px; border-radius: 50%;
-            background: rgba(255, 255, 255, 0.72);
-            color: var(--color-primary-teal, #008DB0);
+            width: 10px; height: 10px; border-radius: 50%;
+            background: var(--color-primary-deep); flex-shrink: 0;
         }
         .join-eyebrow-text {
-            font-size: 0.82rem; font-weight: 600; color: var(--color-primary-deep, #006E8C);
-            letter-spacing: 0.02em;
+            font-family: var(--font-heading); font-size: 0.82rem; font-weight: 600; color: var(--color-text-charcoal);
+            letter-spacing: 0.04em;
         }
         .join-eyebrow-year {
-            font-size: 0.78rem; font-weight: 600; color: var(--color-text-grey, #64748B);
-            padding-left: 10px; border-left: 1px solid rgba(16, 42, 51, 0.12);
+            position: relative; padding-left: 14px; font-family: var(--font-heading); font-size: 0.72rem; font-weight: 600;
+            letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-primary-deep);
         }
+        .join-eyebrow-year::before { content: ''; position: absolute; left: 0; top: 50%; width: 1px; height: 14px; transform: translateY(-50%); background: var(--hairline-strong); }
 
         .join-title {
-            font-size: clamp(2.4rem, 1.6rem + 3.4vw, 4rem);
-            font-weight: 800;
+            font-size: var(--fs-statement);
+            font-weight: 700;
             line-height: 1.05;
             letter-spacing: -0.03em;
             margin: 0 0 20px;
         }
         .join-lead {
             font-size: var(--fs-lead);
-            color: var(--color-text-slate, #475569);
+            color: var(--color-text-slate);
             line-height: 1.6;
             margin: 0 auto;
             max-width: 640px;
         }
         .join-main {
-            padding-top: 72px;
+            padding-top: 0;
         }
         .join-invite {
             text-align: center;
             font-size: 1.05rem;
-            color: var(--color-text-slate, #475569);
+            color: var(--color-text-slate);
             line-height: 1.6;
             max-width: 720px;
             margin: 0 auto 40px;
@@ -385,58 +368,41 @@ const JoinUs = () => {
         }
 
         .join-points {
-            display: grid;
-            gap: 14px;
+            border-top: 1px solid var(--hairline);
         }
         .join-point {
             display: grid;
             grid-template-columns: 46px 1fr;
             gap: 20px;
             align-items: flex-start;
-            height: 100%;
-            padding: 23px 24px;
-            border: 1px solid rgba(16, 42, 51, 0.06);
-            border-radius: 20px;
-            background: #fff;
-            box-shadow: var(--shadow-sm);
+            padding: 26px 0;
         }
         .join-point-n {
-            display: grid;
-            place-items: center;
-            width: 42px;
-            height: 42px;
-            border-radius: 13px;
             font-family: var(--font-heading, sans-serif);
             font-size: 0.8rem;
-            font-weight: 750;
+            font-weight: 700;
             letter-spacing: 0.06em;
-            color: var(--color-primary-deep, #006E8C);
-            background: var(--color-tint-blue, #D8EEF5);
+            color: var(--color-primary-teal);
             font-variant-numeric: tabular-nums;
         }
         .join-point h2 {
             font-size: 1.22rem;
             font-weight: 700;
-            color: #16313b;
+            color: var(--color-text-charcoal);
             margin: 0 0 6px;
             letter-spacing: -0.018em;
         }
         .join-point p {
             font-size: 0.95rem;
-            color: #536b75;
+            color: var(--color-text-slate);
             line-height: 1.65;
             margin: 0;
         }
 
-        /* Team card */
-        .join-team-card {
+        .join-team {
             height: 100%;
-            background: #fff;
-            border: 1px solid rgba(16, 42, 51, 0.06);
-            border-radius: 24px;
-            padding: 44px 34px;
+            padding: 10px 0;
             text-align: center;
-            box-shadow: var(--shadow-sm);
         }
         .join-team-photos {
             display: flex;
@@ -448,27 +414,25 @@ const JoinUs = () => {
             gap: 14px 0;
         }
         .join-team-photos img {
-            width: 80px; height: 80px;
+            width: 40px; height: 40px;
             border-radius: 50%;
             /* Portraits are 682x1024 with the face in the top quarter —
                anchor the crop there or the circle shows the torso. */
             object-fit: cover;
             object-position: 50% 12%;
-            border: 3px solid #fff;
-            box-shadow: 0 4px 10px rgba(15, 23, 42, 0.12);
-            margin-left: -16px;
+            margin-left: -8px;
         }
         .join-team-photos img:first-child { margin-left: 0; }
-        .join-team-card h2 {
-            font-size: 1.45rem;
+        .join-team h2 {
+            font-size: var(--fs-h2);
             font-weight: 700;
-            color: var(--color-text-charcoal, #15242B);
+            color: var(--color-text-charcoal);
             margin: 0 0 10px;
             letter-spacing: -0.015em;
         }
-        .join-team-card p {
+        .join-team p {
             font-size: 0.95rem;
-            color: var(--color-text-slate, #475569);
+            color: var(--color-text-slate);
             line-height: 1.65;
             margin: 0;
         }
@@ -478,29 +442,26 @@ const JoinUs = () => {
             margin: 0 auto;
         }
         .join-form, .join-success {
-            background: rgba(255, 255, 255, 0.94);
-            border: 1px solid rgba(0, 141, 176, 0.14);
-            border-radius: 24px;
-            padding: 44px 40px;
+            border-top: 1px solid var(--hairline);
+            padding: 44px 0 0;
             text-align: left;
-            box-shadow: 0 18px 45px rgba(0, 110, 140, 0.09);
         }
         .join-success {
             text-align: center;
             padding: 60px 36px;
         }
-        .join-success h2 { margin: 16px 0 8px; color: #1e293b; }
-        .join-success p { color: #64748b; margin: 0; }
+        .join-success h2 { margin: 16px 0 8px; color: var(--color-text-charcoal); }
+        .join-success p { color: var(--color-text-slate); margin: 0; }
 
-        .join-form-title { font-size: 1.5rem; font-weight: 700; color: #1e293b; margin: 0 0 6px; }
-        .join-form-sub { color: #64748b; font-size: 0.95rem; margin: 0 0 28px; }
+        .join-form-title { font-size: var(--fs-h2); font-weight: 700; color: var(--color-text-charcoal); margin: 0 0 6px; }
+        .join-form-sub { color: var(--color-text-slate); font-size: 0.95rem; margin: 0 0 28px; }
 
         .join-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
         .join-field { margin-bottom: 18px; display: flex; flex-direction: column; }
         .join-field label {
             font-size: 0.85rem;
             font-weight: 600;
-            color: #334155;
+            color: var(--color-text-charcoal);
             margin-bottom: 6px;
         }
         .join-field input[type="text"],
@@ -508,61 +469,57 @@ const JoinUs = () => {
         .join-field input[type="email"],
         .join-field select,
         .join-field textarea {
-            border: 1px solid #cbd5e1;
-            border-radius: 10px;
+            border: 1.5px solid var(--color-tint-blue);
+            border-radius: 16px;
+            min-height: 56px;
             padding: 12px 14px;
             font-size: 0.95rem;
             font-family: var(--font-body, inherit);
-            color: #1e293b;
-            background: #fff;
+            color: var(--color-text-charcoal);
+            background: var(--color-background);
             outline: none;
             transition: border-color 0.2s, box-shadow 0.2s;
         }
         .join-field input:focus, .join-field select:focus, .join-field textarea:focus {
-            border-color: var(--color-primary-teal, #4FA3C2);
-            box-shadow: 0 0 0 3px rgba(79, 163, 194, 0.15);
+            border-color: var(--color-primary-teal);
+            box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary-teal) 15%, transparent);
         }
-        .join-field input[type="file"] { font-size: 0.9rem; color: #475569; }
+        .join-field input[type="file"] { font-size: 0.9rem; color: var(--color-text-slate); }
 
         .join-consent {
             display: flex;
             gap: 10px;
             align-items: flex-start;
             font-size: 0.85rem;
-            color: #64748b;
+            color: var(--color-text-slate);
             line-height: 1.5;
             margin: 6px 0 18px;
             cursor: pointer;
         }
         .join-consent input { margin-top: 3px; }
 
-        .join-error { color: #dc2626; font-size: 0.9rem; margin: 8px 0 0; }
+        .join-error { color: var(--color-primary-deep); font-size: 0.9rem; margin: 8px 0 0; }
 
         @media (max-width: 900px) {
             .join-split { grid-template-columns: 1fr; gap: 32px; }
         }
         @media (max-width: 768px) {
-            .join-hero-gradient {
+            .join-hero-section {
                 padding-top: 140px;
                 padding-bottom: 60px;
             }
-            .join-main { padding-top: 56px; }
-            .join-title { font-size: clamp(2.4rem, 11vw, 3rem); }
+            .join-main { padding-top: 0; }
+            .join-title { font-size: var(--fs-statement); }
             .join-lead {
                 font-size: 1rem;
                 line-height: 1.6;
             }
-            .join-points { gap: 12px; }
             .join-point {
                 grid-template-columns: 38px 1fr;
                 gap: 14px;
-                padding: 20px 17px;
-                border-radius: 16px;
+                padding: 20px 0;
             }
             .join-point-n {
-                width: 36px;
-                height: 36px;
-                border-radius: 11px;
                 font-size: 0.72rem;
             }
             .join-point h2 {
@@ -573,20 +530,17 @@ const JoinUs = () => {
                 font-size: 0.92rem;
                 line-height: 1.58;
             }
-            .join-team-card {
-                padding: 34px 18px 32px;
-                border-radius: 20px;
-            }
-            .join-team-photos img { width: 64px; height: 64px; margin-left: -13px; }
+            .join-team { padding: 18px 0; }
+            .join-team-photos img { width: 40px; height: 40px; margin-left: -8px; }
             .join-field-row { grid-template-columns: 1fr; gap: 0; }
-            .join-form { padding: 30px 20px; }
+            .join-form, .join-success { padding: 30px 0 0; }
             .join-split { gap: 18px; margin-bottom: 28px; }
             .join-invite {
                 margin-bottom: 28px;
                 font-size: 1rem;
             }
         }
-      `}</style>
+      `}</Style>
         </div>
     );
 };

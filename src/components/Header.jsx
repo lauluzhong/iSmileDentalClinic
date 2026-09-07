@@ -26,8 +26,6 @@ const Header = () => {
             behavior: 'smooth'
         });
     };
-    const isDarkPage = location.pathname.startsWith('/services/') && !isScrolled;
-
     // Handle scroll effect for glass header.
     useEffect(() => {
         const handleScroll = () => {
@@ -38,20 +36,11 @@ const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Mobile header states (CSS scopes both to <=1024px; desktop unaffected).
-    // Every page gets the same two-state treatment; the only per-page variable
-    // is whether what sits behind the header is dark:
-    // - immersive: white logo + translucent chip, for pages whose hero runs
-    //   dark right up to the top edge (Home, and the /services/<category> hubs —
-    //   NOT the specialty pages under them, which open on a light strip).
-    // - collapsed: once scrolled, the logo fades out and only a small floating
-    //   frosted circular burger chip remains top-right (all pages).
-    const pathSegments = location.pathname.split('/').filter(Boolean);
-    // The homepage hero is light again (portrait ensemble on the page
-    // background), so only the /services/<category> hubs open dark.
-    const hasDarkHero = pathSegments[0] === 'services' && pathSegments.length === 2;
+    // Mobile header state (CSS scopes it to <=1024px; desktop unaffected):
+    // once scrolled, the logo fades out and only a small floating frosted
+    // circular burger chip remains top-right (all pages). No page opens on a
+    // dark hero any more, so the old immersive/dark variants are gone.
     const isCollapsed = isScrolled;
-    const isImmersive = hasDarkHero && !isCollapsed;
 
     const navLinks = [
         {
@@ -147,7 +136,7 @@ const Header = () => {
     const activeSubmenuData = navLinks.find(link => link.name === activeSubmenu);
 
     return (
-        <header className={`header ${isScrolled ? 'scrolled' : ''} ${isDarkPage ? 'header-dark' : ''} ${isImmersive ? 'header-immersive' : ''} ${isCollapsed ? 'header-collapsed' : ''}`}>
+        <header className={`header ${isScrolled ? 'scrolled' : ''} ${isCollapsed ? 'header-collapsed' : ''}`}>
             <div className="container header-container">
                 <div className="header-left">
                     <Link
@@ -399,20 +388,6 @@ const Header = () => {
             background: linear-gradient(180deg, rgba(248, 250, 252, 0.72) 0%, rgba(248, 250, 252, 0.42) 52%, rgba(248, 250, 252, 0) 100%);
         }
 
-        .header.header-dark {
-            background: rgba(0, 0, 0, 0.25);
-        }
-
-        .header-dark .nav-link,
-        .header-dark .mobile-toggle,
-        .header-dark .dropdown-icon {
-            color: white !important;
-        }
-
-        .header-dark .nav-link:hover {
-            color: var(--color-secondary) !important;
-        }
-
         .header.scrolled {
             padding: 15px 0;
             background: rgba(248, 250, 252, 0.7);
@@ -431,10 +406,6 @@ const Header = () => {
             height: 18px;
             pointer-events: none;
             background: linear-gradient(180deg, rgba(248, 250, 252, 0.55) 0%, rgba(248, 250, 252, 0) 100%);
-        }
-
-        .header.header-dark.scrolled::after {
-            background: linear-gradient(180deg, rgba(10, 26, 34, 0.35) 0%, rgba(10, 26, 34, 0) 100%);
         }
 
         .header-container {
@@ -731,24 +702,6 @@ const Header = () => {
             .logo-link img {
                 transition: filter 0.35s ease, height 0.3s ease !important;
             }
-            .header.header-immersive .logo-link img {
-                filter: brightness(0) invert(1) drop-shadow(0 1px 6px rgba(10, 30, 45, 0.35));
-                height: 52px !important;
-            }
-            .header.header-immersive .mobile-toggle {
-                background: rgba(255, 255, 255, 0.22);
-                backdrop-filter: blur(6px);
-                -webkit-backdrop-filter: blur(6px);
-                box-shadow: none;
-                color: #fff;
-            }
-
-            /* .header-dark is a desktop concern (white nav links over the dark
-               services hero). On mobile the burger's colour is decided by the
-               immersive/collapsed state above, so neutralise it here. */
-            .header:not(.header-immersive) .mobile-toggle {
-                color: var(--color-text-charcoal) !important;
-            }
 
             /* Collapsed state (scrolled, all pages): the bar disappears entirely —
                only a small floating frosted burger chip stays top-right. The header
@@ -793,8 +746,7 @@ const Header = () => {
             }
             
             /* Unscrolled chip: a rounded-rect frosted square that reads on the
-               light page backgrounds of the non-Home pages. Home's immersive
-               rule below re-tints it for the photo. */
+               light page backgrounds every page now opens with. */
             .mobile-toggle {
                 display: flex !important;
                 align-items: center;

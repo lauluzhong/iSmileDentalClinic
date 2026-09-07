@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, Globe, Award, Clock, GraduationCap } from 'lucid
 import dentists, { dentistBySlug, dentistSeo } from '../data/dentists.js';
 import Button from '../components/Button';
 import { useBooking } from '../context/BookingContext';
+import Style from '../components/Style';
 
 const SITE = 'https://ismile.com.my';
 
@@ -21,21 +22,16 @@ const SITE = 'https://ismile.com.my';
  * that taught us this.
  */
 
-/* Comma-separated data fields rendered as pills. "Endodontics / Root Canal
-   Treatment" contains no comma, so a plain split keeps compound terms whole. */
-const toList = (s) => s.split(',').map((x) => x.trim()).filter(Boolean);
-
 function DentistCard({ d }) {
     return (
-        <Link to={`/dentists/${d.slug}`} className="dentist-card">
+        <Link to={`/dentists/${d.slug}`} className="media-item dentist-card">
             <div className="dentist-card-media">
-                <img src={d.img} alt={d.knownAs} loading="lazy" width="220" height="220" />
+                <img src={encodeURI(d.img)} alt={d.knownAs} loading="lazy" width="220" height="220" />
             </div>
             <div className="dentist-card-body">
                 <h2 className="dentist-card-name">{d.knownAs}</h2>
                 <p className="dentist-card-role">{d.role}</p>
-                <p className="dentist-card-meta"><Clock size={14} /> {d.years} in practice</p>
-                <span className="dentist-card-cta">View profile <ArrowRight size={15} /></span>
+                <span className="quiet-link dentist-card-cta">View profile <ArrowRight size={15} /></span>
             </div>
         </Link>
     );
@@ -52,8 +48,8 @@ function DentistIndex() {
 
             <div className="dentists-hero">
                 <div className="container dentists-header">
-                    <p className="dentists-eyebrow">Our team</p>
-                    <h1>Our dentists</h1>
+                    <p className="eyebrow">Our Team</p>
+                    <h1>Our <em>dentists</em></h1>
                     <p className="dentists-intro">
                         Our team in Damansara Jaya covers general, paediatric, orthodontic and restorative
                         care between them, with 14 to 34 years in practice each. If you would like to see a
@@ -124,15 +120,15 @@ function DentistProfile() {
 
                     <div className="dentist-profile-head">
                         <div className="dentist-profile-imgwrap">
-                            <img src={d.img} alt={d.knownAs} className="dentist-profile-img" width="280" height="280" />
+                            <img src={encodeURI(d.img)} alt={d.knownAs} className="dentist-profile-img" width="280" height="280" />
                         </div>
                         <div className="dentist-profile-intro">
                             <p className="dentist-profile-role">{d.role}</p>
                             <h1 className="dentist-profile-name">{d.knownAs}</h1>
                             <p className="dentist-profile-bio">{d.bio}</p>
-                            <div className="dentist-profile-chips">
-                                <span className="dentist-chip"><Clock size={14} /> {d.years} in practice</span>
-                                <span className="dentist-chip"><GraduationCap size={14} /> {d.qualifications}</span>
+                            <div className="dentist-profile-details">
+                                <p><Clock size={17} /> {d.years} in practice</p>
+                                <p><GraduationCap size={17} /> {d.qualifications}</p>
                             </div>
                         </div>
                     </div>
@@ -140,30 +136,23 @@ function DentistProfile() {
             </div>
 
             <div className="container dentist-profile">
-                <div className="dentist-facts">
+                <dl className="dentist-facts">
                     <div className="dentist-fact">
-                        <dt><span className="dentist-fact-icon"><Globe size={17} /></span> Languages</dt>
-                        <dd>
-                            <span className="dentist-pills">
-                                {toList(d.languages).map((l) => <em key={l}>{l}</em>)}
-                            </span>
-                        </dd>
+                        <dt><Globe size={17} /> Languages</dt>
+                        <dd>{d.languages}</dd>
                     </div>
                     {d.keyCompetency && (
                         <div className="dentist-fact">
-                            <dt><span className="dentist-fact-icon"><Award size={17} /></span> Areas of focus</dt>
-                            <dd>
-                                <span className="dentist-pills">
-                                    {toList(d.keyCompetency).map((c) => <em key={c}>{c}</em>)}
-                                </span>
-                            </dd>
+                            <dt><Award size={17} /> Areas of focus</dt>
+                            <dd>{d.keyCompetency}</dd>
                         </div>
                     )}
-                </div>
+                </dl>
 
                 <div className="dentist-cta">
-                    <h2>Book an appointment</h2>
-                    <p>
+                    <p className="eyebrow">Appointments</p>
+                    <h2 className="statement">Book an appointment</h2>
+                    <p className="dentist-cta-copy">
                         We are at 75 &amp; 75A, Jalan SS 22/23, Damansara Jaya, Petaling Jaya. If you
                         would like to see a particular dentist, let the front desk know and they will
                         arrange it for you where possible.
@@ -186,8 +175,8 @@ function DentistProfile() {
                     <h2>Other dentists at the clinic</h2>
                     <div className="dentist-others-grid">
                         {others.map((o) => (
-                            <Link key={o.slug} to={`/dentists/${o.slug}`} className="dentist-other">
-                                <img src={o.img} alt={o.knownAs} loading="lazy" width="96" height="96" />
+                            <Link key={o.slug} to={`/dentists/${o.slug}`} className="hairline-row dentist-other">
+                                <img src={encodeURI(o.img)} alt={o.knownAs} loading="lazy" width="96" height="96" />
                                 <span>
                                     <strong>{o.knownAs}</strong>
                                     <em>{o.role}</em>
@@ -206,152 +195,101 @@ function DentistProfile() {
 
 function DentistStyles() {
     return (
-        <style>{`
+        <Style>{`
             .dentists-page { padding: 170px 0 80px; }
             .dentists-page-index, .dentists-page-profile { padding-top: 0; }
 
-            .dentists-hero {
-                padding: 170px 0 64px; text-align: center;
-                background: linear-gradient(135deg, #F0F7FF 0%, #E0F2FE 55%, #EAF7F0 100%);
-            }
-            .dentists-eyebrow {
-                margin: 0 0 10px; font-family: var(--font-heading, sans-serif);
-                font-size: .8125rem; font-weight: 600; text-transform: uppercase;
-                letter-spacing: .12em; color: var(--color-primary-teal, #008DB0);
-            }
+            .dentists-hero { padding: 170px 0 64px; text-align: center; }
             .dentists-header { max-width: 720px; }
-            .dentists-header h1 { margin: 0 0 16px; letter-spacing: -0.02em; }
-            .dentists-intro { margin: 0 auto; font-size: 1.0625rem; line-height: 1.7; color: var(--color-text-slate, #475569); }
+            .dentists-header h1 { margin: 0 0 16px; letter-spacing: -0.02em; text-wrap: balance; }
+            .dentists-intro { margin: 0 auto; font-size: 1.0625rem; line-height: 1.7; color: var(--color-text-slate); }
 
             .dentists-grid {
-                display: grid; gap: 24px; margin-top: 48px;
+                display: grid; gap: 32px 24px; margin-top: 48px;
                 grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
             }
             .dentist-card {
                 display: flex; flex-direction: column; text-decoration: none; color: inherit;
-                border: 1px solid rgba(0, 110, 140, 0.10); border-radius: 20px; overflow: hidden;
-                background: #fff; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-            }
-            .dentist-card:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 16px 36px rgba(0, 110, 140, 0.12);
-                border-color: rgba(0, 141, 176, 0.35);
+                border: 0; border-radius: 0; overflow: visible; background: transparent;
             }
             .dentist-card-media {
-                background: linear-gradient(180deg, #EAF4F8 0%, #F7FBFD 100%);
-                overflow: hidden;
+                overflow: hidden; border-radius: 20px;
             }
             .dentist-card-media img {
                 width: 100%; height: 250px; object-fit: cover; object-position: top;
                 display: block; transition: transform .35s ease;
             }
             .dentist-card:hover .dentist-card-media img { transform: scale(1.04); }
-            .dentist-card-body { display: flex; flex-direction: column; flex: 1; padding: 20px 20px 22px; }
-            .dentist-card-name { font-size: 1.125rem; margin: 0 0 4px; }
-            .dentist-card-role { margin: 0 0 10px; color: var(--color-primary-teal, #008DB0); font-size: .9375rem; font-weight: 500; }
-            .dentist-card-meta {
-                display: inline-flex; align-items: center; gap: 6px;
-                margin: 0 0 16px; font-size: .875rem; color: var(--color-text-grey, #666);
-            }
+            .dentist-card-body { display: flex; flex-direction: column; flex: 1; padding: 16px 0 0; }
+            .dentist-card-name { font-family: var(--font-heading); font-weight: 700; font-size: 1.125rem; margin: 0 0 4px; }
+            .dentist-card-role { margin: 0 0 14px; color: var(--color-text-slate); font-size: .9375rem; }
             .dentist-card-cta {
                 display: inline-flex; align-items: center; gap: 6px; margin-top: auto;
                 font-family: var(--font-heading, sans-serif); font-weight: 600; font-size: .875rem;
-                color: var(--color-primary-deep, #006E8C);
+                color: var(--color-text-slate);
             }
             .dentist-card-cta svg { transition: transform .2s ease; }
             .dentist-card:hover .dentist-card-cta svg { transform: translateX(3px); }
 
-            .dentist-hero {
-                padding: 150px 0 56px;
-                background: linear-gradient(135deg, #F0F7FF 0%, #E0F2FE 45%, rgba(247, 250, 252, 0) 100%);
-            }
+            .dentist-hero { padding: 150px 0 56px; }
             .dentist-profile { max-width: 860px; }
             .dentist-back {
                 display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
-                color: var(--color-text-grey, #666); font-size: .9375rem; margin-bottom: 32px;
+                color: var(--color-text-grey); font-size: .9375rem; margin-bottom: 32px;
             }
-            .dentist-back:hover { color: var(--color-primary-teal, #008DB0); }
+            .dentist-back:hover { color: var(--color-primary-teal); }
             .dentist-profile-head { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
             .dentist-profile-imgwrap {
-                flex-shrink: 0; border-radius: 24px; overflow: hidden;
-                box-shadow: 0 20px 44px rgba(0, 110, 140, 0.16);
+                flex-shrink: 0; border-radius: 26px; overflow: hidden;
             }
             .dentist-profile-img { width: 280px; height: 280px; object-fit: cover; object-position: top; display: block; }
             .dentist-profile-intro { flex: 1; min-width: 280px; }
             .dentist-profile-role {
-                margin: 0 0 8px; color: var(--color-primary-teal, #008DB0);
+                margin: 0 0 8px; color: var(--color-primary-teal);
                 font-family: var(--font-heading, sans-serif); font-weight: 600;
                 font-size: .875rem; text-transform: uppercase; letter-spacing: .1em;
             }
             .dentist-profile-name { margin: 0 0 14px; letter-spacing: -0.02em; }
-            .dentist-profile-bio { margin: 0 0 22px; font-size: 1.0625rem; line-height: 1.7; color: var(--color-text-grey, #555); }
-            .dentist-profile-chips { display: flex; flex-wrap: wrap; gap: 10px; }
-            .dentist-chip {
-                display: inline-flex; align-items: center; gap: 7px;
-                padding: 8px 14px; border-radius: 50px; background: #fff;
-                border: 1px solid rgba(0, 110, 140, 0.14);
-                font-size: .875rem; color: var(--color-text-slate, #475569);
-            }
-            .dentist-chip svg { color: var(--color-primary-teal, #008DB0); }
+            .dentist-profile-bio { margin: 0 0 22px; font-size: 1.0625rem; line-height: 1.7; color: var(--color-text-grey); }
+            .dentist-profile-details { display: grid; gap: 8px; }
+            .dentist-profile-details p { display: flex; align-items: flex-start; gap: 8px; margin: 0; color: var(--color-text-slate); font-size: .9375rem; }
+            .dentist-profile-details svg, .dentist-fact svg { flex: 0 0 auto; color: var(--color-primary-teal); margin-top: 1px; }
 
-            .dentist-facts { display: grid; gap: 20px; margin: 40px 0 0; }
+            .dentist-facts { margin: 40px 0 0; border-top: 1px solid var(--hairline); }
             .dentist-fact {
-                padding: 24px 26px; border-radius: 20px; background: #fff;
-                border: 1px solid rgba(0, 110, 140, 0.10);
+                display: grid; grid-template-columns: minmax(150px, .35fr) 1fr; gap: 24px;
+                padding: 18px 0; border-bottom: 1px solid var(--hairline);
             }
             .dentist-fact dt {
                 display: flex; align-items: center; gap: 10px; font-weight: 600;
                 font-family: var(--font-heading, sans-serif);
                 font-size: .8125rem; text-transform: uppercase; letter-spacing: .06em;
-                color: var(--color-text-slate, #475569); margin-bottom: 14px;
+                color: var(--color-text-slate); margin: 0;
             }
-            .dentist-fact-icon {
-                display: inline-flex; align-items: center; justify-content: center;
-                width: 34px; height: 34px; border-radius: 10px;
-                background: #EAF4F8; color: var(--color-primary-teal, #008DB0);
-            }
-            .dentist-fact dd { margin: 0; font-size: 1rem; line-height: 1.6; }
-            .dentist-pills { display: flex; flex-wrap: wrap; gap: 8px; }
-            .dentist-pills em {
-                font-style: normal; font-size: .875rem; line-height: 1.4;
-                padding: 7px 13px; border-radius: 50px;
-                background: #EAF4F8; color: var(--color-primary-deep, #006E8C);
-            }
+            .dentist-fact dd { margin: 0; font-size: 1rem; line-height: 1.6; color: var(--color-text-slate); }
 
             .dentist-cta {
-                margin-top: 48px; padding: 36px; border-radius: 24px; color: #fff;
-                background: linear-gradient(135deg, var(--color-primary-deep, #006E8C) 0%, var(--color-primary-teal, #008DB0) 60%, var(--color-sky-blue, #4FB3D1) 100%);
+                margin-top: 64px; max-width: 660px;
             }
-            .dentist-cta h2 { margin: 0 0 10px; font-size: 1.375rem; color: #fff; }
-            .dentist-cta p { margin: 0 0 22px; line-height: 1.7; color: rgba(255, 255, 255, 0.92); max-width: 560px; }
-            .dentist-cta .btn {
-                background: #fff; color: var(--color-primary-deep, #006E8C);
-                border: none; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-            }
-            .dentist-cta .btn:hover { transform: translateY(-2px); background: #F2F8FB; }
+            .dentist-cta h2 { margin: 0 0 14px; }
+            .dentist-cta-copy { margin: 0 0 24px; line-height: 1.7; color: var(--color-text-slate); }
 
             .dentist-others { margin-top: 64px; }
             .dentist-others h2 { font-size: 1.25rem; margin: 0 0 20px; }
-            .dentist-others-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+            .dentist-others-grid { border-top: 1px solid var(--hairline); }
             .dentist-other {
                 display: flex; align-items: center; gap: 14px; text-decoration: none; color: inherit;
-                padding: 14px; border-radius: 16px; background: #fff;
-                border: 1px solid rgba(0, 110, 140, 0.10);
-                transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+                padding: 14px 8px; border-bottom: 1px solid var(--hairline);
+                transition: background-color var(--ease-slow);
             }
-            .dentist-other:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 10px 24px rgba(0, 110, 140, 0.10);
-                border-color: rgba(0, 141, 176, 0.3);
-            }
+            .dentist-other:hover { background: var(--color-tint-faint); }
             .dentist-other img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; object-position: top; }
             .dentist-other span { display: flex; flex-direction: column; flex: 1; }
             .dentist-other strong { font-size: .9375rem; }
-            .dentist-other em { font-style: normal; font-size: .8125rem; color: var(--color-text-grey, #777); }
-            .dentist-other-arrow { color: var(--color-primary-teal, #008DB0); opacity: 0; transition: opacity .2s ease; }
-            .dentist-other:hover .dentist-other-arrow { opacity: 1; }
+            .dentist-other em { font-style: normal; font-size: .8125rem; color: var(--color-text-grey); }
+            .dentist-other-arrow { color: var(--color-primary-teal); }
 
-            @media (max-width: 768px) {
+            @media (max-width: 1024px) {
                 .dentists-page { padding: 110px 0 60px; }
                 .dentists-page-index, .dentists-page-profile { padding-top: 0; }
                 .dentists-hero { padding: 120px 0 44px; }
@@ -359,9 +297,18 @@ function DentistStyles() {
                 .dentist-profile-head { gap: 24px; }
                 .dentist-profile-imgwrap { width: 100%; }
                 .dentist-profile-img { width: 100%; height: 320px; }
-                .dentist-cta { padding: 26px; }
             }
-        `}</style>
+            @media (max-width: 480px) {
+                .dentists-hero { padding: 112px 0 40px; }
+                .dentist-hero { padding: 104px 0 36px; }
+                .dentists-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 14px; }
+                .dentist-card-media img { height: 190px; }
+                .dentist-card-name { font-size: 1rem; }
+                .dentist-card-role { font-size: .8125rem; }
+                .dentist-profile-img { height: 300px; }
+                .dentist-fact { grid-template-columns: 1fr; gap: 6px; }
+            }
+        `}</Style>
     );
 }
 

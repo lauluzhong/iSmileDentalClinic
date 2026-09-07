@@ -61,10 +61,6 @@
   --space-section-lg: clamp(96px, 8vw, 120px);
 
   /* Glassmorphism */
-  --glass-bg: rgba(255, 255, 255, 0.72);
-  --glass-border: rgba(255, 255, 255, 0.6);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 141, 176, 0.14);
-  --glass-blur: blur(14px);
 }
 
 @media (max-width: 1024px) {
@@ -173,14 +169,6 @@ a {
   }
 }
 
-.glass-panel {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
-  border-radius: 20px;
-}
 
 
 .btn {
@@ -237,28 +225,7 @@ a {
   color: var(--color-primary-teal);
 }
 
-.text-gradient {
-  background: linear-gradient(115deg, var(--color-primary-deep) 0%, var(--color-primary-teal) 55%, var(--color-sky-blue) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
-/* Premium eyebrow / pill label */
-.pill-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 16px;
-  border-radius: 50px;
-  background: var(--color-tint-light);
-  color: var(--color-primary-deep);
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 0.8rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
 
 
 /* Utilities */

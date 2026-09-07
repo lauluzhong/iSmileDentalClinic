@@ -1,6 +1,8 @@
-import React from 'react';
-import { Shield, Sparkles, Smile, Star, Users } from 'lucide-react';
-
+// Plain data only — no JSX. The build-time prerenderer (vite-plugin-blog-ssg.js)
+// imports this file in Node, and the /services pages render everything from it.
+// services[].name/desc/path, displayTitle, hero, description and tier1 strings
+// are load-bearing (prerenderer + booking labels); title keeps its literal \n
+// because Services.jsx derives the booking label from title.split("\n")[0].
 export const servicesData = {
     protect: {
         title: "Protect & Repair\n (Preventive & Restorative)",
@@ -8,8 +10,6 @@ export const servicesData = {
         bracketText: "Preventive & Restorative",
         hero: "Healthy Teeth. For Life.",
         description: "Competent and committed services to help you maintain a healthy smile.",
-        icon: <Shield size={32} />,
-        color: "var(--color-primary)",
         services: [
             { name: "Comprehensive Examination and Diagnosis", desc: "Detailed evaluation to cover your oral health for accurate diagnosis and treatment planning." },
             { name: "Scaling & Polishing", desc: "Professional cleaning to remove plaque, tartar, and surface stains." },
@@ -31,11 +31,7 @@ export const servicesData = {
                 "Comprehensive Gum Health Management",
                 "Anxiety-Free, Judgment-Free Environment"
             ]
-        },
-        blogs: [
-            { title: "Why Do My Gums Bleed?", path: "/blog/why-do-my-gums-bleed", image: "Gum Health" },
-            { title: "Crowns vs Fillings", path: "/blog/dental-crowns-vs-fillings", image: "Sensitivity" }
-        ]
+        }
     },
     straighten: {
         title: "Straighten Teeth\n (Orthodontics)",
@@ -43,8 +39,6 @@ export const servicesData = {
         bracketText: "Orthodontics",
         hero: "Confidence in Every Smile.",
         description: "Modern orthodontic solutions for children, teens, and adults.",
-        icon: <Sparkles size={32} />,
-        color: "var(--color-secondary)",
         services: [
             { name: "Clear Aligners", desc: "Invisible, removable trays (Invisalign / Angel / ClearSmile) for discreet straightening.", path: "/services/straighten/clear-aligners" },
             { name: "Fixed Appliances (Metal & Clear Brackets)", desc: "Powered by the latest Damon Ultima, Q2, and Clear 2 technology." },
@@ -60,19 +54,15 @@ export const servicesData = {
             title: "Digital 3D Scanning",
             desc: "No more messy moulds. We use advanced 3D scanners to visualize your new smile instantly.",
             visualTitle: "Fixed Braces vs. Clear Aligners",
-            visualContent: (
-                <ul className="comparison-list">
-                    <li><strong>Visibility:</strong> Clear Aligners are virtually invisible, whereas braces are noticeable.</li>
-                    <li><strong>Comfort:</strong> Aligners are smooth plastic (no wires/brackets), reducing irritation.</li>
-                    <li><strong>Hygiene:</strong> Aligners are removable, making flossing and brushing easier.</li>
-                    <li><strong>Diet:</strong> No dietary restrictions with aligners; just remove them to eat!</li>
-                </ul>
-            )
-        },
-        blogs: [
-            { title: "Clear Aligners vs Braces", path: "/blog/clear-aligners-vs-braces", image: "Adult Ortho" },
-            { title: "Myofunctional Therapy Before Braces", path: "/blog/myofunctional-therapy-before-after-braces", image: "Retainers" }
-        ]
+            // Formerly a JSX <ul>; the visible strings are identical
+            // (label renders bold, followed by ": " and the text).
+            comparison: [
+                { label: "Visibility", text: "Clear Aligners are virtually invisible, whereas braces are noticeable." },
+                { label: "Comfort", text: "Aligners are smooth plastic (no wires/brackets), reducing irritation." },
+                { label: "Hygiene", text: "Aligners are removable, making flossing and brushing easier." },
+                { label: "Diet", text: "No dietary restrictions with aligners; just remove them to eat!" }
+            ]
+        }
     },
     replace: {
         title: "Replace Teeth\n (Prosthetics & Implants)",
@@ -80,8 +70,6 @@ export const servicesData = {
         bracketText: "Prosthetics & Implants",
         hero: "Eat, Speak, and Smile Again.",
         description: "Restoring function and aesthetics for a complete, confident smile.",
-        icon: <Smile size={32} />,
-        color: "var(--color-primary)",
         services: [
             { name: "Dental Implants", desc: "Permanent, natural-looking replacements for missing tooth roots.", path: "/services/replace/dental-implants" },
             { name: "Dental Bridges", desc: "Fixed restoration to bridge the gap created by one or more missing teeth." },
@@ -103,11 +91,7 @@ export const servicesData = {
                 "High-Esthetic Ceramics for Natural Looks",
                 "Full Bite Force Restoration"
             ]
-        },
-        blogs: [
-            { title: "Dental Implants Explained", path: "/blog/dental-implants-malaysia-explained", image: "Bone Loss" },
-            { title: "Implant Consultation in Damansara Jaya", path: "/blog/dental-implant-consultation-damansara-jaya", image: "Implant Safety" }
-        ]
+        }
     },
     enhance: {
         title: "Enhance Smile\n (Cosmetic Dentistry)",
@@ -115,8 +99,6 @@ export const servicesData = {
         bracketText: "Cosmetic Dentistry",
         hero: "Design Your Dream Smile.",
         description: "Cosmetic dental treatments tailored to your unique facial features.",
-        icon: <Star size={32} />,
-        color: "var(--color-accent)",
         services: [
             { name: "Composite Veneers", desc: "Direct bonding to reshape teeth and improve aesthetics in one visit." },
             { name: "Ceramic Veneers", desc: "Durable, high-quality porcelain shells for a flawless, lasting smile." },
@@ -139,11 +121,7 @@ export const servicesData = {
                 "Minimally Invasive Veneer Protocols",
                 "Natural Light Reflection & Texture"
             ]
-        },
-        blogs: [
-            { title: "Composite vs Porcelain Veneers", path: "/blog/composite-vs-porcelain-veneers", image: "Veneers" },
-            { title: "Cosmetic Dentistry at iSmile", path: "/blog/cosmetic-dentistry-at-ismile-damansara-jaya", image: "Gummy Smile" }
-        ]
+        }
     },
     children: {
         title: "Children & Growth\n (Paediatric Dentistry)",
@@ -151,8 +129,6 @@ export const servicesData = {
         bracketText: "Paediatric Dentistry",
         hero: "Growing Healthy Smiles & Airways.",
         description: "Intentional care from young children to adolescence, focusing on growth and development.",
-        icon: <Users size={32} />,
-        color: "var(--color-secondary)",
         services: [
             { name: "Myofunctional Orthodontics", desc: "Correcting oral habits to guide proper jaw and face growth.", path: "/services/children/myofunctional" },
             { name: "Fissure Sealants", desc: "Protective coatings on back teeth to prevent decay in grooves." },
@@ -174,10 +150,6 @@ export const servicesData = {
                 "Trauma-Free, Child-Friendly Approach",
                 "Early Orthodontic Intervention"
             ]
-        },
-        blogs: [
-            { title: "Mouth Breathing in Children", path: "/blog/mouth-breathing-in-children", image: "Mouth Breathing" },
-            { title: "When Should Children Stop Thumb Sucking?", path: "/blog/when-should-children-stop-sucking-thumb", image: "Thumb Sucking" }
-        ]
+        }
     }
 };
