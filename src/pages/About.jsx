@@ -185,19 +185,10 @@ const About = () => {
                 </div>
             </section>
 
-            <section id="team" className="section-padding team-section">
+            <section id="team" className="section-padding team-section" style={{ scrollMarginTop: '110px' }}>
                 <div className="container">
                     <Reveal width="100%"><h2 className="section-title text-center">The Team Behind <span className="text-gradient">Your Smile</span></h2></Reveal>
 
-                    {/* Each dentist also has their own page. Doctor-name searches are the
-                        best-converting queries the site gets, and this is the internal link
-                        that lets crawlers reach those pages from an established one. */}
-                    <Reveal width="100%">
-                        <p className="text-center team-profiles-link">
-                            Each of our dentists has their own profile —{' '}
-                            <Link to="/dentists">read more about the team</Link>.
-                        </p>
-                    </Reveal>
 
                     <div className="team-grid">
                         {doctors.map((doc, index) => (
@@ -469,15 +460,6 @@ const About = () => {
                 }
                 .team-profile-link:hover { text-decoration: underline; }
 
-                .team-profiles-link {
-                    margin: -8px auto 32px;
-                    max-width: 560px;
-                    color: var(--color-text-grey, #666);
-                }
-                .team-profiles-link a {
-                    color: var(--color-primary-teal, #4FA3C2);
-                    text-decoration: underline;
-                }
 
                 .team-grid {
                     display: grid;
