@@ -1066,7 +1066,7 @@
     {
      "id": "g1",
      "dot": "now",
-     "chip": "training 7 Sep \u00b7 send this wk",
+     "chip": "training done 7 Sep \u00b7 send this wk",
      "name": "Cold reactivation blast",
      "one": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
      "steps": [
@@ -1096,7 +1096,7 @@
       },
       {
        "t": "Marketing blast training / demo with Code Capsule",
-       "s": "now",
+       "s": "done",
        "w": "Mon 7 Sep, 10 AM"
       },
       {
@@ -1113,7 +1113,7 @@
       }
      ],
      "open": [
-      "<b>Marketing blast training is confirmed for tomorrow, Mon 7 Sep at 10 AM.</b> The send follows it \u2014 mid to end of this week.",
+      "<b>Marketing blast training completed 7 Sep.</b> The send follows it \u2014 mid to end of this week.",
       "Jason still owes the price",
       "PDPA check with Lydia",
       "<b>Cert expires 16 Oct</b> \u2014 renewal cron should fire ~15 Sep; Jason reminded 28 Aug, confirm it actually renews",
@@ -1123,7 +1123,7 @@
      "flag": {
       "k": "due",
       "by": "2026-09-11",
-      "w": "Training Mon 7 Sep 10 AM. Then the blacklist and family cross-check, a fresh-data re-run, and Wave 1 fires mid to end of week."
+      "w": "Training is complete. Finish the blacklist and family cross-check, re-run the fresh data, and fire Wave 1 mid to end of week."
      },
      "owner": "lu",
      "dept": "crm",
@@ -2194,6 +2194,6 @@
  },
  "meta": {
   "asof": "MON 07 SEP 2026",
-  "updated": "2026-09-07T14:09:52+08:00"
+  "updated": "2026-09-07T21:34:13+08:00"
  }
 }
