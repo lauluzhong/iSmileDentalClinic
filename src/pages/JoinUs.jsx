@@ -298,7 +298,7 @@ const JoinUs = () => {
             </div>
 
             <Style>{`
-        .join-us-page { background: var(--color-background); }
+        /* no opaque page background — the shared hero tint (index.css) shows through */
         .join-hero-section { padding-top: 180px; padding-bottom: 72px; text-align: center; }
 
         .join-hero {

@@ -260,7 +260,7 @@ const About = () => {
             </section>
 
             <Style>{`
-                .about-page { background: var(--color-background); }
+                /* no opaque page background — the shared hero tint (index.css) shows through */
                 .about-page .about-hero-container { padding-top: 140px; }
                 .about-page .about-hero { padding: 72px 0 60px; }
                 .about-page .hero-content-left { max-width: 800px; }
@@ -317,6 +317,10 @@ const About = () => {
                 .about-page .about-closing .statement { max-width: 760px; margin: 0 auto 30px; }
                 @media (max-width: 1024px) { .about-page .about-hero-container { padding-top: 108px; } .about-page .founder-card-dark { grid-template-columns: 1fr 1fr; } .about-page .team-grid { gap: 24px; } .about-page .team-card { border-radius: 20px; } .about-page .team-info { padding: 0 20px 20px; } .about-page .team-header-top { padding: 20px 20px 0; } .about-page .team-header-top h3 { font-size: 1.3rem; } .about-page .team-role { font-size: 0.75rem; } .about-page .team-bio { font-size: 0.9rem; } }
                 @media (max-width: 700px) { .about-page .about-hero { padding: 46px 0 32px; } .about-page .journey-card { grid-template-columns: 76px minmax(0, 1fr); gap: 16px; padding: 26px 0; } .about-page .founder-card-dark { display: flex; flex-direction: column; align-items: stretch; } .about-page .founder-image-container { order: -1; } .about-page .team-grid { grid-template-columns: 1fr; } .about-page .team-card-head { display: flex; align-items: center; gap: 16px; padding: 16px 16px 4px; } .about-page .team-photo { flex: 0 0 116px; width: 116px; height: auto; aspect-ratio: 3 / 4; border-radius: 16px; } .about-page .team-photo img { object-position: center 12%; } .about-page .team-header-top { min-height: 0; padding: 0; } .about-page .team-role { margin-bottom: 8px; letter-spacing: 0.6px; } .about-page .team-meta { margin-bottom: 0; } .about-page .team-info { padding: 16px; } .about-page .team-languages { min-height: 0; padding-top: 16px; } .about-page .team-bio { margin-bottom: 16px; } }
+            
+                @media (max-width: 480px) {
+                    .about-page .journey-card { grid-template-columns: 1fr; gap: 6px; }
+                }
             `}</Style>
         </div>
     );

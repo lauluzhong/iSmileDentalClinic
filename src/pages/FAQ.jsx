@@ -45,7 +45,7 @@ const FAQ = () => {
             <Helmet><title>{fillStats(seo.title, reviewStats)}</title><meta name="description" content={fillStats(seo.description, reviewStats)} /><link rel="canonical" href="https://ismile.com.my/faq" /></Helmet>
             <main className="container section-padding faq-container">
                 <header className="faq-heading">
-                    <Reveal><p className="eyebrow">FAQ</p><h1 className="statement">Common <em>Questions</em></h1></Reveal>
+                    <Reveal><p className="eyebrow">Patient guide</p><h1 className="statement">Common <em>Questions</em></h1></Reveal>
                     <Reveal delay={0.1}><p className="faq-lead">We're here to help you feel confident and informed about every part of your dental journey with us.</p></Reveal>
                 </header>
                 <div className="faq-content">

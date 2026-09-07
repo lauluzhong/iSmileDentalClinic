@@ -20,7 +20,7 @@ const Contact = () => {
             <Helmet><title>{fillStats(seo.title, reviewStats)}</title><meta name="description" content={fillStats(seo.description, reviewStats)} /><link rel="canonical" href="https://ismile.com.my/contact" /></Helmet>
             <main className="container section-padding contact-container">
                 <header className="contact-heading">
-                    <Reveal width="100%"><p className="eyebrow">Contact</p></Reveal>
+                    <Reveal width="100%"><p className="eyebrow">Our clinic</p></Reveal>
                     <Reveal delay={0.1} width="100%"><h1 className="statement">Get in <em>Touch</em></h1></Reveal>
                     <Reveal delay={0.2} width="100%"><p className="contact-lead">We're here to answer your questions and help you schedule your visit.</p></Reveal>
                 </header>
@@ -67,6 +67,21 @@ const Contact = () => {
                 .contact-page .contact-map { overflow: hidden; border-radius: 26px; }
                 .contact-page .contact-map iframe { display: block; }
                 @media (max-width: 768px) { .contact-page .contact-container { padding-top: 130px; } .contact-page .contact-heading { margin-bottom: 36px; text-align: left; } .contact-page .contact-lead { margin-left: 0; } .contact-page .contact-detail-row { grid-template-columns: 1fr; gap: 8px; padding: 24px 0; } .contact-page .contact-social { margin: 52px auto; } }
+            
+                /* Responsive — this page previously had NO media queries at all,
+                   which is why the 2x2 fact grid stayed two-across on phones
+                   (owner screenshot, 8 Sep 2026). */
+                @media (max-width: 1024px) {
+                    .contact-page .contact-container { padding-top: 120px; }
+                    .contact-page .contact-heading { margin-bottom: 36px; text-align: left; }
+                    .contact-page .contact-lead { margin-left: 0; }
+                }
+                @media (max-width: 700px) {
+                    .contact-page .contact-details { grid-template-columns: 1fr; gap: 0; }
+                    .contact-page .contact-detail-row { padding: 24px 2px; }
+                    .contact-page .contact-social { margin: 48px auto; }
+                    .contact-page .contact-map iframe { height: 300px; }
+                }
             `}</Style>
         </div>
     );

@@ -48,7 +48,7 @@ function DentistIndex() {
 
             <div className="dentists-hero">
                 <div className="container dentists-header">
-                    <p className="eyebrow">Our Team</p>
+                    <p className="eyebrow">Damansara Jaya, Petaling Jaya</p>
                     <h1>Our <em>dentists</em></h1>
                     <p className="dentists-intro">
                         Our team in Damansara Jaya covers general, paediatric, orthodontic and restorative
@@ -150,7 +150,7 @@ function DentistProfile() {
                 </dl>
 
                 <div className="dentist-cta">
-                    <p className="eyebrow">Appointments</p>
+                    <p className="eyebrow">Your visit</p>
                     <h2 className="statement">Book an appointment</h2>
                     <p className="dentist-cta-copy">
                         We are at 75 &amp; 75A, Jalan SS 22/23, Damansara Jaya, Petaling Jaya. If you

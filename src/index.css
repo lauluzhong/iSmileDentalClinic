@@ -283,6 +283,21 @@ a {
   padding: var(--space-section) 0;
 }
 
+/* The two utilities are used together on several pages, and .section-padding's
+   shorthand (later in this file) was zeroing .container's side gutters — on
+   phones the content sat flush against the screen edge (owner screenshot,
+   8 Sep 2026: Contact and FAQ). The combination now always keeps gutters. */
+.container.section-padding {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media (max-width: 1024px) {
+  .container.section-padding {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
 /* Page Transition Grid Overlap */
 .main-content {
   display: grid;

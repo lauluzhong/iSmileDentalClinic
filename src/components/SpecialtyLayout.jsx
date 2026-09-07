@@ -262,8 +262,7 @@ export default function SpecialtyLayout({
                 }
                 .sp-story-footer {
                     max-width: 700px;
-                    margin: 40px auto 0;
-                    text-align: center;
+                    margin: 40px 0 0;
                     font-size: 1.05rem;
                     line-height: 1.6;
                     color: var(--color-text-slate);
@@ -300,11 +299,12 @@ export default function SpecialtyLayout({
                 }
 
                 @media (max-width: 1024px) {
+                    .sp-hero { padding-top: 28px; }
                     .specialty-page { padding-top: 80px; }
                     .sp-feature { padding: 26px 0; }
                     .sp-feature h4 { font-size: 1.1rem; margin-bottom: 6px; }
                     .sp-feature p { font-size: 0.95rem; line-height: 1.55; }
-                    .sp-steps li { grid-template-columns: 44px minmax(0, 1fr); gap: 14px; padding: 18px 0; }
+                    .sp-steps li { grid-template-columns: 1fr; gap: 6px; }
                     .sp-step-text { font-size: 1rem; }
                 }
 

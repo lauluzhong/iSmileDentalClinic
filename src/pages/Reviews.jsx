@@ -330,7 +330,7 @@ const Reviews = () => {
             <div className="reviews-hero-gradient">
                 <div className="container">
                     <Reveal width="100%">
-                        <span className="eyebrow">Real Stories</span>
+                        <span className="eyebrow">Google reviews</span>
                     </Reveal>
                     <Reveal width="100%">
                         <h1 className="reviews-hero-title">
@@ -389,7 +389,7 @@ const Reviews = () => {
             </div>
 
             <Style>{`
-                .reviews-page { background: var(--color-background); }
+                /* no opaque page background — the shared hero tint (index.css) shows through */
                 .reviews-page .reviews-hero-gradient { padding: 160px 0 72px; text-align: center; }
                 .reviews-page .reviews-hero-title { max-width: 780px; margin: 0 auto 20px; font-size: clamp(2.4rem, 1.6rem + 3.4vw, 4rem); font-weight: 700; line-height: 1.05; letter-spacing: -.03em; text-wrap: balance; }
                 .reviews-page .reviews-hero-subtitle { max-width: 640px; margin: 0 auto; color: var(--color-text-slate); font-size: var(--fs-lead); line-height: 1.6; }
