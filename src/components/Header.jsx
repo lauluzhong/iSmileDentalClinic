@@ -14,7 +14,6 @@ const logoTightWebP = '/logo-tight.webp';
 const Header = () => {
     const { openBooking } = useBooking();
     const [isScrolled, setIsScrolled] = useState(false);
-    const [pastHero, setPastHero] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
     const [activeSubmenu, setActiveSubmenu] = useState(null);
@@ -30,13 +29,9 @@ const Header = () => {
     const isDarkPage = location.pathname.startsWith('/services/') && !isScrolled;
 
     // Handle scroll effect for glass header.
-    // pastHero tracks whether we've scrolled beyond ~the immersive Home hero
-    // (mobile): below the threshold the header sits transparent on the photo,
-    // past it the frosted pill fades back in.
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
-            setPastHero(window.scrollY > window.innerHeight * 0.72);
         };
         handleScroll();
         window.addEventListener('scroll', handleScroll, { passive: true });
@@ -52,9 +47,10 @@ const Header = () => {
     // - collapsed: once scrolled, the logo fades out and only a small floating
     //   frosted circular burger chip remains top-right (all pages).
     const pathSegments = location.pathname.split('/').filter(Boolean);
-    const hasDarkHero = location.pathname === '/' ||
-        (pathSegments[0] === 'services' && pathSegments.length === 2);
-    const isCollapsed = location.pathname === '/' ? pastHero : isScrolled;
+    // The homepage hero is light again (portrait ensemble on the page
+    // background), so only the /services/<category> hubs open dark.
+    const hasDarkHero = pathSegments[0] === 'services' && pathSegments.length === 2;
+    const isCollapsed = isScrolled;
     const isImmersive = hasDarkHero && !isCollapsed;
 
     const navLinks = [
