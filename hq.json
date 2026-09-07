@@ -249,6 +249,7 @@
       "<b>Migration done 5 Sep</b> (Emily): 2 new PCs have OpenDental installed and all other PCs are reconnected. Bob is still monitoring the data through UltraViewer and has yet to set up autobackup.",
       "<b>The end-to-end date is open.</b> We had pencilled 7\u201311 Sep before the migration. Bob's monitoring was not intended to run past Saturday night, and Monday every PC gets rechecked for the new pathway and data. Jason owes us a date given where all the pieces actually stand.",
       "<b>8-point list sent to Jason in the CC group on 6 Sep</b> \u2014 migration clean \u00b7 autobackup \u00b7 integration working \u00b7 which PCs have AutoCount \u00b7 reception PCs \u00b7 cooling \u00b7 E2E date \u00b7 anything else open. Awaiting his reply.",
+      "<b>Suraya:</b> confirm the Wednesday 9 Sep UI/UX discussion time; suggested time is 5:00 PM.",
       "\u26a0\ufe0f <b>Thermal:</b> the new PC heats up when left on for long periods; Emily suggests buying a fan. Left unresolved on a machine that runs all day, this is a failure risk \u2014 get Jason's read on whether the unit is spec'd for continuous running.",
       "EasyDent (X-ray) + CCTV stay on the old PC \u2014 do not migrate",
       "From the initiatives board: Opportunistic add-ons in scope: digital WhatsApp receipts, payroll SaaS, procurement, inventory module. Share Code Capsule's SOW with Claude once received."
@@ -655,7 +656,6 @@
       }
      ],
      "open": [
-      "Keep Edith mention-gated in the management group until Ling responds",
       "Transcripts live on the Contabo vault \u2014 check them before flagging anything as pending"
      ],
      "owner": "edith",
@@ -778,6 +778,7 @@
       "<b>Parents approved all three changes on 2 Sep:</b> abolish the 10% \u00b7 floor price with doctor-borne discounts \u00b7 economics follow the production month. Discount approval threshold amended to 15%.",
       "<b>Final contractor agreement sent to Emily for review on 3 Sep.</b>",
       "Lydia is still waiting for the Schedule 1 input at clause 2.2 and must finalise the Professional Fee clauses in Schedule 2 before sending to Dr Ong for signature.",
+      "Lydia must finalise all contracts: employee contracts, the handbook, and the doctors' contracts. Names evidenced in the available board/transcripts: Dr Ong, Dr Ling and Dr Jun; the remaining doctors are not named there.",
       "Keep the parents' register: item 2 pays for item 1, leaving a gap of about RM10\u201312k a year",
       "Clause 2.6 names the GM for below-band sign-off \u2014 Emily now knows",
       "\u26a0\ufe0f Item 3b cannot be operated for real yet (only ~8% of paysplits carry a ProcNum) \u2014 agree the principle, never give the doctors a start date",
@@ -790,7 +791,7 @@
      "from_initiatives": [
       16
      ],
-     "next": "Complete the outstanding Schedule 1 input and finalise Schedule 2; then send the agreement to Dr Ong for signature and prepare the 15 Sep rollout copies.",
+     "next": "Lydia to finalise the employee contracts, handbook and doctors' contracts (Dr Ong, Dr Ling and Dr Jun are the names evidenced so far), then prepare the 15 Sep rollout copies.",
      "endMonth": "2026-09"
     },
     {
@@ -1118,6 +1119,7 @@
       "PDPA check with Lydia",
       "<b>Cert expires 16 Oct</b> \u2014 renewal cron should fire ~15 Sep; Jason reminded 28 Aug, confirm it actually renews",
       "250 sends/day cap shapes the wave calendar",
+      "Suggested UI/UX discussion: Wednesday 9 Sep at 5:00 PM \u2014 awaiting Suraya's confirmation.",
       "From the initiatives board: Birthday trigger de-prioritised by the owner. The review ask moves a lever that already feeds the website automatically."
      ],
      "flag": {
@@ -1131,7 +1133,7 @@
      "from_initiatives": [
       28
      ],
-     "next": "Sit the training Mon 7 Sep 10 AM, finish the blacklist and family cross-check, re-run the list on fresh data, then fire Wave 1 mid to end of this week.",
+     "next": "Sit the training Mon 7 Sep 10 AM, finish the blacklist and family cross-check, re-run the list on fresh data, then fire Wave 1 mid to end of this week; suggested UI/UX discussion Wed 9 Sep at 5 PM pending Suraya confirmation.",
      "endMonth": "2026-10"
     },
     {
@@ -2073,7 +2075,9 @@
   "Free staff/family treatment \u2014 quantify + name an approver",
   "D8300 <b>Myobrace</b>: priced RM1,000 in Fee Guide v1 (confirm 1,000 vs 1,500), then apply in OpenDent \u2014 and decide whether to rename it, since Myobrace is a brand the clinic does not carry",
   "holidays.txt repopulate each January (closed-day digest guard)",
-  "<b>Reconnect financials:</b> the migrated OpenDental computer disrupted the extract/push pipeline; restore the daily cash and P&L feed."
+  "<b>Reconnect financials:</b> the migrated OpenDental computer disrupted the extract/push pipeline; restore the daily cash and P&L feed.",
+  "Check with Emily on the denture height for the TOC group.",
+  "Fix the cash digest tomorrow using the new PC."
  ],
  "archive": [
   {
@@ -2193,7 +2197,7 @@
   "note": "initiatives.store.json folded into this store; initiatives.json is now DERIVED from it by hq_publish.py for the legacy page."
  },
  "meta": {
-  "asof": "MON 07 SEP 2026",
-  "updated": "2026-09-07T21:34:13+08:00"
+  "asof": "TUE 08 SEP 2026",
+  "updated": "2026-09-08T00:14:53+08:00"
  }
 }

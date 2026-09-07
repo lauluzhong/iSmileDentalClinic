@@ -1,8 +1,13 @@
 {
- "updated": "2026-09-07T21:34:13+08:00",
+ "updated": "2026-09-08T00:14:53+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lydia": {
+  "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
@@ -12,18 +17,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Emily": {
    "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
@@ -268,7 +268,7 @@
    "status": "review",
    "owner": "Lydia",
    "why": "Synthesised 13 Aug, with Lydia since 17 Aug. Body is a pure template; every per-doctor input lives in Schedule 1.",
-   "next": "Complete the outstanding Schedule 1 input and finalise Schedule 2; then send the agreement to Dr Ong for signature and prepare the 15 Sep rollout copies.",
+   "next": "Lydia to finalise the employee contracts, handbook and doctors' contracts (Dr Ong, Dr Ling and Dr Jun are the names evidenced so far), then prepare the 15 Sep rollout copies.",
    "dept": "people",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -410,7 +410,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
-   "next": "Sit the training Mon 7 Sep 10 AM, finish the blacklist and family cross-check, re-run the list on fresh data, then fire Wave 1 mid to end of this week.",
+   "next": "Sit the training Mon 7 Sep 10 AM, finish the blacklist and family cross-check, re-run the list on fresh data, then fire Wave 1 mid to end of this week; suggested UI/UX discussion Wed 9 Sep at 5 PM pending Suraya confirmation.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-10",
