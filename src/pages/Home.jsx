@@ -1,7 +1,7 @@
 import { useBooking } from '../context/BookingContext';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Star, Heart, Shield, Sparkles, Smile, Users, MapPin } from 'lucide-react';
+import { ArrowRight, Star, Heart, Shield, Sparkles, Smile, Users } from 'lucide-react';
 import Button from '../components/Button';
 import { Helmet } from 'react-helmet-async';
 import { Reveal } from '../components/Reveal';
@@ -116,6 +116,38 @@ const Home = () => {
         .map(slug => blogIndex.find(post => post.slug === slug))
         .filter(Boolean);
 
+    // The ambient layer: three soft colour fields behind the whole page whose
+    // positions are a pure function of scroll progress. Scroll down and they
+    // drift; scroll back and they return — scrubbed, not played. This is what
+    // ties the bands together into one surface instead of stacked stripes.
+    // Written to a CSS custom property so the styling stays in CSS, and
+    // rAF-coalesced so the scroll path never does layout work twice a frame.
+    const ambientRef = useRef(null);
+    useEffect(() => {
+        const el = ambientRef.current;
+        if (!el) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        let frame = null;
+        const paint = () => {
+            frame = null;
+            const max = document.documentElement.scrollHeight - window.innerHeight;
+            const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+            el.style.setProperty('--scroll', p.toFixed(4));
+        };
+        const onScroll = () => {
+            if (frame === null) frame = window.requestAnimationFrame(paint);
+        };
+        paint();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll, { passive: true });
+        return () => {
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('resize', onScroll);
+            if (frame !== null) window.cancelAnimationFrame(frame);
+        };
+    }, []);
+
     return (
         <div className="home-page">
             <Helmet>
@@ -123,6 +155,13 @@ const Home = () => {
                 <meta name="description" content="Family dental clinic in Damansara Jaya, Petaling Jaya since 2006. Check-ups, braces, implants & kids' dentistry. Rated 4.8★ from 91 Google reviews. WhatsApp us to book." />
                 <link rel="canonical" href="https://ismile.com.my/" />
             </Helmet>
+
+            {/* Scroll-scrubbed colour fields behind every section */}
+            <div className="home-ambient" ref={ambientRef} aria-hidden="true">
+                <span className="ambient-a" />
+                <span className="ambient-b" />
+                <span className="ambient-c" />
+            </div>
 
             {/* ============ 1. HERO — the people who will actually treat you ============ */}
             <section className="hero-section">
@@ -135,7 +174,7 @@ const Home = () => {
                             <span className="hero-eyebrow-year">Est. 2006</span>
                         </span>
                         <h1 className="hero-title">
-                            Dental care for <span className="text-accent">every generation</span>
+                            Dental care for <em>every generation.</em>
                         </h1>
                         <p className="hero-subtitle hero-subtitle-desktop">
                             From a child's first visit to a grandparent's new smile, iSmile is the dentist whole families stay with. Honest advice, gentle hands, and care that's looked after Petaling Jaya households for nearly two decades.
@@ -187,12 +226,12 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* ============ 2. SERVICES — a wide, numbered index on a tinted band ============ */}
+            {/* ============ 2. SERVICES — a wide, numbered index on an inset band ============ */}
             <section className="services-section">
                 <div className="container services-container">
                     <div className="section-header services-header">
                         <Reveal width="100%"><span className="section-eyebrow">Care, through every chapter</span></Reveal>
-                        <Reveal width="100%"><h2 className="section-title">Comprehensive care for <span className="text-accent">every stage of life</span></h2></Reveal>
+                        <Reveal width="100%"><h2 className="section-title">Comprehensive care for <em>every stage of life.</em></h2></Reveal>
                         <Reveal width="100%"><p className="section-lead">A child's first check-up. Braces in the teenage years. A grandparent's new smile. One team that knows your family and grows with it.</p></Reveal>
                     </div>
 
@@ -219,7 +258,7 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* ============ 3. PROOF — a teal band, not a black one ============ */}
+            {/* ============ 3. PROOF — the teal band ============ */}
             <section className="proof-section">
                 <div className="container">
                     <p className="proof-eyebrow">What families say</p>
@@ -251,25 +290,26 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* ============ 4. DENTAL EDUCATION ============ */}
-            <section className="section-padding dental-education-section">
+            {/* ============ 4. DENTAL EDUCATION — bare images, no card chrome ============ */}
+            <section className="dental-education-section">
                 <div className="container">
-                    <div className="section-header flex-between w-full dental-edu-header">
-                        <h2 className="section-title dental-edu-title">Dental Education</h2>
+                    <div className="section-header dental-edu-header">
+                        <div>
+                            <span className="section-eyebrow">From the Learning Centre</span>
+                            <h2 className="section-title">Dental <em>education.</em></h2>
+                        </div>
                         <Link to="/blog" className="btn-link">Visit Learning Centre <ArrowRight size={16} /></Link>
                     </div>
 
                     <div className="horizontal-scroll-mask">
                         <div className="horizontal-track-simple">
                             {featuredBlogs.map((post, i) => (
-                                <Link to={`/blog/${post.slug}`} key={i} className="glass-panel insight-card-large" style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    <div className="insight-image-large">
-                                        <ResponsiveImage src={post.img} alt={post.title} loading="lazy" sizes="(max-width: 768px) 85vw, 500px" />
+                                <Link to={`/blog/${post.slug}`} key={i} className="edu-item">
+                                    <div className="edu-image">
+                                        <ResponsiveImage src={post.img} alt={post.title} loading="lazy" sizes="(max-width: 768px) 85vw, 420px" />
                                     </div>
-                                    <div className="insight-content">
-                                        <h3>{post.title}</h3>
-                                        <span className="read-more-link">Read More</span>
-                                    </div>
+                                    <h3 className="edu-title">{post.title}</h3>
+                                    <span className="read-more-link">Read More</span>
                                 </Link>
                             ))}
                         </div>
@@ -277,55 +317,66 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* ============ 5. CLOSING — where we are, when we're open ============ */}
+            {/* ============ 5. CLOSING — just the invitation; the footer holds the facts ============ */}
             <section className="closing-cta">
-                <div className="container closing-grid">
-                    <div className="closing-copy">
-                        <span className="section-eyebrow">We're in Damansara Jaya</span>
-                        <h2 className="closing-title">Come and <em>meet us.</em></h2>
-                        <p className="closing-line">
-                            Tell us who is coming in and we will find a time that suits the family.
-                        </p>
-                        <Button onClick={() => openBooking('', 'home-closing-cta')}>Book a Visit <ArrowRight size={18} /></Button>
-                    </div>
-                    <div className="closing-facts">
-                        <span className="closing-pin"><MapPin size={20} /></span>
-                        <p className="closing-address">
-                            75 &amp; 75A, Jalan SS 22/23<br />
-                            Damansara Jaya, 47400 Petaling Jaya<br />
-                            Selangor, Malaysia
-                        </p>
-                        <dl className="closing-hours">
-                            <div><dt>Monday – Friday</dt><dd>9:30 am – 5:30 pm</dd></div>
-                            <div><dt>Saturday</dt><dd>9:30 am – 3:30 pm</dd></div>
-                            <div><dt>Sunday &amp; public holidays</dt><dd>Closed</dd></div>
-                        </dl>
-                        <a className="closing-directions" href="https://maps.app.goo.gl/yt8MxXDpDxXgXqre6" target="_blank" rel="noopener noreferrer">Get directions <ArrowRight size={14} /></a>
-                    </div>
+                <div className="container closing-inner">
+                    <span className="section-eyebrow">We're in Damansara Jaya</span>
+                    <h2 className="closing-title">Come and <em>meet us.</em></h2>
+                    <p className="closing-line">
+                        Tell us who is coming in and we will find a time that suits the family.
+                    </p>
+                    <Button onClick={() => openBooking('', 'home-closing-cta')}>Book a Visit <ArrowRight size={18} /></Button>
                 </div>
             </section>
 
             <Style>{`
         /* ==========================================================
            HOMEPAGE
-           Composed as bands with room to breathe: light hero (the real
-           team) -> tinted services index -> teal proof band -> reading ->
-           split closing. No cards on white, no near-black sections.
+           One typographic system, committed:
+             - eyebrow: 0.72rem uppercase, 0.2em tracking, teal
+             - section title: --fs-h2, Outfit 700, tight
+             - statement title (proof/closing): one shared larger scale
+             - accent: ONE serif-italic phrase per headline (system
+               Georgia — no font download), teal on light, pastel on teal
+           And one surface: a scroll-scrubbed ambient background behind
+           everything, with the two colour bands INSET and rounded so they
+           read as shapes floating on the page, not full-width stripes.
            ========================================================== */
 
-        .home-page { background: linear-gradient(180deg, #FFFFFF 0%, #F4F9FC 62%, #eff6ff 100%); min-height: 100vh; }
+        .home-page { background: linear-gradient(180deg, #FFFFFF 0%, #F4F9FC 62%, #eff6ff 100%); min-height: 100vh; position: relative; }
+        .home-page > section { position: relative; z-index: 1; }
         .mobile-break { display: none; }
 
-        /* One accent phrase per headline, flat house teal — no gradient text. */
-        .text-accent { color: var(--color-primary-deep); -webkit-text-fill-color: currentColor; }
-        /* The reference study's signature: a single word set in an italic serif.
-           System Georgia, so no font download and the house fonts stay. */
-        .serif-accent, .proof-statement em, .closing-title em {
+        /* ---------- ambient layer ---------- */
+        /* No blur filter: the radial gradients already fall off to transparent,
+           and filter:blur on viewport-sized elements is what janks phones. */
+        .home-ambient { position: fixed; inset: 0; z-index: 0; pointer-events: none; --scroll: 0; overflow: hidden; }
+        .home-ambient span { position: absolute; border-radius: 50%; will-change: transform; }
+        .ambient-a {
+            width: 58vw; height: 58vw; left: -14vw; top: -18vh;
+            background: radial-gradient(circle, rgba(169,217,233,0.5) 0%, rgba(169,217,233,0) 68%);
+            transform: translate3d(calc(var(--scroll) * 20vw), calc(var(--scroll) * 64vh), 0) scale(calc(1 + var(--scroll) * 0.35));
+        }
+        .ambient-b {
+            width: 46vw; height: 46vw; right: -16vw; top: 26vh;
+            background: radial-gradient(circle, rgba(216,238,245,0.75) 0%, rgba(216,238,245,0) 68%);
+            transform: translate3d(calc(var(--scroll) * -18vw), calc(var(--scroll) * -34vh), 0);
+        }
+        .ambient-c {
+            width: 40vw; height: 40vw; left: 28vw; bottom: -28vh;
+            background: radial-gradient(circle, rgba(0,141,176,0.14) 0%, rgba(0,141,176,0) 68%);
+            transform: translate3d(calc(var(--scroll) * -12vw), calc(var(--scroll) * -50vh), 0) scale(calc(1.15 - var(--scroll) * 0.25));
+        }
+
+        /* ---------- the committed type system ---------- */
+        .home-page h1 em, .home-page h2 em {
             font-family: Georgia, 'Times New Roman', serif;
             font-style: italic;
             font-weight: 500;
             letter-spacing: -0.01em;
+            color: var(--color-primary-deep);
         }
+        .hero-title, .section-title, .proof-statement, .closing-title { text-wrap: balance; }
 
         .section-eyebrow {
             display: block;
@@ -333,6 +384,14 @@ const Home = () => {
             font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
             color: var(--color-primary-teal);
             margin-bottom: 18px;
+        }
+        .section-title { margin: 0; font-size: var(--fs-h2); font-weight: 700; line-height: 1.12; letter-spacing: -0.03em; }
+        /* Proof and closing share ONE statement scale — no more one section
+           shouting louder than the next. */
+        .proof-statement, .closing-title {
+            font-family: var(--font-heading); font-weight: 700;
+            font-size: clamp(2.2rem, 1.5rem + 2.8vw, 3.4rem);
+            line-height: 1.06; letter-spacing: -0.03em; margin: 0;
         }
 
         /* ---------- 1. HERO ---------- */
@@ -346,8 +405,8 @@ const Home = () => {
         }
         .hero-container {
             display: grid;
-            grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-            gap: 72px;
+            grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+            gap: 56px;
             align-items: center;
         }
         /* min-width:0 on both grid children: the ensemble track is
@@ -373,12 +432,16 @@ const Home = () => {
         }
         .hero-eyebrow-year::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 14px; background: rgba(16,42,51,0.18); }
 
-        .hero-title { font-size: var(--fs-display); line-height: 1.04; margin-bottom: 24px; font-weight: 700; letter-spacing: -0.035em; }
+        /* Sized so "Dental care for" / "every generation." sit on TWO lines at
+           desktop widths, like the live site — the previous 0.92fr column plus
+           the 4.5rem cap forced a third line. */
+        .hero-title { font-size: clamp(2.5rem, 1.5rem + 3.4vw, 4rem); line-height: 1.06; margin-bottom: 24px; font-weight: 700; letter-spacing: -0.035em; }
+        @media (min-width: 1025px) { .hero-title em { white-space: nowrap; } }
         .hero-subtitle { font-size: var(--fs-lead); color: var(--color-text-slate); margin-bottom: 36px; max-width: 480px; line-height: 1.65; }
         .hero-subtitle-mobile { display: none; }
         .hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
 
-        /* Quiet footnote under the CTA, reference-style: short rule + one fact. */
+        /* Quiet footnote under the CTA: short rule + one fact. */
         .hero-trust { display: flex; align-items: center; gap: 14px; margin-top: 44px; color: var(--color-text-slate); font-size: 0.92rem; }
         .hero-trust-rule { width: 34px; height: 1px; background: rgba(16,42,51,0.25); flex: none; }
         .hero-trust-item { display: flex; align-items: center; gap: 8px; }
@@ -429,16 +492,21 @@ const Home = () => {
             display: inline-flex; align-items: center; gap: 6px;
             font-family: var(--font-heading); font-weight: 600; font-size: 0.92rem;
             color: var(--color-primary-deep); transition: gap 0.25s ease;
+            white-space: nowrap;
         }
         .hero-ensemble-caption a:hover { gap: 10px; color: var(--color-primary-teal); }
 
-        /* ---------- 2. SERVICES ---------- */
-        .services-section { background: var(--color-tint-faint); padding: 110px 0 120px; }
+        /* ---------- 2. SERVICES (inset band) ---------- */
+        .services-section {
+            background: var(--color-tint-faint);
+            padding: 96px 0 108px;
+            margin: 0 clamp(12px, 2.2vw, 36px);
+            border-radius: 44px;
+        }
         /* The owner asked for this index wider than the house 1200px column. */
         .services-container { max-width: 1360px; }
         .section-header { margin-bottom: 64px; }
-        .services-header { max-width: 760px; }
-        .section-title { margin: 0; font-size: var(--fs-h2); font-weight: 700; line-height: 1.08; letter-spacing: -0.03em; }
+        .services-header { max-width: 880px; }
         .section-lead { font-size: var(--fs-lead); color: var(--color-text-slate); max-width: 620px; margin: 20px 0 0; line-height: 1.65; }
 
         .stage-list { border-top: 1px solid rgba(16,42,51,0.12); }
@@ -492,19 +560,20 @@ const Home = () => {
             display: flex; align-items: center; justify-content: center;
         }
 
-        /* ---------- 3. PROOF (teal band) ---------- */
-        .proof-section { background: var(--color-primary-deep); color: #F0F7FA; padding: 120px 0 0; overflow: hidden; }
+        /* ---------- 3. PROOF (inset teal band) ---------- */
+        .proof-section {
+            background: var(--color-primary-deep); color: #F0F7FA;
+            padding: 100px 0 0; overflow: hidden;
+            margin: 72px clamp(12px, 2.2vw, 36px) 0;
+            border-radius: 44px;
+        }
         .proof-eyebrow {
             font-family: var(--font-heading); font-weight: 700;
             font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
-            color: var(--color-pastel-blue); margin: 0 0 26px;
+            color: var(--color-pastel-blue); margin: 0 0 18px;
         }
-        .proof-statement {
-            font-family: var(--font-heading); font-weight: 700; color: #fff;
-            font-size: clamp(2.6rem, 1.2rem + 5.2vw, 5rem);
-            line-height: 1.02; letter-spacing: -0.035em; margin: 0 0 76px;
-        }
-        .proof-statement em { color: var(--color-pastel-blue); }
+        .proof-statement { color: #fff; margin-bottom: 64px; }
+        .proof-statement em { color: var(--color-pastel-blue) !important; }
 
         .proof-quotes { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(255,255,255,0.22); }
         .proof-quote { margin: 0; padding: 44px 40px 44px 0; border-right: 1px solid rgba(255,255,255,0.22); }
@@ -519,7 +588,7 @@ const Home = () => {
         .proof-link:hover { gap: 12px; border-color: #fff; color: #fff; }
 
         /* The slow roll: what we do, not who reviewed us. 64s per pass. */
-        .name-marquee { margin-top: 88px; border-top: 1px solid rgba(255,255,255,0.18); padding: 28px 0; overflow: hidden; }
+        .name-marquee { margin-top: 72px; border-top: 1px solid rgba(255,255,255,0.18); padding: 28px 0; overflow: hidden; }
         .name-marquee-track { display: flex; width: max-content; animation: name-marquee 64s linear infinite; }
         .name-marquee-item {
             font-family: var(--font-heading); font-size: 0.78rem; font-weight: 600;
@@ -530,68 +599,31 @@ const Home = () => {
         @keyframes name-marquee { from { transform: translate3d(0,0,0); } to { transform: translate3d(-33.333%,0,0); } }
         @media (prefers-reduced-motion: reduce) { .name-marquee-track { animation: none; } }
 
-        /* ---------- 4. DENTAL EDUCATION ---------- */
-        .dental-education-section { padding: 110px 0 40px; }
-        .dental-edu-header { margin-bottom: 30px; }
-        .btn-link { color: var(--color-primary); font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
-        .horizontal-scroll-mask { width: 100%; overflow-x: auto; padding: 20px 0 40px; scrollbar-width: none; -ms-overflow-style: none; }
+        /* ---------- 4. DENTAL EDUCATION (no card chrome) ---------- */
+        .dental-education-section { padding: 110px 0 30px; }
+        .dental-edu-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 36px; }
+        .btn-link { color: var(--color-primary); font-weight: 600; display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; padding-bottom: 6px; }
+        .horizontal-scroll-mask { width: 100%; overflow-x: auto; padding: 12px 0 32px; scrollbar-width: none; -ms-overflow-style: none; }
         .horizontal-scroll-mask::-webkit-scrollbar { display: none; }
-        .horizontal-track-simple { display: flex; gap: 30px; width: max-content; padding: 0 10px; }
-        .insight-card-large {
-            width: 70vw; max-width: 500px; flex-shrink: 0; padding: 0; overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.05);
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s ease;
-        }
-        .insight-image-large { height: 300px; width: 100%; }
-        .insight-image-large picture, .insight-image-large img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .insight-content { padding: 25px; }
-        .insight-card-large:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
-        .insight-card-large .insight-image-large img { transition: transform 0.8s cubic-bezier(0.16,1,0.3,1); }
-        .insight-card-large:hover .insight-image-large img { transform: scale(1.05); }
-        .insight-content h3 { margin-bottom: 12px; font-size: 1.15rem; line-height: 1.3; }
-        .read-more-link { font-size: 0.95rem; color: var(--color-primary-deep); font-weight: 700; display: inline-flex; align-items: center; gap: 6px; }
+        .horizontal-track-simple { display: flex; gap: 36px; width: max-content; padding: 0 4px; }
+
+        /* Bare editorial items: a rounded image, a title, a quiet link.
+           No white box, no border, no shadow — the chrome was the last of the
+           card language left on this page. */
+        .edu-item { display: block; width: 400px; flex: none; text-decoration: none; color: inherit; }
+        .edu-image { border-radius: 26px; overflow: hidden; aspect-ratio: 3 / 2; margin-bottom: 20px; }
+        .edu-image picture, .edu-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+        .edu-item:hover .edu-image img { transform: scale(1.05); }
+        .edu-title { font-family: var(--font-heading); font-weight: 700; font-size: 1.12rem; line-height: 1.35; letter-spacing: -0.01em; margin: 0 0 10px; color: var(--color-text-charcoal); }
+        .read-more-link { font-size: 0.92rem; color: var(--color-primary-deep); font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
         .read-more-link::after { content: '→'; transition: transform 0.25s ease; }
-        .insight-card-large:hover .read-more-link::after { transform: translateX(4px); }
+        .edu-item:hover .read-more-link::after { transform: translateX(4px); }
 
-        /* ---------- 5. CLOSING (split: invitation | facts) ---------- */
-        .closing-cta { padding: 110px 0 130px; }
-        .closing-grid {
-            display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
-            gap: 80px; align-items: start;
-        }
-        .closing-title {
-            font-family: var(--font-heading); font-weight: 700;
-            font-size: clamp(2.2rem, 1.4rem + 3vw, 3.6rem);
-            line-height: 1.05; letter-spacing: -0.03em; margin: 0 0 22px;
-            color: var(--color-text-charcoal);
-        }
-        .closing-title em { color: var(--color-primary-deep); }
-        .closing-line { font-size: var(--fs-lead); color: var(--color-text-slate); max-width: 460px; margin: 0 0 36px; line-height: 1.65; }
-
-        .closing-pin {
-            display: inline-flex; align-items: center; justify-content: center;
-            width: 40px; height: 40px; border-radius: 50%;
-            background: var(--color-tint-light); color: var(--color-primary-deep);
-            margin-bottom: 20px;
-        }
-        .closing-address { font-size: 1.02rem; line-height: 1.7; color: var(--color-text-slate); margin: 0 0 28px; }
-        .closing-hours { margin: 0 0 28px; }
-        .closing-hours > div {
-            display: flex; align-items: baseline; justify-content: space-between; gap: 24px;
-            padding: 13px 0; border-top: 1px solid rgba(16,42,51,0.10);
-        }
-        .closing-hours > div:last-child { border-bottom: 1px solid rgba(16,42,51,0.10); }
-        .closing-hours dt { font-size: 0.95rem; color: var(--color-text-slate); }
-        .closing-hours dd { margin: 0; font-family: var(--font-heading); font-weight: 600; font-size: 0.95rem; color: var(--color-text-charcoal); }
-        .closing-directions {
-            display: inline-flex; align-items: center; gap: 6px;
-            font-family: var(--font-heading); font-weight: 600; font-size: 0.95rem;
-            color: var(--color-primary-deep);
-            border-bottom: 1px solid rgba(0,110,140,0.35); padding-bottom: 4px;
-            transition: gap 0.25s ease, border-color 0.25s ease;
-        }
-        .closing-directions:hover { gap: 10px; border-color: var(--color-primary-deep); }
+        /* ---------- 5. CLOSING (invitation only — the footer holds the facts) ---------- */
+        .closing-cta { padding: 100px 0 120px; }
+        .closing-inner { text-align: center; max-width: 640px; }
+        .closing-title { color: var(--color-text-charcoal); margin-bottom: 22px; }
+        .closing-line { font-size: var(--fs-lead); color: var(--color-text-slate); margin: 0 auto 36px; line-height: 1.65; max-width: 460px; }
 
         /* ============================
            RESPONSIVE — TABLET (481-1024px)
@@ -600,8 +632,7 @@ const Home = () => {
             .desktop-only { display: none; }
             .mobile-break { display: inline; }
 
-            .section-padding { padding: 32px 0; }
-            .home-page .section-title { font-size: 2rem; margin-bottom: 0.75rem; line-height: 1.1; }
+            .home-page .section-title { font-size: 2rem; line-height: 1.12; }
 
             /* ---- Hero — stacked: copy, then the team drifting below ---- */
             .hero-section { min-height: 0; padding: 130px 0 40px; display: block; }
@@ -627,7 +658,7 @@ const Home = () => {
             .section-lead { font-size: 1rem; margin-top: 10px; }
 
             /* Services — tighter rows, arrow drops away */
-            .services-section { padding: 48px 0 56px; }
+            .services-section { padding: 48px 0 56px; margin: 0 8px; border-radius: 28px; }
             .stage-row { grid-template-columns: 34px 1fr; gap: 8px 14px; padding: 22px 6px; }
             .stage-num { font-size: 0.72rem; }
             .stage-line { grid-column: 2; font-size: 0.92rem; }
@@ -636,8 +667,8 @@ const Home = () => {
             .stage-row:hover .stage-title { transform: none; }
 
             /* Proof — quotes become a snap carousel, matching the reading rail */
-            .proof-section { padding: 60px 0 0; }
-            .proof-statement { margin-bottom: 36px; }
+            .proof-section { padding: 56px 0 0; margin: 40px 8px 0; border-radius: 28px; }
+            .proof-statement { margin-bottom: 32px; }
             .proof-quotes {
                 display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
                 gap: 16px; padding: 8px 0 12px; scrollbar-width: none;
@@ -651,31 +682,28 @@ const Home = () => {
             .proof-quote:not(:first-child) { padding-left: 0; }
             .proof-quote p { font-size: 0.98rem; margin-bottom: 18px; }
             .proof-actions { padding-top: 20px; }
-            .name-marquee { margin-top: 44px; padding: 20px 0; }
+            .name-marquee { margin-top: 40px; padding: 20px 0; }
 
-            /* Dental Education — header centered for consistency */
-            .dental-education-section { padding: 40px 0 10px; }
-            .dental-edu-header { margin-bottom: 12px; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+            /* Dental Education */
+            .dental-education-section { padding: 48px 0 10px; }
+            .dental-edu-header { flex-direction: column; align-items: flex-start; gap: 10px; margin-bottom: 16px; }
+            .btn-link { padding-bottom: 0; }
             .horizontal-scroll-mask { padding: 8px 0 12px; }
-            .horizontal-track-simple { gap: 20px; padding: 0 16px; }
-            .insight-card-large { width: 320px; border-radius: 20px; }
-            .insight-image-large { height: 200px; }
-            .insight-content { padding: 20px; }
-            .insight-content h3 { font-size: 1rem; line-height: 1.3; margin-bottom: 6px; }
-            .read-more-link { font-size: 0.9rem; }
+            .horizontal-track-simple { gap: 20px; padding: 0 2px; }
+            .edu-item { width: 300px; }
+            .edu-image { border-radius: 20px; margin-bottom: 14px; }
+            .edu-title { font-size: 1rem; margin-bottom: 6px; }
+            .read-more-link { font-size: 0.88rem; }
 
-            /* Closing — stacked */
             .closing-cta { padding: 48px 0 64px; }
-            .closing-grid { grid-template-columns: 1fr; gap: 40px; }
-            .closing-line { font-size: 1rem; margin-bottom: 24px; }
+            .closing-line { font-size: 1rem; margin-bottom: 26px; }
         }
 
         /* ============================
            RESPONSIVE — PHONE (<=480px)
            ============================ */
         @media (max-width: 480px) {
-            .section-padding { padding: 24px 0; }
-            .home-page .section-title { font-size: 1.6rem; margin-bottom: 0.5rem; line-height: 1.1; }
+            .home-page .section-title { font-size: 1.6rem; line-height: 1.12; }
             .section-header { margin-bottom: 18px; }
 
             .hero-section { padding: 116px 0 32px; }
@@ -692,13 +720,10 @@ const Home = () => {
 
             .proof-quote { flex: 0 0 88%; }
 
-            .dental-edu-header { flex-direction: column; align-items: center; gap: 6px; text-align: center; }
-            .horizontal-track-simple { gap: 12px; padding: 0 16px; }
-            .insight-card-large { width: 240px; border-radius: 16px; }
-            .insight-image-large { height: 140px; }
-            .insight-content { padding: 14px; }
-            .insight-content h3 { font-size: 0.95rem; line-height: 1.3; margin-bottom: 4px; }
-            .read-more-link { font-size: 0.85rem; }
+            .horizontal-track-simple { gap: 14px; }
+            .edu-item { width: 240px; }
+            .edu-image { border-radius: 16px; margin-bottom: 12px; }
+            .edu-title { font-size: 0.95rem; }
 
             .closing-title { font-size: 1.9rem; }
         }

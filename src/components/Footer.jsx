@@ -220,10 +220,15 @@ const Footer = () => {
 
             <Style>{`
         .footer {
-            background-color: #edf2f7;
-            padding: 80px 0 40px;
+            /* Reskinned 7 Sep 2026 to the homepage's committed system: the old
+               #edf2f7 slab made the hand-off from any page into the footer feel
+               like a different site. The footer now sits on the page's own
+               ground behind a single hairline, with the same eyebrow-style
+               headings and quiet link colours as the sections above it. */
+            background: transparent;
+            padding: 96px 0 48px;
             color: #334155;
-            border-top: 1px solid #e2e8f0;
+            border-top: 1px solid rgba(16,42,51,0.10);
         }
 
         .footer-grid {
@@ -238,7 +243,7 @@ const Footer = () => {
         }
 
         .footer-logo img {
-            height: 155px !important;
+            height: 118px !important;
             width: auto !important;
             max-width: 100%;
             object-fit: contain;
@@ -257,24 +262,21 @@ const Footer = () => {
         }
 
         .google-reviews-badge {
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 16px;
+            /* No white box: the card chrome was removed site-wide on the
+               homepage, and the footer follows. A hairline above, the rating
+               line, and the write-review link underlined like every other
+               quiet link in the new system. */
+            border-top: 1px solid rgba(16,42,51,0.10);
+            padding: 16px 0 0;
             margin-bottom: 20px;
             cursor: pointer;
-            transition: all 0.2s ease;
-            text-align: center;
+            text-align: left;
+            max-width: 280px;
         }
-        .google-reviews-badge:hover {
-            border-color: #00A0C6;
-            box-shadow: 0 4px 12px rgba(0, 160, 198, 0.15);
-            transform: translateY(-2px);
-        }
+        .google-reviews-badge:hover .write-review { border-color: var(--color-primary-deep); }
         .google-rating-row {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 8px;
             margin-bottom: 4px;
         }
@@ -294,10 +296,15 @@ const Footer = () => {
             margin: 0 0 8px 0;
         }
         .write-review {
-            color: #00A0C6;
+            display: inline-block;
+            color: var(--color-primary-deep);
+            font-family: var(--font-heading);
             font-size: 0.9rem;
             font-weight: 600;
             margin: 0;
+            border-bottom: 1px solid rgba(0,110,140,0.35);
+            padding-bottom: 2px;
+            transition: border-color 0.25s ease;
         }
 
         .footer-copyright {
@@ -307,11 +314,13 @@ const Footer = () => {
         }
 
         .footer-heading {
-            color: #00A0C6;
-            font-size: 1.1rem;
+            color: var(--color-primary-teal);
+            font-family: var(--font-heading);
+            font-size: 0.72rem;
             font-weight: 700;
             margin-bottom: 24px;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
         }
 
         .footer-links { list-style: none; padding: 0; margin: 0; }
@@ -405,11 +414,11 @@ const Footer = () => {
             .branding-col { text-align: left; align-items: flex-start; padding: 0 0 12px; border-bottom: 1px solid #f1f5f9; margin-bottom: 8px; }
             .footer-logo img { height: 90px !important; width: auto !important; margin-bottom: 0px; }
             .footer-desc { margin: 6px 0 12px; font-size: 0.85rem; max-width: none; }
-            .google-reviews-badge { text-align: left; margin-bottom: 12px; padding: 12px 14px; }
+            .google-reviews-badge { text-align: left; margin-bottom: 12px; padding: 12px 0 0; }
             .google-rating-row { justify-content: flex-start; }
 
             .footer-col { border-bottom: 1px solid #f1f5f9; padding: 6px 0; }
-            .footer-heading { margin-bottom: 0; font-size: 1rem; }
+            .footer-heading { margin-bottom: 0; font-size: 0.78rem; }
 
             .footer-accordion-header { padding: 8px 0; margin: 0; }
             .accordion-icon { display: block; }
