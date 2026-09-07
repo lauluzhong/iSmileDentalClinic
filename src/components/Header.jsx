@@ -254,7 +254,7 @@ const Header = () => {
             <AnimatePresence onExitComplete={() => setActiveSubmenu(null)}>
                 {mobileMenuOpen && (
                     <motion.div
-                        className="mobile-nav-overlay glass-panel"
+                        className="mobile-nav-overlay"
                         initial={{ opacity: 0, y: -20, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: -20, scale: 0.95 }}
@@ -661,7 +661,7 @@ const Header = () => {
 
         .mobile-submenu-title {
             font-size: 1.6rem;
-            font-weight: 800;
+            font-weight: 700;
             color: var(--color-primary);
             line-height: 1.1;
         }

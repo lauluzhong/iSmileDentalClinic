@@ -75,18 +75,14 @@ export default function FaqAccordion({ items = [], idPrefix = 'faq', analyticsLa
                     text-align: left;
                 }
 
+                /* Hairline rows, not cards (design-system rollout, 7 Sep 2026):
+                   no background, border-radius or shadow — a 1px rule under each
+                   question, matching the homepage's row language. */
                 .faq-accordion-item {
-                    background: #fff;
-                    border: 1px solid rgba(0,0,0,0.06);
-                    border-radius: 16px;
-                    margin-bottom: 12px;
-                    overflow: hidden;
-                    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+                    border-bottom: 1px solid var(--hairline);
                 }
-
-                .faq-accordion-item.is-open {
-                    border-color: rgba(79, 163, 194, 0.35);
-                    box-shadow: 0 8px 24px rgba(79, 163, 194, 0.10);
+                .faq-accordion-item:first-child {
+                    border-top: 1px solid var(--hairline);
                 }
 
                 .faq-accordion-heading {
@@ -101,22 +97,25 @@ export default function FaqAccordion({ items = [], idPrefix = 'faq', analyticsLa
                     justify-content: space-between;
                     gap: 16px;
                     width: 100%;
-                    padding: 20px 24px;
+                    padding: 22px 4px;
                     background: none;
                     border: none;
                     font: inherit;
                     text-align: left;
                     cursor: pointer;
-                    color: var(--color-primary);
-                    font-weight: 600;
+                    color: var(--color-text-charcoal);
+                    font-family: var(--font-heading);
+                    font-weight: 700;
                     font-size: 1.05rem;
                     line-height: 1.4;
                 }
 
+                .faq-accordion-trigger:hover { color: var(--color-primary-deep); }
+
                 .faq-accordion-trigger:focus-visible {
                     outline: 2px solid var(--color-primary);
-                    outline-offset: -2px;
-                    border-radius: 16px;
+                    outline-offset: 2px;
+                    border-radius: 6px;
                 }
 
                 .faq-accordion-chevron {
@@ -132,7 +131,7 @@ export default function FaqAccordion({ items = [], idPrefix = 'faq', analyticsLa
                 .faq-accordion-panel {
                     display: grid;
                     grid-template-rows: 0fr;
-                    transition: grid-template-rows 0.25s ease;
+                    transition: grid-template-rows 0.4s var(--ease-slow);
                 }
 
                 .faq-accordion-item.is-open .faq-accordion-panel {
@@ -145,17 +144,16 @@ export default function FaqAccordion({ items = [], idPrefix = 'faq', analyticsLa
 
                 .faq-accordion-panel-inner p {
                     margin: 0;
-                    padding: 0 24px 22px;
-                    color: var(--color-text-muted, #555);
+                    padding: 0 4px 24px;
+                    color: var(--color-text-slate);
                     line-height: 1.7;
                     font-size: 1rem;
                 }
 
                 @media (max-width: 1024px) {
                     .faq-accordion { margin-top: 28px; }
-                    .faq-accordion-item { border-radius: 14px; margin-bottom: 10px; }
-                    .faq-accordion-trigger { padding: 16px 18px; font-size: 1rem; }
-                    .faq-accordion-panel-inner p { padding: 0 18px 18px; font-size: 0.95rem; }
+                    .faq-accordion-trigger { padding: 18px 2px; font-size: 1rem; }
+                    .faq-accordion-panel-inner p { padding: 0 2px 18px; font-size: 0.95rem; }
                 }
 
                 @media (prefers-reduced-motion: reduce) {

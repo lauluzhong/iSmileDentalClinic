@@ -120,12 +120,12 @@ const Footer = () => {
                                 <p>75 & 75A, Jalan SS 22/23, Damansara Jaya, 47400 Petaling Jaya, Selangor, Malaysia</p>
                             </div>
                             <div className="direction-buttons">
-                                <Button className="direction-btn" data-analytics-click="footer-maps" data-analytics-label="google-maps" onClick={() => window.open('https://maps.app.goo.gl/yt8MxXDpDxXgXqre6', '_blank')}>
-                                    <img src="/images/google-maps.png" alt="Maps" className="btn-icon" loading="lazy" width="18" height="18" /> Google
-                                </Button>
-                                <Button className="direction-btn" data-analytics-click="footer-maps" data-analytics-label="waze" onClick={() => window.open('https://ul.waze.com/ul?place=ChIJMyz-_jZJzDERBTVNqS_uGzg&ll=3.12583430%2C101.61623380&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location', '_blank')}>
-                                    <img src="/images/waze.png" alt="Waze" className="btn-icon" loading="lazy" width="18" height="18" /> Waze
-                                </Button>
+                                <a className="quiet-link direction-link" data-analytics-click="footer-maps" data-analytics-label="google-maps" href="https://maps.app.goo.gl/yt8MxXDpDxXgXqre6" target="_blank" rel="noopener noreferrer">
+                                    <img src="/images/google-maps.png" alt="" className="btn-icon" loading="lazy" width="16" height="16" /> Google Maps
+                                </a>
+                                <a className="quiet-link direction-link" data-analytics-click="footer-maps" data-analytics-label="waze" href="https://ul.waze.com/ul?place=ChIJMyz-_jZJzDERBTVNqS_uGzg&ll=3.12583430%2C101.61623380&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location" target="_blank" rel="noopener noreferrer">
+                                    <img src="/images/waze.png" alt="" className="btn-icon" loading="lazy" width="16" height="16" /> Waze
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -172,7 +172,7 @@ const Footer = () => {
                         </div>
                         <p className="cta-desc">Ready to schedule your visit?</p>
                         <div className="mt-4">
-                            <Button data-analytics-click="footer-booking" style={{ padding: '12px 40px', boxShadow: '0 4px 15px rgba(79, 163, 194, 0.3)' }} onClick={() => openBooking('', 'footer-cta')}>Book a Visit</Button>
+                            <Button data-analytics-click="footer-booking" style={{ padding: '12px 40px', boxShadow: 'var(--shadow-teal)' }} onClick={() => openBooking('', 'footer-cta')}>Book a Visit</Button>
                         </div>
                         
                         {/* Social Media Links */}
@@ -185,13 +185,6 @@ const Footer = () => {
                                     rel="noopener noreferrer"
                                     className="footer-social-icon instagram"
                                     aria-label="Follow us on Instagram"
-                                    style={{ 
-                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                        width: '40px', height: '40px', borderRadius: '50%',
-                                        background: 'white', color: '#64748b',
-                                        boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
-                                        transition: 'all 0.3s ease'
-                                    }}
                                 >
                                     <InstagramIcon />
                                 </a>
@@ -201,13 +194,6 @@ const Footer = () => {
                                     rel="noopener noreferrer"
                                     className="footer-social-icon facebook"
                                     aria-label="Follow us on Facebook"
-                                    style={{ 
-                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                        width: '40px', height: '40px', borderRadius: '50%',
-                                        background: 'white', color: '#64748b',
-                                        boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
-                                        transition: 'all 0.3s ease'
-                                    }}
                                 >
                                     <FacebookIcon />
                                 </a>
@@ -341,8 +327,8 @@ const Footer = () => {
             gap: 10px;
             margin-bottom: 24px;
         }
-        .phone-icon {
-            color: #00A0C6;
+        .phone-icon /* tokenised */ {
+            color: var(--color-primary-teal);
         }
         .phone-link {
             color: #475569;
@@ -355,37 +341,20 @@ const Footer = () => {
             color: var(--color-primary);
         }
 
-        .direction-buttons { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
-        .direction-btn {
-            background: white !important;
-            border: 1px solid #e2e8f0 !important;
-            color: #475569 !important;
-            padding: 10px 20px !important;
-            border-radius: 12px !important;
-            font-size: 0.9rem !important;
-            font-weight: 500 !important;
-            display: flex !important;
-            align-items: center !important;
-            gap: 10px !important;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
-            transition: all 0.2s !important;
-        }
-        .direction-btn:hover { border-color: var(--color-primary) !important; color: var(--color-primary) !important; background: #f0f9ff !important; }
-        .btn-icon { width: 18px; height: 18px; }
+        /* Quiet links, not white pills — matches every other secondary link
+           in the system (design rollout, 7 Sep 2026). */
+        .direction-buttons { display: flex; gap: 22px; margin-top: 18px; }
+        .direction-link { font-size: 0.9rem; }
+        .btn-icon { width: 16px; height: 16px; }
 
-        /* Footer Social Icons */
-        .footer-social-icon.instagram:hover {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
-            color: white !important;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(225, 48, 108, 0.3) !important;
+        /* Footer social: bare glyphs in the quiet-link palette, no chips,
+           no third-party brand gradients (design rollout, 7 Sep 2026). */
+        .footer-social-icon {
+            display: inline-flex; align-items: center;
+            color: var(--color-text-grey);
+            transition: color 0.25s ease;
         }
-        .footer-social-icon.facebook:hover {
-            background: #1877F2 !important;
-            color: white !important;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3) !important;
-        }
+        .footer-social-icon:hover { color: var(--color-primary-deep); }
 
         @media (max-width: 1024px) {
             .footer-social { text-align: center; }
@@ -411,13 +380,13 @@ const Footer = () => {
                 grid-template-columns: 1fr;
                 gap: 0;
             }
-            .branding-col { text-align: left; align-items: flex-start; padding: 0 0 12px; border-bottom: 1px solid #f1f5f9; margin-bottom: 8px; }
+            .branding-col { text-align: left; align-items: flex-start; padding: 0 0 12px; border-bottom: 1px solid var(--hairline); margin-bottom: 8px; }
             .footer-logo img { height: 90px !important; width: auto !important; margin-bottom: 0px; }
             .footer-desc { margin: 6px 0 12px; font-size: 0.85rem; max-width: none; }
             .google-reviews-badge { text-align: left; margin-bottom: 12px; padding: 12px 0 0; }
             .google-rating-row { justify-content: flex-start; }
 
-            .footer-col { border-bottom: 1px solid #f1f5f9; padding: 6px 0; }
+            .footer-col { border-bottom: 1px solid var(--hairline); padding: 6px 0; }
             .footer-heading { margin-bottom: 0; font-size: 0.78rem; }
 
             .footer-accordion-header { padding: 8px 0; margin: 0; }

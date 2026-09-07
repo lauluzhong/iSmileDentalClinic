@@ -260,7 +260,7 @@ ${formData.experience}${familySection}${notesSection}`;
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
         >
-            <motion.div className="modal-content glass-panel" onClick={e => e.stopPropagation()} {...cardMotion}>
+            <motion.div className="modal-content" onClick={e => e.stopPropagation()} {...cardMotion}>
                 <button className="close-btn" onClick={closeBooking} aria-label="Close booking modal"><X size={24} /></button>
 
                 <h2 className="modal-title">Schedule a visit with us today</h2>
@@ -417,13 +417,13 @@ ${formData.experience}${familySection}${notesSection}`;
                 .modal-content {
                     width: 100%;
                     max-width: 500px;
-                    background: rgba(255, 255, 255, 0.9);
+                    background: #fff;
                     padding: 40px;
                     position: relative;
                     max-height: 90vh;
                     overflow-y: auto;
                     box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-                    border: 1px solid rgba(255,255,255,0.6);
+                    border: 1px solid var(--hairline);
                     border-radius: 24px;
                 }
                 .close-btn {
@@ -447,8 +447,10 @@ ${formData.experience}${familySection}${notesSection}`;
                     transform: scale(0.92);
                 }
                 .modal-title {
+                    font-family: var(--font-heading);
                     font-size: 1.8rem;
-                    color: var(--color-primary);
+                    color: var(--color-text-charcoal);
+                    letter-spacing: -0.02em;
                     margin-bottom: 15px;
                     text-align: center;
                     font-weight: 700;

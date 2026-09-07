@@ -492,7 +492,7 @@ const CtaPrompt = () => {
                     color: #fff;
                     text-decoration: none;
                     border-radius: 999px;
-                    background: linear-gradient(135deg, var(--color-primary-deep) 0%, var(--color-primary-teal) 100%);
+                    background: var(--gradient-primary);
                     box-shadow: 0 8px 22px rgba(0, 141, 176, 0.3);
                     -webkit-tap-highlight-color: transparent;
                 }
