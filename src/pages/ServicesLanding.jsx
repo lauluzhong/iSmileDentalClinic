@@ -116,23 +116,29 @@ const ServicesLanding = () => {
                 <div className="sl-directory">
                     {Object.entries(servicesData).map(([key, data], index) => (
                         <FadeIn key={key} delay={index * 0.08} className="sl-cat">
-                            <Link to={`/services/${key}`} className="sl-cat-row">
+                            <div className="sl-cat-grid">
                                 <span className="sl-cat-num">{String(index + 1).padStart(2, '0')}</span>
-                                <h3 className="sl-cat-title">{data.displayTitle}</h3>
-                                <p className="sl-cat-line">{data.bracketText}</p>
-                                <ArrowRight size={22} className="sl-cat-arrow" />
-                            </Link>
-                            <ul className="sl-cat-links">
-                                {data.services.map((service, sIdx) => (
-                                    <li key={sIdx}>
-                                        {service.path ? (
-                                            <Link to={service.path} className="sl-treatment-link">{service.name} <ArrowUpRight size={14} className="sl-treatment-arrow" /></Link>
-                                        ) : (
-                                            <span className="sl-treatment">{service.name}</span>
-                                        )}
-                                    </li>
-                                ))}
-                            </ul>
+                                <div className="sl-cat-body">
+                                    <Link to={`/services/${key}`} className="sl-cat-row">
+                                        <span className="sl-cat-head">
+                                            <h3 className="sl-cat-title">{data.displayTitle}</h3>
+                                            <span className="sl-cat-line">{data.bracketText}</span>
+                                        </span>
+                                        <ArrowRight size={22} className="sl-cat-arrow" />
+                                    </Link>
+                                    <ul className="sl-cat-links">
+                                        {data.services.map((service, sIdx) => (
+                                            <li key={sIdx}>
+                                                {service.path ? (
+                                                    <Link to={service.path} className="sl-treatment-link">{service.name}<ArrowUpRight size={13} className="sl-treatment-arrow" /></Link>
+                                                ) : (
+                                                    <span className="sl-treatment">{service.name}</span>
+                                                )}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
                         </FadeIn>
                     ))}
                 </div>
@@ -214,37 +220,34 @@ const ServicesLanding = () => {
                 .sl-directory-wrap { padding-bottom: 80px; }
                 .sl-directory { border-top: 1px solid var(--hairline); margin-top: 40px; }
                 .sl-cat { border-bottom: 1px solid var(--hairline); }
-                .sl-cat-row {
-                    position: relative;
+
+                /* One grid, one left edge: the numeral sits in its own column;
+                   title, subtitle and the treatment list all share the second
+                   column's edge (owner, 8 Sep 2026 — the old four-column row
+                   scattered text at three different alignments). */
+                .sl-cat-grid {
                     display: grid;
-                    grid-template-columns: 72px minmax(0, 0.85fr) minmax(0, 1.15fr) 40px;
-                    align-items: center;
-                    gap: 32px;
-                    padding: 38px 18px 10px;
-                    text-decoration: none;
-                    color: inherit;
-                    overflow: hidden;
+                    grid-template-columns: 72px minmax(0, 1fr);
+                    gap: 0 32px;
+                    padding: 36px 18px;
                 }
-                .sl-cat-row::before {
-                    content: '';
-                    position: absolute;
-                    inset: 0;
-                    z-index: 0;
-                    background: linear-gradient(90deg, rgba(0,141,176,0.08) 0%, rgba(0,141,176,0.02) 62%, rgba(0,141,176,0) 100%);
-                    transform: scaleX(0);
-                    transform-origin: left;
-                    transition: transform 0.75s var(--ease-slow);
-                }
-                .sl-cat-row:hover::before,
-                .sl-cat-row:focus-visible::before { transform: scaleX(1); }
-                .sl-cat-row > * { position: relative; z-index: 1; }
                 .sl-cat-num {
                     font-family: var(--font-heading);
                     font-weight: 700;
                     font-size: 0.8rem;
                     letter-spacing: 0.12em;
                     color: var(--color-primary-teal);
+                    padding-top: 10px;
                 }
+                .sl-cat-row {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 24px;
+                    text-decoration: none;
+                    color: inherit;
+                }
+                .sl-cat-head { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
                 .sl-cat-title {
                     font-family: var(--font-heading);
                     font-weight: 700;
@@ -253,47 +256,62 @@ const ServicesLanding = () => {
                     letter-spacing: -0.025em;
                     color: var(--color-text-charcoal);
                     margin: 0;
-                    transition: transform 0.7s var(--ease-slow);
+                    transition: color 0.3s ease;
                 }
-                .sl-cat-row:hover .sl-cat-title { transform: translateX(10px); }
-                .sl-cat-line { color: var(--color-text-slate); font-size: 1rem; line-height: 1.6; margin: 0; }
+                .sl-cat-row:hover .sl-cat-title { color: var(--color-primary-deep); }
+                .sl-cat-line {
+                    font-family: var(--font-heading);
+                    font-weight: 600;
+                    font-size: 0.72rem;
+                    letter-spacing: 0.16em;
+                    text-transform: uppercase;
+                    color: var(--color-text-grey);
+                }
                 .sl-cat-arrow {
+                    flex: none;
                     color: var(--color-primary-teal);
-                    opacity: 0.3;
+                    opacity: 0.35;
                     transition: opacity 0.5s ease, transform 0.7s var(--ease-slow);
                 }
-                .sl-cat-row:hover .sl-cat-arrow { opacity: 1; transform: translate(6px, -4px) rotate(-45deg); }
+                .sl-cat-row:hover .sl-cat-arrow { opacity: 1; transform: translate(4px, -4px) rotate(-45deg); }
 
-                /* Treatment links: an indented quiet list under each row */
+                /* Treatments: one tidy dot-separated line that wraps, every item
+                   the same size and colour, links underlined on hover. */
                 .sl-cat-links {
                     list-style: none;
-                    margin: 0;
-                    padding: 0 18px 30px calc(72px + 32px + 18px);
+                    margin: 18px 0 0;
+                    padding: 0;
                     display: flex;
                     flex-wrap: wrap;
-                    gap: 8px 28px;
+                    align-items: baseline;
+                    row-gap: 8px;
                 }
-                .sl-cat-links li { margin: 0; }
+                .sl-cat-links li { display: inline-flex; align-items: baseline; margin: 0; }
+                .sl-cat-links li + li::before {
+                    content: '·';
+                    margin: 0 12px;
+                    color: rgba(16,42,51,0.30);
+                }
                 .sl-treatment,
                 .sl-treatment-link {
                     font-size: 0.95rem;
                     color: var(--color-text-slate);
-                    line-height: 1.5;
+                    line-height: 1.6;
                     text-decoration: none;
+                    white-space: nowrap;
                 }
-                .sl-treatment-link { transition: color 0.2s ease; }
-                .sl-treatment-link:hover { color: var(--color-primary-teal); }
+                .sl-treatment-link { color: var(--color-primary-deep); transition: color 0.2s ease; }
+                .sl-treatment-link:hover { color: var(--color-primary-teal); text-decoration: underline; text-underline-offset: 3px; }
                 .sl-treatment-arrow {
                     display: inline-block;
-                    vertical-align: middle;
-                    opacity: 0.4;
-                    transition: opacity 0.2s ease, transform 0.2s ease;
+                    vertical-align: baseline;
+                    position: relative;
+                    top: 2px;
+                    opacity: 0.45;
                     margin-left: 2px;
+                    transition: opacity 0.2s ease, transform 0.2s ease;
                 }
-                .sl-treatment-link:hover .sl-treatment-arrow {
-                    opacity: 1;
-                    transform: translate(2px, -2px);
-                }
+                .sl-treatment-link:hover .sl-treatment-arrow { opacity: 1; transform: translate(1px, -1px); }
 
                 /* ---------- FAQ ---------- */
                 .sl-faq { margin-top: 96px; }
@@ -314,20 +332,17 @@ const ServicesLanding = () => {
                     .sl-title { font-size: 2.2rem; }
                     .sl-lead { font-size: 1rem; }
                     .sl-directory { margin-top: 28px; }
-                    .sl-cat-row {
-                        grid-template-columns: 34px 1fr;
-                        gap: 6px 14px;
-                        padding: 22px 6px 6px;
-                    }
-                    .sl-cat-num { font-size: 0.72rem; }
+                    /* Mobile: same single left edge — numeral, title, label and
+                       links all hang off one line, one item per row for the
+                       links so the hierarchy stays crisp on a narrow screen. */
+                    .sl-cat-grid { grid-template-columns: 34px 1fr; gap: 0 12px; padding: 24px 4px; }
+                    .sl-cat-num { font-size: 0.72rem; padding-top: 8px; }
                     .sl-cat-title { font-size: 1.35rem; }
-                    .sl-cat-row:hover .sl-cat-title { transform: none; }
-                    .sl-cat-line { grid-column: 2; font-size: 0.92rem; }
+                    .sl-cat-line { font-size: 0.66rem; letter-spacing: 0.14em; }
                     .sl-cat-arrow { display: none; }
-                    .sl-cat-links {
-                        padding: 4px 6px 22px calc(34px + 14px);
-                        gap: 6px 20px;
-                    }
+                    .sl-cat-links { margin-top: 12px; flex-direction: column; row-gap: 6px; }
+                    .sl-cat-links li + li::before { content: none; }
+                    .sl-treatment, .sl-treatment-link { font-size: 0.92rem; white-space: normal; }
                     .sl-faq { margin-top: 56px; }
                     .sl-faq-header { margin-bottom: 28px; }
                     .sl-cta { margin-top: 56px; }

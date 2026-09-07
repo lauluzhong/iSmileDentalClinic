@@ -170,7 +170,7 @@ const JoinUs = () => {
                     <div className="join-points">
                         {POINTS.map((p, i) => (
                             <Reveal key={p.n} delay={0.05 * i} width="100%">
-                                <div className="join-point hairline-row">
+                                <div className="join-point">
                                     <span className="join-point-n">{p.n}</span>
                                     <div>
                                         <h2>{p.title}</h2>
@@ -367,15 +367,24 @@ const JoinUs = () => {
             text-align: left;
         }
 
+        /* Three points across (litmus pass, 8 Sep 2026): they were stacked
+           rows eating vertical space; side by side under thin top rules they
+           read as one composed band, like the homepage's row language. */
         .join-points {
-            border-top: 1px solid var(--hairline);
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 40px;
         }
         .join-point {
-            display: grid;
-            grid-template-columns: 46px 1fr;
-            gap: 20px;
-            align-items: flex-start;
-            padding: 26px 0;
+            display: block;
+            border-top: 1px solid var(--hairline);
+            
+            padding: 24px 0 0;
+        }
+        .join-point .join-point-n { display: block; margin-bottom: 12px; }
+        @media (max-width: 1024px) {
+            .join-points { grid-template-columns: 1fr; gap: 0; }
+            .join-point { padding: 22px 0; }
         }
         .join-point-n {
             font-family: var(--font-heading, sans-serif);

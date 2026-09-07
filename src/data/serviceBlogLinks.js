@@ -166,6 +166,13 @@ export function pickRelatedPosts(blogIndex, pathname, limit = 3) {
   const topic = SERVICE_BLOG_TOPICS[normalizeServiceKey(pathname)];
   if (!topic || !Array.isArray(blogIndex)) return [];
 
+  // Locality posts (content_type: locality) exist to be LANDED ON from search,
+  // never to be surfaced by the site's own education strips — the owner's
+  // standing rule (8 Sep 2026). The Learning Centre listing and the article
+  // page already filter the same way; this closes the last gap. A pinned slug
+  // that is a locality post is skipped for the same reason.
+  blogIndex = blogIndex.filter((p) => (p.content_type || 'educational') === 'educational');
+
   const bySlug = new Map(blogIndex.map((p) => [p.slug, p]));
   const chosen = [];
   const seen = new Set();

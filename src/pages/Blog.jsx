@@ -1,19 +1,26 @@
 import { Helmet } from 'react-helmet-async';
 import React, { useMemo, useRef, useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+import Button from '../components/Button';
 import { Reveal, FadeIn } from '../components/Reveal';
 import blogIndex from '../data/blog-index.json';
 import { CORE_PAGES } from '../data/corePagesSeo';
 import { fillStats } from '../data/serviceSeo';
 import reviewStats from '../data/review-stats.json';
 import ResponsiveImage from '../components/ResponsiveImage';
-import Style from '../components/Style';
-
 const educationalPosts = blogIndex.filter(post => post.content_type === 'educational');
+
 const POSTS_PER_PAGE = 12;
-const formatDate = (isoDate) => new Date(isoDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+
+const formatDate = (isoDate) => {
+    return new Date(isoDate).toLocaleDateString('en-US', {
+        year: 'numeric', month: 'short', day: 'numeric'
+    });
+};
 
 const Blog = () => {
+    // Meta comes from src/data/corePagesSeo.js, the same source the build
+    // uses to prerender this page — so the two cannot drift.
     const seo = CORE_PAGES.find(p => p.path === 'blog');
     const [searchParams, setSearchParams] = useSearchParams();
     const currentPage = parseInt(searchParams.get('page') || '1', 10);
@@ -21,48 +28,548 @@ const Blog = () => {
     const activeQuery = (searchParams.get('q') || '').trim();
     const [searchDraft, setSearchDraft] = useState(activeQuery);
     const filterRef = useRef(null);
-    const MECE_TAGS = ['Pediatric Dentistry', 'Orthodontics', 'Myofunctional Orthodontics', 'Clear Aligners', 'Traditional Braces', 'Cosmetic Dentistry', 'Restorative Dentistry', 'Oral Surgery', 'Oral Health', 'Preventive Care', 'Emergency Dental', 'Dental Technology'];
+
+    // MECE Tag List (12 tags)
+    const MECE_TAGS = [
+        'Pediatric Dentistry',
+        'Orthodontics',
+        'Myofunctional Orthodontics',
+        'Clear Aligners',
+        'Traditional Braces',
+        'Cosmetic Dentistry',
+        'Restorative Dentistry',
+        'Oral Surgery',
+        'Oral Health',
+        'Preventive Care',
+        'Emergency Dental',
+        'Dental Technology'
+    ];
+
+    // Extract unique categories with counts from tags
     const categories = useMemo(() => {
         const counts = {};
         educationalPosts.forEach(p => {
-            const tags = p.tags && p.tags.length > 0 ? p.tags : (p.categories && p.categories.length > 0 ? p.categories : (p.category ? [p.category] : []));
-            tags.forEach(tag => { if (MECE_TAGS.includes(tag)) counts[tag] = (counts[tag] || 0) + 1; });
+            // Use tags if available, otherwise fall back to categories
+            const tags = p.tags && p.tags.length > 0 ? p.tags : 
+                        (p.categories && p.categories.length > 0 ? p.categories : 
+                        (p.category ? [p.category] : []));
+            
+            tags.forEach(tag => {
+                // Only count tags that are in our MECE list
+                if (MECE_TAGS.includes(tag)) {
+                    counts[tag] = (counts[tag] || 0) + 1;
+                }
+            });
         });
-        return Object.entries(counts).sort((a, b) => b[1] !== a[1] ? b[1] - a[1] : a[0].localeCompare(b[0])).map(([name, count]) => ({ name, count }));
+        
+        // Sort by count, then alphabetically
+        return Object.entries(counts)
+            .sort((a, b) => {
+                if (b[1] !== a[1]) return b[1] - a[1]; // Sort by count first
+                return a[0].localeCompare(b[0]); // Then alphabetically
+            })
+            .map(([name, count]) => ({ name, count }));
     }, []);
+
+    // Featured post: first post with featured: true, fallback to first post
     const featuredPost = educationalPosts.find(p => p.featured) || educationalPosts[0];
-    useEffect(() => { setSearchDraft(activeQuery); }, [activeQuery]);
+
+    useEffect(() => {
+        setSearchDraft(activeQuery);
+    }, [activeQuery]);
+
     const filteredPosts = useMemo(() => {
         const normalizedQuery = activeQuery.toLowerCase();
         return educationalPosts.filter(p => {
-            const tags = p.tags && p.tags.length > 0 ? p.tags : (p.categories && p.categories.length > 0 ? p.categories : (p.category ? [p.category] : []));
+            const tags = p.tags && p.tags.length > 0 ? p.tags : 
+                        (p.categories && p.categories.length > 0 ? p.categories : 
+                        (p.category ? [p.category] : []));
             const matchesCategory = activeCategory === 'All' || tags.includes(activeCategory);
             if (!matchesCategory) return false;
             if (!normalizedQuery) return true;
+
             const haystack = `${p.title || ''} ${p.excerpt || ''} ${(p.tags || []).join(' ')}`.toLowerCase();
             return haystack.includes(normalizedQuery);
         });
     }, [activeCategory, activeQuery]);
-    const otherPosts = useMemo(() => activeCategory === 'All' && !activeQuery ? filteredPosts.filter(p => p.slug !== featuredPost?.slug) : filteredPosts, [activeCategory, activeQuery, filteredPosts, featuredPost]);
+
+    // Grid posts: everything except featured on the default view.
+    const otherPosts = useMemo(() => {
+        if (activeCategory === 'All' && !activeQuery) {
+            return filteredPosts.filter(p => p.slug !== featuredPost?.slug);
+        }
+        return filteredPosts;
+    }, [activeCategory, activeQuery, filteredPosts, featuredPost]);
+
+    // Pagination
     const totalPages = Math.ceil(otherPosts.length / POSTS_PER_PAGE);
     const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
     const paginatedPosts = otherPosts.slice(startIndex, startIndex + POSTS_PER_PAGE);
-    const goToPage = (page) => { const params = {}; if (activeCategory !== 'All') params.category = activeCategory; if (page > 1) params.page = String(page); setSearchParams(params); window.scrollTo(0, 0); };
-    const setCategory = (cat) => { const params = {}; if (activeQuery) params.q = activeQuery; if (cat !== 'All') params.category = cat; setSearchParams(params); if (filterRef.current) { const pill = filterRef.current.querySelector(`[data-cat="${cat}"]`); if (pill) pill.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }); } };
-    const setQuery = (value) => { const next = value.trim(); const params = {}; if (next) params.q = next; if (activeCategory !== 'All') params.category = activeCategory; setSearchParams(params); };
-    useEffect(() => { if (filterRef.current) { const pill = filterRef.current.querySelector(`[data-cat="${activeCategory}"]`); if (pill) pill.scrollIntoView({ inline: 'center', block: 'nearest' }); } }, [activeCategory]);
-    const categoryButton = (name, count) => <button key={name} className={`category-label${activeCategory === name ? ' active' : ''}`} onClick={() => setCategory(name)} data-cat={name}>{name} ({count})</button>;
-    return <div className="blog-page">
-        <Helmet><title>{fillStats(seo.title, reviewStats)}</title><meta name="description" content={fillStats(seo.description, reviewStats)} /><link rel="canonical" href={`https://ismile.com.my/blog${currentPage > 1 ? `?page=${currentPage}` : ''}`} /></Helmet>
-        <header className="blog-hero container"><Reveal width="100%"><p className="eyebrow">Learning Centre</p><h1>Learning <em>Centre</em></h1></Reveal><Reveal delay={0.2} width="100%"><p className="hero-subtitle">Welcome to our learning space—where we share our heart for dental education and empower you with the knowledge to care for your lifelong smile.</p></Reveal></header>
-        <main className="container blog-main">
-            <div className="blog-search-wrap"><input type="search" className="blog-search-input" placeholder="Search articles by keyword" value={searchDraft} onChange={(e) => { const value = e.target.value; setSearchDraft(value); setQuery(value); }} aria-label="Search blog posts" />{searchDraft && <button type="button" className="blog-search-clear quiet-link" onClick={() => { setSearchDraft(''); setQuery(''); }} aria-label="Clear search">Clear</button>}</div>
-            <nav className="category-filter-bar snap-rail" ref={filterRef} aria-label="Filter by topic">{categoryButton('All', educationalPosts.length)}{categories.map(({ name, count }) => categoryButton(name, count))}</nav>
-            {featuredPost && activeCategory === 'All' && !activeQuery && <FadeIn className="featured-post media-item"><Link to={`/blog/${featuredPost.slug}`} className="featured-image media-image"><ResponsiveImage src={featuredPost.img} alt={featuredPost.title} loading="lazy" sizes="(max-width: 768px) 88vw, 760px" /></Link><div className="featured-content"><p className="eyebrow">Featured</p><h2>{featuredPost.title}</h2><p>{featuredPost.excerpt}</p><Link to={`/blog/${featuredPost.slug}`} className="quiet-link">Read More →</Link></div></FadeIn>}
-            <div className="posts-grid">{paginatedPosts.length > 0 ? paginatedPosts.map((post) => <FadeIn key={post.slug} className="post-card media-item"><Link to={`/blog/${post.slug}`} className="post-image media-image"><ResponsiveImage src={post.img} alt={post.title} loading="lazy" sizes="(max-width: 768px) 82vw, 380px" /></Link><div className="post-content">{post.tags && post.tags.length > 0 && <button className="post-tag eyebrow" onClick={() => setCategory(post.tags[0])}>{post.tags[0]}</button>}<h3 className="media-title"><Link to={`/blog/${post.slug}`}>{post.title}</Link></h3><p className="post-meta">{formatDate(post.date)}</p><Link to={`/blog/${post.slug}`} className="quiet-link">Read More →</Link></div></FadeIn>) : <div className="empty-posts"><p>No other posts in this category yet. Check back soon!</p></div>}</div>
-            {totalPages > 1 && <nav className="blog-pagination" aria-label="Blog pages">{currentPage > 1 && <button className="quiet-link" onClick={() => goToPage(currentPage - 1)}>← Previous</button>}{Array.from({ length: totalPages }, (_, i) => i + 1).map(page => <button key={page} className={`page-link${page === currentPage ? ' active' : ''}`} onClick={() => goToPage(page)} aria-current={page === currentPage ? 'page' : undefined}>{page}</button>)}{currentPage < totalPages && <button className="quiet-link" onClick={() => goToPage(currentPage + 1)}>Next →</button>}</nav>}
-        </main>
-        <Style>{`.blog-page .blog-hero{padding:160px 0 56px;text-align:center}.blog-page .blog-hero .eyebrow{margin-bottom:14px}.blog-page .blog-hero h1{margin:0;font-size:var(--fs-display);font-weight:700;text-wrap:balance}.blog-page .hero-subtitle{max-width:800px;margin:24px auto 0;color:var(--color-text-slate);font-size:var(--fs-lead);line-height:1.6}.blog-page .blog-main{padding-bottom:var(--space-section-lg)}.blog-page .blog-search-wrap{display:flex;gap:12px;margin-bottom:20px}.blog-page .blog-search-input{width:100%;height:56px;padding:0 18px;border:1.5px solid var(--color-tint-blue);border-radius:16px;background:var(--color-bg-white);color:var(--color-text-charcoal);font:inherit}.blog-page .blog-search-input:focus{outline:2px solid var(--color-pastel-blue);outline-offset:2px;border-color:var(--color-primary-teal)}.blog-page .blog-search-clear,.blog-page .page-link{border:0;background:none;cursor:pointer;font:inherit}.blog-page .category-filter-bar{display:flex;flex-wrap:wrap;gap:10px 22px;padding:0 0 28px;margin-bottom:34px}.blog-page .category-label{padding:0 0 3px;border:0;border-bottom:1px solid transparent;background:none;color:var(--color-text-slate);font:inherit;font-size:.92rem;cursor:pointer;white-space:nowrap}.blog-page .category-label:hover,.blog-page .category-label.active{color:var(--color-primary-teal);border-color:var(--color-primary-teal)}.blog-page .featured-post{display:block;max-width:760px;margin:0 auto 64px}.blog-page .featured-content{padding-top:18px}.blog-page .featured-image,.blog-page .post-image{overflow:hidden;border-radius:26px}.blog-page .featured-image picture,.blog-page .featured-image img,.blog-page .post-image picture,.blog-page .post-image img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease-slow)}.blog-page .featured-image,.blog-page .post-image{aspect-ratio:3/2}.blog-page .media-item:hover .media-image img{transform:scale(1.04)}.blog-page .featured-content h2{margin:0 0 14px;font-size:var(--fs-h2);font-weight:700}.blog-page .featured-content p:not(.eyebrow){color:var(--color-text-slate);margin:0 0 18px}.blog-page .posts-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:38px 24px}.blog-page .post-content{padding-top:16px}.blog-page .post-tag{display:block;padding:0;border:0;background:none;cursor:pointer;color:var(--color-primary-deep);margin-bottom:7px}.blog-page .media-title{margin:0 0 8px;font-size:1.2rem;line-height:1.35}.blog-page .media-title a:hover{color:var(--color-primary-teal)}.blog-page .post-meta{margin:0 0 12px;font-size:.88rem;color:var(--color-text-grey)}.blog-page .empty-posts{grid-column:1/-1;padding:60px 20px;text-align:center;color:var(--color-text-slate)}.blog-page .blog-pagination{display:flex;justify-content:center;align-items:baseline;flex-wrap:wrap;gap:16px;margin:58px 0 20px}.blog-page .page-link{color:var(--color-text-slate);padding:0 0 3px;border-bottom:1px solid transparent}.blog-page .page-link.active{color:var(--color-primary-teal);border-color:var(--color-primary-teal);font-weight:700}@media(max-width:1024px){.blog-page .blog-hero{padding-top:124px}.blog-page .category-filter-bar{flex-wrap:nowrap;overflow-x:auto;margin:0 -16px 28px;padding:0 16px 14px;scroll-snap-type:x proximity}.blog-page .category-label{flex:0 0 auto;scroll-snap-align:start}.blog-page .featured-post{margin-bottom:44px}.blog-page .posts-grid{display:flex;overflow-x:auto;margin:0 -16px;padding:0 16px 8px;gap:18px;scroll-snap-type:x mandatory}.blog-page .post-card{width:78vw;max-width:340px;flex:0 0 auto;scroll-snap-align:start}}`}</Style>
-    </div>;
+
+    const goToPage = (page) => {
+        const params = {};
+        if (activeCategory !== 'All') params.category = activeCategory;
+        if (page > 1) params.page = String(page);
+        setSearchParams(params);
+        window.scrollTo(0, 0);
+    };
+
+    const setCategory = (cat) => {
+        const params = {};
+        if (activeQuery) params.q = activeQuery;
+        if (cat !== 'All') params.category = cat;
+        setSearchParams(params);
+
+        if (filterRef.current) {
+            const pill = filterRef.current.querySelector(`[data-cat="${cat}"]`);
+            if (pill) {
+                pill.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
+        }
+    };
+
+    const setQuery = (value) => {
+        const next = value.trim();
+        const params = {};
+        if (next) params.q = next;
+        if (activeCategory !== 'All') params.category = activeCategory;
+        setSearchParams(params);
+    };
+
+    useEffect(() => {
+        if (filterRef.current) {
+            const pill = filterRef.current.querySelector(`[data-cat="${activeCategory}"]`);
+            if (pill) {
+                pill.scrollIntoView({ inline: 'center', block: 'nearest' });
+            }
+        }
+    }, [activeCategory]);
+
+    return (
+        <div className="blog-page">
+            <Helmet>
+                <title>{fillStats(seo.title, reviewStats)}</title>
+                <meta name="description" content={fillStats(seo.description, reviewStats)} />
+                <link rel="canonical" href={`https://ismile.com.my/blog${currentPage > 1 ? `?page=${currentPage}` : ''}`} />
+            </Helmet>
+            <div className="blog-hero-gradient" style={{
+                background: 'linear-gradient(180deg, #F3F9FE 0%, #E9F4FB 60%, rgba(233,244,251,0) 100%)',
+                paddingTop: '180px',
+                paddingBottom: '80px',
+                textAlign: 'center'
+            }}>
+                <div className="container">
+                    <Reveal width="100%"><h1 className="hero-title" style={{
+                        fontSize: "clamp(2.5rem, 5vw, 4rem)",
+                        fontWeight: 700,
+                        color: 'var(--color-text-charcoal)',
+                        letterSpacing: '-0.02em'
+                    }}>Learning <em>Centre.</em></h1></Reveal>
+                    <Reveal delay={0.2} width="100%"><p className="hero-subtitle" style={{
+                        fontSize: '1.2rem',
+                        color: 'var(--color-text-muted)',
+                        maxWidth: '800px',
+                        margin: '25px auto 0',
+                        lineHeight: '1.6',
+                        fontWeight: 500
+                    }}>
+                        Welcome to our learning space—where we share our heart for dental education and empower you with the knowledge to care for your lifelong smile.
+                    </p></Reveal>
+                </div>
+            </div>
+
+            <div className="container section-padding">
+                {/* Category Filter Bar */}
+                <div className="blog-search-wrap">
+                    <input
+                        type="search"
+                        className="blog-search-input"
+                        placeholder="Search articles by keyword"
+                        value={searchDraft}
+                        onChange={(e) => {
+                            const value = e.target.value;
+                            setSearchDraft(value);
+                            setQuery(value);
+                        }}
+                        aria-label="Search blog posts"
+                    />
+                    {searchDraft && (
+                        <button
+                            type="button"
+                            className="blog-search-clear"
+                            onClick={() => {
+                                setSearchDraft('');
+                                setQuery('');
+                            }}
+                            aria-label="Clear search"
+                        >
+                            Clear
+                        </button>
+                    )}
+                </div>
+                <nav className="category-filter-bar" ref={filterRef} aria-label="Filter by topic">
+                    <button
+                        className={`category-pill${activeCategory === 'All' ? ' active' : ''}`}
+                        onClick={() => setCategory('All')}
+                        data-cat="All"
+                    >
+                        All
+                        <span className="pill-count">{educationalPosts.length}</span>
+                    </button>
+                    {categories.map(({ name, count }) => (
+                        <button
+                            key={name}
+                            className={`category-pill${activeCategory === name ? ' active' : ''}`}
+                            onClick={() => setCategory(name)}
+                            data-cat={name}
+                        >
+                            {name}
+                            <span className="pill-count">{count}</span>
+                        </button>
+                    ))}
+                </nav>
+
+                {/* Featured — only show on "All" view */}
+                {featuredPost && activeCategory === 'All' && !activeQuery && (
+                    <FadeIn className="featured-post">
+                        <div className="featured-content">
+                            <span className="badge">Featured</span>
+                            <h2>{featuredPost.title}</h2>
+                            <p>{featuredPost.excerpt}</p>
+                            <Link to={`/blog/${featuredPost.slug}`}>
+                                <Button variant="outline">Read Article</Button>
+                            </Link>
+                        </div>
+                        <div className="featured-image">
+                            <ResponsiveImage src={featuredPost.img} alt={featuredPost.title} loading="lazy" sizes="(max-width: 768px) 100vw, 550px" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        </div>
+                    </FadeIn>
+                )}
+
+                {/* Grid */}
+                <div className="posts-grid" style={{ marginTop: '50px' }}>
+                    {paginatedPosts.length > 0 ? (
+                        paginatedPosts.map((post) => (
+                            <Link to={`/blog/${post.slug}`} key={post.slug} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <FadeIn className="post-card">
+                                    <div className="post-image">
+                                        <ResponsiveImage src={post.img} alt={post.title} loading="lazy" sizes="(max-width: 768px) 100vw, 380px" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                    </div>
+                                    <div className="post-content">
+                                        <div className="post-tags">
+                                            {post.tags && post.tags.length > 0 && (
+                                                <button
+                                                    className="post-tag"
+                                                    onClick={(e) => {
+                                                        e.preventDefault();
+                                                        e.stopPropagation();
+                                                        setCategory(post.tags[0]);
+                                                    }}
+                                                >
+                                                    {post.tags[0]}
+                                                </button>
+                                            )}
+                                        </div>
+                                        <h3>{post.title}</h3>
+                                        <div className="post-meta">{formatDate(post.date)}</div>
+                                    </div>
+                                </FadeIn>
+                            </Link>
+                        ))
+                    ) : (
+                        <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '60px 20px' }}>
+                            <p style={{ fontSize: '1.1rem', color: 'var(--color-text-muted)' }}>
+                                No other posts in this category yet. Check back soon!
+                            </p>
+                        </div>
+                    )}
+                </div>
+
+                {/* Pagination */}
+                {totalPages > 1 && (
+                    <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginTop: '50px', marginBottom: '20px' }}>
+                        {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+                            <button
+                                key={page}
+                                onClick={() => goToPage(page)}
+                                style={{
+                                    padding: '10px 18px',
+                                    borderRadius: '12px',
+                                    border: 'none',
+                                    background: page === currentPage ? 'var(--color-primary-teal)' : 'rgba(255,255,255,0.8)',
+                                    color: page === currentPage ? 'white' : 'var(--color-text-charcoal)',
+                                    cursor: 'pointer',
+                                    fontWeight: 600,
+                                    fontSize: '0.95rem',
+                                    transition: 'all 0.2s',
+                                    boxShadow: page === currentPage ? '0 4px 12px rgba(0,141,176,0.3)' : '0 2px 8px rgba(0,0,0,0.06)'
+                                }}
+                            >
+                                {page}
+                            </button>
+                        ))}
+                    </div>
+                )}
+            </div>
+
+            <style>{`
+          /* Category Filter Bar */
+          .blog-search-wrap {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              margin-bottom: 14px;
+          }
+
+          .blog-search-input {
+              flex: 1;
+              min-width: 0;
+              border: 1.5px solid #e2e8f0;
+              background: #fff;
+              border-radius: 14px;
+              padding: 12px 14px;
+              font-size: 0.95rem;
+              color: var(--color-text-charcoal);
+          }
+
+          .blog-search-input:focus {
+              outline: none;
+              border-color: var(--color-primary-teal);
+              box-shadow: 0 0 0 3px rgba(0, 141, 176, 0.2);
+          }
+
+          .blog-search-clear {
+              border: none;
+              border-radius: 12px;
+              background: rgba(0, 141, 176, 0.12);
+              color: var(--color-primary-teal);
+              font-size: 0.85rem;
+              font-weight: 600;
+              padding: 10px 12px;
+              cursor: pointer;
+              white-space: nowrap;
+          }
+
+          .category-filter-bar {
+              display: flex;
+              gap: 10px;
+              padding: 6px 0 20px;
+              margin-bottom: 30px;
+              overflow-x: auto;
+              -webkit-overflow-scrolling: touch;
+              scrollbar-width: none;
+              -ms-overflow-style: none;
+              scroll-behavior: smooth;
+              position: relative;
+          }
+
+          .category-filter-bar::-webkit-scrollbar {
+              display: none;
+          }
+
+          .category-pill {
+              display: inline-flex;
+              align-items: center;
+              gap: 6px;
+              padding: 10px 20px;
+              border-radius: 50px;
+              border: 1.5px solid #e2e8f0;
+              background: rgba(255, 255, 255, 0.85);
+              color: var(--color-text-charcoal);
+              font-size: 0.9rem;
+              font-weight: 600;
+              cursor: pointer;
+              white-space: nowrap;
+              transition: all 0.25s ease;
+              flex-shrink: 0;
+          }
+
+          .category-pill:hover {
+              border-color: var(--color-primary-teal);
+              color: var(--color-primary-teal);
+              box-shadow: 0 2px 12px rgba(0, 141, 176, 0.15);
+          }
+
+          .category-pill.active {
+              background: var(--color-primary-teal);
+              color: white;
+              border-color: var(--color-primary-teal);
+              box-shadow: 0 4px 16px rgba(0, 141, 176, 0.3);
+          }
+
+          .category-pill.active .pill-count {
+              background: rgba(255, 255, 255, 0.25);
+              color: white;
+          }
+
+          .pill-count {
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              min-width: 22px;
+              height: 22px;
+              padding: 0 6px;
+              border-radius: 50px;
+              background: #f1f5f9;
+              color: var(--color-text-muted);
+              font-size: 0.75rem;
+              font-weight: 700;
+              line-height: 1;
+          }
+
+          
+                .featured-post, .post-card {
+                    background: #fff;
+                    border: 1px solid var(--hairline);
+                }
+                .featured-post {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              overflow: hidden;
+              padding: 0;
+              min-height: 350px;
+              border-radius: 24px;
+          }
+
+          .featured-content {
+              padding: 40px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: flex-start;
+          }
+
+          .featured-image {
+              height: 100%;
+          }
+
+          .featured-image picture, .post-image picture {
+              display: block;
+              width: 100%;
+              height: 100%;
+          }
+
+          .posts-grid {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 30px;
+          }
+
+          .post-card {
+              padding: 0;
+              overflow: hidden;
+              transition: transform 0.3s;
+              cursor: pointer;
+              height: 100%;
+              border-radius: 24px;
+          }
+
+          .post-card:hover {
+              transform: translateY(-5px);
+          }
+
+          .post-image {
+              height: 200px;
+          }
+
+          .post-content {
+              padding: 24px;
+          }
+
+          .post-tags {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 6px;
+              margin-bottom: 8px;
+          }
+
+          .post-tag {
+              font-size: 0.54rem; /* Increased by 20% from 0.45rem */
+              color: var(--color-primary);
+              font-weight: 500;
+              text-transform: uppercase;
+              background: rgba(0, 141, 176, 0.1);
+              border: 1px solid rgba(0, 141, 176, 0.2);
+              border-radius: 12px;
+              padding: 3px 10px; /* Slightly increased padding for better proportion */
+              cursor: pointer;
+              transition: all 0.2s;
+              white-space: nowrap;
+          }
+
+          .post-tag:hover {
+              background: rgba(0, 141, 176, 0.2);
+              border-color: var(--color-primary);
+          }
+
+          .post-content h3 {
+             margin: 10px 0;
+             font-size: 1.25rem;
+             line-height: 1.4;
+          }
+
+          .post-meta {
+              font-size: 0.85rem;
+              color: var(--color-text-muted);
+              margin-top: 10px;
+          }
+
+          @media (max-width: 1024px) {
+              .blog-search-wrap {
+                  margin: 0 8px 12px;
+              }
+
+              .blog-search-input {
+                  font-size: 16px; /* avoid iOS zoom */
+                  padding: 12px;
+              }
+
+              .category-filter-bar {
+                  padding: 6px 8px 16px;
+                  margin-bottom: 20px;
+                  mask-image: linear-gradient(to right, transparent 0, black 8px, black calc(100% - 30px), transparent 100%);
+                  -webkit-mask-image: linear-gradient(to right, transparent 0, black 8px, black calc(100% - 30px), transparent 100%);
+              }
+
+              .category-pill {
+                  padding: 8px 16px;
+                  font-size: 0.85rem;
+              }
+
+              .featured-post {
+                  grid-template-columns: 1fr;
+                  border-radius: 20px;
+                  min-height: auto;
+                  margin-left: 8px;
+                  margin-right: 8px;
+                  width: auto;
+              }
+              .featured-image {
+                  height: 200px;
+                  order: -1;
+              }
+              .featured-content { padding: 24px; }
+              .featured-content h2 { font-size: 1.5rem; }
+
+              .posts-grid {
+                  grid-template-columns: 1fr;
+                  gap: 20px;
+                  margin-top: 30px !important;
+              }
+              .post-card {
+                  border-radius: 20px;
+                  margin-left: 8px;
+                  margin-right: 8px;
+                  width: auto;
+              }
+
+              .blog-hero-gradient { padding-top: 120px; padding-bottom: 60px; }
+              .hero-title { font-size: 2.5rem; }
+              .hero-subtitle { font-size: 1rem; margin-top: 15px; }
+          }
+       `}</style>
+        </div>
+    );
 };
+
 export default Blog;

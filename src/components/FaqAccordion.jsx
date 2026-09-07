@@ -69,9 +69,12 @@ export default function FaqAccordion({ items = [], idPrefix = 'faq', analyticsLa
             })}
 
             <Style>{`
+                /* Left-aligned with its own heading (owner, 8 Sep 2026: a
+                   centred accordion under a left heading read as misaligned).
+                   Callers that want a narrower measure set their own width. */
                 .faq-accordion {
                     max-width: 820px;
-                    margin: 40px auto 0;
+                    margin: 40px 0 0;
                     text-align: left;
                 }
 

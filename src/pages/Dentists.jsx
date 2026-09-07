@@ -175,13 +175,10 @@ function DentistProfile() {
                     <h2>Other dentists at the clinic</h2>
                     <div className="dentist-others-grid">
                         {others.map((o) => (
-                            <Link key={o.slug} to={`/dentists/${o.slug}`} className="hairline-row dentist-other">
+                            <Link key={o.slug} to={`/dentists/${o.slug}`} className="dentist-other">
                                 <img src={encodeURI(o.img)} alt={o.knownAs} loading="lazy" width="96" height="96" />
-                                <span>
-                                    <strong>{o.knownAs}</strong>
-                                    <em>{o.role}</em>
-                                </span>
-                                <ArrowRight size={15} className="dentist-other-arrow" />
+                                <strong>{o.knownAs}</strong>
+                                <em>{o.role}</em>
                             </Link>
                         ))}
                     </div>
@@ -274,22 +271,29 @@ function DentistStyles() {
             .dentist-cta h2 { margin: 0 0 14px; }
             .dentist-cta-copy { margin: 0 0 24px; line-height: 1.7; color: var(--color-text-slate); }
 
-            .dentist-others { margin-top: 64px; }
-            .dentist-others h2 { font-size: 1.25rem; margin: 0 0 20px; }
-            .dentist-others-grid { border-top: 1px solid var(--hairline); }
+            /* Horizontal strip (owner, 8 Sep 2026): seven vertical rows wasted
+               a screen of scrolling; a row of compact portrait tiles says the
+               same thing at a glance. Wraps on desktop, swipes on mobile. */
+            .dentist-others { margin-top: 64px; border-top: 1px solid var(--hairline); padding-top: 32px; }
+            .dentist-others h2 { font-size: 1.25rem; margin: 0 0 24px; }
+            .dentist-others-grid { display: flex; flex-wrap: wrap; gap: 28px 32px; }
             .dentist-other {
-                display: flex; align-items: center; gap: 14px; text-decoration: none; color: inherit;
-                padding: 14px 8px; border-bottom: 1px solid var(--hairline);
-                transition: background-color var(--ease-slow);
+                display: flex; flex-direction: column; align-items: center; gap: 3px;
+                width: 108px; text-align: center; text-decoration: none; color: inherit;
             }
-            .dentist-other:hover { background: var(--color-tint-faint); }
-            .dentist-other img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; object-position: top; }
-            .dentist-other span { display: flex; flex-direction: column; flex: 1; }
-            .dentist-other strong { font-size: .9375rem; }
-            .dentist-other em { font-style: normal; font-size: .8125rem; color: var(--color-text-grey); }
-            .dentist-other-arrow { color: var(--color-primary-teal); }
+            .dentist-other img {
+                width: 76px; height: 76px; border-radius: 50%; object-fit: cover; object-position: top;
+                margin-bottom: 8px; transition: transform 0.4s var(--ease-slow), box-shadow 0.4s ease;
+            }
+            .dentist-other:hover img { transform: translateY(-4px); box-shadow: 0 10px 22px rgba(13,42,58,0.16); }
+            .dentist-other strong { font-size: .875rem; line-height: 1.25; }
+            .dentist-other:hover strong { color: var(--color-primary-deep); }
+            .dentist-other em { font-style: normal; font-size: .72rem; color: var(--color-text-grey); line-height: 1.3; }
 
             @media (max-width: 1024px) {
+                .dentist-others-grid { flex-wrap: nowrap; overflow-x: auto; gap: 20px; padding-bottom: 8px; scrollbar-width: none; -ms-overflow-style: none; }
+                .dentist-others-grid::-webkit-scrollbar { display: none; }
+                .dentist-other { flex: none; width: 96px; }
                 .dentists-page { padding: 110px 0 60px; }
                 .dentists-page-index, .dentists-page-profile { padding-top: 0; }
                 .dentists-hero { padding: 120px 0 44px; }

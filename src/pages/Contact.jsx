@@ -49,9 +49,11 @@ const Contact = () => {
                 .contact-page .contact-heading { max-width: 760px; margin: 0 auto 56px; text-align: center; }
                 .contact-page .contact-heading .eyebrow { margin-bottom: 18px; }
                 .contact-page .contact-lead { max-width: 680px; margin: 20px auto 0; color: var(--color-text-slate); font-size: var(--fs-lead); line-height: 1.6; }
-                .contact-page .contact-details { max-width: 980px; margin: 0 auto; border-top: 1px solid var(--hairline); }
-                .contact-page .contact-detail-row { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 32px; padding: 30px 8px; border-bottom: 1px solid var(--hairline); }
-                .contact-page .contact-detail-row dt { font-family: var(--font-heading); font-weight: 700; color: var(--color-text-charcoal); }
+                /* 2x2 fact grid (litmus pass, 8 Sep 2026): four short facts do
+                   not deserve four full-width rows of vertical scroll. */
+                .contact-page .contact-details { max-width: 980px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 72px; border-top: 1px solid var(--hairline); }
+                .contact-page .contact-detail-row { padding: 30px 4px; border-bottom: 1px solid var(--hairline); }
+                .contact-page .contact-detail-row dt { font-family: var(--font-heading); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-primary-teal); margin-bottom: 12px; }
                 .contact-page .contact-detail-row dd, .contact-page .contact-detail-row p { margin: 0; color: var(--color-text-slate); line-height: 1.65; }
                 .contact-page .contact-phone { color: var(--color-primary-deep); font-family: var(--font-heading); font-weight: 700; text-decoration: none; }
                 .contact-page .contact-directions { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 16px; }

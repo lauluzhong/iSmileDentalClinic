@@ -282,27 +282,41 @@ const About = () => {
                 .about-page .founder-bio p { margin: 0 0 16px; color: var(--color-text-slate); line-height: 1.75; }
                 .about-page .founder-image-container { grid-column: 2; grid-row: 1; }
                 .about-page .founder-img { display: block; width: 100%; border-radius: 26px !important; }
+                /* Team: the owner reverted this to the pre-sweep uniform card
+                   grid (8 Sep 2026) — aligned, equal-height cards read better
+                   here than the bare stacked tiles. New typography and tokens
+                   kept; glass/blur not restored. */
                 .about-page .team-section { padding: var(--space-section-lg) 0; scroll-margin-top: 120px; }
                 .about-page .team-section .system-title { margin-bottom: 42px; }
-                .about-page .team-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 48px 24px; }
-                .about-page .team-photo { overflow: hidden; border-radius: 26px; aspect-ratio: 3 / 4; }
-                .about-page .team-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .8s var(--ease-slow); }
+                .about-page .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+                .about-page .team-card {
+                    padding: 0; overflow: hidden; display: flex; flex-direction: column;
+                    background: #fff; border-radius: 24px;
+                    border: 1px solid var(--hairline);
+                    box-shadow: var(--shadow-sm);
+                    transition: transform 0.4s var(--ease-slow), box-shadow 0.4s ease;
+                }
+                .about-page .team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+                .about-page .team-card-head { display: contents; }
+                .about-page .team-photo { height: 350px; overflow: hidden; position: relative; }
+                .about-page .team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 0.6s var(--ease-slow); display: block; }
                 .about-page .team-card:hover .team-photo img { transform: scale(1.04); }
-                .about-page .team-header-top { padding-top: 17px; }
-                .about-page .team-header-top h3 { margin: 0 0 5px; font-size: 1.1rem; font-weight: 700; }
-                .about-page .team-role { color: var(--color-primary-deep); font-size: .78rem; font-weight: 700; letter-spacing: .07em; line-height: 1.45; text-transform: uppercase; }
-                .about-page .team-meta { margin-top: 7px; color: var(--color-text-grey); font-size: .87rem; }
-                .about-page .team-info { padding-top: 16px; }
-                .about-page .team-bio { margin: 0 0 16px; color: var(--color-text-slate); font-size: .93rem; line-height: 1.6; }
-                .about-page .team-specialties { margin: 0; padding: 14px 0; border-top: 1px solid var(--hairline); color: var(--color-text-slate); font-size: .84rem; line-height: 1.55; }
-                .about-page .team-languages { padding: 14px 0; border-top: 1px solid var(--hairline); color: var(--color-text-grey); line-height: 1.45; }
-                .about-page .team-profile-link { margin-top: 10px; font-size: .9rem; }
+                .about-page .team-header-top { min-height: 120px; padding: 30px 30px 0; }
+                .about-page .team-header-top h3 { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; margin: 0 0 8px; color: var(--color-text-charcoal); }
+                .about-page .team-role { color: var(--color-primary-deep); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px; }
+                .about-page .team-meta { color: var(--color-text-grey); font-size: 0.9rem; margin-bottom: 8px; }
+                .about-page .team-info { padding: 0 30px 30px; flex: 1; display: flex; flex-direction: column; }
+                .about-page .team-body-content { flex: 1; display: flex; flex-direction: column; }
+                .about-page .team-bio { color: var(--color-text-slate); line-height: 1.6; font-size: 0.95rem; margin: 0 0 20px; }
+                .about-page .team-specialties { font-size: 0.85rem; padding: 14px 0; border-top: 1px solid var(--hairline); margin-bottom: 8px; color: var(--color-text-slate); line-height: 1.55; }
+                .about-page .team-languages { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--hairline); color: var(--color-text-grey); font-weight: 500; min-height: 85px; display: flex; align-items: flex-start; }
+                .about-page .team-profile-link { display: inline-block; margin-top: 12px; font-size: 0.9rem; font-weight: 600; color: var(--color-primary-deep); }
+                .about-page .team-profile-link:hover { text-decoration: underline; }
                 .about-page .about-closing { padding-bottom: 80px; text-align: center; }
                 .about-page .about-closing .eyebrow { margin-bottom: 14px; }
                 .about-page .about-closing .statement { max-width: 760px; margin: 0 auto 30px; }
-                @media (max-width: 1024px) { .about-page .about-hero-container { padding-top: 108px; } .about-page .founder-card-dark { grid-template-columns: 1fr 1fr; } .about-page .team-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-                @media (max-width: 700px) { .about-page .about-hero { padding: 46px 0 32px; } .about-page .journey-card { grid-template-columns: 76px minmax(0, 1fr); gap: 16px; padding: 26px 0; } .about-page .founder-card-dark { display: flex; flex-direction: column; align-items: stretch; } .about-page .founder-image-container { order: -1; } .about-page .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 16px; } .about-page .team-card-head { display: block; } .about-page .team-photo { border-radius: 20px; } .about-page .team-photo img { object-position: center 12%; } .about-page .team-header-top h3 { font-size: 1rem; } .about-page .team-role { font-size: .7rem; } }
-                @media (max-width: 420px) { .about-page .team-grid { grid-template-columns: 1fr; } .about-page .team-card-head { display: grid; grid-template-columns: 112px 1fr; gap: 16px; align-items: center; } .about-page .team-header-top { padding-top: 0; } .about-page .team-photo { aspect-ratio: 3 / 4; } }
+                @media (max-width: 1024px) { .about-page .about-hero-container { padding-top: 108px; } .about-page .founder-card-dark { grid-template-columns: 1fr 1fr; } .about-page .team-grid { gap: 24px; } .about-page .team-card { border-radius: 20px; } .about-page .team-info { padding: 0 20px 20px; } .about-page .team-header-top { padding: 20px 20px 0; } .about-page .team-header-top h3 { font-size: 1.3rem; } .about-page .team-role { font-size: 0.75rem; } .about-page .team-bio { font-size: 0.9rem; } }
+                @media (max-width: 700px) { .about-page .about-hero { padding: 46px 0 32px; } .about-page .journey-card { grid-template-columns: 76px minmax(0, 1fr); gap: 16px; padding: 26px 0; } .about-page .founder-card-dark { display: flex; flex-direction: column; align-items: stretch; } .about-page .founder-image-container { order: -1; } .about-page .team-grid { grid-template-columns: 1fr; } .about-page .team-card-head { display: flex; align-items: center; gap: 16px; padding: 16px 16px 4px; } .about-page .team-photo { flex: 0 0 116px; width: 116px; height: auto; aspect-ratio: 3 / 4; border-radius: 16px; } .about-page .team-photo img { object-position: center 12%; } .about-page .team-header-top { min-height: 0; padding: 0; } .about-page .team-role { margin-bottom: 8px; letter-spacing: 0.6px; } .about-page .team-meta { margin-bottom: 0; } .about-page .team-info { padding: 16px; } .about-page .team-languages { min-height: 0; padding-top: 16px; } .about-page .team-bio { margin-bottom: 16px; } }
             `}</Style>
         </div>
     );

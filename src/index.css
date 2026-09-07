@@ -450,3 +450,18 @@ h1 em, h2 em {
 }
 .snap-rail::-webkit-scrollbar { display: none; }
 .snap-rail > * { scroll-snap-align: start; flex: none; }
+
+/* ============================================================
+   INNER-PAGE HERO HUE (owner, 8 Sep 2026)
+   Every page except the homepage opens with a very light blue
+   wash fading into the page — the "slight blue hue" from the old
+   site, lightened so the teal serif accents keep their pop.
+   Applied at the page root so each page's own hero needs nothing.
+   (Blog carries its own identical band; the homepage is excluded
+   on purpose — its mosaic and ambient wash already do this job.)
+   ============================================================ */
+.about-page, .reviews-page, .contact-page, .faq-page, .join-us-page,
+.services-landing, .service-hub, .specialty-page, .location-page,
+.dentists-page, .blog-post-page {
+  background: linear-gradient(180deg, #F0F8FD 0%, #F5FAFE 320px, rgba(245,250,254,0) 620px);
+}

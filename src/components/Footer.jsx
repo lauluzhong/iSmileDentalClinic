@@ -120,12 +120,12 @@ const Footer = () => {
                                 <p>75 & 75A, Jalan SS 22/23, Damansara Jaya, 47400 Petaling Jaya, Selangor, Malaysia</p>
                             </div>
                             <div className="direction-buttons">
-                                <a className="quiet-link direction-link" data-analytics-click="footer-maps" data-analytics-label="google-maps" href="https://maps.app.goo.gl/yt8MxXDpDxXgXqre6" target="_blank" rel="noopener noreferrer">
-                                    <img src="/images/google-maps.png" alt="" className="btn-icon" loading="lazy" width="16" height="16" /> Google Maps
-                                </a>
-                                <a className="quiet-link direction-link" data-analytics-click="footer-maps" data-analytics-label="waze" href="https://ul.waze.com/ul?place=ChIJMyz-_jZJzDERBTVNqS_uGzg&ll=3.12583430%2C101.61623380&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location" target="_blank" rel="noopener noreferrer">
-                                    <img src="/images/waze.png" alt="" className="btn-icon" loading="lazy" width="16" height="16" /> Waze
-                                </a>
+                                <Button className="direction-btn" data-analytics-click="footer-maps" data-analytics-label="google-maps" onClick={() => window.open('https://maps.app.goo.gl/yt8MxXDpDxXgXqre6', '_blank')}>
+                                    <img src="/images/google-maps.png" alt="Maps" className="btn-icon" loading="lazy" width="18" height="18" /> Google
+                                </Button>
+                                <Button className="direction-btn" data-analytics-click="footer-maps" data-analytics-label="waze" onClick={() => window.open('https://ul.waze.com/ul?place=ChIJMyz-_jZJzDERBTVNqS_uGzg&ll=3.12583430%2C101.61623380&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location', '_blank')}>
+                                    <img src="/images/waze.png" alt="Waze" className="btn-icon" loading="lazy" width="18" height="18" /> Waze
+                                </Button>
                             </div>
                         </div>
                     </div>
@@ -341,11 +341,26 @@ const Footer = () => {
             color: var(--color-primary);
         }
 
-        /* Quiet links, not white pills — matches every other secondary link
-           in the system (design rollout, 7 Sep 2026). */
-        .direction-buttons { display: flex; gap: 22px; margin-top: 18px; }
-        .direction-link { font-size: 0.9rem; }
-        .btn-icon { width: 16px; height: 16px; }
+        /* The white outline pills are BACK by the owner's call (8 Sep 2026):
+           he prefers the earlier Maps/Waze buttons over quiet links. Kept on
+           tokens rather than the old hex values. */
+        .direction-buttons { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+        .direction-btn {
+            background: #fff !important;
+            border: 1px solid var(--hairline) !important;
+            color: var(--color-text-slate) !important;
+            padding: 10px 20px !important;
+            border-radius: 12px !important;
+            font-size: 0.9rem !important;
+            font-weight: 500 !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            box-shadow: none !important;
+            transition: all 0.2s !important;
+        }
+        .direction-btn:hover { border-color: var(--color-primary) !important; color: var(--color-primary) !important; background: #f0f9ff !important; }
+        .btn-icon { width: 18px; height: 18px; }
 
         /* Footer social: bare glyphs in the quiet-link palette, no chips,
            no third-party brand gradients (design rollout, 7 Sep 2026). */
