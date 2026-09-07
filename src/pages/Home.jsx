@@ -99,6 +99,60 @@ const TICKER = [
 // URI-encoded, but must never be put in a srcSet (srcset splits on spaces).
 const portraitSrc = (img, ext) => encodeURI(img.replace(/\.jpg$/, ext));
 
+// The hero mosaic: two rows drifting in opposite directions, portraits mixed
+// with tinted quote tiles so a glance always lands on faces AND words (the
+// owner picked this over the arch strip, the spotlight and the gallery wall,
+// 7 Sep 2026 — and dropped the caption row, since the words now live in the
+// tiles). "Where competency and compassion meet." is his line, carrying the
+// removed "Built on Competency & Compassion" section forward.
+const MOSAIC_QUOTES = [
+    'Caring for your whole family.',
+    'Where competency and compassion meet.',
+    'The same faces, visit after visit.',
+    'Growing older with our patients.'
+];
+const MOSAIC_ROW_A = [
+    { d: dentists[0] }, { d: dentists[1] }, { q: MOSAIC_QUOTES[0] },
+    { d: dentists[2] }, { d: dentists[3] }, { q: MOSAIC_QUOTES[1], alt: true }
+];
+const MOSAIC_ROW_B = [
+    { q: MOSAIC_QUOTES[2], alt: true }, { d: dentists[4] }, { d: dentists[5] },
+    { q: MOSAIC_QUOTES[3] }, { d: dentists[6] }, { d: dentists[7] }
+];
+
+// Each row is rendered twice for the seamless -50% loop; the second copy is
+// decoration only (aria-hidden, untabbable).
+const MosaicRow = ({ tiles, className }) => (
+    <div className={`mosaic-row ${className}`}>
+        {[0, 1].map(copy => tiles.map((tile, i) => {
+            const hidden = copy === 1;
+            if (tile.q) {
+                return (
+                    <div key={`${copy}-${i}`} className={`mosaic-tile mosaic-quote${tile.alt ? ' alt' : ''}`} aria-hidden={hidden || undefined}>
+                        {tile.q}
+                    </div>
+                );
+            }
+            const d = tile.d;
+            return (
+                <Link
+                    to={`/dentists/${d.slug}`}
+                    key={`${copy}-${i}`}
+                    className="mosaic-tile mosaic-portrait"
+                    tabIndex={hidden ? -1 : 0}
+                    aria-hidden={hidden || undefined}
+                >
+                    <picture>
+                        <source type="image/avif" srcSet={portraitSrc(d.img, '.avif')} />
+                        <source type="image/webp" srcSet={portraitSrc(d.img, '.webp')} />
+                        <img src={encodeURI(d.img)} alt={hidden ? '' : (d.knownAs || d.name)} width="682" height="1024" loading="eager" decoding="async" />
+                    </picture>
+                </Link>
+            );
+        }))}
+    </div>
+);
+
 const Home = () => {
     const { openBooking } = useBooking();
 
@@ -197,30 +251,12 @@ const Home = () => {
                     </div>
 
                     <div className="hero-visual">
-                        {/* All eight dentists, drifting slowly. Pause on hover; each
-                            portrait opens that dentist's profile. */}
-                        <div className="hero-ensemble">
-                            <div className="hero-ensemble-track">
-                                {[...dentists, ...dentists].map((d, i) => (
-                                    <Link
-                                        to={`/dentists/${d.slug}`}
-                                        key={`${d.slug}-${i}`}
-                                        className="portrait-card"
-                                        tabIndex={i < dentists.length ? 0 : -1}
-                                        aria-hidden={i >= dentists.length ? true : undefined}
-                                    >
-                                        <picture>
-                                            <source type="image/avif" srcSet={portraitSrc(d.img, '.avif')} />
-                                            <source type="image/webp" srcSet={portraitSrc(d.img, '.webp')} />
-                                            <img src={encodeURI(d.img)} alt={i < dentists.length ? d.knownAs || d.name : ''} width="682" height="1024" loading="eager" decoding="async" />
-                                        </picture>
-                                    </Link>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="hero-ensemble-caption">
-                            <span>Real people. Familiar faces.</span>
-                            <Link to="/dentists">Meet your dentists <ArrowRight size={14} /></Link>
+                        {/* The moving mosaic: every dentist plus the words, drifting in
+                            opposite directions. Pause on hover; each portrait opens that
+                            dentist's profile. */}
+                        <div className="hero-mosaic">
+                            <MosaicRow tiles={MOSAIC_ROW_A} className="mosaic-row-a" />
+                            <MosaicRow tiles={MOSAIC_ROW_B} className="mosaic-row-b" />
                         </div>
                     </div>
                 </div>
@@ -448,53 +484,38 @@ const Home = () => {
         .hero-trust-item strong { color: var(--color-text-charcoal); }
         .hero-trust-stars { display: inline-flex; gap: 2px; }
 
-        /* The ensemble: every dentist, arch-topped portraits drifting slowly.
-           A mask fades the strip out at both edges so it never hard-cuts. */
-        .hero-ensemble {
+        /* The moving mosaic: two counter-drifting rows of square tiles —
+           portraits and tinted quote tiles — masked so the edges fade rather
+           than hard-cut. A glance always lands on faces and words together. */
+        .hero-mosaic {
             overflow: hidden;
-            padding: 10px 0 34px;
-            -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
-            mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
+            display: flex; flex-direction: column; gap: 16px;
+            padding: 6px 0;
+            -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
         }
-        .hero-ensemble-track {
-            display: flex; gap: 20px; width: max-content;
-            animation: ensemble-drift 48s linear infinite;
-        }
-        .hero-ensemble:hover .hero-ensemble-track { animation-play-state: paused; }
-        @keyframes ensemble-drift { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
-        @media (prefers-reduced-motion: reduce) { .hero-ensemble-track { animation: none; } }
+        .mosaic-row { display: flex; gap: 16px; width: max-content; }
+        /* Opposite directions at close-but-different speeds, so the two rows
+           never fall into visual lockstep. */
+        .mosaic-row-a { animation: mosaic-left 52s linear infinite; }
+        .mosaic-row-b { animation: mosaic-right 60s linear infinite; }
+        .hero-mosaic:hover .mosaic-row { animation-play-state: paused; }
+        @keyframes mosaic-left { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
+        @keyframes mosaic-right { from { transform: translate3d(-50%,0,0); } to { transform: translate3d(0,0,0); } }
+        @media (prefers-reduced-motion: reduce) { .mosaic-row { animation: none; } }
 
-        .portrait-card {
-            display: block; flex: none; width: 228px;
-            transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+        .mosaic-tile { flex: none; width: 192px; height: 192px; border-radius: 20px; overflow: hidden; }
+        .mosaic-portrait { display: block; transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); }
+        .mosaic-portrait:hover { transform: translateY(-5px); }
+        .mosaic-portrait picture, .mosaic-portrait img { width: 100%; height: 100%; }
+        .mosaic-portrait img { display: block; object-fit: cover; object-position: center 14%; background: #f2f0ec; }
+        .mosaic-quote {
+            background: var(--color-tint-blue);
+            display: flex; align-items: center; padding: 24px;
+            font-family: Georgia, 'Times New Roman', serif; font-style: italic;
+            font-size: 1.05rem; line-height: 1.45; color: var(--color-primary-deep);
         }
-        /* Alternating baseline so the row reads as an ensemble, not a grid */
-        .portrait-card:nth-child(even) { transform: translateY(22px); }
-        .portrait-card:hover { transform: translateY(-6px); }
-        .portrait-card:nth-child(even):hover { transform: translateY(16px); }
-        .portrait-card img {
-            display: block; width: 100%; height: 330px; object-fit: cover; object-position: center 12%;
-            border-radius: 140px 140px 20px 20px;
-            background: #f2f0ec;
-            box-shadow: 0 14px 34px rgba(13,42,58,0.12);
-        }
-
-        .hero-ensemble-caption {
-            display: flex; align-items: center; justify-content: space-between; gap: 16px;
-            padding: 0 6px;
-        }
-        .hero-ensemble-caption > span {
-            font-family: var(--font-heading); font-weight: 700;
-            font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
-            color: var(--color-text-grey);
-        }
-        .hero-ensemble-caption a {
-            display: inline-flex; align-items: center; gap: 6px;
-            font-family: var(--font-heading); font-weight: 600; font-size: 0.92rem;
-            color: var(--color-primary-deep); transition: gap 0.25s ease;
-            white-space: nowrap;
-        }
-        .hero-ensemble-caption a:hover { gap: 10px; color: var(--color-primary-teal); }
+        .mosaic-quote.alt { background: var(--color-tint-light); }
 
         /* ---------- 2. SERVICES (inset band) ---------- */
         .services-section {
@@ -645,13 +666,10 @@ const Home = () => {
             .hero-subtitle { font-size: 1rem; margin-bottom: 22px; max-width: 420px; line-height: 1.55; }
             .hero-trust { margin-top: 24px; font-size: 0.88rem; }
 
-            .hero-ensemble { padding: 6px 0 24px; }
-            .hero-ensemble-track { gap: 14px; }
-            .portrait-card { width: 158px; }
-            .portrait-card:nth-child(even) { transform: translateY(14px); }
-            .portrait-card img { height: 230px; border-radius: 100px 100px 16px 16px; }
-            .hero-ensemble-caption > span { font-size: 0.62rem; letter-spacing: 0.16em; }
-            .hero-ensemble-caption a { font-size: 0.88rem; }
+            .hero-mosaic { gap: 12px; padding: 4px 0 8px; }
+            .mosaic-row { gap: 12px; }
+            .mosaic-tile { width: 150px; height: 150px; border-radius: 16px; }
+            .mosaic-quote { padding: 16px; font-size: 0.9rem; line-height: 1.4; }
 
             .section-header { margin-bottom: 28px; }
             .section-eyebrow { margin-bottom: 12px; }
@@ -710,8 +728,8 @@ const Home = () => {
             .hero-title { font-size: 2.05rem; }
             .hero-subtitle { max-width: 340px; }
 
-            .portrait-card { width: 132px; }
-            .portrait-card img { height: 194px; border-radius: 84px 84px 14px 14px; }
+            .mosaic-tile { width: 126px; height: 126px; border-radius: 14px; }
+            .mosaic-quote { padding: 12px; font-size: 0.8rem; }
 
             /* Services — chip grid replaces the list on phones */
             .stage-list { display: none; }
