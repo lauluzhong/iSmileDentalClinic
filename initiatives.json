@@ -1,18 +1,8 @@
 {
- "updated": "2026-09-08T16:48:21+08:00",
+ "updated": "2026-09-08T17:03:35+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Emily": {
+  "Edith": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
@@ -22,13 +12,23 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
-   "init": "E",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Code Capsule": {
+   "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -40,7 +40,7 @@
    "status": "active",
    "owner": "Code Capsule",
    "why": "The spine. OpenDent is migrated and installed on every machine; what stands between here and go-live is commissioning the two front-desk PCs and getting AutoCount onto them.",
-   "next": "Close the cooling and monitors, commission the two front-desk PCs (Chrome + iSmile email + WhatsApp Web), get the X-ray vendor and Liau in to install X-ray software and AutoCount, then AutoCount training for Lau and Emily before the FOH Saturday.",
+   "next": "Close the cooling and monitors, commission the two front-desk PCs (Chrome + iSmile email + WhatsApp Web), get the X-ray vendor and Leow in to install X-ray software and AutoCount, then AutoCount training for Lau and Emily before the FOH Saturday.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -60,8 +60,8 @@
     "2 monitors \u2014 Jason to source (his contact sells secondhand)",
     "Commission the front-desk PCs: Chrome + iSmile email signed in (Google Docs for letters) + WhatsApp Web",
     "X-ray vendor installs the X-ray software (likely over UltraViewer)",
-    "Liau (AutoCount) installs AutoCount \u2014 2 secondary accounts downstairs, 1 primary on the server upstairs",
-    "Liau teaches Lau + Emily how to use AutoCount",
+    "Leow (AutoCount) installs AutoCount \u2014 2 secondary accounts downstairs, 1 primary on the server upstairs",
+    "Leow teaches Lau + Emily how to use AutoCount",
     "Front-desk training \u2014 receipts, e-invoices and the wider FOH syllabus",
     "True end-to-end integration test",
     "AR sync live \u2014 parallel run with paper receipts"
@@ -100,7 +100,7 @@
    "note": "",
    "tasks": [
     "Receipt capability confirmed in AutoCount",
-    "AutoCount installed on the front-desk PCs (Liau)",
+    "AutoCount installed on the front-desk PCs (Leow)",
     "Design what the new receipt looks like",
     "Receipts SOP written",
     "Receipts + e-invoices taught at the FOH training",
@@ -421,7 +421,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
-   "next": "Sit the training Mon 7 Sep 10 AM, finish the blacklist and family cross-check, re-run the list on fresh data, then fire Wave 1 mid to end of this week; suggested UI/UX discussion Wed 9 Sep at 5 PM pending Suraya confirmation.",
+   "next": "Sit the UI session Wed 9 Sep 5 PM, finish the blacklist and family cross-check, re-run the list on fresh data, then fire Wave 1.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-10",
@@ -432,7 +432,8 @@
     "Suraya builds the filter-page additions (CSV exclusion list + recall/birthday tick)",
     "Meta template approval",
     "Blacklist + family cross-check \u00b7 anniversary-list exclusion",
-    "Marketing blast training / demo with Code Capsule",
+    "Marketing blast training with Code Capsule \u2014 held",
+    "Second session to finalise the UI",
     "Fresh-data re-run immediately before sending",
     "Wave 1 fires (13\u201336mo lapsed)",
     "Waves 2\u20133 \u00b7 funnel read via campaign tags"

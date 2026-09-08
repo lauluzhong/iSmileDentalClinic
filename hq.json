@@ -88,10 +88,10 @@
   },
   {
    "d": "7\u20138 Sep",
-   "l": "Blast training 10 AM \u00b7 send mid-to-end of week",
-   "s": "",
+   "l": "Blast training held \u00b7 UI session 9 Sep",
+   "s": "done",
    "iso": "2026-09-07",
-   "tip": "Marketing blast training with Code Capsule on Mon 7 Sep at 10 AM. The send follows it, mid to end of the same week."
+   "tip": "The marketing blast training with Code Capsule was held on Mon 7 Sep. A second session on Wed 9 Sep at 5 PM finalises the UI, and the send follows that."
   },
   {
    "d": "7\u201311 Sep",
@@ -126,7 +126,7 @@
    "l": "FOH training Saturday + dinner",
    "s": "",
    "iso": "2026-10-03",
-   "tip": "Front-desk training after the 3:30 PM close, dinner after. 3 Oct is preferred, 24 Oct the fallback. Syllabus: receipts and e-invoices out of AutoCount, plus the wider front-desk content. Must sit after AutoCount is installed and after Liau has taught Lau and Emily."
+   "tip": "Front-desk training after the 3:30 PM close, dinner after. 3 Oct is preferred, 24 Oct the fallback. Syllabus: receipts and e-invoices out of AutoCount, plus the wider front-desk content. Must sit after AutoCount is installed and after Leow has taught Lau and Emily."
   },
   {
    "d": "16 Oct",
@@ -244,11 +244,11 @@
        "s": ""
       },
       {
-       "t": "Liau (AutoCount) installs AutoCount \u2014 2 secondary accounts downstairs, 1 primary on the server upstairs",
+       "t": "Leow (AutoCount) installs AutoCount \u2014 2 secondary accounts downstairs, 1 primary on the server upstairs",
        "s": ""
       },
       {
-       "t": "Liau teaches Lau + Emily how to use AutoCount",
+       "t": "Leow teaches Lau + Emily how to use AutoCount",
        "s": ""
       },
       {
@@ -269,8 +269,8 @@
      "open": [
       "<b>Migration is done and OpenDent is on every machine</b>, the 2 new front-desk PCs included. They are not in service yet for two reasons only: the cooling issue and no monitors.",
       "<b>Two hardware items stand between here and a working front desk:</b> (1) a cooling solution for the downstairs PCs, (2) two monitors \u2014 ask Jason to buy them, his contact sells secondhand.",
-      "<b>Then the commissioning order:</b> set the front-desk PCs up for real (OpenDent already on, plus Chrome with the iSmile email signed in for Google Docs letters, plus WhatsApp Web \u2014 enough for the desk to start working) \u2192 X-ray vendor installs the X-ray software \u2192 Liau installs AutoCount, the 2 secondary accounts downstairs and the primary on the server upstairs.",
-      "<b>Only then the two training events:</b> Liau teaches Lau and Emily AutoCount first; the front-desk training follows on a Saturday after work (clinic closes 3:30 PM) with dinner after \u2014 <b>3 Oct preferred, 24 Oct the fallback</b>.",
+      "<b>Then the commissioning order:</b> set the front-desk PCs up for real (OpenDent already on, plus Chrome with the iSmile email signed in for Google Docs letters, plus WhatsApp Web \u2014 enough for the desk to start working) \u2192 X-ray vendor installs the X-ray software \u2192 Leow installs AutoCount, the 2 secondary accounts downstairs and the primary on the server upstairs.",
+      "<b>Only then the two training events:</b> Leow teaches Lau and Emily AutoCount first; the front-desk training follows on a Saturday after work (clinic closes 3:30 PM) with dinner after \u2014 <b>3 Oct preferred, 24 Oct the fallback</b>.",
       "8-point list sent to Jason 6 Sep \u2014 awaiting his answers, above all the end-to-end date.",
       "EasyDent (X-ray) + CCTV stay on the old PC \u2014 do not migrate"
      ],
@@ -285,7 +285,7 @@
      "from_initiatives": [
       1
      ],
-     "next": "Close the cooling and monitors, commission the two front-desk PCs (Chrome + iSmile email + WhatsApp Web), get the X-ray vendor and Liau in to install X-ray software and AutoCount, then AutoCount training for Lau and Emily before the FOH Saturday.",
+     "next": "Close the cooling and monitors, commission the two front-desk PCs (Chrome + iSmile email + WhatsApp Web), get the X-ray vendor and Leow in to install X-ray software and AutoCount, then AutoCount training for Lau and Emily before the FOH Saturday.",
      "endMonth": "2026-09"
     },
     {
@@ -333,7 +333,7 @@
        "s": "done"
       },
       {
-       "t": "AutoCount installed on the front-desk PCs (Liau)",
+       "t": "AutoCount installed on the front-desk PCs (Leow)",
        "s": ""
       },
       {
@@ -1129,7 +1129,7 @@
     {
      "id": "g1",
      "dot": "now",
-     "chip": "training done 7 Sep \u00b7 send this wk",
+     "chip": "UI session 9 Sep \u00b7 then send",
      "name": "Cold reactivation blast",
      "one": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
      "steps": [
@@ -1158,9 +1158,14 @@
        "s": "now"
       },
       {
-       "t": "Marketing blast training / demo with Code Capsule",
+       "t": "Marketing blast training with Code Capsule \u2014 held",
        "s": "done",
-       "w": "Mon 7 Sep, 10 AM"
+       "w": "Mon 7 Sep"
+      },
+      {
+       "t": "Second session to finalise the UI",
+       "s": "now",
+       "w": "Wed 9 Sep, 5 PM"
       },
       {
        "t": "Fresh-data re-run immediately before sending",
@@ -1176,7 +1181,7 @@
       }
      ],
      "open": [
-      "<b>Marketing blast training completed 7 Sep.</b> The send follows it \u2014 mid to end of this week.",
+      "<b>Blast training held Mon 7 Sep.</b> A second session runs Wed 9 Sep at 5 PM to finalise the UI; the send follows that.",
       "Jason still owes the price",
       "PDPA check with Lydia",
       "<b>Cert expires 16 Oct</b> \u2014 renewal cron should fire ~15 Sep; Jason reminded 28 Aug, confirm it actually renews",
@@ -1186,8 +1191,8 @@
      ],
      "flag": {
       "k": "due",
-      "by": "2026-09-11",
-      "w": "Training is complete. Finish the blacklist and family cross-check, re-run the fresh data, and fire Wave 1 mid to end of week."
+      "by": "2026-09-12",
+      "w": "UI session Wed 9 Sep 5 PM. Then the blacklist and family cross-check, a fresh-data re-run, and Wave 1 fires."
      },
      "owner": "lu",
      "dept": "crm",
@@ -1195,7 +1200,7 @@
      "from_initiatives": [
       28
      ],
-     "next": "Sit the training Mon 7 Sep 10 AM, finish the blacklist and family cross-check, re-run the list on fresh data, then fire Wave 1 mid to end of this week; suggested UI/UX discussion Wed 9 Sep at 5 PM pending Suraya confirmation.",
+     "next": "Sit the UI session Wed 9 Sep 5 PM, finish the blacklist and family cross-check, re-run the list on fresh data, then fire Wave 1.",
      "endMonth": "2026-10"
     },
     {
@@ -1958,7 +1963,7 @@
       }
      ],
      "open": [
-      "<b>Date is down to two Saturdays: 3 Oct (preferred) or 24 Oct.</b> After the clinic closes at 3:30 PM, training then dinner together. It must sit AFTER AutoCount is installed and after Liau has taught Lau and Emily \u2014 receipts and e-invoices are part of the syllabus.",
+      "<b>Date is down to two Saturdays: 3 Oct (preferred) or 24 Oct.</b> After the clinic closes at 3:30 PM, training then dinner together. It must sit AFTER AutoCount is installed and after Leow has taught Lau and Emily \u2014 receipts and e-invoices are part of the syllabus.",
       "Merges the two front-of-house items raised on 20 Jul \u2014 the SOP gap and the upskilling/bench \u2014 because they are the same problem. TRAINING SYLLABUS INPUTS (consolidated 19 Aug, for the future training deck): (1) FOH training compulsory attendees Joanna/Erincy/Jessy/Ida; (2) FOH-01 patient-letters SOP (5 templates, 7-step process, Joanna pilot); (3) WhatsApp quick replies house voice + desk usage, plus desk-training sheet coming from chat-history mining (id 30); (4) DSA professionalism standards (noise, phones, occupied rooms; Siti/Eda peer-led training night model); (5) digital registration form staff flow (?staff=1); (6) rebooking-at-checkout habit (real baseline ~55-65%); (7) AutoCount front-desk training once migration timeline lands (invoice edits in OpenDent only - 30s rule); (8) phone/WhatsApp etiquette + name sign-offs. Detail lives in local memory/chat archives - enough to whip up a deck on request.",
       "Dr Joan and Dr Yeoh letter templates still blocked on their chops and on what the RES00104 / PRO0033 registration prefixes denote - Emily."
      ],
@@ -2272,6 +2277,6 @@
  },
  "meta": {
   "asof": "TUE 08 SEP 2026",
-  "updated": "2026-09-08T16:48:21+08:00"
+  "updated": "2026-09-08T17:03:35+08:00"
  }
 }
