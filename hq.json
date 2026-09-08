@@ -1196,7 +1196,6 @@
       "PDPA check with Lydia",
       "<b>Cert expires 16 Oct</b> \u2014 renewal cron should fire ~15 Sep; Jason reminded 28 Aug, confirm it actually renews",
       "250 sends/day cap shapes the wave calendar",
-      "Suggested UI/UX discussion: Wednesday 9 Sep at 5:00 PM \u2014 awaiting Suraya's confirmation.",
       "From the initiatives board: Birthday trigger de-prioritised by the owner. The review ask moves a lever that already feeds the website automatically."
      ],
      "flag": {
@@ -2287,6 +2286,6 @@
  },
  "meta": {
   "asof": "TUE 08 SEP 2026",
-  "updated": "2026-09-08T17:16:44+08:00"
+  "updated": "2026-09-08T22:30:22+08:00"
  }
 }
