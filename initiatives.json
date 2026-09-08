@@ -1,24 +1,14 @@
 {
- "updated": "2026-09-08T17:03:35+08:00",
+ "updated": "2026-09-08T17:06:17+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Edith": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Code Capsule": {
    "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +17,18 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
    "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   }
@@ -421,7 +421,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
-   "next": "Sit the UI session Wed 9 Sep 5 PM, finish the blacklist and family cross-check, re-run the list on fresh data, then fire Wave 1.",
+   "next": "Sit the UI session Wed 9 Sep 5 PM, reconcile the real daily send cap, finish the blacklist and family cross-check, re-run the list on fresh data, then send Tue\u2013Thu 15\u201317 Sep.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-10",
