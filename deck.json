@@ -1,39 +1,39 @@
 {
- "generated_myt": "2026-09-08 17:30",
- "generated_at": "2026-09-08T17:30:09+08:00",
+ "generated_myt": "2026-09-08 18:00",
+ "generated_at": "2026-09-08T18:00:10+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 85.0,
   "nproc": 4,
   "load": [
-   0.62,
-   0.21,
-   0.2
+   0.04,
+   0.57,
+   0.63
   ],
-  "cpu_pct": 15.5,
-  "cpu_pct_sample": 0.4,
+  "cpu_pct": 1.0,
+  "cpu_pct_sample": 0.7,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 2601,
-   "avail_mb": 5339,
-   "pct": 32.8,
+   "used_mb": 1905,
+   "avail_mb": 6035,
+   "pct": 24.0,
    "swap_total_mb": 2047,
    "swap_used_mb": 210
   },
   "disk": {
    "total_gb": 154.9,
-   "used_gb": 26.0,
-   "pct": 16.8
+   "used_gb": 24.7,
+   "pct": 16.0
   },
   "gateway_ok": true,
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 22,
-    "last_myt": "2026-09-08 17:30 MYT"
+    "age_s": 623,
+    "last_myt": "2026-09-08 17:50 MYT"
    },
    "hq_publish": {
-    "age_s": 817,
+    "age_s": 2618,
     "last_myt": "2026-09-08 17:16 MYT",
     "detail": "asof=TUE 08 SEP 2026 streams=40 sideboard=19 decisions=3 archive=10"
    }
@@ -45,72 +45,11 @@
     "cash_digest"
    ],
    "running": [],
-   "status_updated": "2026-09-08 17:30 MYT"
+   "status_updated": "2026-09-08 18:00 MYT"
   },
   "last_clinic_push": "2026-09-08"
  },
- "agents": [
-  {
-   "id": "main",
-   "name": "Edith",
-   "role": "Edith \u2014 Director of Digital Growth",
-   "kind": "main",
-   "model": "openai/gpt-5.6-luna",
-   "sessions_total": 106,
-   "sessions_30d": 84,
-   "last_active_myt": "2026-09-08 17:18"
-  },
-  {
-   "id": "analytics-agent",
-   "name": "analytics-agent",
-   "role": "specialist",
-   "kind": "specialist",
-   "model": "openai/gpt-5.6-luna",
-   "sessions_total": 25,
-   "sessions_30d": 5,
-   "last_active_myt": "2026-09-02 20:12"
-  },
-  {
-   "id": "cron-main",
-   "name": "cron-main",
-   "role": "cron worker",
-   "kind": "cron",
-   "model": "openai/gpt-5.6-luna",
-   "sessions_total": 44,
-   "sessions_30d": 44,
-   "last_active_myt": "2026-09-07 21:34"
-  },
-  {
-   "id": "cron-seo",
-   "name": "cron-seo",
-   "role": "cron worker",
-   "kind": "cron",
-   "model": "openai/gpt-5.6-luna",
-   "sessions_total": 10,
-   "sessions_30d": 8,
-   "last_active_myt": "2026-09-06 06:02"
-  },
-  {
-   "id": "cron-analytics",
-   "name": "cron-analytics",
-   "role": "cron worker",
-   "kind": "cron",
-   "model": "openai/gpt-5.6-luna",
-   "sessions_total": 8,
-   "sessions_30d": 8,
-   "last_active_myt": "2026-09-06 16:47"
-  },
-  {
-   "id": "cron-gbp",
-   "name": "cron-gbp",
-   "role": "cron worker",
-   "kind": "cron",
-   "model": "openai/gpt-5.6-luna",
-   "sessions_total": 72,
-   "sessions_30d": 70,
-   "last_active_myt": "2026-09-08 06:03"
-  }
- ],
+ "agents": [],
  "finance": {
   "as_of": "2026-09-07",
   "generated_myt": "2026-09-07 19:40",
