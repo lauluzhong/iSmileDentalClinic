@@ -1,22 +1,20 @@
 {
-  "as_of": "2026-09-05",
+  "as_of": "2026-09-08",
   "mode": "eod",
   "fresh": true,
-  "generated_myt": "2026-09-05 19:50",
+  "generated_myt": "2026-09-08 21:50",
   "source_max_paydate": "2026-09-05",
-  "source_max_procdate": "2026-09-05",
+  "source_max_procdate": "2026-09-08",
   "today": {
-    "collected": 5770.0,
-    "produced": 7470.0,
-    "patients_seen": 20,
-    "new_patients": 1,
-    "by_paytype": {
-      "Credit Card": 5770.0
-    }
+    "collected": 0.0,
+    "produced": 8080.0,
+    "patients_seen": 0,
+    "new_patients": 0,
+    "by_paytype": {}
   },
   "mtd": {
     "collected": 55445.0,
-    "produced": 58690.0,
+    "produced": 77020.0,
     "trading_days": 5,
     "avg_per_trading_day": 11089.0,
     "run_rate_26d": 288314.0,
@@ -26,49 +24,44 @@
       "Cash": 1580.0
     }
   },
-  "booked_next_14d": 214,
+  "booked_next_14d": 207,
   "forward_book": {
     "next_7d": {
       "days": 7,
-      "appts": 152,
-      "booked_min": 8340,
+      "appts": 114,
+      "booked_min": 6300,
       "capacity_min": 11120,
-      "pct": 75.0
+      "pct": 56.65467625899281
     },
     "next_14d": {
       "days": 14,
-      "appts": 213,
-      "booked_min": 11950,
+      "appts": 182,
+      "booked_min": 9930,
       "capacity_min": 22240,
-      "pct": 53.73201438848921
+      "pct": 44.64928057553957
     }
   },
   "doctors_worked": {
-    "count": 4,
-    "abbrs": [
-      "Amy",
-      "Azeli",
-      "Mah",
-      "Pris"
-    ]
+    "count": 0,
+    "abbrs": []
   },
   "utilization": {
-    "chair_minutes": 890,
+    "chair_minutes": 0,
     "operatories": 4,
     "open_minutes": 480,
-    "capacity_minutes": 1520,
-    "pct": 58.6
+    "capacity_minutes": 1920,
+    "pct": 0.0
   },
   "pnl": {
-    "locum_est": 1907,
-    "lab_est": 288,
-    "gp": 5275.0,
+    "locum_est": 1543,
+    "lab_est": 528,
+    "gp": 6009.0,
     "overhead_day": 3385.08,
-    "ebitda_day": 1889.92,
+    "ebitda_day": 2623.92,
     "depreciation_day": 1146.54,
-    "net_day": 743.38,
+    "net_day": 1477.38,
     "visits_matched": 20,
     "available": true,
-    "produced": 7470.0
+    "produced": 8080.0
   }
 }
