@@ -2073,6 +2073,7 @@
   "Invisalign: which of the 3 accesses is Emily missing?",
   "Priscilla: clinical practice or case allocation? Only Emily knows",
   "Free staff/family treatment \u2014 quantify + name an approver",
+  "Review medical benefits for staff",
   "D8300 <b>Myobrace</b>: priced RM1,000 in Fee Guide v1 (confirm 1,000 vs 1,500), then apply in OpenDent \u2014 and decide whether to rename it, since Myobrace is a brand the clinic does not carry",
   "holidays.txt repopulate each January (closed-day digest guard)",
   "<b>Reconnect financials:</b> the migrated OpenDental computer disrupted the extract/push pipeline; restore the daily cash and P&L feed.",
@@ -2198,6 +2199,6 @@
  },
  "meta": {
   "asof": "TUE 08 SEP 2026",
-  "updated": "2026-09-08T00:14:53+08:00"
+  "updated": "2026-09-08T09:43:13+08:00"
  }
 }
