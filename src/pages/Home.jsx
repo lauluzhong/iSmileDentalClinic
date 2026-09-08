@@ -350,7 +350,7 @@ const Home = () => {
                                 <div className="hero-trust-stars">
                                     {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#E0A500" color="#E0A500" />)}
                                 </div>
-                                <span><strong>{reviewStats.rating}</strong> on Google · {reviewStats.count} reviews</span>
+                                <span><strong>{reviewStats.rating}</strong> on Google · {reviewStats.count} reviews <span style={{ whiteSpace: 'nowrap' }}>· 20+ years of trusted care</span></span>
                             </div>
                         </div>
                     </div>
