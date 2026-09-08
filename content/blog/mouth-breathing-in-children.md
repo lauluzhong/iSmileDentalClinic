@@ -15,7 +15,7 @@ faq:
   - a: 'Simple, comfortable appliances can often help expand the jaw and gently retrain healthy breathing habits, setting children up for a lifetime of health. Your dentist will assess the right timing for intervention.'
     q: What Can Be Done About Mouth Breathing?
 featured: false
-img: /images/mouth_breathing_sleep.png
+img: /images/blog/child-asleep-nightlight.png
 title: 'Mouth Breathing in Children: When Is It a Dental Concern?'
 tags:
   - Myofunctional Orthodontics

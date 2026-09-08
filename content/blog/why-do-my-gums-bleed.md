@@ -13,7 +13,7 @@ faq:
   - a: 'If you have improved your brushing and flossing routine but the bleeding persists for more than a week, it is time for a professional assessment. A simple cleaning might be all you need to get back on track.'
     q: When Should You Seek Professional Help for Bleeding Gums?
 featured: false
-img: /images/blog/concerned_person_brushing.png
+img: /images/blog/gums-bathroom-concern.png
 title: Why Do My Gums Bleed Even If I Brush Every Day?
 tags:
   - Oral Health

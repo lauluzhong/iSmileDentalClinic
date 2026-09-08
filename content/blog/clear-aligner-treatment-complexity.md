@@ -5,7 +5,7 @@ categories:
 tags:
   - Clear Aligners
 date: '2024-12-30'
-img: /images/blog/invisalign_hero.png
+img: /images/blog/aligner-inspect-window.png
 excerpt: Not all smiles are the same. Learn what factors influence the length and complexity of your clear aligner journey.
 featured: false
 faq:

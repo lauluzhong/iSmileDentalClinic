@@ -14,7 +14,7 @@ faq:
   - a: 'If you feel pressure, pain, or notice any swelling or gum changes at the back of your mouth, it is worth coming in for a quick X-ray to see what is happening beneath the surface.'
     q: When Should You Check In with Your Dentist About Wisdom Teeth?
 featured: false
-img: /images/blog/asian_couple_40s.png
+img: /images/blog/wisdom-recovery-water.png
 title: 'Wisdom Tooth Surgery: What to Expect Before, During, and After'
 tags:
   - Oral Surgery

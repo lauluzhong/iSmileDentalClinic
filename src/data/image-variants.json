@@ -77,6 +77,84 @@
     ],
     "width": 1536
   },
+  "/images/blog/aligner-case-desk.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/aligner-case-desk.png",
+    "variants": [
+      {
+        "avif": "/images/blog/aligner-case-desk-480w.avif",
+        "raster": "/images/blog/aligner-case-desk-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/aligner-case-desk-480w.webp"
+      },
+      {
+        "avif": "/images/blog/aligner-case-desk-768w.avif",
+        "raster": "/images/blog/aligner-case-desk-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/aligner-case-desk-768w.webp"
+      },
+      {
+        "avif": "/images/blog/aligner-case-desk-1024w.avif",
+        "raster": "/images/blog/aligner-case-desk-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/aligner-case-desk-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
+  "/images/blog/aligner-inspect-window.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/aligner-inspect-window.png",
+    "variants": [
+      {
+        "avif": "/images/blog/aligner-inspect-window-480w.avif",
+        "raster": "/images/blog/aligner-inspect-window-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/aligner-inspect-window-480w.webp"
+      },
+      {
+        "avif": "/images/blog/aligner-inspect-window-768w.avif",
+        "raster": "/images/blog/aligner-inspect-window-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/aligner-inspect-window-768w.webp"
+      },
+      {
+        "avif": "/images/blog/aligner-inspect-window-1024w.avif",
+        "raster": "/images/blog/aligner-inspect-window-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/aligner-inspect-window-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
+  "/images/blog/aligner-vs-braces-morning.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/aligner-vs-braces-morning.png",
+    "variants": [
+      {
+        "avif": "/images/blog/aligner-vs-braces-morning-480w.avif",
+        "raster": "/images/blog/aligner-vs-braces-morning-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/aligner-vs-braces-morning-480w.webp"
+      },
+      {
+        "avif": "/images/blog/aligner-vs-braces-morning-768w.avif",
+        "raster": "/images/blog/aligner-vs-braces-morning-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/aligner-vs-braces-morning-768w.webp"
+      },
+      {
+        "avif": "/images/blog/aligner-vs-braces-morning-1024w.avif",
+        "raster": "/images/blog/aligner-vs-braces-morning-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/aligner-vs-braces-morning-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
   "/images/blog/asian_couple_40s.png": {
     "fallbackType": "image/jpeg",
     "height": 1024,
@@ -129,6 +207,32 @@
     ],
     "width": 1536
   },
+  "/images/blog/child-asleep-nightlight.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/child-asleep-nightlight.png",
+    "variants": [
+      {
+        "avif": "/images/blog/child-asleep-nightlight-480w.avif",
+        "raster": "/images/blog/child-asleep-nightlight-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/child-asleep-nightlight-480w.webp"
+      },
+      {
+        "avif": "/images/blog/child-asleep-nightlight-768w.avif",
+        "raster": "/images/blog/child-asleep-nightlight-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/child-asleep-nightlight-768w.webp"
+      },
+      {
+        "avif": "/images/blog/child-asleep-nightlight-1024w.avif",
+        "raster": "/images/blog/child-asleep-nightlight-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/child-asleep-nightlight-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
   "/images/blog/child-candidate-myofunctional-orthodontics.jpg": {
     "fallbackType": "image/jpeg",
     "height": 714,
@@ -155,6 +259,84 @@
     ],
     "width": 1280
   },
+  "/images/blog/child-first-visit-parent-hand.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/child-first-visit-parent-hand.png",
+    "variants": [
+      {
+        "avif": "/images/blog/child-first-visit-parent-hand-480w.avif",
+        "raster": "/images/blog/child-first-visit-parent-hand-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/child-first-visit-parent-hand-480w.webp"
+      },
+      {
+        "avif": "/images/blog/child-first-visit-parent-hand-768w.avif",
+        "raster": "/images/blog/child-first-visit-parent-hand-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/child-first-visit-parent-hand-768w.webp"
+      },
+      {
+        "avif": "/images/blog/child-first-visit-parent-hand-1024w.avif",
+        "raster": "/images/blog/child-first-visit-parent-hand-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/child-first-visit-parent-hand-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
+  "/images/blog/child-reading-sofa.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/child-reading-sofa.png",
+    "variants": [
+      {
+        "avif": "/images/blog/child-reading-sofa-480w.avif",
+        "raster": "/images/blog/child-reading-sofa-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/child-reading-sofa-480w.webp"
+      },
+      {
+        "avif": "/images/blog/child-reading-sofa-768w.avif",
+        "raster": "/images/blog/child-reading-sofa-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/child-reading-sofa-768w.webp"
+      },
+      {
+        "avif": "/images/blog/child-reading-sofa-1024w.avif",
+        "raster": "/images/blog/child-reading-sofa-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/child-reading-sofa-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
+  "/images/blog/child-toothbrush-bathroom.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/child-toothbrush-bathroom.png",
+    "variants": [
+      {
+        "avif": "/images/blog/child-toothbrush-bathroom-480w.avif",
+        "raster": "/images/blog/child-toothbrush-bathroom-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/child-toothbrush-bathroom-480w.webp"
+      },
+      {
+        "avif": "/images/blog/child-toothbrush-bathroom-768w.avif",
+        "raster": "/images/blog/child-toothbrush-bathroom-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/child-toothbrush-bathroom-768w.webp"
+      },
+      {
+        "avif": "/images/blog/child-toothbrush-bathroom-1024w.avif",
+        "raster": "/images/blog/child-toothbrush-bathroom-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/child-toothbrush-bathroom-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
   "/images/blog/concerned_person_brushing.png": {
     "fallbackType": "image/jpeg",
     "height": 1024,
@@ -180,6 +362,32 @@
       }
     ],
     "width": 1024
+  },
+  "/images/blog/cosmetic-confident-laugh.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/cosmetic-confident-laugh.png",
+    "variants": [
+      {
+        "avif": "/images/blog/cosmetic-confident-laugh-480w.avif",
+        "raster": "/images/blog/cosmetic-confident-laugh-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/cosmetic-confident-laugh-480w.webp"
+      },
+      {
+        "avif": "/images/blog/cosmetic-confident-laugh-768w.avif",
+        "raster": "/images/blog/cosmetic-confident-laugh-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/cosmetic-confident-laugh-768w.webp"
+      },
+      {
+        "avif": "/images/blog/cosmetic-confident-laugh-1024w.avif",
+        "raster": "/images/blog/cosmetic-confident-laugh-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/cosmetic-confident-laugh-1024w.webp"
+      }
+    ],
+    "width": 1536
   },
   "/images/blog/dental-crowns-malaysia-hero.jpg": {
     "fallbackType": "image/jpeg",
@@ -311,6 +519,58 @@
     ],
     "width": 1200
   },
+  "/images/blog/family-three-generations-table.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/family-three-generations-table.png",
+    "variants": [
+      {
+        "avif": "/images/blog/family-three-generations-table-480w.avif",
+        "raster": "/images/blog/family-three-generations-table-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/family-three-generations-table-480w.webp"
+      },
+      {
+        "avif": "/images/blog/family-three-generations-table-768w.avif",
+        "raster": "/images/blog/family-three-generations-table-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/family-three-generations-table-768w.webp"
+      },
+      {
+        "avif": "/images/blog/family-three-generations-table-1024w.avif",
+        "raster": "/images/blog/family-three-generations-table-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/family-three-generations-table-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
+  "/images/blog/family-walk-outdoors.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/family-walk-outdoors.png",
+    "variants": [
+      {
+        "avif": "/images/blog/family-walk-outdoors-480w.avif",
+        "raster": "/images/blog/family-walk-outdoors-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/family-walk-outdoors-480w.webp"
+      },
+      {
+        "avif": "/images/blog/family-walk-outdoors-768w.avif",
+        "raster": "/images/blog/family-walk-outdoors-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/family-walk-outdoors-768w.webp"
+      },
+      {
+        "avif": "/images/blog/family-walk-outdoors-1024w.avif",
+        "raster": "/images/blog/family-walk-outdoors-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/family-walk-outdoors-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
   "/images/blog/family_brushing.png": {
     "fallbackType": "image/jpeg",
     "height": 1024,
@@ -336,6 +596,84 @@
       }
     ],
     "width": 1024
+  },
+  "/images/blog/gums-bathroom-concern.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/gums-bathroom-concern.png",
+    "variants": [
+      {
+        "avif": "/images/blog/gums-bathroom-concern-480w.avif",
+        "raster": "/images/blog/gums-bathroom-concern-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/gums-bathroom-concern-480w.webp"
+      },
+      {
+        "avif": "/images/blog/gums-bathroom-concern-768w.avif",
+        "raster": "/images/blog/gums-bathroom-concern-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/gums-bathroom-concern-768w.webp"
+      },
+      {
+        "avif": "/images/blog/gums-bathroom-concern-1024w.avif",
+        "raster": "/images/blog/gums-bathroom-concern-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/gums-bathroom-concern-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
+  "/images/blog/implant-consult-tea.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/implant-consult-tea.png",
+    "variants": [
+      {
+        "avif": "/images/blog/implant-consult-tea-480w.avif",
+        "raster": "/images/blog/implant-consult-tea-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/implant-consult-tea-480w.webp"
+      },
+      {
+        "avif": "/images/blog/implant-consult-tea-768w.avif",
+        "raster": "/images/blog/implant-consult-tea-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/implant-consult-tea-768w.webp"
+      },
+      {
+        "avif": "/images/blog/implant-consult-tea-1024w.avif",
+        "raster": "/images/blog/implant-consult-tea-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/implant-consult-tea-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
+  "/images/blog/implants-smile-garden.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/implants-smile-garden.png",
+    "variants": [
+      {
+        "avif": "/images/blog/implants-smile-garden-480w.avif",
+        "raster": "/images/blog/implants-smile-garden-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/implants-smile-garden-480w.webp"
+      },
+      {
+        "avif": "/images/blog/implants-smile-garden-768w.avif",
+        "raster": "/images/blog/implants-smile-garden-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/implants-smile-garden-768w.webp"
+      },
+      {
+        "avif": "/images/blog/implants-smile-garden-1024w.avif",
+        "raster": "/images/blog/implants-smile-garden-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/implants-smile-garden-1024w.webp"
+      }
+    ],
+    "width": 1536
   },
   "/images/blog/invisalign-malaysia-hero.jpg": {
     "fallbackType": "image/jpeg",
@@ -388,6 +726,32 @@
       }
     ],
     "width": 1024
+  },
+  "/images/blog/mother-son-kitchen-table.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/mother-son-kitchen-table.png",
+    "variants": [
+      {
+        "avif": "/images/blog/mother-son-kitchen-table-480w.avif",
+        "raster": "/images/blog/mother-son-kitchen-table-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/mother-son-kitchen-table-480w.webp"
+      },
+      {
+        "avif": "/images/blog/mother-son-kitchen-table-768w.avif",
+        "raster": "/images/blog/mother-son-kitchen-table-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/mother-son-kitchen-table-768w.webp"
+      },
+      {
+        "avif": "/images/blog/mother-son-kitchen-table-1024w.avif",
+        "raster": "/images/blog/mother-son-kitchen-table-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/mother-son-kitchen-table-1024w.webp"
+      }
+    ],
+    "width": 1536
   },
   "/images/blog/mouth-breathing-thumb-sucking-crowded-teeth.png": {
     "fallbackType": "image/jpeg",
@@ -519,6 +883,110 @@
     ],
     "width": 1537
   },
+  "/images/blog/parent-child-brushing-sink.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/parent-child-brushing-sink.png",
+    "variants": [
+      {
+        "avif": "/images/blog/parent-child-brushing-sink-480w.avif",
+        "raster": "/images/blog/parent-child-brushing-sink-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/parent-child-brushing-sink-480w.webp"
+      },
+      {
+        "avif": "/images/blog/parent-child-brushing-sink-768w.avif",
+        "raster": "/images/blog/parent-child-brushing-sink-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/parent-child-brushing-sink-768w.webp"
+      },
+      {
+        "avif": "/images/blog/parent-child-brushing-sink-1024w.avif",
+        "raster": "/images/blog/parent-child-brushing-sink-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/parent-child-brushing-sink-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
+  "/images/blog/parent-child-mirror-exercise.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/parent-child-mirror-exercise.png",
+    "variants": [
+      {
+        "avif": "/images/blog/parent-child-mirror-exercise-480w.avif",
+        "raster": "/images/blog/parent-child-mirror-exercise-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/parent-child-mirror-exercise-480w.webp"
+      },
+      {
+        "avif": "/images/blog/parent-child-mirror-exercise-768w.avif",
+        "raster": "/images/blog/parent-child-mirror-exercise-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/parent-child-mirror-exercise-768w.webp"
+      },
+      {
+        "avif": "/images/blog/parent-child-mirror-exercise-1024w.avif",
+        "raster": "/images/blog/parent-child-mirror-exercise-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/parent-child-mirror-exercise-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
+  "/images/blog/parent-child-talking-table.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/parent-child-talking-table.png",
+    "variants": [
+      {
+        "avif": "/images/blog/parent-child-talking-table-480w.avif",
+        "raster": "/images/blog/parent-child-talking-table-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/parent-child-talking-table-480w.webp"
+      },
+      {
+        "avif": "/images/blog/parent-child-talking-table-768w.avif",
+        "raster": "/images/blog/parent-child-talking-table-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/parent-child-talking-table-768w.webp"
+      },
+      {
+        "avif": "/images/blog/parent-child-talking-table-1024w.avif",
+        "raster": "/images/blog/parent-child-talking-table-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/parent-child-talking-table-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
+  "/images/blog/relief-warm-mug.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/relief-warm-mug.png",
+    "variants": [
+      {
+        "avif": "/images/blog/relief-warm-mug-480w.avif",
+        "raster": "/images/blog/relief-warm-mug-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/relief-warm-mug-480w.webp"
+      },
+      {
+        "avif": "/images/blog/relief-warm-mug-768w.avif",
+        "raster": "/images/blog/relief-warm-mug-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/relief-warm-mug-768w.webp"
+      },
+      {
+        "avif": "/images/blog/relief-warm-mug-1024w.avif",
+        "raster": "/images/blog/relief-warm-mug-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/relief-warm-mug-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
   "/images/blog/root_canal_vs_extraction_hero.png": {
     "fallbackType": "image/jpeg",
     "height": 1024,
@@ -593,6 +1061,32 @@
         "raster": "/images/blog/signs-child-mouth-breather-hero-1024w.jpg",
         "w": 1024,
         "webp": "/images/blog/signs-child-mouth-breather-hero-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
+  "/images/blog/teen-braces-home.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/teen-braces-home.png",
+    "variants": [
+      {
+        "avif": "/images/blog/teen-braces-home-480w.avif",
+        "raster": "/images/blog/teen-braces-home-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/teen-braces-home-480w.webp"
+      },
+      {
+        "avif": "/images/blog/teen-braces-home-768w.avif",
+        "raster": "/images/blog/teen-braces-home-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/teen-braces-home-768w.webp"
+      },
+      {
+        "avif": "/images/blog/teen-braces-home-1024w.avif",
+        "raster": "/images/blog/teen-braces-home-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/teen-braces-home-1024w.webp"
       }
     ],
     "width": 1536
@@ -675,6 +1169,58 @@
     ],
     "width": 1536
   },
+  "/images/blog/veneers-friends-table.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/veneers-friends-table.png",
+    "variants": [
+      {
+        "avif": "/images/blog/veneers-friends-table-480w.avif",
+        "raster": "/images/blog/veneers-friends-table-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/veneers-friends-table-480w.webp"
+      },
+      {
+        "avif": "/images/blog/veneers-friends-table-768w.avif",
+        "raster": "/images/blog/veneers-friends-table-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/veneers-friends-table-768w.webp"
+      },
+      {
+        "avif": "/images/blog/veneers-friends-table-1024w.avif",
+        "raster": "/images/blog/veneers-friends-table-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/veneers-friends-table-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
+  "/images/blog/visit-checklist-doorway.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/visit-checklist-doorway.png",
+    "variants": [
+      {
+        "avif": "/images/blog/visit-checklist-doorway-480w.avif",
+        "raster": "/images/blog/visit-checklist-doorway-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/visit-checklist-doorway-480w.webp"
+      },
+      {
+        "avif": "/images/blog/visit-checklist-doorway-768w.avif",
+        "raster": "/images/blog/visit-checklist-doorway-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/visit-checklist-doorway-768w.webp"
+      },
+      {
+        "avif": "/images/blog/visit-checklist-doorway-1024w.avif",
+        "raster": "/images/blog/visit-checklist-doorway-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/visit-checklist-doorway-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
   "/images/blog/when-should-children-stop-sucking-thumb-hero.jpg": {
     "fallbackType": "image/jpeg",
     "height": 800,
@@ -701,6 +1247,32 @@
     ],
     "width": 1200
   },
+  "/images/blog/whitening-coffee-smile.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/whitening-coffee-smile.png",
+    "variants": [
+      {
+        "avif": "/images/blog/whitening-coffee-smile-480w.avif",
+        "raster": "/images/blog/whitening-coffee-smile-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/whitening-coffee-smile-480w.webp"
+      },
+      {
+        "avif": "/images/blog/whitening-coffee-smile-768w.avif",
+        "raster": "/images/blog/whitening-coffee-smile-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/whitening-coffee-smile-768w.webp"
+      },
+      {
+        "avif": "/images/blog/whitening-coffee-smile-1024w.avif",
+        "raster": "/images/blog/whitening-coffee-smile-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/whitening-coffee-smile-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
   "/images/blog/why-baby-teeth-matter-hero.jpg": {
     "fallbackType": "image/jpeg",
     "height": 714,
@@ -726,6 +1298,58 @@
       }
     ],
     "width": 1280
+  },
+  "/images/blog/wisdom-recovery-icepack.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/wisdom-recovery-icepack.png",
+    "variants": [
+      {
+        "avif": "/images/blog/wisdom-recovery-icepack-480w.avif",
+        "raster": "/images/blog/wisdom-recovery-icepack-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/wisdom-recovery-icepack-480w.webp"
+      },
+      {
+        "avif": "/images/blog/wisdom-recovery-icepack-768w.avif",
+        "raster": "/images/blog/wisdom-recovery-icepack-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/wisdom-recovery-icepack-768w.webp"
+      },
+      {
+        "avif": "/images/blog/wisdom-recovery-icepack-1024w.avif",
+        "raster": "/images/blog/wisdom-recovery-icepack-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/wisdom-recovery-icepack-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
+  "/images/blog/wisdom-recovery-water.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/wisdom-recovery-water.png",
+    "variants": [
+      {
+        "avif": "/images/blog/wisdom-recovery-water-480w.avif",
+        "raster": "/images/blog/wisdom-recovery-water-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/wisdom-recovery-water-480w.webp"
+      },
+      {
+        "avif": "/images/blog/wisdom-recovery-water-768w.avif",
+        "raster": "/images/blog/wisdom-recovery-water-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/wisdom-recovery-water-768w.webp"
+      },
+      {
+        "avif": "/images/blog/wisdom-recovery-water-1024w.avif",
+        "raster": "/images/blog/wisdom-recovery-water-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/wisdom-recovery-water-1024w.webp"
+      }
+    ],
+    "width": 1536
   },
   "/images/bone_loss_hero_1765825236985.png": {
     "fallbackType": "image/jpeg",

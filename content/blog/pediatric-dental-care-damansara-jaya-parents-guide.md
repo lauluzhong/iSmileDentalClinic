@@ -3,7 +3,7 @@ seo_title: "Pediatric Dental Care in Damansara Jaya: A Parent Guide"
 title: "Pediatric Dental Care in Damansara Jaya: What Parents Should Know"
 date: 2026-04-22
 excerpt: "A comprehensive guide for Damansara Jaya parents on pediatric dental care, from first visits to preventive treatments and what to expect."
-img: /images/service_children.png
+img: /images/blog/parent-child-brushing-sink.png
 categories: ["Pediatric Dentistry"]
 tags: ["pediatric dentistry", "children's dental health"]
 parent_page: "/services/children"

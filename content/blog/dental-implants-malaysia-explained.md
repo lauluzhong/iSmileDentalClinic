@@ -13,7 +13,7 @@ faq:
   - a: 'The first few days bring swelling, bruising, and mild discomfort. Most people return to normal activities within 2-3 days. The surgical site heals in 1-2 weeks, but bone integration continues beneath the surface. Possible complications are rare but include infection, nerve damage, or sinus issues — choosing an experienced dentist significantly reduces these risks.'
     q: What Is Recovery Like After Dental Implant Surgery?
 featured: false
-img: /images/blog/dental-implants-hero.png
+img: /images/blog/implants-smile-garden.png
 title: 'Dental Implants in Malaysia: What You Need to Know'
 tags:
   - Restorative Dentistry

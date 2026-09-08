@@ -4,7 +4,7 @@ seo_title: "Myofunctional Therapy Exercises for Kids: A Home Guide for Parents"
 seo_description: "The tongue posture, lip seal, nasal breathing and swallow exercises a child practises at home, how long each session takes, and how progress is checked."
 date: 2026-05-01
 excerpt: "Simple myofunctional therapy exercises for kids to practice at home — tongue posture, swallow retraining, lip seal, and breathing exercises explained for parents."
-img: /images/blog/myofunctional-therapy-exercises-kids-home-hero.png
+img: /images/blog/parent-child-mirror-exercise.png
 content_type: educational
 categories:
   - Myofunctional Orthodontics
