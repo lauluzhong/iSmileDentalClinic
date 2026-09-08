@@ -98,7 +98,7 @@ const portraitSrc = (img, ext) => encodeURI(img.replace(/\.jpg$/, ext));
 const MOSAIC_QUOTES = [
     'Caring for your whole family.',
     'Where competency and compassion meet.',
-    'The same faces, visit after visit.',
+    '20+ years of trusted care.',
     'Growing older with our patients.'
 ];
 const MOSAIC_ROW_A = [
@@ -350,11 +350,7 @@ const Home = () => {
                                 <div className="hero-trust-stars">
                                     {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#E0A500" color="#E0A500" />)}
                                 </div>
-                                <span className="hero-trust-copy">
-                                    <span><strong>{reviewStats.rating}</strong> on Google · {reviewStats.count} reviews</span>
-                                    <span className="hero-trust-sep" aria-hidden="true">·</span>
-                                    <span>20+ years of trusted care</span>
-                                </span>
+                                <span><strong>{reviewStats.rating}</strong> on Google · {reviewStats.count} reviews</span>
                             </div>
                         </div>
                     </div>
@@ -580,13 +576,6 @@ const Home = () => {
         .hero-trust-item { display: flex; align-items: center; gap: 8px; }
         .hero-trust-item strong { color: var(--color-text-charcoal); }
         .hero-trust-stars { display: inline-flex; gap: 2px; }
-        .hero-trust-copy { display: flex; align-items: baseline; column-gap: 8px; }
-        @media (max-width: 767px) {
-            /* Stacked, not wrapped: the inline middot separator would otherwise
-               orphan onto the start of the second line. */
-            .hero-trust-copy { flex-direction: column; row-gap: 2px; }
-            .hero-trust-sep { display: none; }
-        }
 
         /* The moving mosaic: two counter-drifting rows of square tiles —
            portraits and tinted quote tiles — masked so the edges fade rather
