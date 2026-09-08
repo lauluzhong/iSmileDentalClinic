@@ -1,14 +1,14 @@
 {
- "updated": "2026-09-08T17:06:17+08:00",
+ "updated": "2026-09-08T17:16:44+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Code Capsule": {
-   "init": "CC",
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
-   "init": "E",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
@@ -17,18 +17,18 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
+  "Emily": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
   "Dr Ong": {
    "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -421,7 +421,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
-   "next": "Sit the UI session Wed 9 Sep 5 PM, reconcile the real daily send cap, finish the blacklist and family cross-check, re-run the list on fresh data, then send Tue\u2013Thu 15\u201317 Sep.",
+   "next": "Sit the UI session Wed 9 Sep 5 PM, finish the blacklist and family cross-check, re-run the list on fresh data, then send Tue\u2013Thu 15\u201317 Sep at 1,800/day.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-10",
@@ -435,7 +435,7 @@
     "Marketing blast training with Code Capsule \u2014 held",
     "Second session to finalise the UI",
     "Fresh-data re-run immediately before sending",
-    "Wave 1 fires (13\u201336mo lapsed)",
+    "Wave 1 fires (13\u201336mo lapsed) \u2014 1,800/day",
     "Waves 2\u20133 \u00b7 funnel read via campaign tags"
    ],
    "pillar": "P3"

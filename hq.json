@@ -1179,7 +1179,7 @@
        "s": ""
       },
       {
-       "t": "Wave 1 fires (13\u201336mo lapsed)",
+       "t": "Wave 1 fires (13\u201336mo lapsed) \u2014 1,800/day",
        "s": "",
        "w": "Tue\u2013Thu 15\u201317 Sep"
       },
@@ -1191,7 +1191,7 @@
      "open": [
       "<b>Blast training held Mon 7 Sep; UI session Wed 9 Sep 5 PM</b> (Mini CRM discussion, Google Meet). <b>The send runs Tue\u2013Thu, 15\u201317 Sep.</b>",
       "<b>UI terminology changed by Code Capsule 7 Sep:</b> the flow is now Audience Filters \u2192 Audience List \u2192 Recipients. \"Selected Patients\" is renamed \"Recipients\"; \"Audience\" is the filtered pool, \"Recipients\" the patients actually selected to receive the campaign.",
-      "\u26a0\ufe0f <b>The 2,000 cap is PER DAY</b>, and the x/2000 shown at the bottom of the table is a UI placeholder rather than the real system limit (Jason, 7 Sep). This contradicts the ~250/day in the August pack \u2014 reconcile it before shaping the waves, because it changes how many days 4,011 sends take.",
+      "<b>Daily cap: the system allows 2,000/day; we set ours at 1,800</b> to leave headroom for the other automations sharing the number (recall, birthday). At 1,800 the 4,011 sends clear in three days \u2014 which is exactly what the Tue\u2013Thu window is for. The old ~250/day in the August pack is superseded.",
       "Jason still owes the price",
       "PDPA check with Lydia",
       "<b>Cert expires 16 Oct</b> \u2014 renewal cron should fire ~15 Sep; Jason reminded 28 Aug, confirm it actually renews",
@@ -1210,7 +1210,7 @@
      "from_initiatives": [
       28
      ],
-     "next": "Sit the UI session Wed 9 Sep 5 PM, reconcile the real daily send cap, finish the blacklist and family cross-check, re-run the list on fresh data, then send Tue\u2013Thu 15\u201317 Sep.",
+     "next": "Sit the UI session Wed 9 Sep 5 PM, finish the blacklist and family cross-check, re-run the list on fresh data, then send Tue\u2013Thu 15\u201317 Sep at 1,800/day.",
      "endMonth": "2026-10"
     },
     {
@@ -2287,6 +2287,6 @@
  },
  "meta": {
   "asof": "TUE 08 SEP 2026",
-  "updated": "2026-09-08T17:06:17+08:00"
+  "updated": "2026-09-08T17:16:44+08:00"
  }
 }
