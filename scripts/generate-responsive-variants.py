@@ -33,6 +33,12 @@ JPEG_QUALITY = 88
 
 # Public-relative paths of images that are served far above their display size.
 TARGETS = [
+    # Added 2026-09-08: replacement blog heroes generated to the owner-approved
+    # candid-realism rules (no text, generic premises, plausible photographer,
+    # matte skin). See the ismile-image-generation skill.
+    '/images/blog/braces-mother-teen-hero.png',
+    '/images/blog/toothache-breakfast-hero.png',
+    '/images/blog/aligner-cafe-hero.png',
     '/images/child_airway_hero_1765825276038.png',
     '/images/blog/dental-implants-hero.png',
     '/images/blog/signs-child-early-orthodontic-assessment.png',

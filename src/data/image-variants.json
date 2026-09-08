@@ -51,6 +51,32 @@
     ],
     "width": 1600
   },
+  "/images/blog/aligner-cafe-hero.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/aligner-cafe-hero.png",
+    "variants": [
+      {
+        "avif": "/images/blog/aligner-cafe-hero-480w.avif",
+        "raster": "/images/blog/aligner-cafe-hero-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/aligner-cafe-hero-480w.webp"
+      },
+      {
+        "avif": "/images/blog/aligner-cafe-hero-768w.avif",
+        "raster": "/images/blog/aligner-cafe-hero-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/aligner-cafe-hero-768w.webp"
+      },
+      {
+        "avif": "/images/blog/aligner-cafe-hero-1024w.avif",
+        "raster": "/images/blog/aligner-cafe-hero-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/aligner-cafe-hero-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
   "/images/blog/asian_couple_40s.png": {
     "fallbackType": "image/jpeg",
     "height": 1024,
@@ -76,6 +102,32 @@
       }
     ],
     "width": 1024
+  },
+  "/images/blog/braces-mother-teen-hero.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/braces-mother-teen-hero.png",
+    "variants": [
+      {
+        "avif": "/images/blog/braces-mother-teen-hero-480w.avif",
+        "raster": "/images/blog/braces-mother-teen-hero-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/braces-mother-teen-hero-480w.webp"
+      },
+      {
+        "avif": "/images/blog/braces-mother-teen-hero-768w.avif",
+        "raster": "/images/blog/braces-mother-teen-hero-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/braces-mother-teen-hero-768w.webp"
+      },
+      {
+        "avif": "/images/blog/braces-mother-teen-hero-1024w.avif",
+        "raster": "/images/blog/braces-mother-teen-hero-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/braces-mother-teen-hero-1024w.webp"
+      }
+    ],
+    "width": 1536
   },
   "/images/blog/child-candidate-myofunctional-orthodontics.jpg": {
     "fallbackType": "image/jpeg",
@@ -593,6 +645,32 @@
         "raster": "/images/blog/tongue-thrust-in-children-hero-1024w.jpg",
         "w": 1024,
         "webp": "/images/blog/tongue-thrust-in-children-hero-1024w.webp"
+      }
+    ],
+    "width": 1536
+  },
+  "/images/blog/toothache-breakfast-hero.png": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/toothache-breakfast-hero.png",
+    "variants": [
+      {
+        "avif": "/images/blog/toothache-breakfast-hero-480w.avif",
+        "raster": "/images/blog/toothache-breakfast-hero-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/toothache-breakfast-hero-480w.webp"
+      },
+      {
+        "avif": "/images/blog/toothache-breakfast-hero-768w.avif",
+        "raster": "/images/blog/toothache-breakfast-hero-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/toothache-breakfast-hero-768w.webp"
+      },
+      {
+        "avif": "/images/blog/toothache-breakfast-hero-1024w.avif",
+        "raster": "/images/blog/toothache-breakfast-hero-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/toothache-breakfast-hero-1024w.webp"
       }
     ],
     "width": 1536

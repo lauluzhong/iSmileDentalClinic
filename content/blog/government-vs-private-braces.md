@@ -20,7 +20,7 @@ faq:
   - q: Are braces the only option for a child?
     a: 'No. Depending on what an assessment finds, options can include myofunctional appliances, expanders and other growth-related appliances, clear aligners, or braces. Sometimes the outcome is simply monitoring while a child grows. Which of these suits a particular child depends on their age, their stage of development and what the assessment shows.'
 featured: false
-img: /images/service_straighten.png
+img: /images/blog/braces-mother-teen-hero.png
 title: 'Are Braces Covered by the Government in Malaysia? What Parents Should Know'
 tags:
   - Traditional Braces

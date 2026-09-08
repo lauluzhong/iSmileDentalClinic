@@ -13,7 +13,7 @@ faq:
   - a: 'For the right candidate, Invisalign offers a convenient, discreet way to straighten teeth with no wires poking cheeks and easier oral hygiene. The trade-offs are cost — generally more expensive than traditional braces — and the discipline required. You must commit to wearing them 20-22 hours per day consistently. Treatment time varies, your dentist will advise.'
     q: Is Invisalign Worth It?
 featured: false
-img: /images/blog/invisalign-malaysia-hero.jpg
+img: /images/blog/aligner-cafe-hero.png
 title: 'Invisalign in Malaysia: Clear Aligners Explained'
 tags:
   - Clear Aligners
