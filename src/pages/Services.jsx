@@ -118,7 +118,6 @@ const ServiceHub = () => {
             <section className="hub-hero-light">
                 <div className="container hub-hero-grid">
                     <div className="hub-hero-copy">
-                        <span className="eyebrow">{data.displayTitle}</span>
                         <h1 className="hub-title">{withAccent(data.hero, HERO_ACCENTS[category])}</h1>
                         <p className="hub-lead">{data.description}</p>
                     </div>

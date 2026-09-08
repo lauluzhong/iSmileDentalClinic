@@ -173,7 +173,7 @@ const Header = () => {
                                     {link.path ? (
                                         <Link
                                             to={link.path}
-                                            className="nav-link" data-analytics-click="nav-link" data-analytics-label={link.name}
+                                            className={`nav-link${location.pathname === link.path || location.pathname.startsWith(`${link.path}/`) ? ' nav-link-active' : ''}`} data-analytics-click="nav-link" data-analytics-label={link.name}
                                             onClick={(e) => {
                                                 if (location.pathname === link.path) {
                                                     e.preventDefault();
@@ -480,7 +480,8 @@ const Header = () => {
             padding: 10px 0;
         }
         
-        .nav-link:hover {
+        .nav-link:hover,
+        .nav-link-active {
             color: var(--color-primary);
         }
 

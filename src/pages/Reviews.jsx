@@ -330,7 +330,6 @@ const Reviews = () => {
             <div className="reviews-hero-gradient">
                 <div className="container">
                     <Reveal width="100%">
-                        <span className="eyebrow">Google reviews</span>
                     </Reveal>
                     <Reveal width="100%">
                         <h1 className="reviews-hero-title">
@@ -409,6 +408,7 @@ const Reviews = () => {
                     padding: 30px 32px;
                     background: var(--color-tint-faint);
                     border-radius: 22px;
+                    box-shadow: 0 1px 3px rgba(16, 42, 51, 0.05), 0 6px 18px rgba(16, 42, 51, 0.05);
                 }
                 .reviews-page .review-card-large:nth-child(4n+2),
                 .reviews-page .review-card-large:nth-child(4n+3) { background: #EBF4FA; }

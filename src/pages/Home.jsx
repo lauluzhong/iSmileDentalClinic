@@ -12,7 +12,7 @@ import dentists from '../data/dentists.js';
 // Review avatar WebP variants
 const AVATAR_MIKE_WEBP = "/images/reviews/mike_ngui.webp";
 const AVATAR_KAH_MUN_WEBP = "/images/reviews/kah_mun_hew.webp";
-const AVATAR_BENNY_WEBP = "/images/reviews/benny_kong.webp";
+const AVATAR_LYDIA_JPG = "/images/reviews/lydia_ng.jpg";
 
 import blogIndex from '../data/blog-index.json';
 import Style from '../components/Style';
@@ -66,9 +66,9 @@ const QUOTES = [
         avatar: AVATAR_KAH_MUN_WEBP
     },
     {
-        text: "Above all, I appreciate iSmile's professional care and 'customer first' attitude.",
-        author: "Benny Kong",
-        avatar: AVATAR_BENNY_WEBP
+        text: "The only dental clinic I trust for my family with 2 young kids. An experienced team of dentists who are kind and caring, very clean and comfortable environment too.",
+        author: "Lydia Ng",
+        avatar: AVATAR_LYDIA_JPG
     }
 ];
 
@@ -370,7 +370,6 @@ const Home = () => {
             <section className="services-section">
                 <div className="container">
                     <div className="section-header services-header">
-                        <Reveal width="100%"><span className="section-eyebrow">Our Services</span></Reveal>
                         <Reveal width="100%"><h2 className="section-title">Comprehensive care for <em>every stage of life.</em></h2></Reveal>
                         <Reveal width="100%"><p className="section-lead">A child's first check-up. Braces in the teenage years. A grandparent's new smile. One team that knows your family and grows with it.</p></Reveal>
                     </div>
@@ -392,7 +391,6 @@ const Home = () => {
             {/* ============ 3. PROOF — the teal band ============ */}
             <section className="proof-section" ref={proofRef}>
                 <div className="container">
-                    <p className="proof-eyebrow">Real Stories</p>
                     <h2 className="proof-statement">Trusted by <em>families.</em></h2>
 
                     <div className="proof-quotes">
@@ -448,7 +446,6 @@ const Home = () => {
             {/* ============ 5. CLOSING — just the invitation; the footer holds the facts ============ */}
             <section className="closing-cta">
                 <div className="container closing-inner">
-                    <span className="section-eyebrow">We're in Damansara Jaya</span>
                     <h2 className="closing-title">Come and <em>meet us.</em></h2>
                     <p className="closing-line">
                         Tell us who is coming in and we will find a time that suits the family.

@@ -66,7 +66,6 @@ export default function SpecialtyLayout({
 
             <header className="sp-hero">
                 <div className="container">
-                    <span className="eyebrow">{eyebrow}</span>
                     <h1 className="sp-title">{accent(title, titleAccent)}</h1>
                     <p className="sp-lead">{lead}</p>
                     {subline && <p className="sp-meta">{subline}</p>}
