@@ -1,14 +1,19 @@
 {
- "updated": "2026-09-08T09:43:13+08:00",
+ "updated": "2026-09-08T16:44:51+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lau": {
+  "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
-   "init": "E",
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
@@ -17,18 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Code Capsule": {
    "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
-   "init": "L",
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -39,8 +39,8 @@
    "title": "OpenDent \u2194 AutoCount integration",
    "status": "active",
    "owner": "Code Capsule",
-   "why": "The spine. OpenDent is migrated and every PC is reconnected, but autobackup is not set up and the reception PCs are still to come \u2014 the end-to-end date is now a question for Jason.",
-   "next": "Monday 7 Sep: recheck every PC finds the new pathway and data. Chase Jason's answers to the 8-point list \u2014 the end-to-end date is the one that matters. Reception PCs this coming week.",
+   "why": "The spine. OpenDent is migrated and installed on every machine; what stands between here and go-live is commissioning the two front-desk PCs and getting AutoCount onto them.",
+   "next": "Close the cooling and monitors, commission the two front-desk PCs (Chrome + iSmile email + WhatsApp Web), get the X-ray vendor and Liau in to install X-ray software and AutoCount, then AutoCount training for Lau and Emily before the FOH Saturday.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -49,16 +49,20 @@
     "Sandbox on the side PC \u2014 integration proven",
     "Software / Windows list + licences done, passed to Code Capsule",
     "Hardware purchased",
-    "AutoCount invoice paid (RM4,200 incl. API module, +2 stock users)",
+    "AutoCount invoice paid \u2014 1 primary + 2 secondary accounts",
     "AutoCount licence + data migration done (19,206 debtors \u2192 AED_ISMILE)",
-    "Preliminary config check only \u2014 end-to-end is NOT possible yet",
+    "Preliminary config check",
     "Hardware arrived and items checked",
-    "OpenDent migration & configuration done \u2014 Bob completed the move",
-    "2 new PCs have OpenDental installed; all other clinic PCs reconnected to the new server",
-    "Bob monitoring the data via UltraViewer (was not meant to run past 5 Sep) \u00b7 autobackup still to be set up",
-    "Recheck every PC finds the new pathway and data",
-    "Set up the 2 new reception PCs",
-    "8-point confirmation list sent to Jason in the CC group \u2014 awaiting his reply",
+    "OpenDent migrated successfully",
+    "OpenDent installed on every computer, including the 2 new front-desk PCs",
+    "8-point confirmation list sent to Jason in the CC group",
+    "Cooling solution for the 2 front-desk PCs",
+    "2 monitors \u2014 Jason to source (his contact sells secondhand)",
+    "Commission the front-desk PCs: Chrome + iSmile email signed in (Google Docs for letters) + WhatsApp Web",
+    "X-ray vendor installs the X-ray software (likely over UltraViewer)",
+    "Liau (AutoCount) installs AutoCount \u2014 2 secondary accounts downstairs, 1 primary on the server upstairs",
+    "Liau teaches Lau + Emily how to use AutoCount",
+    "Front-desk training \u2014 receipts, e-invoices and the wider FOH syllabus",
     "True end-to-end integration test",
     "AR sync live \u2014 parallel run with paper receipts"
    ],
@@ -89,15 +93,17 @@
    "status": "review",
    "owner": "Emily",
    "why": "Receipts out of AutoCount replace the paper book \u2014 front desk switches only after training.",
-   "next": "After #1 go-live, configure the digital receipt module in AutoCount.",
+   "next": "Lock 3 or 24 Oct, design the receipt, write the SOP \u2014 teach receipts and e-invoices at the FOH Saturday.",
    "dept": "clinical",
    "lens": "efficiency",
    "endMonth": "2026-10",
    "note": "",
    "tasks": [
     "Receipt capability confirmed in AutoCount",
+    "AutoCount installed on the front-desk PCs (Liau)",
     "Design what the new receipt looks like",
     "Receipts SOP written",
+    "Receipts + e-invoices taught at the FOH training",
     "FOH trained \u00b7 paper retired"
    ],
    "pillar": "P1"
@@ -167,8 +173,8 @@
    "title": "Hardware & server",
    "status": "active",
    "owner": "Code Capsule",
-   "why": "New reception PC + the home CPU as the new server beside the old one; OpenDent rep reconfigures everything.",
-   "next": "Reception PCs this coming week; Jason to supply cooling for the new PC and confirm the AutoCount installs.",
+   "why": "Server swapped and every PC reconnected. The two front-desk machines are built but cannot go into service without cooling and monitors.",
+   "next": "Jason supplies cooling and two secondhand monitors, then the front-desk PCs go into service.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": null,
@@ -177,11 +183,11 @@
     "Server CPU brought in",
     "Hardware + OpenDent rep invoices paid (Code Capsule)",
     "PCs arrived and items checked",
-    "Server swap on downtime day",
-    "2 new PCs installed with OpenDental; all other PCs reconnected",
-    "Confirm which PCs have AutoCount installed",
-    "2 new reception PCs set up",
-    "Cooling for the new PC \u2014 it heats up on long runs"
+    "Server swap",
+    "OpenDent installed on all machines incl. the 2 front-desk PCs",
+    "Cooling solution for the front-desk PCs",
+    "2 monitors \u2014 Jason to buy (contact sells secondhand)",
+    "Front-desk PCs into service"
    ],
    "pillar": "P1"
   },
@@ -268,7 +274,7 @@
    "status": "review",
    "owner": "Lydia",
    "why": "Synthesised 13 Aug, with Lydia since 17 Aug. Body is a pure template; every per-doctor input lives in Schedule 1.",
-   "next": "Lydia to finalise the employee contracts, handbook and doctors' contracts (Dr Ong, Dr Ling and Dr Jun are the names evidenced so far), then prepare the 15 Sep rollout copies.",
+   "next": "Lydia fills the doctors' details into each agreement (from Emily), finalises the handbook and Elaine's papers, then the rollout runs: Zoom explainer \u2192 contracts out one by one \u2192 group sit-down about two weeks later.",
    "dept": "people",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -369,19 +375,21 @@
    "title": "Doctor rollout & communication",
    "status": "active",
    "owner": "Lau",
-   "why": "How the agreement actually lands with the doctors. The narrative carries as much weight as the terms.",
-   "next": "Decide the format: sit-down while sharing, or send individually then take questions",
+   "why": "How the agreement lands with the doctors \u2014 now a two-step: a Zoom call to explain the changes and hand the contracts over, then a group sit-down about two weeks later for questions.",
+   "next": "Wait on Lydia's finalised contracts, then book the Zoom explainer, send the contracts individually, and set the group sit-down about two weeks after.",
    "dept": "finance",
    "lens": "efficiency",
    "endMonth": null,
    "note": "",
    "tasks": [
     "Parents approve the three changes",
-    "Decide the format: sit-down while sharing, or send individually then take questions",
-    "Agreements out to the doctors",
-    "Emily firms up the OpenDent corrections / training content",
-    "Doctors' meeting \u2014 principles, the why, the three changes, OpenDent refresher",
-    "Per-doctor questions \u00b7 signatures"
+    "Format decided: Zoom explainer first, then contracts sent one by one, then a group sit-down ~2 weeks later",
+    "Lydia finalises the contracts with each doctor's details",
+    "Zoom call \u2014 walk the 3\u20134 core changes, lead with the good news",
+    "Contracts sent to each doctor individually",
+    "Two weeks of personal questions by text \u2014 answered as they come",
+    "Group sit-down \u2014 remaining questions + OpenDent code alignment recap",
+    "Signatures"
    ],
    "pillar": "P2"
   },
@@ -391,7 +399,7 @@
    "status": "review",
    "owner": "Lydia",
    "why": "New hires signed on Gen-3; long-tenured staff don't re-sign \u2014 everyone signs the 2026 handbook acknowledgement instead.",
-   "next": "Handbook finalised by Lydia",
+   "next": "Lydia finalises the handbook with the pending clauses (family discount included) and Elaine's papers; then plan the all-staff acknowledgement signing.",
    "dept": "finance",
    "lens": "efficiency",
    "endMonth": null,
@@ -399,8 +407,10 @@
    "tasks": [
     "Gen-3 templates + terminology standard settled",
     "New hires signed",
-    "Handbook finalised by Lydia",
-    "All-staff acknowledgement signatures"
+    "Handbook finalised by Lydia \u2014 including the pending clauses",
+    "Family discount clause added to the handbook",
+    "Elaine's JD + contract adjusted",
+    "All-staff acknowledgement signatures planned and collected"
    ],
    "pillar": "P2"
   },
@@ -753,7 +763,7 @@
    "status": "active",
    "owner": "Emily",
    "why": "The clinic has no SOP for issuing letters to patients \u2014 medical certificates, referral letters, insurance reports, quotations. Nobody had ever said whose job it was, and that gap caused real friction between a doctor and",
-   "next": "Consolidated all training inputs onto this card (see note). Next: owner picks a date to build the FOH training deck.",
+   "next": "Pick 3 or 24 Oct, then build the training deck against the consolidated syllabus on this card.",
    "dept": "people",
    "lens": "efficiency",
    "endMonth": "2026-11",
@@ -769,7 +779,8 @@
     "Training scope agreed \u2014 receipts, the digital form, letters, and difficult conversations",
     "Attendance agreed \u2014 four required, the rest of the assistants welcome",
     "Letters: obtain the example from the office, then build the letterhead templates",
-    "Check whether a clinic stamp can stand in for a doctor's signature on external letters"
+    "Check whether a clinic stamp can stand in for a doctor's signature on external letters",
+    "Date narrowed: Sat 3 Oct (preferred) or Sat 24 Oct \u2014 after 3:30 PM close, dinner after"
    ],
    "pillar": "F1"
   },

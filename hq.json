@@ -102,10 +102,10 @@
   },
   {
    "d": "15 Sep",
-   "l": "Doctors' meeting \u2014 walk the agreement",
+   "l": "Doctor rollout \u2014 Zoom explainer (date follows Lydia)",
    "s": "",
    "iso": "2026-09-15",
-   "tip": "The sit-down with the doctors: guiding principles, why we are doing this, the three changes, and the OpenDent refresher. The narrative matters as much as the content \u2014 see the Doctor rollout card."
+   "tip": "Superseded 6 Sep: the 15 Sep sit-down becomes a two-step. A Zoom call walks the 3\u20134 core changes and the good news, then contracts go to each doctor individually; a group sit-down about two weeks later takes the remaining questions and recaps OpenDent code alignment. The date now follows Lydia finalising the contracts."
   },
   {
    "d": "15 Sep",
@@ -120,6 +120,13 @@
    "s": "",
    "iso": "2026-09-25",
    "tip": "The FOH training Saturday (+ dinner) and the paper-to-digital receipts switch-over both land in this window. Date still to be set."
+  },
+  {
+   "d": "3 or 24 Oct",
+   "l": "FOH training Saturday + dinner",
+   "s": "",
+   "iso": "2026-10-03",
+   "tip": "Front-desk training after the 3:30 PM close, dinner after. 3 Oct is preferred, 24 Oct the fallback. Syllabus: receipts and e-invoices out of AutoCount, plus the wider front-desk content. Must sit after AutoCount is installed and after Liau has taught Lau and Emily."
   },
   {
    "d": "16 Oct",
@@ -168,9 +175,9 @@
     {
      "id": "d1",
      "dot": "now",
-     "chip": "migrated \u00b7 stabilising",
+     "chip": "migrated \u00b7 commissioning",
      "name": "OpenDent \u2194 AutoCount integration",
-     "one": "The spine. OpenDent is migrated and every PC is reconnected, but autobackup is not set up and the reception PCs are still to come \u2014 the end-to-end date is now a question for Jason.",
+     "one": "The spine. OpenDent is migrated and installed on every machine; what stands between here and go-live is commissioning the two front-desk PCs and getting AutoCount onto them.",
      "steps": [
       {
        "t": "Sandbox on the side PC \u2014 integration proven",
@@ -186,7 +193,7 @@
        "w": "24 Aug"
       },
       {
-       "t": "AutoCount invoice paid (RM4,200 incl. API module, +2 stock users)",
+       "t": "AutoCount invoice paid \u2014 1 primary + 2 secondary accounts",
        "s": "done",
        "w": "27 Aug"
       },
@@ -196,7 +203,7 @@
        "w": "1 Sep"
       },
       {
-       "t": "Preliminary config check only \u2014 end-to-end is NOT possible yet",
+       "t": "Preliminary config check",
        "s": "done",
        "w": "2 Sep"
       },
@@ -206,34 +213,48 @@
        "w": "3 Sep"
       },
       {
-       "t": "OpenDent migration & configuration done \u2014 Bob completed the move",
+       "t": "OpenDent migrated successfully",
        "s": "done",
        "w": "Sat 5 Sep"
       },
       {
-       "t": "2 new PCs have OpenDental installed; all other clinic PCs reconnected to the new server",
+       "t": "OpenDent installed on every computer, including the 2 new front-desk PCs",
        "s": "done",
        "w": "5 Sep"
       },
       {
-       "t": "Bob monitoring the data via UltraViewer (was not meant to run past 5 Sep) \u00b7 autobackup still to be set up",
-       "s": "now",
-       "w": "from 5 Sep"
-      },
-      {
-       "t": "Recheck every PC finds the new pathway and data",
-       "s": "now",
-       "w": "Mon 7 Sep"
-      },
-      {
-       "t": "Set up the 2 new reception PCs",
-       "s": "",
-       "w": "wk of 7 Sep"
-      },
-      {
-       "t": "8-point confirmation list sent to Jason in the CC group \u2014 awaiting his reply",
+       "t": "8-point confirmation list sent to Jason in the CC group",
        "s": "done",
        "w": "6 Sep"
+      },
+      {
+       "t": "Cooling solution for the 2 front-desk PCs",
+       "s": "now"
+      },
+      {
+       "t": "2 monitors \u2014 Jason to source (his contact sells secondhand)",
+       "s": "now"
+      },
+      {
+       "t": "Commission the front-desk PCs: Chrome + iSmile email signed in (Google Docs for letters) + WhatsApp Web",
+       "s": ""
+      },
+      {
+       "t": "X-ray vendor installs the X-ray software (likely over UltraViewer)",
+       "s": ""
+      },
+      {
+       "t": "Liau (AutoCount) installs AutoCount \u2014 2 secondary accounts downstairs, 1 primary on the server upstairs",
+       "s": ""
+      },
+      {
+       "t": "Liau teaches Lau + Emily how to use AutoCount",
+       "s": ""
+      },
+      {
+       "t": "Front-desk training \u2014 receipts, e-invoices and the wider FOH syllabus",
+       "s": "",
+       "w": "Sat 3 Oct (pref) or 24 Oct"
       },
       {
        "t": "True end-to-end integration test",
@@ -246,18 +267,17 @@
       }
      ],
      "open": [
-      "<b>Migration done 5 Sep</b> (Emily): 2 new PCs have OpenDental installed and all other PCs are reconnected. Bob is still monitoring the data through UltraViewer and has yet to set up autobackup.",
-      "<b>The end-to-end date is open.</b> We had pencilled 7\u201311 Sep before the migration. Bob's monitoring was not intended to run past Saturday night, and Monday every PC gets rechecked for the new pathway and data. Jason owes us a date given where all the pieces actually stand.",
-      "<b>8-point list sent to Jason in the CC group on 6 Sep</b> \u2014 migration clean \u00b7 autobackup \u00b7 integration working \u00b7 which PCs have AutoCount \u00b7 reception PCs \u00b7 cooling \u00b7 E2E date \u00b7 anything else open. Awaiting his reply.",
-      "<b>Suraya:</b> confirm the Wednesday 9 Sep UI/UX discussion time; suggested time is 5:00 PM.",
-      "\u26a0\ufe0f <b>Thermal:</b> the new PC heats up when left on for long periods; Emily suggests buying a fan. Left unresolved on a machine that runs all day, this is a failure risk \u2014 get Jason's read on whether the unit is spec'd for continuous running.",
-      "EasyDent (X-ray) + CCTV stay on the old PC \u2014 do not migrate",
-      "From the initiatives board: Opportunistic add-ons in scope: digital WhatsApp receipts, payroll SaaS, procurement, inventory module. Share Code Capsule's SOW with Claude once received."
+      "<b>Migration is done and OpenDent is on every machine</b>, the 2 new front-desk PCs included. They are not in service yet for two reasons only: the cooling issue and no monitors.",
+      "<b>Two hardware items stand between here and a working front desk:</b> (1) a cooling solution for the downstairs PCs, (2) two monitors \u2014 ask Jason to buy them, his contact sells secondhand.",
+      "<b>Then the commissioning order:</b> set the front-desk PCs up for real (OpenDent already on, plus Chrome with the iSmile email signed in for Google Docs letters, plus WhatsApp Web \u2014 enough for the desk to start working) \u2192 X-ray vendor installs the X-ray software \u2192 Liau installs AutoCount, the 2 secondary accounts downstairs and the primary on the server upstairs.",
+      "<b>Only then the two training events:</b> Liau teaches Lau and Emily AutoCount first; the front-desk training follows on a Saturday after work (clinic closes 3:30 PM) with dinner after \u2014 <b>3 Oct preferred, 24 Oct the fallback</b>.",
+      "8-point list sent to Jason 6 Sep \u2014 awaiting his answers, above all the end-to-end date.",
+      "EasyDent (X-ray) + CCTV stay on the old PC \u2014 do not migrate"
      ],
      "flag": {
       "k": "wait",
       "who": "Jason",
-      "w": "8-point confirmation list sent 6 Sep. Waiting on his answers, above all the end-to-end date."
+      "w": "Cooling and two monitors are the only things blocking the front desk. Jason also owes the 8-point answers and an end-to-end date."
      },
      "owner": "codecapsule",
      "dept": "tech",
@@ -265,7 +285,7 @@
      "from_initiatives": [
       1
      ],
-     "next": "Monday 7 Sep: recheck every PC finds the new pathway and data. Chase Jason's answers to the 8-point list \u2014 the end-to-end date is the one that matters. Reception PCs this coming week.",
+     "next": "Close the cooling and monitors, commission the two front-desk PCs (Chrome + iSmile email + WhatsApp Web), get the X-ray vendor and Liau in to install X-ray software and AutoCount, then AutoCount training for Lau and Emily before the FOH Saturday.",
      "endMonth": "2026-09"
     },
     {
@@ -304,13 +324,17 @@
     {
      "id": "d3",
      "dot": "wait",
-     "chip": "post go-live",
+     "chip": "training 3 or 24 Oct",
      "name": "Digital receipts (AR)",
      "one": "Receipts out of AutoCount replace the paper book \u2014 front desk switches only after training.",
      "steps": [
       {
        "t": "Receipt capability confirmed in AutoCount",
        "s": "done"
+      },
+      {
+       "t": "AutoCount installed on the front-desk PCs (Liau)",
+       "s": ""
       },
       {
        "t": "Design what the new receipt looks like",
@@ -321,18 +345,24 @@
        "s": ""
       },
       {
+       "t": "Receipts + e-invoices taught at the FOH training",
+       "s": "",
+       "w": "Sat 3 Oct (pref) or 24 Oct"
+      },
+      {
        "t": "FOH trained \u00b7 paper retired",
        "s": ""
       }
      ],
      "open": [
+      "<b>Training date narrowed to two Saturdays: 3 Oct (preferred) or 24 Oct</b>, after the clinic closes at 3:30 PM, dinner after. Receipts and e-invoices are taught there alongside the wider front-desk syllabus.",
       "Receipt-name nuance: AutoCount name changes stick (parent paying for child, company claims) \u2014 teach it explicitly",
-      "Physical receipts continue until training done \u2014 decided, not a slip",
-      "From the initiatives board: AutoCount's digital receipting is an add-on from the existing contract. Eliminates a paper process, creates a searchable record, and is required for full e-invoicing compliance."
+      "Physical receipts continue until training done \u2014 decided, not a slip"
      ],
      "flag": {
       "k": "decide",
-      "w": "Set the FOH training date \u2014 a Saturday after work, then dinner. Scope is already fixed."
+      "by": "2026-09-13",
+      "w": "Lock the Saturday: 3 Oct or 24 Oct. Everything downstream of it is already scoped."
      },
      "owner": "emily",
      "dept": "clinical",
@@ -340,7 +370,7 @@
      "from_initiatives": [
       15
      ],
-     "next": "After #1 go-live, configure the digital receipt module in AutoCount.",
+     "next": "Lock 3 or 24 Oct, design the receipt, write the SOP \u2014 teach receipts and e-invoices at the FOH Saturday.",
      "endMonth": "2026-10"
     },
     {
@@ -492,9 +522,9 @@
     {
      "id": "d7",
      "dot": "now",
-     "chip": "swapped \u00b7 reception pending",
+     "chip": "cooling + monitors",
      "name": "Hardware & server",
-     "one": "New reception PC + the home CPU as the new server beside the old one; OpenDent rep reconfigures everything.",
+     "one": "Server swapped and every PC reconnected. The two front-desk machines are built but cannot go into service without cooling and monitors.",
      "steps": [
       {
        "t": "Server CPU brought in",
@@ -511,41 +541,43 @@
        "w": "3 Sep"
       },
       {
-       "t": "Server swap on downtime day",
+       "t": "Server swap",
        "s": "done",
        "w": "5 Sep"
       },
       {
-       "t": "2 new PCs installed with OpenDental; all other PCs reconnected",
+       "t": "OpenDent installed on all machines incl. the 2 front-desk PCs",
        "s": "done",
-       "w": "5\u20136 Sep"
+       "w": "5 Sep"
       },
       {
-       "t": "Confirm which PCs have AutoCount installed",
-       "s": "now",
-       "w": "6 Sep"
-      },
-      {
-       "t": "2 new reception PCs set up",
-       "s": "",
-       "w": "wk of 7 Sep"
-      },
-      {
-       "t": "Cooling for the new PC \u2014 it heats up on long runs",
+       "t": "Cooling solution for the front-desk PCs",
        "s": "now"
+      },
+      {
+       "t": "2 monitors \u2014 Jason to buy (contact sells secondhand)",
+       "s": "now"
+      },
+      {
+       "t": "Front-desk PCs into service",
+       "s": ""
       }
      ],
      "open": [
-      "Server swapped 5 Sep; 2 new PCs have OpenDental and every other PC is reconnected.",
-      "The 2 new <b>reception</b> PCs are not set up yet \u2014 Emily is doing them this coming week (week of 7 Sep). Check whether Jason needs to be involved.",
-      "\u26a0\ufe0f The new PC was overheating. Ask Jason to supply the necessary cooling equipment.",
-      "Open: which machines have AutoCount installed."
+      "<b>The two front-desk PCs are the last hardware item.</b> OpenDent is already on them; they are held back by the cooling issue and by having no monitors.",
+      "<b>Monitors:</b> ask Jason to buy two \u2014 his contact sells secondhand.",
+      "<b>Cooling:</b> the machines overheat when left running. Jason to supply the equipment. Worth knowing whether these units are rated for all-day running at all, rather than only bolting a fan on."
      ],
      "owner": "codecapsule",
      "dept": "tech",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Reception PCs this coming week; Jason to supply cooling for the new PC and confirm the AutoCount installs."
+     "next": "Jason supplies cooling and two secondhand monitors, then the front-desk PCs go into service.",
+     "flag": {
+      "k": "wait",
+      "who": "Jason",
+      "w": "Cooling equipment and two monitors \u2014 both with Jason."
+     }
     },
     {
      "id": "d8",
@@ -719,7 +751,7 @@
     {
      "id": "l1",
      "dot": "wait",
-     "chip": "final draft \u00b7 Emily review",
+     "chip": "on Lydia",
      "name": "Contractor agreement",
      "one": "Synthesised 13 Aug, with Lydia since 17 Aug. Body is a pure template; every per-doctor input lives in Schedule 1.",
      "steps": [
@@ -760,7 +792,7 @@
       },
       {
        "t": "Final contractor agreement sent to Emily for review",
-       "s": "now",
+       "s": "done",
        "w": "3 Sep"
       },
       {
@@ -771,10 +803,11 @@
       {
        "t": "Hand over to the doctors \u2014 see Doctor rollout & communication",
        "s": "",
-       "w": "4 Sep"
+       "w": "after Lydia finalises"
       }
      ],
      "open": [
+      "<b>Reminder list for Lydia (6 Sep):</b> (1) fill every contractor agreement with the doctors' details \u2014 she needs those from Emily; (2) update the handbook with the pending clauses, the family discount clause included; (3) plan the staff handbook acknowledgement signatures; (4) adjust Elaine's JD and contract if not already done; (5) get the doctors' contracts ready for the rollout.",
       "<b>Parents approved all three changes on 2 Sep:</b> abolish the 10% \u00b7 floor price with doctor-borne discounts \u00b7 economics follow the production month. Discount approval threshold amended to 15%.",
       "<b>Final contractor agreement sent to Emily for review on 3 Sep.</b>",
       "Lydia is still waiting for the Schedule 1 input at clause 2.2 and must finalise the Professional Fee clauses in Schedule 2 before sending to Dr Ong for signature.",
@@ -791,7 +824,7 @@
      "from_initiatives": [
       16
      ],
-     "next": "Lydia to finalise the employee contracts, handbook and doctors' contracts (Dr Ong, Dr Ling and Dr Jun are the names evidenced so far), then prepare the 15 Sep rollout copies.",
+     "next": "Lydia fills the doctors' details into each agreement (from Emily), finalises the handbook and Elaine's papers, then the rollout runs: Zoom explainer \u2192 contracts out one by one \u2192 group sit-down about two weeks later.",
      "endMonth": "2026-09"
     },
     {
@@ -957,9 +990,9 @@
     {
      "id": "l8",
      "dot": "now",
-     "chip": "meet 15 Sep",
+     "chip": "Zoom then sit-down",
      "name": "Doctor rollout & communication",
-     "one": "How the agreement actually lands with the doctors. The narrative carries as much weight as the terms.",
+     "one": "How the agreement lands with the doctors \u2014 now a two-step: a Zoom call to explain the changes and hand the contracts over, then a group sit-down about two weeks later for questions.",
      "steps": [
       {
        "t": "Parents approve the three changes",
@@ -967,26 +1000,32 @@
        "w": "2 Sep"
       },
       {
-       "t": "Decide the format: sit-down while sharing, or send individually then take questions",
+       "t": "Format decided: Zoom explainer first, then contracts sent one by one, then a group sit-down ~2 weeks later",
+       "s": "done",
+       "w": "6 Sep"
+      },
+      {
+       "t": "Lydia finalises the contracts with each doctor's details",
        "s": "now"
       },
       {
-       "t": "Agreements out to the doctors",
-       "s": "",
-       "w": "target Fri 4 Sep"
+       "t": "Zoom call \u2014 walk the 3\u20134 core changes, lead with the good news",
+       "s": ""
       },
       {
-       "t": "Emily firms up the OpenDent corrections / training content",
-       "s": "",
-       "w": "7\u201311 Sep"
+       "t": "Contracts sent to each doctor individually",
+       "s": ""
       },
       {
-       "t": "Doctors' meeting \u2014 principles, the why, the three changes, OpenDent refresher",
-       "s": "",
-       "w": "15 Sep"
+       "t": "Two weeks of personal questions by text \u2014 answered as they come",
+       "s": ""
       },
       {
-       "t": "Per-doctor questions \u00b7 signatures",
+       "t": "Group sit-down \u2014 remaining questions + OpenDent code alignment recap",
+       "s": ""
+      },
+      {
+       "t": "Signatures",
        "s": ""
       }
      ],
@@ -999,20 +1038,22 @@
       "\u26a0\ufe0f <b>Work the full narrative out in a dedicated session</b> \u2014 this note is the skeleton, not the script. Share it with your parents once they have given their input on the three changes."
      ],
      "open": [
-      "<b>Open decision:</b> group sit-down as you hand the agreements over, versus sending individually first and taking questions after. Either way the meeting lands the week of 14 Sep",
-      "Emily's OpenDent training content must be ready before 15 Sep, not after",
+      "<b>Format is settled (6 Sep):</b> a Zoom call first so everyone hears the 3\u20134 major changes in the same words, then the contracts go out one by one. About two weeks later, a group sit-down for whatever is left. In between they can text directly and get an answer.",
+      "<b>Why the call comes first:</b> the language is legal and none of the doctors are legal people. They should understand the shape of the change before a document lands in front of them \u2014 and there is genuine good news to lead with (the 10% cut goes) alongside the new discount approach.",
+      "<b>The second session doubles as the OpenDent alignment recap</b> \u2014 code usage, and that a discount is a line rather than an edited production price. If that turns out not to be needed, the session still earns its place on the contract questions alone.",
+      "\u26a0\ufe0f <b>The 15 Sep meeting no longer holds</b> \u2014 the contracts are still with Lydia. Dates follow her, not the calendar.",
       "Dr Ling's overdue 1-to-1 belongs inside this rollout, not as a separate conversation"
      ],
      "flag": {
-      "k": "decide",
-      "by": "2026-09-04",
-      "w": "Hand the contractor agreements over in one sit-down, or send them to each doctor first and take questions after?"
+      "k": "wait",
+      "who": "Lydia",
+      "w": "The Zoom call can only be booked once Lydia has the contracts filled with each doctor's details."
      },
      "owner": "lu",
      "dept": "finance",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Decide the format: sit-down while sharing, or send individually then take questions"
+     "next": "Wait on Lydia's finalised contracts, then book the Zoom explainer, send the contracts individually, and set the group sit-down about two weeks after."
     },
     {
      "id": "l6",
@@ -1030,23 +1071,33 @@
        "s": "done"
       },
       {
-       "t": "Handbook finalised by Lydia",
+       "t": "Handbook finalised by Lydia \u2014 including the pending clauses",
        "s": "now"
       },
       {
-       "t": "All-staff acknowledgement signatures",
+       "t": "Family discount clause added to the handbook",
+       "s": "now"
+      },
+      {
+       "t": "Elaine's JD + contract adjusted",
+       "s": "now"
+      },
+      {
+       "t": "All-staff acknowledgement signatures planned and collected",
        "s": ""
       }
      ],
      "open": [
       "Say it out loud: this is blocked on Lydia, not Emily",
-      "Family-treatment benefit written here (employees), verbal for contractors"
+      "<b>The family discount clause needs to go into the handbook</b> \u2014 it is written for employees, verbal for contractors.",
+      "<b>Elaine's JD and contract</b> still to be adjusted for the CRM-caller redeployment, if not already done.",
+      "<b>The acknowledgement signing needs planning</b>, not just the document \u2014 who signs, when, and how it is recorded."
      ],
      "owner": "lydia",
      "dept": "finance",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Handbook finalised by Lydia"
+     "next": "Lydia finalises the handbook with the pending clauses (family discount included) and Elaine's papers; then plan the all-staff acknowledgement signing."
     }
    ]
   },
@@ -1840,7 +1891,7 @@
     {
      "id": "h5",
      "dot": "now",
-     "chip": "training date TBD",
+     "chip": "3 or 24 Oct",
      "name": "Front-of-house SOP, training & bench",
      "one": "The clinic has no SOP for issuing letters to patients \u2014 medical certificates, referral letters, insurance reports, quotations. Nobody had ever said whose job it was, and that gap caused real friction between a doctor and",
      "steps": [
@@ -1888,9 +1939,15 @@
       {
        "t": "Check whether a clinic stamp can stand in for a doctor's signature on external letters",
        "s": ""
+      },
+      {
+       "t": "Date narrowed: Sat 3 Oct (preferred) or Sat 24 Oct \u2014 after 3:30 PM close, dinner after",
+       "s": "now",
+       "w": "6 Sep"
       }
      ],
      "open": [
+      "<b>Date is down to two Saturdays: 3 Oct (preferred) or 24 Oct.</b> After the clinic closes at 3:30 PM, training then dinner together. It must sit AFTER AutoCount is installed and after Liau has taught Lau and Emily \u2014 receipts and e-invoices are part of the syllabus.",
       "Merges the two front-of-house items raised on 20 Jul \u2014 the SOP gap and the upskilling/bench \u2014 because they are the same problem. TRAINING SYLLABUS INPUTS (consolidated 19 Aug, for the future training deck): (1) FOH training compulsory attendees Joanna/Erincy/Jessy/Ida; (2) FOH-01 patient-letters SOP (5 templates, 7-step process, Joanna pilot); (3) WhatsApp quick replies house voice + desk usage, plus desk-training sheet coming from chat-history mining (id 30); (4) DSA professionalism standards (noise, phones, occupied rooms; Siti/Eda peer-led training night model); (5) digital registration form staff flow (?staff=1); (6) rebooking-at-checkout habit (real baseline ~55-65%); (7) AutoCount front-desk training once migration timeline lands (invoice edits in OpenDent only - 30s rule); (8) phone/WhatsApp etiquette + name sign-offs. Detail lives in local memory/chat archives - enough to whip up a deck on request.",
       "Dr Joan and Dr Yeoh letter templates still blocked on their chops and on what the RES00104 / PRO0033 registration prefixes denote - Emily."
      ],
@@ -1900,8 +1957,13 @@
      "from_initiatives": [
       19
      ],
-     "next": "Consolidated all training inputs onto this card (see note). Next: owner picks a date to build the FOH training deck.",
-     "endMonth": "2026-11"
+     "next": "Pick 3 or 24 Oct, then build the training deck against the consolidated syllabus on this card.",
+     "endMonth": "2026-11",
+     "flag": {
+      "k": "decide",
+      "by": "2026-09-13",
+      "w": "Pick 3 Oct or 24 Oct so the deck can be built against a real date."
+     }
     }
    ]
   },
@@ -2199,6 +2261,6 @@
  },
  "meta": {
   "asof": "TUE 08 SEP 2026",
-  "updated": "2026-09-08T09:43:13+08:00"
+  "updated": "2026-09-08T16:44:51+08:00"
  }
 }
