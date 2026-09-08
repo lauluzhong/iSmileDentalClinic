@@ -24,7 +24,7 @@ faq:
     a: A filling repairs small to moderate areas of decay while preserving most of the original tooth structure. A crown covers the entire visible portion of the tooth and is used when the damage is too extensive for a filling to hold. Think of a filling as a patch and a crown as a helmet for the tooth.
   - q: Can a crown fall off?
     a: Crowns can loosen or come off, especially if the cement seal breaks or if there is decay underneath. If this happens, keep the crown safe and see your dentist promptly. The crown can often be re-cemented if it is still in good condition.
-img: /images/blog/dental-crowns-malaysia-hero.jpg
+img: /images/blog/man-smile-livingroom.png
 ---
 
 # Dental Crowns in Malaysia: What You Need to Know

@@ -6,7 +6,7 @@ categories:
 tags:
   - Oral Health
 date: '2026-03-21'
-img: /images/blog/why-baby-teeth-matter-hero.jpg
+img: /images/blog/mother-toddler-livingroom.png
 excerpt: 'Many parents assume baby teeth are just placeholders until the real ones arrive. The truth is, those tiny teeth do far more work than most people realize.'
 slug: baby-teeth-basics-first-dental-visit-malaysia
 author: iSmile Dental Clinic

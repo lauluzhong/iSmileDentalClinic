@@ -9,7 +9,7 @@ date: '2026-05-06'
 author: iSmile Dental Clinic
 excerpt: Signs your child may benefit from myofunctional orthodontics — from mouth breathing and thumb sucking to crowded teeth. What to look for and how the assessment works.
 
-img: /images/blog/child-candidate-myofunctional-orthodontics.jpg
+img: /images/blog/parent-child-sofa-chat.png
 tags:
   - Myofunctional Orthodontics
   - Pediatric Dentistry

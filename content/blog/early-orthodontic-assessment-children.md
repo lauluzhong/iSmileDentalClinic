@@ -19,7 +19,7 @@ faq:
     a: "No. Even children with baby teeth can benefit from an early evaluation. Many bite issues relate to jaw growth patterns that start developing well before the permanent teeth arrive. A dentist trained in myofunctional orthodontics can spot early warning signs and recommend monitoring or simple interventions."
   - q: "Does the assessment involve X-rays?"
     a: "If needed, your dentist may recommend a panoramic X-ray to see how the permanent teeth are positioned below the gums. This is a standard, low-dose procedure that helps the dentist understand the big picture. Not every child needs X-rays at the first assessment."
-img: /images/blog/early-orthodontic-assessment-children-hero.jpg
+img: /images/blog/mother-daughter-homework.png
 ---
 
 # Early Orthodontic Assessment for Children: Why It Matters

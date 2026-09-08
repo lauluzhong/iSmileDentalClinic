@@ -25,9 +25,14 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUBLIC = os.path.join(ROOT, 'public')
 MANIFEST = os.path.join(ROOT, 'src', 'data', 'image-variants.json')
 
-WIDTHS = [480, 768, 1024]
+# 1536 added 2026-09-08: the blog hero renders at 900 CSS px, so a retina
+# laptop asks for ~1800px and was being handed the 1024w file to upscale —
+# which is exactly the softness the owner spotted. 1536 is the native width
+# of the generated heroes; the upscale guard below skips it for smaller
+# originals.
+WIDTHS = [480, 768, 1024, 1536]
 
-AVIF_QUALITY = 55
+AVIF_QUALITY = 62  # 55 was visibly soft on skin tones at hero size
 WEBP_QUALITY = 82
 JPEG_QUALITY = 88
 
@@ -37,6 +42,20 @@ TARGETS = [
     # candid-realism rules (no text, generic premises, plausible photographer,
     # matte skin). See the ismile-image-generation skill.
     '/images/blog/braces-mother-teen-hero.png',
+    '/images/blog/adult-tired-morning.png',
+    '/images/blog/bedtime-story-toddler.png',
+    '/images/blog/boy-home-sofa-quiet.png',
+    '/images/blog/couple-kitchen-discussion.png',
+    '/images/blog/family-livingroom-together.png',
+    '/images/blog/man-smile-livingroom.png',
+    '/images/blog/mother-beside-sleeping-child.png',
+    '/images/blog/mother-child-garden-play.png',
+    '/images/blog/mother-child-smile-close.png',
+    '/images/blog/mother-daughter-homework.png',
+    '/images/blog/mother-toddler-livingroom.png',
+    '/images/blog/parent-child-sofa-chat.png',
+    '/images/blog/two-women-laughing-sofa.png',
+    '/images/blog/woman-thoughtful-livingroom.png',
     '/images/blog/aligner-case-desk.png',
     '/images/blog/aligner-inspect-window.png',
     '/images/blog/aligner-vs-braces-morning.png',
@@ -63,54 +82,17 @@ TARGETS = [
     '/images/blog/wisdom-recovery-water.png',
     '/images/blog/toothache-breakfast-hero.png',
     '/images/blog/aligner-cafe-hero.png',
-    '/images/child_airway_hero_1765825276038.png',
-    '/images/blog/dental-implants-hero.png',
     '/images/blog/signs-child-early-orthodontic-assessment.png',
-    '/images/blog/mouth-breathing-thumb-sucking-crowded-teeth.png',
-    '/images/blog/child-candidate-myofunctional-orthodontics.jpg',
-    '/images/blog/adult-mouth-breathing-hero.jpg',
     '/images/team_group.jpg',
     # Added 2026-08-10 for the "Keep reading" cards on the service pages.
     # These render in a ~370px box (320px in the mobile carousel) but several
     # of the originals are 0.5-2 MB, so without variants the new section would
     # hand back the payload the July perf sprint clawed out.
-    '/images/blog/asian_couple_40s.png',
     '/images/blog/concerned_person_brushing.png',
-    '/images/blog/dental-crowns-malaysia-hero.jpg',
-    '/images/blog/dental-crowns-vs-fillings-hero.jpg',
-    '/images/blog/dentist_xray.png',
-    '/images/blog/early-orthodontic-assessment-children-hero.jpg',
-    '/images/blog/invisalign-malaysia-hero.jpg',
-    '/images/blog/invisalign_hero.png',
-    '/images/blog/myofunctional-therapy-before-after-braces-hero.png',
-    '/images/blog/root_canal_vs_extraction_hero.png',
-    '/images/blog/teeth-whitening-sensitive-teeth-hero.jpg',
-    '/images/blog/when-should-children-stop-sucking-thumb-hero.jpg',
-    '/images/blog/why-baby-teeth-matter-hero.jpg',
-    '/images/bone_loss_hero_1765825236985.png',
-    '/images/dentist-child.png',
-    '/images/family_hero_three_generations.jpg',
-    '/images/invisalign_hand.png',
-    '/images/mouth_breathing_sleep.png',
-    '/images/sensitivity_hero_1765825197668.png',
-    '/images/service_enhance.png',
-    '/images/service_straighten.png',
-    '/images/veneers_hero_1765825257935.png',
     # Added 2026-08-10 with the `img:` frontmatter backfill for the 14 locality
     # posts. Every post image is now covered, which also fixes the /blog
     # listing, where three of these were 2 MB PNGs in a 380px card.
-    '/images/adult_ortho_hero_1765825218135.png',
     '/images/blog/family_brushing.png',
-    '/images/blog/myofunctional-orthodontics-malaysia-hero.jpg',
-    '/images/blog/myofunctional-therapy-exercises-kids-home-hero.png',
-    '/images/blog/myofunctional-therapy-treatment-hero.jpg',
-    '/images/blog/signs-child-mouth-breather-hero.png',
-    '/images/blog/tongue-thrust-in-children-hero.png',
-    '/images/family_hero_1765825154068.png',
-    '/images/fluoride_brush.png',
-    '/images/service_children.png',
-    '/images/service_protect.png',
-    '/images/service_replace.png',
     '/images/teeth_3d_scan.png',
 ]
 

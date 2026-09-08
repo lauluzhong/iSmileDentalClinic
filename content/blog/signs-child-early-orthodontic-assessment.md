@@ -16,7 +16,7 @@ faq:
   - a: 'Early treatment does not always mean braces right away. Depending on the issue, options may include a removable or fixed expander to widen a narrow upper jaw, a Myobrace-style functional appliance to address habits and jaw development, monitoring with periodic reviews, or in some cases, a short phase of aligner therapy or limited braces.'
     q: What Early Intervention Options Are Available?
 featured: false
-img: /images/blog/signs-child-early-orthodontic-assessment.png
+img: /images/blog/mother-child-smile-close.png
 keyword: signs child needs orthodontic assessment malaysia
 parent_page: /services/children/myofunctional
 priority: P2
