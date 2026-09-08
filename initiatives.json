@@ -1,24 +1,9 @@
 {
- "updated": "2026-09-08T16:44:51+08:00",
+ "updated": "2026-09-08T16:48:21+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Edith": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Lydia": {
    "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -29,6 +14,21 @@
   },
   "Emily": {
    "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   }
@@ -289,7 +289,8 @@
     "Update Schedule 2: strike the 10% deduction and apply the 15% discount-approval threshold \u00b7 accept 2.10\u20132.12",
     "Final contractor agreement sent to Emily for review",
     "Per-doctor Schedule 1 copies drafted (Jun's = her offer letter)",
-    "Hand over to the doctors \u2014 see Doctor rollout & communication"
+    "Hand over to the doctors \u2014 see Doctor rollout & communication",
+    "Five-item reminder sent to Lydia (consulting group)"
    ],
    "pillar": "P2"
   },

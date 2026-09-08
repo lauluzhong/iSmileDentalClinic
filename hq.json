@@ -804,10 +804,15 @@
        "t": "Hand over to the doctors \u2014 see Doctor rollout & communication",
        "s": "",
        "w": "after Lydia finalises"
+      },
+      {
+       "t": "Five-item reminder sent to Lydia (consulting group)",
+       "s": "done",
+       "w": "8 Sep"
       }
      ],
      "open": [
-      "<b>Reminder list for Lydia (6 Sep):</b> (1) fill every contractor agreement with the doctors' details \u2014 she needs those from Emily; (2) update the handbook with the pending clauses, the family discount clause included; (3) plan the staff handbook acknowledgement signatures; (4) adjust Elaine's JD and contract if not already done; (5) get the doctors' contracts ready for the rollout.",
+      "<b>Five-item reminder sent to Lydia in the consulting group on 8 Sep:</b> (1) fill every contractor agreement with the doctors' details \u2014 she needs those from Emily; (2) update the handbook with the pending clauses, the family discount clause included; (3) plan the staff handbook acknowledgement signatures; (4) adjust Elaine's JD and contract if not already done; (5) get the doctors' contracts ready for the rollout. Awaiting her reply.",
       "<b>Parents approved all three changes on 2 Sep:</b> abolish the 10% \u00b7 floor price with doctor-borne discounts \u00b7 economics follow the production month. Discount approval threshold amended to 15%.",
       "<b>Final contractor agreement sent to Emily for review on 3 Sep.</b>",
       "Lydia is still waiting for the Schedule 1 input at clause 2.2 and must finalise the Professional Fee clauses in Schedule 2 before sending to Dr Ong for signature.",
@@ -825,7 +830,12 @@
       16
      ],
      "next": "Lydia fills the doctors' details into each agreement (from Emily), finalises the handbook and Elaine's papers, then the rollout runs: Zoom explainer \u2192 contracts out one by one \u2192 group sit-down about two weeks later.",
-     "endMonth": "2026-09"
+     "endMonth": "2026-09",
+     "flag": {
+      "k": "wait",
+      "who": "Lydia",
+      "w": "Five-item reminder sent 8 Sep. Everything downstream \u2014 the Zoom explainer, the contracts going out \u2014 waits on her."
+     }
     },
     {
      "id": "l2",
@@ -1088,6 +1098,7 @@
       }
      ],
      "open": [
+      "Five-item reminder sent to Lydia in the consulting group on 8 Sep, covering the handbook clauses, the acknowledgement signing and Elaine's papers.",
       "Say it out loud: this is blocked on Lydia, not Emily",
       "<b>The family discount clause needs to go into the handbook</b> \u2014 it is written for employees, verbal for contractors.",
       "<b>Elaine's JD and contract</b> still to be adjusted for the CRM-caller redeployment, if not already done.",
@@ -2261,6 +2272,6 @@
  },
  "meta": {
   "asof": "TUE 08 SEP 2026",
-  "updated": "2026-09-08T16:44:51+08:00"
+  "updated": "2026-09-08T16:48:21+08:00"
  }
 }
