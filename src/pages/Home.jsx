@@ -1,7 +1,7 @@
 import { useBooking } from '../context/BookingContext';
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Star, Heart } from 'lucide-react';
+import { ArrowRight, Star } from 'lucide-react';
 import Button from '../components/Button';
 import { Helmet } from 'react-helmet-async';
 import { Reveal } from '../components/Reveal';
@@ -327,11 +327,6 @@ const Home = () => {
                 <div className="container hero-container">
                     {/* Hero content renders statically — above-the-fold copy must never start at opacity 0 */}
                     <div className="hero-content">
-                        <span className="hero-eyebrow">
-                            <span className="hero-eyebrow-mark"><Heart size={13} /></span>
-                            <span className="hero-eyebrow-text">A family dental clinic in Petaling Jaya</span>
-                            <span className="hero-eyebrow-year">Est. 2006</span>
-                        </span>
                         <h1 className="hero-title">
                             Dental care for <em>every generation.</em>
                         </h1>
@@ -546,21 +541,6 @@ const Home = () => {
         .hero-content { text-align: left; min-width: 0; }
         .hero-visual { min-width: 0; max-width: 100%; }
 
-        .hero-eyebrow { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 28px; padding: 0; background: none; }
-        .hero-eyebrow-mark {
-            display: inline-flex; align-items: center; justify-content: center;
-            width: 26px; height: 26px; border-radius: 50%;
-            background: var(--color-primary-deep); color: #fff; flex-shrink: 0;
-        }
-        .hero-eyebrow-text { font-family: var(--font-heading); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.04em; color: var(--color-text-charcoal); }
-        .hero-eyebrow-year {
-            position: relative; padding-left: 14px;
-            font-family: var(--font-heading); font-weight: 600;
-            font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
-            color: var(--color-primary-deep);
-        }
-        .hero-eyebrow-year::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 14px; background: rgba(16,42,51,0.18); }
-
         /* Sized so "Dental care for" / "every generation." sit on TWO lines at
            desktop widths, like the live site — the previous 0.92fr column plus
            the 4.5rem cap forced a third line. */
@@ -755,13 +735,11 @@ const Home = () => {
             .hero-container { display: flex; flex-direction: column; gap: 0; align-items: flex-start; }
             .hero-visual { width: 100%; }
             .hero-content { display: contents; }
-            .hero-eyebrow { order: 1; margin-bottom: 20px; }
             .hero-title { order: 2; }
             .hero-visual { order: 3; margin-bottom: 26px; }
             .hero-subtitle { order: 4; }
             .hero-actions { order: 5; }
             .hero-trust { order: 6; }
-            .hero-eyebrow-text { font-size: 0.76rem; }
             .hero-title { font-size: 2.8rem; line-height: 1.08; margin-bottom: 24px; }
             .hero-subtitle-desktop { display: none; }
             .hero-subtitle-mobile { display: block; }
