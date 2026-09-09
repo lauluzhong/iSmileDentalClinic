@@ -5,62 +5,8 @@ import { specialtyFor, fillStats } from '../../data/serviceSeo';
 import reviewStats from '../../data/review-stats.json';
 
 const DentalImplants = () => {
-    // Add Service schema for SEO
-    useEffect(() => {
-        const serviceSchema = {
-            "@context": "https://schema.org",
-            "@type": "MedicalProcedure",
-            "name": "Dental Implants",
-            "description": "Dental implant treatment to replace missing teeth at iSmile Dental Clinic Petaling Jaya",
-            "provider": {
-                "@type": "Dentist",
-                "name": "iSmile Dental Clinic",
-                "url": "https://ismile.com.my/services/replace"
-            },
-            "areaServed": {
-                "@type": "Place",
-                "name": "Petaling Jaya, Selangor"
-            },
-            "url": "https://ismile.com.my/services/replace/dental-implants"
-        };
-
-        const script = document.createElement('script');
-        script.type = 'application/ld+json';
-        script.innerHTML = JSON.stringify(serviceSchema);
-        document.head.appendChild(script);
-
-        return () => {
-            document.head.removeChild(script);
-        };
-    }, []);
-
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
-
-    // Add FAQ schema for SEO
-    useEffect(() => {
-        const faqSchema = {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-                "@type": "Question",
-                "name": faq.q,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": faq.a
-                }
-            }))
-        };
-
-        const script = document.createElement('script');
-        script.type = 'application/ld+json';
-        script.innerHTML = JSON.stringify(faqSchema);
-        document.head.appendChild(script);
-
-        return () => {
-            document.head.removeChild(script);
-        };
     }, []);
 
     const seo = specialtyFor('DentalImplants');
