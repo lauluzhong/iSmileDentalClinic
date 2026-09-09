@@ -1,9 +1,9 @@
 {
-  "as_of": "2026-09-09",
+  "as_of": "2026-09-10",
   "source": "redirect.ismile.com.my/admin/webhook/webhooklog",
   "note": "Funnel = event counts (per-message callbacks), not distinct patients. Conversion = matured-cohort recall->appointment rate (correlation, not proven causal lift); as-of the latest OpenDent export only.",
   "funnel_live": true,
-  "funnel_as_of": "2026-09-09",
+  "funnel_as_of": "2026-09-10",
   "cumulative": {
     "total": null,
     "sent": null,
@@ -21,11 +21,11 @@
   "conversion": {
     "mature_days": 21,
     "attrib_window_days": 90,
-    "data_as_of": "2026-09-08",
-    "appt_export": "inbox/2026-09-08 e5+e6+backfill",
+    "data_as_of": "2026-09-09",
+    "appt_export": "inbox/2026-09-09 e5+e6+backfill",
     "appt_range": [
       "2024-08-12",
-      "2027-01-05"
+      "2027-01-06"
     ],
     "stale": false,
     "available": true,
@@ -40,21 +40,21 @@
   },
   "value": {
     "available": true,
-    "as_of": "2026-09-09",
+    "as_of": "2026-09-10",
     "bridge": "e8_patient_master.tsv (2026-09-06)",
     "sends": 767,
     "patients_in_cohort": 1138,
     "attrib_window_days": 90,
     "mature_days": 21,
-    "production_lines": 19617,
+    "production_lines": 19655,
     "month": "2026-09",
     "rule": "production by a recalled patient within 90 days after their first recall send, credited to the line's doctor; correlation, not proven lift",
     "all_time": {
       "patients_reached": 1138,
       "patients_converted": 232,
-      "visits": 300,
-      "repeat_patients": 41,
-      "production": 113030,
+      "visits": 301,
+      "repeat_patients": 42,
+      "production": 113630,
       "conversion_pct": 20.4,
       "by_doctor": [
         {
@@ -71,9 +71,9 @@
           "abbr": "Amy",
           "name": "Dr Amy Chin",
           "patients": 69,
-          "visits": 77,
-          "repeat_visits": 8,
-          "production": 22860
+          "visits": 78,
+          "repeat_visits": 9,
+          "production": 23460
         },
         {
           "provnum": "8",
@@ -134,11 +134,20 @@
     "mtd": {
       "patients_reached": 775,
       "patients_converted": 11,
-      "visits": 11,
-      "repeat_patients": 0,
-      "production": 2260,
+      "visits": 12,
+      "repeat_patients": 1,
+      "production": 2860,
       "conversion_pct": 1.2,
       "by_doctor": [
+        {
+          "provnum": "3",
+          "abbr": "Amy",
+          "name": "Dr Amy Chin",
+          "patients": 2,
+          "visits": 3,
+          "repeat_visits": 1,
+          "production": 1010
+        },
         {
           "provnum": "1",
           "abbr": "Jean",
@@ -156,15 +165,6 @@
           "visits": 4,
           "repeat_visits": 0,
           "production": 600
-        },
-        {
-          "provnum": "3",
-          "abbr": "Amy",
-          "name": "Dr Amy Chin",
-          "patients": 2,
-          "visits": 2,
-          "repeat_visits": 0,
-          "production": 410
         },
         {
           "provnum": "4",
