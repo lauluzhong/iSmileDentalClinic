@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-09-10 00:30",
- "generated_at": "2026-09-10T00:30:09+08:00",
+ "generated_myt": "2026-09-10 01:00",
+ "generated_at": "2026-09-10T01:00:09+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 86.3,
   "nproc": 4,
   "load": [
-   0.43,
-   0.13,
-   0.09
+   0.12,
+   0.07,
+   0.05
   ],
-  "cpu_pct": 10.8,
-  "cpu_pct_sample": 0.7,
+  "cpu_pct": 3.0,
+  "cpu_pct_sample": 1.2,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 2930,
-   "avail_mb": 5010,
-   "pct": 36.9,
+   "used_mb": 2936,
+   "avail_mb": 5004,
+   "pct": 37.0,
    "swap_total_mb": 2047,
    "swap_used_mb": 210
   },
@@ -29,11 +29,11 @@
   "bridge_ok": false,
   "pollers": {
    "review_approvals": {
-    "age_s": 17,
-    "last_myt": "2026-09-10 00:30 MYT"
+    "age_s": 24,
+    "last_myt": "2026-09-10 01:00 MYT"
    },
    "hq_publish": {
-    "age_s": 16550,
+    "age_s": 18351,
     "last_myt": "2026-09-09 19:54 MYT",
     "detail": "asof=WED 09 SEP 2026 streams=40 sideboard=19 decisions=3 archive=10"
    }
@@ -45,7 +45,7 @@
     "gbp_reply"
    ],
    "running": [],
-   "status_updated": "2026-09-10 00:30 MYT"
+   "status_updated": "2026-09-10 01:00 MYT"
   },
   "last_clinic_push": "2026-09-09"
  },
@@ -178,25 +178,7 @@
   "checked": "2026-09-09"
  },
  "social": {
-  "available": true,
-  "source": "Zernio MCP (Edith's connection)",
-  "as_of": "2026-09-09",
-  "window_days": 30,
-  "accounts": [
-   {
-    "platform": "instagram",
-    "username": "ismiledentalclinicmy",
-    "display": "iSmile Dental Clinic",
-    "followers": 98.0,
-    "growth_30d": -1.0,
-    "growth_pct_30d": -1.01,
-    "posts_on_platform": 13.0,
-    "last_updated": "2026-09-09T04:27:54.756000Z",
-    "active": true
-   }
-  ],
-  "instagram_30d": null,
-  "posts_published_via_zernio": 0,
-  "note": "Instagram @ismiledentalclinicmy is connected through Zernio. Posts published outside Zernio are not counted in posts_published_via_zernio."
+  "available": false,
+  "note": "Zernio call failed: <HTTPError 400: 'Bad Request'>"
  }
 }
