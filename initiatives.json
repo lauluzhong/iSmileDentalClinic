@@ -1,9 +1,14 @@
 {
- "updated": "2026-09-08T22:30:22+08:00",
+ "updated": "2026-09-09T12:56:32+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
   "Emily": {
    "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
@@ -17,18 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Dr Ong": {
    "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -93,7 +93,7 @@
    "status": "review",
    "owner": "Emily",
    "why": "Receipts out of AutoCount replace the paper book \u2014 front desk switches only after training.",
-   "next": "Lock 3 or 24 Oct, design the receipt, write the SOP \u2014 teach receipts and e-invoices at the FOH Saturday.",
+   "next": "Confirm 3 Oct (tentative), design the receipt, write the SOP \u2014 teach receipts and e-invoices at the FOH Saturday.",
    "dept": "clinical",
    "lens": "efficiency",
    "endMonth": "2026-10",
@@ -483,8 +483,8 @@
    "title": "Dr Jun (new doctor)",
    "status": "active",
    "owner": "Lau",
-   "why": "She tendered on a handshake for a 26 Oct start. Her contract went out to her on 6 Sep; what is left is her signature and the two conversations that follow.",
-   "next": "Chase Jun's signature, then the Dr Ong practitioner chat and the Dr Ling chemistry/arrangement talk before announcing to Amy, Mah and the rest.",
+   "why": "She tendered on a handshake for a 26 Oct start. Her contract was sent on 6 Sep and signed and returned on 9 Sep; what is left is the two conversations that follow.",
+   "next": "Have the Dr Ong practitioner chat and the Dr Ling chemistry/arrangement talk before announcing to Amy, Mah and the rest.",
    "dept": "clinical",
    "lens": "revenue",
    "endMonth": "2026-12",
@@ -497,7 +497,7 @@
     "Contractor agreement finalised and sent to Emily for review",
     "Ask Jun for personal information for Schedule 1",
     "Contract sent to Jun (offer letter = her Schedule 1)",
-    "She signs",
+    "Contract signed and returned",
     "Jun \u2194 Dr Ong practitioner chat",
     "Jun \u2194 Dr Ling chemistry + arrangement talk",
     "Amy + Mah, then the rest, then announce",
@@ -765,7 +765,7 @@
    "status": "active",
    "owner": "Emily",
    "why": "The clinic has no SOP for issuing letters to patients \u2014 medical certificates, referral letters, insurance reports, quotations. Nobody had ever said whose job it was, and that gap caused real friction between a doctor and",
-   "next": "Pick 3 or 24 Oct, then build the training deck against the consolidated syllabus on this card.",
+   "next": "Confirm Sat 3 Oct, then build the training deck against the consolidated syllabus on this card.",
    "dept": "people",
    "lens": "efficiency",
    "endMonth": "2026-11",
@@ -782,7 +782,7 @@
     "Attendance agreed \u2014 four required, the rest of the assistants welcome",
     "Letters: obtain the example from the office, then build the letterhead templates",
     "Check whether a clinic stamp can stand in for a doctor's signature on external letters",
-    "Date narrowed: Sat 3 Oct (preferred) or Sat 24 Oct \u2014 after 3:30 PM close, dinner after"
+    "Training tentatively set: Sat 3 Oct \u2014 after 3:30 PM close, dinner after; confirmation pending"
    ],
    "pillar": "F1"
   },

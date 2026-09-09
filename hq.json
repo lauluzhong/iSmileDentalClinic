@@ -129,11 +129,11 @@
    "tip": "The FOH training Saturday (+ dinner) and the paper-to-digital receipts switch-over both land in this window. Date still to be set."
   },
   {
-   "d": "3 or 24 Oct",
+   "d": "3 Oct (tentative)",
    "l": "FOH training Saturday + dinner",
    "s": "",
    "iso": "2026-10-03",
-   "tip": "Front-desk training after the 3:30 PM close, dinner after. 3 Oct is preferred, 24 Oct the fallback. Syllabus: receipts and e-invoices out of AutoCount, plus the wider front-desk content. Must sit after AutoCount is installed and after Leow has taught Lau and Emily."
+   "tip": "Front-desk training is tentatively set for Saturday 3 October, after the 3:30 PM close, with dinner after. Syllabus: receipts and e-invoices out of AutoCount, plus the wider front-desk content. Must sit after AutoCount is installed and after Leow has taught Lau and Emily; final confirmation is still pending."
   },
   {
    "d": "16 Oct",
@@ -261,7 +261,7 @@
       {
        "t": "Front-desk training \u2014 receipts, e-invoices and the wider FOH syllabus",
        "s": "",
-       "w": "Sat 3 Oct (pref) or 24 Oct"
+       "w": "Sat 3 Oct (tentative)"
       },
       {
        "t": "True end-to-end integration test",
@@ -277,7 +277,7 @@
       "<b>Migration is done and OpenDent is on every machine</b>, the 2 new front-desk PCs included. They are not in service yet for two reasons only: the cooling issue and no monitors.",
       "<b>Two hardware items stand between here and a working front desk:</b> (1) a cooling solution for the downstairs PCs, (2) two monitors \u2014 ask Jason to buy them, his contact sells secondhand.",
       "<b>Then the commissioning order:</b> set the front-desk PCs up for real (OpenDent already on, plus Chrome with the iSmile email signed in for Google Docs letters, plus WhatsApp Web \u2014 enough for the desk to start working) \u2192 X-ray vendor installs the X-ray software \u2192 Leow installs AutoCount, the 2 secondary accounts downstairs and the primary on the server upstairs.",
-      "<b>Only then the two training events:</b> Leow teaches Lau and Emily AutoCount first; the front-desk training follows on a Saturday after work (clinic closes 3:30 PM) with dinner after \u2014 <b>3 Oct preferred, 24 Oct the fallback</b>.",
+      "<b>Only then the two training events:</b> Leow teaches Lau and Emily AutoCount first; the front-desk training follows on a Saturday after work (clinic closes 3:30 PM) with dinner after \u2014 <b>3 Oct (tentative); confirmation pending</b>.",
       "8-point list sent to Jason 6 Sep \u2014 awaiting his answers, above all the end-to-end date.",
       "EasyDent (X-ray) + CCTV stay on the old PC \u2014 do not migrate"
      ],
@@ -331,7 +331,7 @@
     {
      "id": "d3",
      "dot": "wait",
-     "chip": "training 3 or 24 Oct",
+     "chip": "training 3 Oct (tentative)",
      "name": "Digital receipts (AR)",
      "one": "Receipts out of AutoCount replace the paper book \u2014 front desk switches only after training.",
      "steps": [
@@ -354,7 +354,7 @@
       {
        "t": "Receipts + e-invoices taught at the FOH training",
        "s": "",
-       "w": "Sat 3 Oct (pref) or 24 Oct"
+       "w": "Sat 3 Oct (tentative)"
       },
       {
        "t": "FOH trained \u00b7 paper retired",
@@ -362,14 +362,14 @@
       }
      ],
      "open": [
-      "<b>Training date narrowed to two Saturdays: 3 Oct (preferred) or 24 Oct</b>, after the clinic closes at 3:30 PM, dinner after. Receipts and e-invoices are taught there alongside the wider front-desk syllabus.",
+      "<b>Training is tentatively set for Saturday 3 Oct; confirmation pending</b>, after the clinic closes at 3:30 PM, dinner after. Receipts and e-invoices are taught there alongside the wider front-desk syllabus.",
       "Receipt-name nuance: AutoCount name changes stick (parent paying for child, company claims) \u2014 teach it explicitly",
       "Physical receipts continue until training done \u2014 decided, not a slip"
      ],
      "flag": {
       "k": "decide",
       "by": "2026-09-13",
-      "w": "Lock the Saturday: 3 Oct or 24 Oct. Everything downstream of it is already scoped."
+      "w": "Confirm the tentative Saturday 3 Oct booking. Everything downstream of it is already scoped."
      },
      "owner": "emily",
      "dept": "clinical",
@@ -377,7 +377,7 @@
      "from_initiatives": [
       15
      ],
-     "next": "Lock 3 or 24 Oct, design the receipt, write the SOP \u2014 teach receipts and e-invoices at the FOH Saturday.",
+     "next": "Confirm 3 Oct (tentative), design the receipt, write the SOP \u2014 teach receipts and e-invoices at the FOH Saturday.",
      "endMonth": "2026-10"
     },
     {
@@ -1289,9 +1289,9 @@
     {
      "id": "g4",
      "dot": "now",
-     "chip": "sent 6 Sep \u00b7 awaiting signature",
+     "chip": "signed + returned 9 Sep \u00b7 starts 26 Oct",
      "name": "Dr Jun (new doctor)",
-     "one": "She tendered on a handshake for a 26 Oct start. Her contract went out to her on 6 Sep; what is left is her signature and the two conversations that follow.",
+     "one": "She tendered on a handshake for a 26 Oct start. Her contract was sent on 6 Sep and signed and returned on 9 Sep; what is left is the two conversations that follow.",
      "steps": [
       {
        "t": "Terms agreed: RM7k/6mo or 40%, whichever higher",
@@ -1329,8 +1329,9 @@
        "w": "6 Sep"
       },
       {
-       "t": "She signs",
-       "s": "now"
+       "t": "Contract signed and returned",
+       "s": "done",
+       "w": "9 Sep"
       },
       {
        "t": "Jun \u2194 Dr Ong practitioner chat",
@@ -1357,18 +1358,13 @@
       "<b>She builds her own book</b> \u2014 the RM7k floor is the ramp support; blast + call-list patients route to her",
       "From the initiatives board: Shape under discussion is a guaranteed monthly minimum or the calculated fee, whichever is higher, for the first six months. That plus supervision looks a lot like employment, so the engagement basis needs a legal answer before it is offered. Communication to the existing doctors remains the main risk."
      ],
-     "flag": {
-      "k": "wait",
-      "who": "Jun",
-      "w": "Contract sent 6 Sep \u2014 awaiting her signature."
-     },
      "owner": "lu",
      "dept": "clinical",
      "lens": "revenue",
      "from_initiatives": [
       27
      ],
-     "next": "Chase Jun's signature, then the Dr Ong practitioner chat and the Dr Ling chemistry/arrangement talk before announcing to Amy, Mah and the rest.",
+     "next": "Have the Dr Ong practitioner chat and the Dr Ling chemistry/arrangement talk before announcing to Amy, Mah and the rest.",
      "endMonth": "2026-12"
     },
     {
@@ -1916,7 +1912,7 @@
     {
      "id": "h5",
      "dot": "now",
-     "chip": "3 or 24 Oct",
+     "chip": "3 Oct tentative",
      "name": "Front-of-house SOP, training & bench",
      "one": "The clinic has no SOP for issuing letters to patients \u2014 medical certificates, referral letters, insurance reports, quotations. Nobody had ever said whose job it was, and that gap caused real friction between a doctor and",
      "steps": [
@@ -1966,13 +1962,13 @@
        "s": ""
       },
       {
-       "t": "Date narrowed: Sat 3 Oct (preferred) or Sat 24 Oct \u2014 after 3:30 PM close, dinner after",
+       "t": "Training tentatively set: Sat 3 Oct \u2014 after 3:30 PM close, dinner after; confirmation pending",
        "s": "now",
        "w": "6 Sep"
       }
      ],
      "open": [
-      "<b>Date is down to two Saturdays: 3 Oct (preferred) or 24 Oct.</b> After the clinic closes at 3:30 PM, training then dinner together. It must sit AFTER AutoCount is installed and after Leow has taught Lau and Emily \u2014 receipts and e-invoices are part of the syllabus.",
+      "<b>Training is tentatively set for Sat 3 Oct; confirmation is pending.</b> After the clinic closes at 3:30 PM, training then dinner together. It must sit AFTER AutoCount is installed and after Leow has taught Lau and Emily \u2014 receipts and e-invoices are part of the syllabus.",
       "Merges the two front-of-house items raised on 20 Jul \u2014 the SOP gap and the upskilling/bench \u2014 because they are the same problem. TRAINING SYLLABUS INPUTS (consolidated 19 Aug, for the future training deck): (1) FOH training compulsory attendees Joanna/Erincy/Jessy/Ida; (2) FOH-01 patient-letters SOP (5 templates, 7-step process, Joanna pilot); (3) WhatsApp quick replies house voice + desk usage, plus desk-training sheet coming from chat-history mining (id 30); (4) DSA professionalism standards (noise, phones, occupied rooms; Siti/Eda peer-led training night model); (5) digital registration form staff flow (?staff=1); (6) rebooking-at-checkout habit (real baseline ~55-65%); (7) AutoCount front-desk training once migration timeline lands (invoice edits in OpenDent only - 30s rule); (8) phone/WhatsApp etiquette + name sign-offs. Detail lives in local memory/chat archives - enough to whip up a deck on request.",
       "Dr Joan and Dr Yeoh letter templates still blocked on their chops and on what the RES00104 / PRO0033 registration prefixes denote - Emily."
      ],
@@ -1982,12 +1978,12 @@
      "from_initiatives": [
       19
      ],
-     "next": "Pick 3 or 24 Oct, then build the training deck against the consolidated syllabus on this card.",
+     "next": "Confirm Sat 3 Oct, then build the training deck against the consolidated syllabus on this card.",
      "endMonth": "2026-11",
      "flag": {
       "k": "decide",
       "by": "2026-09-13",
-      "w": "Pick 3 Oct or 24 Oct so the deck can be built against a real date."
+      "w": "Confirm the tentative 3 Oct date so the deck can be built against a real date."
      }
     }
    ]
@@ -2285,7 +2281,7 @@
   "note": "initiatives.store.json folded into this store; initiatives.json is now DERIVED from it by hq_publish.py for the legacy page."
  },
  "meta": {
-  "asof": "TUE 08 SEP 2026",
-  "updated": "2026-09-08T22:30:22+08:00"
+  "asof": "WED 09 SEP 2026",
+  "updated": "2026-09-09T12:56:32+08:00"
  }
 }
