@@ -25,7 +25,7 @@ const ClearAligners = () => {
                 "@type": "Place",
                 "name": "Petaling Jaya, Selangor"
             },
-            "url": "https://ismile.com.my/services/straighten"
+            "url": "https://ismile.com.my/services/straighten/clear-aligners"
         };
 
         const script = document.createElement('script');

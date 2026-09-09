@@ -5,35 +5,6 @@ import { specialtyFor, fillStats } from '../../data/serviceSeo';
 import reviewStats from '../../data/review-stats.json';
 
 const RootCanalTreatment = () => {
-    // Add Service schema for SEO
-    useEffect(() => {
-        const serviceSchema = {
-            "@context": "https://schema.org",
-            "@type": "MedicalProcedure",
-            "name": "RootCanalTreatment",
-            "description": "Professional dental treatment at iSmile Dental Clinic Petaling Jaya",
-            "provider": {
-                "@type": "Dentist",
-                "name": "iSmile Dental Clinic",
-                "url": "https://ismile.com.my/services/replace"
-            },
-            "areaServed": {
-                "@type": "Place",
-                "name": "Petaling Jaya, Selangor"
-            },
-            "url": "https://ismile.com.my/services/replace"
-        };
-
-        const script = document.createElement('script');
-        script.type = 'application/ld+json';
-        script.innerHTML = JSON.stringify(serviceSchema);
-        document.head.appendChild(script);
-
-        return () => {
-            document.head.removeChild(script);
-        };
-    }, []);
-
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -54,7 +25,7 @@ const RootCanalTreatment = () => {
                 "@type": "Place",
                 "name": "Petaling Jaya, Selangor"
             },
-            "url": "https://ismile.com.my/services/protect"
+            "url": "https://ismile.com.my/services/protect/root-canal"
         };
 
         const script = document.createElement('script');

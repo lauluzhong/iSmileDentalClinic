@@ -25,7 +25,7 @@ const MyofunctionalOrthodontics = () => {
                 "@type": "Place",
                 "name": "Petaling Jaya, Selangor"
             },
-            "url": "https://ismile.com.my/services/children"
+            "url": "https://ismile.com.my/services/children/myofunctional"
         };
 
         const script = document.createElement('script');
