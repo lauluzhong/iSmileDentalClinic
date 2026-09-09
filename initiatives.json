@@ -1,8 +1,18 @@
 {
- "updated": "2026-09-09T17:41:15+08:00",
+ "updated": "2026-09-09T19:53:25+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Edith": {
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Emily": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
@@ -12,22 +22,12 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Code Capsule": {
    "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
+  "Edith": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
