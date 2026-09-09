@@ -1136,7 +1136,7 @@
     {
      "id": "g1",
      "dot": "now",
-     "chip": "UI 9 Sep \u00b7 send 15\u201317 Sep",
+     "chip": "UI session went well 9 Sep \u00b7 tentative send 22\u201324 Sep",
      "name": "Cold reactivation blast",
      "one": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
      "steps": [
@@ -1170,18 +1170,28 @@
        "w": "Mon 7 Sep"
       },
       {
-       "t": "Second session to finalise the UI",
+       "t": "Second session to finalise the UI \u2014 went well",
+       "s": "done",
+       "w": "9 Sep"
+      },
+      {
+       "t": "Final recipient list update",
        "s": "now",
-       "w": "Wed 9 Sep, 5 PM"
+       "w": "10 Sep"
+      },
+      {
+       "t": "Suraya deploys final changes and updates Lu",
+       "s": "",
+       "w": "Fri 11 Sep"
       },
       {
        "t": "Fresh-data re-run immediately before sending",
        "s": ""
       },
       {
-       "t": "Wave 1 fires (13\u201336mo lapsed) \u2014 1,800/day",
+       "t": "Tentative Wave 1 window (13\u201336mo lapsed) \u2014 1,800/day; not confirmed",
        "s": "",
-       "w": "Tue\u2013Thu 15\u201317 Sep"
+       "w": "22\u201324 Sep"
       },
       {
        "t": "Waves 2\u20133 \u00b7 funnel read via campaign tags",
@@ -1189,9 +1199,11 @@
       }
      ],
      "open": [
-      "<b>Blast training held Mon 7 Sep; UI session Wed 9 Sep 5 PM</b> (Mini CRM discussion, Google Meet). <b>The send runs Tue\u2013Thu, 15\u201317 Sep.</b>",
+      "<b>Cold reactivation blast meeting went well on 9 Sep.</b> Suraya has updated Lu and will deploy the final changes and update Lu on Friday 11 Sep.",
+      "<b>Action due 10 Sep:</b> update the final recipient list.",
+      "<b>The blast is not confirmed for next week.</b> Tentative revised window is 22\u201324 Sep because Wed 16 Sep is a public holiday and reply availability is a concern.",
       "<b>UI terminology changed by Code Capsule 7 Sep:</b> the flow is now Audience Filters \u2192 Audience List \u2192 Recipients. \"Selected Patients\" is renamed \"Recipients\"; \"Audience\" is the filtered pool, \"Recipients\" the patients actually selected to receive the campaign.",
-      "<b>Daily cap: the system allows 2,000/day; we set ours at 1,800</b> to leave headroom for the other automations sharing the number (recall, birthday). At 1,800 the 4,011 sends clear in three days \u2014 which is exactly what the Tue\u2013Thu window is for. The old ~250/day in the August pack is superseded.",
+      "<b>Daily cap: the system allows 2,000/day; we set ours at 1,800</b> to leave headroom for the other automations sharing the number (recall, birthday). At 1,800 the 4,011 sends clear in three days.",
       "Jason still owes the price",
       "PDPA check with Lydia",
       "<b>Cert expires 16 Oct</b> \u2014 renewal cron should fire ~15 Sep; Jason reminded 28 Aug, confirm it actually renews",
@@ -1200,8 +1212,9 @@
      ],
      "flag": {
       "k": "due",
-      "by": "2026-09-15",
-      "w": "UI session Wed 9 Sep 5 PM, then the blacklist and family cross-check and a fresh-data re-run before the 15\u201317 Sep send."
+      "by": "2026-09-10",
+      "w": "Update the final recipient list; the blast window is still tentative, not confirmed for next week.",
+      "who": "Lu"
      },
      "owner": "lu",
      "dept": "crm",
@@ -1209,7 +1222,7 @@
      "from_initiatives": [
       28
      ],
-     "next": "Sit the UI session Wed 9 Sep 5 PM, finish the blacklist and family cross-check, re-run the list on fresh data, then send Tue\u2013Thu 15\u201317 Sep at 1,800/day.",
+     "next": "Update the final recipient list by 10 Sep; wait for Suraya's final deployment and Friday update, then re-run fresh data before any blast. The 22\u201324 Sep window remains tentative.",
      "endMonth": "2026-10"
     },
     {
@@ -2282,6 +2295,6 @@
  },
  "meta": {
   "asof": "WED 09 SEP 2026",
-  "updated": "2026-09-09T12:56:32+08:00"
+  "updated": "2026-09-09T17:41:15+08:00"
  }
 }

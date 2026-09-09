@@ -1,22 +1,7 @@
 {
- "updated": "2026-09-09T12:56:32+08:00",
+ "updated": "2026-09-09T17:41:15+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Emily": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Edith": {
    "init": "E",
    "role": "",
@@ -27,8 +12,23 @@
    "role": "",
    "color": "#45C4FF"
   },
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Lydia": {
    "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Code Capsule": {
+   "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -421,7 +421,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
-   "next": "Sit the UI session Wed 9 Sep 5 PM, finish the blacklist and family cross-check, re-run the list on fresh data, then send Tue\u2013Thu 15\u201317 Sep at 1,800/day.",
+   "next": "Update the final recipient list by 10 Sep; wait for Suraya's final deployment and Friday update, then re-run fresh data before any blast. The 22\u201324 Sep window remains tentative.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-10",
@@ -433,9 +433,11 @@
     "Meta template approval",
     "Blacklist + family cross-check \u00b7 anniversary-list exclusion",
     "Marketing blast training with Code Capsule \u2014 held",
-    "Second session to finalise the UI",
+    "Second session to finalise the UI \u2014 went well",
+    "Final recipient list update",
+    "Suraya deploys final changes and updates Lu",
     "Fresh-data re-run immediately before sending",
-    "Wave 1 fires (13\u201336mo lapsed) \u2014 1,800/day",
+    "Tentative Wave 1 window (13\u201336mo lapsed) \u2014 1,800/day; not confirmed",
     "Waves 2\u20133 \u00b7 funnel read via campaign tags"
    ],
    "pillar": "P3"
