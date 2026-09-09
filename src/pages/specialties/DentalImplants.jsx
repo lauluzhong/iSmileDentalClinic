@@ -10,8 +10,8 @@ const DentalImplants = () => {
         const serviceSchema = {
             "@context": "https://schema.org",
             "@type": "MedicalProcedure",
-            "name": "DentalImplants",
-            "description": "Professional dental treatment at iSmile Dental Clinic Petaling Jaya",
+            "name": "Dental Implants",
+            "description": "Dental implant treatment to replace missing teeth at iSmile Dental Clinic Petaling Jaya",
             "provider": {
                 "@type": "Dentist",
                 "name": "iSmile Dental Clinic",
@@ -21,7 +21,7 @@ const DentalImplants = () => {
                 "@type": "Place",
                 "name": "Petaling Jaya, Selangor"
             },
-            "url": "https://ismile.com.my/services/replace"
+            "url": "https://ismile.com.my/services/replace/dental-implants"
         };
 
         const script = document.createElement('script');
