@@ -9,63 +9,9 @@ const TeethWhitening = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    // Add Service schema for SEO
-    useEffect(() => {
-        const serviceSchema = {
-            "@context": "https://schema.org",
-            "@type": "MedicalProcedure",
-            "name": "Teeth Whitening",
-            "description": "Professional teeth whitening treatment at iSmile Dental Clinic Petaling Jaya",
-            "provider": {
-                "@type": "Dentist",
-                "name": "iSmile Dental Clinic",
-                "url": "https://ismile.com.my/services/enhance"
-            },
-            "areaServed": {
-                "@type": "Place",
-                "name": "Petaling Jaya, Selangor"
-            },
-            "url": "https://ismile.com.my/services/enhance/teeth-whitening"
-        };
-
-        const script = document.createElement('script');
-        script.type = 'application/ld+json';
-        script.innerHTML = JSON.stringify(serviceSchema);
-        document.head.appendChild(script);
-
-        return () => {
-            document.head.removeChild(script);
-        };
-    }, []);
-
     const seo = specialtyFor('TeethWhitening');
     // Copy lives in src/data/serviceSeo.js so the prerendered HTML matches.
     const faqs = seo.faqs.map(f => ({ q: fillStats(f.q, reviewStats), a: fillStats(f.a, reviewStats) }));
-
-    // Add FAQ schema for SEO
-    useEffect(() => {
-        const faqSchema = {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-                "@type": "Question",
-                "name": faq.q,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": faq.a
-                }
-            }))
-        };
-
-        const script = document.createElement('script');
-        script.type = 'application/ld+json';
-        script.innerHTML = JSON.stringify(faqSchema);
-        document.head.appendChild(script);
-
-        return () => {
-            document.head.removeChild(script);
-        };
-    }, []);
 
     return (
         <SpecialtyLayout
