@@ -10,7 +10,7 @@ categories:
 tags:
   - Pediatric Dentistry
 parent_page: https://ismile.com.my/services/children/myofunctional
-img: /images/dentist-child.png
+img: /images/blog/child-first-visit-parent-hand.png
 featured: false
 faq:
   - q: "When should I take my child for their first dental visit?"

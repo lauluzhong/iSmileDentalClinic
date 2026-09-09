@@ -18,10 +18,10 @@
   <link rel="preload" as="image" media="(max-width: 1024px)" href="/logo-tight.webp" type="image/webp" fetchpriority="high">
   <link rel="preload" as="image" media="(min-width: 1025px)" href="/logo.webp" type="image/webp" fetchpriority="high">
 
-  <!-- LCP Hero Image Preload -->
-  <!-- Hero preload must mirror the <picture> art direction, or phones fetch the desktop landscape crop and then discard it. -->
-  <link rel="preload" as="image" media="(max-width: 768px)" href="/images/family_hero_three_generations_portrait-480w.avif" imagesrcset="/images/family_hero_three_generations_portrait-480w.avif 480w, /images/family_hero_three_generations_portrait-768w.avif 768w, /images/family_hero_three_generations_portrait.avif 1024w" imagesizes="(max-width: 768px) 150vw, 50vw" type="image/avif" fetchpriority="high">
-  <link rel="preload" as="image" media="(min-width: 769px)" href="/images/family_hero_three_generations-480w.avif" imagesrcset="/images/family_hero_three_generations-480w.avif 480w, /images/family_hero_three_generations-768w.avif 768w, /images/family_hero_three_generations.avif 1024w" imagesizes="50vw" type="image/avif" fetchpriority="high">
+  <!-- No hero-photo preload: the homepage hero is now the dentist portrait
+       ensemble (eight small AVIFs, ~150 KB together), none of which is the LCP
+       element — Lighthouse measures the header logo as LCP, and that has its
+       own preload above. -->
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />

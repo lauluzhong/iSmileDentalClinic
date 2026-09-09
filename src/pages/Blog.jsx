@@ -153,7 +153,7 @@ const Blog = () => {
                 <link rel="canonical" href={`https://ismile.com.my/blog${currentPage > 1 ? `?page=${currentPage}` : ''}`} />
             </Helmet>
             <div className="blog-hero-gradient" style={{
-                background: 'linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 50%, #dcfce7 100%)',
+                background: 'linear-gradient(180deg, #F3F9FE 0%, #E9F4FB 60%, rgba(233,244,251,0) 100%)',
                 paddingTop: '180px',
                 paddingBottom: '80px',
                 textAlign: 'center'
@@ -161,10 +161,10 @@ const Blog = () => {
                 <div className="container">
                     <Reveal width="100%"><h1 className="hero-title" style={{
                         fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                        fontWeight: 800,
+                        fontWeight: 700,
                         color: 'var(--color-text-charcoal)',
                         letterSpacing: '-0.02em'
-                    }}>Learning <span className="text-gradient">Centre</span></h1></Reveal>
+                    }}>Learning <em>Centre</em></h1></Reveal>
                     <Reveal delay={0.2} width="100%"><p className="hero-subtitle" style={{
                         fontSize: '1.2rem',
                         color: 'var(--color-text-muted)',
@@ -231,9 +231,9 @@ const Blog = () => {
 
                 {/* Featured — only show on "All" view */}
                 {featuredPost && activeCategory === 'All' && !activeQuery && (
-                    <FadeIn className="glass-panel featured-post">
+                    <FadeIn className="featured-post">
                         <div className="featured-content">
-                            <span className="badge">Featured</span>
+                            <span className="featured-label">Featured</span>
                             <h2>{featuredPost.title}</h2>
                             <p>{featuredPost.excerpt}</p>
                             <Link to={`/blog/${featuredPost.slug}`}>
@@ -251,7 +251,7 @@ const Blog = () => {
                     {paginatedPosts.length > 0 ? (
                         paginatedPosts.map((post) => (
                             <Link to={`/blog/${post.slug}`} key={post.slug} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                <FadeIn className="glass-panel post-card">
+                                <FadeIn className="post-card">
                                     <div className="post-image">
                                         <ResponsiveImage src={post.img} alt={post.title} loading="lazy" sizes="(max-width: 768px) 100vw, 380px" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                     </div>
@@ -302,7 +302,7 @@ const Blog = () => {
                                     fontWeight: 600,
                                     fontSize: '0.95rem',
                                     transition: 'all 0.2s',
-                                    boxShadow: page === currentPage ? '0 4px 12px rgba(79,163,194,0.3)' : '0 2px 8px rgba(0,0,0,0.06)'
+                                    boxShadow: page === currentPage ? '0 4px 12px rgba(0,141,176,0.3)' : '0 2px 8px rgba(0,0,0,0.06)'
                                 }}
                             >
                                 {page}
@@ -325,24 +325,23 @@ const Blog = () => {
               flex: 1;
               min-width: 0;
               border: 1.5px solid #e2e8f0;
-              background: rgba(255, 255, 255, 0.88);
+              background: #fff;
               border-radius: 14px;
               padding: 12px 14px;
               font-size: 0.95rem;
               color: var(--color-text-charcoal);
-              backdrop-filter: blur(8px);
           }
 
           .blog-search-input:focus {
               outline: none;
               border-color: var(--color-primary-teal);
-              box-shadow: 0 0 0 3px rgba(79, 163, 194, 0.2);
+              box-shadow: 0 0 0 3px rgba(0, 141, 176, 0.2);
           }
 
           .blog-search-clear {
               border: none;
               border-radius: 12px;
-              background: rgba(79, 163, 194, 0.12);
+              background: rgba(0, 141, 176, 0.12);
               color: var(--color-primary-teal);
               font-size: 0.85rem;
               font-weight: 600;
@@ -383,20 +382,19 @@ const Blog = () => {
               white-space: nowrap;
               transition: all 0.25s ease;
               flex-shrink: 0;
-              backdrop-filter: blur(8px);
           }
 
           .category-pill:hover {
               border-color: var(--color-primary-teal);
               color: var(--color-primary-teal);
-              box-shadow: 0 2px 12px rgba(79, 163, 194, 0.15);
+              box-shadow: 0 2px 12px rgba(0, 141, 176, 0.15);
           }
 
           .category-pill.active {
               background: var(--color-primary-teal);
               color: white;
               border-color: var(--color-primary-teal);
-              box-shadow: 0 4px 16px rgba(79, 163, 194, 0.3);
+              box-shadow: 0 4px 16px rgba(0, 141, 176, 0.3);
           }
 
           .category-pill.active .pill-count {
@@ -419,7 +417,23 @@ const Blog = () => {
               line-height: 1;
           }
 
-          .featured-post {
+          
+                .featured-post, .post-card {
+                    background: #fff;
+                    border: 1px solid var(--hairline);
+                }
+                .featured-label {
+                    display: inline-block;
+                    font-family: var(--font-heading);
+                    font-weight: 700;
+                    font-size: 0.68rem;
+                    letter-spacing: 0.2em;
+                    text-transform: uppercase;
+                    color: var(--color-primary-teal);
+                    margin-bottom: 12px;
+                }
+
+                .featured-post {
               display: grid;
               grid-template-columns: 1fr 1fr;
               overflow: hidden;
@@ -485,8 +499,8 @@ const Blog = () => {
               color: var(--color-primary);
               font-weight: 500;
               text-transform: uppercase;
-              background: rgba(79, 163, 194, 0.1);
-              border: 1px solid rgba(79, 163, 194, 0.2);
+              background: rgba(0, 141, 176, 0.1);
+              border: 1px solid rgba(0, 141, 176, 0.2);
               border-radius: 12px;
               padding: 3px 10px; /* Slightly increased padding for better proportion */
               cursor: pointer;
@@ -495,7 +509,7 @@ const Blog = () => {
           }
 
           .post-tag:hover {
-              background: rgba(79, 163, 194, 0.2);
+              background: rgba(0, 141, 176, 0.2);
               border-color: var(--color-primary);
           }
 

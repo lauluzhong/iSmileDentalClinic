@@ -10,7 +10,7 @@ categories:
 tags:
   - Pediatric Dentistry
 parent_page: "/services/children/myofunctional"
-img: "/images/blog/when-should-children-stop-sucking-thumb-hero.jpg"
+img: /images/blog/bedtime-story-toddler.png
 featured: false
 faq:
   - q: "When should children stop sucking their thumb?"

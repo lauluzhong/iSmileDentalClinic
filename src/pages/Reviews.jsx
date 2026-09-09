@@ -1,8 +1,9 @@
 import { Helmet } from 'react-helmet-async';
 import React from 'react';
-import { Star, Quote } from 'lucide-react';
+import { Star } from 'lucide-react';
 import Button from '../components/Button';
 import { Reveal, FadeIn } from '../components/Reveal';
+import Style from '../components/Style';
 import reviewStats from '../data/review-stats.json';
 import { CORE_PAGES } from '../data/corePagesSeo';
 import { fillStats } from '../data/serviceSeo';
@@ -329,11 +330,10 @@ const Reviews = () => {
             <div className="reviews-hero-gradient">
                 <div className="container">
                     <Reveal width="100%">
-                        <span className="pill-label" style={{ marginBottom: '22px' }}><Star size={13} fill="#E0A500" color="#E0A500" /> {reviewStats.rating} average · {reviewStats.count} Google reviews</span>
                     </Reveal>
                     <Reveal width="100%">
                         <h1 className="reviews-hero-title">
-                            Stories from <span className="text-gradient">our community</span>
+                            Stories from <em>our community</em>
                         </h1>
                     </Reveal>
 
@@ -345,41 +345,33 @@ const Reviews = () => {
 
                     <Reveal delay={0.3} width="100%">
                         <div className="reviews-stats">
-                            <div className="reviews-stat">
-                                <span className="reviews-stat-num">{reviewStats.rating}<span className="reviews-stat-unit">/5</span></span>
-                                <span className="reviews-stat-label">Google rating</span>
-                            </div>
-                            <span className="reviews-stat-divider" />
-                            <div className="reviews-stat">
-                                <span className="reviews-stat-num">{reviewStats.count}+</span>
-                                <span className="reviews-stat-label">Verified reviews</span>
-                            </div>
-                            <span className="reviews-stat-divider" />
-                            <div className="reviews-stat">
-                                <span className="reviews-stat-num">20+</span>
-                                <span className="reviews-stat-label">Years of care</span>
+                            <span className="reviews-trust-rule" aria-hidden="true" />
+                            <div className="reviews-trust-item">
+                                <div className="reviews-trust-stars">
+                                    {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#E0A500" color="#E0A500" />)}
+                                </div>
+                                <span><strong>{reviewStats.rating}</strong> on Google · {reviewStats.count} reviews</span>
                             </div>
                         </div>
                     </Reveal>
                 </div>
             </div>
 
-            <div className="container section-padding pt-0">
+            <div className="container reviews-content">
                 <div className="reviews-grid">
                     {reviewsList.map((review, index) => (
-                        <FadeIn key={index} className="glass-panel review-card-large">
-                            <div className="quote-icon"><Quote size={40} color="var(--color-tint-blue)" /></div>
+                        <FadeIn key={index} className="review-card-large">
                             <div className="stars">
-                                {[...Array(review.rating)].map((_, i) => <Star key={i} size={16} fill="#FFD700" color="#FFD700" />)}
+                                {[...Array(review.rating)].map((_, i) => <Star key={i} size={16} fill="#E0A500" color="#E0A500" />)}
                             </div>
                             <div className="review-body">{review.text}</div>
                             <div className="review-footer">
                                 {review.avatar ? (
-                                    <img src={review.avatar} alt={review.author} loading="lazy" width="50" height="50" style={{ width: '50px', height: '50px', borderRadius: '50%', objectFit: 'cover' }} />
+                                    <img src={review.avatar} alt={review.author} loading="lazy" width="36" height="36" className="review-avatar" />
                                 ) : (
-                                    <InitialsAvatar name={review.author} />
+                                    <InitialsAvatar name={review.author} size={36} />
                                 )}
-                                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                <div className="proof-author">
                                     <strong>{review.author}</strong>
                                     <span className="review-type"><GoogleG /> Verified Google review</span>
                                 </div>
@@ -388,144 +380,54 @@ const Reviews = () => {
                     ))}
                 </div>
 
-                <div className="text-center" style={{ marginTop: '100px', textAlign: 'center' }}>
-                    <Reveal width="100%"><h3>Have a story to share?</h3></Reveal>
-                    <p className="mb-4">We'd love to hear from you.</p>
-                    <a href="https://g.page/r/CQU1Takv7hs4EAE/review" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}><Button>Share Your Experience</Button></a>
+                <div className="reviews-closing">
+                    <Reveal width="100%"><span className="eyebrow">Your voice matters</span></Reveal>
+                    <Reveal width="100%"><h2 className="statement">Have a <em>story</em> to share?</h2></Reveal>
+                    <a href="https://g.page/r/CQU1Takv7hs4EAE/review" target="_blank" rel="noopener noreferrer"><Button>Share Your Experience</Button></a>
                 </div>
             </div>
 
-            <style>{`
-        .reviews-hero-gradient {
-            background: linear-gradient(135deg, #F0F7FF 0%, #E0F2FE 55%, #EAF7F0 100%);
-            padding-top: 180px;
-            padding-bottom: 90px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .reviews-hero-title {
-            font-size: clamp(2.4rem, 1.6rem + 3.4vw, 4rem);
-            font-weight: 800;
-            color: var(--color-text-charcoal);
-            letter-spacing: -0.03em;
-            margin-bottom: 20px;
-            line-height: 1.05;
-        }
-        .reviews-hero-subtitle {
-            font-size: var(--fs-lead);
-            color: var(--color-text-slate);
-            max-width: 640px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-        .reviews-stats {
-            display: inline-flex;
-            align-items: center;
-            gap: 36px;
-            margin-top: 44px;
-            padding: 22px 40px;
-            background: rgba(255,255,255,0.75);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,0.7);
-            border-radius: 24px;
-            box-shadow: var(--shadow-md);
-        }
-        .reviews-stat { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-        .reviews-stat-num { font-family: var(--font-heading); font-size: 2rem; font-weight: 800; color: var(--color-primary-deep); line-height: 1; letter-spacing: -0.02em; }
-        .reviews-stat-unit { font-size: 1rem; color: var(--color-text-grey); font-weight: 600; }
-        .reviews-stat-label { font-size: 0.82rem; color: var(--color-text-slate); font-weight: 500; }
-        .reviews-stat-divider { width: 1px; height: 44px; background: rgba(16,42,51,0.12); }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-            gap: 28px;
-        }
-
-        .review-card-large {
-            padding: 34px 30px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            background: #fff;
-            border: 1px solid rgba(16,42,51,0.06);
-            border-radius: 24px;
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease;
-        }
-        .review-card-large:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
-
-        .quote-icon {
-            position: absolute;
-            top: 24px;
-            right: 26px;
-            opacity: 0.5;
-        }
-
-        .stars {
-            margin-bottom: 20px;
-            display: flex;
-            gap: 4px;
-        }
-
-        .review-body {
-            font-size: 0.96rem;
-            margin-bottom: 24px;
-            color: var(--color-text-slate);
-            flex: 1;
-            line-height: 1.65;
-        }
-        .review-body strong { color: var(--color-text-charcoal); font-weight: 600; }
-
-        .review-body p {
-            margin-bottom: 12px;
-        }
-
-        .review-body p:last-child {
-            margin-bottom: 0;
-        }
-
-        .review-footer {
-            display: flex !important;
-            flex-direction: row !important;
-            align-items: center;
-            gap: 14px;
-            border-top: 1px solid rgba(16,42,51,0.07);
-            padding-top: 18px;
-        }
-        .review-footer strong { color: var(--color-text-charcoal); font-family: var(--font-heading); }
-
-        .review-type {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.78rem;
-            color: var(--color-text-grey);
-            margin-top: 2px;
-        }
-        @media (max-width: 1024px) {
-            .reviews-hero-gradient { padding-top: 140px; padding-bottom: 60px; }
-            .reviews-grid { grid-template-columns: 1fr; gap: 20px; }
-            .review-card-large {
-                padding: 26px 24px;
-                border-radius: 20px;
-                margin-left: 8px;
-                margin-right: 8px;
-                width: auto;
-            }
-            .reviews-hero-subtitle { font-size: 1rem; }
-            .reviews-stats { gap: 20px; padding: 18px 22px; margin-top: 32px; flex-wrap: wrap; justify-content: center; }
-            .reviews-stat-num { font-size: 1.6rem; }
-        }
-        @media (max-width: 480px) {
-            .reviews-stats { gap: 14px; padding: 16px; border-radius: 20px; }
-            .reviews-stat-divider { display: none; }
-            .reviews-stat { flex: 0 0 calc(33% - 10px); }
-            .reviews-stat-num { font-size: 1.4rem; }
-            .reviews-stat-label { font-size: 0.72rem; }
-        }
-      `}</style>
+            <Style>{`
+                /* no opaque page background — the shared hero tint (index.css) shows through */
+                .reviews-page .reviews-hero-gradient { padding: 160px 0 72px; text-align: center; }
+                .reviews-page .reviews-hero-title { max-width: 780px; margin: 0 auto 20px; font-size: clamp(2.4rem, 1.6rem + 3.4vw, 4rem); font-weight: 700; line-height: 1.05; letter-spacing: -.03em; text-wrap: balance; }
+                .reviews-page .reviews-hero-subtitle { max-width: 640px; margin: 0 auto; color: var(--color-text-slate); font-size: var(--fs-lead); line-height: 1.6; }
+                .reviews-page .reviews-stats { display: inline-flex; align-items: center; gap: 14px; margin-top: 40px; color: var(--color-text-slate); font-size: .92rem; }
+                .reviews-page .reviews-trust-rule { width: 34px; height: 1px; background: var(--hairline-strong); flex: none; }
+                .reviews-page .reviews-trust-item, .reviews-page .reviews-trust-stars { display: flex; align-items: center; gap: 8px; }
+                .reviews-page .reviews-trust-stars { gap: 2px; }
+                .reviews-page .reviews-trust-item strong { color: var(--color-text-charcoal); }
+                .reviews-page .reviews-content { padding-top: 32px; }
+                /* Each review is one soft tinted block — the same language as
+                   the homepage mosaic's quote tiles — so the words and the
+                   reviewer read as a single group instead of table rows
+                   (owner, 8 Sep 2026: the hairline grid looked "tably"). */
+                .reviews-page .reviews-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
+                .reviews-page .review-card-large {
+                    display: flex; flex-direction: column;
+                    padding: 30px 32px;
+                    background: var(--color-tint-faint);
+                    border-radius: 22px;
+                    box-shadow: 0 1px 3px rgba(16, 42, 51, 0.05), 0 6px 18px rgba(16, 42, 51, 0.05);
+                }
+                .reviews-page .review-card-large:nth-child(4n+2),
+                .reviews-page .review-card-large:nth-child(4n+3) { background: #EBF4FA; }
+                .reviews-page .stars { display: flex; gap: 4px; margin-bottom: 18px; }
+                .reviews-page .review-body { flex: 1; margin-bottom: 22px; color: var(--color-text-slate); font-size: .96rem; line-height: 1.65; }
+                .reviews-page .review-body strong { color: var(--color-text-charcoal); font-weight: 600; }
+                .reviews-page .review-body p { margin: 0 0 12px; }
+                .reviews-page .review-body p:last-child { margin-bottom: 0; }
+                .reviews-page .review-footer { display: flex !important; flex-direction: row !important; align-items: center; gap: 12px; margin-top: auto; }
+                .reviews-page .review-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex: none; }
+                .reviews-page .proof-author { display: flex; flex-direction: column; }
+                .reviews-page .review-footer strong { color: var(--color-text-charcoal); font-family: var(--font-heading); font-size: .94rem; }
+                .reviews-page .review-type { display: inline-flex; align-items: center; gap: 5px; margin-top: 2px; color: var(--color-text-grey); font-size: .78rem; }
+                .reviews-page .reviews-closing { padding: var(--space-section-lg) 0 80px; text-align: center; }
+                .reviews-page .reviews-closing .eyebrow { margin-bottom: 14px; }
+                .reviews-page .reviews-closing .statement { max-width: 680px; margin: 0 auto 30px; }
+                .reviews-page .reviews-closing a { display: inline-block; }
+                @media (max-width: 760px) { .reviews-page .reviews-hero-gradient { padding: 118px 0 52px; } .reviews-page .reviews-grid { grid-template-columns: 1fr; gap: 16px; } .reviews-page .review-card-large { padding: 24px 22px; border-radius: 18px; } .reviews-page .reviews-trust-rule { width: 24px; } }
+            `}</Style>
         </div>
     );
 };

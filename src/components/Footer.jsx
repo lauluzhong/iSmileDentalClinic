@@ -172,7 +172,7 @@ const Footer = () => {
                         </div>
                         <p className="cta-desc">Ready to schedule your visit?</p>
                         <div className="mt-4">
-                            <Button data-analytics-click="footer-booking" style={{ padding: '12px 40px', boxShadow: '0 4px 15px rgba(79, 163, 194, 0.3)' }} onClick={() => openBooking('', 'footer-cta')}>Book a Visit</Button>
+                            <Button data-analytics-click="footer-booking" style={{ padding: '12px 40px', boxShadow: 'var(--shadow-teal)' }} onClick={() => openBooking('', 'footer-cta')}>Book a Visit</Button>
                         </div>
                         
                         {/* Social Media Links */}
@@ -185,13 +185,6 @@ const Footer = () => {
                                     rel="noopener noreferrer"
                                     className="footer-social-icon instagram"
                                     aria-label="Follow us on Instagram"
-                                    style={{ 
-                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                        width: '40px', height: '40px', borderRadius: '50%',
-                                        background: 'white', color: '#64748b',
-                                        boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
-                                        transition: 'all 0.3s ease'
-                                    }}
                                 >
                                     <InstagramIcon />
                                 </a>
@@ -201,13 +194,6 @@ const Footer = () => {
                                     rel="noopener noreferrer"
                                     className="footer-social-icon facebook"
                                     aria-label="Follow us on Facebook"
-                                    style={{ 
-                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                        width: '40px', height: '40px', borderRadius: '50%',
-                                        background: 'white', color: '#64748b',
-                                        boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
-                                        transition: 'all 0.3s ease'
-                                    }}
                                 >
                                     <FacebookIcon />
                                 </a>
@@ -220,10 +206,15 @@ const Footer = () => {
 
             <Style>{`
         .footer {
-            background-color: #edf2f7;
-            padding: 80px 0 40px;
+            /* Reskinned 7 Sep 2026 to the homepage's committed system: the old
+               #edf2f7 slab made the hand-off from any page into the footer feel
+               like a different site. The footer now sits on the page's own
+               ground behind a single hairline, with the same eyebrow-style
+               headings and quiet link colours as the sections above it. */
+            background: transparent;
+            padding: 96px 0 48px;
             color: #334155;
-            border-top: 1px solid #e2e8f0;
+            border-top: 1px solid rgba(16,42,51,0.10);
         }
 
         .footer-grid {
@@ -238,7 +229,7 @@ const Footer = () => {
         }
 
         .footer-logo img {
-            height: 155px !important;
+            height: 118px !important;
             width: auto !important;
             max-width: 100%;
             object-fit: contain;
@@ -257,29 +248,34 @@ const Footer = () => {
         }
 
         .google-reviews-badge {
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 16px;
+            /* No white box: the card chrome was removed site-wide on the
+               homepage, and the footer follows. A hairline above, the rating
+               line, and the write-review link underlined like every other
+               quiet link in the new system. */
+            border-top: 1px solid rgba(16,42,51,0.10);
+            padding: 16px 0 0;
             margin-bottom: 20px;
             cursor: pointer;
-            transition: all 0.2s ease;
-            text-align: center;
+            text-align: left;
+            max-width: 280px;
         }
-        .google-reviews-badge:hover {
-            border-color: #00A0C6;
-            box-shadow: 0 4px 12px rgba(0, 160, 198, 0.15);
-            transform: translateY(-2px);
+        .google-reviews-badge:hover .write-review {
+            display: inline-block;
+            color: var(--color-primary-deep);
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0;
+            transition: color 0.25s ease;
         }
         .google-rating-row {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 8px;
             margin-bottom: 4px;
         }
         .stars {
-            color: #FBBC05;
+            color: var(--color-gold);
             font-size: 1.2rem;
             letter-spacing: 2px;
         }
@@ -293,12 +289,7 @@ const Footer = () => {
             font-size: 0.85rem;
             margin: 0 0 8px 0;
         }
-        .write-review {
-            color: #00A0C6;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin: 0;
-        }
+
 
         .footer-copyright {
             font-size: 0.8rem;
@@ -307,11 +298,13 @@ const Footer = () => {
         }
 
         .footer-heading {
-            color: #00A0C6;
-            font-size: 1.1rem;
+            color: var(--color-primary-teal);
+            font-family: var(--font-heading);
+            font-size: 0.72rem;
             font-weight: 700;
             margin-bottom: 24px;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
         }
 
         .footer-links { list-style: none; padding: 0; margin: 0; }
@@ -332,8 +325,8 @@ const Footer = () => {
             gap: 10px;
             margin-bottom: 24px;
         }
-        .phone-icon {
-            color: #00A0C6;
+        .phone-icon /* tokenised */ {
+            color: var(--color-primary-teal);
         }
         .phone-link {
             color: #475569;
@@ -346,11 +339,14 @@ const Footer = () => {
             color: var(--color-primary);
         }
 
+        /* The white outline pills are BACK by the owner's call (8 Sep 2026):
+           he prefers the earlier Maps/Waze buttons over quiet links. Kept on
+           tokens rather than the old hex values. */
         .direction-buttons { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
         .direction-btn {
-            background: white !important;
-            border: 1px solid #e2e8f0 !important;
-            color: #475569 !important;
+            background: #fff !important;
+            border: 1px solid var(--hairline) !important;
+            color: var(--color-text-slate) !important;
             padding: 10px 20px !important;
             border-radius: 12px !important;
             font-size: 0.9rem !important;
@@ -358,40 +354,24 @@ const Footer = () => {
             display: flex !important;
             align-items: center !important;
             gap: 10px !important;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
+            box-shadow: none !important;
             transition: all 0.2s !important;
         }
         .direction-btn:hover { border-color: var(--color-primary) !important; color: var(--color-primary) !important; background: #f0f9ff !important; }
         .btn-icon { width: 18px; height: 18px; }
 
-        /* Footer Social Icons */
-        .footer-social-icon.instagram:hover {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
-            color: white !important;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(225, 48, 108, 0.3) !important;
+        /* Footer social: bare glyphs in the quiet-link palette, no chips,
+           no third-party brand gradients (design rollout, 7 Sep 2026). */
+        .footer-social-icon {
+            display: inline-flex; align-items: center;
+            color: var(--color-text-grey);
+            transition: color 0.25s ease;
         }
-        .footer-social-icon.facebook:hover {
-            background: #1877F2 !important;
-            color: white !important;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3) !important;
-        }
-
-        @media (max-width: 1024px) {
-            .footer-social { text-align: center; }
-            .social-icons-row { justify-content: center; }
-        }
+        .footer-social-icon:hover { color: var(--color-primary-deep); }
 
         .footer-accordion-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
         .accordion-icon { display: none; font-size: 1.2rem; transition: transform 0.3s; color: #94a3b8; }
         .accordion-icon.open { transform: rotate(45deg); }
-
-        @media (max-width: 1024px) {
-            .footer-grid { grid-template-columns: repeat(3, 1fr); }
-            .cta-col { grid-column: span 3; text-align: center; margin-top: 20px; }
-            .phone-block { justify-content: center; }
-        }
 
         @media (max-width: 1024px) {
             /* Compact, consistently LEFT-ALIGNED accordion footer.
@@ -402,14 +382,14 @@ const Footer = () => {
                 grid-template-columns: 1fr;
                 gap: 0;
             }
-            .branding-col { text-align: left; align-items: flex-start; padding: 0 0 12px; border-bottom: 1px solid #f1f5f9; margin-bottom: 8px; }
+            .branding-col { text-align: left; align-items: flex-start; padding: 0 0 12px; border-bottom: 1px solid var(--hairline); margin-bottom: 8px; }
             .footer-logo img { height: 90px !important; width: auto !important; margin-bottom: 0px; }
             .footer-desc { margin: 6px 0 12px; font-size: 0.85rem; max-width: none; }
-            .google-reviews-badge { text-align: left; margin-bottom: 12px; padding: 12px 14px; }
+            .google-reviews-badge { text-align: left; margin-bottom: 12px; padding: 12px 0 0; }
             .google-rating-row { justify-content: flex-start; }
 
-            .footer-col { border-bottom: 1px solid #f1f5f9; padding: 6px 0; }
-            .footer-heading { margin-bottom: 0; font-size: 1rem; }
+            .footer-col { border-bottom: 1px solid var(--hairline); padding: 6px 0; }
+            .footer-heading { margin-bottom: 0; font-size: 0.78rem; }
 
             .footer-accordion-header { padding: 8px 0; margin: 0; }
             .accordion-icon { display: block; }

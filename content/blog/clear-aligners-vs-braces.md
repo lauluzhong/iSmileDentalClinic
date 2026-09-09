@@ -10,7 +10,7 @@ faq:
   - a: 'It is generally recommended to have an initial assessment after birth or as soon as your baby develops his/her first tooth, as children grow and their jaw develops significantly. This helps prevent possible future orthodontic treatment or minimising one with early interceptive advice.'
     q: When should a child have their first orthodontic assessment?
 featured: false
-img: /images/invisalign_hand.png
+img: /images/blog/aligner-vs-braces-morning.png
 title: 'Clear Aligners vs Braces: Which Fits a Busy Adult or Teen Lifestyle Better?'
 tags:
   - Clear Aligners

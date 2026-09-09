@@ -26,7 +26,7 @@ export default function RelatedReading({ pathKey, title = 'Dental Education', li
         <section className="related-reading">
             <div className="container">
                 <div className="related-reading-head">
-                    <h2>{title}</h2>
+                    <h2>{title === 'Dental Education' ? (<>Dental <em>education.</em></>) : title}</h2>
                     <Link
                         to="/blog"
                         className="related-reading-all"
@@ -60,11 +60,7 @@ export default function RelatedReading({ pathKey, title = 'Dental Education', li
                                             </div>
                                         )}
                                         <div className="related-reading-body">
-                                            {post.tags && post.tags.length > 0 && (
-                                                <span className="related-reading-tag">{post.tags[0]}</span>
-                                            )}
                                             <h3>{post.title}</h3>
-                                            {post.excerpt && <p>{post.excerpt}</p>}
                                             <span className="related-reading-more">
                                                 Read article <ArrowRight size={15} />
                                             </span>
@@ -79,9 +75,11 @@ export default function RelatedReading({ pathKey, title = 'Dental Education', li
             </div>
 
             <Style>{`
+                /* Design-system rollout (7 Sep 2026): no filled band, no card
+                   chrome — bare rounded images with the title and a quiet link
+                   below, exactly like Dental Education on the homepage. */
                 .related-reading {
-                    background: #f8f9fa;
-                    padding: 72px 0;
+                    padding: 88px 0 72px;
                     text-align: left;
                 }
 
@@ -96,10 +94,13 @@ export default function RelatedReading({ pathKey, title = 'Dental Education', li
 
                 .related-reading-head h2 {
                     margin: 0;
-                    font-size: clamp(1.6rem, 3vw, 2.1rem);
+                    font-family: var(--font-heading);
+                    font-size: var(--fs-h2);
                     font-weight: 700;
+                    line-height: 1.12;
                     color: var(--color-text-charcoal);
-                    letter-spacing: -0.01em;
+                    letter-spacing: -0.03em;
+                    text-wrap: balance;
                 }
 
                 .related-reading-all {
@@ -130,25 +131,16 @@ export default function RelatedReading({ pathKey, title = 'Dental Education', li
                     display: flex;
                     flex-direction: column;
                     width: 100%;
-                    background: #fff;
-                    border: 1px solid rgba(0,0,0,0.06);
-                    border-radius: 20px;
-                    overflow: hidden;
                     text-decoration: none;
                     color: inherit;
-                    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease;
-                }
-
-                .related-reading-card:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
                 }
 
                 .related-reading-media {
-                    height: 190px;
+                    aspect-ratio: 3 / 2;
                     width: 100%;
                     overflow: hidden;
-                    background: #eef2f5;
+                    border-radius: 26px;
+                    margin-bottom: 18px;
                 }
 
                 .related-reading-media picture,
@@ -157,7 +149,7 @@ export default function RelatedReading({ pathKey, title = 'Dental Education', li
                     height: 100%;
                     object-fit: cover;
                     display: block;
-                    transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+                    transition: transform 0.8s var(--ease-slow);
                 }
 
                 .related-reading-card:hover .related-reading-media img { transform: scale(1.05); }
@@ -166,21 +158,6 @@ export default function RelatedReading({ pathKey, title = 'Dental Education', li
                     display: flex;
                     flex-direction: column;
                     flex: 1;
-                    padding: 24px;
-                }
-
-                .related-reading-tag {
-                    align-self: flex-start;
-                    font-size: 0.65rem;
-                    letter-spacing: 0.06em;
-                    text-transform: uppercase;
-                    font-weight: 600;
-                    color: var(--color-primary);
-                    background: rgba(79, 163, 194, 0.1);
-                    border: 1px solid rgba(79, 163, 194, 0.2);
-                    border-radius: 12px;
-                    padding: 4px 10px;
-                    margin-bottom: 12px;
                 }
 
                 .related-reading-card h3 {
@@ -191,17 +168,6 @@ export default function RelatedReading({ pathKey, title = 'Dental Education', li
                     color: var(--color-text-charcoal);
                 }
 
-                .related-reading-card p {
-                    margin: 0 0 18px 0;
-                    font-size: 0.95rem;
-                    line-height: 1.55;
-                    color: var(--color-text-muted, #555);
-                    display: -webkit-box;
-                    -webkit-line-clamp: 3;
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
-                }
-
                 .related-reading-more {
                     margin-top: auto;
                     display: inline-flex;
@@ -209,8 +175,10 @@ export default function RelatedReading({ pathKey, title = 'Dental Education', li
                     gap: 6px;
                     font-weight: 600;
                     font-size: 0.9rem;
-                    color: var(--color-primary);
+                    color: var(--color-primary-deep);
                 }
+                .related-reading-more { transition: gap 0.25s ease; }
+                .related-reading-card:hover .related-reading-more { gap: 10px; }
 
                 @media (max-width: 1024px) {
                     .related-reading { padding: 48px 0; }
@@ -252,15 +220,10 @@ export default function RelatedReading({ pathKey, title = 'Dental Education', li
                         scroll-snap-align: start;
                     }
 
-                    .related-reading-card { border-radius: 18px; }
+                    
                     .related-reading-media { height: 170px; }
                     .related-reading-body { padding: 20px; }
                     .related-reading-card h3 { font-size: 1.05rem; }
-                    .related-reading-card p {
-                        font-size: 0.92rem;
-                        -webkit-line-clamp: 2;
-                        margin-bottom: 14px;
-                    }
                 }
 
                 @media (prefers-reduced-motion: reduce) {

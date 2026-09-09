@@ -34,6 +34,14 @@ export default defineConfig(({ isSsrBuild }) => ({
             if (id.includes('react-router') || id.includes('react-helmet')) {
               return 'vendor-routing';
             }
+            // Lenis (smooth scroll) is imported dynamically and only ever
+            // requested on a fine-pointer device that has not asked for reduced
+            // motion. Without its own chunk the catch-all below swallows it into
+            // vendor-other, which every visitor downloads on every page — which
+            // is exactly what the dynamic import exists to avoid.
+            if (id.includes('lenis')) {
+              return 'vendor-scroll';
+            }
             // All other vendor dependencies in a single catch-all
             return 'vendor-other';
           }

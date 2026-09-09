@@ -13,7 +13,7 @@ faq:
   - a: 'Always have a check-up before whitening. Ensuring there are no underlying cavities or issues first prevents any discomfort and gives you the best, most even results.'
     q: What Should You Do Before Starting Teeth Whitening?
 featured: false
-img: /images/veneers_hero_1765825257935.png
+img: /images/blog/whitening-coffee-smile.png
 title: Is Teeth Whitening Safe? What Dentists Want You to Know
 tags:
   - Cosmetic Dentistry

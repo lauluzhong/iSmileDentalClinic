@@ -6,7 +6,7 @@ categories:
 tags:
   - Cosmetic Dentistry
 date: '2024-12-10'
-img: /images/service_enhance.png
+img: /images/blog/veneers-friends-table.png
 excerpt: 'Veneers can transform a smile, but which material is right for you? We compare durability, look, and process.'
 featured: false
 faq:

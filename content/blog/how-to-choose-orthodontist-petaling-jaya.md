@@ -9,7 +9,7 @@ tags:
   - Orthodontics
   - Clear Aligners
 parent_page: https://ismile.com.my/services/children/myofunctional
-img: /images/blog/child-candidate-myofunctional-orthodontics.jpg
+img: /images/blog/couple-kitchen-discussion.png
 featured: false
 faq:
   - q: "What qualifications should I look for in an orthodontist in Petaling Jaya?"

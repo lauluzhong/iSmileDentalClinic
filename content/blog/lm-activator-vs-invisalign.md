@@ -18,7 +18,7 @@ faq:
   - q: 'What Age Groups Are Each Option Suitable For?'
     a: 'LM Activator is designed for children whose jaws are still actively growing, typically younger children. Invisalign can be used for older children and teenagers once most permanent teeth have come through. Your dentist will evaluate your child growth stage and dental development during a consultation to determine the most suitable approach.'
 featured: false
-img: /images/child_airway_hero_1765825276038.png
+img: /images/blog/mother-son-kitchen-table.png
 title: 'LM Activator vs Invisalign for Children: How Each Works and Where Myofunctional Therapy Fits'
 tags:
   - Myofunctional Orthodontics

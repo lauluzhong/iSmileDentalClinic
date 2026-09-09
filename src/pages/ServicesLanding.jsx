@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Reveal, FadeIn } from '../components/Reveal';
 import { servicesData } from '../data/servicesData';
-import { ArrowRight, CheckCircle, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import Button from '../components/Button';
 import RelatedReading from '../components/RelatedReading';
 import FaqAccordion from '../components/FaqAccordion';
 import { Helmet } from 'react-helmet-async';
 import { enrichEvent } from '../lib/attribution';
+import Style from '../components/Style';
 
 const ServicesLanding = () => {
     const location = useLocation();
@@ -90,298 +91,264 @@ const ServicesLanding = () => {
                 <link rel="canonical" href="https://ismile.com.my/services" />
             </Helmet>
 
-            {/* Hero Section */}
-            <div className="services-hero-gradient" style={{
-                paddingTop: '180px',
-                paddingBottom: '60px',
-                textAlign: 'left'
-            }}>
+            {/* Hero */}
+            <section className="sl-hero">
                 <div className="container">
-                    <div style={{ maxWidth: '850px' }}>
+                    <div className="sl-hero-inner">
+                        <Reveal width="100%"><span className="eyebrow">Our Services</span></Reveal>
                         <Reveal width="100%">
-                            <h1 className="hero-title" style={{
-                                fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                                fontWeight: 800,
-                                color: 'var(--color-text-charcoal)',
-                                letterSpacing: '-0.02em',
-                                marginBottom: '20px',
-                                lineHeight: '1.1'
-                            }}>
-                                Comprehensive Care For <span className="text-gradient">Every Smile</span>
+                            <h1 className="sl-title">
+                                Comprehensive Care For <em>Every Smile</em>
                             </h1>
                         </Reveal>
-
                         <Reveal delay={0.2} width="100%">
-                            <p className="hero-description" style={{
-                                fontSize: '1.25rem',
-                                color: 'var(--color-text-muted)',
-                                maxWidth: '700px',
-                                margin: '0',
-                                lineHeight: '1.6',
-                                fontWeight: 500
-                            }}>
-                                From preventive care to advanced restorative and cosmetic treatments, 
+                            <p className="sl-lead">
+                                From preventive care to advanced restorative and cosmetic treatments,
                                 we provide intentional dental services for the whole family.
                             </p>
                         </Reveal>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            {/* Service Directory Grid */}
-            <div id="service-directory" className="container" style={{ paddingBottom: '80px' }}>
-                <div className="directory-grid">
+            {/* Service directory — numbered hairline rows, one per category */}
+            <div id="service-directory" className="container sl-directory-wrap">
+                <div className="sl-directory">
                     {Object.entries(servicesData).map(([key, data], index) => (
-                        <FadeIn key={key} delay={index * 0.08} className="directory-category-card">
-                            <div className="category-header">
-                                <div className="category-icon-small">{data.icon}</div>
-                                <Link to={`/services/${key}`} className="category-title-link">
-                                    <h3>{data.displayTitle}</h3>
-                                </Link>
+                        <FadeIn key={key} delay={index * 0.08} className="sl-cat">
+                            <div className="sl-cat-grid">
+                                <span className="sl-cat-num">{String(index + 1).padStart(2, '0')}</span>
+                                <div className="sl-cat-body">
+                                    <Link to={`/services/${key}`} className="sl-cat-row">
+                                        <span className="sl-cat-head">
+                                            <h3 className="sl-cat-title">{data.displayTitle}</h3>
+                                            <span className="sl-cat-line">{data.bracketText}</span>
+                                        </span>
+                                        <ArrowRight size={22} className="sl-cat-arrow" />
+                                    </Link>
+                                    <ul className="sl-cat-links">
+                                        {data.services.map((service, sIdx) => (
+                                            <li key={sIdx}>
+                                                {service.path ? (
+                                                    <Link to={service.path} className="sl-treatment-link">{service.name}<ArrowUpRight size={13} className="sl-treatment-arrow" /></Link>
+                                                ) : (
+                                                    <span className="sl-treatment">{service.name}</span>
+                                                )}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
-                            <p className="category-bracket">({data.bracketText})</p>
-                            <ul className="directory-list">
-                                {data.services.map((service, sIdx) => (
-                                    <li key={sIdx}>
-                                        <CheckCircle size={16} className="text-primary-teal list-check-icon" />
-                                        {service.path ? (
-                                            <Link to={service.path} className="service-link">{service.name} <ArrowUpRight size={14} className="service-link-arrow" /></Link>
-                                        ) : (
-                                            <span>{service.name}</span>
-                                        )}
-                                    </li>
-                                ))}
-                            </ul>
-                            <Link to={`/services/${key}`} className="explore-category-link">
-                                <span>Explore Category</span>
-                                <ArrowRight size={16} />
-                            </Link>
                         </FadeIn>
                     ))}
                 </div>
 
-                {/* FAQ Section for GEO Optimization */}
-                <section className="faq-section section-padding" style={{ 
-                    background: '#f8f9fa', 
-                    borderRadius: '24px',
-                    marginTop: '60px',
-                    padding: '60px 0'
-                }}>
-                    <div className="container">
-                        <div className="text-center" style={{ marginBottom: '50px' }}>
-                            <Reveal width="100%">
-                                <h2 style={{
-                                    fontSize: "clamp(1.8rem, 4vw, 2.5rem)",
-                                    fontWeight: 700,
-                                    color: 'var(--color-text-charcoal)',
-                                    marginBottom: '16px',
-                                    lineHeight: '1.2'
-                                }}>
-                                    Questions Patients <span className="text-gradient">Often Ask</span>
-                                </h2>
-                            </Reveal>
-                            <Reveal delay={0.2} width="100%">
-                                <p style={{
-                                    fontSize: '1.1rem',
-                                    color: 'var(--color-text-muted)',
-                                    maxWidth: '700px',
-                                    margin: '0 auto',
-                                    lineHeight: '1.6'
-                                }}>
-                                    Common questions about dental visits, treatments, and what to expect.
-                                </p>
-                            </Reveal>
-                        </div>
-
-                        <FaqAccordion items={faqs} idPrefix="services" analyticsLabel="services-landing" />
+                {/* FAQ — on the page background, no slab */}
+                <section className="sl-faq">
+                    <div className="sl-faq-header">
+                        <Reveal width="100%"><span className="eyebrow">Planning your visit</span></Reveal>
+                        <Reveal width="100%">
+                            <h2 className="system-title">
+                                Questions Patients <em>Often Ask</em>
+                            </h2>
+                        </Reveal>
+                        <Reveal delay={0.2} width="100%">
+                            <p className="sl-faq-lead">
+                                Common questions about dental visits, treatments, and what to expect.
+                            </p>
+                        </Reveal>
                     </div>
+
+                    <FaqAccordion items={faqs} idPrefix="services" analyticsLabel="services-landing" />
                 </section>
 
                 {/* CTA */}
-                <div className="text-center" style={{ marginTop: '80px', paddingBottom: '40px' }}>
+                <div className="sl-cta">
                     <FadeIn>
-                        <h3 style={{ color: 'var(--color-text-charcoal)', fontWeight: 700, marginBottom: '20px', fontSize: '1.3rem' }}>Not sure which treatment is right for you?</h3>
-                        <Button onClick={() => {
-                            const ctaLocation = 'services_landing_cta';
-                            const eventData = {
-                                event: 'whatsapp_click',
-                                whatsapp_page: window.location.pathname,
-                                whatsapp_cta_text: 'Get In Touch With Us',
-                                whatsapp_type: 'services_landing_cta'
-                            };
-                            window.dataLayer = window.dataLayer || [];
-                            window.dataLayer.push(enrichEvent(eventData, ctaLocation));
-                            window.open('https://wa.me/60163222135', '_blank');
-                        }}>
-                            Get In Touch With Us
-                        </Button>
+                        <span className="eyebrow">Here to help</span>
+                        <h2 className="statement">Not sure which treatment is <em>right for you?</em></h2>
+                        <div className="sl-cta-action">
+                            <Button onClick={() => {
+                                const ctaLocation = 'services_landing_cta';
+                                const eventData = {
+                                    event: 'whatsapp_click',
+                                    whatsapp_page: window.location.pathname,
+                                    whatsapp_cta_text: 'Get In Touch With Us',
+                                    whatsapp_type: 'services_landing_cta'
+                                };
+                                window.dataLayer = window.dataLayer || [];
+                                window.dataLayer.push(enrichEvent(eventData, ctaLocation));
+                                window.open('https://wa.me/60163222135', '_blank');
+                            }}>
+                                Get In Touch With Us
+                            </Button>
+                        </div>
                     </FadeIn>
                 </div>
             </div>
 
             <RelatedReading pathKey="services" />
 
-            <style>{`
+            <Style>{`
                 .services-landing {
                     min-height: 100vh;
-                    background: linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 50%, #dcfce7 100%);
+                    /* no opaque background — the shared hero tint shows through */
                 }
 
-                .directory-grid {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                    gap: 30px;
-                }
-
-                .directory-category-card {
-                    background: rgba(255, 255, 255, 0.6);
-                    backdrop-filter: blur(10px);
-                    border: 1px solid rgba(255, 255, 255, 0.8);
-                    padding: 32px;
-                    border-radius: 24px;
-                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-                    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-                    display: flex;
-                    flex-direction: column;
-                }
-
-                .directory-category-card:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-                    background: rgba(255, 255, 255, 0.85);
-                }
-
-                .category-header {
-                    display: flex;
-                    align-items: center;
-                    gap: 12px;
-                    margin-bottom: 6px;
-                    padding-bottom: 0;
-                }
-
-                .category-icon-small {
-                    color: var(--color-primary-teal);
-                    flex-shrink: 0;
-                }
-
-                .category-title-link {
-                    text-decoration: none;
-                }
-
-                .category-title-link h3 {
-                    font-size: 1.3rem;
+                /* ---------- Hero ---------- */
+                .sl-hero { padding: 180px 0 24px; }
+                .sl-hero-inner { max-width: 850px; }
+                .sl-title {
+                    font-family: var(--font-heading);
+                    font-size: var(--fs-statement);
                     font-weight: 700;
-                    color: #1e293b;
+                    color: var(--color-text-charcoal);
+                    letter-spacing: -0.03em;
+                    line-height: 1.06;
+                    margin: 0 0 20px;
+                    text-wrap: balance;
+                }
+                .sl-lead {
+                    font-size: var(--fs-lead);
+                    color: var(--color-text-slate);
+                    max-width: 700px;
                     margin: 0;
-                    transition: color 0.2s ease;
+                    line-height: 1.65;
                 }
 
-                .category-title-link:hover h3 {
+                /* ---------- Directory rows ---------- */
+                .sl-directory-wrap { padding-bottom: 80px; }
+                .sl-directory { border-top: 1px solid var(--hairline); margin-top: 40px; }
+                .sl-cat { border-bottom: 1px solid var(--hairline); }
+
+                /* One grid, one left edge: the numeral sits in its own column;
+                   title, subtitle and the treatment list all share the second
+                   column's edge (owner, 8 Sep 2026 — the old four-column row
+                   scattered text at three different alignments). */
+                .sl-cat-grid {
+                    display: grid;
+                    grid-template-columns: 72px minmax(0, 1fr);
+                    gap: 0 32px;
+                    padding: 36px 18px;
+                }
+                .sl-cat-num {
+                    font-family: var(--font-heading);
+                    font-weight: 700;
+                    font-size: 0.8rem;
+                    letter-spacing: 0.12em;
                     color: var(--color-primary-teal);
+                    padding-top: 10px;
                 }
-
-                .category-bracket {
-                    font-size: 0.95rem;
-                    color: #64748b;
-                    margin: 0 0 20px 0;
-                    font-weight: 500;
-                    padding-bottom: 15px;
-                    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-                }
-
-                .directory-list {
-                    list-style: none;
-                    padding: 0;
-                    margin: 0 0 20px 0;
-                    flex-grow: 1;
-                }
-
-                .directory-list li {
-                    display: flex;
-                    align-items: flex-start;
-                    gap: 10px;
-                    margin-bottom: 14px;
-                    font-size: 0.95rem;
-                    color: #475569;
-                    line-height: 1.4;
-                }
-
-                .list-check-icon {
-                    flex-shrink: 0;
-                    margin-top: 2px;
-                }
-
-                .directory-list li span {
-                    margin-top: -1px;
-                }
-
-                .service-link {
-                    text-decoration: none;
-                    color: #475569;
-                    transition: color 0.2s ease;
-                    margin-top: -1px;
-                }
-
-                .service-link:hover {
-                    color: var(--color-primary-teal);
-                }
-
-                .service-link-arrow {
-                    display: inline-block;
-                    vertical-align: middle;
-                    opacity: 0.4;
-                    transition: opacity 0.2s ease, transform 0.2s ease;
-                    margin-left: 2px;
-                }
-
-                .service-link:hover .service-link-arrow {
-                    opacity: 1;
-                    transform: translate(2px, -2px);
-                }
-
-                .text-primary-teal {
-                    color: var(--color-primary-teal);
-                }
-
-                .explore-category-link {
+                .sl-cat-row {
                     display: flex;
                     align-items: center;
-                    gap: 8px;
-                    color: var(--color-primary-teal);
-                    font-weight: 700;
-                    font-size: 0.9rem;
+                    justify-content: space-between;
+                    gap: 24px;
                     text-decoration: none;
-                    margin-top: auto;
-                    padding-top: 16px;
-                    border-top: 1px solid rgba(0, 0, 0, 0.05);
-                    transition: gap 0.3s ease;
+                    color: inherit;
+                }
+                .sl-cat-head { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+                .sl-cat-title {
+                    font-family: var(--font-heading);
+                    font-weight: 700;
+                    font-size: clamp(1.45rem, 1.1rem + 1.1vw, 2.1rem);
+                    line-height: 1.1;
+                    letter-spacing: -0.025em;
+                    color: var(--color-text-charcoal);
+                    margin: 0;
+                    transition: color 0.3s ease;
+                }
+                .sl-cat-row:hover .sl-cat-title { color: var(--color-primary-deep); }
+                .sl-cat-line {
+                    font-family: var(--font-heading);
+                    font-weight: 600;
+                    font-size: 0.72rem;
+                    letter-spacing: 0.16em;
+                    text-transform: uppercase;
+                    color: var(--color-text-grey);
+                }
+                .sl-cat-arrow {
+                    flex: none;
+                    color: var(--color-primary-teal);
+                    opacity: 0.35;
+                    transition: opacity 0.5s ease, transform 0.7s var(--ease-slow);
+                }
+                .sl-cat-row:hover .sl-cat-arrow { opacity: 1; transform: translate(4px, -4px) rotate(-45deg); }
+
+                /* Treatments: one tidy dot-separated line that wraps, every item
+                   the same size and colour, links underlined on hover. */
+                .sl-cat-links {
+                    list-style: none;
+                    margin: 18px 0 0;
+                    padding: 0;
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: baseline;
+                    row-gap: 8px;
+                }
+                .sl-cat-links li { display: inline-flex; align-items: baseline; margin: 0; }
+                .sl-cat-links li + li::before {
+                    content: '·';
+                    margin: 0 12px;
+                    color: rgba(16,42,51,0.30);
+                }
+                .sl-treatment,
+                .sl-treatment-link {
+                    font-size: 0.95rem;
+                    color: var(--color-text-slate);
+                    line-height: 1.6;
+                    text-decoration: none;
+                    white-space: nowrap;
+                }
+                .sl-treatment-link { color: var(--color-primary-deep); transition: color 0.2s ease; }
+                .sl-treatment-link:hover { color: var(--color-primary-teal); text-decoration: underline; text-underline-offset: 3px; }
+                .sl-treatment-arrow {
+                    display: inline-block;
+                    vertical-align: baseline;
+                    position: relative;
+                    top: 2px;
+                    opacity: 0.45;
+                    margin-left: 2px;
+                    transition: opacity 0.2s ease, transform 0.2s ease;
+                }
+                .sl-treatment-link:hover .sl-treatment-arrow { opacity: 1; transform: translate(1px, -1px); }
+
+                /* ---------- FAQ ---------- */
+                .sl-faq { margin-top: 96px; }
+                .sl-faq-header { max-width: 700px; margin-bottom: 44px; }
+                .sl-faq-lead {
+                    font-size: var(--fs-lead);
+                    color: var(--color-text-slate);
+                    margin: 16px 0 0;
+                    line-height: 1.65;
                 }
 
-                .explore-category-link:hover {
-                    gap: 14px;
-                }
+                /* ---------- CTA ---------- */
+                .sl-cta { text-align: center; margin-top: 96px; padding-bottom: 40px; }
+                .sl-cta-action { margin-top: 32px; }
 
                 @media (max-width: 1024px) {
-                    .services-landing { padding-top: 20px; }
-                    .services-hero-gradient { 
-                        padding-top: 100px; 
-                        text-align: center; 
-                    }
-                    .hero-description {
-                        margin: 0 auto;
-                    }
-                    .directory-grid {
-                        grid-template-columns: 1fr;
-                        gap: 20px;
-                    }
-                    .directory-category-card {
-                        padding: 24px;
-                        border-radius: 20px;
-                    }
-                    .hero-title { font-size: 2.2rem; }
-                    .hero-description { font-size: 1rem; }
+                    .sl-hero { padding: 120px 0 8px; }
+                    .sl-title { font-size: 2.2rem; }
+                    .sl-lead { font-size: 1rem; }
+                    .sl-directory { margin-top: 28px; }
+                    /* Mobile: same single left edge — numeral, title, label and
+                       links all hang off one line, one item per row for the
+                       links so the hierarchy stays crisp on a narrow screen. */
+                    .sl-cat-grid { grid-template-columns: 1fr; gap: 0; padding: 24px 4px; }
+                    
+                    .sl-cat-num { font-size: 0.72rem; padding-top: 8px; }
+                    .sl-cat-title { font-size: 1.35rem; }
+                    .sl-cat-line { font-size: 0.66rem; letter-spacing: 0.14em; }
+                    .sl-cat-arrow { display: none; }
+                    .sl-cat-links { margin-top: 12px; flex-direction: column; row-gap: 6px; }
+                    .sl-cat-links li + li::before { content: none; }
+                    .sl-treatment, .sl-treatment-link { font-size: 0.92rem; white-space: normal; }
+                    .sl-faq { margin-top: 56px; }
+                    .sl-faq-header { margin-bottom: 28px; }
+                    .sl-cta { margin-top: 56px; }
                 }
-            `}</style>
+            `}</Style>
         </div>
     );
 };

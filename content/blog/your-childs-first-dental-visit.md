@@ -14,7 +14,7 @@ faq:
   - a: 'Building a ''dental home'' early means you have a dedicated partner in your child''s growth. We are here to guide you on nutrition, healthy habits, and everything you need to keep their smile bright as they grow.'
     q: Why Is It Important to Establish a 'Dental Home' Early?
 featured: false
-img: /images/dentist-child.png
+img: /images/blog/child-first-visit-parent-hand.png
 title: 'Your Child''s First Dental Visit: How to Make It a Positive Experience'
 tags:
   - Pediatric Dentistry
