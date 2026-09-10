@@ -2,9 +2,9 @@
  "decisions": [
   {
    "hot": false,
-   "k": "Send 7\u20138 Sep",
-   "t": "Fire the cold blast",
-   "w": "MiniCRM is deployed and the campaign blast message function is under test. Access requires the iSmile network; confirm access, final changes and recipient list before any blast.",
+   "k": "Config 22 Sep",
+   "t": "Configure MiniCRM for the blast",
+   "w": "Complete Lu's MiniCRM configuration on 22 Sep; the blast window remains tentative.",
    "ref": "g1"
   },
   {
@@ -115,11 +115,11 @@
    "tip": "Let's Encrypt renews about 30 days out. Code Capsule's renewal cron, added after the July lapse, gets its first real test here. Suraya confirmed 28 Aug that the current cert has 49 days left \u2014 that is the existing certificate, not a fresh renewal, so this date is still the real test. Edith's daily check will catch it either way."
   },
   {
-   "d": "15\u201317 Sep",
+   "d": "22\u201324 Sep (tentative)",
    "l": "Cold blast sends",
    "s": "",
-   "iso": "2026-09-15",
-   "tip": "The blast runs Tuesday to Thursday, 15\u201317 September. Gated on the 9 Sep UI session, the blacklist and family cross-check, and a fresh-data re-run."
+   "iso": "2026-09-22",
+   "tip": "Tentative Tuesday to Thursday window, 22\u201324 September. It remains unconfirmed pending Lu's 22 Sep MiniCRM configuration and the fresh-data re-run."
   },
   {
    "d": "Sep\u2013Oct",
@@ -534,8 +534,8 @@
     },
     {
      "id": "d7",
-     "dot": "now",
-     "chip": "cooling + monitors \u00b7 quote received",
+     "dot": "wait",
+     "chip": "monitors pending \u00b7 cooling decision",
      "name": "Hardware & server",
      "one": "Server swapped and every PC reconnected. The two front-desk machines are built but cannot go into service without cooling and monitors.",
      "steps": [
@@ -579,17 +579,17 @@
      "open": [
       "<b>The two front-desk PCs are the last hardware item.</b> OpenDent is already on them; they are held back by the cooling issue and by having no monitors.",
       "<b>Monitors:</b> Jason quoted refurbished Samsung 24-inch monitors at RM150 each; 3 units were intended (2 iSmile, 1 personal), with 1-to-1 replacement warranty for 3 months and no quantity discount. The iSmile requirement remains two monitors.",
-      "<b>Cooling:</b> the machines overheat when left running. Jason to supply the equipment. Worth knowing whether these units are rated for all-day running at all, rather than only bolting a fan on."
+      "<b>Cooling fans:</b> open question for iSmile and Jason \u2014 who buys them, what exact fan/model or protective case is recommended, and whether a guard/casing is needed so the hot setup is safe and practical to touch. Confirm approximate price and availability."
      ],
      "owner": "codecapsule",
      "dept": "tech",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Jason supplies cooling and the two iSmile monitors, then the front-desk PCs go into service.",
+     "next": "Jason buys the two monitors; iSmile and Jason resolve the cooling-fan buyer and safe, touchable fan/case/guard solution, then the front-desk PCs go into service.",
      "flag": {
       "k": "wait",
-      "who": "Jason",
-      "w": "Cooling equipment and two monitors \u2014 both with Jason."
+      "who": "Jason / iSmile",
+      "w": "Buy the two monitors and settle who supplies a safe, practical cooling-fan solution."
      }
     },
     {
@@ -1163,8 +1163,8 @@
    "streams": [
     {
      "id": "g1",
-     "dot": "now",
-     "chip": "deployed \u00b7 testing \u00b7 network-only",
+     "dot": "wait",
+     "chip": "deployed \u00b7 config 22 Sep",
      "name": "Cold reactivation blast",
      "one": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
      "steps": [
@@ -1190,7 +1190,8 @@
       },
       {
        "t": "Blacklist + family cross-check \u00b7 anniversary-list exclusion",
-       "s": "now"
+       "s": "done",
+       "w": "10 Sep"
       },
       {
        "t": "Marketing blast training with Code Capsule \u2014 held",
@@ -1204,7 +1205,7 @@
       },
       {
        "t": "Final recipient list update",
-       "s": "now",
+       "s": "done",
        "w": "10 Sep"
       },
       {
@@ -1213,9 +1214,14 @@
        "w": "8 Sep"
       },
       {
-       "t": "Campaign blast message function deployed and under test",
-       "s": "now",
+       "t": "Campaign blast message function deployed and tested",
+       "s": "done",
        "w": "10 Sep"
+      },
+      {
+       "t": "Lu configures MiniCRM for the blast",
+       "s": "now",
+       "w": "22 Sep"
       },
       {
        "t": "Fresh-data re-run immediately before sending",
@@ -1232,9 +1238,9 @@
       }
      ],
      "open": [
-      "<b>MiniCRM was deployed to the new PC server on 8 Sep; on 10 Sep Suraya said she was testing the campaign blast message function.</b>",
-      "<b>Access currently requires connection to the iSmile network.</b> Test and confirm access, then confirm the final changes and recipient list before any blast.",
-      "<b>The blast is not confirmed for next week.</b> Tentative revised window is 22\u201324 Sep because Wed 16 Sep is a public holiday and reply availability is a concern.",
+      "<b>MiniCRM and the campaign blast message function are deployed and testing is complete (10 Sep).</b>",
+      "<b>Next step:</b> Lu configures MiniCRM on 22 Sep 2026. The blast window remains tentative until configuration and the final fresh-data check are complete.",
+      "<b>The blast is not confirmed.</b> Keep the tentative 22\u201324 Sep window only as a planning placeholder.",
       "<b>UI terminology changed by Code Capsule 7 Sep:</b> the flow is now Audience Filters \u2192 Audience List \u2192 Recipients. \"Selected Patients\" is renamed \"Recipients\"; \"Audience\" is the filtered pool, \"Recipients\" the patients actually selected to receive the campaign.",
       "<b>Daily cap: the system allows 2,000/day; we set ours at 1,800</b> to leave headroom for the other automations sharing the number (recall, birthday). At 1,800 the 4,011 sends clear in three days.",
       "Jason still owes the price",
@@ -1245,8 +1251,8 @@
      ],
      "flag": {
       "k": "due",
-      "by": "2026-09-10",
-      "w": "Update the final recipient list; the blast window is still tentative, not confirmed for next week.",
+      "by": "2026-09-22",
+      "w": "Configure MiniCRM for the blast on 22 Sep; the send window is still tentative.",
       "who": "Lu"
      },
      "owner": "lu",
@@ -1255,7 +1261,7 @@
      "from_initiatives": [
       28
      ],
-     "next": "Test and confirm MiniCRM access on the iSmile network, confirm the final changes and recipient list, then re-run fresh data before any blast. The 22\u201324 Sep window remains tentative.",
+     "next": "Lu configures MiniCRM on 22 Sep, then the team re-runs fresh data immediately before any blast. The 22\u201324 Sep window remains tentative.",
      "endMonth": "2026-10"
     },
     {
@@ -2310,6 +2316,16 @@
   },
   {
    "initiative": null,
+   "title": "L&L Consulting contractor agreement",
+   "dept": "people",
+   "lens": "efficiency",
+   "owner": "lu",
+   "closed": "CLOSED 10 Sep 2026: agreement sent out; all drafting-related contractor-agreement work is complete.",
+   "endMonth": "2026-09",
+   "stream": null
+  },
+  {
+   "initiative": null,
    "title": "Registration / admin fee",
    "dept": "finance",
    "lens": "revenue",
@@ -2336,6 +2352,6 @@
  },
  "meta": {
   "asof": "THU 10 SEP 2026",
-  "updated": "2026-09-10T19:43:44+08:00"
+  "updated": "2026-09-10T19:45:57+08:00"
  }
 }

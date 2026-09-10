@@ -1,9 +1,9 @@
 {
- "updated": "2026-09-10T19:43:44+08:00",
+ "updated": "2026-09-10T19:45:57+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Code Capsule": {
-   "init": "CC",
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -12,8 +12,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
-   "init": "E",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -22,13 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
-   "init": "L",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   }
@@ -172,10 +172,10 @@
   {
    "id": "d7",
    "title": "Hardware & server",
-   "status": "active",
+   "status": "review",
    "owner": "Code Capsule",
    "why": "Server swapped and every PC reconnected. The two front-desk machines are built but cannot go into service without cooling and monitors.",
-   "next": "Jason supplies cooling and the two iSmile monitors, then the front-desk PCs go into service.",
+   "next": "Jason buys the two monitors; iSmile and Jason resolve the cooling-fan buyer and safe, touchable fan/case/guard solution, then the front-desk PCs go into service.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": null,
@@ -423,10 +423,10 @@
   {
    "id": "g1",
    "title": "Cold reactivation blast",
-   "status": "active",
+   "status": "review",
    "owner": "Lau",
    "why": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
-   "next": "Test and confirm MiniCRM access on the iSmile network, confirm the final changes and recipient list, then re-run fresh data before any blast. The 22\u201324 Sep window remains tentative.",
+   "next": "Lu configures MiniCRM on 22 Sep, then the team re-runs fresh data immediately before any blast. The 22\u201324 Sep window remains tentative.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-10",
@@ -441,7 +441,8 @@
     "Second session to finalise the UI \u2014 went well",
     "Final recipient list update",
     "MiniCRM deployed to the new PC server",
-    "Campaign blast message function deployed and under test",
+    "Campaign blast message function deployed and tested",
+    "Lu configures MiniCRM for the blast",
     "Fresh-data re-run immediately before sending",
     "Tentative Wave 1 window (13\u201336mo lapsed) \u2014 1,800/day; not confirmed",
     "Waves 2\u20133 \u00b7 funnel read via campaign tags"
@@ -977,6 +978,18 @@
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": null,
+   "tasks": []
+  },
+  {
+   "id": "done-None",
+   "title": "L&L Consulting contractor agreement",
+   "status": "done",
+   "owner": "Lau",
+   "why": "",
+   "next": "CLOSED 10 Sep 2026: agreement sent out; all drafting-related contractor-agreement work is complete.",
+   "dept": "people",
+   "lens": "efficiency",
+   "endMonth": "2026-09",
    "tasks": []
   },
   {
