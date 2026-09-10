@@ -5,6 +5,13 @@
       "ts": "2026-09-10 13:22 MYT",
       "agent": "analytics",
       "job": "recall_funnel",
+      "event": "started",
+      "result": ""
+    },
+    {
+      "ts": "2026-09-10 13:22 MYT",
+      "agent": "analytics",
+      "job": "recall_funnel",
       "event": "finished",
       "result": "ok"
     },
@@ -1393,13 +1400,6 @@
       "job": "wa_group_digest",
       "event": "finished",
       "result": "failed"
-    },
-    {
-      "ts": "2026-09-08 21:51 MYT",
-      "agent": "edith",
-      "job": "wa_group_digest",
-      "event": "started",
-      "result": ""
     }
   ]
 }
