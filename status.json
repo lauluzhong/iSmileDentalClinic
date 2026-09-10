@@ -1,8 +1,6 @@
 {
-  "updated": "2026-09-10 17:33 MYT",
-  "running": [
-    "recall_funnel"
-  ],
+  "updated": "2026-09-10 17:34 MYT",
+  "running": [],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -25,8 +23,8 @@
       "last": "2026-09-06 18:03 MYT"
     },
     "recall_funnel": {
-      "state": "running",
-      "last": "2026-09-10 17:24 MYT"
+      "state": "idle",
+      "last": "2026-09-10 17:34 MYT"
     },
     "review_stats_sync": {
       "state": "idle",
