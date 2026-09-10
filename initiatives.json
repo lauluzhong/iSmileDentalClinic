@@ -1,24 +1,9 @@
 {
- "updated": "2026-09-10T19:51:08+08:00",
+ "updated": "2026-09-10T22:31:29+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Emily": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +12,23 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Emily": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Code Capsule": {
+   "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -37,10 +37,10 @@
   {
    "id": "d1",
    "title": "OpenDent \u2194 AutoCount integration",
-   "status": "active",
+   "status": "review",
    "owner": "Code Capsule",
-   "why": "The spine. OpenDent is migrated and installed on every machine; the AC \u2194 iSmile integration is still in testing and awaiting iSmile-side clearance before data can be cleared.",
-   "next": "Continue the AC \u2194 iSmile testing and wait for Jason to advise when data can be cleared; then complete commissioning of the front-desk PCs and the remaining integration steps.",
+   "why": "The spine. OpenDent is migrated and installed on every machine; iSmile-side testing is cleared, while Code Capsule tracks completion after Leow installs AutoCount.",
+   "next": "Wait for the downstairs computers to be completed, then Leow installs AutoCount; Code Capsule tracks completion of the remaining AC \u2194 iSmile integration work.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -56,7 +56,7 @@
     "OpenDent migrated successfully",
     "OpenDent installed on every computer, including the 2 new front-desk PCs",
     "8-point confirmation list sent to Jason in the CC group",
-    "AC \u2194 iSmile integration testing \u2014 awaiting iSmile-side clearance before data can be cleared",
+    "iSmile-side AC \u2194 iSmile integration testing and clearance complete; CC owns completion tracking",
     "Cooling solution for the 2 front-desk PCs",
     "2 monitors \u2014 Jason to source (his contact sells secondhand)",
     "Commission the front-desk PCs: Chrome + iSmile email signed in (Google Docs for letters) + WhatsApp Web",
