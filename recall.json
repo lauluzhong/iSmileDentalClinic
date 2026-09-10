@@ -2,7 +2,7 @@
   "as_of": "2026-09-10",
   "source": "redirect.ismile.com.my/admin/webhook/webhooklog",
   "note": "Funnel = event counts (per-message callbacks), not distinct patients. Conversion = matured-cohort recall->appointment rate (correlation, not proven causal lift); as-of the latest OpenDent export only.",
-  "funnel_live": true,
+  "funnel_live": false,
   "funnel_as_of": "2026-09-10",
   "cumulative": {
     "total": null,
@@ -46,13 +46,13 @@
     "patients_in_cohort": 1138,
     "attrib_window_days": 90,
     "mature_days": 21,
-    "production_lines": 19655,
+    "production_lines": 19663,
     "month": "2026-09",
     "rule": "production by a recalled patient within 90 days after their first recall send, credited to the line's doctor; correlation, not proven lift",
     "all_time": {
       "patients_reached": 1138,
       "patients_converted": 232,
-      "visits": 301,
+      "visits": 302,
       "repeat_patients": 42,
       "production": 113630,
       "conversion_pct": 20.4,
@@ -71,8 +71,8 @@
           "abbr": "Amy",
           "name": "Dr Amy Chin",
           "patients": 69,
-          "visits": 78,
-          "repeat_visits": 9,
+          "visits": 79,
+          "repeat_visits": 10,
           "production": 23460
         },
         {
@@ -134,7 +134,7 @@
     "mtd": {
       "patients_reached": 775,
       "patients_converted": 11,
-      "visits": 12,
+      "visits": 13,
       "repeat_patients": 1,
       "production": 2860,
       "conversion_pct": 1.2,
@@ -144,8 +144,8 @@
           "abbr": "Amy",
           "name": "Dr Amy Chin",
           "patients": 2,
-          "visits": 3,
-          "repeat_visits": 1,
+          "visits": 4,
+          "repeat_visits": 2,
           "production": 1010
         },
         {
@@ -187,5 +187,6 @@
       ],
       "patients_first_converted": 9
     }
-  }
+  },
+  "funnel_error": "mini-CRM login returned HTTP 500 -- their Django app is erroring, NOT our credentials (Code Capsule issue)"
 }
