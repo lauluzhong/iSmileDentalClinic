@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-09-10 23:30",
- "generated_at": "2026-09-10T23:30:12+08:00",
+ "generated_myt": "2026-09-11 00:00",
+ "generated_at": "2026-09-11T00:00:10+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 87.3,
   "nproc": 4,
   "load": [
-   0.22,
-   0.14,
-   0.11
+   1.2,
+   0.33,
+   0.17
   ],
-  "cpu_pct": 5.5,
-  "cpu_pct_sample": 2.0,
+  "cpu_pct": 30.0,
+  "cpu_pct_sample": 3.3,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 3108,
-   "avail_mb": 4833,
-   "pct": 39.1,
+   "used_mb": 3455,
+   "avail_mb": 4485,
+   "pct": 43.5,
    "swap_total_mb": 2047,
    "swap_used_mb": 210
   },
@@ -29,11 +29,11 @@
   "bridge_ok": false,
   "pollers": {
    "review_approvals": {
-    "age_s": 27,
-    "last_myt": "2026-09-10 23:30 MYT"
+    "age_s": 26,
+    "last_myt": "2026-09-11 00:00 MYT"
    },
    "hq_publish": {
-    "age_s": 3537,
+    "age_s": 5336,
     "last_myt": "2026-09-10 22:31 MYT",
     "detail": "asof=THU 10 SEP 2026 streams=40 sideboard=19 decisions=3 archive=11"
    }
@@ -43,7 +43,7 @@
    "total": 13,
    "failed": [],
    "running": [],
-   "status_updated": "2026-09-10 23:30 MYT"
+   "status_updated": "2026-09-11 00:00 MYT"
   },
   "last_clinic_push": "2026-09-10"
  },
@@ -176,7 +176,25 @@
   "checked": "2026-09-10"
  },
  "social": {
-  "available": false,
-  "note": "Zernio call failed: TimeoutError('The read operation timed out')"
+  "available": true,
+  "source": "Zernio MCP (Edith's connection)",
+  "as_of": "2026-09-10",
+  "window_days": 30,
+  "accounts": [
+   {
+    "platform": "instagram",
+    "username": "ismiledentalclinicmy",
+    "display": "iSmile Dental Clinic",
+    "followers": 98.0,
+    "growth_30d": -1.0,
+    "growth_pct_30d": -1.01,
+    "posts_on_platform": 13.0,
+    "last_updated": "2026-09-10T04:27:54.449000Z",
+    "active": true
+   }
+  ],
+  "instagram_30d": null,
+  "posts_published_via_zernio": 0,
+  "note": "Instagram @ismiledentalclinicmy is connected through Zernio. Posts published outside Zernio are not counted in posts_published_via_zernio."
  }
 }
