@@ -2,21 +2,21 @@
   "as_of": "2026-09-10",
   "source": "redirect.ismile.com.my/admin/webhook/webhooklog",
   "note": "Funnel = event counts (per-message callbacks), not distinct patients. Conversion = matured-cohort recall->appointment rate (correlation, not proven causal lift); as-of the latest OpenDent export only.",
-  "funnel_live": false,
-  "funnel_as_of": "2026-09-08",
+  "funnel_live": true,
+  "funnel_as_of": "2026-09-10",
   "cumulative": {
-    "total": 14924,
-    "sent": 5115,
-    "delivered": 5973,
-    "read": 2055,
-    "failed": 474,
-    "clicks": 173,
-    "replies": 1134
+    "total": 15015,
+    "sent": 5148,
+    "delivered": 6006,
+    "read": 2073,
+    "failed": 477,
+    "clicks": 174,
+    "replies": 1137
   },
   "this_month": {
-    "sent": 183,
-    "clicks": 13,
-    "replies": 36
+    "sent": 216,
+    "clicks": 14,
+    "replies": 39
   },
   "conversion": {
     "mature_days": 21,
@@ -28,7 +28,7 @@
       "2027-01-06"
     ],
     "stale": false,
-    "cohort_source": "blastlog (blastlog-20260910.csv)",
+    "cohort_source": "blastlog (e10_blastlog.tsv)",
     "cohort_from": "2026-04-16",
     "cohort_to": "2026-09-10",
     "cohort_age_days": 0,
@@ -193,6 +193,5 @@
       ],
       "patients_first_converted": 9
     }
-  },
-  "funnel_error": "mini-CRM login returned HTTP 500 -- their Django app is erroring, NOT our credentials (Code Capsule issue)"
+  }
 }
