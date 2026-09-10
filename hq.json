@@ -4,7 +4,7 @@
    "hot": false,
    "k": "Send 7\u20138 Sep",
    "t": "Fire the cold blast",
-   "w": "Meta approved all wave templates on 3 Sep and Suraya has deployed; demo is booked for Mon 7 Sep 10:00, activation straight after. Still owed before the send: the exclusion cross-checks (blacklist, household, Lu Tsen anniversary list) and the fresh-data re-run.",
+   "w": "MiniCRM is deployed and the campaign blast message function is under test. Access requires the iSmile network; confirm access, final changes and recipient list before any blast.",
    "ref": "g1"
   },
   {
@@ -182,9 +182,9 @@
     {
      "id": "d1",
      "dot": "now",
-     "chip": "migrated \u00b7 commissioning",
+     "chip": "testing \u00b7 awaiting clearance",
      "name": "OpenDent \u2194 AutoCount integration",
-     "one": "The spine. OpenDent is migrated and installed on every machine; what stands between here and go-live is commissioning the two front-desk PCs and getting AutoCount onto them.",
+     "one": "The spine. OpenDent is migrated and installed on every machine; the AC \u2194 iSmile integration is still in testing and awaiting iSmile-side clearance before data can be cleared.",
      "steps": [
       {
        "t": "Sandbox on the side PC \u2014 integration proven",
@@ -235,6 +235,11 @@
        "w": "6 Sep"
       },
       {
+       "t": "AC \u2194 iSmile integration testing \u2014 awaiting iSmile-side clearance before data can be cleared",
+       "s": "now",
+       "w": "8 Sep"
+      },
+      {
        "t": "Cooling solution for the 2 front-desk PCs",
        "s": "now"
       },
@@ -279,7 +284,8 @@
       "<b>Then the commissioning order:</b> set the front-desk PCs up for real (OpenDent already on, plus Chrome with the iSmile email signed in for Google Docs letters, plus WhatsApp Web \u2014 enough for the desk to start working) \u2192 X-ray vendor installs the X-ray software \u2192 Leow installs AutoCount, the 2 secondary accounts downstairs and the primary on the server upstairs.",
       "<b>Only then the two training events:</b> Leow teaches Lau and Emily AutoCount first; the front-desk training follows on a Saturday after work (clinic closes 3:30 PM) with dinner after \u2014 <b>3 Oct (tentative); confirmation pending</b>.",
       "8-point list sent to Jason 6 Sep \u2014 awaiting his answers, above all the end-to-end date.",
-      "EasyDent (X-ray) + CCTV stay on the old PC \u2014 do not migrate"
+      "EasyDent (X-ray) + CCTV stay on the old PC \u2014 do not migrate",
+      "Vision Tech asked on 8 Sep whether testing was okay; Jason replied yes and will advise when the data can be cleared. No completion recorded."
      ],
      "flag": {
       "k": "wait",
@@ -292,7 +298,7 @@
      "from_initiatives": [
       1
      ],
-     "next": "Close the cooling and monitors, commission the two front-desk PCs (Chrome + iSmile email + WhatsApp Web), get the X-ray vendor and Leow in to install X-ray software and AutoCount, then AutoCount training for Lau and Emily before the FOH Saturday.",
+     "next": "Continue the AC \u2194 iSmile testing and wait for Jason to advise when data can be cleared; then complete commissioning of the front-desk PCs and the remaining integration steps.",
      "endMonth": "2026-09"
     },
     {
@@ -529,7 +535,7 @@
     {
      "id": "d7",
      "dot": "now",
-     "chip": "cooling + monitors",
+     "chip": "cooling + monitors \u00b7 quote received",
      "name": "Hardware & server",
      "one": "Server swapped and every PC reconnected. The two front-desk machines are built but cannot go into service without cooling and monitors.",
      "steps": [
@@ -572,14 +578,14 @@
      ],
      "open": [
       "<b>The two front-desk PCs are the last hardware item.</b> OpenDent is already on them; they are held back by the cooling issue and by having no monitors.",
-      "<b>Monitors:</b> ask Jason to buy two \u2014 his contact sells secondhand.",
+      "<b>Monitors:</b> Jason quoted refurbished Samsung 24-inch monitors at RM150 each; 3 units were intended (2 iSmile, 1 personal), with 1-to-1 replacement warranty for 3 months and no quantity discount. The iSmile requirement remains two monitors.",
       "<b>Cooling:</b> the machines overheat when left running. Jason to supply the equipment. Worth knowing whether these units are rated for all-day running at all, rather than only bolting a fan on."
      ],
      "owner": "codecapsule",
      "dept": "tech",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Jason supplies cooling and two secondhand monitors, then the front-desk PCs go into service.",
+     "next": "Jason supplies cooling and the two iSmile monitors, then the front-desk PCs go into service.",
      "flag": {
       "k": "wait",
       "who": "Jason",
@@ -1158,7 +1164,7 @@
     {
      "id": "g1",
      "dot": "now",
-     "chip": "UI session went well 9 Sep \u00b7 tentative send 22\u201324 Sep",
+     "chip": "deployed \u00b7 testing \u00b7 network-only",
      "name": "Cold reactivation blast",
      "one": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
      "steps": [
@@ -1202,9 +1208,14 @@
        "w": "10 Sep"
       },
       {
-       "t": "Suraya deploys final changes and updates Lu",
-       "s": "",
-       "w": "Fri 11 Sep"
+       "t": "MiniCRM deployed to the new PC server",
+       "s": "done",
+       "w": "8 Sep"
+      },
+      {
+       "t": "Campaign blast message function deployed and under test",
+       "s": "now",
+       "w": "10 Sep"
       },
       {
        "t": "Fresh-data re-run immediately before sending",
@@ -1221,8 +1232,8 @@
       }
      ],
      "open": [
-      "<b>Cold reactivation blast meeting went well on 9 Sep.</b> Suraya has updated Lu and will deploy the final changes and update Lu on Friday 11 Sep.",
-      "<b>Action due 10 Sep:</b> update the final recipient list.",
+      "<b>MiniCRM was deployed to the new PC server on 8 Sep; on 10 Sep Suraya said she was testing the campaign blast message function.</b>",
+      "<b>Access currently requires connection to the iSmile network.</b> Test and confirm access, then confirm the final changes and recipient list before any blast.",
       "<b>The blast is not confirmed for next week.</b> Tentative revised window is 22\u201324 Sep because Wed 16 Sep is a public holiday and reply availability is a concern.",
       "<b>UI terminology changed by Code Capsule 7 Sep:</b> the flow is now Audience Filters \u2192 Audience List \u2192 Recipients. \"Selected Patients\" is renamed \"Recipients\"; \"Audience\" is the filtered pool, \"Recipients\" the patients actually selected to receive the campaign.",
       "<b>Daily cap: the system allows 2,000/day; we set ours at 1,800</b> to leave headroom for the other automations sharing the number (recall, birthday). At 1,800 the 4,011 sends clear in three days.",
@@ -1244,7 +1255,7 @@
      "from_initiatives": [
       28
      ],
-     "next": "Update the final recipient list by 10 Sep; wait for Suraya's final deployment and Friday update, then re-run fresh data before any blast. The 22\u201324 Sep window remains tentative.",
+     "next": "Test and confirm MiniCRM access on the iSmile network, confirm the final changes and recipient list, then re-run fresh data before any blast. The 22\u201324 Sep window remains tentative.",
      "endMonth": "2026-10"
     },
     {
@@ -1513,6 +1524,11 @@
        "s": "now"
       },
       {
+       "t": "Vivienne to obtain quotation for proposed case / retainer box",
+       "s": "now",
+       "w": "10 Sep"
+      },
+      {
        "t": "Judge quote on MOQ, not unit price",
        "s": ""
       },
@@ -1529,7 +1545,8 @@
       "This is a brand/perceived-value play, not cost reduction \u2014 the owner's own read",
       "15-character plush series only works if costumes share one base body",
       "Blind-box plush estimate: MOQ 300 per design; RM32\u201335 per boxed unit, with four designs estimated at about 1,200 units / RM42,000. Plush-only estimate is RM30\u201331 each; no purchase decision yet.",
-      "Case specification is still open: larger boxes for dentures, usual case for retainers, and Invisalign cases generally supplied by Invisalign."
+      "Case specification is still open: larger boxes for dentures, usual case for retainers, and Invisalign cases generally supplied by Invisalign.",
+      "<b>Quotation for the proposed case / retainer box is still awaited from Vivienne.</b>"
      ],
      "owner": "lu",
      "dept": "growth",
@@ -1537,7 +1554,7 @@
      "from_initiatives": [
       37
      ],
-     "next": "Confirm the separate retainer/denture case specifications, then judge the ready-made case quote on MOQ and fit. The blind-box plush estimate is now a high-cost sense-check, not a purchase commitment."
+     "next": "Wait for Vivienne\u2019s quotation for the proposed case / retainer box, then judge the ready-made case quote on MOQ and fit. The blind-box plush estimate is now a high-cost sense-check, not a purchase commitment."
     },
     {
      "id": "g8",
@@ -2319,6 +2336,6 @@
  },
  "meta": {
   "asof": "THU 10 SEP 2026",
-  "updated": "2026-09-10T18:10:22+08:00"
+  "updated": "2026-09-10T19:38:05+08:00"
  }
 }
