@@ -1044,14 +1044,14 @@
        "w": "10 Sep"
       },
       {
-       "t": "Zoom explainer &mdash; not held; a written summary card went with the contracts instead",
+       "t": "Zoom explainer \u2014 not held; a written summary card went with the contracts instead",
        "s": "skip",
        "w": "10 Sep"
       },
       {
        "t": "Contracts sent to each doctor individually",
        "s": "done",
-       "w": "10 Sep &mdash; five of seven"
+       "w": "10 Sep \u2014 five of seven"
       },
       {
        "t": "Two weeks of personal questions by text \u2014 answered as they come",
@@ -1086,7 +1086,7 @@
      "flag": {
       "k": "talk",
       "who": "Lu",
-      "w": "Contracts went out ahead of the planned Zoom call &mdash; set the date for the group sit-down."
+      "w": "Contracts went out ahead of the planned Zoom call \u2014 set the date for the group sit-down."
      },
      "owner": "lu",
      "dept": "finance",
@@ -2319,6 +2319,6 @@
  },
  "meta": {
   "asof": "THU 10 SEP 2026",
-  "updated": "2026-09-10T18:09:48+08:00"
+  "updated": "2026-09-10T18:10:22+08:00"
  }
 }

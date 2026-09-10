@@ -1,8 +1,13 @@
 {
- "updated": "2026-09-10T18:09:48+08:00",
+ "updated": "2026-09-10T18:10:22+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Edith": {
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Emily": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
@@ -12,23 +17,18 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
+  "Edith": {
    "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
   "Lau": {
    "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   }
@@ -390,7 +390,7 @@
     "Parents approve the three changes",
     "Format decided: Zoom explainer first, then contracts sent one by one, then a group sit-down ~2 weeks later",
     "Lydia finalises the contracts with each doctor's details",
-    "Zoom explainer &mdash; not held; a written summary card went with the contracts instead",
+    "Zoom explainer \u2014 not held; a written summary card went with the contracts instead",
     "Contracts sent to each doctor individually",
     "Two weeks of personal questions by text \u2014 answered as they come",
     "Group sit-down \u2014 remaining questions + OpenDent code alignment recap",
