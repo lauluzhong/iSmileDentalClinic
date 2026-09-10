@@ -757,10 +757,10 @@
    "streams": [
     {
      "id": "l1",
-     "dot": "wait",
-     "chip": "on Lydia",
+     "dot": "now",
+     "chip": "5 of 7 sent",
      "name": "Contractor agreement",
-     "one": "Synthesised 13 Aug, with Lydia since 17 Aug. Body is a pure template; every per-doctor input lives in Schedule 1.",
+     "one": "Body is a pure template; every per-doctor input lives in Schedule 1. Agreements went out to the five non-specialist doctors on 10 Sep; the two specialists follow.",
      "steps": [
       {
        "t": "Synthesised draft with owner rulings",
@@ -804,8 +804,8 @@
       },
       {
        "t": "Per-doctor Schedule 1 copies drafted (Jun's = her offer letter)",
-       "s": "",
-       "w": "Jun: 1 Sep \u2014 missed, owed now"
+       "s": "done",
+       "w": "10 Sep"
       },
       {
        "t": "Hand over to the doctors \u2014 see Doctor rollout & communication",
@@ -816,19 +816,36 @@
        "t": "Five-item reminder sent to Lydia (consulting group)",
        "s": "done",
        "w": "8 Sep"
+      },
+      {
+       "t": "Procurement, reimbursement and supplier-interest clauses added (cl. 2.5, 7.1, 7.4, 7.5)",
+       "s": "done",
+       "w": "9 Sep"
+      },
+      {
+       "t": "Agreements sent to the five non-specialist doctors, with a one-page summary card",
+       "s": "done",
+       "w": "10 Sep"
+      },
+      {
+       "t": "Send to the two specialists (Dr Yeoh, Dr Joan)",
+       "s": ""
+      },
+      {
+       "t": "Signatures back",
+       "s": ""
       }
      ],
      "open": [
+      "<b>Sent 10 Sep:</b> agreements to the five non-specialist doctors, each with a one-page &ldquo;Three Key Changes&rdquo; summary card attached to the message. The two specialists (Dr Yeoh, Dr Joan) are still to go &mdash; the owner judges them less urgent.",
+      "<b>New in the agreement (9 Sep):</b> a doctor can be paid by the practice in three ways only &mdash; professional fees; reimbursement of pre-approved spend at documented cost against the original supplier invoice (nothing payable for items obtained free); or as an approved supplier with the interest declared. Patient money must go through the authorised billing process, for services and for materials, appliances and laboratory work alike.",
+      "<b>Live master is v1.0</b> (9 Sep). The new Section 3 &ldquo;Minimum Fee and Concessions&rdquo; renumbered everything after Sessions &mdash; procurement is now Clause 7, termination 14, general 16.",
       "<b>Five-item reminder sent to Lydia in the consulting group on 8 Sep:</b> (1) fill every contractor agreement with the doctors' details \u2014 she needs those from Emily; (2) update the handbook with the pending clauses, the family discount clause included; (3) plan the staff handbook acknowledgement signatures; (4) adjust Elaine's JD and contract if not already done; (5) get the doctors' contracts ready for the rollout. Awaiting her reply.",
       "<b>Parents approved all three changes on 2 Sep:</b> abolish the 10% \u00b7 floor price with doctor-borne discounts \u00b7 economics follow the production month. Discount approval threshold amended to 15%.",
       "<b>Final contractor agreement sent to Emily for review on 3 Sep.</b>",
       "Lydia is still waiting for the Schedule 1 input at clause 2.2 and must finalise the Professional Fee clauses in Schedule 2 before sending to Dr Ong for signature.",
       "Lydia must finalise all contracts: employee contracts, the handbook, and the doctors' contracts. Names evidenced in the available board/transcripts: Dr Ong, Dr Ling and Dr Jun; the remaining doctors are not named there.",
-      "Keep the parents' register: item 2 pays for item 1, leaving a gap of about RM10\u201312k a year",
-      "Clause 2.6 names the GM for below-band sign-off \u2014 Emily now knows",
-      "\u26a0\ufe0f Item 3b cannot be operated for real yet (only ~8% of paysplits carry a ProcNum) \u2014 agree the principle, never give the doctors a start date",
-      "<b>Jun's offer letter IS her copy of this agreement</b> \u2014 waiting for her personal information for Schedule 1",
-      "From the initiatives board: All eight doctors are currently unpapered, several at about fifteen years' standing. Working papers are in People & Competence/Contracts/ \u2014 the review note and the marked-up agreement."
+      "Keep the parents' register: item 2 pays for item 1, leaving a gap of about RM10\u201312k a year"
      ],
      "owner": "lydia",
      "dept": "people",
@@ -839,9 +856,9 @@
      "next": "Lydia fills the doctors' details into each agreement (from Emily), finalises the handbook and Elaine's papers, then the rollout runs: Zoom explainer \u2192 contracts out one by one \u2192 group sit-down about two weeks later.",
      "endMonth": "2026-09",
      "flag": {
-      "k": "wait",
-      "who": "Lydia",
-      "w": "Five-item reminder sent 8 Sep. Everything downstream \u2014 the Zoom explainer, the contracts going out \u2014 waits on her."
+      "k": "due",
+      "who": "Lu",
+      "w": "Send the agreement to the two specialists (Dr Yeoh, Dr Joan) \u2014 the other five went out 10 Sep."
      }
     },
     {
@@ -1007,9 +1024,9 @@
     {
      "id": "l8",
      "dot": "now",
-     "chip": "Zoom then sit-down",
+     "chip": "contracts out, sit-down to set",
      "name": "Doctor rollout & communication",
-     "one": "How the agreement lands with the doctors \u2014 now a two-step: a Zoom call to explain the changes and hand the contracts over, then a group sit-down about two weeks later for questions.",
+     "one": "How the agreement lands with the doctors. The contracts went out first with a written summary card; the group sit-down is still to be arranged.",
      "steps": [
       {
        "t": "Parents approve the three changes",
@@ -1023,19 +1040,22 @@
       },
       {
        "t": "Lydia finalises the contracts with each doctor's details",
-       "s": "now"
+       "s": "done",
+       "w": "10 Sep"
       },
       {
-       "t": "Zoom call \u2014 walk the 3\u20134 core changes, lead with the good news",
-       "s": ""
+       "t": "Zoom explainer &mdash; not held; a written summary card went with the contracts instead",
+       "s": "skip",
+       "w": "10 Sep"
       },
       {
        "t": "Contracts sent to each doctor individually",
-       "s": ""
+       "s": "done",
+       "w": "10 Sep &mdash; five of seven"
       },
       {
        "t": "Two weeks of personal questions by text \u2014 answered as they come",
-       "s": ""
+       "s": "now"
       },
       {
        "t": "Group sit-down \u2014 remaining questions + OpenDent code alignment recap",
@@ -1055,16 +1075,18 @@
       "\u26a0\ufe0f <b>Work the full narrative out in a dedicated session</b> \u2014 this note is the skeleton, not the script. Share it with your parents once they have given their input on the three changes."
      ],
      "open": [
-      "<b>Format is settled (6 Sep):</b> a Zoom call first so everyone hears the 3\u20134 major changes in the same words, then the contracts go out one by one. About two weeks later, a group sit-down for whatever is left. In between they can text directly and get an answer.",
+      "<b>The sequence changed in the doing (10 Sep):</b> the contracts went out to the five non-specialist doctors <i>before</i> any group call, each carrying a one-page &ldquo;Three Key Changes&rdquo; summary card &mdash; the 10% deduction going, discounts borne by the doctor, and the timing of locum sharing payment. The Zoom explainer that was to come first did not happen.",
+      "<b>Still to arrange:</b> the group sit-down for the remaining questions, which also carries the OpenDent alignment recap. No date set.",
+      "<b>Two specialists still to receive theirs</b> &mdash; Dr Yeoh and Dr Joan.",
       "<b>Why the call comes first:</b> the language is legal and none of the doctors are legal people. They should understand the shape of the change before a document lands in front of them \u2014 and there is genuine good news to lead with (the 10% cut goes) alongside the new discount approach.",
       "<b>The second session doubles as the OpenDent alignment recap</b> \u2014 code usage, and that a discount is a line rather than an edited production price. If that turns out not to be needed, the session still earns its place on the contract questions alone.",
       "\u26a0\ufe0f <b>The 15 Sep meeting no longer holds</b> \u2014 the contracts are still with Lydia. Dates follow her, not the calendar.",
       "Dr Ling's overdue 1-to-1 belongs inside this rollout, not as a separate conversation"
      ],
      "flag": {
-      "k": "wait",
-      "who": "Lydia",
-      "w": "The Zoom call can only be booked once Lydia has the contracts filled with each doctor's details."
+      "k": "talk",
+      "who": "Lu",
+      "w": "Contracts went out ahead of the planned Zoom call &mdash; set the date for the group sit-down."
      },
      "owner": "lu",
      "dept": "finance",
@@ -2296,7 +2318,7 @@
   "note": "initiatives.store.json folded into this store; initiatives.json is now DERIVED from it by hq_publish.py for the legacy page."
  },
  "meta": {
-  "asof": "WED 09 SEP 2026",
-  "updated": "2026-09-09T19:54:33+08:00"
+  "asof": "THU 10 SEP 2026",
+  "updated": "2026-09-10T18:09:48+08:00"
  }
 }
