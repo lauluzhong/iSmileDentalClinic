@@ -2,9 +2,9 @@
  "decisions": [
   {
    "hot": false,
-   "k": "Config 22 Sep",
+   "k": "Config Mon 14 Sep",
    "t": "Configure MiniCRM for the blast",
-   "w": "Complete Lu's MiniCRM configuration on 22 Sep; the blast window remains tentative.",
+   "w": "Complete Lu's MiniCRM configuration on Mon 14 Sep 2026; the blast window remains tentative for 22\u201324 Sep.",
    "ref": "g1"
   },
   {
@@ -119,7 +119,7 @@
    "l": "Cold blast sends",
    "s": "",
    "iso": "2026-09-22",
-   "tip": "Tentative Tuesday to Thursday window, 22\u201324 September. It remains unconfirmed pending Lu's 22 Sep MiniCRM configuration and the fresh-data re-run."
+   "tip": "Tentative Tuesday to Thursday window, 22\u201324 September. It remains unconfirmed pending Lu's Mon 14 Sep MiniCRM configuration and the fresh-data re-run."
   },
   {
    "d": "Sep\u2013Oct",
@@ -1164,7 +1164,7 @@
     {
      "id": "g1",
      "dot": "wait",
-     "chip": "deployed \u00b7 config 22 Sep",
+     "chip": "deployed \u00b7 config Mon 14 Sep",
      "name": "Cold reactivation blast",
      "one": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
      "steps": [
@@ -1221,7 +1221,7 @@
       {
        "t": "Lu configures MiniCRM for the blast",
        "s": "now",
-       "w": "22 Sep"
+       "w": "Mon 14 Sep"
       },
       {
        "t": "Fresh-data re-run immediately before sending",
@@ -1239,7 +1239,7 @@
      ],
      "open": [
       "<b>MiniCRM and the campaign blast message function are deployed and testing is complete (10 Sep).</b>",
-      "<b>Next step:</b> Lu configures MiniCRM on 22 Sep 2026. The blast window remains tentative until configuration and the final fresh-data check are complete.",
+      "<b>Next step:</b> Lu configures MiniCRM on Mon 14 Sep 2026. The blast window remains tentative until configuration and the final fresh-data check are complete.",
       "<b>The blast is not confirmed.</b> Keep the tentative 22\u201324 Sep window only as a planning placeholder.",
       "<b>UI terminology changed by Code Capsule 7 Sep:</b> the flow is now Audience Filters \u2192 Audience List \u2192 Recipients. \"Selected Patients\" is renamed \"Recipients\"; \"Audience\" is the filtered pool, \"Recipients\" the patients actually selected to receive the campaign.",
       "<b>Daily cap: the system allows 2,000/day; we set ours at 1,800</b> to leave headroom for the other automations sharing the number (recall, birthday). At 1,800 the 4,011 sends clear in three days.",
@@ -1251,8 +1251,8 @@
      ],
      "flag": {
       "k": "due",
-      "by": "2026-09-22",
-      "w": "Configure MiniCRM for the blast on 22 Sep; the send window is still tentative.",
+      "by": "2026-09-14",
+      "w": "Configure MiniCRM for the blast on Mon 14 Sep 2026; the send window remains tentative for 22\u201324 Sep.",
       "who": "Lu"
      },
      "owner": "lu",
@@ -1261,7 +1261,7 @@
      "from_initiatives": [
       28
      ],
-     "next": "Lu configures MiniCRM on 22 Sep, then the team re-runs fresh data immediately before any blast. The 22\u201324 Sep window remains tentative.",
+     "next": "Lu configures MiniCRM on Mon 14 Sep 2026, then the team re-runs fresh data immediately before any blast. The 22\u201324 Sep window remains tentative.",
      "endMonth": "2026-10"
     },
     {
@@ -2352,6 +2352,6 @@
  },
  "meta": {
   "asof": "THU 10 SEP 2026",
-  "updated": "2026-09-10T19:48:51+08:00"
+  "updated": "2026-09-10T19:50:28+08:00"
  }
 }

@@ -1,14 +1,19 @@
 {
- "updated": "2026-09-10T19:48:51+08:00",
+ "updated": "2026-09-10T19:50:28+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lydia": {
-   "init": "L",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Emily": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
@@ -22,13 +27,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
+  "Lydia": {
    "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Emily": {
-   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -426,7 +426,7 @@
    "status": "review",
    "owner": "Lau",
    "why": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
-   "next": "Lu configures MiniCRM on 22 Sep, then the team re-runs fresh data immediately before any blast. The 22\u201324 Sep window remains tentative.",
+   "next": "Lu configures MiniCRM on Mon 14 Sep 2026, then the team re-runs fresh data immediately before any blast. The 22\u201324 Sep window remains tentative.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-10",
