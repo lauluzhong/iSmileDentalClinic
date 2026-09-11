@@ -133,6 +133,45 @@
   .st{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
   .st.running{color:var(--p1)} .st.failed{color:var(--bad)} .st.idle{color:var(--dim)} .st.up{color:var(--ok)} .st.down{color:var(--bad)} .st.na{color:var(--dim)}
 
+  /* ---------- office roster + workflow canvases ---------- */
+  .voice-rule{display:flex;align-items:flex-start;gap:12px;margin:4px 0 18px;padding:13px 15px;background:linear-gradient(90deg,rgba(240,177,82,.14),rgba(16,27,48,.92));border:1px solid rgba(240,177,82,.42);border-left:3px solid var(--fhr);border-radius:9px;color:#F7CE8A}
+  .voice-rule strong{font-family:var(--disp);font-size:11px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;padding-top:2px}
+  .voice-rule span{color:var(--ink);font-size:13px}
+  .agent-badges{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
+  .agent-chip{font-family:var(--mono);font-size:9.5px;line-height:1.4;color:var(--mut);background:#1B2A47;border:1px solid var(--line);border-radius:4px;padding:2px 6px}
+  .agent-chip.model{color:var(--p2);border-color:rgba(177,149,255,.4)}
+  .agent-chip.voice{color:var(--fhr);border-color:rgba(240,177,82,.5)}
+  .agent-chip.pr{color:var(--p1);border-color:rgba(69,196,255,.5)}
+  .agent-chip.gated{color:var(--warn);border-color:rgba(245,184,74,.45)}
+  .agent-chip.muted{color:var(--dim)}
+  .flow-list{display:grid;gap:12px}
+  .flow-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:border-color .18s,box-shadow .18s}
+  .flow-card.open{border-color:#355078;box-shadow:0 18px 45px -30px rgba(69,196,255,.45)}
+  .flow-summary{width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 16px;text-align:left;color:inherit;background:transparent;border:0;padding:14px 16px;cursor:pointer}
+  .flow-summary:hover,.flow-summary:focus-visible{background:rgba(20,33,56,.62);outline:none}
+  .flow-title{font-family:var(--disp);font-weight:600;font-size:16px;letter-spacing:.02em}
+  .live-badge{align-self:start;font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:var(--ok);border:1px solid rgba(86,194,113,.55);border-radius:4px;padding:2px 7px}
+  .trigger-line{grid-column:1/-1;display:flex;gap:8px;align-items:flex-start;color:var(--ink);font-size:12.5px}
+  .trigger-line b{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--p1);text-transform:uppercase;white-space:nowrap;padding-top:2px}
+  .flow-meta{grid-column:1/-1;font-family:var(--mono);font-size:10px;color:var(--dim)}
+  .flow-chevron{color:var(--dim);transition:transform .18s}.open .flow-chevron{transform:rotate(180deg)}
+  .flow-body{display:none;border-top:1px solid var(--line);padding:12px}.flow-card.open .flow-body{display:block}
+  .node-legend{display:flex;flex-wrap:wrap;gap:7px 14px;margin:0 2px 10px;font-family:var(--mono);font-size:9.5px;color:var(--mut)}
+  .node-legend span{display:inline-flex;align-items:center;gap:5px}.node-legend i{width:8px;height:8px;border-radius:2px;background:var(--nc)}
+  .flow-scroll{width:100%;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;border:1px solid rgba(34,50,82,.7);border-radius:8px;background-color:#0D1628;background-image:radial-gradient(rgba(94,113,150,.35) .7px,transparent .7px);background-size:16px 16px}
+  .flow-canvas{position:relative;min-height:230px}
+  .flow-canvas svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+  .edge{fill:none;stroke:#4C648D;stroke-width:1.5}.edge-label{fill:#AFC1DE;font:9.5px var(--mono);paint-order:stroke;stroke:#0D1628;stroke-width:5px;stroke-linejoin:round}
+  .flow-node{position:absolute;width:184px;min-height:72px;padding:10px 11px;text-align:left;color:var(--ink);background:#142138;border:1px solid var(--nc,var(--line));border-left:4px solid var(--nc,var(--line));border-radius:7px;cursor:pointer;box-shadow:0 9px 22px rgba(0,0,0,.18);transition:transform .15s,box-shadow .15s}
+  .flow-node:hover,.flow-node:focus-visible,.flow-node.selected{transform:translateY(-2px);box-shadow:0 0 0 1px var(--nc),0 12px 28px rgba(0,0,0,.32);outline:none}
+  .flow-node .nt{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--nc);margin-bottom:4px}
+  .flow-node .nl{font-size:12.5px;font-weight:600;line-height:1.28}.flow-node .na{font-family:var(--mono);font-size:9px;color:var(--dim);margin-top:5px}
+  .flow-node.decision{border-style:dashed;background:linear-gradient(135deg,rgba(245,184,74,.12),#142138 42%)}
+  .node-detail{display:none;margin-top:10px;padding:12px 14px;background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--detail,var(--p1));border-radius:8px}
+  .node-detail.show{display:block}.node-detail .k{font-family:var(--mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--detail,var(--p1));margin-bottom:4px}.node-detail h3{font-family:var(--disp);font-size:14px;margin-bottom:5px}.node-detail p{color:var(--mut);font-size:12.5px;line-height:1.55;white-space:pre-wrap}
+  .load-error{color:#FFB3B3;border:1px solid rgba(255,107,107,.4);background:rgba(255,107,107,.08);border-radius:8px;padding:12px}
+  @media(max-width:760px){.voice-rule{display:block}.voice-rule strong{display:block;margin-bottom:4px}.flow-summary{padding:12px}.flow-body{padding:9px}.flow-node{width:184px}.node-legend{gap:5px 9px}}
+
   /* ---------- activity log ---------- */
   .log{--ac:var(--fhr)}
   .term{font-family:var(--mono);font-size:11.5px;line-height:1.7;max-height:420px;overflow:auto;padding-right:4px}
@@ -208,6 +247,8 @@
     </nav>
   </header>
 
+  <div class="voice-rule" id="voice-rule"><strong>One voice rule</strong><span>Loading the office rules…</span></div>
+
   <div class="topgrid">
     <!-- VPS -->
     <div class="card vps"><div class="top"></div>
@@ -239,16 +280,13 @@
     </div>
   </div>
 
-  <div class="secthead">Agents <span class="n" id="agn"></span></div>
-  <div class="note" id="agnote" style="margin:-4px 0 10px"></div>
+  <div class="secthead">AI staff roster <span class="n" id="agn"></span></div>
+  <div class="note" id="agnote" style="margin:-4px 0 10px">Roles and access boundaries, in plain English.</div>
   <div class="agents" id="agents"><div class="empty">loading…</div></div>
 
-  <div class="secthead">Workflows · daily <span class="n" id="wfn1"></span></div>
-  <div class="wfs" id="wf-daily"></div>
-  <div class="secthead">Workflows · weekly &amp; monthly <span class="n" id="wfn2"></span></div>
-  <div class="wfs" id="wf-weekly"></div>
-  <div class="secthead">Pollers &amp; self-heal <span class="n" id="wfn3"></span></div>
-  <div class="wfs" id="wf-poll"></div>
+  <div class="secthead">Workflows · trigger to output <span class="n" id="wfn"></span></div>
+  <div class="note" style="margin:-4px 0 10px">Open a workflow to see every step and branch. Select any node for its full detail.</div>
+  <div class="flow-list" id="workflows"><div class="empty">loading…</div></div>
 
   <div class="secthead">Activity log <span class="n" id="logn"></span></div>
   <div class="card log"><div class="top"></div>
@@ -256,7 +294,7 @@
     <div class="cb"><div class="term" id="term"><div class="empty">loading…</div></div></div>
   </div>
 
-  <footer>iSmile Office · data from the <span style="font-family:var(--mono)">status</span> branch (deck · status · activity) · refreshes itself every minute<br>
+  <footer>iSmile Office · roster and workflows from <span style="font-family:var(--mono)">office.json</span>; operational panels from deck · status · activity<br>
     Berlin clock on the box; all times shown in MYT. <a href="/dashboard">Dashboard</a> · <a href="/dashboard/tasks">HQ</a> · <a href="/dashboard">Deck</a></footer>
 </div>
 
@@ -354,7 +392,7 @@ function agColor(id){const k=canon(id).replace(/^cron-/,"");return AGCOL[k]||"#5
 function runsJob(a,j){const c=canon(a.id),jc=canon(j.agent);return c===jc||c==="cron-"+jc;}
 
 /* ============================== state ============================== */
-const D={deck:null,status:null,activity:null,err:{}};
+const D={office:null,deck:null,status:null,activity:null,err:{}};
 let JOBS=[];      // computed workflow rows
 let AGENTS=[];    // computed agent rows
 let ROSTER_LIVE=false;
@@ -418,37 +456,29 @@ function computeJobs(){
   });
 }
 function computeAgents(){
-  const feed=D.deck&&Array.isArray(D.deck.agents)&&D.deck.agents.length?D.deck.agents:null;
-  ROSTER_LIVE=!!feed;
-  const src=feed||BAKED_AGENTS;
+  const office=Array.isArray(D.office&&D.office.agents)?D.office.agents:null;
+  const feed=D.deck&&Array.isArray(D.deck.agents)?D.deck.agents:[];
+  ROSTER_LIVE=!!office;
+  const src=office||(feed.length?feed:BAKED_AGENTS);
   const ents=(D.activity&&D.activity.entries)||[];
   const runningJobs=JOBS.filter(j=>j.state==="running");
-  const seen=new Set();
   AGENTS=src.map(a=>{
-    const id=a.id||a.name; seen.add(canon(id));
+    const id=a.id||a.name;
+    const live=feed.find(x=>canon(x.id||x.name)===canon(id))||{};
     const lastAct=ents.find(e=>canon(e.agent)===canon(id));
-    const cronMs=lastAct?parseMYT(lastAct.ts):null;           // a cron ran under this name (may be deterministic — no LLM session)
-    const lastMs=feed?parseMYT(a.last_active_myt):cronMs;     // with a live roster, "last active" means a real session
-    const sessions=(typeof a.sessions_30d==="number")?a.sessions_30d:null;
-    const total=(typeof a.sessions_total==="number")?a.sessions_total:null;
-    let flag="unknown";
-    if(feed){
-      if(sessions===0&&(total===0||(total==null&&lastMs==null)))flag="dead";
-      else if(sessions===0)flag="dormant";
-      else if(sessions>0)flag="active";
-      else if(lastMs!=null&&Date.now()-lastMs<30*DAY)flag="active";
-      else if(lastMs!=null)flag="dormant";
-      else flag="dead";
-    } else {
-      // roster from config: only what the activity feed proves
-      if(lastMs!=null)flag="active";
-    }
-    const me={id,name:a.name||id,role:a.role||"",model:a.model||(a.kind==="main"?"GPT-5.6":""),kind:a.kind||"specialist",sessions,total,lastMs,cronMs,last:feed?a.last_active_myt:(lastAct?lastAct.ts:null),flag,color:agColor(id)};
-    me.jobs=JOBS.filter(j=>runsJob(me,j)); me.running=runningJobs.some(j=>runsJob(me,j));
+    const cronMs=lastAct?parseMYT(lastAct.ts):null;
+    const last=live.last_active_myt||a.last_active_myt||(lastAct&&lastAct.ts)||null;
+    const tier=a.tier||a.kind||"mid";
+    const kind=tier==="conversation"?"main":tier==="scheduled"?"cron":"specialist";
+    const me={...a,id,name:a.name||id,role:a.role||"",model:a.model||live.model||"",tier,kind,
+      sessions:live.sessions_30d??a.sessions_30d??null,total:live.sessions_total??a.sessions_total??null,
+      last,lastMs:parseMYT(last),cronMs,flag:"active",color:agColor(id)};
+    me.jobs=JOBS.filter(j=>runsJob(me,j));
+    me.running=runningJobs.some(j=>runsJob(me,j));
     return me;
   });
-  const rank={main:0,specialist:1,cron:2};
-  AGENTS.sort((a,b)=>(rank[a.kind]??3)-(rank[b.kind]??3)||a.name.localeCompare(b.name));
+  const rank={conversation:0,heavy:1,mid:2,scheduled:3};
+  AGENTS.sort((a,b)=>(rank[a.tier]??4)-(rank[b.tier]??4)||a.name.localeCompare(b.name));
 }
 
 /* ============================== VPS ============================== */
@@ -486,11 +516,11 @@ function renderSummary(){
   g.appendChild(stat("Running now",run,run?"ok":""));
   g.appendChild(stat("Failed / down",fail,fail?"bad":"ok"));
   g.appendChild(stat("Stale jobs",stale,stale?"warn":"ok"));
-  g.appendChild(stat("Agents",AGENTS.length+`<small>${dorm+dead?(dorm+dead)+" to prune":unk?unk+" unknown":"all active"}</small>`,dorm+dead?"warn":""));
+  g.appendChild(stat("Agents",AGENTS.length+`<small>${D.office?"published roster":"fallback roster"}</small>`,D.office?"ok":"warn"));
   box.appendChild(g);
   const f=el("div","feeds");
   const row=(k,ok,when)=>`<span><i class="${ok?"":"bad"}"></i>${k}<em>${ok?esc(when||""):"unavailable"}</em></span>`;
-  f.innerHTML=row("deck.json",!!D.deck,D.deck&&D.deck.generated_myt)+row("status.json",!!D.status,D.status&&D.status.updated)+row("activity.json",!!D.activity,D.activity&&D.activity.updated);
+  f.innerHTML=row("office.json",!!D.office,D.office&&D.office.generated_myt)+row("deck.json",!!D.deck,D.deck&&D.deck.generated_myt)+row("status.json",!!D.status,D.status&&D.status.updated)+row("activity.json",!!D.activity,D.activity&&D.activity.updated);
   box.appendChild(f);
   const n=[];
   if(!ROSTER_LIVE)n.push("Agent roster is from config; the feed carries no <b>agents[]</b> yet, so sessions and dormancy are unknown.");
@@ -500,17 +530,23 @@ function renderSummary(){
 
 /* ============================== agents ============================== */
 const FLAGLAB={dormant:"DORMANT",dead:"DEAD",active:"ACTIVE",unknown:"ACTIVITY UNKNOWN"};
+function modelName(model){return String(model||"—").replace(/^openai\//,"");}
 function renderAgents(){
   const box=$("#agents"); box.innerHTML="";
-  $("#agn").innerHTML=`<b>${AGENTS.length}</b> · ${AGENTS.filter(a=>a.running).length} working`;
-  $("#agnote").innerHTML=ROSTER_LIVE?`Roster and 30-day sessions from the box. <b>DORMANT</b> = no sessions in 30 days; <b>DEAD</b> = never active. The owner intends to remove unused agents.`:`<b>Roster from config; activity unknown.</b> deck.json does not carry <span style="font-family:var(--mono)">agents[]</span> yet — "active" below means the activity feed has seen the agent run a cron; everything else is unproven.`;
+  $("#agn").innerHTML=`<b>${AGENTS.length}</b> · ${AGENTS.filter(a=>a.spawnable_by_main).length} available to Edith`;
+  $("#agnote").textContent=D.office?"Live roster from office.json. Select a person to see their full access boundary.":"The live office roster is unavailable.";
   if(!AGENTS.length){box.appendChild(el("div","empty","no agents"));return;}
   AGENTS.forEach(a=>{
-    const c=el("div","ag "+a.flag+(a.running?" running":"")); c.tabIndex=0; c.style.setProperty("--ac",a.color);
-    const badge=a.running?`<span class="badge running">working</span>`:`<span class="badge ${a.flag}">${FLAGLAB[a.flag]}</span>`;
-    c.innerHTML=`<div class="row"><span class="nm">${esc(a.name)}</span><span class="kind">${esc(a.kind)}</span>${badge}</div>
-      <div class="role">${esc(a.role)}</div>
-      <div class="meta"><span>model <b>${esc(a.model||"—")}</b></span><span>30d sessions <b>${a.sessions==null?"—":a.sessions}</b></span><span>last session <b>${a.lastMs==null?(ROSTER_LIVE?"never":"unknown"):ago(a.lastMs)}</b></span>${a.cronMs!=null&&ROSTER_LIVE?`<span>cron log <b>${ago(a.cronMs)}</b></span>`:""}${a.jobs.length?`<span>${a.jobs.length} job${a.jobs.length>1?"s":""}</span>`:""}</div>`;
+    const c=el("div","ag"+(a.running?" running":"")); c.tabIndex=0; c.style.setProperty("--ac",a.color);
+    const badges=[
+      `<span class="agent-chip model">${esc(modelName(a.model))}</span>`,
+      a.can_message_humans?`<span class="agent-chip voice">🗣 the voice</span>`:`<span class="agent-chip muted">cannot message humans</span>`,
+      a.id==="engineer"?`<span class="agent-chip pr">PR-only</span>`:"",
+      Array.isArray(a.denied_tools)&&a.denied_tools.length?`<span class="agent-chip gated">gated</span>`:"",
+      a.spawnable_by_main?`<span class="agent-chip">Edith can delegate</span>`:`<span class="agent-chip muted">${a.tier==="scheduled"?"scheduled only":"not delegated"}</span>`
+    ].join("");
+    c.innerHTML=`<div class="row"><span class="nm">${esc(a.name)}</span><span class="kind">${esc(a.tier)}</span></div>
+      <div class="role">${esc(a.role)}</div><div class="agent-badges">${badges}</div>`;
     c.addEventListener("click",()=>openAgent(a)); c.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openAgent(a);}});
     box.appendChild(c);
   });
@@ -544,15 +580,75 @@ function wfCard(j){
   c.addEventListener("click",()=>openJob(j)); c.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openJob(j);}});
   return c;
 }
+const NODE_META={
+  trigger:{label:"Trigger",color:"#45C4FF"},
+  agent:{label:"Agent",color:"#B195FF"},
+  decision:{label:"Decision",color:"#F5B84A"},
+  system:{label:"System step",color:"#8AA6B8"},
+  voice:{label:"Edith — the voice",color:"#F0B152"},
+  human:{label:"Human approval",color:"#3FDDA0"}
+};
+function nodeRanks(wf){
+  const ranks=Object.fromEntries((wf.nodes||[]).map(n=>[n.id,0]));
+  for(let pass=0;pass<(wf.nodes||[]).length;pass++){
+    let changed=false;
+    (wf.edges||[]).forEach(([from,to])=>{
+      if(ranks[from]==null||ranks[to]==null)return;
+      const next=Math.min((wf.nodes||[]).length-1,ranks[from]+1);
+      if(next>ranks[to]){ranks[to]=next;changed=true;}
+    });
+    if(!changed)break;
+  }
+  return ranks;
+}
+function canvasMarkup(wf){
+  const nodes=wf.nodes||[], ranks=nodeRanks(wf), groups={};
+  nodes.forEach(n=>(groups[ranks[n.id]]||(groups[ranks[n.id]]=[])).push(n));
+  const maxRank=Math.max(0,...Object.values(ranks));
+  const nodeW=184,colGap=230,rowGap=116,padX=28,padY=30;
+  const widest=Math.max(1,...Object.values(groups).map(g=>g.length));
+  const width=Math.max(760,padX*2+nodeW+maxRank*colGap);
+  const height=Math.max(230,padY*2+72+(widest-1)*rowGap);
+  const pos={};
+  Object.keys(groups).forEach(k=>{
+    const list=groups[k], span=(list.length-1)*rowGap;
+    list.forEach((n,i)=>{pos[n.id]={x:padX+Number(k)*colGap,y:(height-span)/2-36+i*rowGap};});
+  });
+  const marker="arrow-"+String(wf.id).replace(/[^a-z0-9_-]/gi,"");
+  const edges=(wf.edges||[]).map(([from,to,label])=>{
+    const a=pos[from],b=pos[to];if(!a||!b)return "";
+    const x1=a.x+nodeW,y1=a.y+36,x2=b.x,y2=b.y+36,mx=(x1+x2)/2;
+    return `<path class="edge" marker-end="url(#${marker})" d="M ${x1} ${y1} C ${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}"/>${label?`<text class="edge-label" x="${mx}" y="${(y1+y2)/2-7}" text-anchor="middle">${esc(label)}</text>`:""}`;
+  }).join("");
+  const boxes=nodes.map(n=>{
+    const p=pos[n.id],meta=NODE_META[n.type]||NODE_META.system;
+    const agent=n.agent?AGENTS.find(a=>a.id===n.agent):null;
+    return `<button class="flow-node ${n.type==="decision"?"decision":""}" data-node="${esc(n.id)}" style="left:${p.x}px;top:${p.y}px;--nc:${meta.color}" type="button"><span class="nt">${esc(meta.label)}</span><span class="nl">${esc(n.label)}</span>${agent?`<span class="na">${esc(agent.name)}</span>`:""}</button>`;
+  }).join("");
+  return `<div class="flow-scroll"><div class="flow-canvas" style="width:${width}px;height:${height}px"><svg viewBox="0 0 ${width} ${height}" aria-hidden="true"><defs><marker id="${marker}" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#4C648D"/></marker></defs>${edges}</svg>${boxes}</div></div>`;
+}
+function workflowCard(wf){
+  const card=el("article","flow-card");
+  card.innerHTML=`<button class="flow-summary" type="button" aria-expanded="false"><span class="flow-title">${esc(wf.name)}</span><span><span class="live-badge">${esc(wf.status||"LIVE")}</span> <span class="flow-chevron">⌄</span></span><span class="trigger-line"><b>Trigger</b><span>${esc(wf.trigger)}</span></span><span class="flow-meta">${esc(wf.cadence||"")} · ${(wf.nodes||[]).length} steps</span></button>
+    <div class="flow-body"><div class="node-legend">${Object.values(NODE_META).map(m=>`<span><i style="--nc:${m.color}"></i>${esc(m.label)}</span>`).join("")}</div>${canvasMarkup(wf)}<div class="node-detail" aria-live="polite"></div></div>`;
+  const summary=card.querySelector(".flow-summary");
+  summary.addEventListener("click",()=>{const open=card.classList.toggle("open");summary.setAttribute("aria-expanded",open);});
+  card.querySelectorAll(".flow-node").forEach(btn=>btn.addEventListener("click",()=>{
+    const node=(wf.nodes||[]).find(n=>n.id===btn.dataset.node);if(!node)return;
+    card.querySelectorAll(".flow-node").forEach(n=>n.classList.toggle("selected",n===btn));
+    const meta=NODE_META[node.type]||NODE_META.system,detail=card.querySelector(".node-detail");
+    detail.style.setProperty("--detail",meta.color);
+    detail.innerHTML=`<div class="k">${esc(meta.label)} · step detail</div><h3>${esc(node.label)}</h3><p>${esc(node.detail)}</p>`;
+    detail.classList.add("show");
+  }));
+  return card;
+}
 function renderWorkflows(){
-  const groups={daily:$("#wf-daily"),weekly:$("#wf-weekly"),poll:$("#wf-poll")};
-  Object.values(groups).forEach(g=>g.innerHTML="");
-  const order={running:0,failed:1,down:1};
-  const sorted=[...JOBS].sort((a,b)=>((order[a.state]??2)-(order[b.state]??2))||(b.stale-a.stale));
-  sorted.forEach(j=>(groups[j.group]||groups.daily).appendChild(wfCard(j)));
-  const cnt=(g)=>{const js=JOBS.filter(j=>(groups[j.group]?j.group:"daily")===g);const bad=js.filter(j=>j.state==="failed"||j.state==="down"||j.stale).length;return `<b>${js.length}</b>${bad?` · <span style="color:var(--warn)">${bad} need a look</span>`:""}`;};
-  $("#wfn1").innerHTML=cnt("daily"); $("#wfn2").innerHTML=cnt("weekly"); $("#wfn3").innerHTML=cnt("poll");
-  if(!D.status){Object.values(groups).forEach(g=>g.prepend(el("div","empty","status.json unavailable — states below are unknown"+(D.err.status?" · "+esc(D.err.status):""))));}
+  const box=$("#workflows");box.innerHTML="";
+  const flows=Array.isArray(D.office&&D.office.workflows)?D.office.workflows:[];
+  $("#wfn").innerHTML=`<b>${flows.length}</b> live`;
+  if(!flows.length){box.innerHTML=`<div class="load-error">office.json unavailable${D.err.office?" · "+esc(D.err.office):""}</div>`;return;}
+  flows.forEach(wf=>box.appendChild(workflowCard(wf)));
 }
 
 /* ============================== activity log ============================== */
@@ -600,17 +696,25 @@ function openJob(j){
     <div class="dsec"><h3>Recent runs</h3>${jobHistory(j.id)}</div>`;
   openPanel("workflow",j.name,esc(j.sch)+" · "+esc(j.purpose),body);
 }
+function accessBoundary(a){
+  const plain={message:"message humans",sessions_send:"send messages to other agent sessions",sessions_spawn:"create new agent sessions",subagents:"create child agents"};
+  const denied=(a.denied_tools||[]).map(x=>plain[x]||String(x).replace(/_/g," "));
+  if(!denied.length)return "No blocked capabilities are listed.";
+  return "Cannot "+denied.join(", ").replace(/, ([^,]*)$/," or $1")+".";
+}
 function openAgent(a){
-  let warn="";
-  if(a.flag==="dead")warn=`<div class="needsu bad">No session ever opened on this agent. Candidate for removal from the OpenClaw config${a.cronMs!=null?" — the cron that logs under this name is deterministic and does not need it":""}.</div>`;
-  else if(a.flag==="dormant")warn=`<div class="needsu">No sessions in the last 30 days. If nothing routes to this agent, remove it.</div>`;
-  else if(a.flag==="unknown")warn=`<div class="needsu">Activity unknown — the feed does not carry <span style="font-family:var(--mono)">agents[]</span> yet and no cron in the activity log names this agent.</div>`;
-  const jobs=a.jobs.length?`<div class="dsec"><h3>Jobs it runs</h3><div class="wfs" style="grid-template-columns:1fr">${a.jobs.map(j=>`<div class="wf" data-job="${esc(j.id)}" style="padding:8px 10px"><div class="row">${stateDot(j)}<span class="nm">${esc(j.name)}</span>${stateLab(j)}</div><div class="meta"><span>${esc(j.sch)}</span><span>last <b>${j.lastMs!=null?ago(j.lastMs):"—"}</b></span></div></div>`).join("")}</div></div>`:`<div class="dsec"><h3>Jobs it runs</h3><div class="empty">no cron routes to this agent — it only runs when Edith delegates to it in a session</div></div>`;
-  const body=`${warn?`<div class="dsec">${warn}</div>`:""}
-    <div class="dsec"><h3>Agent</h3>${kv([["id",`<span style="font-family:var(--mono)">${esc(a.id)}</span>`],["kind",esc(a.kind)],["model",esc(a.model||"—")],["sessions · 30d",a.sessions==null?"unknown":a.sessions],["sessions · all time",a.total==null?"unknown":a.total],["last session",a.last?esc(a.last)+" · "+ago(a.lastMs):(ROSTER_LIVE?"never":"unknown")],["seen in cron log",a.cronMs!=null?ago(a.cronMs)+" — a cron ran under this name; deterministic crons open no session":"not in the last "+(((D.activity&&D.activity.entries)||[]).length)+" entries"],["roster",ROSTER_LIVE?"deck.json agents[]":"baked config"]])}</div>
-    ${jobs}`;
-  openPanel("agent · "+esc(a.kind),a.name,esc(a.role),body);
-  $("#dbody").querySelectorAll("[data-job]").forEach(n=>n.addEventListener("click",()=>{const j=JOBS.find(x=>x.id===n.dataset.job);if(j)openJob(j);}));
+  const flows=((D.office&&D.office.workflows)||[]).filter(w=>(w.nodes||[]).some(n=>n.agent===a.id));
+  const appearances=flows.length?`<div class="dsec"><h3>Workflows involving this agent</h3><div class="wfs" style="grid-template-columns:1fr">${flows.map(w=>`<div class="wf" style="cursor:default"><div class="row"><span class="nm">${esc(w.name)}</span><span class="st up">${esc(w.status)}</span></div><div class="purpose"><b style="color:var(--p1)">Trigger:</b> ${esc(w.trigger)}</div></div>`).join("")}</div></div>`:`<div class="dsec"><h3>Workflows involving this agent</h3><div class="empty">No published workflow currently names this agent.</div></div>`;
+  const body=`<div class="dsec"><h3>Role</h3><p style="color:var(--mut);line-height:1.55">${esc(a.role)}</p></div>
+    <div class="dsec"><h3>How this agent works</h3>${kv([
+      ["tier",esc(a.tier)],
+      ["model",esc(modelName(a.model))],
+      ["human contact",a.can_message_humans?"This is the voice humans hear.":"Cannot message humans; reports back inside the AI team."],
+      ["delegation",a.spawnable_by_main?"Edith can delegate work to this agent.":a.tier==="scheduled"?"Runs only on its schedule.":"Edith does not delegate to this identity."],
+      ["access boundary",esc(accessBoundary(a))],
+      ["production gate",a.id==="engineer"?"Pull requests only; Lau decides whether to merge.":"—"]
+    ])}</div>${appearances}`;
+  openPanel("AI staff · "+esc(a.tier),a.name,esc(modelName(a.model)),body);
 }
 
 /* ============================== tooltip ============================== */
@@ -706,19 +810,23 @@ function renderHUD(){
 
 /* ============================== boot ============================== */
 async function load(){
-  const [deck,status,activity]=await Promise.all([
+  const [office,deck,status,activity]=await Promise.all([
+    getJSON(RAW+"office.json").catch(e=>{D.err.office=e.message;return null;}),
     getJSON(RAW+"deck.json").catch(e=>{D.err.deck=e.message;return null;}),
     getJSON(RAW+"status.json").catch(e=>{D.err.status=e.message;return null;}),
     getJSON(RAW+"activity.json").catch(e=>{D.err.activity=e.message;return null;}),
   ]);
-  if(deck)D.deck=deck; if(status)D.status=status; if(activity)D.activity=activity;
-  const st=D.status?(status?"status "+D.status.updated:"status feed failed · last good "+D.status.updated):"status unavailable";
-  $("#asof").textContent=D.deck?(deck?"box feed "+D.deck.generated_myt+" MYT":"box feed failed · last good "+D.deck.generated_myt)+" · "+(D.deck.vps&&D.deck.vps.hostname||"")+" · "+st:"box feed unavailable · "+st;
-  computeJobs(); computeAgents();
-  renderVPS(); renderSummary(); renderAgents(); renderWorkflows(); renderLog(); renderHUD();
+  if(office)D.office=office;if(deck)D.deck=deck;if(status)D.status=status;if(activity)D.activity=activity;
+  const generated=D.office&&D.office.generated_myt;
+  $("#asof").textContent=generated?`as of ${generated} MYT · office data refreshes every 30 minutes`:"office data unavailable";
+  const rule=$("#voice-rule");
+  rule.querySelector("span").textContent=D.office&&D.office.one_voice_rule||"The one voice rule is unavailable.";
+  rule.classList.toggle("load-error",!D.office);
+  computeJobs();computeAgents();
+  renderVPS();renderSummary();renderAgents();renderWorkflows();renderLog();renderHUD();
   if(window.__floorRefresh)window.__floorRefresh();
 }
-load(); setInterval(load,60*1000);
+load();setInterval(load,60*1000);
 </script>
 </body>
 </html>
