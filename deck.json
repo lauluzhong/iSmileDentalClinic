@@ -1,39 +1,39 @@
 {
- "generated_myt": "2026-09-11 21:30",
- "generated_at": "2026-09-11T21:30:13+08:00",
+ "generated_myt": "2026-09-11 22:00",
+ "generated_at": "2026-09-11T22:00:09+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 88.2,
   "nproc": 4,
   "load": [
-   0.93,
-   0.3,
-   0.19
+   0.38,
+   0.32,
+   0.27
   ],
-  "cpu_pct": 23.2,
-  "cpu_pct_sample": 45.5,
+  "cpu_pct": 9.5,
+  "cpu_pct_sample": 1.0,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 3680,
-   "avail_mb": 4261,
-   "pct": 46.3,
+   "used_mb": 4039,
+   "avail_mb": 3902,
+   "pct": 50.9,
    "swap_total_mb": 2047,
    "swap_used_mb": 196
   },
   "disk": {
    "total_gb": 154.9,
-   "used_gb": 24.8,
-   "pct": 16.0
+   "used_gb": 24.9,
+   "pct": 16.1
   },
   "gateway_ok": true,
   "bridge_ok": false,
   "pollers": {
    "review_approvals": {
-    "age_s": 28,
-    "last_myt": "2026-09-11 21:30 MYT"
+    "age_s": 24,
+    "last_myt": "2026-09-11 22:00 MYT"
    },
    "hq_publish": {
-    "age_s": 82738,
+    "age_s": 84534,
     "last_myt": "2026-09-10 22:31 MYT",
     "detail": "asof=THU 10 SEP 2026 streams=40 sideboard=19 decisions=3 archive=11"
    }
@@ -42,10 +42,8 @@
   "crons": {
    "total": 13,
    "failed": [],
-   "running": [
-    "wa_group_digest"
-   ],
-   "status_updated": "2026-09-11 21:30 MYT"
+   "running": [],
+   "status_updated": "2026-09-11 22:00 MYT"
   },
   "last_clinic_push": "2026-09-11"
  },
