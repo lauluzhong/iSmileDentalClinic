@@ -5,6 +5,13 @@
       "ts": "2026-09-12 06:20 MYT",
       "agent": "engineer",
       "job": "review_stats_sync",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-09-12 06:20 MYT",
+      "agent": "engineer",
+      "job": "review_stats_sync",
       "event": "started",
       "result": ""
     },
@@ -1393,13 +1400,6 @@
       "job": "recall_funnel",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-09-10 13:22 MYT",
-      "agent": "analytics",
-      "job": "recall_funnel",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
