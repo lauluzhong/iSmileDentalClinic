@@ -1,0 +1,361 @@
+{
+ "generated_myt": "2026-09-11 10:20",
+ "one_voice_rule": "Only Edith (main) may message a human \u2014 enforced in config, not by convention (owner ruling 10 Sep 2026).",
+ "agents": [
+  {
+   "id": "main",
+   "name": "Edith",
+   "role": "Director of Digital Growth \u2014 the ONLY voice. Routes tasks, spawns specialists, applies the truth-gate, and sends every message a human receives.",
+   "tier": "conversation",
+   "model": "openai/gpt-5.6-luna",
+   "can_message_humans": true,
+   "denied_tools": [],
+   "spawnable_by_main": false
+  },
+  {
+   "id": "engineer",
+   "name": "Engineer",
+   "role": "Development agent. Implements website/code changes as pull requests: worktree, build-verify, open PR. Never merges, never messages \u2014 Lau is the merge gate.",
+   "tier": "heavy",
+   "model": "openai/gpt-5.6-sol",
+   "can_message_humans": false,
+   "denied_tools": [
+    "message",
+    "sessions_send",
+    "sessions_spawn",
+    "subagents"
+   ],
+   "spawnable_by_main": true
+  },
+  {
+   "id": "analytics-agent",
+   "name": "Analytics",
+   "role": "Edith's research helper: data analysis, HQ board reconciliation, gap analysis. Reports back to Edith only.",
+   "tier": "mid",
+   "model": "openai/gpt-5.6-terra",
+   "can_message_humans": false,
+   "denied_tools": [
+    "message",
+    "sessions_spawn",
+    "subagents"
+   ],
+   "spawnable_by_main": true
+  },
+  {
+   "id": "cron-analytics",
+   "name": "Analytics runner",
+   "role": "Scheduled identity for recall, margin and deck jobs.",
+   "tier": "scheduled",
+   "model": "openai/gpt-5.6-luna",
+   "can_message_humans": false,
+   "denied_tools": [
+    "message",
+    "sessions_send",
+    "sessions_spawn",
+    "subagents"
+   ],
+   "spawnable_by_main": false
+  },
+  {
+   "id": "cron-gbp",
+   "name": "GBP runner",
+   "role": "Scheduled identity for the 06:00 Google-reviews check and reply drafting.",
+   "tier": "scheduled",
+   "model": "openai/gpt-5.6-luna",
+   "can_message_humans": false,
+   "denied_tools": [
+    "message",
+    "sessions_send"
+   ],
+   "spawnable_by_main": false
+  },
+  {
+   "id": "cron-main",
+   "name": "Digest runner",
+   "role": "Scheduled identity for the daily WhatsApp group digest and weekly digest.",
+   "tier": "scheduled",
+   "model": "openai/gpt-5.6-luna",
+   "can_message_humans": false,
+   "denied_tools": [
+    "message",
+    "sessions_send",
+    "sessions_spawn",
+    "subagents"
+   ],
+   "spawnable_by_main": false
+  },
+  {
+   "id": "cron-seo",
+   "name": "SEO runner",
+   "role": "Scheduled identity for the Sunday SEO/GEO triage.",
+   "tier": "scheduled",
+   "model": "openai/gpt-5.6-luna",
+   "can_message_humans": false,
+   "denied_tools": [
+    "message",
+    "sessions_send",
+    "sessions_spawn",
+    "subagents"
+   ],
+   "spawnable_by_main": false
+  }
+ ],
+ "workflows": [
+  {
+   "id": "w3-seo",
+   "name": "Weekly SEO actioning",
+   "status": "LIVE",
+   "trigger": "Cron \u2014 every Sunday 16:30 MYT (seo_geo_audit.sh)",
+   "cadence": "weekly",
+   "nodes": [
+    {
+     "id": "t",
+     "type": "trigger",
+     "label": "Sunday 16:30 cron",
+     "detail": "System cron fires jobs/seo_geo_audit.sh. No human involvement; runs whether or not anyone asks."
+    },
+    {
+     "id": "audit",
+     "type": "agent",
+     "agent": "cron-seo",
+     "label": "Fresh data pull + triage",
+     "detail": "gpt-5.6-sol pulls GSC + GA4 fresh (never reuses last week), reads the SEO action ledger, and writes a 4-section triage: (1) what changed above noise, (2) what our last action did to the numbers, (3) this week's ONE mechanical fix as a machine-readable pr-spec, (4) what's stuck on humans with days-stuck counts. Hard rules: GSC lag windows, 21-day metadata cooldown, max one action, Game A (content) vs Game B (reviews decide) separation."
+    },
+    {
+     "id": "gate",
+     "type": "decision",
+     "label": "pr-spec present?",
+     "detail": "If the triage found nothing worth doing, that's a legitimate verdict \u2014 the report ships with no PR and the week costs nothing."
+    },
+    {
+     "id": "eng",
+     "type": "agent",
+     "agent": "engineer",
+     "label": "Implement as PR",
+     "detail": "w3_ship_pr.py hands the spec to the engineer: git worktree off origin/main, exact old\u2192new line replacement (stops if the file changed \u2014 freshness rule), build verified max 2 attempts, branch seo/weekly-<date>, PR opened via gh. Idempotent: finding the PR already open is success, never a duplicate."
+    },
+    {
+     "id": "ledger",
+     "type": "system",
+     "label": "Action ledger entry",
+     "detail": "The change is logged with baseline metrics and a verdict-due date (+21d). Next Sunday's report MUST reconcile it \u2014 this is what makes the report accumulate insight instead of repeating stats."
+    },
+    {
+     "id": "send",
+     "type": "voice",
+     "agent": "main",
+     "label": "Edith \u2192 Lau (Sunday 18:00 digest)",
+     "detail": "The triage + PR link ride the existing weekly digest. One message, one channel, no new pings."
+    },
+    {
+     "id": "approve",
+     "type": "human",
+     "label": "Lau merges the PR",
+     "detail": "Nothing reaches the live site without Lau clicking merge. First output: PR #253 (family-post title), merged 11 Sep."
+    }
+   ],
+   "edges": [
+    [
+     "t",
+     "audit"
+    ],
+    [
+     "audit",
+     "gate"
+    ],
+    [
+     "gate",
+     "eng",
+     "spec found"
+    ],
+    [
+     "gate",
+     "send",
+     "no spec"
+    ],
+    [
+     "eng",
+     "ledger"
+    ],
+    [
+     "ledger",
+     "send"
+    ],
+    [
+     "send",
+     "approve"
+    ]
+   ]
+  },
+  {
+   "id": "w1-gap",
+   "name": "Content gap \u2192 PR",
+   "status": "LIVE",
+   "trigger": "Lau shares content/insight on WhatsApp with Edith",
+   "cadence": "on demand",
+   "nodes": [
+    {
+     "id": "t",
+     "type": "trigger",
+     "label": "Lau shares content",
+     "detail": "A reel, an article, a competitor observation, an idea \u2014 anything sent to Edith on WhatsApp that implies the site could say or do something it doesn't."
+    },
+    {
+     "id": "ack",
+     "type": "voice",
+     "agent": "main",
+     "label": "Edith acknowledges",
+     "detail": "One line, immediately \u2014 the turn never ends silent (7-8 Sep invariant)."
+    },
+    {
+     "id": "gap",
+     "type": "agent",
+     "agent": "analytics-agent",
+     "label": "Gap analysis",
+     "detail": "content-gap-analysis skill + a grep of the actual repo: what exactly does the site lack versus what Lau shared? Output is a one-paragraph gap brief with target file paths. Scope is open: copy, a page section, a component, a small feature \u2014 anything the repo can express. Strategic changes (pricing, clinical claims, page merges) are excluded and become decision items instead."
+    },
+    {
+     "id": "truth",
+     "type": "decision",
+     "agent": "main",
+     "label": "Truth-gate (Edith)",
+     "detail": "Checked against the fact sheet and the doctor-signed claims ledger. An unverifiable claim goes BACK to Lau as a question \u2014 it is never guessed onto the website."
+    },
+    {
+     "id": "eng",
+     "type": "agent",
+     "agent": "engineer",
+     "label": "Implement as PR",
+     "detail": "Worktree, build-verify, small diff, dangerous-change flag if it touches booking/patient/payment/auth/customer-facing flows. PR only."
+    },
+    {
+     "id": "send",
+     "type": "voice",
+     "agent": "main",
+     "label": "Edith \u2192 Lau",
+     "detail": "One message: the gap found, what the PR changes, the link. Message ID logged."
+    },
+    {
+     "id": "approve",
+     "type": "human",
+     "label": "Lau merges",
+     "detail": "The only path to production."
+    }
+   ],
+   "edges": [
+    [
+     "t",
+     "ack"
+    ],
+    [
+     "ack",
+     "gap"
+    ],
+    [
+     "gap",
+     "truth"
+    ],
+    [
+     "truth",
+     "eng",
+     "claims verified"
+    ],
+    [
+     "truth",
+     "send",
+     "needs Lau's answer"
+    ],
+    [
+     "eng",
+     "send"
+    ],
+    [
+     "send",
+     "approve"
+    ]
+   ]
+  },
+  {
+   "id": "w2-blog",
+   "name": "Blog pipeline",
+   "status": "LIVE",
+   "trigger": "Lau asks for a post (weekly at most \u2014 never daily)",
+   "cadence": "on demand / weekly max",
+   "nodes": [
+    {
+     "id": "t",
+     "type": "trigger",
+     "label": "Lau requests a post",
+     "detail": "On demand. The old DAILY auto-publish pipeline stays dead \u2014 it burned quota and produced thin posts."
+    },
+    {
+     "id": "research",
+     "type": "agent",
+     "agent": "analytics-agent",
+     "label": "Keyword research",
+     "detail": "seo-keyword-researcher skill: search-intent research, deduped against blog-log.json and existing slugs so no topic is written twice."
+    },
+    {
+     "id": "write",
+     "type": "agent",
+     "agent": "analytics-agent",
+     "label": "Write the post",
+     "detail": "blog-content-creator skill with mandatory reads: Blog Playbook, CONTENT-CONTRACT, operator-humanizer (playbook overrides \u2014 never typos), Truth-Base. Frontmatter schema per blog-architecture: content/blog/<slug>.md is the ONLY file; faq: block inside frontmatter; generated files never hand-edited."
+    },
+    {
+     "id": "img",
+     "type": "agent",
+     "agent": "analytics-agent",
+     "label": "Hero image",
+     "detail": "ismile-image-generation skill \u2014 the owner's four hard rules (no text in frame, no identifiable premises, plausible photographer, matte skin) + the six-part prompt structure signed off 8 Sep. New heroes get a TARGETS entry in generate-responsive-variants.py."
+    },
+    {
+     "id": "eng",
+     "type": "agent",
+     "agent": "engineer",
+     "label": "Build-verify + PR",
+     "detail": "node scripts/build-blog.js, npm run build, branch, PR. Never publishes directly."
+    },
+    {
+     "id": "send",
+     "type": "voice",
+     "agent": "main",
+     "label": "Edith \u2192 Lau",
+     "detail": "Title, angle, PR link, request for approval."
+    },
+    {
+     "id": "approve",
+     "type": "human",
+     "label": "Lau merges \u2192 post goes live",
+     "detail": "Merge deploys via the normal site build."
+    }
+   ],
+   "edges": [
+    [
+     "t",
+     "research"
+    ],
+    [
+     "research",
+     "write"
+    ],
+    [
+     "write",
+     "img"
+    ],
+    [
+     "img",
+     "eng"
+    ],
+    [
+     "eng",
+     "send"
+    ],
+    [
+     "send",
+     "approve"
+    ]
+   ]
+  }
+ ]
+}
