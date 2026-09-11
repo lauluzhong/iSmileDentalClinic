@@ -1,6 +1,6 @@
 ---
-seo_title: "Family Dental Care in Damansara Jaya: What to Expect"
-seo_description: "What family dental care looks like in Damansara Jaya for patients of every age — from children’s check-ups through to adult treatment."
+seo_title: "Family Dental Clinic in Damansara Jaya, PJ | Care for All Ages"
+seo_description: "One family dental clinic in Damansara Jaya for every age — children’s first check-ups to adult care, with easy scheduling for busy PJ families."
 title: "Family Dental Care in Damansara Jaya: What to Expect for Patients of All Ages"
 excerpt: "A guide to family dental care in Damansara Jaya, covering what to expect from first visits to ongoing care for children and adults, with practical scheduling tips for busy families."
 img: /images/blog/family-three-generations-table.png
