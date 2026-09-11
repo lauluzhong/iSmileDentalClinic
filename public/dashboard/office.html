@@ -159,13 +159,13 @@
   .node-legend{display:flex;flex-wrap:wrap;gap:7px 14px;margin:0 2px 10px;font-family:var(--mono);font-size:9.5px;color:var(--mut)}
   .node-legend span{display:inline-flex;align-items:center;gap:5px}.node-legend i{width:8px;height:8px;border-radius:2px;background:var(--nc)}
   .flow-scroll{width:100%;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;border:1px solid rgba(34,50,82,.7);border-radius:8px;background-color:#0D1628;background-image:radial-gradient(rgba(94,113,150,.35) .7px,transparent .7px);background-size:16px 16px}
-  .flow-canvas{position:relative;min-height:230px}
+  .flow-canvas{position:relative;min-height:150px}
   .flow-canvas svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
   .edge{fill:none;stroke:#4C648D;stroke-width:1.5}.edge-label{fill:#AFC1DE;font:9.5px var(--mono);paint-order:stroke;stroke:#0D1628;stroke-width:5px;stroke-linejoin:round}
   .flow-node{position:absolute;width:184px;min-height:72px;padding:10px 11px;text-align:left;color:var(--ink);background:#142138;border:1px solid var(--nc,var(--line));border-left:4px solid var(--nc,var(--line));border-radius:7px;cursor:pointer;box-shadow:0 9px 22px rgba(0,0,0,.18);transition:transform .15s,box-shadow .15s}
   .flow-node:hover,.flow-node:focus-visible,.flow-node.selected{transform:translateY(-2px);box-shadow:0 0 0 1px var(--nc),0 12px 28px rgba(0,0,0,.32);outline:none}
-  .flow-node .nt{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--nc);margin-bottom:4px}
-  .flow-node .nl{font-size:12.5px;font-weight:600;line-height:1.28}.flow-node .na{font-family:var(--mono);font-size:9px;color:var(--dim);margin-top:5px}
+  .flow-node .nt{display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--nc);margin-bottom:5px;opacity:.95}
+  .flow-node .nl{display:block;font-size:12.5px;font-weight:600;line-height:1.3}.flow-node .na{display:block;font-family:var(--mono);font-size:9px;color:var(--dim);margin-top:6px;padding-top:5px;border-top:1px solid rgba(76,100,141,.28)}
   .flow-node.decision{border-style:dashed;background:linear-gradient(135deg,rgba(245,184,74,.12),#142138 42%)}
   .node-detail{display:none;margin-top:10px;padding:12px 14px;background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--detail,var(--p1));border-radius:8px}
   .node-detail.show{display:block}.node-detail .k{font-family:var(--mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--detail,var(--p1));margin-bottom:4px}.node-detail h3{font-family:var(--disp);font-size:14px;margin-bottom:5px}.node-detail p{color:var(--mut);font-size:12.5px;line-height:1.55;white-space:pre-wrap}
@@ -605,27 +605,27 @@ function canvasMarkup(wf){
   const nodes=wf.nodes||[], ranks=nodeRanks(wf), groups={};
   nodes.forEach(n=>(groups[ranks[n.id]]||(groups[ranks[n.id]]=[])).push(n));
   const maxRank=Math.max(0,...Object.values(ranks));
-  const nodeW=184,colGap=230,rowGap=116,padX=28,padY=30;
+  const nodeW=184,nodeH=92,colGap=286,rowGap=124,padX=28,padY=26;
   const widest=Math.max(1,...Object.values(groups).map(g=>g.length));
   const width=Math.max(760,padX*2+nodeW+maxRank*colGap);
-  const height=Math.max(230,padY*2+72+(widest-1)*rowGap);
+  const height=Math.max(150,padY*2+nodeH+(widest-1)*rowGap);
   const pos={};
   Object.keys(groups).forEach(k=>{
     const list=groups[k], span=(list.length-1)*rowGap;
-    list.forEach((n,i)=>{pos[n.id]={x:padX+Number(k)*colGap,y:(height-span)/2-36+i*rowGap};});
+    list.forEach((n,i)=>{pos[n.id]={x:padX+Number(k)*colGap,y:(height-span-nodeH)/2+i*rowGap};});
   });
   const marker="arrow-"+String(wf.id).replace(/[^a-z0-9_-]/gi,"");
   const edges=(wf.edges||[]).map(([from,to,label])=>{
     const a=pos[from],b=pos[to];if(!a||!b)return "";
-    const x1=a.x+nodeW,y1=a.y+36,x2=b.x,y2=b.y+36,mx=(x1+x2)/2;
-    return `<path class="edge" marker-end="url(#${marker})" d="M ${x1} ${y1} C ${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}"/>${label?`<text class="edge-label" x="${mx}" y="${(y1+y2)/2-7}" text-anchor="middle">${esc(label)}</text>`:""}`;
+    const x1=a.x+nodeW,y1=a.y+nodeH/2,x2=b.x,y2=b.y+nodeH/2,mx=(x1+x2)/2;
+    return `<path class="edge" marker-end="url(#${marker})" d="M ${x1} ${y1} C ${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}"/>${label?`<text class="edge-label" x="${mx}" y="${Math.min(a.y,b.y)-9}" text-anchor="middle">${esc(label)}</text>`:""}`;
   }).join("");
   const boxes=nodes.map(n=>{
     const p=pos[n.id],meta=NODE_META[n.type]||NODE_META.system;
     const agent=n.agent?AGENTS.find(a=>a.id===n.agent):null;
     return `<button class="flow-node ${n.type==="decision"?"decision":""}" data-node="${esc(n.id)}" style="left:${p.x}px;top:${p.y}px;--nc:${meta.color}" type="button"><span class="nt">${esc(meta.label)}</span><span class="nl">${esc(n.label)}</span>${agent?`<span class="na">${esc(agent.name)}</span>`:""}</button>`;
   }).join("");
-  return `<div class="flow-scroll"><div class="flow-canvas" style="width:${width}px;height:${height}px"><svg viewBox="0 0 ${width} ${height}" aria-hidden="true"><defs><marker id="${marker}" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#4C648D"/></marker></defs>${edges}</svg>${boxes}</div></div>`;
+  return `<div class="flow-scroll"><div class="flow-canvas" style="width:${width+padX}px;height:${height}px"><svg viewBox="0 0 ${width} ${height}" aria-hidden="true"><defs><marker id="${marker}" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#4C648D"/></marker></defs>${edges}</svg>${boxes}</div></div>`;
 }
 function workflowCard(wf){
   const card=el("article","flow-card");
