@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-09-12 19:30",
- "generated_at": "2026-09-12T19:30:10+08:00",
+ "generated_myt": "2026-09-12 20:00",
+ "generated_at": "2026-09-12T20:00:07+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 89.1,
   "nproc": 4,
   "load": [
-   0.32,
-   0.16,
-   0.12
+   0.14,
+   0.1,
+   0.09
   ],
-  "cpu_pct": 8.0,
-  "cpu_pct_sample": 5.8,
+  "cpu_pct": 3.5,
+  "cpu_pct_sample": 18.2,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 3730,
-   "avail_mb": 4210,
-   "pct": 47.0,
+   "used_mb": 3295,
+   "avail_mb": 4645,
+   "pct": 41.5,
    "swap_total_mb": 2047,
    "swap_used_mb": 195
   },
@@ -29,11 +29,11 @@
   "bridge_ok": false,
   "pollers": {
    "review_approvals": {
-    "age_s": 0,
-    "last_myt": "2026-09-12 19:30 MYT"
+    "age_s": 22,
+    "last_myt": "2026-09-12 20:00 MYT"
    },
    "hq_publish": {
-    "age_s": 161935,
+    "age_s": 163732,
     "last_myt": "2026-09-10 22:31 MYT",
     "detail": "asof=THU 10 SEP 2026 streams=40 sideboard=19 decisions=3 archive=11"
    }
@@ -45,35 +45,35 @@
     "gbp_reply"
    ],
    "running": [],
-   "status_updated": "2026-09-12 19:30 MYT"
+   "status_updated": "2026-09-12 20:00 MYT"
   },
   "last_clinic_push": "2026-09-12"
  },
  "agents": [],
  "finance": {
-  "as_of": "2026-09-11",
-  "generated_myt": "2026-09-11 19:40",
+  "as_of": "2026-09-12",
+  "generated_myt": "2026-09-12 19:40",
   "basis": "margin dashboard: true margin = production \u2212 locum est \u2212 lab est \u2212 chair-time burn (RM160/h loaded). Not the statutory P&L.",
   "mtd": {
-   "production": 124350,
-   "visits": 232,
-   "chair_hours": 171.5,
-   "lab_est": 13508,
-   "locum_est": 30843,
-   "burn_loaded": 27440,
-   "true_margin": 52559,
+   "production": 127130,
+   "visits": 259,
+   "chair_hours": 187.7,
+   "lab_est": 13568,
+   "locum_est": 32416,
+   "burn_loaded": 30027,
+   "true_margin": 51119,
    "months": [
     "2026-09"
    ]
   },
   "ytd": {
-   "production": 1887248,
-   "visits": 4543,
-   "chair_hours": 3277.9,
-   "lab_est": 174002,
-   "locum_est": 569245,
-   "burn_loaded": 524466,
-   "true_margin": 619535,
+   "production": 1890028,
+   "visits": 4570,
+   "chair_hours": 3294.1,
+   "lab_est": 174062,
+   "locum_est": 570818,
+   "burn_loaded": 527053,
+   "true_margin": 618095,
    "months": [
     "2026-01",
     "2026-02",
@@ -150,8 +150,8 @@
    },
    {
     "month": "2026-09",
-    "production": 124350,
-    "true_margin": 52559
+    "production": 127130,
+    "true_margin": 51119
    }
   ]
  },
