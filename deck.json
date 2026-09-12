@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-09-12 14:00",
- "generated_at": "2026-09-12T14:00:08+08:00",
+ "generated_myt": "2026-09-12 14:30",
+ "generated_at": "2026-09-12T14:30:07+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 88.9,
   "nproc": 4,
   "load": [
-   0.23,
-   0.08,
-   0.07
+   0.44,
+   0.18,
+   0.11
   ],
-  "cpu_pct": 5.8,
-  "cpu_pct_sample": 1.2,
+  "cpu_pct": 11.0,
+  "cpu_pct_sample": 1.5,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 3294,
-   "avail_mb": 4646,
-   "pct": 41.5,
+   "used_mb": 3272,
+   "avail_mb": 4668,
+   "pct": 41.2,
    "swap_total_mb": 2047,
    "swap_used_mb": 196
   },
@@ -29,11 +29,11 @@
   "bridge_ok": false,
   "pollers": {
    "review_approvals": {
-    "age_s": 22,
-    "last_myt": "2026-09-12 14:00 MYT"
+    "age_s": 23,
+    "last_myt": "2026-09-12 14:30 MYT"
    },
    "hq_publish": {
-    "age_s": 142133,
+    "age_s": 143932,
     "last_myt": "2026-09-10 22:31 MYT",
     "detail": "asof=THU 10 SEP 2026 streams=40 sideboard=19 decisions=3 archive=11"
    }
@@ -45,7 +45,7 @@
     "gbp_reply"
    ],
    "running": [],
-   "status_updated": "2026-09-12 14:00 MYT"
+   "status_updated": "2026-09-12 14:30 MYT"
   },
   "last_clinic_push": "2026-09-12"
  },
@@ -178,7 +178,25 @@
   "checked": "2026-09-12"
  },
  "social": {
-  "available": false,
-  "note": "Zernio call failed: URLError(ConnectionResetError(104, 'Connection reset by peer'))"
+  "available": true,
+  "source": "Zernio MCP (Edith's connection)",
+  "as_of": "2026-09-12",
+  "window_days": 30,
+  "accounts": [
+   {
+    "platform": "instagram",
+    "username": "ismiledentalclinicmy",
+    "display": "iSmile Dental Clinic",
+    "followers": 98.0,
+    "growth_30d": -1.0,
+    "growth_pct_30d": -1.01,
+    "posts_on_platform": 13.0,
+    "last_updated": "2026-09-12T04:29:58.994000Z",
+    "active": true
+   }
+  ],
+  "instagram_30d": null,
+  "posts_published_via_zernio": 0,
+  "note": "Instagram @ismiledentalclinicmy is connected through Zernio. Posts published outside Zernio are not counted in posts_published_via_zernio."
  }
 }
