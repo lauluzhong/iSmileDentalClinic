@@ -1,39 +1,39 @@
 {
- "generated_myt": "2026-09-13 05:30",
- "generated_at": "2026-09-13T05:30:09+08:00",
+ "generated_myt": "2026-09-13 06:00",
+ "generated_at": "2026-09-13T06:00:16+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 89.5,
   "nproc": 4,
   "load": [
-   0.08,
-   0.07,
-   0.08
+   0.77,
+   0.24,
+   0.13
   ],
-  "cpu_pct": 2.0,
-  "cpu_pct_sample": 1.6,
+  "cpu_pct": 19.2,
+  "cpu_pct_sample": 20.4,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 3270,
-   "avail_mb": 4670,
-   "pct": 41.2,
+   "used_mb": 3935,
+   "avail_mb": 4006,
+   "pct": 49.6,
    "swap_total_mb": 2047,
    "swap_used_mb": 195
   },
   "disk": {
    "total_gb": 154.9,
-   "used_gb": 24.8,
+   "used_gb": 24.7,
    "pct": 16.0
   },
   "gateway_ok": true,
   "bridge_ok": false,
   "pollers": {
    "review_approvals": {
-    "age_s": 25,
-    "last_myt": "2026-09-13 05:30 MYT"
+    "age_s": 29,
+    "last_myt": "2026-09-13 06:00 MYT"
    },
    "hq_publish": {
-    "age_s": 197934,
+    "age_s": 199741,
     "last_myt": "2026-09-10 22:31 MYT",
     "detail": "asof=THU 10 SEP 2026 streams=40 sideboard=19 decisions=3 archive=11"
    }
@@ -41,11 +41,12 @@
   "walogger_ok": true,
   "crons": {
    "total": 13,
-   "failed": [
+   "failed": [],
+   "running": [
+    "competitor_watch",
     "gbp_reply"
    ],
-   "running": [],
-   "status_updated": "2026-09-13 05:30 MYT"
+   "status_updated": "2026-09-13 06:00 MYT"
   },
   "last_clinic_push": "2026-09-13"
  },
@@ -180,7 +181,7 @@
  "social": {
   "available": true,
   "source": "Zernio MCP (Edith's connection)",
-  "as_of": "2026-09-12",
+  "as_of": "2026-09-13",
   "window_days": 30,
   "accounts": [
    {
