@@ -1,5 +1,5 @@
 ---
-seo_title: "Emergency Dentist in Damansara Jaya, PJ — What to Do Now"
+seo_title: "Emergency Dentist Damansara Jaya, PJ | Same-Day Care"
 seo_description: "Severe toothache, swelling or a knocked-out tooth? What counts as a dental emergency, the first steps to take, and how we aim to see urgent cases same-day."
 title: "Emergency Dental Care in Damansara Jaya: What to Expect"
 date: 2026-04-08
