@@ -1,67 +1,67 @@
 {
-  "as_of": "2026-09-14",
+  "as_of": "2026-09-15",
   "source": "redirect.ismile.com.my/admin/webhook/webhooklog",
   "note": "Funnel = event counts (per-message callbacks), not distinct patients. Conversion = matured-cohort recall->appointment rate (correlation, not proven causal lift); as-of the latest OpenDent export only.",
   "funnel_live": true,
-  "funnel_as_of": "2026-09-14",
+  "funnel_as_of": "2026-09-15",
   "cumulative": {
-    "total": 15232,
-    "sent": 5226,
-    "delivered": 6099,
-    "read": 2112,
-    "failed": 477,
-    "clicks": 175,
-    "replies": 1143
+    "total": 15408,
+    "sent": 5286,
+    "delivered": 6165,
+    "read": 2133,
+    "failed": 498,
+    "clicks": 180,
+    "replies": 1146
   },
   "this_month": {
-    "sent": 294,
-    "clicks": 15,
-    "replies": 45
+    "sent": 354,
+    "clicks": 20,
+    "replies": 48
   },
   "conversion": {
     "mature_days": 21,
     "attrib_window_days": 90,
-    "data_as_of": "2026-09-13",
-    "appt_export": "inbox/2026-09-13 e5+e6+backfill",
+    "data_as_of": "2026-09-14",
+    "appt_export": "inbox/2026-09-14 e5+e6+backfill",
     "appt_range": [
       "2024-08-12",
-      "2027-01-09"
+      "2027-01-11"
     ],
     "stale": false,
     "cohort_source": "blastlog (e10_blastlog.tsv)",
     "cohort_from": "2026-04-16",
-    "cohort_to": "2026-09-13",
+    "cohort_to": "2026-09-14",
     "cohort_age_days": 1,
     "cohort_static": false,
     "join": "external_patient_id -> PatNum (direct)",
     "available": true,
     "bridge": "external_patient_id (direct PatNum)",
-    "sent_total": 1493,
-    "matured_cohort": 1423,
-    "resolved_to_patient": 1422,
-    "resolved_via_patnum": 1422,
-    "booked_within_window": 282,
-    "booked_anytime": 346,
-    "conversion_pct": 19.8
+    "sent_total": 1497,
+    "matured_cohort": 1430,
+    "resolved_to_patient": 1429,
+    "resolved_via_patnum": 1429,
+    "booked_within_window": 289,
+    "booked_anytime": 357,
+    "conversion_pct": 20.2
   },
   "value": {
     "available": true,
-    "as_of": "2026-09-14",
+    "as_of": "2026-09-15",
     "bridge": "e8_patient_master.tsv (2026-09-13)",
     "sends": 767,
     "patients_in_cohort": 1138,
     "attrib_window_days": 90,
     "mature_days": 21,
-    "production_lines": 19751,
+    "production_lines": 19791,
     "month": "2026-09",
     "rule": "production by a recalled patient within 90 days after their first recall send, credited to the line's doctor; correlation, not proven lift",
     "all_time": {
       "patients_reached": 1138,
-      "patients_converted": 233,
-      "visits": 304,
+      "patients_converted": 235,
+      "visits": 306,
       "repeat_patients": 42,
-      "production": 114120,
-      "conversion_pct": 20.5,
+      "production": 114520,
+      "conversion_pct": 20.7,
       "by_doctor": [
         {
           "provnum": "6",
@@ -85,10 +85,10 @@
           "provnum": "8",
           "abbr": "Azeli",
           "name": "Dr Azelia",
-          "patients": 40,
-          "visits": 48,
+          "patients": 42,
+          "visits": 50,
           "repeat_visits": 8,
-          "production": 12160
+          "production": 12560
         },
         {
           "provnum": "7",
@@ -139,11 +139,11 @@
     },
     "mtd": {
       "patients_reached": 775,
-      "patients_converted": 12,
-      "visits": 15,
+      "patients_converted": 14,
+      "visits": 17,
       "repeat_patients": 1,
-      "production": 3350,
-      "conversion_pct": 1.3,
+      "production": 3750,
+      "conversion_pct": 1.5,
       "by_doctor": [
         {
           "provnum": "3",
@@ -173,6 +173,15 @@
           "production": 600
         },
         {
+          "provnum": "8",
+          "abbr": "Azeli",
+          "name": "Dr Azelia",
+          "patients": 3,
+          "visits": 3,
+          "repeat_visits": 0,
+          "production": 450
+        },
+        {
           "provnum": "4",
           "abbr": "Pris",
           "name": "Dr Priscilla",
@@ -180,18 +189,9 @@
           "visits": 1,
           "repeat_visits": 0,
           "production": 230
-        },
-        {
-          "provnum": "8",
-          "abbr": "Azeli",
-          "name": "Dr Azelia",
-          "patients": 1,
-          "visits": 1,
-          "repeat_visits": 0,
-          "production": 50
         }
       ],
-      "patients_first_converted": 10
+      "patients_first_converted": 12
     }
   }
 }
