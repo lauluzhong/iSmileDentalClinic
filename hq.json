@@ -2351,7 +2351,7 @@
   "note": "initiatives.store.json folded into this store; initiatives.json is now DERIVED from it by hq_publish.py for the legacy page."
  },
  "meta": {
-  "asof": "THU 10 SEP 2026",
-  "updated": "2026-09-10T22:31:29+08:00"
+  "asof": "TUE 15 SEP 2026",
+  "updated": "2026-09-15T00:58:36+08:00"
  }
 }
