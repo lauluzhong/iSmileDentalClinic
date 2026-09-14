@@ -1,24 +1,14 @@
 {
- "updated": "2026-09-15T00:58:36+08:00",
+ "updated": "2026-09-15T00:59:34+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Edith": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +17,18 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
+  "Lydia": {
    "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   }
@@ -381,8 +381,8 @@
    "title": "Doctor rollout & communication",
    "status": "active",
    "owner": "Lau",
-   "why": "How the agreement lands with the doctors. The contracts went out first with a written summary card; the group sit-down is still to be arranged.",
-   "next": "Wait on Lydia's finalised contracts, then book the Zoom explainer, send the contracts individually, and set the group sit-down about two weeks after.",
+   "why": "Lu has spoken with Dr Jean and Dr Amy. One session with the doctors is needed to walk through the agreement and clarify questions; target September, ideally next week.",
+   "next": "Schedule one evening session with the doctors in September, ideally next week, to walk through the agreement and clarify questions. Allow up to 1.5 hours; dinner may be included.",
    "dept": "finance",
    "lens": "efficiency",
    "endMonth": null,
@@ -394,7 +394,7 @@
     "Zoom explainer \u2014 not held; a written summary card went with the contracts instead",
     "Contracts sent to each doctor individually",
     "Two weeks of personal questions by text \u2014 answered as they come",
-    "Group sit-down \u2014 remaining questions + OpenDent code alignment recap",
+    "Schedule one evening session with the doctors \u2014 walk through the agreement and clarify questions",
     "Signatures"
    ],
    "pillar": "P2"
