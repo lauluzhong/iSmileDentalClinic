@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-09-15 10:30",
- "generated_at": "2026-09-15T10:30:10+08:00",
+ "generated_myt": "2026-09-15 11:00",
+ "generated_at": "2026-09-15T11:00:08+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 91.7,
   "nproc": 4,
   "load": [
-   0.27,
-   0.16,
-   0.12
+   0.13,
+   0.06,
+   0.07
   ],
-  "cpu_pct": 6.8,
-  "cpu_pct_sample": 0.9,
+  "cpu_pct": 3.2,
+  "cpu_pct_sample": 0.7,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 3454,
-   "avail_mb": 4486,
-   "pct": 43.5,
+   "used_mb": 3497,
+   "avail_mb": 4443,
+   "pct": 44.0,
    "swap_total_mb": 2047,
    "swap_used_mb": 196
   },
@@ -29,11 +29,11 @@
   "bridge_ok": false,
   "pollers": {
    "review_approvals": {
-    "age_s": 25,
-    "last_myt": "2026-09-15 10:30 MYT"
+    "age_s": 23,
+    "last_myt": "2026-09-15 11:00 MYT"
    },
    "hq_publish": {
-    "age_s": 3576,
+    "age_s": 5373,
     "last_myt": "2026-09-15 09:30 MYT",
     "detail": "asof=TUE 15 SEP 2026 streams=40 sideboard=19 decisions=3 archive=11"
    }
@@ -43,7 +43,7 @@
    "total": 14,
    "failed": [],
    "running": [],
-   "status_updated": "2026-09-15 10:30 MYT"
+   "status_updated": "2026-09-15 11:00 MYT"
   },
   "last_clinic_push": "2026-09-14"
  },
@@ -176,25 +176,7 @@
   "checked": "2026-09-15"
  },
  "social": {
-  "available": true,
-  "source": "Zernio MCP (Edith's connection)",
-  "as_of": "2026-09-15",
-  "window_days": 30,
-  "accounts": [
-   {
-    "platform": "instagram",
-    "username": "ismiledentalclinicmy",
-    "display": "iSmile Dental Clinic",
-    "followers": 98.0,
-    "growth_30d": -1.0,
-    "growth_pct_30d": -1.01,
-    "posts_on_platform": 13.0,
-    "last_updated": "2026-09-14T04:37:06.982000Z",
-    "active": true
-   }
-  ],
-  "instagram_30d": null,
-  "posts_published_via_zernio": 0,
-  "note": "Instagram @ismiledentalclinicmy is connected through Zernio. Posts published outside Zernio are not counted in posts_published_via_zernio."
+  "available": false,
+  "note": "Zernio call failed: URLError(ConnectionResetError(104, 'Connection reset by peer'))"
  }
 }
