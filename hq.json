@@ -181,10 +181,10 @@
    "streams": [
     {
      "id": "d1",
-     "dot": "wait",
-     "chip": "CC tracking \u00b7 Leow install pending",
+     "dot": "live",
+     "chip": "data flow OK \u00b7 rollout pending",
      "name": "OpenDent \u2194 AutoCount integration",
-     "one": "The spine. OpenDent is migrated and installed on every machine; iSmile-side testing is cleared, while Code Capsule tracks completion after Leow installs AutoCount.",
+     "one": "OpenDent \u2192 AutoCount data flow was reported OK on 15 Sep. The remaining front-desk rollout is tracked through the hardware, local setup and training steps.",
      "steps": [
       {
        "t": "Sandbox on the side PC \u2014 integration proven",
@@ -240,12 +240,9 @@
        "w": "8 Sep"
       },
       {
-       "t": "Cooling solution for the 2 front-desk PCs",
-       "s": "now"
-      },
-      {
-       "t": "2 monitors \u2014 Jason to source (his contact sells secondhand)",
-       "s": "now"
+       "t": "OpenDent \u2192 AutoCount data flow reported OK",
+       "s": "done",
+       "w": "15 Sep"
       },
       {
        "t": "Commission the front-desk PCs: Chrome + iSmile email signed in (Google Docs for letters) + WhatsApp Web",
@@ -279,18 +276,17 @@
       }
      ],
      "open": [
-      "<b>Migration is done and OpenDent is on every machine</b>, the 2 new front-desk PCs included. They are not in service yet for two reasons only: the cooling issue and no monitors.",
-      "<b>Two hardware items stand between here and a working front desk:</b> (1) a cooling solution for the downstairs PCs, (2) two monitors \u2014 ask Jason to buy them, his contact sells secondhand.",
+      "<b>OpenDent \u2192 AutoCount data flow was reported OK by Jason on 15 Sep.</b> Hardware status is consolidated under Hardware & server.",
       "<b>Then the commissioning order:</b> set the front-desk PCs up for real (OpenDent already on, plus Chrome with the iSmile email signed in for Google Docs letters, plus WhatsApp Web \u2014 enough for the desk to start working) \u2192 X-ray vendor installs the X-ray software \u2192 Leow installs AutoCount, the 2 secondary accounts downstairs and the primary on the server upstairs.",
       "<b>Only then the two training events:</b> Leow teaches Lau and Emily AutoCount first; the front-desk training follows on a Saturday after work (clinic closes 3:30 PM) with dinner after \u2014 <b>3 Oct (tentative); confirmation pending</b>.",
       "8-point list sent to Jason 6 Sep \u2014 awaiting his answers, above all the end-to-end date.",
       "EasyDent (X-ray) + CCTV stay on the old PC \u2014 do not migrate",
-      "iSmile-side testing/clearance is complete. Code Capsule owns tracking completion once Leow installs AutoCount; the downstream integration remains open."
+      "iSmile-side testing/clearance is complete; track the remaining front-desk rollout and end-to-end date."
      ],
      "flag": {
       "k": "wait",
       "who": "Jason",
-      "w": "Cooling and two monitors are the only things blocking the front desk. Jason also owes the 8-point answers and an end-to-end date."
+      "w": "Jason owes the remaining 8-point answers and an end-to-end date."
      },
      "owner": "codecapsule",
      "dept": "tech",
@@ -298,7 +294,7 @@
      "from_initiatives": [
       1
      ],
-     "next": "Wait for the downstairs computers to be completed, then Leow installs AutoCount; Code Capsule tracks completion of the remaining AC \u2194 iSmile integration work.",
+     "next": "Confirm the remaining front-desk rollout and secure Jason's end-to-end test date.",
      "endMonth": "2026-09"
     },
     {
@@ -535,9 +531,9 @@
     {
      "id": "d7",
      "dot": "wait",
-     "chip": "monitors pending \u00b7 cooling decision",
+     "chip": "2 monitors due Thu 17 Sep \u00b7 cooling open",
      "name": "Hardware & server",
-     "one": "Server swapped and every PC reconnected. The two front-desk machines are built but cannot go into service without cooling and monitors.",
+     "one": "Server swapped and every PC reconnected. The two front-desk machines await monitor delivery on Thu 17 Sep and a cooling solution.",
      "steps": [
       {
        "t": "Server CPU brought in",
@@ -565,10 +561,10 @@
       },
       {
        "t": "Cooling solution for the front-desk PCs",
-       "s": "now"
+       "s": ""
       },
       {
-       "t": "2 monitors \u2014 Jason to buy (contact sells secondhand)",
+       "t": "2 monitors ordered \u2014 expected Thu 17 Sep; Jason to arrange delivery to clinic",
        "s": "now"
       },
       {
@@ -577,19 +573,19 @@
       }
      ],
      "open": [
-      "<b>The two front-desk PCs are the last hardware item.</b> OpenDent is already on them; they are held back by the cooling issue and by having no monitors.",
-      "<b>Monitors:</b> Jason quoted refurbished Samsung 24-inch monitors at RM150 each; 3 units were intended (2 iSmile, 1 personal), with 1-to-1 replacement warranty for 3 months and no quantity discount. The iSmile requirement remains two monitors.",
+      "<b>The two front-desk PCs are the last hardware item.</b> OpenDent is already on them; they await the ordered monitors and a cooling solution.",
+      "<b>Monitors:</b> two have been ordered; Jason expects them on Thu 17 Sep and will arrange delivery to the clinic.",
       "<b>Cooling fans:</b> open question for iSmile and Jason \u2014 who buys them, what exact fan/model or protective case is recommended, and whether a guard/casing is needed so the hot setup is safe and practical to touch. Confirm approximate price and availability."
      ],
      "owner": "codecapsule",
      "dept": "tech",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Jason buys the two monitors; iSmile and Jason resolve the cooling-fan buyer and safe, touchable fan/case/guard solution, then the front-desk PCs go into service.",
+     "next": "Jason arranges clinic delivery of the two monitors on Thu 17 Sep; iSmile and Jason resolve the cooling-fan buyer and safe, touchable fan/case/guard solution, then the front-desk PCs go into service.",
      "flag": {
       "k": "wait",
       "who": "Jason / iSmile",
-      "w": "Buy the two monitors and settle who supplies a safe, practical cooling-fan solution."
+      "w": "Arrange clinic delivery of the two ordered monitors on Thu 17 Sep and settle who supplies a safe, practical cooling-fan solution."
      }
     },
     {
@@ -2353,6 +2349,6 @@
  },
  "meta": {
   "asof": "TUE 15 SEP 2026",
-  "updated": "2026-09-15T00:59:49+08:00"
+  "updated": "2026-09-15T09:30:49+08:00"
  }
 }

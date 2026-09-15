@@ -1,17 +1,7 @@
 {
- "updated": "2026-09-15T00:59:49+08:00",
+ "updated": "2026-09-15T09:30:49+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Edith": {
    "init": "E",
    "role": "",
@@ -22,7 +12,7 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
+  "Lydia": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
@@ -31,16 +21,26 @@
    "init": "E",
    "role": "",
    "color": "#45C4FF"
+  },
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
   }
  },
  "initiatives": [
   {
    "id": "d1",
    "title": "OpenDent \u2194 AutoCount integration",
-   "status": "review",
+   "status": "active",
    "owner": "Code Capsule",
-   "why": "The spine. OpenDent is migrated and installed on every machine; iSmile-side testing is cleared, while Code Capsule tracks completion after Leow installs AutoCount.",
-   "next": "Wait for the downstairs computers to be completed, then Leow installs AutoCount; Code Capsule tracks completion of the remaining AC \u2194 iSmile integration work.",
+   "why": "OpenDent \u2192 AutoCount data flow was reported OK on 15 Sep. The remaining front-desk rollout is tracked through the hardware, local setup and training steps.",
+   "next": "Confirm the remaining front-desk rollout and secure Jason's end-to-end test date.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -57,8 +57,7 @@
     "OpenDent installed on every computer, including the 2 new front-desk PCs",
     "8-point confirmation list sent to Jason in the CC group",
     "iSmile-side AC \u2194 iSmile integration testing and clearance complete; CC owns completion tracking",
-    "Cooling solution for the 2 front-desk PCs",
-    "2 monitors \u2014 Jason to source (his contact sells secondhand)",
+    "OpenDent \u2192 AutoCount data flow reported OK",
     "Commission the front-desk PCs: Chrome + iSmile email signed in (Google Docs for letters) + WhatsApp Web",
     "X-ray vendor installs the X-ray software (likely over UltraViewer)",
     "Leow (AutoCount) installs AutoCount \u2014 2 secondary accounts downstairs, 1 primary on the server upstairs",
@@ -174,8 +173,8 @@
    "title": "Hardware & server",
    "status": "review",
    "owner": "Code Capsule",
-   "why": "Server swapped and every PC reconnected. The two front-desk machines are built but cannot go into service without cooling and monitors.",
-   "next": "Jason buys the two monitors; iSmile and Jason resolve the cooling-fan buyer and safe, touchable fan/case/guard solution, then the front-desk PCs go into service.",
+   "why": "Server swapped and every PC reconnected. The two front-desk machines await monitor delivery on Thu 17 Sep and a cooling solution.",
+   "next": "Jason arranges clinic delivery of the two monitors on Thu 17 Sep; iSmile and Jason resolve the cooling-fan buyer and safe, touchable fan/case/guard solution, then the front-desk PCs go into service.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": null,
@@ -187,7 +186,7 @@
     "Server swap",
     "OpenDent installed on all machines incl. the 2 front-desk PCs",
     "Cooling solution for the front-desk PCs",
-    "2 monitors \u2014 Jason to buy (contact sells secondhand)",
+    "2 monitors ordered \u2014 expected Thu 17 Sep; Jason to arrange delivery to clinic",
     "Front-desk PCs into service"
    ],
    "pillar": "P1"
