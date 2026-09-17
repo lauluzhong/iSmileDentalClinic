@@ -1,39 +1,39 @@
 {
- "generated_myt": "2026-09-17 19:30",
- "generated_at": "2026-09-17T19:30:08+08:00",
+ "generated_myt": "2026-09-17 20:00",
+ "generated_at": "2026-09-17T20:00:09+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 94.1,
   "nproc": 4,
   "load": [
-   0.6,
-   0.25,
-   0.2
+   0.09,
+   0.12,
+   0.16
   ],
-  "cpu_pct": 15.0,
-  "cpu_pct_sample": 3.8,
+  "cpu_pct": 2.2,
+  "cpu_pct_sample": 0.8,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 4199,
-   "avail_mb": 3741,
-   "pct": 52.9,
+   "used_mb": 3476,
+   "avail_mb": 4464,
+   "pct": 43.8,
    "swap_total_mb": 2047,
    "swap_used_mb": 196
   },
   "disk": {
    "total_gb": 154.9,
-   "used_gb": 25.4,
+   "used_gb": 25.5,
    "pct": 16.4
   },
   "gateway_ok": true,
   "bridge_ok": false,
   "pollers": {
    "review_approvals": {
-    "age_s": 23,
-    "last_myt": "2026-09-17 19:30 MYT"
+    "age_s": 24,
+    "last_myt": "2026-09-17 20:00 MYT"
    },
    "hq_publish": {
-    "age_s": 1035,
+    "age_s": 2836,
     "last_myt": "2026-09-17 19:13 MYT",
     "detail": "asof=THU 17 SEP 2026 streams=40 sideboard=19 decisions=2 archive=11"
    }
@@ -43,35 +43,35 @@
    "total": 14,
    "failed": [],
    "running": [],
-   "status_updated": "2026-09-17 19:30 MYT"
+   "status_updated": "2026-09-17 20:00 MYT"
   },
   "last_clinic_push": "2026-09-17"
  },
  "agents": [],
  "finance": {
-  "as_of": "2026-09-16",
-  "generated_myt": "2026-09-16 19:40",
+  "as_of": "2026-09-17",
+  "generated_myt": "2026-09-17 19:40",
   "basis": "margin dashboard: true margin = production \u2212 locum est \u2212 lab est \u2212 chair-time burn (RM160/h loaded). Not the statutory P&L.",
   "mtd": {
-   "production": 136500,
-   "visits": 295,
-   "chair_hours": 216.5,
-   "lab_est": 13689,
-   "locum_est": 33879,
-   "burn_loaded": 34640,
-   "true_margin": 54292,
+   "production": 146510,
+   "visits": 321,
+   "chair_hours": 238.2,
+   "lab_est": 14764,
+   "locum_est": 35328,
+   "burn_loaded": 38107,
+   "true_margin": 58311,
    "months": [
     "2026-09"
    ]
   },
   "ytd": {
-   "production": 1899398,
-   "visits": 4606,
-   "chair_hours": 3322.9,
-   "lab_est": 174183,
-   "locum_est": 572281,
-   "burn_loaded": 531666,
-   "true_margin": 621268,
+   "production": 1909408,
+   "visits": 4632,
+   "chair_hours": 3344.6,
+   "lab_est": 175258,
+   "locum_est": 573730,
+   "burn_loaded": 535133,
+   "true_margin": 625287,
    "months": [
     "2026-01",
     "2026-02",
@@ -148,8 +148,8 @@
    },
    {
     "month": "2026-09",
-    "production": 136500,
-    "true_margin": 54292
+    "production": 146510,
+    "true_margin": 58311
    }
   ]
  },
