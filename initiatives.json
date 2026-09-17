@@ -1,18 +1,18 @@
 {
- "updated": "2026-09-15T09:30:49+08:00",
+ "updated": "2026-09-17T19:13:07+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Edith": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Code Capsule": {
    "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
@@ -22,13 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
+  "Lydia": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -380,8 +380,8 @@
    "title": "Doctor rollout & communication",
    "status": "active",
    "owner": "Lau",
-   "why": "Lu has spoken with Dr Jean and Dr Amy. One session with the doctors is needed to walk through the agreement and clarify questions; target September, ideally next week.",
-   "next": "Schedule one evening session with the doctors in September, ideally next week, to walk through the agreement and clarify questions. Allow up to 1.5 hours; dinner may be included.",
+   "why": "Doctors agreement walkthrough and Q&A confirmed for Wednesday 23 September at 6:30 PM.",
+   "next": "Hold the doctors agreement walkthrough and Q&A on Wednesday 23 September 2026 at 6:30 PM. Allow up to 1.5 hours, with dinner if included.",
    "dept": "finance",
    "lens": "efficiency",
    "endMonth": null,
@@ -393,7 +393,7 @@
     "Zoom explainer \u2014 not held; a written summary card went with the contracts instead",
     "Contracts sent to each doctor individually",
     "Two weeks of personal questions by text \u2014 answered as they come",
-    "Schedule one evening session with the doctors \u2014 walk through the agreement and clarify questions",
+    "Doctors agreement walkthrough and Q&A",
     "Signatures"
    ],
    "pillar": "P2"

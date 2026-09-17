@@ -9,13 +9,6 @@
   },
   {
    "hot": false,
-   "k": "September \u00b7 ideally next week",
-   "t": "Doctors agreement session",
-   "w": "Schedule one evening session with the doctors to walk through the agreement and clarify questions. Lu can attend; allow up to 1.5 hours, with dinner if included.",
-   "ref": "l8"
-  },
-  {
-   "hot": false,
    "k": "Small unlock",
    "t": "Set the FOH training date",
    "w": "A Saturday after work, followed by dinner. Scope is already fixed; it only needs a date in the diary.",
@@ -1026,9 +1019,9 @@
     {
      "id": "l8",
      "dot": "now",
-     "chip": "session to schedule",
+     "chip": "Wed 23 Sep \u00b7 6:30 PM",
      "name": "Doctor rollout & communication",
-     "one": "Lu has spoken with Dr Jean and Dr Amy. One session with the doctors is needed to walk through the agreement and clarify questions; target September, ideally next week.",
+     "one": "Doctors agreement walkthrough and Q&A confirmed for Wednesday 23 September at 6:30 PM.",
      "steps": [
       {
        "t": "Parents approve the three changes",
@@ -1060,9 +1053,9 @@
        "s": ""
       },
       {
-       "t": "Schedule one evening session with the doctors \u2014 walk through the agreement and clarify questions",
-       "s": "now",
-       "w": "September \u2014 ideally next week"
+       "t": "Doctors agreement walkthrough and Q&A",
+       "s": "done",
+       "w": "Wed 23 Sep \u00b7 6:30 PM"
       },
       {
        "t": "Signatures",
@@ -1079,23 +1072,18 @@
      ],
      "open": [
       "<b>The sequence changed in the doing (10 Sep):</b> the contracts went out to the five non-specialist doctors <i>before</i> any group call, each carrying a one-page &ldquo;Three Key Changes&rdquo; summary card &mdash; the 10% deduction going, discounts borne by the doctor, and the timing of locum sharing payment. The Zoom explainer that was to come first did not happen.",
-      "<b>Scheduling update:</b> Lu has spoken with Dr Jean and Dr Amy. One evening session with the doctors is needed to walk through the agreement and clarify questions. Target September, ideally next week; Lu can attend; maximum 1.5 hours; dinner may be included. No date set.",
+      "<b>Scheduling confirmed:</b> doctors agreement walkthrough and Q&A is set for Wednesday 23 September 2026 at 6:30 PM. Lu can attend; allow up to 1.5 hours, with dinner if included.",
       "<b>Two specialists still to receive theirs</b> &mdash; Dr Yeoh and Dr Joan.",
       "<b>Why the call comes first:</b> the language is legal and none of the doctors are legal people. They should understand the shape of the change before a document lands in front of them \u2014 and there is genuine good news to lead with (the 10% cut goes) alongside the new discount approach.",
       "<b>The second session doubles as the OpenDent alignment recap</b> \u2014 code usage, and that a discount is a line rather than an edited production price. If that turns out not to be needed, the session still earns its place on the contract questions alone.",
       "\u26a0\ufe0f <b>The 15 Sep meeting no longer holds</b> \u2014 the contracts are still with Lydia. Dates follow her, not the calendar.",
       "Dr Ling's overdue 1-to-1 belongs inside this rollout, not as a separate conversation"
      ],
-     "flag": {
-      "k": "talk",
-      "who": "Lu",
-      "w": "Set an evening agreement session with the doctors for September, ideally next week."
-     },
      "owner": "lu",
      "dept": "finance",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Schedule one evening session with the doctors in September, ideally next week, to walk through the agreement and clarify questions. Allow up to 1.5 hours; dinner may be included."
+     "next": "Hold the doctors agreement walkthrough and Q&A on Wednesday 23 September 2026 at 6:30 PM. Allow up to 1.5 hours, with dinner if included."
     },
     {
      "id": "l6",
@@ -2348,7 +2336,7 @@
   "note": "initiatives.store.json folded into this store; initiatives.json is now DERIVED from it by hq_publish.py for the legacy page."
  },
  "meta": {
-  "asof": "TUE 15 SEP 2026",
-  "updated": "2026-09-15T09:30:49+08:00"
+  "asof": "THU 17 SEP 2026",
+  "updated": "2026-09-17T19:13:07+08:00"
  }
 }
