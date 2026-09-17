@@ -40,7 +40,7 @@
   nav a.active{border-color:var(--p1);color:var(--ink)}
 
   /* ---------- grid ---------- */
-  .deck{display:grid;grid-template-columns:minmax(330px,1fr) minmax(0,1.45fr) minmax(350px,1fr);gap:14px;align-items:start}
+  .deck{display:grid;grid-template-columns:minmax(290px,1fr) minmax(0,1.45fr) minmax(300px,1fr);gap:14px;align-items:start}
   .col{display:flex;flex-direction:column;gap:14px;min-width:0}
   .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;position:relative}
   .card::before{content:"";position:absolute;top:8px;right:8px;width:9px;height:9px;border-top:1.5px solid var(--ac,var(--p1));border-right:1.5px solid var(--ac,var(--p1));opacity:.55;pointer-events:none}
@@ -141,7 +141,8 @@
   footer{margin-top:24px;text-align:center;color:var(--dim);font-family:var(--mono);font-size:10.5px;line-height:1.7}
   footer a{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--dim)}
 
-  @media(max-width:1120px){
+  /* three columns hold down to 1000px wide, e.g. half of a portrait monitor (owner, 17 Sep 2026) */
+  @media(max-width:999px){
     .deck{grid-template-columns:1fr 1fr}
     .col.c{grid-column:1/-1;order:-1}
   }
