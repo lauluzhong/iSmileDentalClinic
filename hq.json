@@ -2390,8 +2390,205 @@
   "date": "2026-09-02",
   "note": "initiatives.store.json folded into this store; initiatives.json is now DERIVED from it by hq_publish.py for the legacy page."
  },
+ "gantt": {
+  "about": "Timeline page (/dashboard/timeline). One entry per initiative; each item is a bar (start+end) or a milestone (start only). status: done | now | next. locked: true = a committed date. Keep dates in step with the stream cards (streams = ids of the related Task Tracker cards).",
+  "initiatives": [
+   {
+    "id": "ar",
+    "name": "Receipts go digital (AR)",
+    "color": "p1",
+    "streams": [
+     "d1",
+     "d7",
+     "d3",
+     "h5"
+    ],
+    "owner": "Lau \u00b7 Emily \u00b7 Code Capsule",
+    "summary": "Front-desk PCs and AutoCount in place, one walkthrough, the front-desk training, then the switch from paper receipts.",
+    "items": [
+     {
+      "label": "OpenDent migrated to the new server",
+      "start": "2026-09-05",
+      "status": "done",
+      "who": "Bob (Code Capsule)"
+     },
+     {
+      "label": "OpenDent \u2192 AutoCount data flow confirmed",
+      "start": "2026-09-15",
+      "status": "done",
+      "who": "Jason"
+     },
+     {
+      "label": "Front-desk PCs configured, moved downstairs",
+      "start": "2026-09-18",
+      "end": "2026-09-19",
+      "status": "now",
+      "who": "Emily \u00b7 Code Capsule",
+      "note": "Configured upstairs first. Monitors, keyboards and mice are in; no extra cooling needed."
+     },
+     {
+      "label": "Leow installs AutoCount remotely",
+      "start": "2026-09-19",
+      "end": "2026-09-21",
+      "status": "next",
+      "who": "Leow (AutoCount)",
+      "note": "Two secondary accounts on the front-desk PCs, the primary on the server. Needs remote access from us."
+     },
+     {
+      "label": "Receipt design + receipts SOP ready",
+      "start": "2026-09-21",
+      "end": "2026-10-02",
+      "status": "next",
+      "who": "Lau \u00b7 Emily",
+      "note": "Must be ready before the training on 3 Oct."
+     },
+     {
+      "label": "X-ray software on the front-desk PCs",
+      "start": "2026-09-28",
+      "end": "2026-10-01",
+      "status": "next",
+      "who": "X-ray vendor",
+      "note": "Likely installed remotely."
+     },
+     {
+      "label": "Walkthrough: Leow, Jason, Emily, Lau",
+      "start": "2026-09-29",
+      "end": "2026-09-30",
+      "status": "next",
+      "who": "Leow \u00b7 Jason \u00b7 Emily \u00b7 Lau",
+      "note": "1\u20132 hours. Check the whole flow end to end and recap how receipts are generated. Day to fix: 29 or 30 Sep."
+     },
+     {
+      "label": "Front-desk training + dinner",
+      "start": "2026-10-03",
+      "status": "next",
+      "locked": true,
+      "time": "3:30 PM",
+      "who": "Joanna \u00b7 Erincy \u00b7 Jessy \u00b7 Ida",
+      "note": "After the clinic closes. Receipts and e-invoices from AutoCount, plus the wider front-desk syllabus."
+     },
+     {
+      "label": "Cutover week \u2014 receipts from AutoCount",
+      "start": "2026-10-05",
+      "end": "2026-10-09",
+      "status": "next",
+      "who": "Front desk \u00b7 Lau + Emily on standby",
+      "note": "Paper receipts retired. Lau and Emily in person all week."
+     }
+    ]
+   },
+   {
+    "id": "blast",
+    "name": "Cold reactivation blast",
+    "color": "p3",
+    "streams": [
+     "g1"
+    ],
+    "owner": "Lau \u00b7 Code Capsule",
+    "summary": "4,011 lapsed patients over three days at 1,800 a day.",
+    "items": [
+     {
+      "label": "Set-up + fresh-data re-run",
+      "start": "2026-09-18",
+      "end": "2026-09-21",
+      "status": "now",
+      "who": "Lau"
+     },
+     {
+      "label": "Blast sends \u2014 1,800 a day",
+      "start": "2026-09-22",
+      "end": "2026-09-24",
+      "status": "next",
+      "locked": true,
+      "who": "MiniCRM (Code Capsule)"
+     },
+     {
+      "label": "Recall-link certificate must be renewed",
+      "start": "2026-10-16",
+      "status": "next",
+      "who": "Code Capsule",
+      "note": "If it lapses, the recall and blast links stop working. Auto-renewal should fire around 15 Sep\u201315 Oct."
+     }
+    ]
+   },
+   {
+    "id": "contracts",
+    "name": "Doctors' contracts",
+    "color": "p2",
+    "streams": [
+     "l1",
+     "l8"
+    ],
+    "owner": "Lau",
+    "summary": "Agreements are final as sent. One walkthrough, then signatures.",
+    "items": [
+     {
+      "label": "Agreements sent to 5 doctors, with the summary card",
+      "start": "2026-09-10",
+      "status": "done",
+      "who": "Lau"
+     },
+     {
+      "label": "Questions by text, answered as they come",
+      "start": "2026-09-10",
+      "end": "2026-09-23",
+      "status": "now",
+      "who": "Lau"
+     },
+     {
+      "label": "Walkthrough at the clinic",
+      "start": "2026-09-23",
+      "status": "next",
+      "locked": true,
+      "time": "6:30 PM",
+      "who": "All doctors except Yeoh and Joan",
+      "note": "In person. For understanding and questions; no revisions planned."
+     },
+     {
+      "label": "Signed copies back to Lau",
+      "start": "2026-09-23",
+      "end": "2026-09-30",
+      "status": "next",
+      "who": "Doctors"
+     },
+     {
+      "label": "Signed copies due",
+      "start": "2026-09-30",
+      "status": "next",
+      "locked": true,
+      "who": "Doctors"
+     }
+    ]
+   },
+   {
+    "id": "jun",
+    "name": "Dr Jun joins",
+    "color": "fhr",
+    "streams": [
+     "g4"
+    ],
+    "owner": "Lau",
+    "summary": "Contract out; first day 26 Oct.",
+    "items": [
+     {
+      "label": "Contract sent to Jun",
+      "start": "2026-09-06",
+      "status": "done",
+      "who": "Lau"
+     },
+     {
+      "label": "First day (5 days a week)",
+      "start": "2026-10-26",
+      "status": "next",
+      "locked": true,
+      "who": "Dr Jun"
+     }
+    ]
+   }
+  ]
+ },
  "meta": {
   "asof": "FRI 18 SEP 2026",
-  "updated": "2026-09-18T11:52:58+08:00"
+  "updated": "2026-09-18T11:59:16+08:00"
  }
 }
