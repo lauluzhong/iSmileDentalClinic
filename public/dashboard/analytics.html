@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="/dashboard/theme.css">
+<script src="/dashboard/theme.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
@@ -17,10 +19,10 @@
     --disp:"Chakra Petch",system-ui,sans-serif; --body:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scrollbar-color:#2A3B5E var(--bg)}
+  html{scrollbar-color:var(--line-2) var(--bg)}
   body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:13.5px;line-height:1.45;min-height:100vh;
-    background-image:radial-gradient(900px 500px at 50% -10%, rgba(69,196,255,.08), transparent 60%),
-      linear-gradient(rgba(34,50,82,.16) 1px, transparent 1px),linear-gradient(90deg, rgba(34,50,82,.16) 1px, transparent 1px);
+    background-image:radial-gradient(900px 500px at 50% -10%, rgba(var(--p1rgb),.08), transparent 60%),
+      linear-gradient(rgba(var(--linergb),.16) 1px, transparent 1px),linear-gradient(90deg, rgba(var(--linergb),.16) 1px, transparent 1px);
     background-size:auto,44px 44px,44px 44px}
   a{color:var(--mut)}
   .wrap{max-width:1440px;margin:0 auto;padding:18px 18px 40px}
@@ -31,14 +33,14 @@
   .brand h1 b{color:var(--p1)}
   .brand .sub{color:var(--dim);font-family:var(--mono);font-size:11px;margin-top:2px}
   nav{display:flex;justify-content:flex-end;gap:6px;flex-wrap:wrap;margin-left:auto}
-  nav a{font-family:var(--mono);font-size:11px;color:var(--mut);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 11px;background:rgba(16,27,48,.7);transition:border-color .15s,color .15s}
-  nav a:hover{border-color:#3A5382;color:var(--ink)}
+  nav a{font-family:var(--mono);font-size:11px;color:var(--mut);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 11px;background:rgba(var(--panelrgb),.7);transition:border-color .15s,color .15s}
+  nav a:hover{border-color:var(--line-hi);color:var(--ink)}
   nav a.active{border-color:var(--p1);color:var(--ink)}
   .status{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-family:var(--mono);font-size:11px;color:var(--dim);margin:4px 0 2px}
   .status .pulse{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ok);margin-right:6px;animation:pulse 2.4s infinite;vertical-align:middle}
   .status .pulse.bad{background:var(--bad)} .status .pulse.warn{background:var(--warn)}
   .status button{all:unset;cursor:pointer;font-family:var(--mono);font-size:10.5px;color:var(--mut);border:1px solid var(--line);border-radius:6px;padding:3px 9px;transition:color .15s,border-color .15s}
-  .status button:hover{color:var(--ink);border-color:#3A5382}
+  .status button:hover{color:var(--ink);border-color:var(--line-hi)}
 
   /* ---------- sections + grid ---------- */
   .secthead{font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin:22px 0 10px;display:flex;align-items:center;gap:10px}
@@ -77,13 +79,13 @@
   .note{font-size:11px;color:var(--dim);margin-top:8px;line-height:1.4}
   .note b{color:var(--mut);font-weight:500}
   .stars{color:var(--warn);letter-spacing:1px}
-  .bar{height:6px;background:#1B2A47;border-radius:6px;overflow:hidden;margin-top:4px}
+  .bar{height:6px;background:var(--track);border-radius:6px;overflow:hidden;margin-top:4px}
   .bar i{display:block;height:100%;border-radius:6px;background:var(--ac,var(--p1));width:0;transition:width .9s ease}
   .bar i.warn{background:var(--warn)} .bar i.bad{background:var(--bad)}
 
   /* bar list (traffic sources) + funnel */
   .fun{display:grid;grid-template-columns:auto 1fr auto;gap:4px 8px;align-items:center;font-family:var(--mono);font-size:10.5px;color:var(--mut)}
-  .fun .b{height:8px;background:#1B2A47;border-radius:6px;overflow:hidden}.fun .b i{display:block;height:100%;background:var(--ac,var(--p3));width:0;transition:width .9s ease}
+  .fun .b{height:8px;background:var(--track);border-radius:6px;overflow:hidden}.fun .b i{display:block;height:100%;background:var(--ac,var(--p3));width:0;transition:width .9s ease}
   .fun b{color:var(--ink);font-weight:500;text-align:right;white-space:nowrap}
   .fun b small{color:var(--dim);font-weight:400;margin-left:4px}
 
@@ -91,9 +93,9 @@
   .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
   table{width:100%;border-collapse:collapse;font-size:12px}
   th{text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);font-weight:500;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
-  td{padding:6px 8px;border-bottom:1px solid rgba(34,50,82,.6);vertical-align:middle;white-space:nowrap}
-  tbody tr:nth-child(even) td{background:rgba(20,33,56,.5)}
-  tbody tr:hover td{background:rgba(69,196,255,.07)}
+  td{padding:6px 8px;border-bottom:1px solid rgba(var(--linergb),.6);vertical-align:middle;white-space:nowrap}
+  tbody tr:nth-child(even) td{background:rgba(var(--panel2rgb),.5)}
+  tbody tr:hover td{background:rgba(var(--p1rgb),.07)}
   tr:last-child td{border-bottom:none}
   th.num,td.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
   td .path{color:var(--ink);text-decoration:none;max-width:260px;overflow:hidden;text-overflow:ellipsis;display:inline-block;vertical-align:bottom}
@@ -115,7 +117,7 @@
   .ga{--ac:var(--p3)} .gsc{--ac:var(--p1)} .geo{--ac:var(--p2)} .rev{--ac:var(--warn)} .soc{--ac:var(--ffin)} .rec{--ac:var(--p3)}
 
   /* tooltip */
-  #tip{position:fixed;z-index:90;background:#0D1526;border:1px solid #2C4066;border-radius:8px;padding:8px 11px;max-width:260px;pointer-events:none;opacity:0;transform:translateY(5px);transition:opacity .15s,transform .18s cubic-bezier(.22,.9,.3,1);box-shadow:0 12px 30px rgba(0,0,0,.55),0 0 0 1px rgba(69,196,255,.06)}
+  #tip{position:fixed;z-index:90;background:var(--deep);border:1px solid var(--line-2);border-radius:8px;padding:8px 11px;max-width:260px;pointer-events:none;opacity:0;transform:translateY(5px);transition:opacity .15s,transform .18s cubic-bezier(.22,.9,.3,1);box-shadow:0 12px 30px rgba(var(--shadowrgb),.55),0 0 0 1px rgba(var(--p1rgb),.06)}
   #tip.show{opacity:1;transform:none}
   #tip .tk{font-family:var(--mono);font-size:9.5px;color:var(--p1);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px}
   #tip .tb{font-size:12px;color:var(--mut);line-height:1.45}
@@ -153,7 +155,7 @@
   .kfilter span{font-family:var(--mono);font-size:10.5px;color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:3px 10px;cursor:pointer}
   .kfilter span.on{border-color:var(--p1);color:var(--ink)}
   .tw table{width:100%;border-collapse:collapse;font-size:12.5px} .tw th{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);text-align:left;padding:6px 8px;border-bottom:1px solid var(--line)}
-  .tw td{padding:6px 8px;border-bottom:1px solid rgba(34,50,82,.5)} .tw .num{text-align:right;font-family:var(--mono)} .tw tr:nth-child(even) td{background:rgba(20,33,56,.5)}
+  .tw td{padding:6px 8px;border-bottom:1px solid rgba(var(--linergb),.5)} .tw .num{text-align:right;font-family:var(--mono)} .tw tr:nth-child(even) td{background:rgba(var(--panel2rgb),.5)}
 </style>
 </head>
 <body>
@@ -161,7 +163,7 @@
   <header>
     <div class="brand"><h1>iSmile <b>Analytics</b></h1><div class="sub">every marketing number in one place · labelled by source and as-of · nothing is estimated</div></div>
     <nav>
-      <a href="/dashboard">Dashboard</a><a href="/dashboard/org">Org Chart</a><a href="/dashboard/tasks">Task Tracker</a><a href="/dashboard/profitability">Profitability</a><a href="/dashboard/analytics" class="active">Analytics</a><a href="/dashboard/office">Office</a>
+      <a href="/dashboard">Dashboard</a><a href="/dashboard/org">Org Chart</a><a href="/dashboard/tasks">Task Tracker</a><a href="/dashboard/gantt">Gantt</a><a href="/dashboard/profitability">Profitability</a><a href="/dashboard/analytics" class="active">Analytics</a><a href="/dashboard/office">Office</a>
     </nav>
   </header>
   <div class="status">
