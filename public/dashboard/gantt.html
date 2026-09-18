@@ -16,7 +16,7 @@
     --p1:#45C4FF; --p2:#B195FF; --p3:#3FDDA0; --fhr:#F0B152; --ffin:#EF7E93;
     --ok:#56C271; --warn:#F5B84A; --bad:#FF6B6B;
     --disp:"Chakra Petch",system-ui,sans-serif; --body:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
-    --labw:470px; --picw:150px; --rowh:40px;
+    --labw:330px; --rowh:40px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scrollbar-color:var(--line-2) var(--bg)}
@@ -64,8 +64,7 @@
   .grid{position:relative;display:grid;grid-template-columns:var(--labw) var(--tw);width:max-content;min-width:100%}
   .lab{position:sticky;left:0;z-index:3;background:var(--panel);border-right:1px solid var(--line)}
   .head{position:sticky;top:0;z-index:4;background:var(--panel2);border-bottom:1px solid var(--line)}
-  .lab.head{z-index:5;display:grid;grid-template-columns:minmax(0,1fr) var(--picw);column-gap:12px;align-items:end;padding:0 14px 8px 26px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
-  .lab.head .pich{padding-left:11px}
+  .lab.head{z-index:5;display:flex;align-items:flex-end;padding:0 14px 8px 26px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
   .months,.days{position:relative;height:22px}
   .months span{position:absolute;top:5px;font-family:var(--disp);font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);padding-left:6px;border-left:1px solid var(--line-hi);height:17px;line-height:14px}
   .days span{position:absolute;top:3px;text-align:center;font-family:var(--mono);font-size:10px;color:var(--dim)}
@@ -74,15 +73,14 @@
   .days span.today{color:var(--bg);background:var(--p1);border-radius:4px;font-weight:500}
   /* a table on the left (step | PIC), one horizontal rule per row running across table and chart,
      light alternate shading — so the eye can follow a row from its name to its bar */
-  .row{height:var(--rowh);border-bottom:1px solid rgba(var(--linergb),.32)}
+  .row{min-height:var(--rowh);border-bottom:1px solid rgba(var(--linergb),.32)}
   .tl.row{position:relative}
   .row.z.tl{background:rgba(var(--linergb),.07)}
   .lab.row.z{background:linear-gradient(rgba(var(--linergb),.07),rgba(var(--linergb),.07)),var(--panel)}
-  .lab.row{display:grid;grid-template-columns:minmax(0,1fr) var(--picw);column-gap:12px;align-items:center;padding:0 14px 0 26px;min-width:0}
-  .lab.row .t{font-size:12.5px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .lab.row .pic{align-self:stretch;display:flex;align-items:center;border-left:1px solid rgba(var(--linergb),.32);padding-left:11px;
-    font-size:11px;color:var(--mut);line-height:1.25;min-width:0}
-  .lab.row .pic span{overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+  /* step name first and in full (wraps rather than truncating); the PIC tucked just under it, small and quiet */
+  .lab.row{display:flex;flex-direction:column;justify-content:center;padding:7px 14px 7px 26px;min-width:0}
+  .lab.row .t{font-size:12.5px;line-height:1.3;color:var(--ink)}
+  .lab.row .pic{font-size:10px;line-height:1.25;color:var(--dim);margin-top:1px}
   .lab.row.done .t{color:var(--mut)}
   .grp{height:auto;min-height:48px}
   .lab.grp{padding:12px 14px 10px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--panel2)}
@@ -138,10 +136,8 @@
 
   @media screen and (max-width:760px){
     :root{--labw:200px}
-    .lab.head{grid-template-columns:1fr;padding-left:14px} .lab.head .pich{display:none}
-    .lab.row{grid-template-columns:1fr;align-content:center;row-gap:1px}
-    .lab.row .pic{border-left:0;padding-left:0;font-size:10px;color:var(--dim)}
-    .lab.row .pic span{-webkit-line-clamp:1}
+    .lab.head{padding-left:14px}
+    .lab.row .t{font-size:12px}
     header{grid-template-columns:1fr;text-align:center}
     header>nav{justify-content:center}
     header>nav a:not(:first-child){margin-left:16px}
@@ -167,8 +163,7 @@
     .scroller{overflow:visible}
     .lab,.head{position:static}
     .it.bar.now::after{animation:none}
-    :root{--labw:400px;--picw:130px;--rowh:44px}
-    .lab.row .t{white-space:normal;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+    :root{--labw:300px;--rowh:38px}
     .lab.grp .s{display:block}
     .grp,.row{break-inside:avoid}
   }
@@ -265,7 +260,7 @@ function draw(){
     if(dow===1) back+=`<i class="wk" style="left:${x}px"></i>`;
   }
   const nowX=X(T)+dw/2;
-  let h=`<div class="lab head"><span>Step</span><span class="pich">PIC</span></div><div class="head"><div class="months">${months}</div><div class="days">${days}</div></div>`;
+  let h=`<div class="lab head">Step · PIC</div><div class="head"><div class="months">${months}</div><div class="days">${days}</div></div>`;
 
   lanes.forEach(l=>{
     const cv=`--c:var(--${l.color});--crgb:var(--${l.color}rgb)`;
@@ -289,7 +284,7 @@ function draw(){
         cap=x+13+cw>TW?`<span class="cap" style="right:${TW-x+12}px">${inner}</span>`:`<span class="cap" style="left:${x+13}px">${inner}</span>`;
       }
       const z=k%2?" z":"";
-      h+=`<div class="lab row ${st}${z}" style="${cv}"><div class="t" title="${esc(it.label)}">${esc(it.label)}</div><div class="pic" title="${esc(it.who||"")}"><span>${esc(it.who||"—")}</span></div></div>`+
+      h+=`<div class="lab row ${st}${z}" style="${cv}"><div class="t">${esc(it.label)}</div>${it.who?`<div class="pic">${esc(it.who)}</div>`:""}</div>`+
          `<div class="tl row${z}" style="${cv}"><div class="back">${back}<i class="now" style="left:${nowX}px"></i></div>${mark}${cap}</div>`;
     });
   });
