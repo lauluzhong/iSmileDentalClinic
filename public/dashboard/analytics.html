@@ -203,23 +203,15 @@
   </div>
 
   <!-- ================= SEARCH ================= -->
-  <div class="secthead">Search &amp; discovery <small>Google Search Console · last full month · via deck.json on the status branch</small></div>
+  <div class="secthead">Search &amp; discovery <small>Google Search Console · last full month · AI visibility weekly · via deck.json on the status branch</small></div>
   <div class="grid">
     <div class="card gsc wide reveal"><div class="top"></div>
       <div class="ch"><span class="k">Google Search</span><span class="m" id="m-seo">GSC · last full month</span></div>
       <div class="cb" id="c-seo"><div class="empty">loading…</div></div>
     </div>
-    <div class="card geo na reveal"><div class="top"></div>
-      <div class="ch"><span class="k">GEO · AI visibility</span><span class="m">not wired</span></div>
-      <div class="cb">
-        <div class="placeholder">
-          <div class="glyph">AI</div>
-          <div>
-            <p><b>Not measured yet.</b> Needs the OpenSEO rank-grid + AI-visibility tooling, which is blocked on a US$50 DataForSEO top-up.</p>
-            <div class="why">no feed · no number is shown until one exists</div>
-          </div>
-        </div>
-      </div>
+    <div class="card geo reveal" id="card-geo"><div class="top"></div>
+      <div class="ch"><span class="k">GEO · AI visibility</span><span class="m" id="m-geo">weekly panel</span></div>
+      <div class="cb" id="c-geo"><div class="empty">loading…</div></div>
     </div>
   </div>
 
@@ -414,6 +406,35 @@ function renderSEO(){
   box.appendChild(el("div","note",`Non-brand CTR ${ctr<1?"is below 1% — page-1 rankings that nobody clicks":"is above 1%"}. The window is the last full month (${esc(w[0]||"?")} → ${esc(w[1]||"?")}); Search Console lags ~2 days, so the current month is never shown.`));
 }
 
+/* ============================== GEO · AI visibility ============================== */
+const GEO_STATUS={correct:["correct address","ok"],listed:["listed","ok"],old_address:["old address","bad"],absent:["not listed","bad"],unclear:["unclear","warn"],unreachable:["could not check","warn"]};
+function renderGEO(){
+  const geo=D.deck&&D.deck.geo, card=$("#card-geo");
+  if(!geo){setMeta("m-geo","not measured yet","bad");card.classList.add("na");fail("c-geo",`<b>No AI-visibility run yet.</b> ${esc(D.err.deck||"The weekly check runs on Sundays; deck.json carries no geo block until the first run.")}`);return;}
+  card.classList.remove("na");
+  setMeta("m-geo",`weekly · checked ${esc(geo.generated_myt||"—")} MYT`);
+  const box=$("#c-geo");box.innerHTML="";
+  const pn=geo.panel||{}, ar=geo.ai_referrals||{}, dr=geo.directories||{};
+  const rate=num(pn.mention_rate_pct), rows=dr.rows||[];
+  const g=el("div","stats");
+  g.appendChild(stat("Named by AI",pn.available?`${fmt(pn.mentioned)} of ${fmt(pn.asked)}<small>${pct(rate,0)}</small>`:"—",pn.available?(rate>=50?"ok":rate>=20?"warn":"bad"):""));
+  g.appendChild(stat("Visits from AI tools",ar.available?fmt(ar.sessions)+`<small>28 days</small>`:"—"));
+  g.appendChild(stat("Directories right",`${fmt(dr.good)} of ${fmt(dr.checked)}`,num(dr.good)===num(dr.checked)?"ok":num(dr.good)>=num(dr.checked)/2?"warn":"bad"));
+  box.appendChild(g);
+  const themes=Object.entries(pn.by_theme||{});
+  if(themes.length){
+    box.appendChild(el("div","sec","<b>Named by AI</b> · by topic"));
+    box.appendChild(el("div","tw",`<table><tbody>`+themes.map(([t,v])=>`<tr><td>${esc(t)}</td><td class="num pct ${v.mentioned===v.asked?"ok":v.mentioned?"warn":"bad"}">${fmt(v.mentioned)} of ${fmt(v.asked)}</td></tr>`).join("")+`</tbody></table>`));
+  }
+  if(rows.length){
+    box.appendChild(el("div","sec","<b>Directories AI tools quote</b>"));
+    box.appendChild(el("div","tw",`<table><tbody>`+rows.map(r=>{const st=GEO_STATUS[r.status]||[r.status,"warn"];
+      return `<tr><td><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a></td><td class="num pct ${st[1]}">${esc(st[0])}${r.manual?" · by hand":""}</td></tr>`;}).join("")+`</tbody></table>`));
+  }
+  const top=(pn.top_cited_domains||[]).slice(0,5).map(d=>esc(d.domain)).join(", ");
+  box.appendChild(el("div","note",`The panel asks ${esc(pn.engine||"an AI model")} a fixed list of patient questions each week and counts how often iSmile is named. Answers vary between runs, so read the trend, not one week. Visits only count people who clicked through from an AI tool; most AI answers never produce a click.${top?` Sites the AI leaned on most: ${top}.`:""}`));
+}
+
 /* ============================== reviews + social ============================== */
 function renderReviews(){
   const d=D.deck, rv=d&&d.reviews;
@@ -523,6 +544,7 @@ async function load(){
   status("st-recall",!!recall,recall?"recall · as at "+(recall.as_of||""):"recall · "+(D.err.recall||"unavailable"));
   try{renderGA();}catch(e){gaDead(e.message);}
   try{renderSEO();}catch(e){fail("c-seo","Could not render: "+esc(e.message));}
+  try{renderGEO();}catch(e){fail("c-geo","Could not render: "+esc(e.message));}
   try{renderReviews();}catch(e){fail("c-rev","Could not render: "+esc(e.message));}
   try{renderSocial();}catch(e){fail("c-soc","Could not render: "+esc(e.message));}
   try{renderRecall();}catch(e){fail("c-rec","Could not render: "+esc(e.message));}
