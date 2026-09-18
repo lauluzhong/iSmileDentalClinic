@@ -425,7 +425,15 @@ function renderSEO(){
   g.appendChild(stat("Impressions",(seo.impressions||0).toLocaleString()));
   box.appendChild(g);
   box.appendChild(el("div","sec","<b>GEO · AI visibility</b>"));
-  box.appendChild(el("div","note","Not measured yet — needs the OpenSEO rank grid and AI-visibility tooling, blocked on a US$50 DataForSEO top-up."));
+  const geo=D.deck.geo;
+  if(!geo){box.appendChild(el("div","note","Not measured yet — the weekly AI-visibility check has not run."));return;}
+  const pn=geo.panel||{}, ar=geo.ai_referrals||{}, dr=geo.directories||{};
+  const gg=el("div","stats");
+  gg.appendChild(stat("Named by AI",pn.available?`${pn.mentioned} of ${pn.asked}`:"—",pn.available?(pn.mention_rate_pct>=50?"ok":pn.mention_rate_pct>=20?"warn":"bad"):""));
+  gg.appendChild(stat("Directories right",`${dr.good} of ${dr.checked}`,dr.good===dr.checked?"ok":dr.good>=dr.checked/2?"warn":"bad"));
+  gg.appendChild(stat("Visits from AI · 28d",ar.available?ar.sessions:"—"));
+  box.appendChild(gg);
+  box.appendChild(el("div","note","Weekly check, "+geo.generated_myt+" MYT. Named = share of a fixed list of patient questions where an AI answer mentions iSmile."));
 }
 
 /* ============================== website · reviews · social ============================== */
