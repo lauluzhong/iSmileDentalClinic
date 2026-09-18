@@ -1,14 +1,9 @@
 {
- "updated": "2026-09-18T13:48:03+08:00",
+ "updated": "2026-09-18T13:49:35+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
   "Lau": {
    "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Emily": {
-   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -17,13 +12,18 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
+  "Emily": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
   "Lydia": {
    "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -60,8 +60,8 @@
     "OpenDent \u2192 AutoCount data flow reported OK",
     "Install the computers downstairs (Chrome + iSmile email, WhatsApp Web)",
     "Leow installs AutoCount on the downstairs PCs over AnyDesk \u2014 2 secondary accounts downstairs, primary on the server",
-    "Receipt run-through session: Leow, Jason, Lau/Emily \u2014 the whole receipt-generation process",
     "X-ray vendor installs the X-ray software (likely over UltraViewer)",
+    "Receipt run-through session: Leow, Jason, Lau/Emily \u2014 the whole receipt-generation process",
     "Training for front-of-house staff + dinner",
     "True end-to-end integration test",
     "Go live \u2014 new digital receipts (Lau and Emily on standby that week)"

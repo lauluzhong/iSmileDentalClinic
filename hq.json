@@ -129,11 +129,11 @@
    "tip": "At the clinic, all doctors except the specialists Yeoh and Joan. The agreements were sent 10 Sep; no revisions planned \u2014 this is for understanding and questions."
   },
   {
-   "d": "28 Sep\u20131 Oct",
+   "d": "22\u201326 Sep",
    "l": "X-ray software on front-desk PCs",
    "s": "",
-   "iso": "2026-09-28",
-   "tip": "The X-ray vendor installs the software on the downstairs PCs, likely remotely."
+   "iso": "2026-09-23",
+   "tip": "The X-ray vendor installs the software on the downstairs PCs. Timing is flexible; aiming for 22\u201326 Sep."
   },
   {
    "d": "29 Sep\u20131 Oct",
@@ -276,14 +276,14 @@
        "w": "19\u201322 Sep"
       },
       {
+       "t": "X-ray vendor installs the X-ray software (likely over UltraViewer)",
+       "s": "",
+       "w": "22\u201326 Sep (flexible)"
+      },
+      {
        "t": "Receipt run-through session: Leow, Jason, Lau/Emily \u2014 the whole receipt-generation process",
        "s": "",
        "w": "29 Sep \u2013 1 Oct"
-      },
-      {
-       "t": "X-ray vendor installs the X-ray software (likely over UltraViewer)",
-       "s": "",
-       "w": "28 Sep \u2013 1 Oct"
       },
       {
        "t": "Training for front-of-house staff + dinner",
@@ -302,7 +302,7 @@
       }
      ],
      "open": [
-      "<b>Plan updated 18 Sep:</b> computers downstairs 18\u201319 Sep \u2192 Leow installs AutoCount over AnyDesk 19\u201322 Sep \u2192 receipt + front-desk SOP designed 22\u201326 Sep \u2192 run-through with Leow, Jason and Lau/Emily 29 Sep\u20131 Oct \u2192 front-of-house training <b>Sat 3 Oct</b> \u2192 <b>go live Mon 5 Oct</b>.",
+      "<b>Plan updated 18 Sep:</b> computers downstairs 18\u201319 Sep \u2192 Leow installs AutoCount over AnyDesk 19\u201322 Sep \u2192 receipt + front-desk SOP designed 22\u201326 Sep (X-ray software installed in the same window, timing flexible) \u2192 run-through with Leow, Jason and Lau/Emily 29 Sep\u20131 Oct \u2192 front-of-house training <b>Sat 3 Oct</b> \u2192 <b>go live Mon 5 Oct</b>.",
       "<b>OpenDent \u2192 AutoCount data flow was reported OK by Jason on 15 Sep.</b> Hardware status is consolidated under Hardware & server.",
       "<b>Then the commissioning order:</b> set the front-desk PCs up for real (OpenDent already on, plus Chrome with the iSmile email signed in for Google Docs letters, plus WhatsApp Web \u2014 enough for the desk to start working) \u2192 X-ray vendor installs the X-ray software \u2192 Leow installs AutoCount, the 2 secondary accounts downstairs and the primary on the server upstairs.",
       "<b>Only then the two training events:</b> Leow teaches Lau and Emily AutoCount first; the front-desk training follows on a Saturday after work (clinic closes 3:30 PM) with dinner after \u2014 <b>3 Oct (tentative); confirmation pending</b>.",
@@ -2440,11 +2440,11 @@
      },
      {
       "label": "X-ray software on the front-desk PCs",
-      "start": "2026-09-28",
-      "end": "2026-10-01",
+      "start": "2026-09-22",
+      "end": "2026-09-26",
       "status": "next",
       "who": "X-ray vendor",
-      "note": "Likely installed remotely."
+      "note": "Flexible timing \u2014 aim for 22\u201326 Sep. Likely installed remotely."
      },
      {
       "label": "Receipt run-through: Leow, Jason, Lau/Emily",
@@ -2578,6 +2578,6 @@
  },
  "meta": {
   "asof": "FRI 18 SEP 2026",
-  "updated": "2026-09-18T13:48:03+08:00"
+  "updated": "2026-09-18T13:49:35+08:00"
  }
 }
