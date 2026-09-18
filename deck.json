@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-09-18 14:00",
- "generated_at": "2026-09-18T14:00:09+08:00",
+ "generated_myt": "2026-09-18 14:09",
+ "generated_at": "2026-09-18T14:09:59+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 94.9,
   "nproc": 4,
   "load": [
-   0.71,
    0.22,
-   0.13
+   0.21,
+   0.18
   ],
-  "cpu_pct": 17.8,
-  "cpu_pct_sample": 97.5,
+  "cpu_pct": 5.5,
+  "cpu_pct_sample": 1.9,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 4491,
-   "avail_mb": 3449,
-   "pct": 56.6,
+   "used_mb": 4616,
+   "avail_mb": 3324,
+   "pct": 58.1,
    "swap_total_mb": 2047,
    "swap_used_mb": 195
   },
@@ -29,21 +29,21 @@
   "bridge_ok": false,
   "pollers": {
    "review_approvals": {
-    "age_s": 24,
+    "age_s": 615,
     "last_myt": "2026-09-18 14:00 MYT"
    },
    "hq_publish": {
-    "age_s": 649,
+    "age_s": 1239,
     "last_myt": "2026-09-18 13:49 MYT",
     "detail": "asof=FRI 18 SEP 2026 streams=40 sideboard=19 decisions=1 archive=11"
    }
   },
   "walogger_ok": true,
   "crons": {
-   "total": 14,
+   "total": 15,
    "failed": [],
    "running": [],
-   "status_updated": "2026-09-18 14:00 MYT"
+   "status_updated": "2026-09-18 14:09 MYT"
   },
   "last_clinic_push": "2026-09-18"
  },
@@ -196,5 +196,291 @@
   "instagram_30d": null,
   "posts_published_via_zernio": 0,
   "note": "Instagram @ismiledentalclinicmy is connected through Zernio. Posts published outside Zernio are not counted in posts_published_via_zernio."
+ },
+ "geo": {
+  "generated_myt": "2026-09-18 14:04",
+  "generated_at": "2026-09-18T14:04:53+08:00",
+  "ai_referrals": {
+   "available": true,
+   "window": [
+    "2026-08-21",
+    "2026-09-17"
+   ],
+   "sessions": 1,
+   "sessions_prev": 1,
+   "all_sessions": 481,
+   "by_source": [
+    {
+     "source": "chatgpt.com",
+     "sessions": 1
+    }
+   ]
+  },
+  "directories": {
+   "checked": 7,
+   "good": 1,
+   "unreachable": 0,
+   "rows": [
+    {
+     "name": "Toothsay",
+     "kind": "listing",
+     "url": "https://www.toothsay.com/my-pages/3987-ismile-dental-center-damansara-utama",
+     "status": "old_address"
+    },
+    {
+     "name": "Makchic",
+     "kind": "listing",
+     "url": "https://www.makchic.com/say-ahh-20-child-friendly-dental-clinics-in-the-klang-valley/",
+     "status": "old_address"
+    },
+    {
+     "name": "medical.my",
+     "kind": "listing",
+     "url": "https://medical.my/ismile-dental/",
+     "status": "old_address"
+    },
+    {
+     "name": "medical.my (duplicate)",
+     "kind": "listing",
+     "url": "https://medical.my/ismile-dental-centre-damansara-utama/",
+     "status": "correct"
+    },
+    {
+     "name": "WhatClinic",
+     "kind": "listing",
+     "url": "https://www.whatclinic.com/dentists/malaysia/selangor/petaling-jaya/ismile-dental-center",
+     "status": "absent",
+     "manual": true,
+     "note": "Blocks automated checks. Checked by hand 2026-09-18: the old iSmile listing URL now shows a different clinic."
+    },
+    {
+     "name": "Erufu Care",
+     "kind": "roundup",
+     "url": "https://www.erufucare.com/clinics/dentists/petaling-jaya",
+     "status": "absent"
+    },
+    {
+     "name": "Hokucare",
+     "kind": "roundup",
+     "url": "https://www.hokucare.com/explore/dentist/in/selangor/petaling-jaya",
+     "status": "absent"
+    }
+   ]
+  },
+  "panel": {
+   "available": true,
+   "engine": "OpenAI gpt-5.6-luna + web search",
+   "asked": 15,
+   "failed": 0,
+   "mentioned": 4,
+   "cited_own_site": 4,
+   "mention_rate_pct": 26.7,
+   "by_theme": {
+    "family": {
+     "asked": 3,
+     "mentioned": 2
+    },
+    "children": {
+     "asked": 2,
+     "mentioned": 1
+    },
+    "braces": {
+     "asked": 3,
+     "mentioned": 1
+    },
+    "implants": {
+     "asked": 2,
+     "mentioned": 0
+    },
+    "cosmetic": {
+     "asked": 2,
+     "mentioned": 0
+    },
+    "airway": {
+     "asked": 2,
+     "mentioned": 0
+    },
+    "urgent": {
+     "asked": 1,
+     "mentioned": 0
+    }
+   },
+   "top_cited_domains": [
+    {
+     "domain": "vdental.com.my",
+     "questions": 9
+    },
+    {
+     "domain": "smilehavendental.com.my",
+     "questions": 5
+    },
+    {
+     "domain": "arcdentalclinic-damansarauptown.com",
+     "questions": 5
+    },
+    {
+     "domain": "ismile.com.my",
+     "questions": 4
+    },
+    {
+     "domain": "circledentalpj.com",
+     "questions": 4
+    },
+    {
+     "domain": "pristinedental.com.my",
+     "questions": 3
+    },
+    {
+     "domain": "smilegramdental.com",
+     "questions": 3
+    },
+    {
+     "domain": "myoralisdental.com",
+     "questions": 3
+    },
+    {
+     "domain": "business.google.com",
+     "questions": 2
+    },
+    {
+     "domain": "hq.moh.gov.my",
+     "questions": 2
+    }
+   ],
+   "questions": [
+    {
+     "id": "family-1",
+     "theme": "family",
+     "q": "Can you recommend a good family dentist in Damansara Jaya, Petaling Jaya?",
+     "ok": true,
+     "mentioned": true,
+     "cited_own_site": true
+    },
+    {
+     "id": "family-2",
+     "theme": "family",
+     "q": "Which dental clinics near Damansara Utama or SS22 in PJ are good for a routine check-up and cleaning?",
+     "ok": true,
+     "mentioned": true,
+     "cited_own_site": true
+    },
+    {
+     "id": "family-3",
+     "theme": "family",
+     "q": "I want one dental clinic in Petaling Jaya that can look after my whole family, from kids to grandparents. Where should I go?",
+     "ok": true,
+     "mentioned": false,
+     "cited_own_site": false
+    },
+    {
+     "id": "children-1",
+     "theme": "children",
+     "q": "Where can I find a gentle children's dentist in Petaling Jaya for my 5 year old's first visit?",
+     "ok": true,
+     "mentioned": false,
+     "cited_own_site": false
+    },
+    {
+     "id": "children-2",
+     "theme": "children",
+     "q": "Which dentists in Damansara, PJ are good with nervous kids?",
+     "ok": true,
+     "mentioned": true,
+     "cited_own_site": true
+    },
+    {
+     "id": "braces-1",
+     "theme": "braces",
+     "q": "Which dental clinics would you recommend for braces in Damansara Jaya, Petaling Jaya?",
+     "ok": true,
+     "mentioned": true,
+     "cited_own_site": true
+    },
+    {
+     "id": "braces-2",
+     "theme": "braces",
+     "q": "Where can I get Invisalign or clear aligners in Petaling Jaya?",
+     "ok": true,
+     "mentioned": false,
+     "cited_own_site": false
+    },
+    {
+     "id": "braces-3",
+     "theme": "braces",
+     "q": "My teenager needs braces. Which clinics in PJ or Damansara should I consider?",
+     "ok": true,
+     "mentioned": false,
+     "cited_own_site": false
+    },
+    {
+     "id": "implants-1",
+     "theme": "implants",
+     "q": "Where can I get dental implants in Petaling Jaya?",
+     "ok": true,
+     "mentioned": false,
+     "cited_own_site": false
+    },
+    {
+     "id": "implants-2",
+     "theme": "implants",
+     "q": "I need to replace a missing tooth. Which dental clinics in Damansara, PJ should I look at?",
+     "ok": true,
+     "mentioned": false,
+     "cited_own_site": false
+    },
+    {
+     "id": "cosmetic-1",
+     "theme": "cosmetic",
+     "q": "Which dentists in Petaling Jaya are good for veneers or a smile makeover?",
+     "ok": true,
+     "mentioned": false,
+     "cited_own_site": false
+    },
+    {
+     "id": "cosmetic-2",
+     "theme": "cosmetic",
+     "q": "Where can I get professional teeth whitening in Damansara, Petaling Jaya?",
+     "ok": true,
+     "mentioned": false,
+     "cited_own_site": false
+    },
+    {
+     "id": "airway-1",
+     "theme": "airway",
+     "q": "Which dentists in Petaling Jaya offer myofunctional therapy or help for children who mouth breathe?",
+     "ok": true,
+     "mentioned": false,
+     "cited_own_site": false
+    },
+    {
+     "id": "airway-2",
+     "theme": "airway",
+     "q": "Is there a dentist in the Klang Valley who treats children's airway and jaw development problems early, without waiting for braces?",
+     "ok": true,
+     "mentioned": false,
+     "cited_own_site": false
+    },
+    {
+     "id": "urgent-1",
+     "theme": "urgent",
+     "q": "I have a bad toothache. Which dental clinic in Damansara Jaya or nearby in PJ can see me quickly?",
+     "ok": true,
+     "mentioned": false,
+     "cited_own_site": false
+    }
+   ],
+   "tokens": {
+    "input": 366472,
+    "output": 17450
+   }
+  },
+  "panel_trend": [
+   {
+    "date": "2026-09-18",
+    "mention_rate_pct": 26.7,
+    "mentioned": 4,
+    "asked": 15
+   }
+  ]
  }
 }
