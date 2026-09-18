@@ -1,23 +1,8 @@
 {
- "updated": "2026-09-17T19:13:07+08:00",
+ "updated": "2026-09-18T11:52:58+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Emily": {
+  "Edith": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
@@ -27,8 +12,23 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
+  "Code Capsule": {
+   "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Emily": {
    "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   }
@@ -40,7 +40,7 @@
    "status": "active",
    "owner": "Code Capsule",
    "why": "OpenDent \u2192 AutoCount data flow was reported OK on 15 Sep. The remaining front-desk rollout is tracked through the hardware, local setup and training steps.",
-   "next": "Confirm the remaining front-desk rollout and secure Jason's end-to-end test date.",
+   "next": "Front-desk PCs in by 19 Sep, Leow installs remotely by 21 Sep, walkthrough 29\u201330 Sep, training Sat 3 Oct, cutover 5\u20139 Oct.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -59,12 +59,12 @@
     "iSmile-side AC \u2194 iSmile integration testing and clearance complete; CC owns completion tracking",
     "OpenDent \u2192 AutoCount data flow reported OK",
     "Commission the front-desk PCs: Chrome + iSmile email signed in (Google Docs for letters) + WhatsApp Web",
+    "Leow installs AutoCount remotely \u2014 2 secondary accounts downstairs, primary on the server (we give him remote access)",
+    "Walkthrough with Leow, Jason, Emily and Lau (1\u20132 hrs) \u2014 check the whole flow, recap receipts",
     "X-ray vendor installs the X-ray software (likely over UltraViewer)",
-    "Leow (AutoCount) installs AutoCount \u2014 2 secondary accounts downstairs, 1 primary on the server upstairs",
-    "Leow teaches Lau + Emily how to use AutoCount",
-    "Front-desk training \u2014 receipts, e-invoices and the wider FOH syllabus",
+    "Front-desk training + dinner \u2014 receipts, e-invoices and the wider FOH syllabus",
     "True end-to-end integration test",
-    "AR sync live \u2014 parallel run with paper receipts"
+    "Cutover \u2014 front desk issues receipts from AutoCount; Lau and Emily on standby in person"
    ],
    "pillar": "P1"
   },
@@ -104,7 +104,7 @@
     "Design what the new receipt looks like",
     "Receipts SOP written",
     "Receipts + e-invoices taught at the FOH training",
-    "FOH trained \u00b7 paper retired"
+    "Cutover week \u2014 receipts from AutoCount, paper retired"
    ],
    "pillar": "P1"
   },
@@ -174,7 +174,7 @@
    "status": "review",
    "owner": "Code Capsule",
    "why": "Server swapped and every PC reconnected. The two front-desk machines await monitor delivery on Thu 17 Sep and a cooling solution.",
-   "next": "Jason arranges clinic delivery of the two monitors on Thu 17 Sep; iSmile and Jason resolve the cooling-fan buyer and safe, touchable fan/case/guard solution, then the front-desk PCs go into service.",
+   "next": "Configure the front-desk PCs upstairs and move them downstairs by Sat 19 Sep.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": null,
@@ -185,8 +185,9 @@
     "PCs arrived and items checked",
     "Server swap",
     "OpenDent installed on all machines incl. the 2 front-desk PCs",
-    "Cooling solution for the front-desk PCs",
-    "2 monitors ordered \u2014 expected Thu 17 Sep; Jason to arrange delivery to clinic",
+    "Cooling \u2014 not needed: Jason confirms the units are designed to run hot and shed heat through the case",
+    "Monitors, keyboards and mice in",
+    "Front-desk PCs configured upstairs, then moved downstairs",
     "Front-desk PCs into service"
    ],
    "pillar": "P1"
@@ -274,7 +275,7 @@
    "status": "active",
    "owner": "Lydia",
    "why": "Body is a pure template; every per-doctor input lives in Schedule 1. Agreements went out to the five non-specialist doctors on 10 Sep; the two specialists follow.",
-   "next": "Lydia fills the doctors' details into each agreement (from Emily), finalises the handbook and Elaine's papers, then the rollout runs: Zoom explainer \u2192 contracts out one by one \u2192 group sit-down about two weeks later.",
+   "next": "Walk the doctors through the agreement on Wed 23 Sep, 6:30 PM at the clinic; signed copies back by Wed 30 Sep. The two specialists (Yeoh, Joan) are still to be sent.",
    "dept": "people",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -294,7 +295,7 @@
     "Procurement, reimbursement and supplier-interest clauses added (cl. 2.5, 7.1, 7.4, 7.5)",
     "Agreements sent to the five non-specialist doctors, with a one-page summary card",
     "Send to the two specialists (Dr Yeoh, Dr Joan)",
-    "Signatures back"
+    "Signed copies back to Lau"
    ],
    "pillar": "P2"
   },
@@ -388,13 +389,13 @@
    "note": "",
    "tasks": [
     "Parents approve the three changes",
-    "Format decided: Zoom explainer first, then contracts sent one by one, then a group sit-down ~2 weeks later",
+    "Format decided: Zoom explainer first, then contracts, then a sit-down (superseded \u2014 contracts went first with a summary card; the sit-down is in person)",
     "Lydia finalises the contracts with each doctor's details",
     "Zoom explainer \u2014 not held; a written summary card went with the contracts instead",
     "Contracts sent to each doctor individually",
-    "Two weeks of personal questions by text \u2014 answered as they come",
-    "Doctors agreement walkthrough and Q&A",
-    "Signatures"
+    "Personal questions by text \u2014 answered as they come",
+    "In-person walkthrough and Q&A at the clinic \u2014 all doctors except the specialists (Yeoh, Joan)",
+    "Signed copies back"
    ],
    "pillar": "P2"
   },
@@ -425,7 +426,7 @@
    "status": "review",
    "owner": "Lau",
    "why": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
-   "next": "Lu configures MiniCRM on Mon 14 Sep 2026, then the team re-runs fresh data immediately before any blast. The 22\u201324 Sep window remains tentative.",
+   "next": "Finish setting up by Mon 21 Sep, fresh-data re-run, then send Tue\u2013Thu 22\u201324 Sep at 1,800/day.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-10",
@@ -443,7 +444,7 @@
     "Campaign blast message function deployed and tested",
     "Lu configures MiniCRM for the blast",
     "Fresh-data re-run immediately before sending",
-    "Tentative Wave 1 window (13\u201336mo lapsed) \u2014 1,800/day; not confirmed",
+    "Blast sends \u2014 1,800/day over three days",
     "Waves 2\u20133 \u00b7 funnel read via campaign tags"
    ],
    "pillar": "P3"
@@ -774,7 +775,7 @@
    "status": "active",
    "owner": "Emily",
    "why": "The clinic has no SOP for issuing letters to patients \u2014 medical certificates, referral letters, insurance reports, quotations. Nobody had ever said whose job it was, and that gap caused real friction between a doctor and",
-   "next": "Confirm Sat 3 Oct, then build the training deck against the consolidated syllabus on this card.",
+   "next": "Build the training deck for Sat 3 Oct against the consolidated syllabus on this card.",
    "dept": "people",
    "lens": "efficiency",
    "endMonth": "2026-11",

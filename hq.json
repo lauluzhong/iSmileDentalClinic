@@ -95,38 +95,73 @@
   },
   {
    "d": "15 Sep",
-   "l": "Doctor rollout \u2014 Zoom explainer (date follows Lydia)",
-   "s": "",
-   "iso": "2026-09-15",
-   "tip": "Superseded 6 Sep: the 15 Sep sit-down becomes a two-step. A Zoom call walks the 3\u20134 core changes and the good news, then contracts go to each doctor individually; a group sit-down about two weeks later takes the remaining questions and recaps OpenDent code alignment. The date now follows Lydia finalising the contracts."
-  },
-  {
-   "d": "15 Sep",
    "l": "Cert auto-renewal should fire (~30d before expiry)",
    "s": "",
    "iso": "2026-09-15",
    "tip": "Let's Encrypt renews about 30 days out. Code Capsule's renewal cron, added after the July lapse, gets its first real test here. Suraya confirmed 28 Aug that the current cert has 49 days left \u2014 that is the existing certificate, not a fresh renewal, so this date is still the real test. Edith's daily check will catch it either way."
   },
   {
-   "d": "22\u201324 Sep (tentative)",
+   "d": "19 Sep",
+   "l": "Front-desk PCs in downstairs",
+   "s": "",
+   "iso": "2026-09-19",
+   "tip": "Configured upstairs, then moved downstairs. Cooling dropped \u2014 the units are designed to run hot."
+  },
+  {
+   "d": "19\u201321 Sep",
+   "l": "Leow installs AutoCount remotely",
+   "s": "",
+   "iso": "2026-09-20",
+   "tip": "Two secondary accounts on the front-desk PCs, the primary on the server. We give him remote access."
+  },
+  {
+   "d": "22\u201324 Sep",
    "l": "Cold blast sends",
    "s": "",
    "iso": "2026-09-22",
-   "tip": "Tentative Tuesday to Thursday window, 22\u201324 September. It remains unconfirmed pending Lu's Mon 14 Sep MiniCRM configuration and the fresh-data re-run."
+   "tip": "The blast runs Tue\u2013Thu 22\u201324 Sep at 1,800/day. Set-up and the fresh-data re-run by Mon 21 Sep."
   },
   {
-   "d": "Sep\u2013Oct",
-   "l": "FOH training + digital receipts window",
+   "d": "23 Sep",
+   "l": "Doctors' walkthrough, 6:30 PM (in person)",
    "s": "",
-   "iso": "2026-09-25",
-   "tip": "The FOH training Saturday (+ dinner) and the paper-to-digital receipts switch-over both land in this window. Date still to be set."
+   "iso": "2026-09-23",
+   "tip": "At the clinic, all doctors except the specialists Yeoh and Joan. The agreements were sent 10 Sep; no revisions planned \u2014 this is for understanding and questions."
   },
   {
-   "d": "3 Oct (tentative)",
-   "l": "FOH training Saturday + dinner",
+   "d": "28 Sep\u20131 Oct",
+   "l": "X-ray software on front-desk PCs",
+   "s": "",
+   "iso": "2026-09-28",
+   "tip": "The X-ray vendor installs the software on the downstairs PCs, likely remotely."
+  },
+  {
+   "d": "29\u201330 Sep",
+   "l": "Walkthrough with Leow + Jason",
+   "s": "",
+   "iso": "2026-09-29",
+   "tip": "Leow, Jason, Emily and Lau, 1\u20132 hours: check the whole flow end to end and recap how receipts are generated."
+  },
+  {
+   "d": "30 Sep",
+   "l": "Doctors' signed copies due",
+   "s": "",
+   "iso": "2026-09-30",
+   "tip": "One week after the walkthrough."
+  },
+  {
+   "d": "3 Oct",
+   "l": "FOH training Saturday + dinner \u2014 locked",
    "s": "",
    "iso": "2026-10-03",
-   "tip": "Front-desk training is tentatively set for Saturday 3 October, after the 3:30 PM close, with dinner after. Syllabus: receipts and e-invoices out of AutoCount, plus the wider front-desk content. Must sit after AutoCount is installed and after Leow has taught Lau and Emily; final confirmation is still pending."
+   "tip": "Locked 18 Sep: front-desk training from 3:30 PM after the clinic closes, dinner after. Receipts and e-invoices from AutoCount plus the wider front-desk syllabus."
+  },
+  {
+   "d": "5\u20139 Oct",
+   "l": "Cutover week \u2014 receipts from AutoCount",
+   "s": "",
+   "iso": "2026-10-05",
+   "tip": "The front desk starts issuing receipts from AutoCount. Lau and Emily on standby in person all week."
   },
   {
    "d": "16 Oct",
@@ -175,7 +210,7 @@
     {
      "id": "d1",
      "dot": "live",
-     "chip": "data flow OK \u00b7 rollout pending",
+     "chip": "cutover 5\u20139 Oct",
      "name": "OpenDent \u2194 AutoCount integration",
      "one": "OpenDent \u2192 AutoCount data flow was reported OK on 15 Sep. The remaining front-desk rollout is tracked through the hardware, local setup and training steps.",
      "steps": [
@@ -239,24 +274,28 @@
       },
       {
        "t": "Commission the front-desk PCs: Chrome + iSmile email signed in (Google Docs for letters) + WhatsApp Web",
-       "s": ""
+       "s": "now",
+       "w": "18\u201319 Sep"
+      },
+      {
+       "t": "Leow installs AutoCount remotely \u2014 2 secondary accounts downstairs, primary on the server (we give him remote access)",
+       "s": "",
+       "w": "19\u201321 Sep"
+      },
+      {
+       "t": "Walkthrough with Leow, Jason, Emily and Lau (1\u20132 hrs) \u2014 check the whole flow, recap receipts",
+       "s": "",
+       "w": "29\u201330 Sep"
       },
       {
        "t": "X-ray vendor installs the X-ray software (likely over UltraViewer)",
-       "s": ""
-      },
-      {
-       "t": "Leow (AutoCount) installs AutoCount \u2014 2 secondary accounts downstairs, 1 primary on the server upstairs",
-       "s": ""
-      },
-      {
-       "t": "Leow teaches Lau + Emily how to use AutoCount",
-       "s": ""
-      },
-      {
-       "t": "Front-desk training \u2014 receipts, e-invoices and the wider FOH syllabus",
        "s": "",
-       "w": "Sat 3 Oct (tentative)"
+       "w": "28 Sep \u2013 1 Oct"
+      },
+      {
+       "t": "Front-desk training + dinner \u2014 receipts, e-invoices and the wider FOH syllabus",
+       "s": "",
+       "w": "Sat 3 Oct, 3:30 PM"
       },
       {
        "t": "True end-to-end integration test",
@@ -264,11 +303,13 @@
        "w": "date owed by Jason"
       },
       {
-       "t": "AR sync live \u2014 parallel run with paper receipts",
-       "s": ""
+       "t": "Cutover \u2014 front desk issues receipts from AutoCount; Lau and Emily on standby in person",
+       "s": "",
+       "w": "5\u20139 Oct"
       }
      ],
      "open": [
+      "<b>Plan locked 18 Sep:</b> front-desk PCs in by Sat 19 Sep \u2192 Leow installs AutoCount remotely 19\u201321 Sep \u2192 walkthrough with Leow, Jason, Emily and Lau on 29\u201330 Sep \u2192 X-ray software installed 28 Sep\u20131 Oct \u2192 front-desk training <b>Sat 3 Oct from 3:30 PM</b> \u2192 cutover week <b>5\u20139 Oct</b> with Lau and Emily on standby.",
       "<b>OpenDent \u2192 AutoCount data flow was reported OK by Jason on 15 Sep.</b> Hardware status is consolidated under Hardware & server.",
       "<b>Then the commissioning order:</b> set the front-desk PCs up for real (OpenDent already on, plus Chrome with the iSmile email signed in for Google Docs letters, plus WhatsApp Web \u2014 enough for the desk to start working) \u2192 X-ray vendor installs the X-ray software \u2192 Leow installs AutoCount, the 2 secondary accounts downstairs and the primary on the server upstairs.",
       "<b>Only then the two training events:</b> Leow teaches Lau and Emily AutoCount first; the front-desk training follows on a Saturday after work (clinic closes 3:30 PM) with dinner after \u2014 <b>3 Oct (tentative); confirmation pending</b>.",
@@ -277,9 +318,9 @@
       "iSmile-side testing/clearance is complete; track the remaining front-desk rollout and end-to-end date."
      ],
      "flag": {
-      "k": "wait",
-      "who": "Jason",
-      "w": "Jason owes the remaining 8-point answers and an end-to-end date."
+      "k": "due",
+      "by": "2026-09-21",
+      "w": "Give Leow remote access so AutoCount is installed on the front-desk PCs by Mon 21 Sep; then fix the 29 or 30 Sep walkthrough with Leow and Jason."
      },
      "owner": "codecapsule",
      "dept": "tech",
@@ -287,7 +328,7 @@
      "from_initiatives": [
       1
      ],
-     "next": "Confirm the remaining front-desk rollout and secure Jason's end-to-end test date.",
+     "next": "Front-desk PCs in by 19 Sep, Leow installs remotely by 21 Sep, walkthrough 29\u201330 Sep, training Sat 3 Oct, cutover 5\u20139 Oct.",
      "endMonth": "2026-09"
     },
     {
@@ -326,7 +367,7 @@
     {
      "id": "d3",
      "dot": "wait",
-     "chip": "training 3 Oct (tentative)",
+     "chip": "training 3 Oct \u00b7 cutover 5\u20139 Oct",
      "name": "Digital receipts (AR)",
      "one": "Receipts out of AutoCount replace the paper book \u2014 front desk switches only after training.",
      "steps": [
@@ -349,22 +390,23 @@
       {
        "t": "Receipts + e-invoices taught at the FOH training",
        "s": "",
-       "w": "Sat 3 Oct (tentative)"
+       "w": "Sat 3 Oct, 3:30 PM"
       },
       {
-       "t": "FOH trained \u00b7 paper retired",
-       "s": ""
+       "t": "Cutover week \u2014 receipts from AutoCount, paper retired",
+       "s": "",
+       "w": "5\u20139 Oct"
       }
      ],
      "open": [
-      "<b>Training is tentatively set for Saturday 3 Oct; confirmation pending</b>, after the clinic closes at 3:30 PM, dinner after. Receipts and e-invoices are taught there alongside the wider front-desk syllabus.",
+      "<b>3 Oct is locked</b> (18 Sep): front-desk training from 3:30 PM, dinner after. Cutover to AutoCount receipts the following week, 5\u20139 Oct, with Lau and Emily on standby.",
       "Receipt-name nuance: AutoCount name changes stick (parent paying for child, company claims) \u2014 teach it explicitly",
       "Physical receipts continue until training done \u2014 decided, not a slip"
      ],
      "flag": {
-      "k": "decide",
-      "by": "2026-09-13",
-      "w": "Confirm the tentative Saturday 3 Oct booking. Everything downstream of it is already scoped."
+      "k": "due",
+      "by": "2026-10-03",
+      "w": "Receipt design and SOP ready before the Sat 3 Oct training."
      },
      "owner": "emily",
      "dept": "clinical",
@@ -524,7 +566,7 @@
     {
      "id": "d7",
      "dot": "wait",
-     "chip": "2 monitors due Thu 17 Sep \u00b7 cooling open",
+     "chip": "configuring \u00b7 in by 19 Sep",
      "name": "Hardware & server",
      "one": "Server swapped and every PC reconnected. The two front-desk machines await monitor delivery on Thu 17 Sep and a cooling solution.",
      "steps": [
@@ -553,32 +595,39 @@
        "w": "5 Sep"
       },
       {
-       "t": "Cooling solution for the front-desk PCs",
-       "s": ""
+       "t": "Cooling \u2014 not needed: Jason confirms the units are designed to run hot and shed heat through the case",
+       "s": "skip",
+       "w": "18 Sep"
       },
       {
-       "t": "2 monitors ordered \u2014 expected Thu 17 Sep; Jason to arrange delivery to clinic",
-       "s": "now"
+       "t": "Monitors, keyboards and mice in",
+       "s": "done",
+       "w": "by 18 Sep"
+      },
+      {
+       "t": "Front-desk PCs configured upstairs, then moved downstairs",
+       "s": "now",
+       "w": "18\u201319 Sep"
       },
       {
        "t": "Front-desk PCs into service",
-       "s": ""
+       "s": "",
+       "w": "Sat 19 Sep"
       }
      ],
      "open": [
-      "<b>The two front-desk PCs are the last hardware item.</b> OpenDent is already on them; they await the ordered monitors and a cooling solution.",
-      "<b>Monitors:</b> two have been ordered; Jason expects them on Thu 17 Sep and will arrange delivery to the clinic.",
-      "<b>Cooling fans:</b> open question for iSmile and Jason \u2014 who buys them, what exact fan/model or protective case is recommended, and whether a guard/casing is needed so the hot setup is safe and practical to touch. Confirm approximate price and availability."
+      "<b>Hardware is complete.</b> Monitors, keyboards and mice are in. Cooling is dropped: Jason confirmed the units are designed to run hot, which is how they shed heat.",
+      "The two front-desk PCs are being configured upstairs now and move downstairs once done \u2014 target Sat 19 Sep."
      ],
      "owner": "codecapsule",
      "dept": "tech",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Jason arranges clinic delivery of the two monitors on Thu 17 Sep; iSmile and Jason resolve the cooling-fan buyer and safe, touchable fan/case/guard solution, then the front-desk PCs go into service.",
+     "next": "Configure the front-desk PCs upstairs and move them downstairs by Sat 19 Sep.",
      "flag": {
-      "k": "wait",
-      "who": "Jason / iSmile",
-      "w": "Arrange clinic delivery of the two ordered monitors on Thu 17 Sep and settle who supplies a safe, practical cooling-fan solution."
+      "k": "due",
+      "by": "2026-09-19",
+      "w": "Finish configuring the two front-desk PCs upstairs and move them downstairs by Sat 19 Sep \u2014 Leow's remote install depends on it."
      }
     },
     {
@@ -753,7 +802,7 @@
     {
      "id": "l1",
      "dot": "now",
-     "chip": "5 of 7 sent",
+     "chip": "sent \u00b7 signed by 30 Sep",
      "name": "Contractor agreement",
      "one": "Body is a pure template; every per-doctor input lives in Schedule 1. Agreements went out to the five non-specialist doctors on 10 Sep; the two specialists follow.",
      "steps": [
@@ -804,8 +853,8 @@
       },
       {
        "t": "Hand over to the doctors \u2014 see Doctor rollout & communication",
-       "s": "",
-       "w": "after Lydia finalises"
+       "s": "done",
+       "w": "10 Sep"
       },
       {
        "t": "Five-item reminder sent to Lydia (consulting group)",
@@ -827,19 +876,18 @@
        "s": ""
       },
       {
-       "t": "Signatures back",
-       "s": ""
+       "t": "Signed copies back to Lau",
+       "s": "",
+       "w": "by Wed 30 Sep"
       }
      ],
      "open": [
+      "<b>No further revisions are planned.</b> The agreements are final as sent; the job now is making sure the doctors understand them. Changes after the 23 Sep walkthrough only if something genuinely needs it.",
       "<b>Sent 10 Sep:</b> agreements to the five non-specialist doctors, each with a one-page &ldquo;Three Key Changes&rdquo; summary card attached to the message. The two specialists (Dr Yeoh, Dr Joan) are still to go &mdash; the owner judges them less urgent.",
       "<b>New in the agreement (9 Sep):</b> a doctor can be paid by the practice in three ways only &mdash; professional fees; reimbursement of pre-approved spend at documented cost against the original supplier invoice (nothing payable for items obtained free); or as an approved supplier with the interest declared. Patient money must go through the authorised billing process, for services and for materials, appliances and laboratory work alike.",
       "<b>Live master is v1.0</b> (9 Sep). The new Section 3 &ldquo;Minimum Fee and Concessions&rdquo; renumbered everything after Sessions &mdash; procurement is now Clause 7, termination 14, general 16.",
-      "<b>Five-item reminder sent to Lydia in the consulting group on 8 Sep:</b> (1) fill every contractor agreement with the doctors' details \u2014 she needs those from Emily; (2) update the handbook with the pending clauses, the family discount clause included; (3) plan the staff handbook acknowledgement signatures; (4) adjust Elaine's JD and contract if not already done; (5) get the doctors' contracts ready for the rollout. Awaiting her reply.",
       "<b>Parents approved all three changes on 2 Sep:</b> abolish the 10% \u00b7 floor price with doctor-borne discounts \u00b7 economics follow the production month. Discount approval threshold amended to 15%.",
       "<b>Final contractor agreement sent to Emily for review on 3 Sep.</b>",
-      "Lydia is still waiting for the Schedule 1 input at clause 2.2 and must finalise the Professional Fee clauses in Schedule 2 before sending to Dr Ong for signature.",
-      "Lydia must finalise all contracts: employee contracts, the handbook, and the doctors' contracts. Names evidenced in the available board/transcripts: Dr Ong, Dr Ling and Dr Jun; the remaining doctors are not named there.",
       "Keep the parents' register: item 2 pays for item 1, leaving a gap of about RM10\u201312k a year"
      ],
      "owner": "lydia",
@@ -848,12 +896,12 @@
      "from_initiatives": [
       16
      ],
-     "next": "Lydia fills the doctors' details into each agreement (from Emily), finalises the handbook and Elaine's papers, then the rollout runs: Zoom explainer \u2192 contracts out one by one \u2192 group sit-down about two weeks later.",
+     "next": "Walk the doctors through the agreement on Wed 23 Sep, 6:30 PM at the clinic; signed copies back by Wed 30 Sep. The two specialists (Yeoh, Joan) are still to be sent.",
      "endMonth": "2026-09",
      "flag": {
       "k": "due",
-      "who": "Lu",
-      "w": "Send the agreement to the two specialists (Dr Yeoh, Dr Joan) \u2014 the other five went out 10 Sep."
+      "by": "2026-09-30",
+      "w": "Signed copies back from the doctors by Wed 30 Sep, one week after the walkthrough."
      }
     },
     {
@@ -1029,7 +1077,7 @@
        "w": "2 Sep"
       },
       {
-       "t": "Format decided: Zoom explainer first, then contracts sent one by one, then a group sit-down ~2 weeks later",
+       "t": "Format decided: Zoom explainer first, then contracts, then a sit-down (superseded \u2014 contracts went first with a summary card; the sit-down is in person)",
        "s": "done",
        "w": "6 Sep"
       },
@@ -1049,17 +1097,19 @@
        "w": "10 Sep \u2014 five of seven"
       },
       {
-       "t": "Two weeks of personal questions by text \u2014 answered as they come",
-       "s": ""
+       "t": "Personal questions by text \u2014 answered as they come",
+       "s": "",
+       "w": "to 23 Sep"
       },
       {
-       "t": "Doctors agreement walkthrough and Q&A",
-       "s": "done",
+       "t": "In-person walkthrough and Q&A at the clinic \u2014 all doctors except the specialists (Yeoh, Joan)",
+       "s": "",
        "w": "Wed 23 Sep \u00b7 6:30 PM"
       },
       {
-       "t": "Signatures",
-       "s": ""
+       "t": "Signed copies back",
+       "s": "",
+       "w": "by Wed 30 Sep"
       }
      ],
      "noteTitle": "Narrative \u2014 how this gets said",
@@ -1083,7 +1133,12 @@
      "dept": "finance",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Hold the doctors agreement walkthrough and Q&A on Wednesday 23 September 2026 at 6:30 PM. Allow up to 1.5 hours, with dinner if included."
+     "next": "Hold the doctors agreement walkthrough and Q&A on Wednesday 23 September 2026 at 6:30 PM. Allow up to 1.5 hours, with dinner if included.",
+     "flag": {
+      "k": "due",
+      "by": "2026-09-23",
+      "w": "In-person walkthrough Wed 23 Sep, 6:30 PM at the clinic; signed copies back by Wed 30 Sep."
+     }
     },
     {
      "id": "l6",
@@ -1149,7 +1204,7 @@
     {
      "id": "g1",
      "dot": "wait",
-     "chip": "deployed \u00b7 config Mon 14 Sep",
+     "chip": "set up by 21 \u00b7 send 22\u201324 Sep",
      "name": "Cold reactivation blast",
      "one": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
      "steps": [
@@ -1206,16 +1261,17 @@
       {
        "t": "Lu configures MiniCRM for the blast",
        "s": "now",
-       "w": "Mon 14 Sep"
+       "w": "by Mon 21 Sep"
       },
       {
        "t": "Fresh-data re-run immediately before sending",
-       "s": ""
+       "s": "",
+       "w": "Mon 21 Sep"
       },
       {
-       "t": "Tentative Wave 1 window (13\u201336mo lapsed) \u2014 1,800/day; not confirmed",
+       "t": "Blast sends \u2014 1,800/day over three days",
        "s": "",
-       "w": "22\u201324 Sep"
+       "w": "Tue\u2013Thu 22\u201324 Sep"
       },
       {
        "t": "Waves 2\u20133 \u00b7 funnel read via campaign tags",
@@ -1236,9 +1292,8 @@
      ],
      "flag": {
       "k": "due",
-      "by": "2026-09-14",
-      "w": "Configure MiniCRM for the blast on Mon 14 Sep 2026; the send window remains tentative for 22\u201324 Sep.",
-      "who": "Lu"
+      "by": "2026-09-21",
+      "w": "Finish the MiniCRM set-up and the fresh-data re-run by Mon 21 Sep; the blast sends Tue\u2013Thu 22\u201324 Sep."
      },
      "owner": "lu",
      "dept": "crm",
@@ -1246,7 +1301,7 @@
      "from_initiatives": [
       28
      ],
-     "next": "Lu configures MiniCRM on Mon 14 Sep 2026, then the team re-runs fresh data immediately before any blast. The 22\u201324 Sep window remains tentative.",
+     "next": "Finish setting up by Mon 21 Sep, fresh-data re-run, then send Tue\u2013Thu 22\u201324 Sep at 1,800/day.",
      "endMonth": "2026-10"
     },
     {
@@ -1957,7 +2012,7 @@
     {
      "id": "h5",
      "dot": "now",
-     "chip": "3 Oct tentative",
+     "chip": "Sat 3 Oct locked",
      "name": "Front-of-house SOP, training & bench",
      "one": "The clinic has no SOP for issuing letters to patients \u2014 medical certificates, referral letters, insurance reports, quotations. Nobody had ever said whose job it was, and that gap caused real friction between a doctor and",
      "steps": [
@@ -2023,12 +2078,12 @@
      "from_initiatives": [
       19
      ],
-     "next": "Confirm Sat 3 Oct, then build the training deck against the consolidated syllabus on this card.",
+     "next": "Build the training deck for Sat 3 Oct against the consolidated syllabus on this card.",
      "endMonth": "2026-11",
      "flag": {
-      "k": "decide",
-      "by": "2026-09-13",
-      "w": "Confirm the tentative 3 Oct date so the deck can be built against a real date."
+      "k": "due",
+      "by": "2026-10-03",
+      "w": "Build the training deck for Sat 3 Oct."
      }
     }
    ]
@@ -2336,7 +2391,7 @@
   "note": "initiatives.store.json folded into this store; initiatives.json is now DERIVED from it by hq_publish.py for the legacy page."
  },
  "meta": {
-  "asof": "THU 17 SEP 2026",
-  "updated": "2026-09-17T19:13:07+08:00"
+  "asof": "FRI 18 SEP 2026",
+  "updated": "2026-09-18T11:52:58+08:00"
  }
 }
