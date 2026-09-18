@@ -48,6 +48,7 @@ const PAGES = {
   '/dashboard': '/dashboard/index.html',            // the Dashboard (was /dashboard/deck)
   '/dashboard/': '/dashboard/index.html',
   '/dashboard/tasks': '/dashboard/hq.html',          // Task Tracker (was HQ)
+  '/dashboard/gantt': '/dashboard/gantt.html',        // Gantt of dated steps (18 Sep 2026)
   '/dashboard/org': '/dashboard/org.html',
   '/dashboard/office': '/dashboard/office.html',
   '/dashboard/profitability': '/dashboard/margin.html',
@@ -60,6 +61,7 @@ const CANONICAL = {
   '/dashboard/index.html': '/dashboard',
   '/dashboard/deck.html': '/dashboard',
   '/dashboard/hq.html': '/dashboard/tasks',
+  '/dashboard/gantt.html': '/dashboard/gantt',
   '/dashboard/org.html': '/dashboard/org',
   '/dashboard/office.html': '/dashboard/office',
   '/dashboard/margin.html': '/dashboard/profitability',

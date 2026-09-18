@@ -1,0 +1,46 @@
+/* iSmile dashboard — shared light/dark theme (owner, 18 Sep 2026).
+   Each page keeps its own :root palette (the dark default). This file adds
+   the tokens pages use in place of hard-coded colours, and the light
+   overrides. html[data-theme] (0,1,1) outranks each page's :root (0,1,0),
+   so load order does not matter. theme.js sets the attribute before paint. */
+
+:root{
+  /* rgb triplets for rgba(var(--x),alpha) */
+  --p1rgb:69,196,255; --p2rgb:177,149,255; --p3rgb:63,221,160;
+  --fhrrgb:240,177,82; --ffinrgb:239,126,147;
+  --okrgb:86,194,113; --warnrgb:245,184,74; --badrgb:255,107,107;
+  --bgrgb:10,16,30; --panelrgb:16,27,48; --panel2rgb:20,33,56;
+  --linergb:34,50,82; --mutrgb:147,165,196; --dimrgb:94,113,150;
+  --scrimrgb:4,8,16; --shadowrgb:0,0,0;
+  --nodergb:169,205,255;   /* the orb's resting nodes */
+  /* named in-between shades the pages used as literals */
+  --track:#1B2A47; --line-hi:#3A5382; --line-2:#2C4066; --deep:#0D1526;
+  --orange:#FF9052; --gold-soft:#F7CE8A; --bad-soft:#FFB3B3;
+  --teal:#4FB3D1; --teal2:#00A0C6;
+  color-scheme:dark;
+}
+
+html[data-theme="light"]{
+  --bg:#F2F5F9; --panel:#FFFFFF; --panel2:#F5F7FB; --line:#DCE3ED;
+  --ink:#0E1A2C; --mut:#4B5B76; --dim:#7C8AA3;
+  --p1:#0A7DBF; --p2:#6B4BD6; --p3:#0B8F63; --fhr:#A86A0C; --ffin:#C23B5A;
+  --ok:#23873F; --warn:#A86A00; --bad:#CC3333;
+
+  --p1rgb:10,125,191; --p2rgb:107,75,214; --p3rgb:11,143,99;
+  --fhrrgb:168,106,12; --ffinrgb:194,59,90;
+  --okrgb:35,135,63; --warnrgb:168,106,0; --badrgb:204,51,51;
+  --bgrgb:242,245,249; --panelrgb:255,255,255; --panel2rgb:245,247,251;
+  --linergb:160,174,198; --mutrgb:75,91,118; --dimrgb:124,138,163;
+  --scrimrgb:15,23,42; --shadowrgb:15,23,42;
+  --nodergb:40,86,150;
+
+  --track:#E4E9F1; --line-hi:#AEBBD0; --line-2:#C8D1DF; --deep:#EDF1F6;
+  --orange:#C2560F; --gold-soft:#8A5A00; --bad-soft:#B02A2A;
+  --teal:#0E86A8; --teal2:#00718D;
+  color-scheme:light;
+}
+html[data-theme="light"] ::selection{background:rgba(var(--p1rgb),.18)}
+
+/* the switch itself, styled to sit inside any page's nav */
+.theme-tog{cursor:pointer;user-select:none}
+.theme-tog .ico{display:inline-block;margin-right:5px;font-size:11px;line-height:1}
