@@ -142,7 +142,7 @@
     *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
     body{background:#fff;background-image:none}
     .wrap{max-width:none;padding:0}
-    header,.controls,.tip,footer .hint{display:none!important}
+    header,.controls,.tip,footer{display:none!important}
     .back .now{box-shadow:none}
     .printhead{display:block;margin-bottom:10px}
     .printhead h1{font-family:var(--disp);font-size:18px;letter-spacing:.06em;text-transform:uppercase}
@@ -263,11 +263,14 @@ function draw(){
       if(bar){
         const x=X(s)+2, w=Math.max(dw-4,X(e+DAY)-X(s)-4);
         mark=`<button class="it bar ${st}" ${data} style="left:${x}px;width:${w}px" aria-label="${esc(it.label)}, ${esc(when)}"></button>`;
-        cap=`<span class="cap" style="left:${x+w+(st==="now"?12:8)}px">${esc(when)}</span>`;
+        // date label to the right of the bar, or to its left when it would run off the chart
+        const cw=when.length*6.6+12, gap=st==="now"?12:8;
+        cap=x+w+gap+cw>TW?`<span class="cap" style="right:${TW-x+6}px">${esc(when)}</span>`:`<span class="cap" style="left:${x+w+gap}px">${esc(when)}</span>`;
       }else{
         const x=X(s)+dw/2;
         mark=`<button class="it ms ${st}${it.locked?" locked":""}" ${data} style="left:${x}px" aria-label="${esc(it.label)}, ${esc(when)}"></button>`;
-        cap=`<span class="cap" style="left:${x+13}px">${it.locked?'<span class="lock">● </span>':""}<b>${esc(when)}</b></span>`;
+        const cw=when.length*6.6+(it.locked?24:12), inner=`${it.locked?'<span class="lock">● </span>':""}<b>${esc(when)}</b>`;
+        cap=x+13+cw>TW?`<span class="cap" style="right:${TW-x+12}px">${inner}</span>`:`<span class="cap" style="left:${x+13}px">${inner}</span>`;
       }
       h+=`<div class="lab row ${st}" style="${cv}" title="${esc(it.label)}"><div class="t">${esc(it.label)}</div><div class="w">${esc(it.who||"")}</div></div>`+
          `<div class="tl row" style="${cv}"><div class="back">${back}<i class="now" style="left:${nowX}px"></i></div>${mark}${cap}</div>`;
