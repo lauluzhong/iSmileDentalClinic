@@ -1,18 +1,11 @@
 {
  "decisions": [
   {
-   "hot": false,
-   "k": "Config Mon 14 Sep",
-   "t": "Configure MiniCRM for the blast",
-   "w": "Complete Lu's MiniCRM configuration on Mon 14 Sep 2026; the blast window remains tentative for 22\u201324 Sep.",
-   "ref": "g1"
-  },
-  {
-   "hot": false,
-   "k": "Small unlock",
-   "t": "Set the FOH training date",
-   "w": "A Saturday after work, followed by dinner. Scope is already fixed; it only needs a date in the diary.",
-   "ref": "d3"
+   "hot": true,
+   "k": "Pick a day",
+   "t": "Walkthrough with Leow: 29 or 30 Sep?",
+   "w": "1\u20132 hours with Leow, Jason, Emily and you to check the whole flow and recap receipts. Either day sits before the 3 Oct training.",
+   "ref": "d1"
   }
  ],
  "rail": [
@@ -67,10 +60,10 @@
   },
   {
    "d": "4 Sep",
-   "l": "Contractor agreements out to doctors",
-   "s": "",
+   "l": "Contractor agreements out to 5 doctors (sent 10 Sep)",
+   "s": "done",
    "iso": "2026-09-04",
-   "tip": "Owner's target to get the agreements to the doctors. Open decision: hand them over in a sit-down, or send individually first and take questions afterwards."
+   "tip": "Sent 10 Sep to the five non-specialist doctors, each with a one-page summary card. Yeoh and Joan still to go."
   },
   {
    "d": "5 Sep",
@@ -88,17 +81,17 @@
   },
   {
    "d": "7\u201311 Sep",
-   "l": "Stabilisation \u00b7 Monday pathway check \u00b7 confirm with Jason",
-   "s": "",
+   "l": "Stabilisation week \u2014 data flow confirmed 15 Sep",
+   "s": "done",
    "iso": "2026-09-08",
-   "tip": "Emily's 5 Sep report changes this week's shape: autobackup is not set up and the 2 reception PCs are still to be done this week. Monday every PC is rechecked for the new pathway and data. The end-to-end date is now a question for Jason rather than the 7\u201311 Sep we penned in."
+   "tip": "After the 5 Sep migration: pathway checks on every PC, and Jason confirmed the OpenDent \u2192 AutoCount data flow on 15 Sep."
   },
   {
    "d": "15 Sep",
-   "l": "Cert auto-renewal should fire (~30d before expiry)",
-   "s": "",
+   "l": "Recall-link cert auto-renewed \u2014 valid to 15 Dec",
+   "s": "done",
    "iso": "2026-09-15",
-   "tip": "Let's Encrypt renews about 30 days out. Code Capsule's renewal cron, added after the July lapse, gets its first real test here. Suraya confirmed 28 Aug that the current cert has 49 days left \u2014 that is the existing certificate, not a fresh renewal, so this date is still the real test. Edith's daily check will catch it either way."
+   "tip": "Code Capsule's renewal fired; the daily check on the box confirms the certificate now runs to 15 Dec 2026."
   },
   {
    "d": "19 Sep",
@@ -162,13 +155,6 @@
    "s": "",
    "iso": "2026-10-05",
    "tip": "The front desk starts issuing receipts from AutoCount. Lau and Emily on standby in person all week."
-  },
-  {
-   "d": "16 Oct",
-   "l": "Blast cert renewal deadline",
-   "s": "",
-   "iso": "2026-10-16",
-   "tip": "The WhatsApp cert behind the blast infrastructure must be renewed before this date or sends stop."
   },
   {
    "d": "26 Oct",
@@ -2391,7 +2377,7 @@
   "note": "initiatives.store.json folded into this store; initiatives.json is now DERIVED from it by hq_publish.py for the legacy page."
  },
  "gantt": {
-  "about": "Timeline page (/dashboard/timeline). One entry per initiative; each item is a bar (start+end) or a milestone (start only). status: done | now | next. locked: true = a committed date. Keep dates in step with the stream cards (streams = ids of the related Task Tracker cards).",
+  "about": "Timeline page (/dashboard/gantt). One entry per initiative; each item is a bar (start+end) or a milestone (start only). status: done | now | next. locked: true = a committed date. Keep dates in step with the stream cards (streams = ids of the related Task Tracker cards).",
   "initiatives": [
    {
     "id": "ar",
@@ -2501,13 +2487,6 @@
       "status": "next",
       "locked": true,
       "who": "MiniCRM (Code Capsule)"
-     },
-     {
-      "label": "Recall-link certificate must be renewed",
-      "start": "2026-10-16",
-      "status": "next",
-      "who": "Code Capsule",
-      "note": "If it lapses, the recall and blast links stop working. Auto-renewal should fire around 15 Sep\u201315 Oct."
      }
     ]
    },
@@ -2589,6 +2568,6 @@
  },
  "meta": {
   "asof": "FRI 18 SEP 2026",
-  "updated": "2026-09-18T11:59:16+08:00"
+  "updated": "2026-09-18T12:02:30+08:00"
  }
 }
