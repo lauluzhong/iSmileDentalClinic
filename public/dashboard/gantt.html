@@ -129,6 +129,10 @@
   .tip .d{font-family:var(--mono);font-size:11px;color:var(--c,var(--p1));margin-bottom:5px}
   .tip .w{font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-top:5px}
 
+  /* embedded as the Task Tracker's Gantt view: no page header, no own background */
+  html.embed body{background:transparent;background-image:none;min-height:0}
+  html.embed .wrap{padding:0;max-width:none}
+  html.embed header,html.embed footer .hint{display:none}
   footer{margin-top:18px;color:var(--dim);font-family:var(--mono);font-size:10.5px;line-height:1.7}
   .printhead{display:none}
 
@@ -175,7 +179,7 @@
   <header>
     <div class="brand"><h1>iSmile <b>Gantt</b></h1><div class="sub" id="asof">loading…</div></div>
     <nav>
-      <a href="/dashboard">Dashboard</a><a href="/dashboard/org">Org Chart</a><a href="/dashboard/tasks">Task Tracker</a><a href="/dashboard/gantt" class="active">Gantt</a><a href="/dashboard/profitability">Profitability</a><a href="/dashboard/analytics">Analytics</a><a href="/dashboard/office">Office</a>
+      <a href="/dashboard">Dashboard</a><a href="/dashboard/org">Org Chart</a><a href="/dashboard/tasks#v=gantt" class="active">Task Tracker</a><a href="/dashboard/profitability">Profitability</a><a href="/dashboard/analytics">Analytics</a><a href="/dashboard/office">Office</a>
     </nav>
   </header>
 
@@ -201,6 +205,7 @@
 <div class="tip" id="tip" role="tooltip"></div>
 
 <script>
+if(new URLSearchParams(location.search).has("embed")) document.documentElement.classList.add("embed");
 const RAW="https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/";
 const KEY="ismile-gantt-sel";
 const $=s=>document.querySelector(s);
@@ -290,7 +295,8 @@ function draw(){
   });
   grid.innerHTML=h;
   // bring today into view on first draw
-  if(!draw.done){draw.done=1; const sc=$("#scroller"); sc.scrollLeft=Math.max(0,nowX-dw*5);}
+  // open with the today line in the middle of the visible chart
+  if(!draw.done){draw.done=1; const sc=$("#scroller"); sc.scrollLeft=Math.max(0,nowX-(sc.clientWidth-labw)/2);}
   wireTips();
 }
 
