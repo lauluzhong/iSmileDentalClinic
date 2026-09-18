@@ -1,8 +1,6 @@
 {
-  "updated": "2026-09-18 14:04 MYT",
-  "running": [
-    "geo_visibility"
-  ],
+  "updated": "2026-09-18 14:09 MYT",
+  "running": [],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -61,7 +59,8 @@
       "last": "2026-09-14 10:49 MYT"
     },
     "geo_visibility": {
-      "state": "running"
+      "state": "idle",
+      "last": "2026-09-18 14:09 MYT"
     }
   }
 }
