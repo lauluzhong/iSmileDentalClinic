@@ -3,8 +3,8 @@
   {
    "hot": true,
    "k": "Pick a day",
-   "t": "Walkthrough with Leow: 29 or 30 Sep?",
-   "w": "1\u20132 hours with Leow, Jason, Emily and you to check the whole flow and recap receipts. Either day sits before the 3 Oct training.",
+   "t": "Receipt run-through: which day, 29 Sep \u2013 1 Oct?",
+   "w": "Leow, Jason, and you or Emily, to run through the whole receipt-generation process before the 3 Oct training.",
    "ref": "d1"
   }
  ],
@@ -94,18 +94,18 @@
    "tip": "Code Capsule's renewal fired; the daily check on the box confirms the certificate now runs to 15 Dec 2026."
   },
   {
-   "d": "19 Sep",
-   "l": "Front-desk PCs in downstairs",
+   "d": "18\u201319 Sep",
+   "l": "Install computers downstairs",
    "s": "",
    "iso": "2026-09-19",
    "tip": "Configured upstairs, then moved downstairs. Cooling dropped \u2014 the units are designed to run hot."
   },
   {
-   "d": "19\u201321 Sep",
-   "l": "Leow installs AutoCount remotely",
+   "d": "19\u201322 Sep",
+   "l": "Leow installs AutoCount (AnyDesk)",
    "s": "",
    "iso": "2026-09-20",
-   "tip": "Two secondary accounts on the front-desk PCs, the primary on the server. We give him remote access."
+   "tip": "Remote install over AnyDesk on the downstairs PCs: two secondary accounts, the primary on the server."
   },
   {
    "d": "22\u201324 Sep",
@@ -113,6 +113,13 @@
    "s": "",
    "iso": "2026-09-22",
    "tip": "The blast runs Tue\u2013Thu 22\u201324 Sep at 1,800/day. Set-up and the fresh-data re-run by Mon 21 Sep."
+  },
+  {
+   "d": "22\u201326 Sep",
+   "l": "Design receipt + front-desk SOP",
+   "s": "",
+   "iso": "2026-09-22",
+   "tip": "The new receipt layout and the SOP for issuing it, ready for the run-through and the 3 Oct training."
   },
   {
    "d": "23 Sep",
@@ -129,11 +136,11 @@
    "tip": "The X-ray vendor installs the software on the downstairs PCs, likely remotely."
   },
   {
-   "d": "29\u201330 Sep",
-   "l": "Walkthrough with Leow + Jason",
+   "d": "29 Sep\u20131 Oct",
+   "l": "Receipt run-through: Leow, Jason, Lau/Emily",
    "s": "",
    "iso": "2026-09-29",
-   "tip": "Leow, Jason, Emily and Lau, 1\u20132 hours: check the whole flow end to end and recap how receipts are generated."
+   "tip": "A session to run through the whole receipt-generation process before the training."
   },
   {
    "d": "30 Sep",
@@ -150,11 +157,11 @@
    "tip": "Locked 18 Sep: front-desk training from 3:30 PM after the clinic closes, dinner after. Receipts and e-invoices from AutoCount plus the wider front-desk syllabus."
   },
   {
-   "d": "5\u20139 Oct",
-   "l": "Cutover week \u2014 receipts from AutoCount",
+   "d": "5 Oct",
+   "l": "Go live \u2014 new digital receipts",
    "s": "",
    "iso": "2026-10-05",
-   "tip": "The front desk starts issuing receipts from AutoCount. Lau and Emily on standby in person all week."
+   "tip": "Paper receipts retired. Lau and Emily on standby in person that week."
   },
   {
    "d": "26 Oct",
@@ -196,7 +203,7 @@
     {
      "id": "d1",
      "dot": "live",
-     "chip": "cutover 5\u20139 Oct",
+     "chip": "go-live 5 Oct",
      "name": "OpenDent \u2194 AutoCount integration",
      "one": "OpenDent \u2192 AutoCount data flow was reported OK on 15 Sep. The remaining front-desk rollout is tracked through the hardware, local setup and training steps.",
      "steps": [
@@ -259,19 +266,19 @@
        "w": "15 Sep"
       },
       {
-       "t": "Commission the front-desk PCs: Chrome + iSmile email signed in (Google Docs for letters) + WhatsApp Web",
+       "t": "Install the computers downstairs (Chrome + iSmile email, WhatsApp Web)",
        "s": "now",
        "w": "18\u201319 Sep"
       },
       {
-       "t": "Leow installs AutoCount remotely \u2014 2 secondary accounts downstairs, primary on the server (we give him remote access)",
+       "t": "Leow installs AutoCount on the downstairs PCs over AnyDesk \u2014 2 secondary accounts downstairs, primary on the server",
        "s": "",
-       "w": "19\u201321 Sep"
+       "w": "19\u201322 Sep"
       },
       {
-       "t": "Walkthrough with Leow, Jason, Emily and Lau (1\u20132 hrs) \u2014 check the whole flow, recap receipts",
+       "t": "Receipt run-through session: Leow, Jason, Lau/Emily \u2014 the whole receipt-generation process",
        "s": "",
-       "w": "29\u201330 Sep"
+       "w": "29 Sep \u2013 1 Oct"
       },
       {
        "t": "X-ray vendor installs the X-ray software (likely over UltraViewer)",
@@ -279,7 +286,7 @@
        "w": "28 Sep \u2013 1 Oct"
       },
       {
-       "t": "Front-desk training + dinner \u2014 receipts, e-invoices and the wider FOH syllabus",
+       "t": "Training for front-of-house staff + dinner",
        "s": "",
        "w": "Sat 3 Oct, 3:30 PM"
       },
@@ -289,13 +296,13 @@
        "w": "date owed by Jason"
       },
       {
-       "t": "Cutover \u2014 front desk issues receipts from AutoCount; Lau and Emily on standby in person",
+       "t": "Go live \u2014 new digital receipts (Lau and Emily on standby that week)",
        "s": "",
-       "w": "5\u20139 Oct"
+       "w": "Mon 5 Oct"
       }
      ],
      "open": [
-      "<b>Plan locked 18 Sep:</b> front-desk PCs in by Sat 19 Sep \u2192 Leow installs AutoCount remotely 19\u201321 Sep \u2192 walkthrough with Leow, Jason, Emily and Lau on 29\u201330 Sep \u2192 X-ray software installed 28 Sep\u20131 Oct \u2192 front-desk training <b>Sat 3 Oct from 3:30 PM</b> \u2192 cutover week <b>5\u20139 Oct</b> with Lau and Emily on standby.",
+      "<b>Plan updated 18 Sep:</b> computers downstairs 18\u201319 Sep \u2192 Leow installs AutoCount over AnyDesk 19\u201322 Sep \u2192 receipt + front-desk SOP designed 22\u201326 Sep \u2192 run-through with Leow, Jason and Lau/Emily 29 Sep\u20131 Oct \u2192 front-of-house training <b>Sat 3 Oct</b> \u2192 <b>go live Mon 5 Oct</b>.",
       "<b>OpenDent \u2192 AutoCount data flow was reported OK by Jason on 15 Sep.</b> Hardware status is consolidated under Hardware & server.",
       "<b>Then the commissioning order:</b> set the front-desk PCs up for real (OpenDent already on, plus Chrome with the iSmile email signed in for Google Docs letters, plus WhatsApp Web \u2014 enough for the desk to start working) \u2192 X-ray vendor installs the X-ray software \u2192 Leow installs AutoCount, the 2 secondary accounts downstairs and the primary on the server upstairs.",
       "<b>Only then the two training events:</b> Leow teaches Lau and Emily AutoCount first; the front-desk training follows on a Saturday after work (clinic closes 3:30 PM) with dinner after \u2014 <b>3 Oct (tentative); confirmation pending</b>.",
@@ -305,8 +312,8 @@
      ],
      "flag": {
       "k": "due",
-      "by": "2026-09-21",
-      "w": "Give Leow remote access so AutoCount is installed on the front-desk PCs by Mon 21 Sep; then fix the 29 or 30 Sep walkthrough with Leow and Jason."
+      "by": "2026-09-22",
+      "w": "Leow installs AutoCount on the downstairs PCs over AnyDesk by Tue 22 Sep; then pick the day for the run-through (29 Sep \u2013 1 Oct)."
      },
      "owner": "codecapsule",
      "dept": "tech",
@@ -314,7 +321,7 @@
      "from_initiatives": [
       1
      ],
-     "next": "Front-desk PCs in by 19 Sep, Leow installs remotely by 21 Sep, walkthrough 29\u201330 Sep, training Sat 3 Oct, cutover 5\u20139 Oct.",
+     "next": "Computers downstairs by 19 Sep, Leow installs AutoCount by 22 Sep, receipt + SOP designed 22\u201326 Sep, run-through 29 Sep\u20131 Oct, training 3 Oct, go live 5 Oct.",
      "endMonth": "2026-09"
     },
     {
@@ -353,7 +360,7 @@
     {
      "id": "d3",
      "dot": "wait",
-     "chip": "training 3 Oct \u00b7 cutover 5\u20139 Oct",
+     "chip": "design 22\u201326 Sep \u00b7 live 5 Oct",
      "name": "Digital receipts (AR)",
      "one": "Receipts out of AutoCount replace the paper book \u2014 front desk switches only after training.",
      "steps": [
@@ -363,15 +370,18 @@
       },
       {
        "t": "AutoCount installed on the front-desk PCs (Leow)",
-       "s": ""
+       "s": "",
+       "w": "19\u201322 Sep"
       },
       {
-       "t": "Design what the new receipt looks like",
-       "s": "now"
+       "t": "Design the new receipt",
+       "s": "",
+       "w": "22\u201326 Sep"
       },
       {
-       "t": "Receipts SOP written",
-       "s": ""
+       "t": "Front-desk receipts SOP written",
+       "s": "",
+       "w": "22\u201326 Sep"
       },
       {
        "t": "Receipts + e-invoices taught at the FOH training",
@@ -379,9 +389,9 @@
        "w": "Sat 3 Oct, 3:30 PM"
       },
       {
-       "t": "Cutover week \u2014 receipts from AutoCount, paper retired",
+       "t": "Go live \u2014 receipts from AutoCount, paper retired",
        "s": "",
-       "w": "5\u20139 Oct"
+       "w": "Mon 5 Oct"
       }
      ],
      "open": [
@@ -391,8 +401,8 @@
      ],
      "flag": {
       "k": "due",
-      "by": "2026-10-03",
-      "w": "Receipt design and SOP ready before the Sat 3 Oct training."
+      "by": "2026-09-26",
+      "w": "Receipt design and the front-desk SOP done 22\u201326 Sep, ready for the run-through and the 3 Oct training."
      },
      "owner": "emily",
      "dept": "clinical",
@@ -400,7 +410,7 @@
      "from_initiatives": [
       15
      ],
-     "next": "Confirm 3 Oct (tentative), design the receipt, write the SOP \u2014 teach receipts and e-invoices at the FOH Saturday.",
+     "next": "Design the receipt and write the front-desk SOP 22\u201326 Sep; teach it on 3 Oct; go live 5 Oct.",
      "endMonth": "2026-10"
     },
     {
@@ -2390,7 +2400,7 @@
      "h5"
     ],
     "owner": "Lau \u00b7 Emily \u00b7 Code Capsule",
-    "summary": "Front-desk PCs and AutoCount in place, one walkthrough, the front-desk training, then the switch from paper receipts.",
+    "summary": "Computers downstairs, AutoCount installed, the receipt and SOP designed, one run-through, the front-desk training, then go-live on 5 Oct.",
     "items": [
      {
       "label": "OpenDent migrated to the new server",
@@ -2405,7 +2415,7 @@
       "who": "Jason"
      },
      {
-      "label": "Front-desk PCs configured, moved downstairs",
+      "label": "Install the computers downstairs",
       "start": "2026-09-18",
       "end": "2026-09-19",
       "status": "now",
@@ -2413,20 +2423,20 @@
       "note": "Configured upstairs first. Monitors, keyboards and mice are in; no extra cooling needed."
      },
      {
-      "label": "Leow installs AutoCount remotely",
+      "label": "Leow installs AutoCount on the downstairs PCs (AnyDesk)",
       "start": "2026-09-19",
-      "end": "2026-09-21",
+      "end": "2026-09-22",
       "status": "next",
       "who": "Leow (AutoCount)",
-      "note": "Two secondary accounts on the front-desk PCs, the primary on the server. Needs remote access from us."
+      "note": "Remote install over AnyDesk: two secondary accounts on the front-desk PCs, the primary on the server."
      },
      {
-      "label": "Receipt design + receipts SOP ready",
-      "start": "2026-09-21",
-      "end": "2026-10-02",
+      "label": "Design the receipt + front-desk SOP",
+      "start": "2026-09-22",
+      "end": "2026-09-26",
       "status": "next",
       "who": "Lau \u00b7 Emily",
-      "note": "Must be ready before the training on 3 Oct."
+      "note": "The new receipt layout and the front-desk SOP for issuing it."
      },
      {
       "label": "X-ray software on the front-desk PCs",
@@ -2437,15 +2447,15 @@
       "note": "Likely installed remotely."
      },
      {
-      "label": "Walkthrough: Leow, Jason, Emily, Lau",
+      "label": "Receipt run-through: Leow, Jason, Lau/Emily",
       "start": "2026-09-29",
-      "end": "2026-09-30",
+      "end": "2026-10-01",
       "status": "next",
       "who": "Leow \u00b7 Jason \u00b7 Emily \u00b7 Lau",
-      "note": "1\u20132 hours. Check the whole flow end to end and recap how receipts are generated. Day to fix: 29 or 30 Sep."
+      "note": "A session to run through the receipt-generation process end to end, before the training."
      },
      {
-      "label": "Front-desk training + dinner",
+      "label": "Training for front-of-house staff",
       "start": "2026-10-03",
       "status": "next",
       "locked": true,
@@ -2454,12 +2464,12 @@
       "note": "After the clinic closes. Receipts and e-invoices from AutoCount, plus the wider front-desk syllabus."
      },
      {
-      "label": "Cutover week \u2014 receipts from AutoCount",
+      "label": "Go live \u2014 new digital receipts",
       "start": "2026-10-05",
-      "end": "2026-10-09",
       "status": "next",
+      "locked": true,
       "who": "Front desk \u00b7 Lau + Emily on standby",
-      "note": "Paper receipts retired. Lau and Emily in person all week."
+      "note": "Paper receipts retired from this day. Lau and Emily on standby in person that week."
      }
     ]
    },
@@ -2568,6 +2578,6 @@
  },
  "meta": {
   "asof": "FRI 18 SEP 2026",
-  "updated": "2026-09-18T12:02:30+08:00"
+  "updated": "2026-09-18T13:48:03+08:00"
  }
 }

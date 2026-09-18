@@ -1,19 +1,9 @@
 {
- "updated": "2026-09-18T12:02:30+08:00",
+ "updated": "2026-09-18T13:48:03+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Edith": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
+  "Lau": {
    "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -22,7 +12,17 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
@@ -40,7 +40,7 @@
    "status": "active",
    "owner": "Code Capsule",
    "why": "OpenDent \u2192 AutoCount data flow was reported OK on 15 Sep. The remaining front-desk rollout is tracked through the hardware, local setup and training steps.",
-   "next": "Front-desk PCs in by 19 Sep, Leow installs remotely by 21 Sep, walkthrough 29\u201330 Sep, training Sat 3 Oct, cutover 5\u20139 Oct.",
+   "next": "Computers downstairs by 19 Sep, Leow installs AutoCount by 22 Sep, receipt + SOP designed 22\u201326 Sep, run-through 29 Sep\u20131 Oct, training 3 Oct, go live 5 Oct.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -58,13 +58,13 @@
     "8-point confirmation list sent to Jason in the CC group",
     "iSmile-side AC \u2194 iSmile integration testing and clearance complete; CC owns completion tracking",
     "OpenDent \u2192 AutoCount data flow reported OK",
-    "Commission the front-desk PCs: Chrome + iSmile email signed in (Google Docs for letters) + WhatsApp Web",
-    "Leow installs AutoCount remotely \u2014 2 secondary accounts downstairs, primary on the server (we give him remote access)",
-    "Walkthrough with Leow, Jason, Emily and Lau (1\u20132 hrs) \u2014 check the whole flow, recap receipts",
+    "Install the computers downstairs (Chrome + iSmile email, WhatsApp Web)",
+    "Leow installs AutoCount on the downstairs PCs over AnyDesk \u2014 2 secondary accounts downstairs, primary on the server",
+    "Receipt run-through session: Leow, Jason, Lau/Emily \u2014 the whole receipt-generation process",
     "X-ray vendor installs the X-ray software (likely over UltraViewer)",
-    "Front-desk training + dinner \u2014 receipts, e-invoices and the wider FOH syllabus",
+    "Training for front-of-house staff + dinner",
     "True end-to-end integration test",
-    "Cutover \u2014 front desk issues receipts from AutoCount; Lau and Emily on standby in person"
+    "Go live \u2014 new digital receipts (Lau and Emily on standby that week)"
    ],
    "pillar": "P1"
   },
@@ -93,7 +93,7 @@
    "status": "review",
    "owner": "Emily",
    "why": "Receipts out of AutoCount replace the paper book \u2014 front desk switches only after training.",
-   "next": "Confirm 3 Oct (tentative), design the receipt, write the SOP \u2014 teach receipts and e-invoices at the FOH Saturday.",
+   "next": "Design the receipt and write the front-desk SOP 22\u201326 Sep; teach it on 3 Oct; go live 5 Oct.",
    "dept": "clinical",
    "lens": "efficiency",
    "endMonth": "2026-10",
@@ -101,10 +101,10 @@
    "tasks": [
     "Receipt capability confirmed in AutoCount",
     "AutoCount installed on the front-desk PCs (Leow)",
-    "Design what the new receipt looks like",
-    "Receipts SOP written",
+    "Design the new receipt",
+    "Front-desk receipts SOP written",
     "Receipts + e-invoices taught at the FOH training",
-    "Cutover week \u2014 receipts from AutoCount, paper retired"
+    "Go live \u2014 receipts from AutoCount, paper retired"
    ],
    "pillar": "P1"
   },
