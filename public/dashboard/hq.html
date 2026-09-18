@@ -77,7 +77,14 @@
   @media(max-width:760px){.views{margin-left:0;width:100%;justify-content:center}}
   body[data-view="timeline"] .secthead.only-board,body[data-view="timeline"] #decisions,body[data-view="timeline"] .legendrow,body[data-view="timeline"] #pillars,body[data-view="timeline"] #foundations,body[data-view="timeline"] #sideboard{display:none}
   body[data-view="kanban"] .secthead.only-board,body[data-view="kanban"] #decisions,body[data-view="kanban"] .rail,body[data-view="kanban"] .secthead.only-rail,body[data-view="kanban"] .legendrow,body[data-view="kanban"] #pillars,body[data-view="kanban"] #foundations,body[data-view="kanban"] #sideboard{display:none}
-  #timeline,#kanban{display:none} body[data-view="timeline"] #timeline{display:block} body[data-view="kanban"] #kanban{display:block}
+  body[data-view="gantt"] .secthead.only-board,body[data-view="gantt"] #decisions,body[data-view="gantt"] .rail,body[data-view="gantt"] .secthead.only-rail,body[data-view="gantt"] .legendrow,body[data-view="gantt"] #pillars,body[data-view="gantt"] #foundations,body[data-view="gantt"] #sideboard{display:none}
+  #timeline,#kanban,#gantt{display:none} body[data-view="timeline"] #timeline{display:block} body[data-view="kanban"] #kanban{display:block} body[data-view="gantt"] #gantt{display:block}
+  #gantt iframe{display:block;width:100%;border:0;min-height:420px;background:transparent}
+  /* the dated list is its own scrolling card, opened at today (owner, 18 Sep 2026) */
+  .tlscroll{position:relative;max-height:calc(100vh - 150px);min-height:320px;overflow-y:auto;border:1px solid var(--line);border-radius:12px;background:rgba(var(--panelrgb),.55);padding:4px 14px 14px 6px;overscroll-behavior:contain}
+  .tltoday{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:10px;margin:14px 0 10px;padding:6px 0;background:var(--bg);
+    font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--p1)}
+  .tltoday::after{content:"";flex:1;height:2px;background:var(--p1);box-shadow:0 0 8px rgba(var(--p1rgb),.5);border-radius:2px}
   /* timeline */
   .tl{position:relative;padding-left:26px;margin-top:6px}
   .tl::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--p1),var(--p2),var(--p3));opacity:.5;border-radius:2px}
@@ -343,10 +350,10 @@
     <div class="brand">
       <h1>iSmile <b>Task Tracker</b></h1>
       <div class="sub">Three pillars · two foundations · everything chronological. Click anything to drill in.</div>
-      <nav class="topnav"><a href="/dashboard">Dashboard</a><a href="/dashboard/org">Org Chart</a><a href="/dashboard/tasks" class="active">Task Tracker</a><a href="/dashboard/gantt">Gantt</a><a href="/dashboard/profitability">Profitability</a><a href="/dashboard/analytics">Analytics</a><a href="/dashboard/office">Office</a></nav>
+      <nav class="topnav"><a href="/dashboard">Dashboard</a><a href="/dashboard/org">Org Chart</a><a href="/dashboard/tasks" class="active">Task Tracker</a><a href="/dashboard/profitability">Profitability</a><a href="/dashboard/analytics">Analytics</a><a href="/dashboard/office">Office</a></nav>
       <div class="counts" id="counts"></div>
     </div>
-    <div class="views" id="views"><button data-v="board" class="active">Board</button><button data-v="timeline">Timeline</button><button data-v="kanban">Kanban</button></div>
+    <div class="views" id="views"><button data-v="board" class="active">Board</button><button data-v="timeline">Timeline</button><button data-v="kanban">Kanban</button><button data-v="gantt">Gantt</button></div>
     <div class="asof"><div class="ring"></div><div><span class="pulse"></span>AS AT <span id="asofDate">THU 28 AUG 2026</span><br>programme horizon: <span id="asofHz">Q4 2026</span></div></div>
   </header>
 
@@ -371,6 +378,7 @@
 
   <div id="timeline"></div>
   <div id="kanban"></div>
+  <div id="gantt"></div>
 
   <div class="sideboard" id="sideboard">
     <button type="button" id="sbtoggle">Side board — smaller open items <span class="n" id="sbcount"></span><span class="caret">▾</span></button>
@@ -2002,6 +2010,9 @@ function renderRail(){
     box.appendChild(d);
   });
   placeToday();
+  requestAnimationFrame(centreRail);
+  // web fonts widen the milestones after first paint; re-place and re-centre once they are in
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(()=>{placeToday();centreRail();});
 }
 function placeToday(){
   const rail=$("#rail"); if(!rail)return;
@@ -2018,6 +2029,12 @@ function placeToday(){
   tm.style.left=x+"px";
 }
 window.addEventListener("resize",placeToday);
+/* open the 60-day strip with the today line in the middle; the user scrolls either way from there */
+function centreRail(){
+  const sc=document.querySelector(".rail"), tm=document.querySelector("#rail .today");
+  if(!sc||!tm||!sc.clientWidth)return;
+  sc.scrollLeft=Math.max(0,tm.offsetLeft-sc.clientWidth/2);
+}
 
 const DOTTIPS={live:"Running — no action needed, just watch the number.",now:"In motion — actively being worked right now.",wait:"Waiting on someone or something outside your control.",blocked:"Blocked — needs an unblock before it can move.",parked:"Parked deliberately — a choice, not a stall.",horizon:"A future phase — sequenced after the current work lands."};
 function clickable(node,fn){
@@ -2343,7 +2360,8 @@ function setView(v){
   document.querySelectorAll("#views button").forEach(b=>b.classList.toggle("active",b.dataset.v===v));
   const h=new URLSearchParams(location.hash.slice(1)); if(v==="board")h.delete("v"); else h.set("v",v);
   history.replaceState(null,"","#"+h.toString());
-  if(v==="timeline")renderTimeline(); if(v==="kanban")renderKanban();
+  if(v==="timeline")renderTimeline(); if(v==="kanban")renderKanban(); if(v==="gantt")renderGantt();
+  if(v==="board"||v==="timeline")requestAnimationFrame(centreRail);
 }
 document.querySelectorAll("#views button").forEach(b=>b.addEventListener("click",()=>setView(b.dataset.v)));
 
@@ -2363,9 +2381,13 @@ function renderTimeline(){
     if(s.flag&&s.flag.by)items.push({iso:s.flag.by,d:fmtBy(s.flag.by,"due").replace("by ",""),t:s.flag.w,w:s.name+" · needs you",s:"",kind:"flag",stream:s,parent:p});
   }));
   items.sort((a,b)=>a.iso.localeCompare(b.iso));
-  const today=malaysiaToday(); let month="";
+  const today=malaysiaToday(); let month="", marked=false;
   const tl=el("div","tl");
+  const mark=()=>{ if(marked)return; marked=true;
+    const d=new Date(today+"T00:00:00");
+    const m=el("div","tltoday","Today · "+["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][d.getDay()]+" "+d.getDate()+" "+["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][d.getMonth()]); m.id="tltoday"; tl.appendChild(m); };
   items.forEach(it=>{
+    if(it.iso>=today)mark();
     const mo=it.iso.slice(0,7); if(mo!==month){month=mo;const d=new Date(it.iso+"T00:00:00");tl.appendChild(el("div","tlmonth",d.toLocaleString("en-GB",{month:"long",year:"numeric"})));}
     const late=it.s!=="done"&&it.iso<today;
     const li=el("div","tli"+(it.s==="done"?" done":it.s==="now"?" now":late?" late":""));
@@ -2373,9 +2395,23 @@ function renderTimeline(){
     if(it.stream)li.addEventListener("click",()=>openStream(it.stream,it.parent));
     tl.appendChild(li);
   });
+  mark();
   box.appendChild(el("div","secthead","Everything dated, in order"));
-  box.appendChild(tl);
+  const sc=el("div","tlscroll"); sc.appendChild(tl); box.appendChild(sc);
+  requestAnimationFrame(()=>{const m=sc.querySelector("#tltoday"); if(m) sc.scrollTop=Math.max(0,m.offsetTop-6);});
 }
+/* gantt: the dedicated page, embedded as this page's fourth view (loaded on first use) */
+function renderGantt(){
+  const box=$("#gantt"); if(box.firstChild)return;
+  const f=document.createElement("iframe"); f.title="Gantt"; f.src="/dashboard/gantt?embed=1"; f.setAttribute("scrolling","no");
+  box.appendChild(f);
+  f.addEventListener("load",()=>{
+    const doc=f.contentDocument; if(!doc)return;
+    const fit=()=>{f.style.height=Math.max(420,doc.documentElement.scrollHeight)+"px";};
+    fit(); new ResizeObserver(fit).observe(doc.body);
+  });
+}
+addEventListener("themechange",e=>{const f=document.querySelector("#gantt iframe"); try{f&&f.contentWindow.ismileTheme&&f.contentWindow.ismileTheme.get()!==e.detail.theme&&f.contentWindow.ismileTheme.set(e.detail.theme);}catch(err){}});
 /* kanban: one store. Columns come from each stream's dot; Done comes from the archive. */
 const KCOLS=[["now","Active","var(--p1)"],["wait","Waiting","var(--warn)"],["blocked","Blocked","var(--bad)"],["live","Live","var(--ok)"],["horizon","Planned","var(--dim)"],["parked","Parked","var(--dim)"],["done","Done","var(--ok)"]];
 const KDEPT={growth:"Growth",crm:"CRM",clinical:"Clinical",people:"People",finance:"Finance",tech:"Tech"};
@@ -2409,7 +2445,7 @@ function renderKanban(){
 }
 function applyHash(){
   const h=new URLSearchParams(location.hash.slice(1));
-  const v=h.get("v"); if(v&&["board","timeline","kanban"].includes(v)&&v!==VIEW)setView(v);
+  const v=h.get("v"); if(v&&["board","timeline","kanban","gantt"].includes(v)&&v!==VIEW)setView(v);
   const sid=h.get("s"); if(sid){const r=findStream(sid); if(r){openStream(r.stream,r.parent);}}
 }
 window.addEventListener("hashchange",applyHash);
