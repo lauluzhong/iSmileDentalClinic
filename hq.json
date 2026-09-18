@@ -1567,8 +1567,8 @@
       },
       {
        "t": "Vivienne to obtain quotation for proposed case / retainer box",
-       "s": "now",
-       "w": "10 Sep"
+       "s": "done",
+       "w": "17 Sep"
       },
       {
        "t": "Judge quote on MOQ, not unit price",
@@ -1587,8 +1587,7 @@
       "This is a brand/perceived-value play, not cost reduction \u2014 the owner's own read",
       "15-character plush series only works if costumes share one base body",
       "Blind-box plush estimate: MOQ 300 per design; RM32\u201335 per boxed unit, with four designs estimated at about 1,200 units / RM42,000. Plush-only estimate is RM30\u201331 each; no purchase decision yet.",
-      "Case specification is still open: larger boxes for dentures, usual case for retainers, and Invisalign cases generally supplied by Invisalign.",
-      "<b>Quotation for the proposed case / retainer box is still awaited from Vivienne.</b>"
+      "Case specification is still open: larger boxes for dentures, usual case for retainers, and Invisalign cases generally supplied by Invisalign."
      ],
      "owner": "lu",
      "dept": "growth",
@@ -1596,7 +1595,7 @@
      "from_initiatives": [
       37
      ],
-     "next": "Wait for Vivienne\u2019s quotation for the proposed case / retainer box, then judge the ready-made case quote on MOQ and fit. The blind-box plush estimate is now a high-cost sense-check, not a purchase commitment."
+     "next": "Review Vivienne\u2019s quotation for the proposed case / retainer box on MOQ, fit and economics. The blind-box plush estimate is now a high-cost sense-check, not a purchase commitment."
     },
     {
      "id": "g8",
@@ -2578,6 +2577,6 @@
  },
  "meta": {
   "asof": "FRI 18 SEP 2026",
-  "updated": "2026-09-18T13:49:35+08:00"
+  "updated": "2026-09-18T21:35:07+08:00"
  }
 }

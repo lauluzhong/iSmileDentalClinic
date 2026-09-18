@@ -1,8 +1,8 @@
 {
- "updated": "2026-09-18T13:49:35+08:00",
+ "updated": "2026-09-18T21:35:07+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lau": {
+  "Lydia": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
@@ -12,23 +12,23 @@
    "role": "",
    "color": "#45C4FF"
   },
+  "Code Capsule": {
+   "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Emily": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Edith": {
    "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Code Capsule": {
-   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   }
@@ -560,7 +560,7 @@
    "status": "review",
    "owner": "Lau",
    "why": "TOC engaged and quoting. MOQ answer is in: ready-made = low MOQ, custom moulds = 300\u2013500+. The case is the strongest first buy.",
-   "next": "Wait for Vivienne\u2019s quotation for the proposed case / retainer box, then judge the ready-made case quote on MOQ and fit. The blind-box plush estimate is now a high-cost sense-check, not a purchase commitment.",
+   "next": "Review Vivienne\u2019s quotation for the proposed case / retainer box on MOQ, fit and economics. The blind-box plush estimate is now a high-cost sense-check, not a purchase commitment.",
    "dept": "growth",
    "lens": "revenue",
    "endMonth": null,
