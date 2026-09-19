@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-09-19 18:00",
- "generated_at": "2026-09-19T18:00:09+08:00",
+ "generated_myt": "2026-09-19 18:30",
+ "generated_at": "2026-09-19T18:30:10+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 96.0,
   "nproc": 4,
   "load": [
-   0.17,
-   0.07,
-   0.06
+   0.27,
+   0.18,
+   0.12
   ],
-  "cpu_pct": 4.2,
-  "cpu_pct_sample": 1.0,
+  "cpu_pct": 6.8,
+  "cpu_pct_sample": 1.6,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 3620,
-   "avail_mb": 4320,
-   "pct": 45.6,
+   "used_mb": 4176,
+   "avail_mb": 3764,
+   "pct": 52.6,
    "swap_total_mb": 2047,
    "swap_used_mb": 151
   },
@@ -29,11 +29,11 @@
   "bridge_ok": false,
   "pollers": {
    "review_approvals": {
-    "age_s": 23,
-    "last_myt": "2026-09-19 18:00 MYT"
+    "age_s": 0,
+    "last_myt": "2026-09-19 18:30 MYT"
    },
    "hq_publish": {
-    "age_s": 73517,
+    "age_s": 75317,
     "last_myt": "2026-09-18 21:35 MYT",
     "detail": "asof=FRI 18 SEP 2026 streams=40 sideboard=19 decisions=1 archive=11"
    }
@@ -43,7 +43,7 @@
    "total": 15,
    "failed": [],
    "running": [],
-   "status_updated": "2026-09-19 18:00 MYT"
+   "status_updated": "2026-09-19 18:30 MYT"
   },
   "last_clinic_push": "2026-09-19"
  },
@@ -176,26 +176,8 @@
   "checked": "2026-09-19"
  },
  "social": {
-  "available": true,
-  "source": "Zernio MCP (Edith's connection)",
-  "as_of": "2026-09-19",
-  "window_days": 30,
-  "accounts": [
-   {
-    "platform": "instagram",
-    "username": "ismiledentalclinicmy",
-    "display": "iSmile Dental Clinic",
-    "followers": 98.0,
-    "growth_30d": 0.0,
-    "growth_pct_30d": 0.0,
-    "posts_on_platform": 13.0,
-    "last_updated": "2026-09-19T04:29:15.742000Z",
-    "active": true
-   }
-  ],
-  "instagram_30d": null,
-  "posts_published_via_zernio": 0,
-  "note": "Instagram @ismiledentalclinicmy is connected through Zernio. Posts published outside Zernio are not counted in posts_published_via_zernio."
+  "available": false,
+  "note": "Zernio call failed: URLError(ConnectionResetError(104, 'Connection reset by peer'))"
  },
  "geo": {
   "generated_myt": "2026-09-18 14:04",
