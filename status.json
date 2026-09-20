@@ -1,6 +1,8 @@
 {
-  "updated": "2026-09-20 17:00 MYT",
-  "running": [],
+  "updated": "2026-09-20 17:15 MYT",
+  "running": [
+    "linkedin_weekly"
+  ],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -55,7 +57,7 @@
       "last": "2026-09-20 16:38 MYT"
     },
     "linkedin_weekly": {
-      "state": "idle",
+      "state": "running",
       "last": "2026-09-14 10:49 MYT"
     },
     "geo_visibility": {
