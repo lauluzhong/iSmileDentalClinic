@@ -101,11 +101,11 @@
    "tip": "Downstairs computers are set up. Cooling dropped \u2014 the units are designed to run hot."
   },
   {
-   "d": "19\u201322 Sep",
+   "d": "21 Sep",
    "l": "Jason to arrange Leow AutoCount install",
    "s": "",
-   "iso": "2026-09-20",
-   "tip": "Jason to arrange Leow with the AutoCount install by Mon 21 Sep; the setup is good to go."
+   "iso": "2026-09-21",
+   "tip": "Jason will arrange Leow's AutoCount installation with Leow by Monday 21 Sep; the downstairs computers are ready."
   },
   {
    "d": "22\u201324 Sep",
@@ -312,8 +312,8 @@
      ],
      "flag": {
       "k": "due",
-      "by": "2026-09-22",
-      "w": "Leow installs AutoCount on the downstairs PCs over AnyDesk by Tue 22 Sep; then pick the day for the run-through (29 Sep \u2013 1 Oct)."
+      "by": "2026-09-21",
+      "w": "Jason arranges Leow's AutoCount installation by Mon 21 Sep; then pick the day for the run-through (29 Sep \u2013 1 Oct)."
      },
      "owner": "codecapsule",
      "dept": "tech",
@@ -321,7 +321,7 @@
      "from_initiatives": [
       1
      ],
-     "next": "Computers downstairs by 19 Sep, Leow installs AutoCount by 22 Sep, receipt + SOP designed 22\u201326 Sep, run-through 29 Sep\u20131 Oct, training 3 Oct, go live 5 Oct.",
+     "next": "Jason arranges Leow's AutoCount installation by 21 Sep, receipt + SOP designed 22\u201326 Sep, run-through 29 Sep\u20131 Oct, training 3 Oct, go live 5 Oct.",
      "endMonth": "2026-09"
     },
     {
@@ -2064,7 +2064,7 @@
       }
      ],
      "open": [
-      "<b>Training is aiming for for Sat 3 Oct; confirmation is pending.</b> After the clinic closes at 3:30 PM, training then dinner together. It must sit AFTER AutoCount is installed and after Leow has taught Lau and Emily \u2014 receipts and e-invoices are part of the syllabus.",
+      "<b>Training is targeted for Sat 3 Oct.</b> After the clinic closes at 3:30 PM, training then dinner together. Emily books the girls' time on Tue 22 Sep. It must sit AFTER AutoCount is installed and after Leow has taught Lau and Emily \u2014 receipts and e-invoices are part of the syllabus.",
       "Merges the two front-of-house items raised on 20 Jul \u2014 the SOP gap and the upskilling/bench \u2014 because they are the same problem. TRAINING SYLLABUS INPUTS (consolidated 19 Aug, for the future training deck): (1) FOH training compulsory attendees Joanna/Erincy/Jessy/Ida; (2) FOH-01 patient-letters SOP (5 templates, 7-step process, Joanna pilot); (3) WhatsApp quick replies house voice + desk usage, plus desk-training sheet coming from chat-history mining (id 30); (4) DSA professionalism standards (noise, phones, occupied rooms; Siti/Eda peer-led training night model); (5) digital registration form staff flow (?staff=1); (6) rebooking-at-checkout habit (real baseline ~55-65%); (7) AutoCount front-desk training once migration timeline lands (invoice edits in OpenDent only - 30s rule); (8) phone/WhatsApp etiquette + name sign-offs. Detail lives in local memory/chat archives - enough to whip up a deck on request.",
       "Dr Joan and Dr Yeoh letter templates still blocked on their chops and on what the RES00104 / PRO0033 registration prefixes denote - Emily."
      ],
@@ -2074,7 +2074,7 @@
      "from_initiatives": [
       19
      ],
-     "next": "Build the training deck for Sat 3 Oct against the consolidated syllabus on this card.",
+     "next": "Emily books the girls' time Tue 22 Sep; then build the training deck for Sat 3 Oct against the consolidated syllabus on this card.",
      "endMonth": "2026-11",
      "flag": {
       "k": "due",
@@ -2577,6 +2577,6 @@
  },
  "meta": {
   "asof": "SUN 20 SEP 2026",
-  "updated": "2026-09-20T19:18:44+08:00"
+  "updated": "2026-09-20T19:19:33+08:00"
  }
 }

@@ -1,14 +1,24 @@
 {
- "updated": "2026-09-20T19:18:44+08:00",
+ "updated": "2026-09-20T19:19:33+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Edith": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
-   "init": "L",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -21,16 +31,6 @@
    "init": "CC",
    "role": "",
    "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
   }
  },
  "initiatives": [
@@ -40,7 +40,7 @@
    "status": "active",
    "owner": "Code Capsule",
    "why": "OpenDent \u2192 AutoCount data flow was reported OK on 15 Sep. The remaining front-desk rollout is tracked through the hardware, local setup and training steps.",
-   "next": "Computers downstairs by 19 Sep, Leow installs AutoCount by 22 Sep, receipt + SOP designed 22\u201326 Sep, run-through 29 Sep\u20131 Oct, training 3 Oct, go live 5 Oct.",
+   "next": "Jason arranges Leow's AutoCount installation by 21 Sep, receipt + SOP designed 22\u201326 Sep, run-through 29 Sep\u20131 Oct, training 3 Oct, go live 5 Oct.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -776,7 +776,7 @@
    "status": "active",
    "owner": "Emily",
    "why": "The clinic has no SOP for issuing letters to patients \u2014 medical certificates, referral letters, insurance reports, quotations. Nobody had ever said whose job it was, and that gap caused real friction between a doctor and",
-   "next": "Build the training deck for Sat 3 Oct against the consolidated syllabus on this card.",
+   "next": "Emily books the girls' time Tue 22 Sep; then build the training deck for Sat 3 Oct against the consolidated syllabus on this card.",
    "dept": "people",
    "lens": "efficiency",
    "endMonth": "2026-11",
