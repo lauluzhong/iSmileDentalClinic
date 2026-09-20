@@ -1,19 +1,14 @@
 {
- "updated": "2026-09-18T21:35:07+08:00",
+ "updated": "2026-09-20T19:14:05+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
+  "Emily": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Lydia": {
    "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Code Capsule": {
-   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
@@ -22,13 +17,18 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
-   "init": "E",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
   "Edith": {
    "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   }
@@ -59,10 +59,10 @@
     "iSmile-side AC \u2194 iSmile integration testing and clearance complete; CC owns completion tracking",
     "OpenDent \u2192 AutoCount data flow reported OK",
     "Install the computers downstairs (Chrome + iSmile email, WhatsApp Web)",
-    "Leow installs AutoCount on the downstairs PCs over AnyDesk \u2014 2 secondary accounts downstairs, primary on the server",
-    "X-ray vendor installs the X-ray software (likely over UltraViewer)",
+    "Jason arranges Leow to install AutoCount on the downstairs PCs over AnyDesk \u2014 2 secondary accounts downstairs, primary on the server",
+    "X-ray software installed on the downstairs PCs",
     "Receipt run-through session: Leow, Jason, Lau/Emily \u2014 the whole receipt-generation process",
-    "Training for front-of-house staff + dinner",
+    "Training for front-of-house staff + dinner \u2014 aiming; Emily books the girls\u2019 time Tue 22 Sep",
     "True end-to-end integration test",
     "Go live \u2014 new digital receipts (Lau and Emily on standby that week)"
    ],
@@ -100,7 +100,7 @@
    "note": "",
    "tasks": [
     "Receipt capability confirmed in AutoCount",
-    "AutoCount installed on the front-desk PCs (Leow)",
+    "Jason arranges Leow to install AutoCount on the front-desk PCs",
     "Design the new receipt",
     "Front-desk receipts SOP written",
     "Receipts + e-invoices taught at the FOH training",
@@ -174,7 +174,7 @@
    "status": "review",
    "owner": "Code Capsule",
    "why": "Server swapped and every PC reconnected. The two front-desk machines await monitor delivery on Thu 17 Sep and a cooling solution.",
-   "next": "Configure the front-desk PCs upstairs and move them downstairs by Sat 19 Sep.",
+   "next": "Jason arranges Leow's AutoCount install by Mon 21 Sep; then complete the end-to-end run-through.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": null,
@@ -426,7 +426,7 @@
    "status": "review",
    "owner": "Lau",
    "why": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
-   "next": "Finish setting up by Mon 21 Sep, fresh-data re-run, then send Tue\u2013Thu 22\u201324 Sep at 1,800/day.",
+   "next": "Lau configures MiniCRM by Mon 21 Sep, runs the fresh-data check, then sends Tue\u2013Thu 22\u201324 Sep at 1,800/day.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-10",
@@ -541,7 +541,7 @@
    "status": "parked",
    "owner": "Lau",
    "why": "Plan written with Mandy: experience + educational pillars, shoot once post everywhere, DSA girls as videographers, Dr Ling first.",
-   "next": "Content plan (first cut) written 18 Aug: experience + educational pillars, Dr Ling first shoot, front-desk appointment checklist. Next: front desk flags shootable appointments, assign DSA videographers, buy clip-on mic, ask Dr Ling.",
+   "next": "Lau works on LinkedIn tomorrow (Mon 21 Sep); then return to the social shoot plan.",
    "dept": "growth",
    "lens": "revenue",
    "endMonth": "2026-12",
@@ -691,6 +691,7 @@
     "Collect chat history at clinic (19 Aug): confirm E2E re-encryption done, USB-copy msgstore.db.crypt15 + 64-digit key",
     "Decrypt with whatsapp-chat-exporter, verify Dr Ling group intact",
     "History mined (6,087 chats / 299,149 msgs) -> v1 set of 15 quick replies + Wave 2/3 backlog",
+    "Pre-2026 Cynthia Chin and Benjamin Lim review approvals suppressed \u2014 no reply per Lau policy",
     "Registration-form backend (Google Sheet webhook) so the form shortcut can go live \u2014 in build (id 10)",
     "Load the 11 unblocked quick replies onto the clinic phone, then desk training"
    ],
@@ -792,7 +793,7 @@
     "Attendance agreed \u2014 four required, the rest of the assistants welcome",
     "Letters: obtain the example from the office, then build the letterhead templates",
     "Check whether a clinic stamp can stand in for a doctor's signature on external letters",
-    "Training tentatively set: Sat 3 Oct \u2014 after 3:30 PM close, dinner after; confirmation pending"
+    "Training aiming for Sat 3 Oct \u2014 Emily books the girls\u2019 time Tue 22 Sep; confirmation pending"
    ],
    "pillar": "F1"
   },

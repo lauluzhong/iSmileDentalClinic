@@ -96,16 +96,16 @@
   {
    "d": "18\u201319 Sep",
    "l": "Install computers downstairs",
-   "s": "",
+   "s": "done",
    "iso": "2026-09-19",
-   "tip": "Configured upstairs, then moved downstairs. Cooling dropped \u2014 the units are designed to run hot."
+   "tip": "Downstairs computers are set up. Cooling dropped \u2014 the units are designed to run hot."
   },
   {
    "d": "19\u201322 Sep",
-   "l": "Leow installs AutoCount (AnyDesk)",
+   "l": "Jason to arrange Leow AutoCount install",
    "s": "",
    "iso": "2026-09-20",
-   "tip": "Remote install over AnyDesk on the downstairs PCs: two secondary accounts, the primary on the server."
+   "tip": "Jason to arrange Leow with the AutoCount install by Mon 21 Sep; the setup is good to go."
   },
   {
    "d": "22\u201324 Sep",
@@ -129,11 +129,11 @@
    "tip": "At the clinic, all doctors except the specialists Yeoh and Joan. The agreements were sent 10 Sep; no revisions planned \u2014 this is for understanding and questions."
   },
   {
-   "d": "22\u201326 Sep",
-   "l": "X-ray software on front-desk PCs",
-   "s": "",
-   "iso": "2026-09-23",
-   "tip": "The X-ray vendor installs the software on the downstairs PCs. Timing is flexible; aiming for 22\u201326 Sep."
+   "d": "20 Sep",
+   "l": "X-ray software installed",
+   "s": "done",
+   "iso": "2026-09-20",
+   "tip": "X-ray software is installed on the downstairs/front-desk PCs."
   },
   {
    "d": "29 Sep\u20131 Oct",
@@ -151,10 +151,10 @@
   },
   {
    "d": "3 Oct",
-   "l": "FOH training Saturday + dinner \u2014 locked",
+   "l": "FOH training Saturday + dinner \u2014 aiming",
    "s": "",
    "iso": "2026-10-03",
-   "tip": "Locked 18 Sep: front-desk training from 3:30 PM after the clinic closes, dinner after. Receipts and e-invoices from AutoCount plus the wider front-desk syllabus."
+   "tip": "Aiming for front-desk training from 3:30 PM after the clinic closes, dinner after. Emily books the girls\u2019 time Tue 22 Sep; scheduling remains pending confirmation."
   },
   {
    "d": "5 Oct",
@@ -267,18 +267,18 @@
       },
       {
        "t": "Install the computers downstairs (Chrome + iSmile email, WhatsApp Web)",
-       "s": "now",
-       "w": "18\u201319 Sep"
+       "s": "done",
+       "w": "19 Sep"
       },
       {
-       "t": "Leow installs AutoCount on the downstairs PCs over AnyDesk \u2014 2 secondary accounts downstairs, primary on the server",
+       "t": "Jason arranges Leow to install AutoCount on the downstairs PCs over AnyDesk \u2014 2 secondary accounts downstairs, primary on the server",
        "s": "",
-       "w": "19\u201322 Sep"
+       "w": "by Mon 21 Sep"
       },
       {
-       "t": "X-ray vendor installs the X-ray software (likely over UltraViewer)",
-       "s": "",
-       "w": "22\u201326 Sep (flexible)"
+       "t": "X-ray software installed on the downstairs PCs",
+       "s": "done",
+       "w": "20 Sep"
       },
       {
        "t": "Receipt run-through session: Leow, Jason, Lau/Emily \u2014 the whole receipt-generation process",
@@ -286,7 +286,7 @@
        "w": "29 Sep \u2013 1 Oct"
       },
       {
-       "t": "Training for front-of-house staff + dinner",
+       "t": "Training for front-of-house staff + dinner \u2014 aiming; Emily books the girls\u2019 time Tue 22 Sep",
        "s": "",
        "w": "Sat 3 Oct, 3:30 PM"
       },
@@ -302,10 +302,10 @@
       }
      ],
      "open": [
-      "<b>Plan updated 18 Sep:</b> computers downstairs 18\u201319 Sep \u2192 Leow installs AutoCount over AnyDesk 19\u201322 Sep \u2192 receipt + front-desk SOP designed 22\u201326 Sep (X-ray software installed in the same window, timing flexible) \u2192 run-through with Leow, Jason and Lau/Emily 29 Sep\u20131 Oct \u2192 front-of-house training <b>Sat 3 Oct</b> \u2192 <b>go live Mon 5 Oct</b>.",
+      "<b>Plan updated 20 Sep:</b> computers downstairs are set up \u2192 X-ray software is installed \u2192 Jason arranges Leow\u2019s AutoCount install by Mon 21 Sep \u2192 receipt + front-desk SOP designed 22\u201326 Sep \u2192 run-through with Leow, Jason and Lau/Emily 29 Sep\u20131 Oct \u2192 front-of-house training aiming for <b>Sat 3 Oct</b> (Emily books the girls\u2019 time Tue 22 Sep; confirmation pending) \u2192 <b>go live Mon 5 Oct</b>.",
       "<b>OpenDent \u2192 AutoCount data flow was reported OK by Jason on 15 Sep.</b> Hardware status is consolidated under Hardware & server.",
-      "<b>Then the commissioning order:</b> set the front-desk PCs up for real (OpenDent already on, plus Chrome with the iSmile email signed in for Google Docs letters, plus WhatsApp Web \u2014 enough for the desk to start working) \u2192 X-ray vendor installs the X-ray software \u2192 Leow installs AutoCount, the 2 secondary accounts downstairs and the primary on the server upstairs.",
-      "<b>Only then the two training events:</b> Leow teaches Lau and Emily AutoCount first; the front-desk training follows on a Saturday after work (clinic closes 3:30 PM) with dinner after \u2014 <b>3 Oct (tentative); confirmation pending</b>.",
+      "<b>Commissioning update:</b> the downstairs PCs are set up and the X-ray software is installed. Jason is to arrange Leow\u2019s AutoCount install by Mon 21 Sep: 2 secondary accounts downstairs and the primary on the server upstairs.",
+      "<b>Training remains pending confirmation:</b> aiming for Sat 3 Oct after the 3:30 PM close, with dinner after. Emily books the girls\u2019 time Tue 22 Sep; Leow teaches Lau and Emily AutoCount first.",
       "8-point list sent to Jason 6 Sep \u2014 awaiting his answers, above all the end-to-end date.",
       "EasyDent (X-ray) + CCTV stay on the old PC \u2014 do not migrate",
       "iSmile-side testing/clearance is complete; track the remaining front-desk rollout and end-to-end date."
@@ -369,9 +369,9 @@
        "s": "done"
       },
       {
-       "t": "AutoCount installed on the front-desk PCs (Leow)",
+       "t": "Jason arranges Leow to install AutoCount on the front-desk PCs",
        "s": "",
-       "w": "19\u201322 Sep"
+       "w": "by Mon 21 Sep"
       },
       {
        "t": "Design the new receipt",
@@ -395,7 +395,7 @@
       }
      ],
      "open": [
-      "<b>3 Oct is locked</b> (18 Sep): front-desk training from 3:30 PM, dinner after. Cutover to AutoCount receipts the following week, 5\u20139 Oct, with Lau and Emily on standby.",
+      "<b>3 Oct is the aim, not yet confirmed:</b> front-desk training from 3:30 PM, dinner after. Emily books the girls\u2019 time Tue 22 Sep. Cutover to AutoCount receipts the following week, 5\u20139 Oct, with Lau and Emily on standby.",
       "Receipt-name nuance: AutoCount name changes stick (parent paying for child, company claims) \u2014 teach it explicitly",
       "Physical receipts continue until training done \u2014 decided, not a slip"
      ],
@@ -562,7 +562,7 @@
     {
      "id": "d7",
      "dot": "wait",
-     "chip": "configuring \u00b7 in by 19 Sep",
+     "chip": "set up \u00b7 AutoCount by 21 Sep",
      "name": "Hardware & server",
      "one": "Server swapped and every PC reconnected. The two front-desk machines await monitor delivery on Thu 17 Sep and a cooling solution.",
      "steps": [
@@ -602,29 +602,24 @@
       },
       {
        "t": "Front-desk PCs configured upstairs, then moved downstairs",
-       "s": "now",
-       "w": "18\u201319 Sep"
+       "s": "done",
+       "w": "19 Sep"
       },
       {
        "t": "Front-desk PCs into service",
-       "s": "",
-       "w": "Sat 19 Sep"
+       "s": "done",
+       "w": "19 Sep"
       }
      ],
      "open": [
-      "<b>Hardware is complete.</b> Monitors, keyboards and mice are in. Cooling is dropped: Jason confirmed the units are designed to run hot, which is how they shed heat.",
-      "The two front-desk PCs are being configured upstairs now and move downstairs once done \u2014 target Sat 19 Sep."
+      "<b>Hardware is complete.</b> The downstairs computers are set up, with monitors, keyboards and mice in. Cooling is dropped: Jason confirmed the units are designed to run hot, which is how they shed heat.",
+      "AutoCount is good to go; Jason to arrange Leow\u2019s install by Mon 21 Sep. X-ray software is installed."
      ],
      "owner": "codecapsule",
      "dept": "tech",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Configure the front-desk PCs upstairs and move them downstairs by Sat 19 Sep.",
-     "flag": {
-      "k": "due",
-      "by": "2026-09-19",
-      "w": "Finish configuring the two front-desk PCs upstairs and move them downstairs by Sat 19 Sep \u2014 Leow's remote install depends on it."
-     }
+     "next": "Jason arranges Leow's AutoCount install by Mon 21 Sep; then complete the end-to-end run-through."
     },
     {
      "id": "d8",
@@ -1276,7 +1271,7 @@
      ],
      "open": [
       "<b>MiniCRM and the campaign blast message function are deployed and testing is complete (10 Sep).</b>",
-      "<b>Next step:</b> Lu configures MiniCRM on Mon 14 Sep 2026. The blast window remains tentative until configuration and the final fresh-data check are complete.",
+      "<b>Next step:</b> Lau configures MiniCRM on Mon 21 Sep 2026. The blast window remains tentative until configuration and the final fresh-data check are complete.",
       "<b>The blast is not confirmed.</b> Keep the tentative 22\u201324 Sep window only as a planning placeholder.",
       "<b>UI terminology changed by Code Capsule 7 Sep:</b> the flow is now Audience Filters \u2192 Audience List \u2192 Recipients. \"Selected Patients\" is renamed \"Recipients\"; \"Audience\" is the filtered pool, \"Recipients\" the patients actually selected to receive the campaign.",
       "<b>Daily cap: the system allows 2,000/day; we set ours at 1,800</b> to leave headroom for the other automations sharing the number (recall, birthday). At 1,800 the 4,011 sends clear in three days.",
@@ -1297,7 +1292,7 @@
      "from_initiatives": [
       28
      ],
-     "next": "Finish setting up by Mon 21 Sep, fresh-data re-run, then send Tue\u2013Thu 22\u201324 Sep at 1,800/day.",
+     "next": "Lau configures MiniCRM by Mon 21 Sep, runs the fresh-data check, then sends Tue\u2013Thu 22\u201324 Sep at 1,800/day.",
      "endMonth": "2026-10"
     },
     {
@@ -1528,6 +1523,7 @@
       }
      ],
      "open": [
+      "Lau works on LinkedIn tomorrow (Mon 21 Sep).",
       "Stalled on your time \u2014 decide whether Mandy/DSAs can run it without you",
       "Consent forms before any face-on-camera recording (parents sign for minors)",
       "From the initiatives board: Overlaps the marketing agent vehicle (Edith runs reviews, GBP and the website); keep the split clear \u2014 this is brand voice and social content, not infrastructure.",
@@ -1541,7 +1537,7 @@
       32,
       33
      ],
-     "next": "Content plan (first cut) written 18 Aug: experience + educational pillars, Dr Ling first shoot, front-desk appointment checklist. Next: front desk flags shootable appointments, assign DSA videographers, buy clip-on mic, ask Dr Ling.",
+     "next": "Lau works on LinkedIn tomorrow (Mon 21 Sep); then return to the social shoot plan.",
      "endMonth": "2026-12"
     },
     {
@@ -1822,6 +1818,11 @@
        "w": "25 Aug"
       },
       {
+       "t": "Pre-2026 Cynthia Chin and Benjamin Lim review approvals suppressed \u2014 no reply per Lau policy",
+       "s": "done",
+       "w": "20 Sep"
+      },
+      {
        "t": "Registration-form backend (Google Sheet webhook) so the form shortcut can go live \u2014 in build (id 10)",
        "s": "done",
        "w": "20 Aug"
@@ -1833,7 +1834,7 @@
      ],
      "open": [
       "Chats opening with the pop-up pre-typed lines are pop-up leads; front desk should tag them so click-to-booking attribution stays cheap.",
-      "(1) Dr Ling's 4-question clarification PDF still unanswered; (2) Emily to verify the /pay bank line before that shortcut goes out; (3) review the 11 dated owner-review concern flags (audit dashboard section 09); (4) DELETE the uploaded msgstore.db.crypt15 from the clinic Google Drive and empty trash - patient medical data, reminded 20 Aug, unconfirmed."
+      "(1) Dr Ling's 4-question clarification PDF still unanswered; (2) Emily to verify the /pay bank line before that shortcut goes out; (3) Pre-2026 Cynthia Chin and Benjamin Lim review approval actions are suppressed per Lau\u2019s policy: he will not reply; (4) DELETE the uploaded msgstore.db.crypt15 from the clinic Google Drive and empty trash - patient medical data, reminded 20 Aug, unconfirmed."
      ],
      "owner": "lu",
      "dept": "crm",
@@ -2007,7 +2008,7 @@
     {
      "id": "h5",
      "dot": "now",
-     "chip": "Sat 3 Oct locked",
+     "chip": "aiming \u00b7 confirmation pending",
      "name": "Front-of-house SOP, training & bench",
      "one": "The clinic has no SOP for issuing letters to patients \u2014 medical certificates, referral letters, insurance reports, quotations. Nobody had ever said whose job it was, and that gap caused real friction between a doctor and",
      "steps": [
@@ -2057,13 +2058,13 @@
        "s": ""
       },
       {
-       "t": "Training tentatively set: Sat 3 Oct \u2014 after 3:30 PM close, dinner after; confirmation pending",
+       "t": "Training aiming for Sat 3 Oct \u2014 Emily books the girls\u2019 time Tue 22 Sep; confirmation pending",
        "s": "now",
-       "w": "6 Sep"
+       "w": "Sat 3 Oct, 3:30 PM"
       }
      ],
      "open": [
-      "<b>Training is tentatively set for Sat 3 Oct; confirmation is pending.</b> After the clinic closes at 3:30 PM, training then dinner together. It must sit AFTER AutoCount is installed and after Leow has taught Lau and Emily \u2014 receipts and e-invoices are part of the syllabus.",
+      "<b>Training is aiming for for Sat 3 Oct; confirmation is pending.</b> After the clinic closes at 3:30 PM, training then dinner together. It must sit AFTER AutoCount is installed and after Leow has taught Lau and Emily \u2014 receipts and e-invoices are part of the syllabus.",
       "Merges the two front-of-house items raised on 20 Jul \u2014 the SOP gap and the upskilling/bench \u2014 because they are the same problem. TRAINING SYLLABUS INPUTS (consolidated 19 Aug, for the future training deck): (1) FOH training compulsory attendees Joanna/Erincy/Jessy/Ida; (2) FOH-01 patient-letters SOP (5 templates, 7-step process, Joanna pilot); (3) WhatsApp quick replies house voice + desk usage, plus desk-training sheet coming from chat-history mining (id 30); (4) DSA professionalism standards (noise, phones, occupied rooms; Siti/Eda peer-led training night model); (5) digital registration form staff flow (?staff=1); (6) rebooking-at-checkout habit (real baseline ~55-65%); (7) AutoCount front-desk training once migration timeline lands (invoice edits in OpenDent only - 30s rule); (8) phone/WhatsApp etiquette + name sign-offs. Detail lives in local memory/chat archives - enough to whip up a deck on request.",
       "Dr Joan and Dr Yeoh letter templates still blocked on their chops and on what the RES00104 / PRO0033 registration prefixes denote - Emily."
      ],
@@ -2417,17 +2418,17 @@
       "label": "Install the computers downstairs",
       "start": "2026-09-18",
       "end": "2026-09-19",
-      "status": "now",
+      "status": "done",
       "who": "Emily \u00b7 Code Capsule",
-      "note": "Configured upstairs first. Monitors, keyboards and mice are in; no extra cooling needed."
+      "note": "Downstairs computers are set up; no extra cooling needed."
      },
      {
-      "label": "Leow installs AutoCount on the downstairs PCs (AnyDesk)",
+      "label": "Jason arranges Leow AutoCount install on the downstairs PCs",
       "start": "2026-09-19",
       "end": "2026-09-22",
       "status": "next",
-      "who": "Leow (AutoCount)",
-      "note": "Remote install over AnyDesk: two secondary accounts on the front-desk PCs, the primary on the server."
+      "who": "Jason \u00b7 Leow (AutoCount)",
+      "note": "Good to go; two secondary accounts downstairs, primary on the server."
      },
      {
       "label": "Design the receipt + front-desk SOP",
@@ -2439,11 +2440,11 @@
      },
      {
       "label": "X-ray software on the front-desk PCs",
-      "start": "2026-09-22",
-      "end": "2026-09-26",
-      "status": "next",
+      "start": "2026-09-20",
+      "end": null,
+      "status": "done",
       "who": "X-ray vendor",
-      "note": "Flexible timing \u2014 aim for 22\u201326 Sep. Likely installed remotely."
+      "note": "Installed on the downstairs/front-desk PCs."
      },
      {
       "label": "Receipt run-through: Leow, Jason, Lau/Emily",
@@ -2457,10 +2458,9 @@
       "label": "Training for front-of-house staff",
       "start": "2026-10-03",
       "status": "next",
-      "locked": true,
       "time": "3:30 PM",
       "who": "Joanna \u00b7 Erincy \u00b7 Jessy \u00b7 Ida",
-      "note": "After the clinic closes. Receipts and e-invoices from AutoCount, plus the wider front-desk syllabus."
+      "note": "Aiming for Sat 3 Oct after close; Emily books the girls\u2019 time Tue 22 Sep. Scheduling remains pending confirmation."
      },
      {
       "label": "Go live \u2014 new digital receipts",
@@ -2576,7 +2576,7 @@
   ]
  },
  "meta": {
-  "asof": "FRI 18 SEP 2026",
-  "updated": "2026-09-18T21:35:07+08:00"
+  "asof": "SUN 20 SEP 2026",
+  "updated": "2026-09-20T19:14:05+08:00"
  }
 }
