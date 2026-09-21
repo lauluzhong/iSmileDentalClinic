@@ -102,10 +102,17 @@
   },
   {
    "d": "21 Sep",
-   "l": "Jason to arrange Leow AutoCount install",
-   "s": "",
+   "l": "Leow available for AutoCount remote install",
+   "s": "done",
    "iso": "2026-09-21",
-   "tip": "Jason will arrange Leow's AutoCount installation with Leow by Monday 21 Sep; the downstairs computers are ready."
+   "tip": "Jason confirmed Leow's availability for the two new front-desk PCs on Tue 22 Sep. Jason is coordinating the remote installation."
+  },
+  {
+   "d": "22 Sep",
+   "l": "AutoCount remote install \u2014 two front-desk PCs",
+   "s": "",
+   "iso": "2026-09-22",
+   "tip": "Leow will remotely install AutoCount on the two new front-desk PCs. Window: 09:00\u201312:30 or 14:00\u201316:30; about 15 minutes per PC. Keep open until installation is confirmed complete."
   },
   {
    "d": "22\u201324 Sep",
@@ -271,9 +278,9 @@
        "w": "19 Sep"
       },
       {
-       "t": "Jason arranges Leow to install AutoCount on the downstairs PCs over AnyDesk \u2014 2 secondary accounts downstairs, primary on the server",
-       "s": "",
-       "w": "by Mon 21 Sep"
+       "t": "Leow remotely installs AutoCount on the two new front-desk PCs; Jason coordinates",
+       "s": "now",
+       "w": "Tue 22 Sep \u00b7 09:00\u201312:30 or 14:00\u201316:30 \u00b7 ~15 min/PC"
       },
       {
        "t": "X-ray software installed on the downstairs PCs",
@@ -302,26 +309,21 @@
       }
      ],
      "open": [
-      "<b>Plan updated 20 Sep:</b> computers downstairs are set up \u2192 X-ray software is installed \u2192 Jason arranges Leow\u2019s AutoCount install by Mon 21 Sep \u2192 receipt + front-desk SOP designed 22\u201326 Sep \u2192 run-through with Leow, Jason and Lau/Emily 29 Sep\u20131 Oct \u2192 front-of-house training aiming for <b>Sat 3 Oct</b> (Emily books the girls\u2019 time Tue 22 Sep; confirmation pending) \u2192 <b>go live Mon 5 Oct</b>.",
+      "<b>Plan updated 21 Sep:</b> computers downstairs are set up \u2192 X-ray software is installed \u2192 Leow remotely installs AutoCount on the two new front-desk PCs on Tue 22 Sep (09:00\u201312:30 or 14:00\u201316:30; about 15 minutes per PC), with Jason coordinating \u2192 receipt + front-desk SOP designed 22\u201326 Sep \u2192 run-through with Leow, Jason and Lau/Emily 29 Sep\u20131 Oct \u2192 front-of-house training aiming for <b>Sat 3 Oct</b> (Emily books the girls\u2019 time Tue 22 Sep; confirmation pending) \u2192 <b>go live Mon 5 Oct</b>.",
       "<b>OpenDent \u2192 AutoCount data flow was reported OK by Jason on 15 Sep.</b> Hardware status is consolidated under Hardware & server.",
-      "<b>Commissioning update:</b> the downstairs PCs are set up and the X-ray software is installed. Jason is to arrange Leow\u2019s AutoCount install by Mon 21 Sep: 2 secondary accounts downstairs and the primary on the server upstairs.",
+      "<b>Commissioning update:</b> the downstairs PCs are set up and the X-ray software is installed. On 21 Sep, Jason confirmed Leow's availability for remote AutoCount installation on the two new front-desk PCs on Tue 22 Sep. Jason is coordinating; allow about 15 minutes per PC in either the 09:00\u201312:30 or 14:00\u201316:30 window. Keep this open until installation is confirmed complete.",
       "<b>Training remains pending confirmation:</b> aiming for Sat 3 Oct after the 3:30 PM close, with dinner after. Emily books the girls\u2019 time Tue 22 Sep; Leow teaches Lau and Emily AutoCount first.",
       "8-point list sent to Jason 6 Sep \u2014 awaiting his answers, above all the end-to-end date.",
       "EasyDent (X-ray) + CCTV stay on the old PC \u2014 do not migrate",
       "iSmile-side testing/clearance is complete; track the remaining front-desk rollout and end-to-end date."
      ],
-     "flag": {
-      "k": "due",
-      "by": "2026-09-21",
-      "w": "Jason arranges Leow's AutoCount installation by Mon 21 Sep; then pick the day for the run-through (29 Sep \u2013 1 Oct)."
-     },
      "owner": "codecapsule",
      "dept": "tech",
      "lens": "efficiency",
      "from_initiatives": [
       1
      ],
-     "next": "Jason arranges Leow's AutoCount installation by 21 Sep, receipt + SOP designed 22\u201326 Sep, run-through 29 Sep\u20131 Oct, training 3 Oct, go live 5 Oct.",
+     "next": "Leow remotely installs AutoCount on the two new front-desk PCs on Tue 22 Sep (about 15 minutes per PC); Jason coordinates. Confirm completion, then design the receipt + SOP 22\u201326 Sep, run-through 29 Sep\u20131 Oct, training 3 Oct, go live 5 Oct.",
      "endMonth": "2026-09"
     },
     {
@@ -369,9 +371,9 @@
        "s": "done"
       },
       {
-       "t": "Jason arranges Leow to install AutoCount on the front-desk PCs",
-       "s": "",
-       "w": "by Mon 21 Sep"
+       "t": "Leow remotely installs AutoCount on the two new front-desk PCs; Jason coordinates",
+       "s": "now",
+       "w": "Tue 22 Sep \u00b7 09:00\u201312:30 or 14:00\u201316:30 \u00b7 ~15 min/PC"
       },
       {
        "t": "Design the new receipt",
@@ -613,13 +615,13 @@
      ],
      "open": [
       "<b>Hardware is complete.</b> The downstairs computers are set up, with monitors, keyboards and mice in. Cooling is dropped: Jason confirmed the units are designed to run hot, which is how they shed heat.",
-      "AutoCount is good to go; Jason to arrange Leow\u2019s install by Mon 21 Sep. X-ray software is installed."
+      "AutoCount remote installation on the two new front-desk PCs is scheduled for Tue 22 Sep: 09:00\u201312:30 or 14:00\u201316:30, about 15 minutes per PC. Jason is coordinating with Leow; keep open until completion is confirmed. X-ray software is installed."
      ],
      "owner": "codecapsule",
      "dept": "tech",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Jason arranges Leow's AutoCount install by Mon 21 Sep; then complete the end-to-end run-through."
+     "next": "Leow remotely installs AutoCount on the two new front-desk PCs on Tue 22 Sep; Jason coordinates. Confirm completion, then complete the end-to-end run-through."
     },
     {
      "id": "d8",
@@ -2433,12 +2435,13 @@
       "note": "Downstairs computers are set up; no extra cooling needed."
      },
      {
-      "label": "Jason arranges Leow AutoCount install on the downstairs PCs",
-      "start": "2026-09-19",
+      "label": "Leow remotely installs AutoCount on the two new front-desk PCs",
+      "start": "2026-09-22",
       "end": "2026-09-22",
-      "status": "next",
+      "status": "now",
       "who": "Jason \u00b7 Leow (AutoCount)",
-      "note": "Good to go; two secondary accounts downstairs, primary on the server."
+      "time": "09:00\u201312:30 or 14:00\u201316:30",
+      "note": "Jason confirmed Leow's availability on 21 Sep and is coordinating. About 15 minutes per PC; completion still to be confirmed."
      },
      {
       "label": "Design the receipt + front-desk SOP",
@@ -2587,6 +2590,6 @@
  },
  "meta": {
   "asof": "MON 21 SEP 2026",
-  "updated": "2026-09-21T13:39:57+08:00"
+  "updated": "2026-09-21T18:12:38+08:00"
  }
 }

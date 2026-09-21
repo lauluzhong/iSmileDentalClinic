@@ -1,9 +1,19 @@
 {
- "updated": "2026-09-21T13:39:57+08:00",
+ "updated": "2026-09-21T18:12:38+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
   "Code Capsule": {
    "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
@@ -14,16 +24,6 @@
   },
   "Emily": {
    "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
@@ -40,7 +40,7 @@
    "status": "active",
    "owner": "Code Capsule",
    "why": "OpenDent \u2192 AutoCount data flow was reported OK on 15 Sep. The remaining front-desk rollout is tracked through the hardware, local setup and training steps.",
-   "next": "Jason arranges Leow's AutoCount installation by 21 Sep, receipt + SOP designed 22\u201326 Sep, run-through 29 Sep\u20131 Oct, training 3 Oct, go live 5 Oct.",
+   "next": "Leow remotely installs AutoCount on the two new front-desk PCs on Tue 22 Sep (about 15 minutes per PC); Jason coordinates. Confirm completion, then design the receipt + SOP 22\u201326 Sep, run-through 29 Sep\u20131 Oct, training 3 Oct, go live 5 Oct.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -59,7 +59,7 @@
     "iSmile-side AC \u2194 iSmile integration testing and clearance complete; CC owns completion tracking",
     "OpenDent \u2192 AutoCount data flow reported OK",
     "Install the computers downstairs (Chrome + iSmile email, WhatsApp Web)",
-    "Jason arranges Leow to install AutoCount on the downstairs PCs over AnyDesk \u2014 2 secondary accounts downstairs, primary on the server",
+    "Leow remotely installs AutoCount on the two new front-desk PCs; Jason coordinates",
     "X-ray software installed on the downstairs PCs",
     "Receipt run-through session: Leow, Jason, Lau/Emily \u2014 the whole receipt-generation process",
     "Training for front-of-house staff + dinner \u2014 aiming; Emily books the girls\u2019 time Tue 22 Sep",
@@ -100,7 +100,7 @@
    "note": "",
    "tasks": [
     "Receipt capability confirmed in AutoCount",
-    "Jason arranges Leow to install AutoCount on the front-desk PCs",
+    "Leow remotely installs AutoCount on the two new front-desk PCs; Jason coordinates",
     "Design the new receipt",
     "Front-desk receipts SOP written",
     "Receipts + e-invoices taught at the FOH training",
@@ -174,7 +174,7 @@
    "status": "review",
    "owner": "Code Capsule",
    "why": "Server swapped and every PC reconnected. The two front-desk machines await monitor delivery on Thu 17 Sep and a cooling solution.",
-   "next": "Jason arranges Leow's AutoCount install by Mon 21 Sep; then complete the end-to-end run-through.",
+   "next": "Leow remotely installs AutoCount on the two new front-desk PCs on Tue 22 Sep; Jason coordinates. Confirm completion, then complete the end-to-end run-through.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": null,
