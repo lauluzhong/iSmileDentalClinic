@@ -1,49 +1,49 @@
 {
   "as_of": "2026-09-21",
-  "mode": "midday",
+  "mode": "eod",
   "fresh": true,
-  "generated_myt": "2026-09-21 12:05",
+  "generated_myt": "2026-09-21 19:50",
   "source_max_paydate": "2026-09-21",
   "source_max_procdate": "2026-09-21",
   "today": {
-    "collected": 19690.0,
-    "produced": 2630.0,
-    "patients_seen": 9,
-    "new_patients": 1,
+    "collected": 25100.0,
+    "produced": 8640.0,
+    "patients_seen": 39,
+    "new_patients": 2,
     "by_paytype": {
       "Internet Banking": 17500.0,
-      "Credit Card": 1940.0,
+      "Credit Card": 7350.0,
       "Cash": 250.0
     }
   },
   "mtd": {
-    "collected": 151955.0,
-    "produced": 151810.0,
+    "collected": 157015.0,
+    "produced": 157820.0,
     "trading_days": 18,
-    "avg_per_trading_day": 8441.94,
-    "run_rate_26d": 219490.56,
+    "avg_per_trading_day": 8723.06,
+    "run_rate_26d": 226799.44,
     "by_paytype": {
-      "Credit Card": 112195.0,
+      "Credit Card": 117255.0,
       "Internet Banking": 21260.0,
       "PBB QR": 16370.0,
       "Cash": 2130.0
     }
   },
-  "booked_next_14d": 290,
+  "booked_next_14d": 271,
   "forward_book": {
     "next_7d": {
       "days": 7,
-      "appts": 143,
-      "booked_min": 8490,
+      "appts": 151,
+      "booked_min": 8840,
       "capacity_min": 11120,
-      "pct": 76.34892086330936
+      "pct": 79.49640287769785
     },
     "next_14d": {
       "days": 14,
-      "appts": 253,
-      "booked_min": 14750,
+      "appts": 269,
+      "booked_min": 15840,
       "capacity_min": 22240,
-      "pct": 66.32194244604317
+      "pct": 71.22302158273382
     }
   },
   "doctors_worked": {
@@ -55,9 +55,23 @@
       "Mah"
     ]
   },
-  "utilization": null,
+  "utilization": {
+    "chair_minutes": 1600,
+    "operatories": 4,
+    "open_minutes": 480,
+    "capacity_minutes": 1920,
+    "pct": 83.3
+  },
   "pnl": {
-    "available": false,
-    "reason": "n/a (midday)"
+    "locum_est": 2386,
+    "lab_est": 302,
+    "gp": 5952.0,
+    "overhead_day": 3385.08,
+    "ebitda_day": 2566.92,
+    "depreciation_day": 1146.54,
+    "net_day": 1420.38,
+    "visits_matched": 39,
+    "available": true,
+    "produced": 8640.0
   }
 }
