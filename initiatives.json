@@ -1,14 +1,9 @@
 {
- "updated": "2026-09-20T19:19:33+08:00",
+ "updated": "2026-09-21T13:39:57+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
@@ -17,18 +12,23 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Emily": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   }
@@ -394,6 +394,7 @@
     "Zoom explainer \u2014 not held; a written summary card went with the contracts instead",
     "Contracts sent to each doctor individually",
     "Personal questions by text \u2014 answered as they come",
+    "Numbers checked for every doctor and a walkthrough deck prepared",
     "In-person walkthrough and Q&A at the clinic \u2014 all doctors except the specialists (Yeoh, Joan)",
     "Signed copies back"
    ],
@@ -425,7 +426,7 @@
    "title": "Cold reactivation blast",
    "status": "review",
    "owner": "Lau",
-   "why": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
+   "why": "The clearest Q4 lever: 4,201 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
    "next": "Lau configures MiniCRM by Mon 21 Sep, runs the fresh-data check, then sends Tue\u2013Thu 22\u201324 Sep at 1,800/day.",
    "dept": "crm",
    "lens": "revenue",
@@ -454,7 +455,7 @@
    "title": "Recall funnel (automated)",
    "status": "active",
    "owner": "Edith",
-   "why": "The 03-number WhatsApp recall runs daily on cron; you get the number from Edith every morning. Booked 27% per message, came in 20% per patient; RM111.7k of production attributed all-time (correlation, not lift).",
+   "why": "The 03-number WhatsApp recall runs daily on cron; you get the number from Edith every morning. Came in 20.7% per patient (235 of 1,138); RM114.5k of production by messaged patients since 16 Apr (correlation, not lift).",
    "next": "Fix click under-logging with Code Capsule",
    "dept": "crm",
    "lens": "revenue",

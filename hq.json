@@ -1093,6 +1093,11 @@
        "w": "to 23 Sep"
       },
       {
+       "t": "Numbers checked for every doctor and a walkthrough deck prepared",
+       "s": "done",
+       "w": "21 Sep"
+      },
+      {
        "t": "In-person walkthrough and Q&A at the clinic \u2014 all doctors except the specialists (Yeoh, Joan)",
        "s": "",
        "w": "Wed 23 Sep \u00b7 6:30 PM"
@@ -1112,6 +1117,9 @@
       "\u26a0\ufe0f <b>Work the full narrative out in a dedicated session</b> \u2014 this note is the skeleton, not the script. Share it with your parents once they have given their input on the three changes."
      ],
      "open": [
+      "<b>Walkthrough pack ready (21 Sep).</b> Six slides for the room: the four things done to help the doctors (PPE deduction removed, 10% deduction returned, recall switched on, the marketing blast), what comes back to them, recall, the blast, the two rules that change, and the intent. Per-doctor pages exist for the owner only and are never shown to the group; Damon is left out of the room.",
+      "<b>The headline that holds:</b> removing the PPE and 10% deductions is about RM72,000 a year of extra pay to the five sharing doctors on 2025 figures (about RM80,000 at 2026's pace). Both were deducted before sharing, so what reaches a doctor is their percentage of the deduction \u2014 do not quote the RM162,000 no longer deducted as money given back.",
+      "<b>Checked before deciding:</b> with every discount they gave this year still given, every one of the five doctors is still ahead once the two deductions go. Standalone free work is not counted \u2014 enforcement of that stays parked, although clause 3.1 lists complimentary treatment as a concession.",
       "<b>The sequence changed in the doing (10 Sep):</b> the contracts went out to the five non-specialist doctors <i>before</i> any group call, each carrying a one-page &ldquo;Three Key Changes&rdquo; summary card &mdash; the 10% deduction going, discounts borne by the doctor, and the timing of locum sharing payment. The Zoom explainer that was to come first did not happen.",
       "<b>Scheduling confirmed:</b> doctors agreement walkthrough and Q&A is set for Wednesday 23 September 2026 at 6:30 PM. Lu can attend; allow up to 1.5 hours, with dinner if included.",
       "<b>Two specialists still to receive theirs</b> &mdash; Dr Yeoh and Dr Joan.",
@@ -1197,7 +1205,7 @@
      "dot": "wait",
      "chip": "set up by 21 \u00b7 send 22\u201324 Sep",
      "name": "Cold reactivation blast",
-     "one": "The clearest Q4 lever: 4,011 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
+     "one": "The clearest Q4 lever: 4,201 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
      "steps": [
       {
        "t": "Send list + exclusions built (9,833 excluded w/ reasons)",
@@ -1270,6 +1278,7 @@
       }
      ],
      "open": [
+      "<b>Price confirmed from Code Capsule's cost deck (21 Sep):</b> a marketing message is 860 points plus a 50-point platform fee = RM0.4095, or RM0.442 with SST. 4,201 messages = about RM1,858, paid by the clinic. RM0.387 is the WhatsApp charge alone, not the full price.",
       "<b>MiniCRM and the campaign blast message function are deployed and testing is complete (10 Sep).</b>",
       "<b>Next step:</b> Lau configures MiniCRM on Mon 21 Sep 2026. The blast window remains tentative until configuration and the final fresh-data check are complete.",
       "<b>The blast is not confirmed.</b> Keep the tentative 22\u201324 Sep window only as a planning placeholder.",
@@ -1300,7 +1309,7 @@
      "dot": "live",
      "chip": "live",
      "name": "Recall funnel (automated)",
-     "one": "The 03-number WhatsApp recall runs daily on cron; you get the number from Edith every morning. Booked 27% per message, came in 20% per patient; RM111.7k of production attributed all-time (correlation, not lift).",
+     "one": "The 03-number WhatsApp recall runs daily on cron; you get the number from Edith every morning. Came in 20.7% per patient (235 of 1,138); RM114.5k of production by messaged patients since 16 Apr (correlation, not lift).",
      "steps": [
       {
        "t": "Live + cron'd",
@@ -1316,6 +1325,7 @@
       }
      ],
      "open": [
+      "<b>Cost against return (21 Sep):</b> clinic spend to date is about RM6,700 \u2014 RM6,500 as the used half of the RM13,000 set-up, plus 2,014 reminder messages at about 9 sen each (assumed utility-rate; confirm the template category with Jason). Production by messaged patients: RM114,520.",
       "Status note (moved off the Next line 4 Sep 2026): CLOSED 19 Aug: live and connected \u2014 daily cron, dashboard bridge, conversion reporting all running.",
       "Only dependency: keep the Alibaba account topped up (alerts to the iSmile inbox)",
       "Always report both rates: Booked 27.2% per message (per phone) and Came in 19.9% per patient (226 of 1,138) - RM111,720 attributed all-time across 293 visits. Label it correlation, not lift; no holdout has run."
@@ -2576,7 +2586,7 @@
   ]
  },
  "meta": {
-  "asof": "SUN 20 SEP 2026",
-  "updated": "2026-09-20T19:19:33+08:00"
+  "asof": "MON 21 SEP 2026",
+  "updated": "2026-09-21T13:39:57+08:00"
  }
 }
