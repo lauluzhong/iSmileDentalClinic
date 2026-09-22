@@ -1343,7 +1343,7 @@
        "w": "22 Sep"
       },
       {
-       "t": "MiniCRM issue fixed by Suraya; recall resend logic changed and applied to exclude candidates with a new last visit",
+       "t": "MiniCRM issue fixed by Suraya; recall resend logic changed, tested and applied to exclude candidates with a new last visit",
        "s": "done",
        "w": "22 Sep"
       },
@@ -2766,6 +2766,6 @@
  },
  "meta": {
   "asof": "TUE 22 SEP 2026",
-  "updated": "2026-09-22T16:36:12+08:00"
+  "updated": "2026-09-22T16:37:07+08:00"
  }
 }
