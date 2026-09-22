@@ -1953,39 +1953,41 @@
     {
      "id": "h3",
      "dot": "wait",
-     "chip": "verify",
+     "chip": "Oct conversation",
      "name": "DSA conduct & supervision",
-     "one": "Conduct complaints held (utilisation fix first) \u2014 but the junior-left-alone-chairside allegation is patient safety and needs verifying regardless.",
+     "one": "Lau is prioritising fuller calendar utilisation to reduce the opportunity for junior-left-alone behaviour; the patient-safety allegation remains an unresolved watch-out.",
      "steps": [
       {
        "t": "Complaints logged (noise, phones, occupied rooms)",
        "s": "done"
       },
       {
-       "t": "Verify the supervision allegation with Emily \u2014 separately",
-       "s": "now"
+       "t": "Prioritise calendar utilisation so junior-left-alone behaviour is less likely",
+       "s": "done"
       },
       {
-       "t": "Peer-led training night (Siti + Eda) if confirmed useful",
-       "s": ""
+       "t": "Lau-led conversation with Siti and Eida about DSA training",
+       "s": "now",
+       "w": "October, after the doctors' agreement work"
       }
      ],
      "open": [
-      "Keep the safety question and the conduct question as two different conversations",
-      "From the initiatives board: Keep the training night and the conduct standard apart. The session is a reward and a skills exercise; if the grievances are read out that evening it becomes a reprimand with food. The durable fix is filling the chairs so the idle time does not exist \u2014 but that is a six-month lever and the standard "
+      "Patient-safety watch-out remains unresolved: do not mark the junior-left-alone allegation verified or closed.",
+      "Lau chose fuller calendar utilisation as the strategic response, reducing the opportunity for junior-left-alone behaviour rather than opening a conduct investigation now.",
+      "Next conversation is led by Lau with Siti and Eida about DSA training, targeted for October after the doctors' agreement work."
      ],
      "flag": {
       "k": "talk",
-      "who": "Emily",
-      "w": "Check with Emily whether a junior really was left alone with a patient. This is patient safety \u2014 keep it apart from the conduct complaints."
+      "who": "Lau",
+      "w": "Lead the conversation with Siti and Eida about DSA training in October, after the doctors' agreement work."
      },
-     "owner": "emily",
+     "owner": "lu",
      "dept": "people",
      "lens": "efficiency",
      "from_initiatives": [
       26
      ],
-     "next": "Held by the owner on 26 Aug. The intended approach is to raise utilisation so the team is properly occupied, rather than to run a conduct process now. The supervision question should still be verified with the practice manager separately, since that one is about patient safety rather than professionalism.",
+     "next": "Lau to lead the conversation with Siti and Eida about DSA training in October, after the doctors' agreement work. Keep the junior-left-alone allegation as an unresolved patient-safety watch-out; utilisation is the chosen response for now, rather than opening a conduct investigation.",
      "endMonth": "2026-12"
     },
     {
@@ -2077,7 +2079,7 @@
      ],
      "open": [
       "<b>Training is targeted for Sat 3 Oct.</b> After the clinic closes at 3:30 PM, training then dinner together. Emily books the girls' time on Tue 22 Sep. It must sit AFTER AutoCount is installed and after Leow has taught Lau and Emily \u2014 receipts and e-invoices are part of the syllabus.",
-      "Merges the two front-of-house items raised on 20 Jul \u2014 the SOP gap and the upskilling/bench \u2014 because they are the same problem. TRAINING SYLLABUS INPUTS (consolidated 19 Aug, for the future training deck): (1) FOH training compulsory attendees Joanna/Erincy/Jessy/Ida; (2) FOH-01 patient-letters SOP (5 templates, 7-step process, Joanna pilot); (3) WhatsApp quick replies house voice + desk usage, plus desk-training sheet coming from chat-history mining (id 30); (4) DSA professionalism standards (noise, phones, occupied rooms; Siti/Eda peer-led training night model); (5) digital registration form staff flow (?staff=1); (6) rebooking-at-checkout habit (real baseline ~55-65%); (7) AutoCount front-desk training once migration timeline lands (invoice edits in OpenDent only - 30s rule); (8) phone/WhatsApp etiquette + name sign-offs. Detail lives in local memory/chat archives - enough to whip up a deck on request.",
+      "Merges the two front-of-house items raised on 20 Jul \u2014 the SOP gap and the upskilling/bench \u2014 because they are the same problem. TRAINING SYLLABUS INPUTS (consolidated 19 Aug, for the future training deck): (1) FOH training compulsory attendees Joanna/Erincy/Jessy/Ida; (2) FOH-01 patient-letters SOP (5 templates, 7-step process, Joanna pilot); (3) WhatsApp quick replies house voice + desk usage, plus desk-training sheet coming from chat-history mining (id 30); (4) DSA professionalism standards (noise, phones, occupied rooms), to be discussed in Lau's October conversation with Siti and Eida after the doctors' agreement work); (5) digital registration form staff flow (?staff=1); (6) rebooking-at-checkout habit (real baseline ~55-65%); (7) AutoCount front-desk training once migration timeline lands (invoice edits in OpenDent only - 30s rule); (8) phone/WhatsApp etiquette + name sign-offs. Detail lives in local memory/chat archives - enough to whip up a deck on request.",
       "Dr Joan and Dr Yeoh letter templates still blocked on their chops and on what the RES00104 / PRO0033 registration prefixes denote - Emily."
      ],
      "owner": "emily",
@@ -2589,7 +2591,7 @@
   ]
  },
  "meta": {
-  "asof": "MON 21 SEP 2026",
-  "updated": "2026-09-21T18:12:38+08:00"
+  "asof": "TUE 22 SEP 2026",
+  "updated": "2026-09-22T10:37:05+08:00"
  }
 }

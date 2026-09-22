@@ -1,9 +1,24 @@
 {
- "updated": "2026-09-21T18:12:38+08:00",
+ "updated": "2026-09-22T10:37:05+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
+  "Emily": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Code Capsule": {
    "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -14,21 +29,6 @@
   },
   "Lau": {
    "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Emily": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   }
@@ -739,17 +739,17 @@
    "id": "h3",
    "title": "DSA conduct & supervision",
    "status": "review",
-   "owner": "Emily",
-   "why": "Conduct complaints held (utilisation fix first) \u2014 but the junior-left-alone-chairside allegation is patient safety and needs verifying regardless.",
-   "next": "Held by the owner on 26 Aug. The intended approach is to raise utilisation so the team is properly occupied, rather than to run a conduct process now. The supervision question should still be verified with the practice manager separately, since that one is about patient safety rather than professionalism.",
+   "owner": "Lau",
+   "why": "Lau is prioritising fuller calendar utilisation to reduce the opportunity for junior-left-alone behaviour; the patient-safety allegation remains an unresolved watch-out.",
+   "next": "Lau to lead the conversation with Siti and Eida about DSA training in October, after the doctors' agreement work. Keep the junior-left-alone allegation as an unresolved patient-safety watch-out; utilisation is the chosen response for now, rather than opening a conduct investigation.",
    "dept": "people",
    "lens": "efficiency",
    "endMonth": "2026-12",
    "note": "",
    "tasks": [
     "Complaints logged (noise, phones, occupied rooms)",
-    "Verify the supervision allegation with Emily \u2014 separately",
-    "Peer-led training night (Siti + Eda) if confirmed useful"
+    "Prioritise calendar utilisation so junior-left-alone behaviour is less likely",
+    "Lau-led conversation with Siti and Eida about DSA training"
    ],
    "pillar": "F1"
   },
