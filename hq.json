@@ -393,9 +393,9 @@
        "s": "done"
       },
       {
-       "t": "Leow remotely installs AutoCount on the two new front-desk PCs; Jason coordinates",
-       "s": "now",
-       "w": "Tue 22 Sep \u00b7 09:00\u201312:30 or 14:00\u201316:30 \u00b7 ~15 min/PC"
+       "t": "AutoCount installed on both new front-desk PCs",
+       "s": "done",
+       "w": "Tue 22 Sep \u00b7 Vision Tech confirmed 09:20"
       },
       {
        "t": "Design the new receipt",
@@ -406,6 +406,11 @@
        "t": "Front-desk receipts SOP written",
        "s": "",
        "w": "22\u201326 Sep"
+      },
+      {
+       "t": "Receipt + e-invoice run-through with actual data, including FIFO and partial payments",
+       "s": "now",
+       "w": "Fri 25 Sep \u00b7 15:00\u201315:30 \u00b7 Google Meet \u00b7 Jason, Leow, Emily, Lau"
       },
       {
        "t": "Receipts + e-invoices taught at the FOH training",
@@ -419,6 +424,7 @@
       }
      ],
      "open": [
+      "<b>Confirmed next step:</b> Fri 25 Sep, 15:00\u201315:30 by Google Meet \u2014 Jason, Leow, Emily and Lau will use actual data to run through receipts and e-invoices, including FIFO and partial payments, before staff training.",
       "<b>3 Oct is the aim, not yet confirmed:</b> front-desk training from 3:30 PM, dinner after. Emily books the girls\u2019 time Tue 22 Sep. Cutover to AutoCount receipts the following week, 5\u20139 Oct, with Lau and Emily on standby.",
       "Receipt-name nuance: AutoCount name changes stick (parent paying for child, company claims) \u2014 teach it explicitly",
       "Physical receipts continue until training done \u2014 decided, not a slip"
@@ -434,7 +440,7 @@
      "from_initiatives": [
       15
      ],
-     "next": "Design the receipt and write the front-desk SOP 22\u201326 Sep; teach it on 3 Oct; go live 5 Oct.",
+     "next": "Complete the receipt and front-desk SOP, then run actual receipt and e-invoice cases with Jason, Leow, Emily and Lau on Fri 25 Sep before staff training.",
      "endMonth": "2026-10"
     },
     {
@@ -1331,6 +1337,16 @@
        "w": "22 Sep"
       },
       {
+       "t": "MiniCRM issue fixed by Suraya; recall resend logic changed and applied to exclude candidates with a new last visit",
+       "s": "done",
+       "w": "22 Sep"
+      },
+      {
+       "t": "Recall batch for the preceding 6\u20137 days sent",
+       "s": "done",
+       "w": "Morning 22 Sep"
+      },
+      {
        "t": "Emily checks the girls' availability for Sat 3 Oct FOH training at the 09:00 huddle",
        "s": "now",
        "w": "Wed 23 Sep"
@@ -1378,6 +1394,7 @@
      "open": [
       "<b>Price confirmed from Code Capsule's cost deck (21 Sep):</b> a marketing message is 860 points plus a 50-point platform fee = RM0.4095, or RM0.442 with SST. 4,201 messages = about RM1,858, paid by the clinic. RM0.387 is the WhatsApp charge alone, not the full price.",
       "<b>MiniCRM campaign deleted/paused (22 Sep):</b> setup complexity requires staff verification before the campaign is rebuilt in the UI.",
+      "<b>Recall operations restored 22 Sep:</b> Suraya fixed the MiniCRM issue. Resends now exclude candidates with a newer last visit, and the batch for the preceding 6\u20137 days was sent that morning. A prior blast failed for insufficient balance; the balance was topped up.",
       "<b>Due Wed 23 Sep:</b> confirm the excluded list and the family/shared-number recipient list; Emily checks the girls' Sat 3 Oct FOH availability at the 09:00 huddle.",
       "<b>Due EOD Fri 25 Sep:</b> configure the MiniCRM/CRM campaign after the staff checks.",
       "<b>Before the tentative window:</b> Lau checks OpenDent on Fri 2 or Sat 3 Oct for planned recipients who already made an appointment, so they can be removed or handled appropriately.",
@@ -2510,7 +2527,7 @@
      "h5"
     ],
     "owner": "Lau \u00b7 Emily \u00b7 Code Capsule",
-    "summary": "Computers downstairs, AutoCount installed, the receipt and SOP designed, one run-through, the front-desk training, then go-live on 5 Oct.",
+    "summary": "AutoCount is installed on both new front-desk PCs. On 25 Sep, the team will validate the actual-data receipt and e-invoice journey, including FIFO, partial payments and the downstairs sub-account data flow, before training and go-live on 5 Oct.",
     "items": [
      {
       "label": "OpenDent migrated to the new server",
@@ -2533,13 +2550,13 @@
       "note": "Downstairs computers are set up; no extra cooling needed."
      },
      {
-      "label": "Leow remotely installs AutoCount on the two new front-desk PCs",
+      "label": "AutoCount installed on both new front-desk PCs",
       "start": "2026-09-22",
       "end": "2026-09-22",
-      "status": "now",
-      "who": "Jason \u00b7 Leow (AutoCount)",
-      "time": "09:00\u201312:30 or 14:00\u201316:30",
-      "note": "Jason confirmed Leow's availability on 21 Sep and is coordinating. About 15 minutes per PC; completion still to be confirmed."
+      "status": "done",
+      "who": "Vision Tech \u00b7 Jason \u00b7 Leow (AutoCount)",
+      "time": "09:20 confirmed",
+      "note": "Vision Tech confirmed successful installation on both PCs at 09:20."
      },
      {
       "label": "Design the receipt + front-desk SOP",
@@ -2558,12 +2575,14 @@
       "note": "Installed on the downstairs/front-desk PCs."
      },
      {
-      "label": "Receipt run-through: Leow, Jason, Lau/Emily",
-      "start": "2026-09-29",
-      "end": "2026-10-01",
-      "status": "next",
-      "who": "Leow \u00b7 Jason \u00b7 Emily \u00b7 Lau",
-      "note": "A session to run through the receipt-generation process end to end, before the training."
+      "label": "Receipt + e-invoice run-through with actual data",
+      "start": "2026-09-25",
+      "end": "2026-09-25",
+      "status": "now",
+      "locked": true,
+      "time": "15:00\u201315:30 \u00b7 Google Meet",
+      "who": "Jason \u00b7 Leow \u00b7 Emily \u00b7 Lau",
+      "note": "Confirmed. Cover FIFO and partial payments, AutoCount integration on/off, and\u2014if remote access permits\u2014a downstairs front-desk receipt simulation to validate sub-account data flow."
      },
      {
       "label": "Prepare and confirm the FOH training deck",
@@ -2728,6 +2747,6 @@
  },
  "meta": {
   "asof": "TUE 22 SEP 2026",
-  "updated": "2026-09-22T16:27:38+08:00"
+  "updated": "2026-09-22T16:28:34+08:00"
  }
 }

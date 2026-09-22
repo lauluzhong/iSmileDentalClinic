@@ -1,7 +1,12 @@
 {
- "updated": "2026-09-22T16:27:38+08:00",
+ "updated": "2026-09-22T16:28:34+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
+  "Code Capsule": {
+   "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Dr Ong": {
    "init": "DO",
    "role": "",
@@ -17,18 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Lau": {
    "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -92,16 +92,17 @@
    "status": "review",
    "owner": "Emily",
    "why": "Receipts out of AutoCount replace the paper book \u2014 front desk switches only after training.",
-   "next": "Design the receipt and write the front-desk SOP 22\u201326 Sep; teach it on 3 Oct; go live 5 Oct.",
+   "next": "Complete the receipt and front-desk SOP, then run actual receipt and e-invoice cases with Jason, Leow, Emily and Lau on Fri 25 Sep before staff training.",
    "dept": "clinical",
    "lens": "efficiency",
    "endMonth": "2026-10",
    "note": "",
    "tasks": [
     "Receipt capability confirmed in AutoCount",
-    "Leow remotely installs AutoCount on the two new front-desk PCs; Jason coordinates",
+    "AutoCount installed on both new front-desk PCs",
     "Design the new receipt",
     "Front-desk receipts SOP written",
+    "Receipt + e-invoice run-through with actual data, including FIFO and partial payments",
     "Receipts + e-invoices taught at the FOH training",
     "Go live \u2014 receipts from AutoCount, paper retired"
    ],
@@ -463,6 +464,8 @@
     "MiniCRM deployed to the new PC server",
     "Campaign blast message function deployed and tested",
     "MiniCRM campaign deleted/paused \u2014 setup complexity requires staff verification",
+    "MiniCRM issue fixed by Suraya; recall resend logic changed and applied to exclude candidates with a new last visit",
+    "Recall batch for the preceding 6\u20137 days sent",
     "Emily checks the girls' availability for Sat 3 Oct FOH training at the 09:00 huddle",
     "Confirm excluded list for discounted individuals (immediate family, full-time staff, pastors, etc.)",
     "Confirm the family/shared-number recipient list with front desk",
