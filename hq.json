@@ -175,7 +175,7 @@
    "l": "Receipt + e-invoice run-through \u2014 Google Meet",
    "s": "",
    "iso": "2026-09-25",
-   "tip": "Confirmed Fri 25 Sep, 15:00\u201315:30. Jason, Leow, Lau, Emily and relevant front-desk staff will run through the receipt and e-invoice journey with actual data, including FIFO and partial payments; AutoCount integration on/off and the downstairs sub-account data flow will be validated by simulating the front-desk journey."
+   "tip": "Confirmed Fri 25 Sep, 15:00\u201315:30. Jason, Leow, Emily and Lau will run through the receipt and e-invoice journey with actual data, including FIFO and partial payments; AutoCount integration on/off and the downstairs sub-account data flow will be validated by simulating the front-desk journey."
   },
   {
    "d": "30 Sep",
@@ -318,7 +318,7 @@
       {
        "t": "Receipt + e-invoice run-through with actual data, including FIFO and partial payments; simulate the downstairs front-desk journey and validate sub-account data flow",
        "s": "now",
-       "w": "Fri 25 Sep \u00b7 15:00\u201315:30 \u00b7 Google Meet \u00b7 Jason, Leow, Lau, Emily and relevant front-desk staff"
+       "w": "Fri 25 Sep \u00b7 15:00\u201315:30 \u00b7 Google Meet \u00b7 Jason, Leow, Emily, Lau"
       },
       {
        "t": "Training for front-of-house staff + dinner \u2014 aiming; Emily books the girls\u2019 time Tue 22 Sep",
@@ -333,7 +333,7 @@
      ],
      "open": [
       "<b>Installation complete 22 Sep:</b> Vision Tech confirmed at 09:20 that AutoCount was installed successfully on both new front-desk PCs.",
-      "<b>Confirmed next step:</b> Fri 25 Sep, 15:00\u201315:30 by Google Meet \u2014 Jason, Leow, Lau, Emily and relevant front-desk staff will use actual data to run through the receipt and e-invoice journey, including FIFO and partial payments. The run-through also covers AutoCount integration on/off and, if possible, remotely simulating a downstairs front-desk receipt to validate sub-account data flow.",
+      "<b>Confirmed next step:</b> Fri 25 Sep, 15:00\u201315:30 by Google Meet \u2014 Jason, Leow, Emily and Lau will use actual data to run through the receipt and e-invoice journey, including FIFO and partial payments. The run-through also covers AutoCount integration on/off and, if possible, remotely simulating a downstairs front-desk receipt to validate sub-account data flow.",
       "<b>Training remains pending confirmation:</b> aiming for Sat 3 Oct after the 3:30 PM close, with dinner after. Emily books the girls\u2019 time Tue 22 Sep; Leow teaches Lau and Emily AutoCount first.",
       "Jason confirmed Leow must attend the run-through.",
       "EasyDent (X-ray) + CCTV stay on the old PC \u2014 do not migrate",
@@ -345,7 +345,7 @@
      "from_initiatives": [
       1
      ],
-     "next": "Fri 25 Sep, 15:00\u201315:30: Jason, Leow, Lau, Emily and relevant front-desk staff run through actual receipt and e-invoice cases, including FIFO and partial payments, then validate the downstairs sub-account data flow. Complete the receipt and front-desk SOP before the 3 Oct training.",
+     "next": "Fri 25 Sep, 15:00\u201315:30: Jason, Leow, Emily and Lau run through actual receipt and e-invoice cases, including FIFO and partial payments, then validate the downstairs sub-account data flow. Complete the receipt and front-desk SOP before the 3 Oct training.",
      "endMonth": "2026-09"
     },
     {
@@ -2594,7 +2594,7 @@
       "status": "now",
       "locked": true,
       "time": "15:00\u201315:30 \u00b7 Google Meet",
-      "who": "Jason \u00b7 Leow \u00b7 Lau \u00b7 Emily \u00b7 Relevant front desk",
+      "who": "Jason \u00b7 Leow \u00b7 Emily \u00b7 Lau",
       "note": "Confirmed. Cover FIFO and partial payments, AutoCount integration on/off, and\u2014if remote access permits\u2014a downstairs front-desk receipt simulation to validate sub-account data flow."
      },
      {
@@ -2760,6 +2760,6 @@
  },
  "meta": {
   "asof": "TUE 22 SEP 2026",
-  "updated": "2026-09-22T16:30:07+08:00"
+  "updated": "2026-09-22T16:30:05+08:00"
  }
 }
