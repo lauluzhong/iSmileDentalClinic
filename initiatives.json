@@ -1,14 +1,24 @@
 {
- "updated": "2026-09-22T16:04:43+08:00",
+ "updated": "2026-09-22T16:21:42+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Dr Ong": {
-   "init": "DO",
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
   "Emily": {
    "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -19,16 +29,6 @@
   },
   "Edith": {
    "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -313,6 +313,7 @@
     "Procurement, reimbursement and supplier-interest clauses added (cl. 2.5, 7.1, 7.4, 7.5)",
     "Agreements sent to the five non-specialist doctors, with a one-page summary card",
     "Send to the two specialists (Dr Yeoh, Dr Joan)",
+    "Correct cl. 3.1 so only the amount below the Minimum Fee is borne (owner's stated rule)",
     "Signed copies back to Lau"
    ],
    "pillar": "P2"
@@ -413,6 +414,7 @@
     "Contracts sent to each doctor individually",
     "Personal questions by text \u2014 answered as they come",
     "Numbers checked for every doctor and a walkthrough deck prepared",
+    "Numbers verified by two models; devil's-advocate Q&A prepared",
     "In-person walkthrough and Q&A at the clinic \u2014 all doctors except the specialists (Yeoh, Joan)",
     "Signed copies back"
    ],
