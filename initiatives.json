@@ -1,9 +1,14 @@
 {
- "updated": "2026-09-22T16:29:19+08:00",
+ "updated": "2026-09-22T16:29:46+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lydia": {
-   "init": "L",
+  "Code Capsule": {
+   "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -12,18 +17,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Emily": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
-   "init": "E",
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
@@ -484,7 +484,7 @@
    "status": "active",
    "owner": "Edith",
    "why": "The 03-number WhatsApp recall runs daily on cron; you get the number from Edith every morning. Came in 20.7% per patient (235 of 1,138); RM114.5k of production by messaged patients since 16 Apr (correlation, not lift).",
-   "next": "Fix click under-logging with Code Capsule",
+   "next": "Monitor the recall batch sent 22 Sep and the recall resend logic, which now excludes patients with a new last visit.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-06",
@@ -492,7 +492,9 @@
    "tasks": [
     "Live + cron'd",
     "Daily funnel telemetry",
-    "Fix click under-logging with Code Capsule"
+    "MiniCRM issue fixed with Code Capsule",
+    "Recall resend logic tested and applied \u2014 exclude patients with a new last visit",
+    "Recall blast balance topped up and recent recall batch sent"
    ],
    "pillar": "P3"
   },

@@ -1435,13 +1435,26 @@
        "s": "done"
       },
       {
-       "t": "Fix click under-logging with Code Capsule",
-       "s": "now"
+       "t": "MiniCRM issue fixed with Code Capsule",
+       "s": "done",
+       "w": "22 Sep"
+      },
+      {
+       "t": "Recall resend logic tested and applied \u2014 exclude patients with a new last visit",
+       "s": "done",
+       "w": "22 Sep"
+      },
+      {
+       "t": "Recall blast balance topped up and recent recall batch sent",
+       "s": "done",
+       "w": "22 Sep"
       }
      ],
      "open": [
       "<b>Cost against return (21 Sep):</b> clinic spend to date is about RM6,700 \u2014 RM6,500 as the used half of the RM13,000 set-up, plus 2,014 reminder messages at about 9 sen each (assumed utility-rate; confirm the template category with Jason). Production by messaged patients: RM114,520.",
       "Status note (moved off the Next line 4 Sep 2026): CLOSED 19 Aug: live and connected \u2014 daily cron, dashboard bridge, conversion reporting all running.",
+      "<b>MiniCRM issue fixed 22 Sep:</b> recall resend logic was tested and applied to exclude patients with a new last visit.",
+      "<b>Recall batch sent 22 Sep:</b> the failed blast caused by insufficient account balance was resolved by topping up the account.",
       "Only dependency: keep the Alibaba account topped up (alerts to the iSmile inbox)",
       "Always report both rates: Booked 27.2% per message (per phone) and Came in 19.9% per patient (226 of 1,138) - RM111,720 attributed all-time across 293 visits. Label it correlation, not lift; no holdout has run."
      ],
@@ -1451,7 +1464,7 @@
      "from_initiatives": [
       7
      ],
-     "next": "Fix click under-logging with Code Capsule",
+     "next": "Monitor the recall batch sent 22 Sep and the recall resend logic, which now excludes patients with a new last visit.",
      "endMonth": "2026-06"
     },
     {
@@ -2747,6 +2760,6 @@
  },
  "meta": {
   "asof": "TUE 22 SEP 2026",
-  "updated": "2026-09-22T16:29:19+08:00"
+  "updated": "2026-09-22T16:29:46+08:00"
  }
 }
