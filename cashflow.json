@@ -1,77 +1,59 @@
 {
-  "as_of": "2026-09-21",
-  "mode": "eod",
+  "as_of": "2026-09-22",
+  "mode": "midday",
   "fresh": true,
-  "generated_myt": "2026-09-21 19:50",
-  "source_max_paydate": "2026-09-21",
-  "source_max_procdate": "2026-09-21",
+  "generated_myt": "2026-09-22 12:05",
+  "source_max_paydate": "2026-09-22",
+  "source_max_procdate": "2026-09-22",
   "today": {
-    "collected": 25100.0,
-    "produced": 8640.0,
-    "patients_seen": 39,
-    "new_patients": 2,
+    "collected": 159.5,
+    "produced": 1120.0,
+    "patients_seen": 5,
+    "new_patients": 0,
     "by_paytype": {
-      "Internet Banking": 17500.0,
-      "Credit Card": 7350.0,
-      "Cash": 250.0
+      "Credit Card": 159.5
     }
   },
   "mtd": {
-    "collected": 157015.0,
-    "produced": 157820.0,
-    "trading_days": 18,
-    "avg_per_trading_day": 8723.06,
-    "run_rate_26d": 226799.44,
+    "collected": 157174.5,
+    "produced": 158940.0,
+    "trading_days": 19,
+    "avg_per_trading_day": 8272.34,
+    "run_rate_26d": 215080.89,
     "by_paytype": {
-      "Credit Card": 117255.0,
+      "Credit Card": 117414.5,
       "Internet Banking": 21260.0,
       "PBB QR": 16370.0,
       "Cash": 2130.0
     }
   },
-  "booked_next_14d": 271,
+  "booked_next_14d": 290,
   "forward_book": {
     "next_7d": {
       "days": 7,
-      "appts": 151,
-      "booked_min": 8840,
+      "appts": 148,
+      "booked_min": 8810,
       "capacity_min": 11120,
-      "pct": 79.49640287769785
+      "pct": 79.22661870503596
     },
     "next_14d": {
       "days": 14,
-      "appts": 269,
-      "booked_min": 15840,
+      "appts": 266,
+      "booked_min": 15720,
       "capacity_min": 22240,
-      "pct": 71.22302158273382
+      "pct": 70.68345323741008
     }
   },
   "doctors_worked": {
-    "count": 4,
+    "count": 2,
     "abbrs": [
-      "Azeli",
-      "Jean",
-      "Ling",
-      "Mah"
+      "Amy",
+      "Jean"
     ]
   },
-  "utilization": {
-    "chair_minutes": 1600,
-    "operatories": 4,
-    "open_minutes": 480,
-    "capacity_minutes": 1920,
-    "pct": 83.3
-  },
+  "utilization": null,
   "pnl": {
-    "locum_est": 2386,
-    "lab_est": 302,
-    "gp": 5952.0,
-    "overhead_day": 3385.08,
-    "ebitda_day": 2566.92,
-    "depreciation_day": 1146.54,
-    "net_day": 1420.38,
-    "visits_matched": 39,
-    "available": true,
-    "produced": 8640.0
+    "available": false,
+    "reason": "n/a (midday)"
   }
 }
