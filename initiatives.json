@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-22T16:37:07+08:00",
+ "updated": "2026-09-22T17:58:31+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
   "Edith": {
@@ -7,13 +7,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
@@ -22,13 +17,18 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
-   "init": "E",
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -416,6 +416,7 @@
     "Personal questions by text \u2014 answered as they come",
     "Numbers checked for every doctor and a walkthrough deck prepared",
     "Numbers verified by two models; devil's-advocate Q&A prepared",
+    "Opening words and deck finalised \u2014 three principles: Fairness, Growth, Trust",
     "In-person walkthrough and Q&A at the clinic \u2014 all doctors except the specialists (Yeoh, Joan)",
     "Signed copies back"
    ],
