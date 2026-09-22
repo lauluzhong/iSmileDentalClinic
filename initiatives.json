@@ -1,7 +1,17 @@
 {
- "updated": "2026-09-22T16:21:42+08:00",
+ "updated": "2026-09-22T16:27:38+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Lydia": {
    "init": "L",
    "role": "",
@@ -12,23 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Code Capsule": {
    "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
-   "init": "E",
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -39,8 +39,8 @@
    "title": "OpenDent \u2194 AutoCount integration",
    "status": "active",
    "owner": "Code Capsule",
-   "why": "OpenDent \u2192 AutoCount data flow was reported OK on 15 Sep. The remaining front-desk rollout is tracked through the hardware, local setup and training steps.",
-   "next": "Leow remotely installs AutoCount on the two new front-desk PCs on Tue 22 Sep (about 15 minutes per PC); Jason coordinates. Confirm completion, then design the receipt + SOP 22\u201326 Sep, run-through 29 Sep\u20131 Oct, training 3 Oct, go live 5 Oct.",
+   "why": "AutoCount is installed on both new front-desk PCs. The confirmed 25 Sep run-through will validate the front-desk receipt journey and downstairs sub-account data flow before training.",
+   "next": "Fri 25 Sep, 15:00\u201315:30: Jason, Leow, Emily and Lau run through actual receipt and e-invoice cases, including FIFO and partial payments, then validate the downstairs sub-account data flow. Complete the receipt and front-desk SOP before the 3 Oct training.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -59,11 +59,10 @@
     "iSmile-side AC \u2194 iSmile integration testing and clearance complete; CC owns completion tracking",
     "OpenDent \u2192 AutoCount data flow reported OK",
     "Install the computers downstairs (Chrome + iSmile email, WhatsApp Web)",
-    "Leow remotely installs AutoCount on the two new front-desk PCs; Jason coordinates",
+    "AutoCount installed on both new front-desk PCs",
     "X-ray software installed on the downstairs PCs",
-    "Receipt run-through session: Leow, Jason, Lau/Emily \u2014 the whole receipt-generation process",
+    "Receipt + e-invoice run-through with actual data, including FIFO and partial payments; simulate the downstairs front-desk journey and validate sub-account data flow",
     "Training for front-of-house staff + dinner \u2014 aiming; Emily books the girls\u2019 time Tue 22 Sep",
-    "True end-to-end integration test",
     "Go live \u2014 new digital receipts (Lau and Emily on standby that week)"
    ],
    "pillar": "P1"
@@ -74,14 +73,14 @@
    "status": "review",
    "owner": "Code Capsule",
    "why": "The original why: transactions >RM10k need e-invoices; LHDN mandate lands Jan 2027.",
-   "next": "Integration live (see spine)",
+   "next": "Fri 25 Sep, 15:00\u201315:30: run through actual receipt and e-invoice cases with Jason, Leow, Emily and Lau, including FIFO and partial payments.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": null,
    "note": "",
    "tasks": [
     "AutoCount chosen as the accounting layer",
-    "Integration live (see spine)",
+    "Receipt + e-invoice journey run-through with actual data, including FIFO and partial payments",
     "E-invoice format + submission flow configured",
     "First live e-invoice issued"
    ],
