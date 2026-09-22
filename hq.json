@@ -6,6 +6,13 @@
    "t": "Receipt run-through: which day, 29 Sep \u2013 1 Oct?",
    "w": "Leow, Jason, and you or Emily, to run through the whole receipt-generation process before the 3 Oct training.",
    "ref": "d1"
+  },
+  {
+   "hot": false,
+   "k": "Decision pending",
+   "t": "Cold reactivation blast window: 5\u20137 Oct (tentative)",
+   "w": "Confirm the send window after staff verification; no blast date is confirmed.",
+   "ref": "g1"
   }
  ],
  "rail": [
@@ -115,11 +122,11 @@
    "tip": "Leow will remotely install AutoCount on the two new front-desk PCs. Window: 09:00\u201312:30 or 14:00\u201316:30; about 15 minutes per PC. Keep open until installation is confirmed complete."
   },
   {
-   "d": "22\u201324 Sep",
-   "l": "Cold blast sends",
+   "d": "5\u20137 Oct",
+   "l": "Cold reactivation blast \u2014 tentative window",
    "s": "",
-   "iso": "2026-09-22",
-   "tip": "The blast runs Tue\u2013Thu 22\u201324 Sep at 1,800/day. Set-up and the fresh-data re-run by Mon 21 Sep."
+   "iso": "2026-10-05",
+   "tip": "Tentative alternative window only. The MiniCRM campaign was deleted/paused because the setup complexity requires staff verification; no blast date is confirmed."
   },
   {
    "d": "22\u201326 Sep",
@@ -1205,7 +1212,7 @@
     {
      "id": "g1",
      "dot": "wait",
-     "chip": "set up by 21 \u00b7 send 22\u201324 Sep",
+     "chip": "paused \u00b7 staff verification pending",
      "name": "Cold reactivation blast",
      "one": "The clearest Q4 lever: 4,201 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
      "steps": [
@@ -1260,19 +1267,25 @@
        "w": "10 Sep"
       },
       {
-       "t": "Lu configures MiniCRM for the blast",
-       "s": "now",
-       "w": "by Mon 21 Sep"
+       "t": "MiniCRM campaign deleted/paused \u2014 setup complexity requires staff verification",
+       "s": "done",
+       "w": "22 Sep"
       },
       {
-       "t": "Fresh-data re-run immediately before sending",
-       "s": "",
-       "w": "Mon 21 Sep"
+       "t": "Confirm exclusion list for discounted individuals (immediate family, full-time staff, pastors, etc.)",
+       "s": "now"
       },
       {
-       "t": "Blast sends \u2014 1,800/day over three days",
-       "s": "",
-       "w": "Tue\u2013Thu 22\u201324 Sep"
+       "t": "Send the multi-patient/shared-number family Google Sheet to front desk to confirm the correct recipient",
+       "s": ""
+      },
+      {
+       "t": "Configure the campaign in MiniCRM UI after verification",
+       "s": ""
+      },
+      {
+       "t": "Tentative alternative blast window \u2014 5\u20137 Oct; 3 Oct FOH training can pre-amp the girls",
+       "s": ""
       },
       {
        "t": "Waves 2\u20133 \u00b7 funnel read via campaign tags",
@@ -1281,9 +1294,11 @@
      ],
      "open": [
       "<b>Price confirmed from Code Capsule's cost deck (21 Sep):</b> a marketing message is 860 points plus a 50-point platform fee = RM0.4095, or RM0.442 with SST. 4,201 messages = about RM1,858, paid by the clinic. RM0.387 is the WhatsApp charge alone, not the full price.",
-      "<b>MiniCRM and the campaign blast message function are deployed and testing is complete (10 Sep).</b>",
-      "<b>Next step:</b> Lau configures MiniCRM on Mon 21 Sep 2026. The blast window remains tentative until configuration and the final fresh-data check are complete.",
-      "<b>The blast is not confirmed.</b> Keep the tentative 22\u201324 Sep window only as a planning placeholder.",
+      "<b>MiniCRM campaign deleted/paused (22 Sep):</b> setup complexity requires staff verification before the campaign is rebuilt in the UI.",
+      "<b>Pending:</b> confirm the exclusion list for discounted individuals (immediate family, full-time staff, pastors, etc.).",
+      "<b>Pending:</b> send the multi-patient/shared-number family Google Sheet to the front desk to confirm the correct recipient.",
+      "<b>Pending:</b> configure the campaign in MiniCRM UI after verification.",
+      "<b>Tentative alternative:</b> 5\u20137 Oct 2026, with 3 Oct FOH training able to pre-amp the girls. Decision pending; no blast date is confirmed.",
       "<b>UI terminology changed by Code Capsule 7 Sep:</b> the flow is now Audience Filters \u2192 Audience List \u2192 Recipients. \"Selected Patients\" is renamed \"Recipients\"; \"Audience\" is the filtered pool, \"Recipients\" the patients actually selected to receive the campaign.",
       "<b>Daily cap: the system allows 2,000/day; we set ours at 1,800</b> to leave headroom for the other automations sharing the number (recall, birthday). At 1,800 the 4,011 sends clear in three days.",
       "Jason still owes the price",
@@ -1293,9 +1308,8 @@
       "From the initiatives board: Birthday trigger de-prioritised by the owner. The review ask moves a lever that already feeds the website automatically."
      ],
      "flag": {
-      "k": "due",
-      "by": "2026-09-21",
-      "w": "Finish the MiniCRM set-up and the fresh-data re-run by Mon 21 Sep; the blast sends Tue\u2013Thu 22\u201324 Sep."
+      "k": "decide",
+      "w": "Confirm the exclusion list and the family-number recipients before the campaign is rebuilt in MiniCRM."
      },
      "owner": "lu",
      "dept": "crm",
@@ -1303,7 +1317,7 @@
      "from_initiatives": [
       28
      ],
-     "next": "Lau configures MiniCRM by Mon 21 Sep, runs the fresh-data check, then sends Tue\u2013Thu 22\u201324 Sep at 1,800/day.",
+     "next": "Verify exclusions and shared-number family recipients, then rebuild the MiniCRM campaign; 5\u20137 Oct remains tentative.",
      "endMonth": "2026-10"
     },
     {
@@ -2495,22 +2509,22 @@
      "g1"
     ],
     "owner": "Lau \u00b7 Code Capsule",
-    "summary": "4,011 lapsed patients over three days at 1,800 a day.",
+    "summary": "Cold reactivation campaign paused pending staff verification; 5\u20137 Oct is a tentative alternative window, not a confirmed blast date.",
     "items": [
      {
-      "label": "Set-up + fresh-data re-run",
-      "start": "2026-09-18",
-      "end": "2026-09-21",
+      "label": "MiniCRM campaign deleted/paused pending staff verification",
+      "start": "2026-09-22",
       "status": "now",
-      "who": "Lau"
+      "who": "Lau \u00b7 Front desk",
+      "note": "Setup complexity requires verification of discounted-individual exclusions and the correct recipient for shared-number families."
      },
      {
-      "label": "Blast sends \u2014 1,800 a day",
-      "start": "2026-09-22",
-      "end": "2026-09-24",
+      "label": "Tentative blast window \u2014 5\u20137 Oct",
+      "start": "2026-10-05",
+      "end": "2026-10-07",
       "status": "next",
-      "locked": true,
-      "who": "MiniCRM (Code Capsule)"
+      "who": "MiniCRM (after verification)",
+      "note": "Decision pending. The 3 Oct FOH training can pre-amp the girls. No blast date is confirmed."
      }
     ]
    },
@@ -2592,6 +2606,6 @@
  },
  "meta": {
   "asof": "TUE 22 SEP 2026",
-  "updated": "2026-09-22T10:37:05+08:00"
+  "updated": "2026-09-22T11:44:08+08:00"
  }
 }

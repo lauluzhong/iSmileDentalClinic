@@ -1,14 +1,9 @@
 {
- "updated": "2026-09-22T10:37:05+08:00",
+ "updated": "2026-09-22T11:44:08+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Emily": {
+  "Edith": {
    "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Code Capsule": {
-   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
@@ -17,18 +12,23 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Lydia": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
+  "Code Capsule": {
+   "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Lau": {
    "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -427,7 +427,7 @@
    "status": "review",
    "owner": "Lau",
    "why": "The clearest Q4 lever: 4,201 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
-   "next": "Lau configures MiniCRM by Mon 21 Sep, runs the fresh-data check, then sends Tue\u2013Thu 22\u201324 Sep at 1,800/day.",
+   "next": "Verify exclusions and shared-number family recipients, then rebuild the MiniCRM campaign; 5\u20137 Oct remains tentative.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-10",
@@ -443,9 +443,11 @@
     "Final recipient list update",
     "MiniCRM deployed to the new PC server",
     "Campaign blast message function deployed and tested",
-    "Lu configures MiniCRM for the blast",
-    "Fresh-data re-run immediately before sending",
-    "Blast sends \u2014 1,800/day over three days",
+    "MiniCRM campaign deleted/paused \u2014 setup complexity requires staff verification",
+    "Confirm exclusion list for discounted individuals (immediate family, full-time staff, pastors, etc.)",
+    "Send the multi-patient/shared-number family Google Sheet to front desk to confirm the correct recipient",
+    "Configure the campaign in MiniCRM UI after verification",
+    "Tentative alternative blast window \u2014 5\u20137 Oct; 3 Oct FOH training can pre-amp the girls",
     "Waves 2\u20133 \u00b7 funnel read via campaign tags"
    ],
    "pillar": "P3"
