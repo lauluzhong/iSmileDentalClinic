@@ -810,6 +810,39 @@
      "lens": "efficiency",
      "from_initiatives": [],
      "next": "All data lands on one server"
+    },
+    {
+     "id": "d12",
+     "dot": "wait",
+     "chip": "queued \u00b7 front-desk clean-up",
+     "name": "OpenDental record hygiene",
+     "one": "Clean patient records so every automation reaches the right person: merge duplicates, fix IC typos, get grown children their own numbers.",
+     "open": [
+      "<b>Found during the cold-blast build (22 Sep):</b> ~25 people with two active records (23 same-IC, 11 same name+birth date); some same-IC pairs are different people = IC typos to correct.",
+      "~680 adult patients still carry a parent's/spouse's number in the mobile field (registered as children) \u2014 recall/blast/birthday automation messages the parent addressed to the grown child.",
+      "Duplicate-pair list regenerable by the marketing session on request."
+     ],
+     "owner": "emily",
+     "dept": "clinical",
+     "lens": "efficiency",
+     "next": "Emily to slot the merge list into front-desk quiet time; own-number capture starts immediately at visits/calls.",
+     "steps": [
+      {
+       "t": "Merge the ~25 duplicate patient pairs; correct IC typos on same-IC different-person pairs",
+       "s": "next",
+       "w": "front-desk quiet time"
+      },
+      {
+       "t": "Ask for and update grown children's own mobile numbers as they visit or call (~680 affected)",
+       "s": "next",
+       "w": "ongoing"
+      },
+      {
+       "t": "New-registration rule: patients 18+ give their own number; parent's number goes in the note field",
+       "s": "next",
+       "w": "adopt at FOH training Sat 3 Oct"
+      }
+     ]
     }
    ]
   },
@@ -2697,6 +2730,6 @@
  },
  "meta": {
   "asof": "TUE 22 SEP 2026",
-  "updated": "2026-09-22T11:56:23+08:00"
+  "updated": "2026-09-22T16:04:43+08:00"
  }
 }

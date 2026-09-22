@@ -1,14 +1,9 @@
 {
- "updated": "2026-09-22T11:56:23+08:00",
+ "updated": "2026-09-22T16:04:43+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -17,8 +12,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
-   "init": "L",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -266,6 +266,24 @@
     "Local model + data access layer",
     "Automated locum calc output",
     "WhatsApp channel for stock counts / queries"
+   ],
+   "pillar": "P1"
+  },
+  {
+   "id": "d12",
+   "title": "OpenDental record hygiene",
+   "status": "review",
+   "owner": "Emily",
+   "why": "Clean patient records so every automation reaches the right person: merge duplicates, fix IC typos, get grown children their own numbers.",
+   "next": "Emily to slot the merge list into front-desk quiet time; own-number capture starts immediately at visits/calls.",
+   "dept": "clinical",
+   "lens": "efficiency",
+   "endMonth": null,
+   "note": "",
+   "tasks": [
+    "Merge the ~25 duplicate patient pairs; correct IC typos on same-IC different-person pairs",
+    "Ask for and update grown children's own mobile numbers as they visit or call (~680 affected)",
+    "New-registration rule: patients 18+ give their own number; parent's number goes in the note field"
    ],
    "pillar": "P1"
   },
