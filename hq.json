@@ -175,7 +175,7 @@
    "l": "Receipt + e-invoice run-through \u2014 Google Meet",
    "s": "",
    "iso": "2026-09-25",
-   "tip": "Confirmed Fri 25 Sep, 15:00\u201315:30. Jason, Leow, Emily and Lau will run through the receipt and e-invoice journey with actual data, including FIFO and partial payments; AutoCount integration on/off and the downstairs sub-account data flow will be validated by simulating the front-desk journey."
+   "tip": "Confirmed Fri 25 Sep, 15:00\u201315:30. Jason, Leow, Lau, Emily and relevant front-desk staff will run through the receipt and e-invoice journey with actual data, including FIFO and partial payments; AutoCount integration on/off and the downstairs sub-account data flow will be validated by simulating the front-desk journey."
   },
   {
    "d": "30 Sep",
@@ -318,7 +318,7 @@
       {
        "t": "Receipt + e-invoice run-through with actual data, including FIFO and partial payments; simulate the downstairs front-desk journey and validate sub-account data flow",
        "s": "now",
-       "w": "Fri 25 Sep \u00b7 15:00\u201315:30 \u00b7 Google Meet \u00b7 Jason, Leow, Emily, Lau"
+       "w": "Fri 25 Sep \u00b7 15:00\u201315:30 \u00b7 Google Meet \u00b7 Jason, Leow, Lau, Emily and relevant front-desk staff"
       },
       {
        "t": "Training for front-of-house staff + dinner \u2014 aiming; Emily books the girls\u2019 time Tue 22 Sep",
@@ -333,7 +333,7 @@
      ],
      "open": [
       "<b>Installation complete 22 Sep:</b> Vision Tech confirmed at 09:20 that AutoCount was installed successfully on both new front-desk PCs.",
-      "<b>Confirmed next step:</b> Fri 25 Sep, 15:00\u201315:30 by Google Meet \u2014 Jason, Leow, Emily and Lau will use actual data to run through the receipt and e-invoice journey, including FIFO and partial payments. The run-through also covers AutoCount integration on/off and, if possible, remotely simulating a downstairs front-desk receipt to validate sub-account data flow.",
+      "<b>Confirmed next step:</b> Fri 25 Sep, 15:00\u201315:30 by Google Meet \u2014 Jason, Leow, Lau, Emily and relevant front-desk staff will use actual data to run through the receipt and e-invoice journey, including FIFO and partial payments. The run-through also covers AutoCount integration on/off and, if possible, remotely simulating a downstairs front-desk receipt to validate sub-account data flow.",
       "<b>Training remains pending confirmation:</b> aiming for Sat 3 Oct after the 3:30 PM close, with dinner after. Emily books the girls\u2019 time Tue 22 Sep; Leow teaches Lau and Emily AutoCount first.",
       "Jason confirmed Leow must attend the run-through.",
       "EasyDent (X-ray) + CCTV stay on the old PC \u2014 do not migrate",
@@ -345,7 +345,7 @@
      "from_initiatives": [
       1
      ],
-     "next": "Fri 25 Sep, 15:00\u201315:30: Jason, Leow, Emily and Lau run through actual receipt and e-invoice cases, including FIFO and partial payments, then validate the downstairs sub-account data flow. Complete the receipt and front-desk SOP before the 3 Oct training.",
+     "next": "Fri 25 Sep, 15:00\u201315:30: Jason, Leow, Lau, Emily and relevant front-desk staff run through actual receipt and e-invoice cases, including FIFO and partial payments, then validate the downstairs sub-account data flow. Complete the receipt and front-desk SOP before the 3 Oct training.",
      "endMonth": "2026-09"
     },
     {
@@ -591,10 +591,10 @@
     },
     {
      "id": "d7",
-     "dot": "wait",
-     "chip": "set up \u00b7 AutoCount by 21 Sep",
+     "dot": "live",
+     "chip": "hardware complete \u00b7 validation 25 Sep",
      "name": "Hardware & server",
-     "one": "Server swapped and every PC reconnected. The two front-desk machines await monitor delivery on Thu 17 Sep and a cooling solution.",
+     "one": "Server swapped and every PC reconnected. The front-desk PCs are in service and AutoCount is installed; the remaining work is the 25 Sep receipt-flow validation.",
      "steps": [
       {
        "t": "Server CPU brought in",
@@ -639,17 +639,23 @@
        "t": "Front-desk PCs into service",
        "s": "done",
        "w": "19 Sep"
+      },
+      {
+       "t": "AutoCount installed on both new front-desk PCs",
+       "s": "done",
+       "w": "22 Sep \u00b7 Vision Tech confirmed 09:20"
       }
      ],
      "open": [
       "<b>Hardware is complete.</b> The downstairs computers are set up, with monitors, keyboards and mice in. Cooling is dropped: Jason confirmed the units are designed to run hot, which is how they shed heat.",
-      "AutoCount remote installation on the two new front-desk PCs is scheduled for Tue 22 Sep: 09:00\u201312:30 or 14:00\u201316:30, about 15 minutes per PC. Jason is coordinating with Leow; keep open until completion is confirmed. X-ray software is installed."
+      "<b>AutoCount installation complete 22 Sep:</b> Vision Tech confirmed successful installation on both new front-desk PCs at 09:20. X-ray software is also installed.",
+      "<b>Remaining validation:</b> Fri 25 Sep, 15:00\u201315:30 by Google Meet. Jason, Leow, Emily and Lau will simulate the front-desk receipt journey and validate integration and downstairs sub-account data flow."
      ],
      "owner": "codecapsule",
      "dept": "tech",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Leow remotely installs AutoCount on the two new front-desk PCs on Tue 22 Sep; Jason coordinates. Confirm completion, then complete the end-to-end run-through."
+     "next": "Fri 25 Sep, 15:00\u201315:30: Jason, Leow, Emily and Lau complete the receipt-flow validation, including the downstairs sub-account data flow."
     },
     {
      "id": "d8",
@@ -2594,7 +2600,7 @@
       "status": "now",
       "locked": true,
       "time": "15:00\u201315:30 \u00b7 Google Meet",
-      "who": "Jason \u00b7 Leow \u00b7 Emily \u00b7 Lau",
+      "who": "Jason \u00b7 Leow \u00b7 Lau \u00b7 Emily \u00b7 Relevant front desk",
       "note": "Confirmed. Cover FIFO and partial payments, AutoCount integration on/off, and\u2014if remote access permits\u2014a downstairs front-desk receipt simulation to validate sub-account data flow."
      },
      {
@@ -2760,6 +2766,6 @@
  },
  "meta": {
   "asof": "TUE 22 SEP 2026",
-  "updated": "2026-09-22T16:30:05+08:00"
+  "updated": "2026-09-22T16:36:12+08:00"
  }
 }

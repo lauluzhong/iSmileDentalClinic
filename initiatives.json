@@ -1,13 +1,13 @@
 {
- "updated": "2026-09-22T16:30:05+08:00",
+ "updated": "2026-09-22T16:36:12+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lydia": {
-   "init": "L",
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
+  "Emily": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
@@ -17,13 +17,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
+  "Lydia": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
-   "init": "E",
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
@@ -40,7 +40,7 @@
    "status": "active",
    "owner": "Code Capsule",
    "why": "AutoCount is installed on both new front-desk PCs. The confirmed 25 Sep run-through will validate the front-desk receipt journey and downstairs sub-account data flow before training.",
-   "next": "Fri 25 Sep, 15:00\u201315:30: Jason, Leow, Emily and Lau run through actual receipt and e-invoice cases, including FIFO and partial payments, then validate the downstairs sub-account data flow. Complete the receipt and front-desk SOP before the 3 Oct training.",
+   "next": "Fri 25 Sep, 15:00\u201315:30: Jason, Leow, Lau, Emily and relevant front-desk staff run through actual receipt and e-invoice cases, including FIFO and partial payments, then validate the downstairs sub-account data flow. Complete the receipt and front-desk SOP before the 3 Oct training.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -171,10 +171,10 @@
   {
    "id": "d7",
    "title": "Hardware & server",
-   "status": "review",
+   "status": "active",
    "owner": "Code Capsule",
-   "why": "Server swapped and every PC reconnected. The two front-desk machines await monitor delivery on Thu 17 Sep and a cooling solution.",
-   "next": "Leow remotely installs AutoCount on the two new front-desk PCs on Tue 22 Sep; Jason coordinates. Confirm completion, then complete the end-to-end run-through.",
+   "why": "Server swapped and every PC reconnected. The front-desk PCs are in service and AutoCount is installed; the remaining work is the 25 Sep receipt-flow validation.",
+   "next": "Fri 25 Sep, 15:00\u201315:30: Jason, Leow, Emily and Lau complete the receipt-flow validation, including the downstairs sub-account data flow.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": null,
@@ -188,7 +188,8 @@
     "Cooling \u2014 not needed: Jason confirms the units are designed to run hot and shed heat through the case",
     "Monitors, keyboards and mice in",
     "Front-desk PCs configured upstairs, then moved downstairs",
-    "Front-desk PCs into service"
+    "Front-desk PCs into service",
+    "AutoCount installed on both new front-desk PCs"
    ],
    "pillar": "P1"
   },
