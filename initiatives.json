@@ -1,14 +1,14 @@
 {
- "updated": "2026-09-22T11:44:08+08:00",
+ "updated": "2026-09-22T11:55:45+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Edith": {
-   "init": "E",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -17,8 +17,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -427,7 +427,7 @@
    "status": "review",
    "owner": "Lau",
    "why": "The clearest Q4 lever: 4,201 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
-   "next": "Verify exclusions and shared-number family recipients, then rebuild the MiniCRM campaign; 5\u20137 Oct remains tentative.",
+   "next": "By Wed 23 Sep confirm exclusions and shared-number recipients; configure MiniCRM by EOD Fri 25 Sep, then Lau checks OpenDent on 2 or 3 Oct before any 5\u20137 Oct send.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-10",
@@ -444,10 +444,14 @@
     "MiniCRM deployed to the new PC server",
     "Campaign blast message function deployed and tested",
     "MiniCRM campaign deleted/paused \u2014 setup complexity requires staff verification",
-    "Confirm exclusion list for discounted individuals (immediate family, full-time staff, pastors, etc.)",
-    "Send the multi-patient/shared-number family Google Sheet to front desk to confirm the correct recipient",
-    "Configure the campaign in MiniCRM UI after verification",
-    "Tentative alternative blast window \u2014 5\u20137 Oct; 3 Oct FOH training can pre-amp the girls",
+    "Emily checks the girls' availability for Sat 3 Oct FOH training at the 09:00 huddle",
+    "Confirm excluded list for discounted individuals (immediate family, full-time staff, pastors, etc.)",
+    "Confirm the family/shared-number recipient list with front desk",
+    "Configure the MiniCRM/CRM campaign after verification",
+    "FOH training deck work",
+    "Lau checks OpenDent for planned recipients who already made an appointment; remove or handle appropriately",
+    "Tentative/planned campaign window \u2014 5\u20137 Oct, pending checks and configuration",
+    "Lau confirms the FOH training deck",
     "Waves 2\u20133 \u00b7 funnel read via campaign tags"
    ],
    "pillar": "P3"

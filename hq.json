@@ -122,11 +122,39 @@
    "tip": "Leow will remotely install AutoCount on the two new front-desk PCs. Window: 09:00\u201312:30 or 14:00\u201316:30; about 15 minutes per PC. Keep open until installation is confirmed complete."
   },
   {
+   "d": "23 Sep",
+   "l": "Cold campaign list + FOH availability checks",
+   "s": "",
+   "iso": "2026-09-23",
+   "tip": "At the 09:00 huddle on Wednesday 23 September, Emily checks the girls' availability for the tentative Sat 3 Oct FOH training; the excluded list and family/shared-number recipient list are due for confirmation the same day."
+  },
+  {
+   "d": "25 Sep",
+   "l": "MiniCRM campaign configured",
+   "s": "",
+   "iso": "2026-09-25",
+   "tip": "Configure the cold reactivation campaign in MiniCRM/CRM by end of day Friday 25 September, after the exclusion and shared-number recipient checks."
+  },
+  {
+   "d": "28\u201330 Sep",
+   "l": "FOH training deck prepared + confirmed",
+   "s": "",
+   "iso": "2026-09-28",
+   "tip": "Deck work runs Monday 28 to Wednesday 30 September; Lau confirms the deck by Wednesday 30 September for the tentative Sat 3 Oct training."
+  },
+  {
+   "d": "2\u20133 Oct",
+   "l": "OpenDent recipient appointment check",
+   "s": "",
+   "iso": "2026-10-02",
+   "tip": "Before the tentative 5\u20137 October campaign window, Lau checks OpenDent on Friday 2 or Saturday 3 October for planned recipients who already made an appointment, so they can be removed or handled appropriately."
+  },
+  {
    "d": "5\u20137 Oct",
    "l": "Cold reactivation blast \u2014 tentative window",
    "s": "",
    "iso": "2026-10-05",
-   "tip": "Tentative alternative window only. The MiniCRM campaign was deleted/paused because the setup complexity requires staff verification; no blast date is confirmed."
+   "tip": "Tentative/planned window only, pending the 23 September exclusion and shared-number recipient checks, MiniCRM configuration by 25 September, and Lau's OpenDent appointment check on 2 or 3 October. No blast date is confirmed."
   },
   {
    "d": "22\u201326 Sep",
@@ -168,7 +196,7 @@
    "l": "FOH training Saturday + dinner \u2014 aiming",
    "s": "",
    "iso": "2026-10-03",
-   "tip": "Aiming for front-desk training from 3:30 PM after the clinic closes, dinner after. Emily books the girls\u2019 time Tue 22 Sep; scheduling remains pending confirmation."
+   "tip": "Aiming for front-desk training from 3:30 PM after the clinic closes, dinner after. Emily checks the girls\u2019 availability at the 09:00 huddle on Wed 23 Sep; deck work runs 28\u201330 Sep and Lau confirms the deck by Wed 30 Sep. Training remains tentative."
   },
   {
    "d": "5 Oct",
@@ -1212,7 +1240,7 @@
     {
      "id": "g1",
      "dot": "wait",
-     "chip": "paused \u00b7 staff verification pending",
+     "chip": "paused \u00b7 verification + setup pending",
      "name": "Cold reactivation blast",
      "one": "The clearest Q4 lever: 4,201 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
      "steps": [
@@ -1272,20 +1300,44 @@
        "w": "22 Sep"
       },
       {
-       "t": "Confirm exclusion list for discounted individuals (immediate family, full-time staff, pastors, etc.)",
-       "s": "now"
+       "t": "Emily checks the girls' availability for Sat 3 Oct FOH training at the 09:00 huddle",
+       "s": "now",
+       "w": "Wed 23 Sep"
       },
       {
-       "t": "Send the multi-patient/shared-number family Google Sheet to front desk to confirm the correct recipient",
-       "s": ""
+       "t": "Confirm excluded list for discounted individuals (immediate family, full-time staff, pastors, etc.)",
+       "s": "now",
+       "w": "Wed 23 Sep"
       },
       {
-       "t": "Configure the campaign in MiniCRM UI after verification",
-       "s": ""
+       "t": "Confirm the family/shared-number recipient list with front desk",
+       "s": "now",
+       "w": "Wed 23 Sep"
       },
       {
-       "t": "Tentative alternative blast window \u2014 5\u20137 Oct; 3 Oct FOH training can pre-amp the girls",
-       "s": ""
+       "t": "Configure the MiniCRM/CRM campaign after verification",
+       "s": "next",
+       "w": "By EOD Fri 25 Sep"
+      },
+      {
+       "t": "FOH training deck work",
+       "s": "next",
+       "w": "Mon 28 Sep\u2013Wed 30 Sep"
+      },
+      {
+       "t": "Lau checks OpenDent for planned recipients who already made an appointment; remove or handle appropriately",
+       "s": "next",
+       "w": "Fri 2 or Sat 3 Oct"
+      },
+      {
+       "t": "Tentative/planned campaign window \u2014 5\u20137 Oct, pending checks and configuration",
+       "s": "next",
+       "w": "5\u20137 Oct"
+      },
+      {
+       "t": "Lau confirms the FOH training deck",
+       "s": "next",
+       "w": "Wed 30 Sep"
       },
       {
        "t": "Waves 2\u20133 \u00b7 funnel read via campaign tags",
@@ -1295,15 +1347,14 @@
      "open": [
       "<b>Price confirmed from Code Capsule's cost deck (21 Sep):</b> a marketing message is 860 points plus a 50-point platform fee = RM0.4095, or RM0.442 with SST. 4,201 messages = about RM1,858, paid by the clinic. RM0.387 is the WhatsApp charge alone, not the full price.",
       "<b>MiniCRM campaign deleted/paused (22 Sep):</b> setup complexity requires staff verification before the campaign is rebuilt in the UI.",
-      "<b>Pending:</b> confirm the exclusion list for discounted individuals (immediate family, full-time staff, pastors, etc.).",
-      "<b>Pending:</b> send the multi-patient/shared-number family Google Sheet to the front desk to confirm the correct recipient.",
-      "<b>Pending:</b> configure the campaign in MiniCRM UI after verification.",
-      "<b>Tentative alternative:</b> 5\u20137 Oct 2026, with 3 Oct FOH training able to pre-amp the girls. Decision pending; no blast date is confirmed.",
+      "<b>Due Wed 23 Sep:</b> confirm the excluded list and the family/shared-number recipient list; Emily checks the girls' Sat 3 Oct FOH availability at the 09:00 huddle.",
+      "<b>Due EOD Fri 25 Sep:</b> configure the MiniCRM/CRM campaign after the staff checks.",
+      "<b>Before the tentative window:</b> Lau checks OpenDent on Fri 2 or Sat 3 Oct for planned recipients who already made an appointment, so they can be removed or handled appropriately.",
+      "<b>Tentative/planned:</b> 5\u20137 Oct 2026, pending the list checks, configuration and OpenDent appointment check; no blast date is confirmed.",
+      "<b>FOH training deck:</b> work runs Mon 28\u2013Wed 30 Sep; Lau confirms it by Wed 30 Sep for the tentative Sat 3 Oct training.",
       "<b>UI terminology changed by Code Capsule 7 Sep:</b> the flow is now Audience Filters \u2192 Audience List \u2192 Recipients. \"Selected Patients\" is renamed \"Recipients\"; \"Audience\" is the filtered pool, \"Recipients\" the patients actually selected to receive the campaign.",
       "<b>Daily cap: the system allows 2,000/day; we set ours at 1,800</b> to leave headroom for the other automations sharing the number (recall, birthday). At 1,800 the 4,011 sends clear in three days.",
-      "Jason still owes the price",
       "PDPA check with Lydia",
-      "<b>Cert expires 16 Oct</b> \u2014 renewal cron should fire ~15 Sep; Jason reminded 28 Aug, confirm it actually renews",
       "250 sends/day cap shapes the wave calendar",
       "From the initiatives board: Birthday trigger de-prioritised by the owner. The review ask moves a lever that already feeds the website automatically."
      ],
@@ -1317,7 +1368,7 @@
      "from_initiatives": [
       28
      ],
-     "next": "Verify exclusions and shared-number family recipients, then rebuild the MiniCRM campaign; 5\u20137 Oct remains tentative.",
+     "next": "By Wed 23 Sep confirm exclusions and shared-number recipients; configure MiniCRM by EOD Fri 25 Sep, then Lau checks OpenDent on 2 or 3 Oct before any 5\u20137 Oct send.",
      "endMonth": "2026-10"
     },
     {
@@ -2484,12 +2535,20 @@
       "note": "A session to run through the receipt-generation process end to end, before the training."
      },
      {
+      "label": "Prepare and confirm the FOH training deck",
+      "start": "2026-09-28",
+      "end": "2026-09-30",
+      "status": "next",
+      "who": "Lau \u00b7 Emily",
+      "note": "Deck work runs Mon 28\u2013Wed 30 Sep; Lau must confirm the deck by Wed 30 Sep."
+     },
+     {
       "label": "Training for front-of-house staff",
       "start": "2026-10-03",
       "status": "next",
       "time": "3:30 PM",
       "who": "Joanna \u00b7 Erincy \u00b7 Jessy \u00b7 Ida",
-      "note": "Aiming for Sat 3 Oct after close; Emily books the girls\u2019 time Tue 22 Sep. Scheduling remains pending confirmation."
+      "note": "Tentative Sat 3 Oct after close at 3:30 PM; Emily checks the girls\u2019 availability at the 09:00 huddle Wed 23 Sep."
      },
      {
       "label": "Go live \u2014 new digital receipts",
@@ -2509,12 +2568,44 @@
      "g1"
     ],
     "owner": "Lau \u00b7 Code Capsule",
-    "summary": "Cold reactivation campaign paused pending staff verification; 5\u20137 Oct is a tentative alternative window, not a confirmed blast date.",
+    "summary": "Cold reactivation campaign paused pending the 23 Sep list checks and MiniCRM configuration by 25 Sep; 5\u20137 Oct remains a tentative/planned window pending the 2\u20133 Oct OpenDent appointment check.",
     "items": [
+     {
+      "label": "Emily checks FOH availability + confirm excluded and family/shared-number lists",
+      "start": "2026-09-23",
+      "status": "now",
+      "who": "Emily \u00b7 Lau \u00b7 Front desk",
+      "time": "09:00 huddle",
+      "note": "Emily checks the girls' availability for tentative Sat 3 Oct FOH training; excluded list and family/shared-number recipient list are due for confirmation Wed 23 Sep."
+     },
+     {
+      "label": "MiniCRM/CRM campaign configured",
+      "start": "2026-09-24",
+      "end": "2026-09-25",
+      "status": "next",
+      "who": "Lau \u00b7 Front desk",
+      "note": "Configure by end of day Fri 25 Sep after the exclusion and shared-number recipient checks."
+     },
+     {
+      "label": "FOH training deck work",
+      "start": "2026-09-28",
+      "end": "2026-09-30",
+      "status": "next",
+      "who": "Lau \u00b7 Emily",
+      "note": "Deck work runs Mon 28\u2013Wed 30 Sep; Lau confirms the deck by Wed 30 Sep for the tentative Sat 3 Oct training."
+     },
+     {
+      "label": "OpenDent check for planned recipients with appointments",
+      "start": "2026-10-02",
+      "end": "2026-10-03",
+      "status": "next",
+      "who": "Lau",
+      "note": "Before the tentative campaign window, remove or handle planned recipients who already made an appointment."
+     },
      {
       "label": "MiniCRM campaign deleted/paused pending staff verification",
       "start": "2026-09-22",
-      "status": "now",
+      "status": "done",
       "who": "Lau \u00b7 Front desk",
       "note": "Setup complexity requires verification of discounted-individual exclusions and the correct recipient for shared-number families."
      },
@@ -2524,7 +2615,7 @@
       "end": "2026-10-07",
       "status": "next",
       "who": "MiniCRM (after verification)",
-      "note": "Decision pending. The 3 Oct FOH training can pre-amp the girls. No blast date is confirmed."
+      "note": "Tentative/planned only. Pending the 23 Sep list checks, configuration by EOD 25 Sep, and Lau's OpenDent check on 2 or 3 Oct; no blast date is confirmed."
      }
     ]
    },
@@ -2606,6 +2697,6 @@
  },
  "meta": {
   "asof": "TUE 22 SEP 2026",
-  "updated": "2026-09-22T11:44:08+08:00"
+  "updated": "2026-09-22T11:55:45+08:00"
  }
 }
