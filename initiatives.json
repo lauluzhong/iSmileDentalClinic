@@ -1,12 +1,7 @@
 {
- "updated": "2026-09-22T16:30:05+08:00",
+ "updated": "2026-09-22T16:30:07+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Edith": {
    "init": "E",
    "role": "",
@@ -17,8 +12,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
+  "Lydia": {
    "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +27,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -40,7 +40,7 @@
    "status": "active",
    "owner": "Code Capsule",
    "why": "AutoCount is installed on both new front-desk PCs. The confirmed 25 Sep run-through will validate the front-desk receipt journey and downstairs sub-account data flow before training.",
-   "next": "Fri 25 Sep, 15:00\u201315:30: Jason, Leow, Emily and Lau run through actual receipt and e-invoice cases, including FIFO and partial payments, then validate the downstairs sub-account data flow. Complete the receipt and front-desk SOP before the 3 Oct training.",
+   "next": "Fri 25 Sep, 15:00\u201315:30: Jason, Leow, Lau, Emily and relevant front-desk staff run through actual receipt and e-invoice cases, including FIFO and partial payments, then validate the downstairs sub-account data flow. Complete the receipt and front-desk SOP before the 3 Oct training.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",
