@@ -1,7 +1,12 @@
 {
- "updated": "2026-09-22T17:58:31+08:00",
+ "updated": "2026-09-23T11:30:46+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Edith": {
    "init": "E",
    "role": "",
@@ -12,13 +17,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +27,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
-   "init": "E",
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -92,7 +92,7 @@
    "status": "review",
    "owner": "Emily",
    "why": "Receipts out of AutoCount replace the paper book \u2014 front desk switches only after training.",
-   "next": "Complete the receipt and front-desk SOP, then run actual receipt and e-invoice cases with Jason, Leow, Emily and Lau on Fri 25 Sep before staff training.",
+   "next": "Run actual receipt and e-invoice cases with Jason, Leow, Emily and Lau on Fri 25 Sep, then complete the receipt and front-desk SOP by Fri 2 Oct before staff training.",
    "dept": "clinical",
    "lens": "efficiency",
    "endMonth": "2026-10",
@@ -100,9 +100,9 @@
    "tasks": [
     "Receipt capability confirmed in AutoCount",
     "AutoCount installed on both new front-desk PCs",
+    "Receipt + e-invoice run-through with actual data, including FIFO and partial payments",
     "Design the new receipt",
     "Front-desk receipts SOP written",
-    "Receipt + e-invoice run-through with actual data, including FIFO and partial payments",
     "Receipts + e-invoices taught at the FOH training",
     "Go live \u2014 receipts from AutoCount, paper retired"
    ],

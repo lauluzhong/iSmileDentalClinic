@@ -150,13 +150,6 @@
    "tip": "Tentative/planned window only, pending the 23 September exclusion and shared-number recipient checks, MiniCRM configuration by 25 September, and Lau's OpenDent appointment check on 2 or 3 October. No blast date is confirmed."
   },
   {
-   "d": "22\u201326 Sep",
-   "l": "Design receipt + front-desk SOP",
-   "s": "",
-   "iso": "2026-09-22",
-   "tip": "The new receipt layout and the SOP for issuing it, ready for the run-through and the 3 Oct training."
-  },
-  {
    "d": "23 Sep",
    "l": "Doctors' walkthrough, 6:30 PM (in person)",
    "s": "",
@@ -176,6 +169,13 @@
    "s": "",
    "iso": "2026-09-25",
    "tip": "Confirmed Fri 25 Sep, 15:00\u201315:30. Jason, Leow, Lau, Emily and relevant front-desk staff will run through the receipt and e-invoice journey with actual data, including FIFO and partial payments; AutoCount integration on/off and the downstairs sub-account data flow will be validated by simulating the front-desk journey."
+  },
+  {
+   "d": "28 Sep\u20132 Oct",
+   "l": "Design receipt + front-desk SOP",
+   "s": "",
+   "iso": "2026-09-28",
+   "tip": "The new receipt layout and the SOP for issuing it, scheduled after the 25 Sep run-through and ready for the Sat 3 Oct FOH training."
   },
   {
    "d": "30 Sep",
@@ -398,19 +398,19 @@
        "w": "Tue 22 Sep \u00b7 Vision Tech confirmed 09:20"
       },
       {
+       "t": "Receipt + e-invoice run-through with actual data, including FIFO and partial payments",
+       "s": "now",
+       "w": "Fri 25 Sep \u00b7 15:00\u201315:30 \u00b7 Google Meet \u00b7 Jason, Leow, Emily, Lau"
+      },
+      {
        "t": "Design the new receipt",
        "s": "",
-       "w": "22\u201326 Sep"
+       "w": "Mon 28 Sep\u2013Fri 2 Oct"
       },
       {
        "t": "Front-desk receipts SOP written",
        "s": "",
-       "w": "22\u201326 Sep"
-      },
-      {
-       "t": "Receipt + e-invoice run-through with actual data, including FIFO and partial payments",
-       "s": "now",
-       "w": "Fri 25 Sep \u00b7 15:00\u201315:30 \u00b7 Google Meet \u00b7 Jason, Leow, Emily, Lau"
+       "w": "Mon 28 Sep\u2013Fri 2 Oct"
       },
       {
        "t": "Receipts + e-invoices taught at the FOH training",
@@ -431,8 +431,8 @@
      ],
      "flag": {
       "k": "due",
-      "by": "2026-09-26",
-      "w": "Receipt design and the front-desk SOP done 22\u201326 Sep, ready for the run-through and the 3 Oct training."
+      "by": "2026-10-02",
+      "w": "Receipt design and the front-desk SOP done Mon 28 Sep\u2013Fri 2 Oct, ready for the 3 Oct training."
      },
      "owner": "emily",
      "dept": "clinical",
@@ -440,7 +440,7 @@
      "from_initiatives": [
       15
      ],
-     "next": "Complete the receipt and front-desk SOP, then run actual receipt and e-invoice cases with Jason, Leow, Emily and Lau on Fri 25 Sep before staff training.",
+     "next": "Run actual receipt and e-invoice cases with Jason, Leow, Emily and Lau on Fri 25 Sep, then complete the receipt and front-desk SOP by Fri 2 Oct before staff training.",
      "endMonth": "2026-10"
     },
     {
@@ -2585,11 +2585,11 @@
      },
      {
       "label": "Design the receipt + front-desk SOP",
-      "start": "2026-09-22",
-      "end": "2026-09-26",
+      "start": "2026-09-28",
+      "end": "2026-10-02",
       "status": "next",
       "who": "Lau \u00b7 Emily",
-      "note": "The new receipt layout and the front-desk SOP for issuing it."
+      "note": "Scheduled Mon 28 Sep\u2013Fri 2 Oct, after the confirmed 25 Sep receipt/e-invoice run-through and before the Sat 3 Oct FOH training."
      },
      {
       "label": "X-ray software on the front-desk PCs",
@@ -2771,7 +2771,7 @@
   ]
  },
  "meta": {
-  "asof": "TUE 22 SEP 2026",
-  "updated": "2026-09-22T17:58:31+08:00"
+  "asof": "WED 23 SEP 2026",
+  "updated": "2026-09-23T11:30:46+08:00"
  }
 }
