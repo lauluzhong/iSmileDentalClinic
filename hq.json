@@ -316,7 +316,7 @@
        "w": "20 Sep"
       },
       {
-       "t": "Receipt + e-invoice run-through with actual data, including FIFO and partial payments; simulate the downstairs front-desk journey and validate sub-account data flow",
+       "t": "Receipt + e-invoice run-through with actual data, including FIFO, partial payments and the integration/payment-creation workflow; simulate the downstairs front-desk journey and validate sub-account data flow",
        "s": "now",
        "w": "Fri 25 Sep \u00b7 15:00\u201315:30 \u00b7 Google Meet \u00b7 Jason, Leow, Lau, Emily and relevant front-desk staff"
       },
@@ -333,7 +333,7 @@
      ],
      "open": [
       "<b>Installation complete 22 Sep:</b> Vision Tech confirmed at 09:20 that AutoCount was installed successfully on both new front-desk PCs.",
-      "<b>Confirmed next step:</b> Fri 25 Sep, 15:00\u201315:30 by Google Meet \u2014 Jason, Leow, Lau, Emily and relevant front-desk staff will use actual data to run through the receipt and e-invoice journey, including FIFO and partial payments. The run-through also covers AutoCount integration on/off and, if possible, remotely simulating a downstairs front-desk receipt to validate sub-account data flow.",
+      "<b>Confirmed planned resolution step:</b> Fri 25 Sep, 15:00\u201315:30 by Google Meet \u2014 Jason, Leow, Lau, Emily and relevant front-desk staff will use actual data to run through the receipt and e-invoice journey, including FIFO, partial payments and the integration/payment-creation workflow. The run-through also covers AutoCount integration on/off and, if possible, remotely simulating a downstairs front-desk receipt to validate sub-account data flow. This remains planned, not completed.",
       "<b>Training remains pending confirmation:</b> aiming for Sat 3 Oct after the 3:30 PM close, with dinner after. Emily books the girls\u2019 time Tue 22 Sep; Leow teaches Lau and Emily AutoCount first.",
       "Jason confirmed Leow must attend the run-through.",
       "EasyDent (X-ray) + CCTV stay on the old PC \u2014 do not migrate",
@@ -345,7 +345,7 @@
      "from_initiatives": [
       1
      ],
-     "next": "Fri 25 Sep, 15:00\u201315:30: Jason, Leow, Lau, Emily and relevant front-desk staff run through actual receipt and e-invoice cases, including FIFO and partial payments, then validate the downstairs sub-account data flow. Complete the receipt and front-desk SOP before the 3 Oct training.",
+     "next": "Fri 25 Sep, 15:00\u201315:30: Jason, Leow, Lau, Emily and relevant front-desk staff run through actual receipt and e-invoice cases, including FIFO, partial payments and the integration/payment-creation workflow, then validate the downstairs sub-account data flow. Complete the receipt and front-desk SOP before the 3 Oct training.",
      "endMonth": "2026-09"
     },
     {
@@ -2772,6 +2772,6 @@
  },
  "meta": {
   "asof": "WED 23 SEP 2026",
-  "updated": "2026-09-23T11:30:46+08:00"
+  "updated": "2026-09-23T22:40:34+08:00"
  }
 }
