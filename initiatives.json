@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-23T22:40:34+08:00",
+ "updated": "2026-09-24T10:48:11+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
   "Lydia": {
@@ -7,8 +7,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -17,7 +17,7 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
+  "Emily": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
@@ -27,8 +27,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
-   "init": "E",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   }
@@ -294,7 +294,7 @@
    "status": "active",
    "owner": "Lydia",
    "why": "Body is a pure template; every per-doctor input lives in Schedule 1. Agreements went out to the five non-specialist doctors on 10 Sep; the two specialists follow.",
-   "next": "Walk the doctors through the agreement on Wed 23 Sep, 6:30 PM at the clinic; signed copies back by Wed 30 Sep. The two specialists (Yeoh, Joan) are still to be sent.",
+   "next": "Apply the two remaining contract changes from the doctors meeting, then collect signed copies. The two specialists (Yeoh, Joan) are still to be sent.",
    "dept": "people",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -401,8 +401,8 @@
    "title": "Doctor rollout & communication",
    "status": "active",
    "owner": "Lau",
-   "why": "Doctors agreement walkthrough and Q&A confirmed for Wednesday 23 September at 6:30 PM.",
-   "next": "Hold the doctors agreement walkthrough and Q&A on Wednesday 23 September 2026 at 6:30 PM. Allow up to 1.5 hours, with dinner if included.",
+   "why": "The doctors meeting went well. Two contract changes remain before completion.",
+   "next": "Apply the 30-day statement-dispute period and add Dr Amy's immediate-family addendum, then collect signed copies.",
    "dept": "finance",
    "lens": "efficiency",
    "endMonth": null,
@@ -418,6 +418,7 @@
     "Numbers verified by two models; devil's-advocate Q&A prepared",
     "Opening words and deck finalised \u2014 three principles: Fairness, Growth, Trust",
     "In-person walkthrough and Q&A at the clinic \u2014 all doctors except the specialists (Yeoh, Joan)",
+    "Remaining contract changes: statement-dispute period 7 days \u2192 30 days; Dr Amy immediate-family addendum",
     "Signed copies back"
    ],
    "pillar": "P2"
