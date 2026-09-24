@@ -1131,9 +1131,9 @@
     {
      "id": "l8",
      "dot": "now",
-     "chip": "meeting went well \u00b7 changes remaining",
+     "chip": "edits complete \u00b7 sending now",
      "name": "Doctor rollout & communication",
-     "one": "The doctors meeting went well. Two contract changes remain before completion.",
+     "one": "The contract edits are complete. Lu is sending the revised contracts to the doctors now.",
      "steps": [
       {
        "t": "Parents approve the three changes",
@@ -1187,6 +1187,11 @@
       },
       {
        "t": "Remaining contract changes: statement-dispute period 7 days \u2192 30 days; Dr Amy immediate-family addendum",
+       "s": "done",
+       "w": "24 Sep"
+      },
+      {
+       "t": "Lu sends the revised contracts to the doctors",
        "s": "now",
        "w": "24 Sep"
       },
@@ -1205,7 +1210,7 @@
       "\u26a0\ufe0f <b>Work the full narrative out in a dedicated session</b> \u2014 this note is the skeleton, not the script. Share it with your parents once they have given their input on the three changes."
      ],
      "open": [
-      "<b>Meeting completed and went well (23 Sep).</b> Remaining contract changes: change the doctors' statement-dispute period from 7 days to 30 days; add an addendum to Dr Amy's contract defining immediate family as her sister, her sister's husband (brother-in-law), and the sister's two children.",
+      "<b>Contract edits completed (24 Sep).</b> The statement-dispute period is now 30 days, and Dr Amy's immediate-family addendum is included. Lu is sending the revised contracts to the doctors now.",
       "<b>Verified 22 Sep (two independent models):</b> recall patients produced RM115,490 and RM109,609 has been collected; about RM38,600 of that has already been paid out to doctors as locum share, with 142 more appointments on the book. PPE stopped from March: about RM19,200 no longer taken off, which is about RM8,600 in the doctors' pay (it came off before the split).",
       "<b>Discount rule (owner, 22 Sep):</b> a doctor bears only what takes a price <i>below</i> the Minimum Fee. On that rule, against the 10% returned (charged since Sep 2024): four of five doctors are ahead in both 2025 and 2026; the fifth is ahead in 2026. \u26a0\ufe0f Clause 3.1 as sent says <i>any</i> discount is borne in full \u2014 say the rule plainly in the room and correct 3.1 afterwards.",
       "<b>Likely pressure points</b> (from the devil's-advocate run): broad set-off (cl. 2.4), non-solicit with no time limit (cl. 9.1), uncapped indemnity (cl. 8.3), fee-schedule changes on notice (cl. 16.3), the RM55k cliff. Best answer on each: concede the drafting and commit to text, rather than recite the give-backs.",
@@ -1213,7 +1218,7 @@
       "<b>Checked before deciding:</b> with every discount they gave this year still given, every one of the five doctors is still ahead once the two deductions go. Standalone free work is not counted \u2014 enforcement of that stays parked, although clause 3.1 lists complimentary treatment as a concession.",
       "<b>The sequence changed in the doing (10 Sep):</b> the contracts went out to the five non-specialist doctors <i>before</i> any group call, each carrying a one-page &ldquo;Three Key Changes&rdquo; summary card &mdash; the 10% deduction going, discounts borne by the doctor, and the timing of locum sharing payment. The Zoom explainer that was to come first did not happen.",
       "<b>Meeting held:</b> doctors agreement walkthrough and Q&A took place on Wednesday 23 September 2026 at 6:30 PM and went well.",
-      "<b>Two specialists still to receive theirs</b> &mdash; Dr Yeoh and Dr Joan.",
+      "<b>Revised contracts are being sent now</b> to the doctors, including the two specialists where applicable; signed copies remain due by 30 Sep.",
       "<b>Why the call comes first:</b> the language is legal and none of the doctors are legal people. They should understand the shape of the change before a document lands in front of them \u2014 and there is genuine good news to lead with (the 10% cut goes) alongside the new discount approach.",
       "<b>The second session doubles as the OpenDent alignment recap</b> \u2014 code usage, and that a discount is a line rather than an edited production price. If that turns out not to be needed, the session still earns its place on the contract questions alone.",
       "\u26a0\ufe0f <b>The 15 Sep meeting no longer holds</b> \u2014 the contracts are still with Lydia. Dates follow her, not the calendar.",
@@ -1223,11 +1228,11 @@
      "dept": "finance",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Apply the 30-day statement-dispute period and add Dr Amy's immediate-family addendum, then collect signed copies.",
+     "next": "Send the revised contracts to the doctors now, then collect signed copies.",
      "flag": {
       "k": "due",
       "by": "2026-09-30",
-      "w": "Apply the two remaining contract changes and collect signed copies by Wed 30 Sep."
+      "w": "Send the revised contracts now, then collect signed copies by Wed 30 Sep."
      }
     },
     {
@@ -2777,6 +2782,6 @@
  },
  "meta": {
   "asof": "THU 24 SEP 2026",
-  "updated": "2026-09-24T10:48:11+08:00"
+  "updated": "2026-09-24T12:32:47+08:00"
  }
 }

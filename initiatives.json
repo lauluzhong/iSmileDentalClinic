@@ -1,9 +1,14 @@
 {
- "updated": "2026-09-24T10:48:11+08:00",
+ "updated": "2026-09-24T12:32:47+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lydia": {
-   "init": "L",
+  "Emily": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
@@ -17,18 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Lau": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -401,8 +401,8 @@
    "title": "Doctor rollout & communication",
    "status": "active",
    "owner": "Lau",
-   "why": "The doctors meeting went well. Two contract changes remain before completion.",
-   "next": "Apply the 30-day statement-dispute period and add Dr Amy's immediate-family addendum, then collect signed copies.",
+   "why": "The contract edits are complete. Lu is sending the revised contracts to the doctors now.",
+   "next": "Send the revised contracts to the doctors now, then collect signed copies.",
    "dept": "finance",
    "lens": "efficiency",
    "endMonth": null,
@@ -419,6 +419,7 @@
     "Opening words and deck finalised \u2014 three principles: Fairness, Growth, Trust",
     "In-person walkthrough and Q&A at the clinic \u2014 all doctors except the specialists (Yeoh, Joan)",
     "Remaining contract changes: statement-dispute period 7 days \u2192 30 days; Dr Amy immediate-family addendum",
+    "Lu sends the revised contracts to the doctors",
     "Signed copies back"
    ],
    "pillar": "P2"
