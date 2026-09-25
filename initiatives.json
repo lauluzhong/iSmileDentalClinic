@@ -1,24 +1,9 @@
 {
- "updated": "2026-09-25T13:05:09+08:00",
+ "updated": "2026-09-25T13:13:37+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +12,23 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -292,10 +292,10 @@
   },
   {
    "id": "l1",
-   "title": "Contractor agreement",
+   "title": "Contractor agreement & doctor rollout",
    "status": "active",
-   "owner": "Lydia",
-   "why": "Body is a pure template; every per-doctor input lives in Schedule 1. Agreements went out to the five non-specialist doctors on 10 Sep; the two specialists follow.",
+   "owner": "Lau",
+   "why": "The revised contracts were sent to all five non-specialist doctors after the 30-day provision and clause 3.1 wording were updated. One signed copy is back; four remain outstanding; the two specialists follow separately.",
    "next": "Collect the four outstanding signed copies by Wed 30 Sep. The two specialists (Yeoh, Joan) remain to be sent.",
    "dept": "people",
    "lens": "efficiency",
@@ -311,13 +311,21 @@
     "Update Schedule 2: strike the 10% deduction and apply the 15% discount-approval threshold \u00b7 accept 2.10\u20132.12",
     "Final contractor agreement sent to Emily for review",
     "Per-doctor Schedule 1 copies drafted (Jun's = her offer letter)",
-    "Hand over to the doctors \u2014 see Doctor rollout & communication",
+    "Format decided: Zoom explainer first, then contracts, then a sit-down (superseded \u2014 contracts went first with a summary card; the sit-down was in person)",
     "Five-item reminder sent to Lydia (consulting group)",
     "Procurement, reimbursement and supplier-interest clauses added (cl. 2.5, 7.1, 7.4, 7.5)",
+    "Lydia finalised the contracts with each doctor's details",
     "Agreements sent to the five non-specialist doctors, with a one-page summary card",
-    "Send to the two specialists (Dr Yeoh, Dr Joan)",
+    "Zoom explainer not held; a written summary card went with the contracts instead",
+    "Personal questions by text answered as they came",
+    "Numbers checked for every doctor and a walkthrough deck prepared",
+    "Numbers verified by two models; devil's-advocate Q&A prepared",
+    "Opening words and deck finalised \u2014 three principles: Fairness, Growth, Trust",
+    "In-person walkthrough and Q&A at the clinic \u2014 all doctors except the specialists (Yeoh, Joan)",
     "Update the 30-day provision and clause 3.1 wording before sending",
-    "Signed copies back to Lau"
+    "Revised contracts sent to the five non-specialist doctors",
+    "Send to the two specialists (Dr Yeoh, Dr Joan)",
+    "Priscilla's signed copy back; four signed copies outstanding"
    ],
    "pillar": "P2"
   },
@@ -396,34 +404,6 @@
     "Repricing pass \u2014 Fee Guide v1 drafted 4 Sep (161 codes, 138 priced, 83 owner flags)",
     "Becomes the floor the discount clause references",
     "Minimum fee update: each doctor texts Dr Ong their minimum fees; Dr Ong updates them personally \u00b7 owner Dr Ong"
-   ],
-   "pillar": "P2"
-  },
-  {
-   "id": "l8",
-   "title": "Doctor rollout & communication",
-   "status": "active",
-   "owner": "Lau",
-   "why": "The revised contracts were sent to all five non-specialist doctors after the 30-day provision and clause 3.1 wording were updated. One signed copy is back; four remain outstanding.",
-   "next": "Collect the four outstanding signed copies by Wed 30 Sep; the specialist send remains a separate pending action.",
-   "dept": "finance",
-   "lens": "efficiency",
-   "endMonth": null,
-   "note": "",
-   "tasks": [
-    "Parents approve the three changes",
-    "Format decided: Zoom explainer first, then contracts, then a sit-down (superseded \u2014 contracts went first with a summary card; the sit-down is in person)",
-    "Lydia finalises the contracts with each doctor's details",
-    "Zoom explainer \u2014 not held; a written summary card went with the contracts instead",
-    "Contracts sent to each doctor individually",
-    "Personal questions by text \u2014 answered as they come",
-    "Numbers checked for every doctor and a walkthrough deck prepared",
-    "Numbers verified by two models; devil's-advocate Q&A prepared",
-    "Opening words and deck finalised \u2014 three principles: Fairness, Growth, Trust",
-    "In-person walkthrough and Q&A at the clinic \u2014 all doctors except the specialists (Yeoh, Joan)",
-    "Updated the 30-day provision and clause 3.1 wording before sending",
-    "Lu sends the revised contracts to the doctors",
-    "Priscilla's signed copy back; four signed copies outstanding"
    ],
    "pillar": "P2"
   },
