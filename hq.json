@@ -245,7 +245,7 @@
     {
      "id": "d1",
      "dot": "live",
-     "chip": "go-live 5 Oct",
+     "chip": "go-live 6 Oct \u00b7 SQL fix pending",
      "name": "OpenDent \u2194 AutoCount integration",
      "one": "AutoCount is installed on both new front-desk PCs. The confirmed 25 Sep run-through will validate the front-desk receipt journey and downstairs sub-account data flow before training.",
      "steps": [
@@ -324,8 +324,33 @@
       },
       {
        "t": "Receipt + e-invoice run-through with actual data, including FIFO, partial payments and the integration/payment-creation workflow; simulate the downstairs front-desk journey and validate sub-account data flow",
+       "s": "done",
+       "w": "Fri 25 Sep \u2014 held (Jason, Leow, Lau, Emily)"
+      },
+      {
+       "t": "Jason fixes the database/SQL error blocking OpenDent \u2192 AutoCount invoices \u2014 AutoCount holds sales invoices only up to ~5\u20137 Sep (live test failed on 25 Sep; coincides with the 5 Sep server swap)",
        "s": "now",
-       "w": "Fri 25 Sep \u00b7 15:00\u201315:30 \u00b7 Google Meet \u00b7 Jason, Leow, Lau, Emily and relevant front-desk staff"
+       "w": "ASAP \u00b7 update on timing \u00b7 blocks go-live"
+      },
+      {
+       "t": "Leow clears all test invoices/data at end of day, then the link is switched on",
+       "s": "next",
+       "w": "by EOD Wed 30 Sep"
+      },
+      {
+       "t": "Link live \u2014 every transaction from 1 Oct flows into AutoCount",
+       "s": "next",
+       "w": "Thu 1 Oct"
+      },
+      {
+       "t": "Invoices from 1\u20135 Oct approved by hand, one by one, so October receivables start clean",
+       "s": "next",
+       "w": "Thu 1 \u2013 Mon 5 Oct \u00b7 Emily/front desk"
+      },
+      {
+       "t": "Leow sets up an individual AutoCount login + access rights for each staff member",
+       "s": "next",
+       "w": "before Sat 3 Oct"
       },
       {
        "t": "Training for front-of-house staff + dinner \u2014 aiming; Emily books the girls\u2019 time Tue 22 Sep",
@@ -335,10 +360,11 @@
       {
        "t": "Go live \u2014 new digital receipts (Lau and Emily on standby that week)",
        "s": "",
-       "w": "Mon 5 Oct"
+       "w": "Tue 6 Oct (moved from 5 Oct)"
       }
      ],
      "open": [
+      "<b>Agreed 25 Sep:</b> payments knock off at INVOICE level, not per line \u2014 AutoCount does not record which procedure a payment settled. Locum calculation will allocate first-in-first-out (oldest charge first). e-Invoice stays OFF until the clinic reaches the RM3M threshold. Discounts must be entered as a discount line in OpenDent, never by editing the price.",
       "<b>Installation complete 22 Sep:</b> Vision Tech confirmed at 09:20 that AutoCount was installed successfully on both new front-desk PCs.",
       "<b>Confirmed planned resolution step:</b> Fri 25 Sep, 15:00\u201315:30 by Google Meet \u2014 Jason, Leow, Lau, Emily and relevant front-desk staff will use actual data to run through the receipt and e-invoice journey, including FIFO, partial payments and the integration/payment-creation workflow. The run-through also covers AutoCount integration on/off and, if possible, remotely simulating a downstairs front-desk receipt to validate sub-account data flow. This remains planned, not completed.",
       "<b>Training remains pending confirmation:</b> aiming for Sat 3 Oct after the 3:30 PM close, with dinner after. Emily books the girls\u2019 time Tue 22 Sep; Leow teaches Lau and Emily AutoCount first.",
@@ -352,7 +378,7 @@
      "from_initiatives": [
       1
      ],
-     "next": "Fri 25 Sep, 15:00\u201315:30: Jason, Leow, Lau, Emily and relevant front-desk staff run through actual receipt and e-invoice cases, including FIFO, partial payments and the integration/payment-creation workflow, then validate the downstairs sub-account data flow. Complete the receipt and front-desk SOP before the 3 Oct training.",
+     "next": "Jason fixes the SQL error (invoices stuck since ~5\u20137 Sep); Leow clears test data by EOD 30 Sep; link on 1 Oct; hand-approve 1\u20135 Oct; train Sat 3 Oct; go live Tue 6 Oct.",
      "endMonth": "2026-09"
     },
     {
@@ -391,7 +417,7 @@
     {
      "id": "d3",
      "dot": "wait",
-     "chip": "design 22\u201326 Sep \u00b7 live 5 Oct",
+     "chip": "design 28 Sep\u20132 Oct \u00b7 live 6 Oct",
      "name": "Digital receipts (AR)",
      "one": "Receipts out of AutoCount replace the paper book \u2014 front desk switches only after training.",
      "steps": [
@@ -406,11 +432,11 @@
       },
       {
        "t": "Receipt + e-invoice run-through with actual data, including FIFO and partial payments",
-       "s": "now",
-       "w": "Fri 25 Sep \u00b7 15:00\u201315:30 \u00b7 Google Meet \u00b7 Jason, Leow, Emily, Lau"
+       "s": "done",
+       "w": "Fri 25 Sep \u2014 held"
       },
       {
-       "t": "Design the new receipt",
+       "t": "Leow shares sample receipt designs (A4 and 80mm) \u2192 Lau picks one",
        "s": "",
        "w": "Mon 28 Sep\u2013Fri 2 Oct"
       },
@@ -420,6 +446,11 @@
        "w": "Mon 28 Sep\u2013Fri 2 Oct"
       },
       {
+       "t": "Leow asks AutoCount for an editable default WhatsApp receipt message (to append the Google review ask). Receipts go by WhatsApp link or PDF \u2014 no printing",
+       "s": "next",
+       "w": "feedback to vendor"
+      },
+      {
        "t": "Receipts + e-invoices taught at the FOH training",
        "s": "",
        "w": "Sat 3 Oct, 3:30 PM"
@@ -427,7 +458,7 @@
       {
        "t": "Go live \u2014 receipts from AutoCount, paper retired",
        "s": "",
-       "w": "Mon 5 Oct"
+       "w": "Tue 6 Oct (moved from 5 Oct)"
       },
       {
        "t": "Follow up the two patient cases Dr Ling raised where the patient has not paid / refuses to pay \u2014 agreed with all doctors on 23 Sep: a patient-payment matter, not a doctor matter \u00b7 owner Emily + front desk",
@@ -2804,6 +2835,6 @@
  },
  "meta": {
   "asof": "FRI 25 SEP 2026",
-  "updated": "2026-09-25T13:25:21+08:00"
+  "updated": "2026-09-25T17:03:35+08:00"
  }
 }

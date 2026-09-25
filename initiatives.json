@@ -1,9 +1,14 @@
 {
- "updated": "2026-09-25T13:25:21+08:00",
+ "updated": "2026-09-25T17:03:35+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Dr Ong": {
-   "init": "DO",
+  "Code Capsule": {
+   "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
@@ -22,13 +27,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   }
@@ -40,7 +40,7 @@
    "status": "active",
    "owner": "Code Capsule",
    "why": "AutoCount is installed on both new front-desk PCs. The confirmed 25 Sep run-through will validate the front-desk receipt journey and downstairs sub-account data flow before training.",
-   "next": "Fri 25 Sep, 15:00\u201315:30: Jason, Leow, Lau, Emily and relevant front-desk staff run through actual receipt and e-invoice cases, including FIFO, partial payments and the integration/payment-creation workflow, then validate the downstairs sub-account data flow. Complete the receipt and front-desk SOP before the 3 Oct training.",
+   "next": "Jason fixes the SQL error (invoices stuck since ~5\u20137 Sep); Leow clears test data by EOD 30 Sep; link on 1 Oct; hand-approve 1\u20135 Oct; train Sat 3 Oct; go live Tue 6 Oct.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -62,6 +62,11 @@
     "AutoCount installed on both new front-desk PCs",
     "X-ray software installed on the downstairs PCs",
     "Receipt + e-invoice run-through with actual data, including FIFO, partial payments and the integration/payment-creation workflow; simulate the downstairs front-desk journey and validate sub-account data flow",
+    "Jason fixes the database/SQL error blocking OpenDent \u2192 AutoCount invoices \u2014 AutoCount holds sales invoices only up to ~5\u20137 Sep (live test failed on 25 Sep; coincides with the 5 Sep server swap)",
+    "Leow clears all test invoices/data at end of day, then the link is switched on",
+    "Link live \u2014 every transaction from 1 Oct flows into AutoCount",
+    "Invoices from 1\u20135 Oct approved by hand, one by one, so October receivables start clean",
+    "Leow sets up an individual AutoCount login + access rights for each staff member",
     "Training for front-of-house staff + dinner \u2014 aiming; Emily books the girls\u2019 time Tue 22 Sep",
     "Go live \u2014 new digital receipts (Lau and Emily on standby that week)"
    ],
@@ -101,8 +106,9 @@
     "Receipt capability confirmed in AutoCount",
     "AutoCount installed on both new front-desk PCs",
     "Receipt + e-invoice run-through with actual data, including FIFO and partial payments",
-    "Design the new receipt",
+    "Leow shares sample receipt designs (A4 and 80mm) \u2192 Lau picks one",
     "Front-desk receipts SOP written",
+    "Leow asks AutoCount for an editable default WhatsApp receipt message (to append the Google review ask). Receipts go by WhatsApp link or PDF \u2014 no printing",
     "Receipts + e-invoices taught at the FOH training",
     "Go live \u2014 receipts from AutoCount, paper retired",
     "Follow up the two patient cases Dr Ling raised where the patient has not paid / refuses to pay \u2014 agreed with all doctors on 23 Sep: a patient-payment matter, not a doctor matter \u00b7 owner Emily + front desk",
