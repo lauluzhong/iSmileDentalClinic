@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-25T13:15:11+08:00",
+ "updated": "2026-09-25T13:25:21+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
   "Dr Ong": {
@@ -12,13 +12,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
-   "init": "E",
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
-   "init": "L",
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,7 +27,7 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
+  "Lau": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
@@ -313,7 +313,7 @@
     "Format decided: Zoom explainer first, then contracts, then a sit-down (superseded \u2014 contracts went first with a summary card; the sit-down was in person)",
     "Five-item reminder sent to Lydia (consulting group)",
     "Procurement, reimbursement and supplier-interest clauses added (cl. 2.5, 7.1, 7.4, 7.5)",
-    "Per-doctor Schedule 1 copies drafted (Jun's = her offer letter)",
+    "Per-doctor Schedule 1 copies drafted (Dr Jia Yin's = her offer letter)",
     "Lydia finalised the contracts with each doctor's details",
     "Agreements sent to the five non-specialist doctors, with a one-page summary card",
     "Zoom explainer not held; a written summary card went with the contracts instead",
@@ -353,7 +353,7 @@
    "title": "Remove the 10% deduction",
    "status": "active",
    "owner": "Lau",
-   "why": "Abolish it clinic-wide; offset by doctors bearing their own discounts. Cleaner \u2014 especially for Jun \u2014 but a real net cost.",
+   "why": "Abolish it clinic-wide; offset by doctors bearing their own discounts. Cleaner \u2014 especially for Dr Jia Yin \u2014 but a real net cost.",
    "next": "Approved 2 Sep. It now rides on the agreement: struck from Schedule 2 on 3 Sep, and lands with the doctors at the 15 Sep meeting. Cost owned honestly: about \u2212RM57k a year excluding the principal, with offsets recovering only about RM3.3k.",
    "dept": "finance",
    "lens": "cost",
@@ -508,7 +508,7 @@
   },
   {
    "id": "g4",
-   "title": "Dr Jun (new doctor)",
+   "title": "Dr Jia Yin (new doctor)",
    "status": "active",
    "owner": "Lau",
    "why": "She tendered on a handshake for a 26 Oct start. Her contract was sent on 6 Sep and signed and returned on 9 Sep; what is left is the two conversations that follow.",
@@ -523,11 +523,11 @@
     "First date confirmed with her boss: Mon 26 Oct",
     "She has TENDERED \u2014 ahead of any paper",
     "Contractor agreement finalised and sent to Emily for review",
-    "Ask Jun for personal information for Schedule 1",
-    "Contract sent to Jun (offer letter = her Schedule 1)",
+    "Ask Dr Jia Yin for personal information for Schedule 1",
+    "Contract sent to Dr Jia Yin (offer letter = her Schedule 1)",
     "Contract signed and returned",
-    "Jun \u2194 Dr Ong practitioner chat",
-    "Jun \u2194 Dr Ling chemistry + arrangement talk",
+    "Dr Jia Yin \u2194 Dr Ong practitioner chat",
+    "Dr Jia Yin \u2194 Dr Ling chemistry + arrangement talk",
     "Amy + Mah, then the rest, then announce",
     "First day \u00b7 book steered to NEW demand"
    ],

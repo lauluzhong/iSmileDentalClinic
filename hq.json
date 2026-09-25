@@ -39,10 +39,10 @@
   },
   {
    "d": "1 Sep",
-   "l": "AutoCount licence \u00b7 Dr Jun's contract (sent 6 Sep)",
+   "l": "AutoCount licence \u00b7 Dr Jia Yin's contract (sent 6 Sep)",
    "s": "done",
    "iso": "2026-09-01",
-   "tip": "AutoCount data migration completed 1 Sep \u2014 19,206 customer records into AED_ISMILE. Dr Jun's half slipped to 6 Sep, when her contract (offer letter = Schedule 1) was sent to her."
+   "tip": "AutoCount data migration completed 1 Sep \u2014 19,206 customer records into AED_ISMILE. Dr Jia Yin's half slipped to 6 Sep, when her contract (offer letter = Schedule 1) was sent to her."
   },
   {
    "d": "2 Sep",
@@ -207,10 +207,10 @@
   },
   {
    "d": "26 Oct",
-   "l": "Dr Jun's first day (5 days/wk)",
+   "l": "Dr Jia Yin's first day (5 days/wk)",
    "s": "",
    "iso": "2026-10-26",
-   "tip": "Confirmed first date: Monday 26 October 2026. Jun joins 5 days/wk (+2 Elite Saturdays during her ~6-month transition). RM7k floor or 40%, whichever higher, for 6 months."
+   "tip": "Confirmed first date: Monday 26 October 2026. Dr Jia Yin joins 5 days/wk (+2 Elite Saturdays during her ~6-month transition). RM7k floor or 40%, whichever higher, for 6 months."
   },
   {
    "d": "Q4",
@@ -939,7 +939,7 @@
        "w": "9 Sep"
       },
       {
-       "t": "Per-doctor Schedule 1 copies drafted (Jun's = her offer letter)",
+       "t": "Per-doctor Schedule 1 copies drafted (Dr Jia Yin's = her offer letter)",
        "s": "done",
        "w": "10 Sep"
       },
@@ -1091,7 +1091,7 @@
      "dot": "now",
      "chip": "approved",
      "name": "Remove the 10% deduction",
-     "one": "Abolish it clinic-wide; offset by doctors bearing their own discounts. Cleaner \u2014 especially for Jun \u2014 but a real net cost.",
+     "one": "Abolish it clinic-wide; offset by doctors bearing their own discounts. Cleaner \u2014 especially for Dr Jia Yin \u2014 but a real net cost.",
      "steps": [
       {
        "t": "Simulated across Jun-25\u2192May-26",
@@ -1263,13 +1263,13 @@
    "color": "var(--p3)",
    "num": "Pillar 3",
    "name": "Growth",
-   "mission": "Fill the chairs: reactivate the lapsed base, stop the checkout leak, land Dr Jun with new demand, and compound the brand (SEO, social, merch, 20th anniversary).",
+   "mission": "Fill the chairs: reactivate the lapsed base, stop the checkout leak, land Dr Jia Yin with new demand, and compound the brand (SEO, social, merch, 20th anniversary).",
    "lead": "Owner-led \u00b7 retention before acquisition",
    "gtpp": {
     "g": "Spend gates: Jason's blast price, DataForSEO US$50, merch pilot budget. Targets: coffee scheme tiers reset off the honest 54% baseline.",
     "t": "Recall funnel + daily rebooking numbers live via Edith; blast filter page with Suraya; OpenSEO installed, gated on the API key.",
     "p": "Desk rebooking script (ask-at-checkout \u2014 the data says it's decided at the counter, same day), blast exclusion hygiene, review-ask cadence with the standees.",
-    "pe": "FOH verbal/retention training (rejection handling, sales skills) inside the FOH syllabus; DSA girls as videographers; Jun \u00d7 Ling working-arrangement talk."
+    "pe": "FOH verbal/retention training (rejection handling, sales skills) inside the FOH syllabus; DSA girls as videographers; Dr Jia Yin \u00d7 Ling working-arrangement talk."
    },
    "streams": [
     {
@@ -1514,7 +1514,7 @@
      "id": "g4",
      "dot": "now",
      "chip": "signed + returned 9 Sep \u00b7 starts 26 Oct",
-     "name": "Dr Jun (new doctor)",
+     "name": "Dr Jia Yin (new doctor)",
      "one": "She tendered on a handshake for a 26 Oct start. Her contract was sent on 6 Sep and signed and returned on 9 Sep; what is left is the two conversations that follow.",
      "steps": [
       {
@@ -1543,12 +1543,12 @@
        "w": "3 Sep"
       },
       {
-       "t": "Ask Jun for personal information for Schedule 1",
+       "t": "Ask Dr Jia Yin for personal information for Schedule 1",
        "s": "done",
        "w": "6 Sep"
       },
       {
-       "t": "Contract sent to Jun (offer letter = her Schedule 1)",
+       "t": "Contract sent to Dr Jia Yin (offer letter = her Schedule 1)",
        "s": "done",
        "w": "6 Sep"
       },
@@ -1558,11 +1558,11 @@
        "w": "9 Sep"
       },
       {
-       "t": "Jun \u2194 Dr Ong practitioner chat",
+       "t": "Dr Jia Yin \u2194 Dr Ong practitioner chat",
        "s": ""
       },
       {
-       "t": "Jun \u2194 Dr Ling chemistry + arrangement talk",
+       "t": "Dr Jia Yin \u2194 Dr Ling chemistry + arrangement talk",
        "s": ""
       },
       {
@@ -1576,7 +1576,7 @@
       }
      ],
      "open": [
-      "<b>Contract sent to Jun on 6 Sep.</b> Waiting on her signature.",
+      "<b>Contract sent to Dr Jia Yin on 6 Sep.</b> Waiting on her signature.",
       "Close in the letter: 55k\u219250% tier (leaning: keep, consistency), Oct pro-rating (26 Oct start = part month)",
       "Ling arrangement: apprentice override vs independent \u2014 fair remuneration expected; design as clinic-paid supervision fee, not fee-splitting",
       "<b>She builds her own book</b> \u2014 the RM7k floor is the ramp support; blast + call-list patients route to her",
@@ -2295,7 +2295,7 @@
      ],
      "open": [
       "10% deduction APPROVED for removal 2 Sep (EBITDA ~34k -> ~-23k) - now import it into the Google Sheet v6 alongside the Jul/Aug actuals",
-      "40% of trading days are EBITDA-negative; Friday 63% \u2014 parked until Jun rebalances the week"
+      "40% of trading days are EBITDA-negative; Friday 63% \u2014 parked until Dr Jia Yin rebalances the week"
      ],
      "owner": "lu",
      "dept": "finance",
@@ -2777,7 +2777,7 @@
    },
    {
     "id": "jun",
-    "name": "Dr Jun joins",
+    "name": "Dr Jia Yin joins",
     "color": "fhr",
     "streams": [
      "g4"
@@ -2786,7 +2786,7 @@
     "summary": "Contract out; first day 26 Oct.",
     "items": [
      {
-      "label": "Contract sent to Jun",
+      "label": "Contract sent to Dr Jia Yin",
       "start": "2026-09-06",
       "status": "done",
       "who": "Lau"
@@ -2796,7 +2796,7 @@
       "start": "2026-10-26",
       "status": "next",
       "locked": true,
-      "who": "Dr Jun"
+      "who": "Dr Jia Yin"
      }
     ]
    }
@@ -2804,6 +2804,6 @@
  },
  "meta": {
   "asof": "FRI 25 SEP 2026",
-  "updated": "2026-09-25T13:15:11+08:00"
+  "updated": "2026-09-25T13:25:21+08:00"
  }
 }
