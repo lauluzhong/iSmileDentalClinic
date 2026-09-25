@@ -1,19 +1,9 @@
 {
- "updated": "2026-09-25T10:51:48+08:00",
+ "updated": "2026-09-25T12:23:14+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Edith": {
    "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -22,13 +12,23 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
+  "Lau": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
   "Code Capsule": {
    "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -294,7 +294,7 @@
    "status": "active",
    "owner": "Lydia",
    "why": "Body is a pure template; every per-doctor input lives in Schedule 1. Agreements went out to the five non-specialist doctors on 10 Sep; the two specialists follow.",
-   "next": "Apply the two remaining contract changes from the doctors meeting, then collect signed copies. The two specialists (Yeoh, Joan) are still to be sent.",
+   "next": "Collect the four outstanding signed copies by Wed 30 Sep. The two specialists (Yeoh, Joan) remain to be sent.",
    "dept": "people",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -314,7 +314,7 @@
     "Procurement, reimbursement and supplier-interest clauses added (cl. 2.5, 7.1, 7.4, 7.5)",
     "Agreements sent to the five non-specialist doctors, with a one-page summary card",
     "Send to the two specialists (Dr Yeoh, Dr Joan)",
-    "Correct cl. 3.1 so only the amount below the Minimum Fee is borne (owner's stated rule)",
+    "Update the 30-day provision and clause 3.1 wording before sending",
     "Signed copies back to Lau"
    ],
    "pillar": "P2"
@@ -401,8 +401,8 @@
    "title": "Doctor rollout & communication",
    "status": "active",
    "owner": "Lau",
-   "why": "The contract edits are complete. Lu is sending the revised contracts to the doctors now.",
-   "next": "Send the revised contracts to the doctors now, then collect signed copies.",
+   "why": "The revised contracts were sent to all five non-specialist doctors after the 30-day provision and clause 3.1 wording were updated. One signed copy is back; four remain outstanding.",
+   "next": "Collect the four outstanding signed copies by Wed 30 Sep; the specialist send remains a separate pending action.",
    "dept": "finance",
    "lens": "efficiency",
    "endMonth": null,
@@ -418,9 +418,9 @@
     "Numbers verified by two models; devil's-advocate Q&A prepared",
     "Opening words and deck finalised \u2014 three principles: Fairness, Growth, Trust",
     "In-person walkthrough and Q&A at the clinic \u2014 all doctors except the specialists (Yeoh, Joan)",
-    "Remaining contract changes: statement-dispute period 7 days \u2192 30 days; Dr Amy immediate-family addendum",
+    "Updated the 30-day provision and clause 3.1 wording before sending",
     "Lu sends the revised contracts to the doctors",
-    "Signed copies back"
+    "Priscilla's signed copy back; four signed copies outstanding"
    ],
    "pillar": "P2"
   },

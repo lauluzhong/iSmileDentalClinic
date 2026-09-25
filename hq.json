@@ -129,6 +129,13 @@
    "tip": "Configure the cold reactivation campaign in MiniCRM/CRM by end of day Friday 25 September, after the exclusion and shared-number recipient checks."
   },
   {
+   "d": "25 Sep",
+   "l": "Updated contracts sent to five non-specialists \u00b7 1 signed, 4 outstanding",
+   "s": "now",
+   "iso": "2026-09-25",
+   "tip": "Lau updated the 30-day provision and clause 3.1 wording before sending the revised contracts to all five non-specialist doctors. Priscilla has returned her signed copy; four signed copies remain outstanding."
+  },
+  {
    "d": "28\u201330 Sep",
    "l": "FOH training deck prepared + confirmed",
    "s": "",
@@ -936,18 +943,19 @@
        "s": ""
       },
       {
-       "t": "Correct cl. 3.1 so only the amount below the Minimum Fee is borne (owner's stated rule)",
-       "s": ""
+       "t": "Update the 30-day provision and clause 3.1 wording before sending",
+       "s": "done",
+       "w": "24 Sep"
       },
       {
        "t": "Signed copies back to Lau",
-       "s": "",
+       "s": "now",
        "w": "by Wed 30 Sep"
       }
      ],
      "open": [
-      "<b>Walkthrough completed and went well.</b> Remaining contract changes: change the doctors' statement-dispute period from 7 days to 30 days; add an addendum to Dr Amy's contract defining immediate family as her sister, her sister's husband (brother-in-law), and the sister's two children.",
-      "<b>Sent 10 Sep:</b> agreements to the five non-specialist doctors, each with a one-page &ldquo;Three Key Changes&rdquo; summary card attached to the message. The two specialists (Dr Yeoh, Dr Joan) are still to go &mdash; the owner judges them less urgent.",
+      "<b>Updated contracts sent:</b> Lau updated the 30-day provision and clause 3.1 wording before sending the revised contracts to all five non-specialist doctors. Priscilla has returned her signed copy; four signed copies remain outstanding.",
+      "<b>Specialists remain pending:</b> the separate action to send to Dr Yeoh and Dr Joan is unchanged.",
       "<b>New in the agreement (9 Sep):</b> a doctor can be paid by the practice in three ways only &mdash; professional fees; reimbursement of pre-approved spend at documented cost against the original supplier invoice (nothing payable for items obtained free); or as an approved supplier with the interest declared. Patient money must go through the authorised billing process, for services and for materials, appliances and laboratory work alike.",
       "<b>Live master is v1.0</b> (9 Sep). The new Section 3 &ldquo;Minimum Fee and Concessions&rdquo; renumbered everything after Sessions &mdash; procurement is now Clause 7, termination 14, general 16.",
       "<b>Parents approved all three changes on 2 Sep:</b> abolish the 10% \u00b7 floor price with doctor-borne discounts \u00b7 economics follow the production month. Discount approval threshold amended to 15%.",
@@ -960,12 +968,12 @@
      "from_initiatives": [
       16
      ],
-     "next": "Apply the two remaining contract changes from the doctors meeting, then collect signed copies. The two specialists (Yeoh, Joan) are still to be sent.",
+     "next": "Collect the four outstanding signed copies by Wed 30 Sep. The two specialists (Yeoh, Joan) remain to be sent.",
      "endMonth": "2026-09",
      "flag": {
       "k": "due",
       "by": "2026-09-30",
-      "w": "Apply the two remaining contract changes and collect signed copies by Wed 30 Sep."
+      "w": "Collect the four outstanding signed copies by Wed 30 Sep."
      }
     },
     {
@@ -1134,7 +1142,7 @@
      "dot": "now",
      "chip": "edits complete \u00b7 sending now",
      "name": "Doctor rollout & communication",
-     "one": "The contract edits are complete. Lu is sending the revised contracts to the doctors now.",
+     "one": "The revised contracts were sent to all five non-specialist doctors after the 30-day provision and clause 3.1 wording were updated. One signed copy is back; four remain outstanding.",
      "steps": [
       {
        "t": "Parents approve the three changes",
@@ -1187,18 +1195,18 @@
        "w": "Wed 23 Sep \u00b7 6:30 PM"
       },
       {
-       "t": "Remaining contract changes: statement-dispute period 7 days \u2192 30 days; Dr Amy immediate-family addendum",
+       "t": "Updated the 30-day provision and clause 3.1 wording before sending",
        "s": "done",
        "w": "24 Sep"
       },
       {
        "t": "Lu sends the revised contracts to the doctors",
-       "s": "now",
-       "w": "24 Sep"
+       "s": "done",
+       "w": "25 Sep \u2014 five non-specialists"
       },
       {
-       "t": "Signed copies back",
-       "s": "",
+       "t": "Priscilla's signed copy back; four signed copies outstanding",
+       "s": "now",
        "w": "by Wed 30 Sep"
       }
      ],
@@ -1211,15 +1219,15 @@
       "\u26a0\ufe0f <b>Work the full narrative out in a dedicated session</b> \u2014 this note is the skeleton, not the script. Share it with your parents once they have given their input on the three changes."
      ],
      "open": [
-      "<b>Contract edits completed (24 Sep).</b> The statement-dispute period is now 30 days, and Dr Amy's immediate-family addendum is included. Lu is sending the revised contracts to the doctors now.",
+      "<b>Updated contracts sent (25 Sep).</b> Lau updated the 30-day provision and clause 3.1 wording before sending the revised contracts to all five non-specialist doctors. Priscilla has returned her signed copy; four signed copies remain outstanding.",
       "<b>Verified 22 Sep (two independent models):</b> recall patients produced RM115,490 and RM109,609 has been collected; about RM38,600 of that has already been paid out to doctors as locum share, with 142 more appointments on the book. PPE stopped from March: about RM19,200 no longer taken off, which is about RM8,600 in the doctors' pay (it came off before the split).",
-      "<b>Discount rule (owner, 22 Sep):</b> a doctor bears only what takes a price <i>below</i> the Minimum Fee. On that rule, against the 10% returned (charged since Sep 2024): four of five doctors are ahead in both 2025 and 2026; the fifth is ahead in 2026. \u26a0\ufe0f Clause 3.1 as sent says <i>any</i> discount is borne in full \u2014 say the rule plainly in the room and correct 3.1 afterwards.",
+      "<b>Discount rule (owner, 22 Sep):</b> a doctor bears only what takes a price <i>below</i> the Minimum Fee. On that rule, against the 10% returned (charged since Sep 2024): four of five doctors are ahead in both 2025 and 2026; the fifth is ahead in 2026.",
       "<b>Likely pressure points</b> (from the devil's-advocate run): broad set-off (cl. 2.4), non-solicit with no time limit (cl. 9.1), uncapped indemnity (cl. 8.3), fee-schedule changes on notice (cl. 16.3), the RM55k cliff. Best answer on each: concede the drafting and commit to text, rather than recite the give-backs.",
       "<b>The headline that holds:</b> removing the PPE and 10% deductions is about RM72,000 a year of extra pay to the five sharing doctors on 2025 figures (about RM80,000 at 2026's pace). Both were deducted before sharing, so what reaches a doctor is their percentage of the deduction \u2014 do not quote the RM162,000 no longer deducted as money given back.",
       "<b>Checked before deciding:</b> with every discount they gave this year still given, every one of the five doctors is still ahead once the two deductions go. Standalone free work is not counted \u2014 enforcement of that stays parked, although clause 3.1 lists complimentary treatment as a concession.",
       "<b>The sequence changed in the doing (10 Sep):</b> the contracts went out to the five non-specialist doctors <i>before</i> any group call, each carrying a one-page &ldquo;Three Key Changes&rdquo; summary card &mdash; the 10% deduction going, discounts borne by the doctor, and the timing of locum sharing payment. The Zoom explainer that was to come first did not happen.",
       "<b>Meeting held:</b> doctors agreement walkthrough and Q&A took place on Wednesday 23 September 2026 at 6:30 PM and went well.",
-      "<b>Revised contracts are being sent now</b> to the doctors, including the two specialists where applicable; signed copies remain due by 30 Sep.",
+      "<b>Specialists remain pending:</b> the separate action to send to Dr Yeoh and Dr Joan is unchanged; this update covers the five non-specialist doctors only.",
       "<b>Why the call comes first:</b> the language is legal and none of the doctors are legal people. They should understand the shape of the change before a document lands in front of them \u2014 and there is genuine good news to lead with (the 10% cut goes) alongside the new discount approach.",
       "<b>The second session doubles as the OpenDent alignment recap</b> \u2014 code usage, and that a discount is a line rather than an edited production price. If that turns out not to be needed, the session still earns its place on the contract questions alone.",
       "\u26a0\ufe0f <b>The 15 Sep meeting no longer holds</b> \u2014 the contracts are still with Lydia. Dates follow her, not the calendar.",
@@ -1229,11 +1237,11 @@
      "dept": "finance",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Send the revised contracts to the doctors now, then collect signed copies.",
+     "next": "Collect the four outstanding signed copies by Wed 30 Sep; the specialist send remains a separate pending action.",
      "flag": {
       "k": "due",
       "by": "2026-09-30",
-      "w": "Send the revised contracts now, then collect signed copies by Wed 30 Sep."
+      "w": "Collect the four outstanding signed copies by Wed 30 Sep."
      }
     },
     {
@@ -2714,7 +2722,7 @@
      "l8"
     ],
     "owner": "Lau",
-    "summary": "Agreements are final as sent. One walkthrough, then signatures.",
+    "summary": "Updated agreements sent to five non-specialists; one signed copy back and four outstanding.",
     "items": [
      {
       "label": "Agreements sent to 5 doctors, with the summary card",
@@ -2736,14 +2744,22 @@
       "locked": true,
       "time": "6:30 PM",
       "who": "All doctors except Yeoh and Joan",
-      "note": "In person. The meeting went well; two contract changes remain."
+      "note": "In person. The meeting went well; the 30-day provision and clause 3.1 wording were updated before the revised contracts were sent."
+     },
+     {
+      "label": "Updated contracts sent to five non-specialists",
+      "start": "2026-09-25",
+      "status": "done",
+      "who": "Lau",
+      "note": "The 30-day provision and clause 3.1 wording were updated before sending. Priscilla returned her signed copy; four signed copies remain outstanding."
      },
      {
       "label": "Signed copies back to Lau",
-      "start": "2026-09-23",
+      "start": "2026-09-25",
       "end": "2026-09-30",
-      "status": "next",
-      "who": "Doctors"
+      "status": "now",
+      "who": "Doctors",
+      "note": "Priscilla has returned her signed copy; four signed copies remain outstanding."
      },
      {
       "label": "Signed copies due",
@@ -2783,6 +2799,6 @@
  },
  "meta": {
   "asof": "FRI 25 SEP 2026",
-  "updated": "2026-09-25T10:51:48+08:00"
+  "updated": "2026-09-25T12:23:14+08:00"
  }
 }
