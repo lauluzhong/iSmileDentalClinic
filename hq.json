@@ -924,11 +924,6 @@
        "w": "3 Sep"
       },
       {
-       "t": "Per-doctor Schedule 1 copies drafted (Jun's = her offer letter)",
-       "s": "done",
-       "w": "10 Sep"
-      },
-      {
        "t": "Format decided: Zoom explainer first, then contracts, then a sit-down (superseded \u2014 contracts went first with a summary card; the sit-down was in person)",
        "s": "done",
        "w": "6 Sep"
@@ -942,6 +937,11 @@
        "t": "Procurement, reimbursement and supplier-interest clauses added (cl. 2.5, 7.1, 7.4, 7.5)",
        "s": "done",
        "w": "9 Sep"
+      },
+      {
+       "t": "Per-doctor Schedule 1 copies drafted (Jun's = her offer letter)",
+       "s": "done",
+       "w": "10 Sep"
       },
       {
        "t": "Lydia finalised the contracts with each doctor's details",
@@ -2804,6 +2804,6 @@
  },
  "meta": {
   "asof": "FRI 25 SEP 2026",
-  "updated": "2026-09-25T13:13:37+08:00"
+  "updated": "2026-09-25T13:15:11+08:00"
  }
 }

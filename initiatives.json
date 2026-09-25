@@ -1,13 +1,18 @@
 {
- "updated": "2026-09-25T13:13:37+08:00",
+ "updated": "2026-09-25T13:15:11+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Code Capsule": {
-   "init": "CC",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
   "Emily": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
@@ -17,18 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
+  "Code Capsule": {
+   "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Lydia": {
    "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
-   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -310,10 +310,10 @@
     "Parents approved the 3 compensation changes (discount approval threshold amended to 15%)",
     "Update Schedule 2: strike the 10% deduction and apply the 15% discount-approval threshold \u00b7 accept 2.10\u20132.12",
     "Final contractor agreement sent to Emily for review",
-    "Per-doctor Schedule 1 copies drafted (Jun's = her offer letter)",
     "Format decided: Zoom explainer first, then contracts, then a sit-down (superseded \u2014 contracts went first with a summary card; the sit-down was in person)",
     "Five-item reminder sent to Lydia (consulting group)",
     "Procurement, reimbursement and supplier-interest clauses added (cl. 2.5, 7.1, 7.4, 7.5)",
+    "Per-doctor Schedule 1 copies drafted (Jun's = her offer letter)",
     "Lydia finalised the contracts with each doctor's details",
     "Agreements sent to the five non-specialist doctors, with a one-page summary card",
     "Zoom explainer not held; a written summary card went with the contracts instead",
