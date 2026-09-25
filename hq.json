@@ -1403,6 +1403,11 @@
        "w": "Wed 23 Sep"
       },
       {
+       "t": "Emily \u2014 confirm the 45 \"to confirm\" + 2 \"check\" rows in the Clinic-Covered Persons Register (only she knows who they are). The register drives BOTH the blast exclusions and the locum calculation.",
+       "s": "now",
+       "w": "before the 5\u20137 Oct campaign window"
+      },
+      {
        "t": "Confirm the family/shared-number recipient list with front desk",
        "s": "now",
        "w": "Wed 23 Sep"
@@ -2848,6 +2853,6 @@
  },
  "meta": {
   "asof": "FRI 25 SEP 2026",
-  "updated": "2026-09-25T12:53:09+08:00"
+  "updated": "2026-09-25T13:05:09+08:00"
  }
 }
