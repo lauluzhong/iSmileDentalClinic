@@ -428,6 +428,16 @@
        "t": "Go live \u2014 receipts from AutoCount, paper retired",
        "s": "",
        "w": "Mon 5 Oct"
+      },
+      {
+       "t": "Follow up the two patient cases Dr Ling raised where the patient has not paid / refuses to pay \u2014 agreed with all doctors on 23 Sep: a patient-payment matter, not a doctor matter \u00b7 owner Emily + front desk",
+       "s": "now",
+       "w": "raised 23 Sep \u00b7 no due date set"
+      },
+      {
+       "t": "Staff-family onlay (Dr Joan): the patient agreed to pay his share given the complexity (rules: non-case-related fees are borne by the practice) \u2014 payment not yet received; follow up \u00b7 owner Emily",
+       "s": "now",
+       "w": "raised 23 Sep \u00b7 no due date set"
       }
      ],
      "open": [
@@ -1122,6 +1132,11 @@
       {
        "t": "Becomes the floor the discount clause references",
        "s": ""
+      },
+      {
+       "t": "Minimum fee update: each doctor texts Dr Ong their minimum fees; Dr Ong updates them personally \u00b7 owner Dr Ong",
+       "s": "now",
+       "w": "agreed 23 Sep \u00b7 no due date set"
       }
      ],
      "open": [
@@ -2232,6 +2247,11 @@
        "t": "Training aiming for Sat 3 Oct \u2014 Emily books the girls\u2019 time Tue 22 Sep; confirmation pending",
        "s": "now",
        "w": "Sat 3 Oct, 3:30 PM"
+      },
+      {
+       "t": "FOH training pack being drafted (agent) \u2014 file location not yet confirmed; link it here once saved \u00b7 owner Emily",
+       "s": "now",
+       "w": "for Sat 3 Oct"
       }
      ],
      "open": [
@@ -2651,6 +2671,14 @@
       "locked": true,
       "who": "Front desk \u00b7 Lau + Emily on standby",
       "note": "Paper receipts retired from this day. Lau and Emily on standby in person that week."
+     },
+     {
+      "label": "FOH training pack drafted",
+      "start": "2026-09-25",
+      "end": "2026-09-30",
+      "status": "now",
+      "who": "Lau \u00b7 Emily",
+      "note": "Being drafted by an agent; link the file once its location is confirmed."
      }
     ]
    },
@@ -2767,6 +2795,27 @@
       "status": "next",
       "locked": true,
       "who": "Doctors"
+     },
+     {
+      "label": "Follow up two unpaid / refused-payment patient cases",
+      "start": "2026-09-23",
+      "status": "now",
+      "who": "Emily \u00b7 Front desk",
+      "note": "Raised by Dr Ling at the 23 Sep meeting; agreed with all doctors as a patient-payment matter, not a doctor matter. No due date set."
+     },
+     {
+      "label": "Minimum fee update \u2014 doctors text Dr Ong their minimum fees",
+      "start": "2026-09-23",
+      "status": "now",
+      "who": "Dr Ong",
+      "note": "Dr Ong updates the minimum fees personally. No due date set."
+     },
+     {
+      "label": "Collect staff-family onlay payment (Dr Joan case)",
+      "start": "2026-09-23",
+      "status": "now",
+      "who": "Emily",
+      "note": "Patient agreed to pay his share given the complexity; not yet paid."
      }
     ]
    },
@@ -2799,6 +2848,6 @@
  },
  "meta": {
   "asof": "FRI 25 SEP 2026",
-  "updated": "2026-09-25T12:23:14+08:00"
+  "updated": "2026-09-25T12:53:09+08:00"
  }
 }

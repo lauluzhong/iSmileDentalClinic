@@ -1,7 +1,12 @@
 {
- "updated": "2026-09-25T12:23:14+08:00",
+ "updated": "2026-09-25T12:53:09+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Edith": {
    "init": "E",
    "role": "",
@@ -17,18 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Dr Ong": {
    "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
-   "init": "L",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   }
@@ -104,7 +104,9 @@
     "Design the new receipt",
     "Front-desk receipts SOP written",
     "Receipts + e-invoices taught at the FOH training",
-    "Go live \u2014 receipts from AutoCount, paper retired"
+    "Go live \u2014 receipts from AutoCount, paper retired",
+    "Follow up the two patient cases Dr Ling raised where the patient has not paid / refuses to pay \u2014 agreed with all doctors on 23 Sep: a patient-payment matter, not a doctor matter \u00b7 owner Emily + front desk",
+    "Staff-family onlay (Dr Joan): the patient agreed to pay his share given the complexity (rules: non-case-related fees are borne by the practice) \u2014 payment not yet received; follow up \u00b7 owner Emily"
    ],
    "pillar": "P1"
   },
@@ -392,7 +394,8 @@
     "Full audit vs the Sep-2024 standard list",
     "Emily reviewing code-consolidation advice (still pending)",
     "Repricing pass \u2014 Fee Guide v1 drafted 4 Sep (161 codes, 138 priced, 83 owner flags)",
-    "Becomes the floor the discount clause references"
+    "Becomes the floor the discount clause references",
+    "Minimum fee update: each doctor texts Dr Ong their minimum fees; Dr Ong updates them personally \u00b7 owner Dr Ong"
    ],
    "pillar": "P2"
   },
@@ -828,7 +831,8 @@
     "Attendance agreed \u2014 four required, the rest of the assistants welcome",
     "Letters: obtain the example from the office, then build the letterhead templates",
     "Check whether a clinic stamp can stand in for a doctor's signature on external letters",
-    "Training aiming for Sat 3 Oct \u2014 Emily books the girls\u2019 time Tue 22 Sep; confirmation pending"
+    "Training aiming for Sat 3 Oct \u2014 Emily books the girls\u2019 time Tue 22 Sep; confirmation pending",
+    "FOH training pack being drafted (agent) \u2014 file location not yet confirmed; link it here once saved \u00b7 owner Emily"
    ],
    "pillar": "F1"
   },
