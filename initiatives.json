@@ -1,18 +1,18 @@
 {
- "updated": "2026-09-25T17:03:35+08:00",
+ "updated": "2026-09-26T02:11:19+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Emily": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
@@ -22,13 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
-   "init": "E",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -350,7 +350,9 @@
     "Tiers + volume rule confirmed against 17 months of workbooks",
     "Invoiced services pay in the invoice month at the production month's rate",
     "Rate-follows-production-month for late collections",
-    "Write into Schedule 1 + the calculator"
+    "40%\u219245% basis decided: RM30k+ production in 6 months of a calendar year \u2192 45% from the next January. Promotion only, permanent once earned (replaces days worked)",
+    "Write into Schedule 1 + the calculator",
+    "Doctors\u2019 2027 look-ahead chats (incl. Dr Azelia\u2019s 2027 growth goals)"
    ],
    "pillar": "P2"
   },
