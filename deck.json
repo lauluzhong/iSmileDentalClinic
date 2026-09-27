@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-09-27 15:30",
- "generated_at": "2026-09-27T15:30:12+08:00",
+ "generated_myt": "2026-09-27 16:00",
+ "generated_at": "2026-09-27T16:00:08+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 103.9,
   "nproc": 4,
   "load": [
-   0.28,
-   0.24,
-   0.21
+   0.08,
+   0.1,
+   0.12
   ],
-  "cpu_pct": 7.0,
-  "cpu_pct_sample": 2.0,
+  "cpu_pct": 2.0,
+  "cpu_pct_sample": 4.2,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 4120,
-   "avail_mb": 3820,
-   "pct": 51.9,
+   "used_mb": 4134,
+   "avail_mb": 3806,
+   "pct": 52.1,
    "swap_total_mb": 2047,
    "swap_used_mb": 1284
   },
@@ -29,11 +29,11 @@
   "bridge_ok": false,
   "pollers": {
    "review_approvals": {
-    "age_s": 28,
-    "last_myt": "2026-09-27 15:30 MYT"
+    "age_s": 23,
+    "last_myt": "2026-09-27 16:00 MYT"
    },
    "hq_publish": {
-    "age_s": 133611,
+    "age_s": 135406,
     "last_myt": "2026-09-26 02:23 MYT",
     "detail": "asof=SAT 26 SEP 2026 streams=40 sideboard=19 decisions=1 archive=11"
    }
@@ -42,10 +42,8 @@
   "crons": {
    "total": 15,
    "failed": [],
-   "running": [
-    "geo_visibility"
-   ],
-   "status_updated": "2026-09-27 15:30 MYT"
+   "running": [],
+   "status_updated": "2026-09-27 16:00 MYT"
   },
   "last_clinic_push": "2026-09-27"
  },
@@ -200,17 +198,17 @@
   "note": "Instagram @ismiledentalclinicmy is connected through Zernio. Posts published outside Zernio are not counted in posts_published_via_zernio."
  },
  "geo": {
-  "generated_myt": "2026-09-20 15:30",
-  "generated_at": "2026-09-20T15:30:13+08:00",
+  "generated_myt": "2026-09-27 15:30",
+  "generated_at": "2026-09-27T15:30:10+08:00",
   "ai_referrals": {
    "available": true,
    "window": [
-    "2026-08-23",
-    "2026-09-19"
+    "2026-08-30",
+    "2026-09-26"
    ],
    "sessions": 1,
    "sessions_prev": 1,
-   "all_sessions": 495,
+   "all_sessions": 551,
    "by_source": [
     {
      "source": "chatgpt.com",
@@ -276,9 +274,9 @@
    "engine": "OpenAI gpt-5.6-luna + web search",
    "asked": 15,
    "failed": 0,
-   "mentioned": 5,
-   "cited_own_site": 5,
-   "mention_rate_pct": 33.3,
+   "mentioned": 8,
+   "cited_own_site": 8,
+   "mention_rate_pct": 53.3,
    "by_theme": {
     "family": {
      "asked": 3,
@@ -286,11 +284,11 @@
     },
     "children": {
      "asked": 2,
-     "mentioned": 0
+     "mentioned": 1
     },
     "braces": {
      "asked": 3,
-     "mentioned": 1
+     "mentioned": 2
     },
     "implants": {
      "asked": 2,
@@ -298,11 +296,11 @@
     },
     "cosmetic": {
      "asked": 2,
-     "mentioned": 1
+     "mentioned": 0
     },
     "airway": {
      "asked": 2,
-     "mentioned": 0
+     "mentioned": 2
     },
     "urgent": {
      "asked": 1,
@@ -311,19 +309,23 @@
    },
    "top_cited_domains": [
     {
-     "domain": "vdental.com.my",
+     "domain": "ismile.com.my",
      "questions": 8
     },
     {
-     "domain": "smilehavendental.com.my",
-     "questions": 6
+     "domain": "vdental.com.my",
+     "questions": 7
     },
     {
-     "domain": "ismile.com.my",
-     "questions": 5
+     "domain": "dentalclinicpj.my",
+     "questions": 4
     },
     {
      "domain": "arcdentalclinic-damansarauptown.com",
+     "questions": 4
+    },
+    {
+     "domain": "smilehavendental.com.my",
      "questions": 3
     },
     {
@@ -331,15 +333,7 @@
      "questions": 3
     },
     {
-     "domain": "damansaradentalstudio.com.my",
-     "questions": 3
-    },
-    {
-     "domain": "pristinedental.com.my",
-     "questions": 2
-    },
-    {
-     "domain": "mao.org.my",
+     "domain": "claritydentalclinic.com",
      "questions": 2
     },
     {
@@ -347,8 +341,12 @@
      "questions": 2
     },
     {
-     "domain": "ivorydental.com.my",
-     "questions": 1
+     "domain": "mao.org.my",
+     "questions": 2
+    },
+    {
+     "domain": "kpdc.com.my",
+     "questions": 2
     }
    ],
    "questions": [
@@ -389,8 +387,8 @@
      "theme": "children",
      "q": "Which dentists in Damansara, PJ are good with nervous kids?",
      "ok": true,
-     "mentioned": false,
-     "cited_own_site": false
+     "mentioned": true,
+     "cited_own_site": true
     },
     {
      "id": "braces-1",
@@ -413,8 +411,8 @@
      "theme": "braces",
      "q": "My teenager needs braces. Which clinics in PJ or Damansara should I consider?",
      "ok": true,
-     "mentioned": false,
-     "cited_own_site": false
+     "mentioned": true,
+     "cited_own_site": true
     },
     {
      "id": "implants-1",
@@ -445,24 +443,24 @@
      "theme": "cosmetic",
      "q": "Where can I get professional teeth whitening in Damansara, Petaling Jaya?",
      "ok": true,
-     "mentioned": true,
-     "cited_own_site": true
+     "mentioned": false,
+     "cited_own_site": false
     },
     {
      "id": "airway-1",
      "theme": "airway",
      "q": "Which dentists in Petaling Jaya offer myofunctional therapy or help for children who mouth breathe?",
      "ok": true,
-     "mentioned": false,
-     "cited_own_site": false
+     "mentioned": true,
+     "cited_own_site": true
     },
     {
      "id": "airway-2",
      "theme": "airway",
      "q": "Is there a dentist in the Klang Valley who treats children's airway and jaw development problems early, without waiting for braces?",
      "ok": true,
-     "mentioned": false,
-     "cited_own_site": false
+     "mentioned": true,
+     "cited_own_site": true
     },
     {
      "id": "urgent-1",
@@ -474,8 +472,8 @@
     }
    ],
    "tokens": {
-    "input": 313924,
-    "output": 16401
+    "input": 321938,
+    "output": 17207
    }
   },
   "panel_trend": [
@@ -489,6 +487,12 @@
     "date": "2026-09-20",
     "mention_rate_pct": 33.3,
     "mentioned": 5,
+    "asked": 15
+   },
+   {
+    "date": "2026-09-27",
+    "mention_rate_pct": 53.3,
+    "mentioned": 8,
     "asked": 15
    }
   ]
