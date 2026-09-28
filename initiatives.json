@@ -1,17 +1,7 @@
 {
- "updated": "2026-09-28T16:26:05+08:00",
+ "updated": "2026-09-28T16:33:59+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Emily": {
    "init": "E",
    "role": "",
@@ -29,6 +19,16 @@
   },
   "Code Capsule": {
    "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   }
@@ -804,7 +804,7 @@
    "status": "active",
    "owner": "Emily",
    "why": "The clinic has no SOP for issuing letters to patients \u2014 medical certificates, referral letters, insurance reports, quotations. Nobody had ever said whose job it was, and that gap caused real friction between a doctor and",
-   "next": "Emily books the girls' time Tue 22 Sep; then build the training deck for Sat 3 Oct against the consolidated syllabus on this card.",
+   "next": "Lau settles the 14 open questions in the L&D chat; confirm the deck Wed 30 Sep; train Sat 3 Oct after the 3:30 PM close.",
    "dept": "people",
    "lens": "efficiency",
    "endMonth": "2026-11",
@@ -822,7 +822,7 @@
     "Letters: obtain the example from the office, then build the letterhead templates",
     "Check whether a clinic stamp can stand in for a doctor's signature on external letters",
     "Training aiming for Sat 3 Oct \u2014 Emily books the girls\u2019 time Tue 22 Sep; confirmation pending",
-    "FOH training topics pack drafted 25 Sep \u2014 on the box at workspace/memory/operational/foh-training-topics.md; Lau settling it in the L&D chat, deck confirmed by Wed 30 Sep"
+    "FOH training pack refreshed 28 Sep (go-live 6 Oct, desk flow, discount line, 1 Oct fee rules, blast replies) \u2014 Lau settling 14 open questions in the L&D chat; deck confirmed by Wed 30 Sep"
    ],
    "pillar": "F1"
   },

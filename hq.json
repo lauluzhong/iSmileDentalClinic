@@ -2258,7 +2258,7 @@
        "w": "Sat 3 Oct, 3:30 PM"
       },
       {
-       "t": "FOH training topics pack drafted 25 Sep \u2014 on the box at workspace/memory/operational/foh-training-topics.md; Lau settling it in the L&D chat, deck confirmed by Wed 30 Sep",
+       "t": "FOH training pack refreshed 28 Sep (go-live 6 Oct, desk flow, discount line, 1 Oct fee rules, blast replies) \u2014 Lau settling 14 open questions in the L&D chat; deck confirmed by Wed 30 Sep",
        "s": "now",
        "w": "for Sat 3 Oct"
       }
@@ -2274,7 +2274,7 @@
      "from_initiatives": [
       19
      ],
-     "next": "Emily books the girls' time Tue 22 Sep; then build the training deck for Sat 3 Oct against the consolidated syllabus on this card.",
+     "next": "Lau settles the 14 open questions in the L&D chat; confirm the deck Wed 30 Sep; train Sat 3 Oct after the 3:30 PM close.",
      "endMonth": "2026-11",
      "flag": {
       "k": "due",
@@ -2856,6 +2856,6 @@
  },
  "meta": {
   "asof": "MON 28 SEP 2026",
-  "updated": "2026-09-28T16:26:05+08:00"
+  "updated": "2026-09-28T16:33:59+08:00"
  }
 }
