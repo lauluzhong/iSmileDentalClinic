@@ -1,17 +1,7 @@
 {
- "updated": "2026-09-28T18:37:18+08:00",
+ "updated": "2026-09-28T18:46:12+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Edith": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Emily": {
    "init": "E",
    "role": "",
@@ -22,13 +12,23 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
+  "Lydia": {
    "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
   "Dr Ong": {
    "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -372,7 +372,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "Abolish it clinic-wide; offset by doctors bearing their own discounts. Cleaner \u2014 especially for Dr Jia Yin \u2014 but a real net cost.",
-   "next": "The deduction is gone from the agreements sent 25 Sep (Priscilla signed). Collect the remaining signed copies by Wed 30 Sep, then switch the locum engine to the agreement basis. Cost owned honestly: about \u2212RM57k a year excluding the principal; offsets recover only about RM3.3k.",
+   "next": "The deduction is gone from the agreements sent 25 Sep (Priscilla signed). Collect the remaining signed copies by Wed 30 Sep, then switch the locum engine to the agreement basis. Recosted 28 Sep: about \u2212RM30.4k a year (not \u2212RM57k): under the 25 Sep shortfall-only rule doctors still bear below-floor concessions. FY2026 is hit Oct\u2013Dec only: \u2212RM13.1k if the minimum-fee floor works, \u2212RM26.1k if not.",
    "dept": "finance",
    "lens": "cost",
    "endMonth": "2026-12",
@@ -873,7 +873,8 @@
     "V6 rebuilt",
     "Track landing vs actuals monthly",
     "Year-end close + FY2027 base",
-    "Bake the approved abolition of the 10% deduction into Model v6 and reforecast the FY2026 landing"
+    "Bake the approved abolition of the 10% deduction into Model v6 and reforecast the FY2026 landing",
+    "Import Jul/Aug actuals into Model v6 (Sheet last edited 28 Aug)"
    ],
    "pillar": "F2"
   },
