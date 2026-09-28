@@ -1,19 +1,9 @@
 {
- "updated": "2026-09-28T16:36:50+08:00",
+ "updated": "2026-09-28T16:38:47+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
+  "Emily": {
    "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +17,18 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
    "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -67,7 +67,8 @@
     "Leow clears all test invoices/data at end of day, then the link is switched on",
     "Link live \u2014 every transaction from 1 Oct flows into AutoCount",
     "Invoices from 1\u20135 Oct approved by hand, one by one, so October receivables start clean",
-    "Leow sets up an individual AutoCount login + access rights for each staff member",
+    "Leow sets up an individual AutoCount login + access rights for each staff member \u2014 we send him the details he needs",
+    "Update Leow once the doctors consistently enter discounts as a discount line (not an edited price) \u2014 Lau",
     "Training for front-of-house staff + dinner (Leow not attending \u2014 Lau + Emily teach; Emily + Joanna = on-ground contacts)",
     "Go live \u2014 new digital receipts (Lau and Emily on standby that week)"
    ],
@@ -98,7 +99,7 @@
    "status": "review",
    "owner": "Emily",
    "why": "Receipts out of AutoCount replace the paper book \u2014 front desk switches only after training.",
-   "next": "Leow sends sample receipt designs (A4 vs 80mm) \u2192 Lau picks; write the front-desk receipts SOP by Fri 2 Oct; teach at the Sat 3 Oct training; go live Tue 6 Oct.",
+   "next": "Leow: receipt sample, staff-login details, payment methods, WhatsApp message (all asked 28 Sep) \u2192 Lau picks the design and writes the review quick reply; SOP by Fri 2 Oct; practise 1\u20132 Oct; train Sat 3 Oct; go live Tue 6 Oct.",
    "dept": "clinical",
    "lens": "efficiency",
    "endMonth": "2026-10",
@@ -107,8 +108,11 @@
     "Receipt capability confirmed in AutoCount",
     "AutoCount installed on both new front-desk PCs",
     "Receipt + e-invoice run-through with actual data, including FIFO and partial payments",
-    "Leow shares sample receipt designs (A4 and 80mm) \u2192 Lau picks one",
+    "Leow shares sample receipt design (he has one; A4 or 80mm) \u2192 Lau picks and sends logo/details",
     "Front-desk receipts SOP written",
+    "Payment methods set up in AutoCount receive-payment: credit card, Touch 'n Go, DuitNow, bank transfer \u2014 who sets it up (Leow or us)?",
+    "WhatsApp quick reply for the desk: paste after the receipt link, with the Google review ask (fallback if AutoCount's message cannot be edited) \u2014 Lau",
+    "Lau + Emily practise approving invoices and generating receipts on live data",
     "Leow asks AutoCount for an editable default WhatsApp receipt message (to append the Google review ask). Receipts go by WhatsApp link or PDF \u2014 no printing",
     "Receipts + e-invoices taught at the FOH training",
     "Go live \u2014 receipts from AutoCount, paper retired",
@@ -131,6 +135,7 @@
    "tasks": [
     "Supplier register seeded (4 rows)",
     "Full register from Emily \u2014 committed end Aug",
+    "Supplier-side (AP) AutoCount training with Leow, in person \u2014 Lau + Emily",
     "Suppliers + lab AP into AutoCount",
     "Inventory module on \u00b7 opening stock count",
     "Weekly rotated stock-count routine live"

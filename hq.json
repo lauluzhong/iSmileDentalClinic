@@ -360,9 +360,14 @@
        "w": "Thu 1 \u2013 Mon 5 Oct \u00b7 Emily/front desk"
       },
       {
-       "t": "Leow sets up an individual AutoCount login + access rights for each staff member",
+       "t": "Leow sets up an individual AutoCount login + access rights for each staff member \u2014 we send him the details he needs",
        "s": "next",
-       "w": "before Sat 3 Oct"
+       "w": "before Sat 3 Oct \u00b7 Asked Leow in the AutoCount group Mon 28 Sep what info he needs"
+      },
+      {
+       "t": "Update Leow once the doctors consistently enter discounts as a discount line (not an edited price) \u2014 Lau",
+       "s": "next",
+       "w": "after 1 Oct"
       },
       {
        "t": "Training for front-of-house staff + dinner (Leow not attending \u2014 Lau + Emily teach; Emily + Joanna = on-ground contacts)",
@@ -449,9 +454,9 @@
        "w": "Fri 25 Sep \u2014 held"
       },
       {
-       "t": "Leow shares sample receipt designs (A4 and 80mm) \u2192 Lau picks one",
+       "t": "Leow shares sample receipt design (he has one; A4 or 80mm) \u2192 Lau picks and sends logo/details",
        "s": "now",
-       "w": "Mon 28 Sep\u2013Fri 2 Oct"
+       "w": "Mon 28 Sep\u2013Fri 2 Oct \u00b7 Asked Leow in the AutoCount group Mon 28 Sep"
       },
       {
        "t": "Front-desk receipts SOP written",
@@ -459,9 +464,24 @@
        "w": "Mon 28 Sep\u2013Fri 2 Oct"
       },
       {
-       "t": "Leow asks AutoCount for an editable default WhatsApp receipt message (to append the Google review ask). Receipts go by WhatsApp link or PDF \u2014 no printing",
+       "t": "Payment methods set up in AutoCount receive-payment: credit card, Touch 'n Go, DuitNow, bank transfer \u2014 who sets it up (Leow or us)?",
+       "s": "now",
+       "w": "before Sat 3 Oct \u00b7 Asked Leow in the AutoCount group Mon 28 Sep"
+      },
+      {
+       "t": "WhatsApp quick reply for the desk: paste after the receipt link, with the Google review ask (fallback if AutoCount's message cannot be edited) \u2014 Lau",
        "s": "next",
-       "w": "feedback to vendor"
+       "w": "by Fri 2 Oct"
+      },
+      {
+       "t": "Lau + Emily practise approving invoices and generating receipts on live data",
+       "s": "next",
+       "w": "Thu 1 \u2013 Fri 2 Oct"
+      },
+      {
+       "t": "Leow asks AutoCount for an editable default WhatsApp receipt message (to append the Google review ask). Receipts go by WhatsApp link or PDF \u2014 no printing",
+       "s": "now",
+       "w": "feedback to vendor \u00b7 Asked Leow in the AutoCount group Mon 28 Sep for an update"
       },
       {
        "t": "Receipts + e-invoices taught at the FOH training",
@@ -501,7 +521,7 @@
      "from_initiatives": [
       15
      ],
-     "next": "Leow sends sample receipt designs (A4 vs 80mm) \u2192 Lau picks; write the front-desk receipts SOP by Fri 2 Oct; teach at the Sat 3 Oct training; go live Tue 6 Oct.",
+     "next": "Leow: receipt sample, staff-login details, payment methods, WhatsApp message (all asked 28 Sep) \u2192 Lau picks the design and writes the review quick reply; SOP by Fri 2 Oct; practise 1\u20132 Oct; train Sat 3 Oct; go live Tue 6 Oct.",
      "endMonth": "2026-10"
     },
     {
@@ -518,6 +538,11 @@
       {
        "t": "Full register from Emily \u2014 committed end Aug",
        "s": "now"
+      },
+      {
+       "t": "Supplier-side (AP) AutoCount training with Leow, in person \u2014 Lau + Emily",
+       "s": "",
+       "w": "Q4 \u00b7 date to set"
       },
       {
        "t": "Suppliers + lab AP into AutoCount",
@@ -2676,6 +2701,30 @@
       "note": "Waiting on Leow's sample designs (A4 vs 80mm); SOP by Fri 2 Oct for the Sat 3 Oct training."
      },
      {
+      "label": "Leow: receipt sample \u00b7 staff logins \u00b7 payment methods \u00b7 WhatsApp message",
+      "start": "2026-09-28",
+      "end": "2026-10-02",
+      "status": "now",
+      "who": "Leow (Vision Tech)",
+      "note": "All four asked in the AutoCount group Mon 28 Sep. Logins and payment methods must be ready before the Sat 3 Oct training."
+     },
+     {
+      "label": "WhatsApp quick reply: receipt + Google review ask",
+      "start": "2026-09-28",
+      "end": "2026-10-02",
+      "status": "next",
+      "who": "Lau",
+      "note": "Fallback if AutoCount's default receipt message cannot be edited. House language rules apply."
+     },
+     {
+      "label": "Practise receipts on live data",
+      "start": "2026-10-01",
+      "end": "2026-10-02",
+      "status": "next",
+      "who": "Lau \u00b7 Emily",
+      "note": "The link is on from 1 Oct; invoices 1\u20135 Oct are hand-approved."
+     },
+     {
       "label": "X-ray software on the front-desk PCs",
       "start": "2026-09-20",
       "end": null,
@@ -2724,6 +2773,14 @@
       "status": "done",
       "who": "Lau \u00b7 Emily",
       "note": "Topics master list drafted 25 Sep (6 pillars: money & pricing, systems, patient conversations, contract duties, conduct, operations + 4 draft scripts). On the box at workspace/memory/operational/foh-training-topics.md. Lau to settle it in the L&D chat and confirm the deck by Wed 30 Sep."
+     },
+     {
+      "label": "Supplier-side (AP) training with Leow",
+      "start": "2026-10-19",
+      "end": "2026-12-18",
+      "status": "next",
+      "who": "Lau \u00b7 Emily \u00b7 Leow",
+      "note": "Q4, in person. Exact date still to set."
      }
     ]
    },
@@ -2892,6 +2949,6 @@
  },
  "meta": {
   "asof": "MON 28 SEP 2026",
-  "updated": "2026-09-28T16:36:50+08:00"
+  "updated": "2026-09-28T16:38:47+08:00"
  }
 }
