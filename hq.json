@@ -337,7 +337,12 @@
       {
        "t": "Jason fixes the database/SQL error blocking OpenDent \u2192 AutoCount invoices \u2014 AutoCount holds sales invoices only up to ~5\u20137 Sep (live test failed on 25 Sep; coincides with the 5 Sep server swap)",
        "s": "now",
-       "w": "ASAP \u00b7 update on timing \u00b7 blocks go-live"
+       "w": "Chased Mon 28 Sep 11:38 (CC group) \u00b7 awaiting Jason \u00b7 blocks go-live Tue 6 Oct"
+      },
+      {
+       "t": "Jason: repair or return the faulty downstairs front-desk PC (asked in the same 28 Sep chase)",
+       "s": "now",
+       "w": "Chased Mon 28 Sep \u00b7 awaiting Jason"
       },
       {
        "t": "Leow clears all test invoices/data at end of day, then the link is switched on",
@@ -2851,6 +2856,6 @@
  },
  "meta": {
   "asof": "MON 28 SEP 2026",
-  "updated": "2026-09-28T11:42:44+08:00"
+  "updated": "2026-09-28T11:45:40+08:00"
  }
 }

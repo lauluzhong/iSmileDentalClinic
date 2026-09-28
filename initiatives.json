@@ -1,24 +1,14 @@
 {
- "updated": "2026-09-28T11:42:44+08:00",
+ "updated": "2026-09-28T11:45:40+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Dr Ong": {
    "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
+  "Lydia": {
    "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Code Capsule": {
-   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +17,18 @@
    "role": "",
    "color": "#45C4FF"
   },
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Emily": {
    "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   }
@@ -63,6 +63,7 @@
     "X-ray software installed on the downstairs PCs",
     "Receipt + e-invoice run-through with actual data, including FIFO, partial payments and the integration/payment-creation workflow; simulate the downstairs front-desk journey and validate sub-account data flow",
     "Jason fixes the database/SQL error blocking OpenDent \u2192 AutoCount invoices \u2014 AutoCount holds sales invoices only up to ~5\u20137 Sep (live test failed on 25 Sep; coincides with the 5 Sep server swap)",
+    "Jason: repair or return the faulty downstairs front-desk PC (asked in the same 28 Sep chase)",
     "Leow clears all test invoices/data at end of day, then the link is switched on",
     "Link live \u2014 every transaction from 1 Oct flows into AutoCount",
     "Invoices from 1\u20135 Oct approved by hand, one by one, so October receivables start clean",
