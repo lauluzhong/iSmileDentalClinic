@@ -1,24 +1,24 @@
 {
- "generated_myt": "2026-09-28 17:30",
- "generated_at": "2026-09-28T17:30:12+08:00",
+ "generated_myt": "2026-09-28 18:00",
+ "generated_at": "2026-09-28T18:00:10+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 105.0,
   "nproc": 4,
   "load": [
-   0.45,
-   0.29,
-   0.28
+   0.22,
+   0.12,
+   0.14
   ],
-  "cpu_pct": 11.2,
-  "cpu_pct_sample": 69.2,
+  "cpu_pct": 5.5,
+  "cpu_pct_sample": 5.9,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 6206,
-   "avail_mb": 1734,
-   "pct": 78.2,
+   "used_mb": 5344,
+   "avail_mb": 2596,
+   "pct": 67.3,
    "swap_total_mb": 2047,
-   "swap_used_mb": 2043
+   "swap_used_mb": 2037
   },
   "disk": {
    "total_gb": 154.9,
@@ -29,11 +29,11 @@
   "bridge_ok": false,
   "pollers": {
    "review_approvals": {
-    "age_s": 25,
-    "last_myt": "2026-09-28 17:30 MYT"
+    "age_s": 24,
+    "last_myt": "2026-09-28 18:00 MYT"
    },
    "hq_publish": {
-    "age_s": 3099,
+    "age_s": 4897,
     "last_myt": "2026-09-28 16:38 MYT",
     "detail": "asof=MON 28 SEP 2026 streams=40 sideboard=19 decisions=1 archive=11"
    }
@@ -43,7 +43,7 @@
    "total": 15,
    "failed": [],
    "running": [],
-   "status_updated": "2026-09-28 17:30 MYT"
+   "status_updated": "2026-09-28 18:00 MYT"
   },
   "last_clinic_push": "2026-09-28"
  },
@@ -176,26 +176,8 @@
   "checked": "2026-09-28"
  },
  "social": {
-  "available": true,
-  "source": "Zernio MCP (Edith's connection)",
-  "as_of": "2026-09-28",
-  "window_days": 30,
-  "accounts": [
-   {
-    "platform": "instagram",
-    "username": "ismiledentalclinicmy",
-    "display": "iSmile Dental Clinic",
-    "followers": 98.0,
-    "growth_30d": -1.0,
-    "growth_pct_30d": -1.01,
-    "posts_on_platform": 13.0,
-    "last_updated": "2026-09-28T04:28:24.036000Z",
-    "active": true
-   }
-  ],
-  "instagram_30d": null,
-  "posts_published_via_zernio": 0,
-  "note": "Instagram @ismiledentalclinicmy is connected through Zernio. Posts published outside Zernio are not counted in posts_published_via_zernio."
+  "available": false,
+  "note": "Zernio call failed: <HTTPError 400: 'Bad Request'>"
  },
  "geo": {
   "generated_myt": "2026-09-27 15:30",
