@@ -396,7 +396,7 @@
     {
      "id": "d2",
      "dot": "wait",
-     "chip": "Jan 2027",
+     "chip": "parked \u00b7 until RM3M revenue",
      "name": "E-invoicing readiness",
      "one": "The original why: transactions >RM10k need e-invoices; LHDN mandate lands Jan 2027.",
      "steps": [
@@ -405,8 +405,9 @@
        "s": "done"
       },
       {
-       "t": "Receipt + e-invoice journey run-through with actual data, including FIFO and partial payments",
-       "s": "now"
+       "t": "Run-through held \u2014 e-invoicing stays OFF until the clinic reaches the RM3M revenue threshold; can be reactivated later",
+       "s": "done",
+       "w": "25 Sep"
       },
       {
        "t": "E-invoice format + submission flow configured",
@@ -424,7 +425,7 @@
      "dept": "tech",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Fri 25 Sep, 15:00\u201315:30: run through actual receipt and e-invoice cases with Jason, Leow, Emily and Lau, including FIFO and partial payments."
+     "next": "Parked: not required until the clinic crosses the RM3M threshold (confirmed with Vision Tech 25 Sep). Receipts go live 6 Oct without e-invoicing; revisit when revenue approaches the threshold."
     },
     {
      "id": "d3",
@@ -651,10 +652,10 @@
     },
     {
      "id": "d7",
-     "dot": "live",
-     "chip": "hardware complete \u00b7 validation 25 Sep",
+     "dot": "now",
+     "chip": "one downstairs PC spoilt \u00b7 awaiting Jason",
      "name": "Hardware & server",
-     "one": "Server swapped and every PC reconnected. The front-desk PCs are in service and AutoCount is installed; the remaining work is the 25 Sep receipt-flow validation.",
+     "one": "Server swapped and every PC reconnected; AutoCount installed on both front-desk PCs. One downstairs computer has since failed.",
      "steps": [
       {
        "t": "Server CPU brought in",
@@ -704,18 +705,27 @@
        "t": "AutoCount installed on both new front-desk PCs",
        "s": "done",
        "w": "22 Sep \u00b7 Vision Tech confirmed 09:20"
+      },
+      {
+       "t": "Receipt-flow validation held \u2014 surfaced the OpenDent\u2192AutoCount SQL error (tracked on the integration card)",
+       "s": "done",
+       "w": "25 Sep"
+      },
+      {
+       "t": "Spoilt downstairs computer \u2014 Jason to say whether it is repaired here or returned to the supplier (follow-up sent in the CC group)",
+       "s": "now",
+       "w": "asked Mon 28 Sep"
       }
      ],
      "open": [
-      "<b>Hardware is complete.</b> The downstairs computers are set up, with monitors, keyboards and mice in. Cooling is dropped: Jason confirmed the units are designed to run hot, which is how they shed heat.",
-      "<b>AutoCount installation complete 22 Sep:</b> Vision Tech confirmed successful installation on both new front-desk PCs at 09:20. X-ray software is also installed.",
-      "<b>Remaining validation:</b> Fri 25 Sep, 15:00\u201315:30 by Google Meet. Jason, Leow, Emily and Lau will simulate the front-desk receipt journey and validate integration and downstairs sub-account data flow."
+      "<b>Hardware was complete on 19 Sep</b>, but one downstairs computer has since failed \u2014 repair vs return pending with Jason.",
+      "<b>AutoCount installation complete 22 Sep:</b> Vision Tech confirmed successful installation on both new front-desk PCs at 09:20. X-ray software is also installed."
      ],
      "owner": "codecapsule",
      "dept": "tech",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Fri 25 Sep, 15:00\u201315:30: Jason, Leow, Emily and Lau complete the receipt-flow validation, including the downstairs sub-account data flow."
+     "next": "Jason to confirm repair vs return for the spoilt downstairs computer (asked 28 Sep). The OpenDent\u2192AutoCount SQL error is tracked on the integration card."
     },
     {
      "id": "d8",
@@ -1141,7 +1151,7 @@
     {
      "id": "l3",
      "dot": "now",
-     "chip": "approved",
+     "chip": "in the agreement \u00b7 signatures due 30 Sep",
      "name": "Remove the 10% deduction",
      "one": "Abolish it clinic-wide; offset by doctors bearing their own discounts. Cleaner \u2014 especially for Dr Jia Yin \u2014 but a real net cost.",
      "steps": [
@@ -1159,8 +1169,24 @@
        "w": "2 Sep"
       },
       {
-       "t": "Struck in Schedule 2 (drafted 3 Sep, awaiting Lydia) \u00b7 doctor briefing 15 Sep",
-       "s": "now"
+       "t": "Struck from Schedule 2; walked through with the doctors",
+       "s": "done",
+       "w": "meeting held Wed 23 Sep (moved from 15 Sep)"
+      },
+      {
+       "t": "Agreements sent without the 10% deduction \u2014 Ling, Amy, Mah, Azelia, Priscilla (Priscilla signed); specialists Yeoh + Joan not yet sent",
+       "s": "done",
+       "w": "25 Sep"
+      },
+      {
+       "t": "Remaining signed copies back \u2014 the rule takes effect with the signed agreements",
+       "s": "now",
+       "w": "due Wed 30 Sep"
+      },
+      {
+       "t": "Locum engine switched to the agreement basis (Financial session built the draft 25 Sep; live engine unchanged until then)",
+       "s": "next",
+       "w": "after signatures"
       }
      ],
      "open": [
@@ -1173,7 +1199,7 @@
      "from_initiatives": [
       18
      ],
-     "next": "Approved 2 Sep. It now rides on the agreement: struck from Schedule 2 on 3 Sep, and lands with the doctors at the 15 Sep meeting. Cost owned honestly: about \u2212RM57k a year excluding the principal, with offsets recovering only about RM3.3k.",
+     "next": "The deduction is gone from the agreements sent 25 Sep (Priscilla signed). Collect the remaining signed copies by Wed 30 Sep, then switch the locum engine to the agreement basis. Cost owned honestly: about \u2212RM57k a year excluding the principal; offsets recover only about RM3.3k.",
      "endMonth": "2026-12"
     },
     {
@@ -1197,9 +1223,19 @@
        "s": "done"
       },
       {
-       "t": "Approved 2 Sep at a 15% gate; amendments sit in the Google Doc as suggestions \u2014 waiting on Lydia to accept",
-       "s": "now",
+       "t": "Approved 2 Sep at a 15% gate; carried into the agreements sent 25 Sep",
+       "s": "done",
        "w": "2 Sep"
+      },
+      {
+       "t": "LZ ruling: a discount is deducted from the doctor only up to the shortfall below the minimum fee \u2014 deductible = max(0, minimum fee \u2212 net collected)",
+       "s": "done",
+       "w": "25 Sep"
+      },
+      {
+       "t": "Minimum fees: each doctor texts Dr Ong their minimums; Dr Ong updates them personally",
+       "s": "now",
+       "w": "from the 23 Sep meeting"
       },
       {
        "t": "Doctor briefing: discount lines, never touch production price",
@@ -1217,7 +1253,7 @@
      "from_initiatives": [
       29
      ],
-     "next": "The floor now exists in draft: Fee Guide v1 was built on 4 Sep. What still has to travel with the clause is the keying rule \u2014 a reduction is a discount line, never an edited production price.",
+     "next": "Collect each doctor's minimum fees (via Dr Ong) so the capped-deduction rule can run. Keying rule still applies: a reduction is a discount line in OpenDent, never an edited price \u2014 this is also what AutoCount needs (25 Sep).",
      "endMonth": "2026-12"
     },
     {
@@ -2856,6 +2892,6 @@
  },
  "meta": {
   "asof": "MON 28 SEP 2026",
-  "updated": "2026-09-28T16:33:59+08:00"
+  "updated": "2026-09-28T16:36:50+08:00"
  }
 }
