@@ -254,6 +254,22 @@
   .dbody{overflow-y:auto;padding:16px 20px 32px;flex:1}
   .dsec{margin-bottom:20px}
   .dsec h3{font-family:var(--disp);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:9px}
+  /* card chat → Edith */
+  .talk{border-top:1px solid var(--line);padding-top:14px}
+  .talk .chat{display:flex;flex-direction:column;gap:6px;max-height:280px;overflow-y:auto;margin:0 0 10px}
+  .talk .chat:empty{display:none}
+  .talk .msg{font-size:12.5px;line-height:1.45;padding:7px 10px;border-radius:9px;max-width:90%;white-space:pre-wrap;overflow-wrap:anywhere}
+  .talk .msg.me{align-self:flex-end;background:rgba(var(--panelrgb),.9);border:1px solid var(--line-hi)}
+  .talk .msg.edith{align-self:flex-start;background:var(--panel2);border:1px solid var(--line)}
+  .talk .msg.wait{align-self:flex-start;color:var(--mut);font-style:italic;border:1px dashed var(--line)}
+  .talk .msg.err{align-self:flex-start;border:1px solid var(--late,#e0615b)}
+  .talk form{display:flex;gap:8px;align-items:flex-end}
+  .talk textarea{flex:1;resize:vertical;min-height:42px;max-height:180px;font:inherit;font-size:13px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+  .talk textarea:focus{outline:none;border-color:var(--p1)}
+  .talk button{font-family:var(--disp);font-size:11px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line-hi);background:var(--panel2);color:var(--ink);border-radius:8px;padding:10px 14px;cursor:pointer}
+  .talk button:disabled{opacity:.45;cursor:default}
+  .talk .hint{font-size:11px;color:var(--dim);margin-top:6px}
+  .srow.has-reply .sname::after,.arow.has-reply .aname::after,.pill.has-reply::after,.kc.has-reply .t::after{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--p1);margin-left:7px;box-shadow:0 0 8px var(--p1);vertical-align:middle}
   .steps{list-style:none;position:relative;padding-left:20px}
   .steps::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--line)}
   .steps li{position:relative;padding:3px 0 9px;font-size:13px;color:var(--mut)}
@@ -2045,13 +2061,13 @@ function clickable(node,fn){
 }
 function streamRow(s,parent){
   const li=el("li","srow");
-  li.dataset.dot=s.dot; if(attentionOf(s))li.setAttribute("data-attn","");
+  li.dataset.dot=s.dot; li.dataset.sid=s.id; if(attentionOf(s))li.setAttribute("data-attn","");
   li.innerHTML=`<span class="sdot ${s.dot}" data-tip-k="${DOTLBL[s.dot]||s.dot}" data-tip-b="${DOTTIPS[s.dot]||""}"></span><span class="sname">${s.name}</span><span class="schip">${s.chip}</span>`;
   return clickable(li,()=>openStream(s,parent));
 }
 function attnRow(s,a,parent){
   const r=el("div","arow k-"+a.k+(a.hot?" hot":""));
-  r.dataset.dot=s.dot; r.setAttribute("data-attn","");
+  r.dataset.dot=s.dot; r.dataset.sid=s.id; r.setAttribute("data-attn","");
   const by=a.by?`<span class="aby">${fmtBy(a.by,a.k)}</span>`:(a.who?`<span class="aby">on ${a.who}</span>`:"");
   r.innerHTML=`<span class="atag" data-tip-k="${AKIND[a.k].lab}" data-tip-b="${AKIND[a.k].tip}">${AKIND[a.k].lab}</span>`+
               `<span class="aname">${s.name}${by}</span>`+
@@ -2060,7 +2076,7 @@ function attnRow(s,a,parent){
 }
 function restPill(s,parent){
   const b=el("div","pill");
-  b.dataset.dot=s.dot;
+  b.dataset.dot=s.dot; b.dataset.sid=s.id;
   b.innerHTML=`<span class="sdot ${s.dot}"></span>${s.name}`;
   b.setAttribute("data-tip-k",(DOTLBL[s.dot]||s.dot)+" · "+s.chip);
   b.setAttribute("data-tip-b",s.one);
@@ -2165,8 +2181,9 @@ function buildNav(){
     const st=PANELCTX.p.streams, i=PANELCTX.idx;
     if(st.length>1){
       const prev=st[(i-1+st.length)%st.length], next=st[(i+1)%st.length];
-      nav.appendChild(navBtn("‹ "+prev.name,()=>slideTo(-1,()=>openStream(prev,PANELCTX.p))));
-      nav.appendChild(navBtn(next.name+" ›",()=>slideTo(1,()=>openStream(next,PANELCTX.p))));
+      const par=PANELCTX.p; /* captured now: the slide runs 170ms later, after a possible close */
+      nav.appendChild(navBtn("‹ "+prev.name,()=>slideTo(-1,()=>openStream(prev,par))));
+      nav.appendChild(navBtn(next.name+" ›",()=>slideTo(1,()=>openStream(next,par))));
     }
     if(PANELCTX.p.gtpp) nav.appendChild(navBtn("◳ pillar lens",()=>slideTo(1,()=>openPillar(PANELCTX.p))));
   }else{
@@ -2219,9 +2236,12 @@ function openStream(s,parent){
     s.open.forEach(o=>ul.appendChild(el("li",null,o)));
     sec.appendChild(ul); b.appendChild(sec);
   }
+  b.appendChild(talkSection(s,parent));
+  if(unread.delete(s.id)){saveChats();markRows();}
   buildNav();
   openPanel();
   $("#dclose").focus();
+  const c=$("#tchat"); if(c)c.scrollTop=c.scrollHeight;
 }
 
 function openPillar(p){
@@ -2247,9 +2267,111 @@ function openPillar(p){
   $("#dclose").focus();
 }
 
+
+/* ---------- card chat → Edith ----------
+   Type an update on a card; it goes to Edith tagged with the card, she updates hq.store.json and
+   publishes, and her reply lands back in that card. Requirements (LZ, 28 Sep 2026):
+   - closing the card never cancels the request: the job is polled in the background and the
+     conversation is kept per card (memory + sessionStorage, so a reload resumes the wait);
+   - a reply that lands while another card is open never pulls the view back; that card gets a dot;
+   - a second message queues (the bridge runs one job per session at a time) rather than failing;
+   - typing never triggers the panel shortcuts, and a data refresh keeps half-typed text. */
+const CHAT_KEY="ismile-hq-chats", UNREAD_KEY="ismile-hq-unread", CHAT_WAIT_MS=12*60*1000;
+const chats=(()=>{try{return JSON.parse(sessionStorage.getItem(CHAT_KEY)||"{}")}catch(e){return {}}})();
+const unread=new Set((()=>{try{return JSON.parse(sessionStorage.getItem(UNREAD_KEY)||"[]")}catch(e){return []}})());
+const drafts={};
+function saveChats(){try{
+  sessionStorage.setItem(CHAT_KEY,JSON.stringify(Object.fromEntries(Object.entries(chats).map(([k,v])=>[k,v.slice(-20)]))));
+  sessionStorage.setItem(UNREAD_KEY,JSON.stringify([...unread]));
+}catch(e){}}
+function escT(t){return String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function markRows(){document.querySelectorAll("[data-sid]").forEach(n=>n.classList.toggle("has-reply",unread.has(n.dataset.sid)));}
+function openCardId(){return document.body.classList.contains("panel-open")&&PANELCTX&&PANELCTX.kind==="stream"?(PANELCTX.p.streams[PANELCTX.idx]||{}).id:null;}
+function chatHtml(id){return (chats[id]||[]).map(m=>`<p class="msg ${m.role}">${escT(m.text)}</p>`).join("");}
+function talkSection(s,parent){
+  const sec=el("div","dsec talk");
+  sec.innerHTML=`<h3>Tell Edith about this</h3><div class="chat" id="tchat" aria-live="polite">${chatHtml(s.id)}</div>`+
+    `<form id="tsay" autocomplete="off"><textarea id="tin" rows="2" maxlength="3000" placeholder="e.g. done · moved to Friday · Emily confirmed"></textarea><button type="submit">Send</button></form>`+
+    `<div class="hint">Edith knows you mean this card. Replies take a minute or two — you can close the card and carry on; the answer waits here.</div>`;
+  const f=sec.querySelector("#tsay"), inp=sec.querySelector("#tin");
+  inp.value=drafts[s.id]||"";
+  inp.addEventListener("input",()=>{drafts[s.id]=inp.value;});
+  inp.addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();f.requestSubmit();}});
+  f.addEventListener("submit",e=>{e.preventDefault();const t=inp.value.trim(); if(!t)return; inp.value=""; drafts[s.id]=""; sayToEdith(s,parent,t);});
+  return sec;
+}
+function redrawChat(id){ if(openCardId()!==id)return; const c=$("#tchat"); if(c){c.innerHTML=chatHtml(id); c.scrollTop=c.scrollHeight;} }
+async function sayToEdith(s,parent,text){
+  const log=(chats[s.id]||=[]);
+  log.push({role:"me",text});
+  const w={role:"wait",text:"Edith is on it — usually a minute or two. You can close this card; her answer will wait here."};
+  log.push(w); saveChats(); redrawChat(s.id);
+  const tag=`[About the Task Tracker card "${s.name}" [card ${s.id}] in "${parent.name}". LZ is typing from this card, so "this", "it" and "done" mean this card.]`;
+  let r,j={};
+  try{
+    r=await fetch("/dashboard/edith",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({message:tag+"\n"+text,session:"card"})});
+    try{j=await r.json();}catch(e){}
+  }catch(e){ return finishChat(s.id,w,{role:"err",text:"This didn't reach Edith (no connection). Nothing was saved — please resend."}); }
+  if(!r||r.status!==202||!j.job){
+    const why=j.error==="not_connected"?"the line to Edith isn't connected":j.error==="unauthorized"?"your sign-in expired — reload the page":`the line refused it (${j.error||r.status})`;
+    return finishChat(s.id,w,{role:"err",text:`This didn't reach Edith: ${why}. Nothing was saved — please resend.`});
+  }
+  w.job=j.job; w.t0=Date.now(); saveChats();
+  pollChat(s.id,w);
+}
+async function pollChat(id,w){
+  if(POLLING.has(w.job))return; POLLING.add(w.job);
+  for(;;){
+    await new Promise(res=>setTimeout(res,4000));
+    let j=null;
+    try{
+      const r=await fetch("/dashboard/edith",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({poll:w.job})});
+      j=await r.json().catch(()=>null);
+      if(r.status===404) j={status:"error",error:(j&&j.error)||"unknown_job"};
+    }catch(e){ j=null; } /* network blip: keep waiting */
+    if(!j||j.status==="pending"){
+      if(Date.now()-(w.t0||Date.now())<CHAT_WAIT_MS)continue;
+      return finishChat(id,w,{role:"err",text:"No answer after 12 minutes. Check whether the card changed before resending — she may still have done it."});
+    }
+    if(j.status==="done") return finishChat(id,w,{role:"edith",text:j.reply||"Done."},true);
+    const why=j.error==="bridge_restarted"?"the line restarted while she was working":`it failed (${j.error||"error"})`;
+    return finishChat(id,w,{role:"err",text:`Edith couldn't confirm this — ${why}. Treat it as not saved and resend (if the card already shows the change, it did land).`});
+  }
+}
+async function finishChat(id,w,msg,refresh){
+  const log=chats[id]||(chats[id]=[]); const i=log.indexOf(w);
+  if(i>=0)log.splice(i,1,msg); else log.push(msg);
+  if(openCardId()!==id)unread.add(id);
+  saveChats(); redrawChat(id); markRows();
+  if(refresh){ await reloadBoard(); setTimeout(reloadBoard,60000); /* the published file can lag a minute */ }
+}
+async function reloadBoard(){
+  try{
+    const r=await fetch(HQ_DATA_URL+"?t="+Date.now(),{cache:"no-store"}); if(!r.ok)return;
+    const j=await r.json(); if(!(j&&Array.isArray(j.pillars)&&Array.isArray(j.foundations)))return;
+    DATA=j; USING_FALLBACK=false;
+  }catch(e){return;}
+  /* re-render WITHOUT renderAll(): that re-applies the #s= hash and would jump to another card */
+  if(DATA.meta&&DATA.meta.asof)$("#asofDate").textContent=DATA.meta.asof;
+  if(Array.isArray(DATA.rail))DATA.rail.sort((a,b)=>String(a.iso||"").localeCompare(String(b.iso||"")));
+  renderCounts(); renderDecisions(); renderRail(); renderPillars(); renderFoundations(); renderSideboard();
+  if(VIEW==="timeline")renderTimeline(); if(VIEW==="kanban")renderKanban();
+  markRows();
+  /* refresh the open card only if it is idle — never wipe a half-typed message */
+  const id=openCardId(), inp=$("#tin");
+  if(id&&!(inp&&inp.value.trim())&&!(inp&&document.activeElement===inp)){
+    const f=findStream(id); if(f){ const keep=$("#dbody").scrollTop; openStream(f.stream,f.parent); $("#dbody").scrollTop=keep; }
+  }
+}
+const POLLING=new Set(); /* in memory only: a reload must resume every open wait */
+function resumeChats(){
+  Object.values(chats).forEach(log=>log.forEach((m,i)=>{ if(m.role==="wait"&&!m.job) log[i]={role:"err",text:"The page closed before this reached Edith. Nothing was saved — please resend."}; }));
+ Object.entries(chats).forEach(([id,log])=>log.forEach(m=>{ if(m.role==="wait"&&m.job)pollChat(id,m); })); }
+
 $("#scrim").addEventListener("click",closePanel);
 $("#dclose").addEventListener("click",closePanel);
 document.addEventListener("keydown",e=>{
+  if(e.target&&e.target.closest&&e.target.closest("textarea,input,select,[contenteditable]"))return; /* typing in the card chat */
   if(e.key==="Escape")closePanel();
   if(!document.body.classList.contains("panel-open"))return;
   const btns=$("#dnav").querySelectorAll("button");
@@ -2435,7 +2557,7 @@ function renderKanban(){
       else{const {s,p}=r;
         const a=attentionOf(s);
         card.innerHTML=`<div class="t">${s.name}</div><div class="m"><span class="ow" style="border-color:${p.color||"var(--line)"}">${PEOPLE[s.owner]||s.owner||"Lau"}</span><span style="color:${p.color||"var(--dim)"}">${(p.num||"").replace("Pillar ","P").replace("Foundation","F")}</span><span>${KDEPT[s.dept]||s.dept||""}</span>${s.lens?`<span>${s.lens}</span>`:""}${s.endMonth?`<span>→ ${s.endMonth}</span>`:""}${s.flag?`<span class="atag k-${a.k}" style="color:var(--ak);border-color:var(--ak)">${a.k}</span>`:""}</div>${s.next?`<div class="n">Next: ${s.next}</div>`:s.one?`<div class="n">${s.one}</div>`:""}`;
-        card.addEventListener("click",()=>openStream(s,p));}
+        card.dataset.sid=s.id; card.addEventListener("click",()=>openStream(s,p));}
       col.appendChild(card);
     });
     kb.appendChild(col);
@@ -2469,6 +2591,7 @@ function renderAll(){
   seq.forEach(t=>t.classList.add("reveal"));
   seq.forEach((t,i)=>setTimeout(()=>t.classList.add("in"), 80+i*40));
   applyHash();
+  markRows();
 }
 (async()=>{
   try{
@@ -2479,6 +2602,7 @@ function renderAll(){
     }
   }catch(e){/* offline or raw blocked — embedded fallback renders */}
   renderAll();
+  resumeChats();
 })();
 </script>
 </body>
