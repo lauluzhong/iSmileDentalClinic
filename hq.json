@@ -151,10 +151,10 @@
   },
   {
    "d": "25 Sep",
-   "l": "Receipt + e-invoice run-through \u2014 Google Meet",
-   "s": "",
+   "l": "Receipt + e-invoice run-through \u2014 held",
+   "s": "done",
    "iso": "2026-09-25",
-   "tip": "Confirmed Fri 25 Sep, 15:00\u201315:30. Jason, Leow, Lau, Emily and relevant front-desk staff will run through the receipt and e-invoice journey with actual data, including FIFO and partial payments; AutoCount integration on/off and the downstairs sub-account data flow will be validated by simulating the front-desk journey."
+   "tip": "Held Fri 25 Sep (60 min, Google Meet: Jason, Leow, Lau, Emily). Agreed: go-live Tue 6 Oct; test data cleared EOD 30 Sep, link on 1 Oct; 1\u20135 Oct invoices hand-approved; payments knock off at invoice level (locum allocates FIFO); discounts as a discount line only; receipts by WhatsApp/PDF, no printing; e-Invoice off until RM3M; one login per staff. Open: Jason SQL fix; receipt design samples from Leow."
   },
   {
    "d": "28\u201330 Sep",
@@ -186,10 +186,10 @@
   },
   {
    "d": "3 Oct",
-   "l": "FOH training Saturday + dinner \u2014 aiming",
+   "l": "FOH training Saturday + dinner",
    "s": "",
    "iso": "2026-10-03",
-   "tip": "Aiming for front-desk training from 3:30 PM after the clinic closes, dinner after. Emily checks the girls\u2019 availability at the 09:00 huddle on Wed 23 Sep; deck work runs 28\u201330 Sep and Lau confirms the deck by Wed 30 Sep. Training remains tentative."
+   "tip": "Set at the 25 Sep run-through: Sat 3 Oct after the 3:30 PM close, dinner after. Leow not attending (weekend) \u2014 Lau and Emily teach. Emily and Joanna are the on-ground contacts afterwards. Deck to be confirmed by Wed 30 Sep."
   },
   {
    "d": "6\u20139 Oct",
@@ -365,7 +365,7 @@
        "w": "before Sat 3 Oct"
       },
       {
-       "t": "Training for front-of-house staff + dinner \u2014 aiming; Emily books the girls\u2019 time Tue 22 Sep",
+       "t": "Training for front-of-house staff + dinner (Leow not attending \u2014 Lau + Emily teach; Emily + Joanna = on-ground contacts)",
        "s": "",
        "w": "Sat 3 Oct, 3:30 PM"
       },
@@ -378,8 +378,8 @@
      "open": [
       "<b>Agreed 25 Sep:</b> payments knock off at INVOICE level, not per line \u2014 AutoCount does not record which procedure a payment settled. Locum calculation will allocate first-in-first-out (oldest charge first). e-Invoice stays OFF until the clinic reaches the RM3M threshold. Discounts must be entered as a discount line in OpenDent, never by editing the price.",
       "<b>Installation complete 22 Sep:</b> Vision Tech confirmed at 09:20 that AutoCount was installed successfully on both new front-desk PCs.",
-      "<b>Confirmed planned resolution step:</b> Fri 25 Sep, 15:00\u201315:30 by Google Meet \u2014 Jason, Leow, Lau, Emily and relevant front-desk staff will use actual data to run through the receipt and e-invoice journey, including FIFO, partial payments and the integration/payment-creation workflow. The run-through also covers AutoCount integration on/off and, if possible, remotely simulating a downstairs front-desk receipt to validate sub-account data flow. This remains planned, not completed.",
-      "<b>Training remains pending confirmation:</b> aiming for Sat 3 Oct after the 3:30 PM close, with dinner after. Emily books the girls\u2019 time Tue 22 Sep; Leow teaches Lau and Emily AutoCount first.",
+      "<b>Run-through HELD Fri 25 Sep</b> (Google Meet, 60 min \u2014 Jason, Leow, Lau, Emily). Flow agreed: one invoice per patient per day; OpenDent edits flow in while the invoice is a draft (sync every ~30 s, both ways \u2014 tell the desk not to panic on short delays); desk opens the draft, checks it against OpenDent, approves, then AR Receive Payment. Receipts by WhatsApp link or PDF, no printing. One AutoCount login per staff. Open: SQL insert error hit live in the demo (Jason); duplicate OpenDent patient records (d12).",
+      "<b>FOH training set Sat 3 Oct</b> after the 3:30 PM close, dinner after (agreed 25 Sep). Leow not attending (weekend) \u2014 Lau and Emily teach. Everyone present sees the system; only a few need to master it. <b>Emily and Joanna</b> are the on-ground contacts for questions. AP/supplier-side training deferred to Q4, in person with Leow.",
       "Jason confirmed Leow must attend the run-through.",
       "EasyDent (X-ray) + CCTV stay on the old PC \u2014 do not migrate",
       "iSmile-side testing/clearance is complete; track the remaining front-desk rollout and end-to-end date."
@@ -449,12 +449,12 @@
       },
       {
        "t": "Leow shares sample receipt designs (A4 and 80mm) \u2192 Lau picks one",
-       "s": "",
+       "s": "now",
        "w": "Mon 28 Sep\u2013Fri 2 Oct"
       },
       {
        "t": "Front-desk receipts SOP written",
-       "s": "",
+       "s": "now",
        "w": "Mon 28 Sep\u2013Fri 2 Oct"
       },
       {
@@ -484,8 +484,8 @@
       }
      ],
      "open": [
-      "<b>Confirmed next step:</b> Fri 25 Sep, 15:00\u201315:30 by Google Meet \u2014 Jason, Leow, Emily and Lau will use actual data to run through receipts and e-invoices, including FIFO and partial payments, before staff training.",
-      "<b>3 Oct is the aim, not yet confirmed:</b> front-desk training from 3:30 PM, dinner after. Emily books the girls\u2019 time Tue 22 Sep. Cutover to AutoCount receipts the following week, 5\u20139 Oct, with Lau and Emily on standby.",
+      "<b>Run-through HELD Fri 25 Sep.</b> Receipts go by WhatsApp link (copy-to-clipboard preferred) or PDF export \u2014 no printing. Payments knock off at invoice level; locum allocates FIFO. Discounts only as a discount line in OpenDent. e-Invoice stays OFF until the RM3M threshold.",
+      "<b>Training set Sat 3 Oct</b> from 3:30 PM, dinner after. Hand-approve invoices 1\u20135 Oct; go live Tue 6 Oct with Lau and Emily on standby that week.",
       "Receipt-name nuance: AutoCount name changes stick (parent paying for child, company claims) \u2014 teach it explicitly",
       "Physical receipts continue until training done \u2014 decided, not a slip"
      ],
@@ -500,7 +500,7 @@
      "from_initiatives": [
       15
      ],
-     "next": "Run actual receipt and e-invoice cases with Jason, Leow, Emily and Lau on Fri 25 Sep, then complete the receipt and front-desk SOP by Fri 2 Oct before staff training.",
+     "next": "Leow sends sample receipt designs (A4 vs 80mm) \u2192 Lau picks; write the front-desk receipts SOP by Fri 2 Oct; teach at the Sat 3 Oct training; go live Tue 6 Oct.",
      "endMonth": "2026-10"
     },
     {
@@ -2600,7 +2600,7 @@
      "h5"
     ],
     "owner": "Lau \u00b7 Emily \u00b7 Code Capsule",
-    "summary": "AutoCount is installed on both new front-desk PCs. On 25 Sep, the team will validate the actual-data receipt and e-invoice journey, including FIFO, partial payments and the downstairs sub-account data flow, before training and go-live on Tue 6 Oct (moved from 5 Oct).",
+    "summary": "Run-through held 25 Sep with actual data. Test data cleared EOD 30 Sep, link on 1 Oct, 1\u20135 Oct hand-approved, FOH training Sat 3 Oct, go live Tue 6 Oct \u2014 blocked until Jason fixes the SQL insert error.",
     "items": [
      {
       "label": "OpenDent migrated to the new server",
@@ -2635,9 +2635,9 @@
       "label": "Design the receipt + front-desk SOP",
       "start": "2026-09-28",
       "end": "2026-10-02",
-      "status": "next",
+      "status": "now",
       "who": "Lau \u00b7 Emily",
-      "note": "Scheduled Mon 28 Sep\u2013Fri 2 Oct, after the confirmed 25 Sep receipt/e-invoice run-through and before the Sat 3 Oct FOH training."
+      "note": "Waiting on Leow's sample designs (A4 vs 80mm); SOP by Fri 2 Oct for the Sat 3 Oct training."
      },
      {
       "label": "X-ray software on the front-desk PCs",
@@ -2651,11 +2651,11 @@
       "label": "Receipt + e-invoice run-through with actual data",
       "start": "2026-09-25",
       "end": "2026-09-25",
-      "status": "now",
+      "status": "done",
       "locked": true,
-      "time": "15:00\u201315:30 \u00b7 Google Meet",
-      "who": "Jason \u00b7 Leow \u00b7 Lau \u00b7 Emily \u00b7 Relevant front desk",
-      "note": "Confirmed. Cover FIFO and partial payments, AutoCount integration on/off, and\u2014if remote access permits\u2014a downstairs front-desk receipt simulation to validate sub-account data flow."
+      "time": "15:17 \u00b7 60 min \u00b7 Google Meet",
+      "who": "Jason \u00b7 Leow \u00b7 Lau \u00b7 Emily",
+      "note": "Held. Go-live moved to 6 Oct; FIFO at invoice level; discount lines only; WhatsApp/PDF receipts; e-Invoice off until RM3M. SQL insert error found live \u2014 Jason fixing."
      },
      {
       "label": "Prepare and confirm the FOH training deck",
@@ -2671,7 +2671,7 @@
       "status": "next",
       "time": "3:30 PM",
       "who": "Joanna \u00b7 Erincy \u00b7 Jessy \u00b7 Ida",
-      "note": "Tentative Sat 3 Oct after close at 3:30 PM; Emily checks the girls\u2019 availability at the 09:00 huddle Wed 23 Sep."
+      "note": "Set Sat 3 Oct after the 3:30 PM close (25 Sep run-through). Leow not attending; Lau + Emily teach; Emily + Joanna on-ground contacts."
      },
      {
       "label": "Go live \u2014 new digital receipts",
@@ -2856,6 +2856,6 @@
  },
  "meta": {
   "asof": "MON 28 SEP 2026",
-  "updated": "2026-09-28T11:45:40+08:00"
+  "updated": "2026-09-28T16:23:05+08:00"
  }
 }

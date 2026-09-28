@@ -1,14 +1,9 @@
 {
- "updated": "2026-09-28T11:45:40+08:00",
+ "updated": "2026-09-28T16:23:05+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
@@ -17,7 +12,7 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
+  "Lydia": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
@@ -27,8 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -68,7 +68,7 @@
     "Link live \u2014 every transaction from 1 Oct flows into AutoCount",
     "Invoices from 1\u20135 Oct approved by hand, one by one, so October receivables start clean",
     "Leow sets up an individual AutoCount login + access rights for each staff member",
-    "Training for front-of-house staff + dinner \u2014 aiming; Emily books the girls\u2019 time Tue 22 Sep",
+    "Training for front-of-house staff + dinner (Leow not attending \u2014 Lau + Emily teach; Emily + Joanna = on-ground contacts)",
     "Go live \u2014 new digital receipts (Lau and Emily on standby that week)"
    ],
    "pillar": "P1"
@@ -98,7 +98,7 @@
    "status": "review",
    "owner": "Emily",
    "why": "Receipts out of AutoCount replace the paper book \u2014 front desk switches only after training.",
-   "next": "Run actual receipt and e-invoice cases with Jason, Leow, Emily and Lau on Fri 25 Sep, then complete the receipt and front-desk SOP by Fri 2 Oct before staff training.",
+   "next": "Leow sends sample receipt designs (A4 vs 80mm) \u2192 Lau picks; write the front-desk receipts SOP by Fri 2 Oct; teach at the Sat 3 Oct training; go live Tue 6 Oct.",
    "dept": "clinical",
    "lens": "efficiency",
    "endMonth": "2026-10",
