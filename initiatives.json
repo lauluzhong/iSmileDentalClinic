@@ -1,13 +1,18 @@
 {
- "updated": "2026-09-28T22:24:59+08:00",
+ "updated": "2026-09-28T22:25:44+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lydia": {
-   "init": "L",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
   "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
@@ -17,18 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
   "Emily": {
    "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   }
@@ -117,7 +117,8 @@
     "Receipts + e-invoices taught at the FOH training",
     "Go live \u2014 receipts from AutoCount, paper retired",
     "Follow up the two patient cases Dr Ling raised where the patient has not paid / refuses to pay \u2014 agreed with all doctors on 23 Sep: a patient-payment matter, not a doctor matter \u00b7 owner Emily + front desk",
-    "Staff-family onlay (Dr Joan): the patient agreed to pay his share given the complexity (rules: non-case-related fees are borne by the practice) \u2014 payment not yet received; follow up \u00b7 owner Emily"
+    "Staff-family onlay (Dr Joan): the patient agreed to pay his share given the complexity (rules: non-case-related fees are borne by the practice) \u2014 payment not yet received; follow up \u00b7 owner Emily",
+    "e-Invoice ON anyway (LZ 28 Sep: act as though required) \u2014 ask Leow to enable; issue on request; full training before 1 Jan 2027"
    ],
    "pillar": "P1"
   },

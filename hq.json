@@ -189,7 +189,7 @@
    "l": "FOH training Saturday + dinner",
    "s": "",
    "iso": "2026-10-03",
-   "tip": "Set at the 25 Sep run-through: Sat 3 Oct after the 3:30 PM close, dinner after. Leow not attending (weekend) \u2014 Lau and Emily teach. Emily and Joanna are the on-ground contacts afterwards. Deck to be confirmed by Wed 30 Sep."
+   "tip": "Set at the 25 Sep run-through: Sat 3 Oct after the 3:30 PM close, dinner after. Leow not attending (weekend) \u2014 Lau and Emily teach. Emily and Joanna are the on-ground contacts afterwards. Deck to be confirmed by Wed 30 Sep. Compulsory: Joanna, Erincy, Jessy, Ida, Elaine."
   },
   {
    "d": "6\u20139 Oct",
@@ -502,6 +502,10 @@
        "t": "Staff-family onlay (Dr Joan): the patient agreed to pay his share given the complexity (rules: non-case-related fees are borne by the practice) \u2014 payment not yet received; follow up \u00b7 owner Emily",
        "s": "now",
        "w": "raised 23 Sep \u00b7 no due date set"
+      },
+      {
+       "t": "e-Invoice ON anyway (LZ 28 Sep: act as though required) \u2014 ask Leow to enable; issue on request; full training before 1 Jan 2027",
+       "s": "next"
       }
      ],
      "open": [
@@ -2780,7 +2784,7 @@
       "start": "2026-10-03",
       "status": "next",
       "time": "3:30 PM",
-      "who": "Joanna \u00b7 Erincy \u00b7 Jessy \u00b7 Ida",
+      "who": "Joanna \u00b7 Erincy \u00b7 Jessy \u00b7 Ida \u00b7 Elaine",
       "note": "Set Sat 3 Oct after the 3:30 PM close (25 Sep run-through). Leow not attending; Lau + Emily teach; Emily + Joanna on-ground contacts."
      },
      {
@@ -3001,6 +3005,6 @@
  },
  "meta": {
   "asof": "MON 28 SEP 2026",
-  "updated": "2026-09-28T22:24:59+08:00"
+  "updated": "2026-09-28T22:25:44+08:00"
  }
 }
