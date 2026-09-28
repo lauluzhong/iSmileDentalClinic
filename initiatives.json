@@ -1,9 +1,9 @@
 {
- "updated": "2026-09-28T19:06:30+08:00",
+ "updated": "2026-09-28T22:24:59+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Code Capsule": {
-   "init": "CC",
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
@@ -12,13 +12,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
-   "init": "L",
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
-   "init": "E",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
