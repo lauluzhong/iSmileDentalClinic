@@ -2412,8 +2412,8 @@
       },
       {
        "t": "Bake the approved abolition of the 10% deduction into Model v6 and reforecast the FY2026 landing",
-       "s": "now",
-       "w": "costed 28 Sep (Financial) \u00b7 awaiting Lau's OK to edit the live Sheet"
+       "s": "done",
+       "w": "28 Sep \u00b7 in live v6 Sheet (Lau approved): C32 = 1.15% add-on, Oct\u2013Dec locum; Worst-case ALL-IN EBITDA 3.9k \u2192 \u22128.8k; assumes Minimum Fees live 1 Oct (else C32 = 2.30%, ~2\u00d7 hit)"
       },
       {
        "t": "Import Jul/Aug actuals into Model v6 (Sheet last edited 28 Aug)",
@@ -2964,6 +2964,6 @@
  },
  "meta": {
   "asof": "MON 28 SEP 2026",
-  "updated": "2026-09-28T18:46:12+08:00"
+  "updated": "2026-09-28T18:51:54+08:00"
  }
 }
