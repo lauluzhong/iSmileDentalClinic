@@ -1,14 +1,14 @@
 {
- "updated": "2026-09-28T16:23:17+08:00",
+ "updated": "2026-09-28T16:26:05+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lydia": {
-   "init": "L",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
-   "init": "E",
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
@@ -17,8 +17,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +27,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   }
@@ -822,7 +822,7 @@
     "Letters: obtain the example from the office, then build the letterhead templates",
     "Check whether a clinic stamp can stand in for a doctor's signature on external letters",
     "Training aiming for Sat 3 Oct \u2014 Emily books the girls\u2019 time Tue 22 Sep; confirmation pending",
-    "FOH training pack being drafted (agent) \u2014 file location not yet confirmed; link it here once saved \u00b7 owner Emily"
+    "FOH training topics pack drafted 25 Sep \u2014 on the box at workspace/memory/operational/foh-training-topics.md; Lau settling it in the L&D chat, deck confirmed by Wed 30 Sep"
    ],
    "pillar": "F1"
   },

@@ -2258,7 +2258,7 @@
        "w": "Sat 3 Oct, 3:30 PM"
       },
       {
-       "t": "FOH training pack being drafted (agent) \u2014 file location not yet confirmed; link it here once saved \u00b7 owner Emily",
+       "t": "FOH training topics pack drafted 25 Sep \u2014 on the box at workspace/memory/operational/foh-training-topics.md; Lau settling it in the L&D chat, deck confirmed by Wed 30 Sep",
        "s": "now",
        "w": "for Sat 3 Oct"
       }
@@ -2684,10 +2684,10 @@
      {
       "label": "FOH training pack drafted",
       "start": "2026-09-25",
-      "end": "2026-09-30",
-      "status": "now",
+      "end": "2026-09-25",
+      "status": "done",
       "who": "Lau \u00b7 Emily",
-      "note": "Being drafted by an agent; link the file once its location is confirmed."
+      "note": "Topics master list drafted 25 Sep (6 pillars: money & pricing, systems, patient conversations, contract duties, conduct, operations + 4 draft scripts). On the box at workspace/memory/operational/foh-training-topics.md. Lau to settle it in the L&D chat and confirm the deck by Wed 30 Sep."
      }
     ]
    },
@@ -2856,6 +2856,6 @@
  },
  "meta": {
   "asof": "MON 28 SEP 2026",
-  "updated": "2026-09-28T16:23:17+08:00"
+  "updated": "2026-09-28T16:26:05+08:00"
  }
 }
