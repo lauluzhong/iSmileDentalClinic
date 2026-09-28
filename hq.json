@@ -1209,7 +1209,7 @@
        "w": "meeting held Wed 23 Sep (moved from 15 Sep)"
       },
       {
-       "t": "Agreements sent without the 10% deduction \u2014 Ling, Amy, Mah, Azelia, Priscilla (Priscilla signed); specialists Yeoh + Joan not yet sent",
+       "t": "Agreements sent without the 10% deduction \u2014 Ling, Amy, Mah, Azelia, Priscilla (Priscilla and Amy signed); specialists Yeoh + Joan not yet sent",
        "s": "done",
        "w": "25 Sep"
       },
@@ -1234,7 +1234,7 @@
      "from_initiatives": [
       18
      ],
-     "next": "The deduction is gone from the agreements sent 25 Sep (Priscilla signed). Collect the remaining signed copies by Wed 30 Sep, then switch the locum engine to the agreement basis. Recosted 28 Sep: about \u2212RM30.4k a year (not \u2212RM57k): under the 25 Sep shortfall-only rule doctors still bear below-floor concessions. FY2026 is hit Oct\u2013Dec only: \u2212RM13.1k if the minimum-fee floor works, \u2212RM26.1k if not.",
+     "next": "The deduction is gone from the agreements sent 25 Sep (Priscilla and Amy signed; Ling, Mah and Azelia due Wed 30 Sep). Collect the remaining signed copies by Wed 30 Sep, then switch the locum engine to the agreement basis. Recosted 28 Sep: about \u2212RM30.4k a year (not \u2212RM57k): under the 25 Sep shortfall-only rule doctors still bear below-floor concessions. FY2026 is hit Oct\u2013Dec only: \u2212RM13.1k if the minimum-fee floor works, \u2212RM26.1k if not.",
      "endMonth": "2026-12"
     },
     {
@@ -1270,11 +1270,16 @@
       {
        "t": "Minimum fees: each doctor texts Dr Ong their minimums; Dr Ong updates them personally",
        "s": "now",
-       "w": "from the 23 Sep meeting"
+       "w": "must be complete by Wed 30 Sep \u2014 rules start 1 Oct"
       },
       {
        "t": "Doctor briefing: discount lines, never touch production price",
        "s": ""
+      },
+      {
+       "t": "Lau checks with Mom that every minimum fee the doctors sent her has been entered; reminds Emily at the Tue 29 Sep meeting",
+       "s": "next",
+       "w": "Tue 29 \u2013 Wed 30 Sep"
       }
      ],
      "open": [
@@ -1289,7 +1294,12 @@
       29
      ],
      "next": "Collect each doctor's minimum fees (via Dr Ong) so the capped-deduction rule can run. Keying rule still applies: a reduction is a discount line in OpenDent, never an edited price \u2014 this is also what AutoCount needs (25 Sep).",
-     "endMonth": "2026-12"
+     "endMonth": "2026-12",
+     "flag": {
+      "k": "due",
+      "by": "2026-09-30",
+      "w": "Minimum fees must be live before the new rules start on 1 Oct."
+     }
     },
     {
      "id": "l5",
@@ -2863,7 +2873,8 @@
     "name": "Doctors' contracts",
     "color": "p2",
     "streams": [
-     "l1"
+     "l1",
+     "l4"
     ],
     "owner": "Lau",
     "summary": "Updated agreements sent to five non-specialists; one signed copy back and four outstanding.",
@@ -2924,7 +2935,33 @@
       "start": "2026-09-23",
       "status": "now",
       "who": "Dr Ong",
-      "note": "Dr Ong updates the minimum fees personally. No due date set."
+      "note": "Dr Ong updates the minimum fees personally. Must be complete by Wed 30 Sep: the new rules start 1 Oct and the FY2026 model assumes the minimum-fee floor is live (if not, the 10% abolition costs ~2\u00d7 \u2014 ~RM13k more this year).",
+      "end": "2026-09-30"
+     },
+     {
+      "label": "Lau reminds Emily: minimum fees must be live before 1 Oct",
+      "start": "2026-09-29",
+      "status": "next",
+      "locked": true,
+      "time": "3:00 PM",
+      "who": "Lau \u00b7 Emily",
+      "note": "At the Tue 29 Sep meeting with Emily."
+     },
+     {
+      "label": "Lau checks with Mom that every minimum fee the doctors sent her has been entered",
+      "start": "2026-09-29",
+      "end": "2026-09-30",
+      "status": "next",
+      "who": "Lau",
+      "note": "Essential: the doctors texted their minimum fees to Dr Ong after the 23 Sep meeting; confirm none are missing before the 1 Oct start."
+     },
+     {
+      "label": "Minimum fees live \u2014 new agreement rules start",
+      "start": "2026-10-01",
+      "status": "next",
+      "locked": true,
+      "who": "Dr Ong \u00b7 Emily",
+      "note": "Discount deductions are capped at the shortfall below the minimum fee from this date (Lau ruling 25 Sep)."
      },
      {
       "label": "Collect staff-family onlay payment (Dr Joan case)",
@@ -2964,6 +3001,6 @@
  },
  "meta": {
   "asof": "MON 28 SEP 2026",
-  "updated": "2026-09-28T18:51:54+08:00"
+  "updated": "2026-09-28T19:01:14+08:00"
  }
 }

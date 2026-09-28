@@ -1,8 +1,18 @@
 {
- "updated": "2026-09-28T18:51:54+08:00",
+ "updated": "2026-09-28T19:01:14+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
   "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
@@ -19,16 +29,6 @@
   },
   "Emily": {
    "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -372,7 +372,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "Abolish it clinic-wide; offset by doctors bearing their own discounts. Cleaner \u2014 especially for Dr Jia Yin \u2014 but a real net cost.",
-   "next": "The deduction is gone from the agreements sent 25 Sep (Priscilla signed). Collect the remaining signed copies by Wed 30 Sep, then switch the locum engine to the agreement basis. Recosted 28 Sep: about \u2212RM30.4k a year (not \u2212RM57k): under the 25 Sep shortfall-only rule doctors still bear below-floor concessions. FY2026 is hit Oct\u2013Dec only: \u2212RM13.1k if the minimum-fee floor works, \u2212RM26.1k if not.",
+   "next": "The deduction is gone from the agreements sent 25 Sep (Priscilla and Amy signed; Ling, Mah and Azelia due Wed 30 Sep). Collect the remaining signed copies by Wed 30 Sep, then switch the locum engine to the agreement basis. Recosted 28 Sep: about \u2212RM30.4k a year (not \u2212RM57k): under the 25 Sep shortfall-only rule doctors still bear below-floor concessions. FY2026 is hit Oct\u2013Dec only: \u2212RM13.1k if the minimum-fee floor works, \u2212RM26.1k if not.",
    "dept": "finance",
    "lens": "cost",
    "endMonth": "2026-12",
@@ -382,7 +382,7 @@
     "Direction chosen: remove, offset via doctor-borne discounts",
     "Approved by parents, with the discount-approval threshold amended to 15%",
     "Struck from Schedule 2; walked through with the doctors",
-    "Agreements sent without the 10% deduction \u2014 Ling, Amy, Mah, Azelia, Priscilla (Priscilla signed); specialists Yeoh + Joan not yet sent",
+    "Agreements sent without the 10% deduction \u2014 Ling, Amy, Mah, Azelia, Priscilla (Priscilla and Amy signed); specialists Yeoh + Joan not yet sent",
     "Remaining signed copies back \u2014 the rule takes effect with the signed agreements",
     "Locum engine switched to the agreement basis (Financial session built the draft 25 Sep; live engine unchanged until then)"
    ],
@@ -406,7 +406,8 @@
     "Approved 2 Sep at a 15% gate; carried into the agreements sent 25 Sep",
     "LZ ruling: a discount is deducted from the doctor only up to the shortfall below the minimum fee \u2014 deductible = max(0, minimum fee \u2212 net collected)",
     "Minimum fees: each doctor texts Dr Ong their minimums; Dr Ong updates them personally",
-    "Doctor briefing: discount lines, never touch production price"
+    "Doctor briefing: discount lines, never touch production price",
+    "Lau checks with Mom that every minimum fee the doctors sent her has been entered; reminds Emily at the Tue 29 Sep meeting"
    ],
    "pillar": "P2"
   },
