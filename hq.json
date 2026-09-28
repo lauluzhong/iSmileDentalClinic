@@ -1490,7 +1490,7 @@
       {
        "t": "Emily \u2014 confirm the 45 \"to confirm\" + 2 \"check\" rows in the Clinic-Covered Persons Register (only she knows who they are). The register drives BOTH the blast exclusions and the locum calculation.",
        "s": "now",
-       "w": "before the 5\u20137 Oct (+ spill Thu 8) campaign window"
+       "w": "before the 6\u20139 Oct campaign window"
       },
       {
        "t": "Confirm the family/shared-number recipient list with front desk",
@@ -1515,7 +1515,7 @@
       {
        "t": "Planned campaign window \u2014 W1 Tue 6 \u00b7 W2 Wed 7 \u00b7 W3 Thu 8\u2013Fri 9 Oct",
        "s": "next",
-       "w": "5\u20137 Oct (+ spill Thu 8)"
+       "w": "6\u20139 Oct"
       },
       {
        "t": "Lau confirms the FOH training deck",
@@ -2859,7 +2859,7 @@
       "note": "Setup complexity requires verification of discounted-individual exclusions and the correct recipient for shared-number families."
      },
      {
-      "label": "Blast window \u2014 5\u20137 Oct (+ spill Thu 8)",
+      "label": "Blast window \u2014 6\u20139 Oct",
       "start": "2026-10-06",
       "end": "2026-10-09",
       "status": "next",
@@ -3001,6 +3001,6 @@
  },
  "meta": {
   "asof": "MON 28 SEP 2026",
-  "updated": "2026-09-28T19:06:10+08:00"
+  "updated": "2026-09-28T19:06:30+08:00"
  }
 }
