@@ -1,7 +1,17 @@
 {
- "updated": "2026-09-28T16:38:47+08:00",
+ "updated": "2026-09-28T18:37:18+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
+  "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Emily": {
    "init": "E",
    "role": "",
@@ -19,16 +29,6 @@
   },
   "Dr Ong": {
    "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -148,7 +148,7 @@
    "status": "active",
    "owner": "Emily",
    "why": "AutoCount Cloud HRMS bought: RM1,139.05/yr \u2014 Payroll 14 \u00b7 E-leave & E-claim 12 \u00b7 E-attendance 10. Attendance feeds the same environment.",
-   "next": "Bought and registered 27 Aug. Next: employee data entry and configuration, then choose the cut-over month for the first parallel payroll run.",
+   "next": "Training is done. Lau to check with Emily whether a follow-up is due \u2014 employee data entry, configuration, and the cut-over month were the open items from 27 Aug.",
    "dept": "finance",
    "lens": "efficiency",
    "endMonth": null,
@@ -158,7 +158,9 @@
     "Invoice paid by Emily",
     "Cloud Payroll registration + company profile created (ismiledental76@)",
     "Employee data entry + configuration",
-    "First parallel payroll run"
+    "First parallel payroll run",
+    "HRMS training held",
+    "Lau checks with Emily whether a follow-up is due after the training (data entry, configuration, cut-over month)"
    ],
    "pillar": "P1"
   },

@@ -613,6 +613,16 @@
       {
        "t": "First parallel payroll run",
        "s": ""
+      },
+      {
+       "t": "HRMS training held",
+       "s": "done",
+       "w": "date not recorded"
+      },
+      {
+       "t": "Lau checks with Emily whether a follow-up is due after the training (data entry, configuration, cut-over month)",
+       "s": "now",
+       "w": "owner Lau"
       }
      ],
      "open": [
@@ -625,7 +635,7 @@
      "from_initiatives": [
       38
      ],
-     "next": "Bought and registered 27 Aug. Next: employee data entry and configuration, then choose the cut-over month for the first parallel payroll run."
+     "next": "Training is done. Lau to check with Emily whether a follow-up is due \u2014 employee data entry, configuration, and the cut-over month were the open items from 27 Aug."
     },
     {
      "id": "d6",
@@ -2402,8 +2412,8 @@
       },
       {
        "t": "Bake the approved abolition of the 10% deduction into Model v6 and reforecast the FY2026 landing",
-       "s": "",
-       "w": "2 Sep"
+       "s": "next",
+       "w": "not done yet (Lau, 28 Sep) \u00b7 Financial session"
       }
      ],
      "open": [
@@ -2949,6 +2959,6 @@
  },
  "meta": {
   "asof": "MON 28 SEP 2026",
-  "updated": "2026-09-28T16:38:47+08:00"
+  "updated": "2026-09-28T18:37:18+08:00"
  }
 }
