@@ -3,8 +3,8 @@
   {
    "hot": false,
    "k": "Decision pending",
-   "t": "Cold reactivation blast window: 5\u20137 Oct (tentative)",
-   "w": "Confirm the send window after staff verification; no blast date is confirmed.",
+   "t": "Cold reactivation blast window: 6\u20139 Oct (planned, same week as go-live)",
+   "w": "Lau set 6\u20139 Oct on 28 Sep (\"probably\"): W1 Tue 6 \u00b7 W2 Wed 7 \u00b7 W3 Thu 8\u2013Fri 9 at 1,800/day. Lock it once the 2 Oct prep lands.",
    "ref": "g1"
   }
  ],
@@ -182,7 +182,7 @@
    "l": "OpenDent recipient appointment check",
    "s": "",
    "iso": "2026-10-02",
-   "tip": "Before the tentative 5\u20137 October campaign window, Lau checks OpenDent on Friday 2 or Saturday 3 October for planned recipients who already made an appointment, so they can be removed or handled appropriately."
+   "tip": "Before the planned 6\u20139 October campaign window, Lau checks OpenDent on Friday 2 or Saturday 3 October for planned recipients who already made an appointment, so they can be removed or handled appropriately."
   },
   {
    "d": "3 Oct",
@@ -192,18 +192,18 @@
    "tip": "Aiming for front-desk training from 3:30 PM after the clinic closes, dinner after. Emily checks the girls\u2019 availability at the 09:00 huddle on Wed 23 Sep; deck work runs 28\u201330 Sep and Lau confirms the deck by Wed 30 Sep. Training remains tentative."
   },
   {
-   "d": "5\u20137 Oct",
-   "l": "Cold reactivation blast \u2014 tentative window",
+   "d": "6\u20139 Oct",
+   "l": "Cold reactivation blast \u2014 planned 6\u20139 Oct",
    "s": "",
-   "iso": "2026-10-05",
-   "tip": "Tentative/planned window only, pending the 23 September exclusion and shared-number recipient checks, MiniCRM configuration by 25 September, and Lau's OpenDent appointment check on 2 or 3 October. No blast date is confirmed."
+   "iso": "2026-10-06",
+   "tip": "Set by Lau 28 Sep (probable): Wave 1 Tue 6 Oct, Wave 2 Wed 7 Oct, Wave 3 Thu 8 \u2013 Fri 9 Oct (over the 1,800/day cap, so two days). All prep lands by Fri 2 Oct: front-desk pass, Emily confirms the register rows, upload test, final rebuild, Lau OpenDent appointment check."
   },
   {
-   "d": "5 Oct",
+   "d": "6 Oct",
    "l": "Go live \u2014 new digital receipts",
    "s": "",
-   "iso": "2026-10-05",
-   "tip": "Paper receipts retired. Lau and Emily on standby in person that week."
+   "iso": "2026-10-06",
+   "tip": "Moved from 5 Oct at the 25 Sep run-through. Paper receipts retired; invoices 1\u20135 Oct approved by hand. Lau and Emily on standby that week. Blocked until Jason fixes the SQL insert error."
   },
   {
    "d": "26 Oct",
@@ -1404,7 +1404,7 @@
       {
        "t": "Emily \u2014 confirm the 45 \"to confirm\" + 2 \"check\" rows in the Clinic-Covered Persons Register (only she knows who they are). The register drives BOTH the blast exclusions and the locum calculation.",
        "s": "now",
-       "w": "before the 5\u20137 Oct campaign window"
+       "w": "before the 6\u20139 Oct campaign window"
       },
       {
        "t": "Confirm the family/shared-number recipient list with front desk",
@@ -1427,9 +1427,9 @@
        "w": "Fri 2 or Sat 3 Oct"
       },
       {
-       "t": "Tentative/planned campaign window \u2014 5\u20137 Oct, pending checks and configuration",
+       "t": "Planned campaign window \u2014 W1 Tue 6 \u00b7 W2 Wed 7 \u00b7 W3 Thu 8\u2013Fri 9 Oct",
        "s": "next",
-       "w": "5\u20137 Oct"
+       "w": "6\u20139 Oct"
       },
       {
        "t": "Lau confirms the FOH training deck",
@@ -1448,7 +1448,7 @@
       "<b>Due Wed 23 Sep:</b> confirm the excluded list and the family/shared-number recipient list; Emily checks the girls' Sat 3 Oct FOH availability at the 09:00 huddle.",
       "<b>Due EOD Fri 25 Sep:</b> configure the MiniCRM/CRM campaign after the staff checks.",
       "<b>Before the tentative window:</b> Lau checks OpenDent on Fri 2 or Sat 3 Oct for planned recipients who already made an appointment, so they can be removed or handled appropriately.",
-      "<b>Tentative/planned:</b> 5\u20137 Oct 2026, pending the list checks, configuration and OpenDent appointment check; no blast date is confirmed.",
+      "<b>Planned:</b> 6\u20139 Oct 2026 (Lau, 28 Sep \u2014 probable), same week as AutoCount go-live; all prep by Fri 2 Oct.",
       "<b>FOH training deck:</b> work runs Mon 28\u2013Wed 30 Sep; Lau confirms it by Wed 30 Sep for the tentative Sat 3 Oct training.",
       "<b>UI terminology changed by Code Capsule 7 Sep:</b> the flow is now Audience Filters \u2192 Audience List \u2192 Recipients. \"Selected Patients\" is renamed \"Recipients\"; \"Audience\" is the filtered pool, \"Recipients\" the patients actually selected to receive the campaign.",
       "<b>Daily cap: the system allows 2,000/day; we set ours at 1,800</b> to leave headroom for the other automations sharing the number (recall, birthday). At 1,800 the 4,011 sends clear in three days.",
@@ -1466,7 +1466,7 @@
      "from_initiatives": [
       28
      ],
-     "next": "By Wed 23 Sep confirm exclusions and shared-number recipients; configure MiniCRM by EOD Fri 25 Sep, then Lau checks OpenDent on 2 or 3 Oct before any 5\u20137 Oct send.",
+     "next": "Prep lands by Fri 2 Oct (front-desk pass, Emily confirms register rows, upload test, final rebuild); Lau checks OpenDent 2 or 3 Oct; send W1 Tue 6 \u00b7 W2 Wed 7 \u00b7 W3 Thu 8\u2013Fri 9 Oct.",
      "endMonth": "2026-10"
     },
     {
@@ -2595,7 +2595,7 @@
      "h5"
     ],
     "owner": "Lau \u00b7 Emily \u00b7 Code Capsule",
-    "summary": "AutoCount is installed on both new front-desk PCs. On 25 Sep, the team will validate the actual-data receipt and e-invoice journey, including FIFO, partial payments and the downstairs sub-account data flow, before training and go-live on 5 Oct.",
+    "summary": "AutoCount is installed on both new front-desk PCs. On 25 Sep, the team will validate the actual-data receipt and e-invoice journey, including FIFO, partial payments and the downstairs sub-account data flow, before training and go-live on Tue 6 Oct (moved from 5 Oct).",
     "items": [
      {
       "label": "OpenDent migrated to the new server",
@@ -2670,7 +2670,7 @@
      },
      {
       "label": "Go live \u2014 new digital receipts",
-      "start": "2026-10-05",
+      "start": "2026-10-06",
       "status": "next",
       "locked": true,
       "who": "Front desk \u00b7 Lau + Emily on standby",
@@ -2694,7 +2694,7 @@
      "g1"
     ],
     "owner": "Lau \u00b7 Code Capsule",
-    "summary": "Cold reactivation campaign paused pending the 23 Sep list checks and MiniCRM configuration by 25 Sep; 5\u20137 Oct remains a tentative/planned window pending the 2\u20133 Oct OpenDent appointment check.",
+    "summary": "Cold reactivation blast planned 6\u20139 Oct (Lau, 28 Sep): one wave a day, W3 over two days; prep by Fri 2 Oct incl. the OpenDent appointment check.",
     "items": [
      {
       "label": "Emily checks FOH availability + confirm excluded and family/shared-number lists",
@@ -2736,9 +2736,9 @@
       "note": "Setup complexity requires verification of discounted-individual exclusions and the correct recipient for shared-number families."
      },
      {
-      "label": "Tentative blast window \u2014 5\u20137 Oct",
-      "start": "2026-10-05",
-      "end": "2026-10-07",
+      "label": "Blast window \u2014 6\u20139 Oct",
+      "start": "2026-10-06",
+      "end": "2026-10-09",
       "status": "next",
       "who": "MiniCRM (after verification)",
       "note": "Tentative/planned only. Pending the 23 Sep list checks, configuration by EOD 25 Sep, and Lau's OpenDent check on 2 or 3 Oct; no blast date is confirmed."
@@ -2850,7 +2850,7 @@
   ]
  },
  "meta": {
-  "asof": "SAT 26 SEP 2026",
-  "updated": "2026-09-26T02:23:35+08:00"
+  "asof": "MON 28 SEP 2026",
+  "updated": "2026-09-28T11:42:44+08:00"
  }
 }

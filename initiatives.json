@@ -1,24 +1,9 @@
 {
- "updated": "2026-09-26T02:23:35+08:00",
+ "updated": "2026-09-28T11:42:44+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Emily": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Lydia": {
    "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
-   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +12,23 @@
    "role": "",
    "color": "#45C4FF"
   },
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Code Capsule": {
    "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -442,7 +442,7 @@
    "status": "review",
    "owner": "Lau",
    "why": "The clearest Q4 lever: 4,201 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
-   "next": "By Wed 23 Sep confirm exclusions and shared-number recipients; configure MiniCRM by EOD Fri 25 Sep, then Lau checks OpenDent on 2 or 3 Oct before any 5\u20137 Oct send.",
+   "next": "Prep lands by Fri 2 Oct (front-desk pass, Emily confirms register rows, upload test, final rebuild); Lau checks OpenDent 2 or 3 Oct; send W1 Tue 6 \u00b7 W2 Wed 7 \u00b7 W3 Thu 8\u2013Fri 9 Oct.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-10",
@@ -468,7 +468,7 @@
     "Configure the MiniCRM/CRM campaign after verification",
     "FOH training deck work",
     "Lau checks OpenDent for planned recipients who already made an appointment; remove or handle appropriately",
-    "Tentative/planned campaign window \u2014 5\u20137 Oct, pending checks and configuration",
+    "Planned campaign window \u2014 W1 Tue 6 \u00b7 W2 Wed 7 \u00b7 W3 Thu 8\u2013Fri 9 Oct",
     "Lau confirms the FOH training deck",
     "Waves 2\u20133 \u00b7 funnel read via campaign tags"
    ],
