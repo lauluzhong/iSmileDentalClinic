@@ -400,8 +400,8 @@
     },
     {
      "id": "d2",
-     "dot": "wait",
-     "chip": "parked \u00b7 until RM3M revenue",
+     "dot": "now",
+     "chip": "ON anyway \u00b7 issue on request",
      "name": "E-invoicing readiness",
      "one": "The original why: transactions >RM10k need e-invoices; LHDN mandate lands Jan 2027.",
      "steps": [
@@ -410,9 +410,14 @@
        "s": "done"
       },
       {
-       "t": "Run-through held \u2014 e-invoicing stays OFF until the clinic reaches the RM3M revenue threshold; can be reactivated later",
+       "t": "Run-through held \u2014 Vision Tech advised e-invoicing can stay off until the RM3M threshold (later reversed by LZ, 28 Sep)",
        "s": "done",
        "w": "25 Sep"
+      },
+      {
+       "t": "Ask Leow to enable e-invoicing (LZ 28 Sep: act as though required)",
+       "s": "now",
+       "w": "Emily/Lau \u00b7 before go-live 6 Oct"
       },
       {
        "t": "E-invoice format + submission flow configured",
@@ -430,7 +435,7 @@
      "dept": "tech",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Parked: not required until the clinic crosses the RM3M threshold (confirmed with Vision Tech 25 Sep). Receipts go live 6 Oct without e-invoicing; revisit when revenue approaches the threshold."
+     "next": "LZ 28 Sep reversed 'off until RM3M': act as though e-invoicing is required and issue on request. Emily/Lau ask Leow to enable it; mention at the Sat 3 Oct training; full training before 1 Jan 2027."
     },
     {
      "id": "d3",
@@ -3005,6 +3010,6 @@
  },
  "meta": {
   "asof": "MON 28 SEP 2026",
-  "updated": "2026-09-28T22:25:44+08:00"
+  "updated": "2026-09-28T23:15:23+08:00"
  }
 }
