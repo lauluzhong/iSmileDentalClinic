@@ -206,11 +206,11 @@
    "tip": "Moved from 5 Oct at the 25 Sep run-through. Paper receipts retired; invoices 1\u20135 Oct approved by hand. Lau and Emily on standby that week. Blocked until Jason fixes the SQL insert error."
   },
   {
-   "d": "26 Oct",
+   "d": "27 Oct",
    "l": "Dr Jia Yin's first day (5 days/wk)",
    "s": "",
-   "iso": "2026-10-26",
-   "tip": "Confirmed first date: Monday 26 October 2026. Dr Jia Yin joins 5 days/wk (+2 Elite Saturdays during her ~6-month transition). RM7k floor or 40%, whichever higher, for 6 months."
+   "iso": "2026-10-27",
+   "tip": "Confirmed first date: Tuesday 27 October 2026 (moved from 26th). Dr Jia Yin joins 5 days/wk (+2 Elite Saturdays during her ~6-month transition). RM7k floor or 40%, whichever higher, for 6 months."
   },
   {
    "d": "Q4",
@@ -382,12 +382,12 @@
       {
        "t": "OpenDent glitch: two patients' old records (a 2023 account; a 2022 monthly payment plan of Dr Amy's) suddenly re-dated to today as treatment plans \u2014 one now shows the clinic owing the patient ~RM9k. Emily posts screenshots in the CC group; raise with Jason at the Wed 30 Sep meeting",
        "s": "now",
-       "w": "Wed 30 Sep \u00b7 raised Emily mtg 29 Sep"
+       "w": "Jason's staff checking Wed 30 Sep (with the OD\u2192AC SQL bug) \u00b7 follow up EOD 30 Sep if no update"
       },
       {
-       "t": "Decide which downstairs PC issues receipts from 6 Oct: Joanna's PC first (Emily), or the new PC on Elaine's monitor so all receipts go digital (Lau) \u2014 Elaine's PC runs Windows 7 and cannot run AutoCount",
-       "s": "now",
-       "w": "before Sat 3 Oct \u00b7 Lau + Emily"
+       "t": "Joanna's old laptop (newer Windows) replaces the broken new PC for receipts; the broken PC has gone to China for warranty",
+       "s": "done",
+       "w": "agreed 29 Sep"
       },
       {
        "t": "Import historical accounting data: move 10 years into AutoCount (LHDN needs 7), older years kept as a raw database; Emily confirms with Leow that the import can happen after go-live",
@@ -421,7 +421,7 @@
     {
      "id": "d2",
      "dot": "now",
-     "chip": "\u26a0\ufe0f reversed again 29 Sep \u00b7 confirm with Cindy",
+     "chip": "OFF \u00b7 easy no if monthly reporting",
      "name": "E-invoicing readiness",
      "one": "The original why: transactions >RM10k need e-invoices; LHDN mandate lands Jan 2027.",
      "steps": [
@@ -450,7 +450,7 @@
       {
        "t": "Lau checks with Cindy: can we issue an e-invoice on request below RM3M without monthly LHDN reporting? If not, stay off until the threshold",
        "s": "now",
-       "w": "Lau \u00b7 before go-live 6 Oct"
+       "w": "Cindy pending Lau's reply"
       }
      ],
      "open": [
@@ -460,7 +460,7 @@
      "dept": "tech",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "29 Sep (Emily mtg): Emily says issuing ANY e-invoice to a patient obliges us to report it to LHDN; Lau: 'then we don't do'. This reverses the 28 Sep 'ON anyway' ruling. Lau confirms with Cindy (accountant) before anyone asks Leow to enable it."
+     "next": "LZ 29 Sep: we won't issue e-invoices if doing so means submitting to LHDN monthly. Quick check says it does (every e-invoice goes through MyInvois; adopters also file a monthly consolidated e-invoice for the rest). Stays off unless Cindy says otherwise."
     },
     {
      "id": "d3",
@@ -496,7 +496,7 @@
       {
        "t": "Payment methods set up in AutoCount receive-payment: credit card, Touch 'n Go, DuitNow, bank transfer \u2014 who sets it up (Leow or us)? \u2014 Leow's question: which GL code does each payment type post to? Lau is calling Cindy about how GL is done today; aim for a separate code per type (cash, QR, card, e-wallet) so card/QR fees can be reconciled",
        "s": "now",
-       "w": "Lau \u2194 Cindy \u00b7 before Sat 3 Oct"
+       "w": "Cindy pending Lau's reply"
       },
       {
        "t": "WhatsApp quick reply for the desk: paste after the receipt link, with the Google review ask (fallback if AutoCount's message cannot be edited) \u2014 Lau",
@@ -728,8 +728,8 @@
       },
       {
        "t": "Lau shares the locum sheet with Emily; Emily notes the edge cases and rules as she finds them",
-       "s": "now",
-       "w": "Lau \u00b7 this week"
+       "s": "next",
+       "w": "no rush \u00b7 after go-live, before Emily runs October locum in the first week of Nov"
       }
      ],
      "open": [
@@ -1148,12 +1148,12 @@
        "w": "25 Sep"
       },
       {
-       "t": "Send to the two specialists (Dr Yeoh, Dr Joan) \u2014 a thinner version without the everyday clauses; Lydia to trim",
-       "s": "",
+       "t": "Lydia reviews and thins the contract for Dr Yeoh and Dr Joan (not day-to-day doctors), then send",
+       "s": "now",
        "w": "Lau \u2192 Lydia"
       },
       {
-       "t": "All signed except Dr Ling and Dr Ong (29 Sep)",
+       "t": "All signed except Dr Ling (Dr Ong is employed \u2014 no contractor agreement needed)",
        "s": "now",
        "w": "by Wed 30 Sep"
       },
@@ -1740,7 +1740,7 @@
      "dot": "now",
      "chip": "signed \u00b7 starts Tue 27 Oct",
      "name": "Dr Jia Yin (new doctor)",
-     "one": "She tendered on a handshake for a 26 Oct start. Her contract was sent on 6 Sep and signed and returned on 9 Sep; what is left is the two conversations that follow.",
+     "one": "She tendered on a handshake for a 27 Oct start. Her contract was sent on 6 Sep and signed and returned on 9 Sep; what is left is the two conversations that follow.",
      "steps": [
       {
        "t": "Terms agreed: RM7k/6mo or 40%, whichever higher",
@@ -1753,7 +1753,7 @@
        "w": "20 Aug"
       },
       {
-       "t": "First date confirmed with her boss: Mon 26 Oct",
+       "t": "First date confirmed with her boss: Tue 27 Oct",
        "s": "done",
        "w": "28 Aug"
       },
@@ -1802,7 +1802,7 @@
      ],
      "open": [
       "<b>Contract sent to Dr Jia Yin on 6 Sep.</b> Waiting on her signature.",
-      "Close in the letter: 55k\u219250% tier (leaning: keep, consistency), Oct pro-rating (26 Oct start = part month)",
+      "Close in the letter: 55k\u219250% tier (leaning: keep, consistency), Oct pro-rating (27 Oct start = part month)",
       "Ling arrangement: apprentice override vs independent \u2014 fair remuneration expected; design as clinic-paid supervision fee, not fee-splitting",
       "<b>She builds her own book</b> \u2014 the RM7k floor is the ramp support; blast + call-list patients route to her",
       "From the initiatives board: Shape under discussion is a guaranteed monthly minimum or the calculated fee, whichever is higher, for the first six months. That plus supervision looks a lot like employment, so the engagement basis needs a legal answer before it is offered. Communication to the existing doctors remains the main risk."
@@ -2374,9 +2374,9 @@
        "s": ""
       },
       {
-       "t": "Hire one front-desk person to replace Joanna. Meanwhile give Erincy and Ruth structured training and a fair chance (Emily doubts they'll suit it); fallback Eida; Jessie stays on the DSA track",
-       "s": "now",
-       "w": "Lau + Emily"
+       "t": "Longer term (not a go-live blocker): Joanna leaves by end Q1 2027 \u2014 hire one replacement; give Erincy and Ruth structured training meanwhile; fallback Eida; Jessie stays DSA",
+       "s": "next",
+       "w": "plan before Q1 2027"
       }
      ],
      "open": [
@@ -2458,7 +2458,7 @@
       {
        "t": "Training day Sat 3 Oct from 3:30 PM, downstairs after the last patient; dinner nearby afterwards (tell the girls it's training + dinner). Lau sends Emily the deck outline Wed 30 Sep; Emily texts anything to add. No DSA content \u2014 too much at once",
        "s": "now",
-       "w": "Lau \u2192 Emily Wed 30 Sep"
+       "w": "Lau sends first-cut outline to Emily Wed 30 Sep"
       },
       {
        "t": "Rulings for the deck: always 'patient', never 'client' (Dr Ling asked Joanna to say client \u2014 Lau to square it with her); answer price questions with confidence ('these are our fees'), not 'let me check with the doctor'; keep supplier brochures off the front desk (doctors hand them to their own target patients)",
@@ -3113,7 +3113,7 @@
      "g4"
     ],
     "owner": "Lau",
-    "summary": "Contract out; first day 26 Oct.",
+    "summary": "Contract out; first day 27 Oct.",
     "items": [
      {
       "label": "Contract sent to Dr Jia Yin",
@@ -3134,6 +3134,6 @@
  },
  "meta": {
   "asof": "TUE 29 SEP 2026",
-  "updated": "2026-09-29T23:27:52+08:00"
+  "updated": "2026-09-29T23:28:14+08:00"
  }
 }

@@ -1,9 +1,9 @@
 {
- "updated": "2026-09-29T23:27:52+08:00",
+ "updated": "2026-09-29T23:28:14+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Emily": {
-   "init": "E",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -12,17 +12,17 @@
    "role": "",
    "color": "#45C4FF"
   },
+  "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Lau": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
+  "Emily": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
@@ -72,7 +72,7 @@
     "Training for front-of-house staff + dinner (Leow not attending \u2014 Lau + Emily teach; Emily + Joanna = on-ground contacts)",
     "Go live \u2014 new digital receipts (Lau and Emily on standby that week)",
     "OpenDent glitch: two patients' old records (a 2023 account; a 2022 monthly payment plan of Dr Amy's) suddenly re-dated to today as treatment plans \u2014 one now shows the clinic owing the patient ~RM9k. Emily posts screenshots in the CC group; raise with Jason at the Wed 30 Sep meeting",
-    "Decide which downstairs PC issues receipts from 6 Oct: Joanna's PC first (Emily), or the new PC on Elaine's monitor so all receipts go digital (Lau) \u2014 Elaine's PC runs Windows 7 and cannot run AutoCount",
+    "Joanna's old laptop (newer Windows) replaces the broken new PC for receipts; the broken PC has gone to China for warranty",
     "Import historical accounting data: move 10 years into AutoCount (LHDN needs 7), older years kept as a raw database; Emily confirms with Leow that the import can happen after go-live",
     "ABSS licence expires end Oct (~RM1,000\u20131,200/yr to renew): don't renew now; decide mid-Oct if AutoCount has problems"
    ],
@@ -84,7 +84,7 @@
    "status": "active",
    "owner": "Code Capsule",
    "why": "The original why: transactions >RM10k need e-invoices; LHDN mandate lands Jan 2027.",
-   "next": "29 Sep (Emily mtg): Emily says issuing ANY e-invoice to a patient obliges us to report it to LHDN; Lau: 'then we don't do'. This reverses the 28 Sep 'ON anyway' ruling. Lau confirms with Cindy (accountant) before anyone asks Leow to enable it.",
+   "next": "LZ 29 Sep: we won't issue e-invoices if doing so means submitting to LHDN monthly. Quick check says it does (every e-invoice goes through MyInvois; adopters also file a monthly consolidated e-invoice for the rest). Stays off unless Cindy says otherwise.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": null,
@@ -353,8 +353,8 @@
     "In-person walkthrough and Q&A at the clinic \u2014 all doctors except the specialists (Yeoh, Joan)",
     "Update the 30-day provision and clause 3.1 wording before sending",
     "Revised contracts sent to the five non-specialist doctors",
-    "Send to the two specialists (Dr Yeoh, Dr Joan) \u2014 a thinner version without the everyday clauses; Lydia to trim",
-    "All signed except Dr Ling and Dr Ong (29 Sep)",
+    "Lydia reviews and thins the contract for Dr Yeoh and Dr Joan (not day-to-day doctors), then send",
+    "All signed except Dr Ling (Dr Ong is employed \u2014 no contractor agreement needed)",
     "Lydia's invoice (RM15k): Emily pays in three RM5k instalments, sending the first today",
     "First pay-timing change: clean cut 1 Oct; the first locum run under the new rules pays 10 Nov"
    ],
@@ -553,7 +553,7 @@
    "title": "Dr Jia Yin (new doctor)",
    "status": "active",
    "owner": "Lau",
-   "why": "She tendered on a handshake for a 26 Oct start. Her contract was sent on 6 Sep and signed and returned on 9 Sep; what is left is the two conversations that follow.",
+   "why": "She tendered on a handshake for a 27 Oct start. Her contract was sent on 6 Sep and signed and returned on 9 Sep; what is left is the two conversations that follow.",
    "next": "Have the Dr Ong practitioner chat and the Dr Ling chemistry/arrangement talk before announcing to Amy, Mah and the rest.",
    "dept": "clinical",
    "lens": "revenue",
@@ -562,7 +562,7 @@
    "tasks": [
     "Terms agreed: RM7k/6mo or 40%, whichever higher",
     "Boss talk done \u00b7 Elite 2 Sats/mo transition",
-    "First date confirmed with her boss: Mon 26 Oct",
+    "First date confirmed with her boss: Tue 27 Oct",
     "She has TENDERED \u2014 ahead of any paper",
     "Contractor agreement finalised and sent to Emily for review",
     "Ask Dr Jia Yin for personal information for Schedule 1",
@@ -830,7 +830,7 @@
     "Elaine calling lists issued",
     "Jessy FOH stretch posting running",
     "Erincy mileage building",
-    "Hire one front-desk person to replace Joanna. Meanwhile give Erincy and Ruth structured training and a fair chance (Emily doubts they'll suit it); fallback Eida; Jessie stays on the DSA track"
+    "Longer term (not a go-live blocker): Joanna leaves by end Q1 2027 \u2014 hire one replacement; give Erincy and Ruth structured training meanwhile; fallback Eida; Jessie stays DSA"
    ],
    "pillar": "F1"
   },
