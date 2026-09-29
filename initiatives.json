@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-29T14:42:13+08:00",
+ "updated": "2026-09-29T14:57:15+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
   "Code Capsule": {
@@ -12,8 +12,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
-   "init": "L",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -22,13 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
+  "Lau": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -821,7 +821,7 @@
    "status": "active",
    "owner": "Emily",
    "why": "The clinic has no SOP for issuing letters to patients \u2014 medical certificates, referral letters, insurance reports, quotations. Nobody had ever said whose job it was, and that gap caused real friction between a doctor and",
-   "next": "Lau settles the 14 open questions in the L&D chat; confirm the deck Wed 30 Sep; train Sat 3 Oct after the 3:30 PM close.",
+   "next": "Lau reviews the Google Slides draft and confirms by Wed 30 Sep; chase Dr Ling + Dr Ong sign-offs for slide 43 by Thu 1 Oct; load the v2 shortcuts on the clinic phone.",
    "dept": "people",
    "lens": "efficiency",
    "endMonth": "2026-11",
@@ -839,7 +839,8 @@
     "Letters: obtain the example from the office, then build the letterhead templates",
     "Check whether a clinic stamp can stand in for a doctor's signature on external letters",
     "Training aiming for Sat 3 Oct \u2014 Emily books the girls\u2019 time Tue 22 Sep; confirmation pending",
-    "FOH training pack refreshed 28 Sep (go-live 6 Oct, desk flow, discount line, 1 Oct fee rules, blast replies) \u2014 Lau settling 14 open questions in the L&D chat; deck confirmed by Wed 30 Sep"
+    "FOH training pack refreshed 28 Sep (go-live 6 Oct, desk flow, discount line, 1 Oct fee rules, blast replies) \u2014 Lau settling 14 open questions in the L&D chat; deck confirmed by Wed 30 Sep",
+    "Training deck draft v1 built 29 Sep (52 slides) \u2014 Google Slides 19CEkrQ2\u2026; Lau confirms by Wed 30 Sep"
    ],
    "pillar": "F1"
   },

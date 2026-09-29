@@ -2351,6 +2351,11 @@
        "t": "FOH training pack refreshed 28 Sep (go-live 6 Oct, desk flow, discount line, 1 Oct fee rules, blast replies) \u2014 Lau settling 14 open questions in the L&D chat; deck confirmed by Wed 30 Sep",
        "s": "now",
        "w": "for Sat 3 Oct"
+      },
+      {
+       "t": "Training deck draft v1 built 29 Sep (52 slides) \u2014 Google Slides 19CEkrQ2\u2026; Lau confirms by Wed 30 Sep",
+       "s": "now",
+       "w": "Wed 30 Sep"
       }
      ],
      "open": [
@@ -2364,7 +2369,7 @@
      "from_initiatives": [
       19
      ],
-     "next": "Lau settles the 14 open questions in the L&D chat; confirm the deck Wed 30 Sep; train Sat 3 Oct after the 3:30 PM close.",
+     "next": "Lau reviews the Google Slides draft and confirms by Wed 30 Sep; chase Dr Ling + Dr Ong sign-offs for slide 43 by Thu 1 Oct; load the v2 shortcuts on the clinic phone.",
      "endMonth": "2026-11",
      "flag": {
       "k": "due",
@@ -2780,9 +2785,9 @@
       "label": "Prepare and confirm the FOH training deck",
       "start": "2026-09-28",
       "end": "2026-09-30",
-      "status": "next",
+      "status": "now",
       "who": "Lau \u00b7 Emily",
-      "note": "Deck work runs Mon 28\u2013Wed 30 Sep; Lau must confirm the deck by Wed 30 Sep."
+      "note": "Draft v1 (52 slides) on Google Slides 29 Sep; Lau confirms by Wed 30 Sep."
      },
      {
       "label": "Training for front-of-house staff",
@@ -3010,6 +3015,6 @@
  },
  "meta": {
   "asof": "TUE 29 SEP 2026",
-  "updated": "2026-09-29T14:42:13+08:00"
+  "updated": "2026-09-29T14:57:15+08:00"
  }
 }
