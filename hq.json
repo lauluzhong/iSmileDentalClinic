@@ -154,7 +154,7 @@
    "l": "Receipt + e-invoice run-through \u2014 held",
    "s": "done",
    "iso": "2026-09-25",
-   "tip": "Held Fri 25 Sep (60 min, Google Meet: Jason, Leow, Lau, Emily). Agreed: go-live Tue 6 Oct; test data cleared EOD 30 Sep, link on 1 Oct; 1\u20135 Oct invoices hand-approved; payments knock off at invoice level (locum allocates FIFO); discounts as a discount line only; receipts by WhatsApp/PDF, no printing; e-Invoice off until RM3M; one login per staff. Open: Jason SQL fix; receipt design samples from Leow."
+   "tip": "Held Fri 25 Sep (60 min, Google Meet: Jason, Leow, Lau, Emily). Agreed: go-live Tue 6 Oct; test data cleared EOD 30 Sep, link on 1 Oct; 1\u20135 Oct invoices hand-approved; payments knock off at invoice level (locum allocates FIFO); discounts as a discount line only; receipts by WhatsApp/PDF, no printing; e-Invoice off until RM3M; one login per staff. Open: Jason SQL fix; receipt design final placement/details."
   },
   {
    "d": "28\u201330 Sep",
@@ -168,7 +168,7 @@
    "l": "Design receipt + front-desk SOP",
    "s": "",
    "iso": "2026-09-28",
-   "tip": "The new receipt layout and the SOP for issuing it, scheduled after the 25 Sep run-through and ready for the Sat 3 Oct FOH training."
+   "tip": "Leow supplied A4 and half-page samples on Tue 29 Sep. Lau prefers A4 and asked for the logo farther left; Leow confirmed it can be adjusted. SOP ready for the Sat 3 Oct FOH training."
   },
   {
    "d": "30 Sep",
@@ -440,7 +440,7 @@
     {
      "id": "d3",
      "dot": "wait",
-     "chip": "design 28 Sep\u20132 Oct \u00b7 live 6 Oct",
+     "chip": "A4 sample received \u00b7 final logo placement \u00b7 live 6 Oct",
      "name": "Digital receipts (AR)",
      "one": "Receipts out of AutoCount replace the paper book \u2014 front desk switches only after training.",
      "steps": [
@@ -459,9 +459,9 @@
        "w": "Fri 25 Sep \u2014 held"
       },
       {
-       "t": "Leow shares sample receipt design (he has one; A4 or 80mm) \u2192 Lau picks and sends logo/details",
+       "t": "Receipt samples received (A4 and half-page) \u2192 Lau prefers A4; Leow to move the logo farther left and confirm final design",
        "s": "now",
-       "w": "Mon 28 Sep\u2013Fri 2 Oct \u00b7 Asked Leow in the AutoCount group Mon 28 Sep"
+       "w": "Tue 29 Sep \u00b7 samples shared; final placement adjustment pending"
       },
       {
        "t": "Front-desk receipts SOP written",
@@ -530,7 +530,7 @@
      "from_initiatives": [
       15
      ],
-     "next": "Leow: receipt sample, staff-login details, payment methods, WhatsApp message (all asked 28 Sep) \u2192 Lau picks the design and writes the review quick reply; SOP by Fri 2 Oct; practise 1\u20132 Oct; train Sat 3 Oct; go live Tue 6 Oct.",
+     "next": "Leow: finalise receipt logo placement and details; staff-login template, payment methods, WhatsApp message (all asked 28 Sep) \u2192 Lau/Emily complete SOP by Fri 2 Oct; practise 1\u20132 Oct; train Sat 3 Oct; go live Tue 6 Oct.",
      "endMonth": "2026-10"
     },
     {
@@ -2732,7 +2732,7 @@
       "end": "2026-10-02",
       "status": "now",
       "who": "Lau \u00b7 Emily",
-      "note": "Waiting on Leow's sample designs (A4 vs 80mm); SOP by Fri 2 Oct for the Sat 3 Oct training."
+      "note": "Leow supplied A4 and half-page samples Tue 29 Sep; Lau prefers A4 and final logo placement is being adjusted. SOP by Fri 2 Oct for the Sat 3 Oct training."
      },
      {
       "label": "Leow: receipt sample \u00b7 staff logins \u00b7 payment methods \u00b7 WhatsApp message",
@@ -2740,7 +2740,7 @@
       "end": "2026-10-02",
       "status": "now",
       "who": "Leow (Vision Tech)",
-      "note": "All four asked in the AutoCount group Mon 28 Sep. Logins and payment methods must be ready before the Sat 3 Oct training."
+      "note": "All four asked in the AutoCount group Mon 28 Sep. Receipt samples arrived Tue 29 Sep; Lau prefers A4 and final logo placement is being adjusted. Logins and payment methods must be ready before the Sat 3 Oct training."
      },
      {
       "label": "WhatsApp quick reply: receipt + Google review ask",
@@ -3009,7 +3009,7 @@
   ]
  },
  "meta": {
-  "asof": "MON 28 SEP 2026",
-  "updated": "2026-09-28T23:15:23+08:00"
+  "asof": "TUE 29 SEP 2026",
+  "updated": "2026-09-29T14:42:13+08:00"
  }
 }

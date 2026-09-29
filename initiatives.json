@@ -1,23 +1,18 @@
 {
- "updated": "2026-09-28T23:15:23+08:00",
+ "updated": "2026-09-29T14:42:13+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Emily": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Code Capsule": {
    "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
+  "Lau": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
@@ -27,8 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
+  "Lydia": {
    "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   }
@@ -100,7 +100,7 @@
    "status": "review",
    "owner": "Emily",
    "why": "Receipts out of AutoCount replace the paper book \u2014 front desk switches only after training.",
-   "next": "Leow: receipt sample, staff-login details, payment methods, WhatsApp message (all asked 28 Sep) \u2192 Lau picks the design and writes the review quick reply; SOP by Fri 2 Oct; practise 1\u20132 Oct; train Sat 3 Oct; go live Tue 6 Oct.",
+   "next": "Leow: finalise receipt logo placement and details; staff-login template, payment methods, WhatsApp message (all asked 28 Sep) \u2192 Lau/Emily complete SOP by Fri 2 Oct; practise 1\u20132 Oct; train Sat 3 Oct; go live Tue 6 Oct.",
    "dept": "clinical",
    "lens": "efficiency",
    "endMonth": "2026-10",
@@ -109,7 +109,7 @@
     "Receipt capability confirmed in AutoCount",
     "AutoCount installed on both new front-desk PCs",
     "Receipt + e-invoice run-through with actual data, including FIFO and partial payments",
-    "Leow shares sample receipt design (he has one; A4 or 80mm) \u2192 Lau picks and sends logo/details",
+    "Receipt samples received (A4 and half-page) \u2192 Lau prefers A4; Leow to move the logo farther left and confirm final design",
     "Front-desk receipts SOP written",
     "Payment methods set up in AutoCount receive-payment: credit card, Touch 'n Go, DuitNow, bank transfer \u2014 who sets it up (Leow or us)?",
     "WhatsApp quick reply for the desk: paste after the receipt link, with the Google review ask (fallback if AutoCount's message cannot be edited) \u2014 Lau",
