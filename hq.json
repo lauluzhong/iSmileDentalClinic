@@ -340,9 +340,9 @@
        "w": "Chased Mon 28 Sep 11:38 (CC group) \u00b7 awaiting Jason \u00b7 blocks go-live Tue 6 Oct"
       },
       {
-       "t": "Jason: send the faulty downstairs mini PC to China for warranty claim; Lau to confirm RM35\u201350 shipping (confirmed 29 Sep)",
+       "t": "Jason: faulty downstairs mini PC goes back to China (the CPU gets no power) \u2014 clinic pays customs + shipping \u2248 RM120; vendor bears the return; fallback is a local repair shop",
        "s": "now",
-       "w": "29 Sep \u00b7 return to China confirmed; Lau to confirm estimated RM35\u201350 shipping"
+       "w": "confirmed 29 Sep"
       },
       {
        "t": "Leow clears all test invoices/data at end of day, then the link is switched on",
@@ -362,7 +362,7 @@
       {
        "t": "Leow sets up an individual AutoCount login + access rights for each staff member \u2014 we send him the details he needs",
        "s": "next",
-       "w": "before Sat 3 Oct \u00b7 Asked Leow in the AutoCount group Mon 28 Sep what info he needs"
+       "w": "before Sat 3 Oct \u00b7 Leow shared the staff-login Excel in the AC group \u2014 Emily fills it in"
       },
       {
        "t": "Update Leow once the doctors consistently enter discounts as a discount line (not an edited price) \u2014 Lau",
@@ -378,6 +378,26 @@
        "t": "Go live \u2014 new digital receipts (Lau and Emily on standby that week)",
        "s": "",
        "w": "Tue 6 Oct (moved from 5 Oct)"
+      },
+      {
+       "t": "OpenDent glitch: two patients' old records (a 2023 account; a 2022 monthly payment plan of Dr Amy's) suddenly re-dated to today as treatment plans \u2014 one now shows the clinic owing the patient ~RM9k. Emily posts screenshots in the CC group; raise with Jason at the Wed 30 Sep meeting",
+       "s": "now",
+       "w": "Wed 30 Sep \u00b7 raised Emily mtg 29 Sep"
+      },
+      {
+       "t": "Decide which downstairs PC issues receipts from 6 Oct: Joanna's PC first (Emily), or the new PC on Elaine's monitor so all receipts go digital (Lau) \u2014 Elaine's PC runs Windows 7 and cannot run AutoCount",
+       "s": "now",
+       "w": "before Sat 3 Oct \u00b7 Lau + Emily"
+      },
+      {
+       "t": "Import historical accounting data: move 10 years into AutoCount (LHDN needs 7), older years kept as a raw database; Emily confirms with Leow that the import can happen after go-live",
+       "s": "next",
+       "w": "Oct \u00b7 Emily \u2194 Leow"
+      },
+      {
+       "t": "ABSS licence expires end Oct (~RM1,000\u20131,200/yr to renew): don't renew now; decide mid-Oct if AutoCount has problems",
+       "s": "next",
+       "w": "mid-Oct \u00b7 Lau + Emily"
       }
      ],
      "open": [
@@ -401,7 +421,7 @@
     {
      "id": "d2",
      "dot": "now",
-     "chip": "ON anyway \u00b7 issue on request",
+     "chip": "\u26a0\ufe0f reversed again 29 Sep \u00b7 confirm with Cindy",
      "name": "E-invoicing readiness",
      "one": "The original why: transactions >RM10k need e-invoices; LHDN mandate lands Jan 2027.",
      "steps": [
@@ -416,7 +436,7 @@
       },
       {
        "t": "Ask Leow to enable e-invoicing (LZ 28 Sep: act as though required)",
-       "s": "now",
+       "s": "skip",
        "w": "Emily/Lau \u00b7 before go-live 6 Oct"
       },
       {
@@ -426,6 +446,11 @@
       {
        "t": "First live e-invoice issued",
        "s": ""
+      },
+      {
+       "t": "Lau checks with Cindy: can we issue an e-invoice on request below RM3M without monthly LHDN reporting? If not, stay off until the threshold",
+       "s": "now",
+       "w": "Lau \u00b7 before go-live 6 Oct"
       }
      ],
      "open": [
@@ -435,7 +460,7 @@
      "dept": "tech",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "LZ 28 Sep reversed 'off until RM3M': act as though e-invoicing is required and issue on request. Emily/Lau ask Leow to enable it; mention at the Sat 3 Oct training; full training before 1 Jan 2027."
+     "next": "29 Sep (Emily mtg): Emily says issuing ANY e-invoice to a patient obliges us to report it to LHDN; Lau: 'then we don't do'. This reverses the 28 Sep 'ON anyway' ruling. Lau confirms with Cindy (accountant) before anyone asks Leow to enable it."
     },
     {
      "id": "d3",
@@ -469,9 +494,9 @@
        "w": "Mon 28 Sep\u2013Fri 2 Oct"
       },
       {
-       "t": "Payment methods set up in AutoCount receive-payment: credit card, Touch 'n Go, DuitNow, bank transfer \u2014 who sets it up (Leow or us)?",
+       "t": "Payment methods set up in AutoCount receive-payment: credit card, Touch 'n Go, DuitNow, bank transfer \u2014 who sets it up (Leow or us)? \u2014 Leow's question: which GL code does each payment type post to? Lau is calling Cindy about how GL is done today; aim for a separate code per type (cash, QR, card, e-wallet) so card/QR fees can be reconciled",
        "s": "now",
-       "w": "before Sat 3 Oct \u00b7 Asked Leow in the AutoCount group Mon 28 Sep"
+       "w": "Lau \u2194 Cindy \u00b7 before Sat 3 Oct"
       },
       {
        "t": "WhatsApp quick reply for the desk: paste after the receipt link, with the Google review ask (fallback if AutoCount's message cannot be edited) \u2014 Lau",
@@ -504,13 +529,23 @@
        "w": "raised 23 Sep \u00b7 no due date set"
       },
       {
-       "t": "Staff-family onlay (Dr Joan): the patient agreed to pay his share given the complexity (rules: non-case-related fees are borne by the practice) \u2014 payment not yet received; follow up \u00b7 owner Emily",
+       "t": "Staff-family onlay (Dr Joan), RM2,000 outstanding since April: family waiting on a church claim. Emily chases tomorrow and offers whatever documents the church needs; deadline mid-Oct \u2014 if the church won't pay, offer a salary-deduction plan",
        "s": "now",
-       "w": "raised 23 Sep \u00b7 no due date set"
+       "w": "chase Wed 30 Sep \u00b7 deadline mid-Oct"
       },
       {
        "t": "e-Invoice ON anyway (LZ 28 Sep: act as though required) \u2014 ask Leow to enable; issue on request; full training before 1 Jan 2027",
-       "s": "next"
+       "s": "skip"
+      },
+      {
+       "t": "Create a general clinic Gmail (e.g. ismile.general@\u2026) with ismiledental76 as the backup \u2014 goes on receipts and the website instead of the 76 address",
+       "s": "now",
+       "w": "Emily \u00b7 before go-live"
+      },
+      {
+       "t": "Bad debt: OpenDent shows ~RM174k outstanding, some >90 days and some years old. Define bad debt (e.g. overdue 30 days = delinquent, 6 months = write off) then clean the old balances out of OpenDent",
+       "s": "next",
+       "w": "Lau + Emily \u00b7 after go-live"
       }
      ],
      "open": [
@@ -551,7 +586,7 @@
       {
        "t": "Supplier-side (AP) AutoCount training with Leow, in person \u2014 Lau + Emily",
        "s": "",
-       "w": "Q4 \u00b7 date to set"
+       "w": "mid-Oct \u00b7 with Leow"
       },
       {
        "t": "Suppliers + lab AP into AutoCount",
@@ -564,6 +599,11 @@
       {
        "t": "Weekly rotated stock-count routine live",
        "s": ""
+      },
+      {
+       "t": "From 1 Oct: no doctor pays suppliers directly; every payment approved by the clinic (said in the doctors' group). Idea: per-supplier WhatsApp groups \u2014 doctor answers technical, clinic answers money",
+       "s": "now",
+       "w": "in force 1 Oct"
       }
      ],
      "open": [
@@ -617,11 +657,13 @@
       },
       {
        "t": "Employee data entry + configuration",
-       "s": "now"
+       "s": "now",
+       "w": "from mid-Oct \u00b7 Emily"
       },
       {
        "t": "First parallel payroll run",
-       "s": ""
+       "s": "",
+       "w": "by Dec"
       },
       {
        "t": "HRMS training held",
@@ -630,7 +672,7 @@
       },
       {
        "t": "Lau checks with Emily whether a follow-up is due after the training (data entry, configuration, cut-over month)",
-       "s": "now",
+       "s": "done",
        "w": "owner Lau"
       }
      ],
@@ -644,12 +686,12 @@
      "from_initiatives": [
       38
      ],
-     "next": "Training is done. Lau to check with Emily whether a follow-up is due \u2014 employee data entry, configuration, and the cut-over month were the open items from 27 Aug."
+     "next": "Answered 29 Sep: Emily keys employee data (including the last 1\u20132 years so the 2026 EA forms print) from mid-Oct, after receipts settle; live by December at the latest."
     },
     {
      "id": "d6",
      "dot": "blocked",
-     "chip": "data gap",
+     "chip": "sheet v1 built \u00b7 shown to Emily 29 Sep",
      "name": "AP \u00b7 locum statements",
      "one": "Calculator already reproduces all 8 doctors to the cent \u2014 end-to-end statements now possible under the new timing rules.",
      "steps": [
@@ -663,7 +705,7 @@
        "w": "26 Aug"
       },
       {
-       "t": "Payment\u2192procedure allocation convention agreed",
+       "t": "Payment\u2192procedure allocation: same-day matching then first-in-first-out (\u224890%+ reconciles automatically) \u2014 shown to Emily 29 Sep; Emily to confirm after using it",
        "s": "now"
       },
       {
@@ -673,6 +715,21 @@
       {
        "t": "Feed into AutoCount AP",
        "s": ""
+      },
+      {
+       "t": "Rules agreed 29 Sep: pay when the money is collected AND the full lab invoice(s) are in (both, e.g. chrome plate + denture); instalment cases (braces) pay on each collection with lab cost taken from the first payment (min 50% upfront); no locum on written-off patients by default (Lau decides big cases)",
+       "s": "done",
+       "w": "Emily mtg 29 Sep"
+      },
+      {
+       "t": "Statement: the general statement plus only the rows where a discount was deducted; lab-pending cases need not be listed",
+       "s": "done",
+       "w": "Emily mtg 29 Sep"
+      },
+      {
+       "t": "Lau shares the locum sheet with Emily; Emily notes the edge cases and rules as she finds them",
+       "s": "now",
+       "w": "Lau \u00b7 this week"
       }
      ],
      "open": [
@@ -691,7 +748,7 @@
      "from_initiatives": [
       3
      ],
-     "next": "Agree the payment\u2192procedure allocation convention (the blocker on per-doctor statements)",
+     "next": "Lau shares the OpenDent\u2192Sheet locum draft with Emily; Emily writes down the edge-case rules as she meets them. Target: a working method by early Nov (first locum under the new rules pays 10 Nov).",
      "endMonth": "2026-08"
     },
     {
@@ -757,7 +814,7 @@
       },
       {
        "t": "Spoilt downstairs computer \u2014 Jason to say whether it is repaired here or returned to the supplier (follow-up sent in the CC group)",
-       "s": "now",
+       "s": "done",
        "w": "asked Mon 28 Sep"
       }
      ],
@@ -1091,13 +1148,24 @@
        "w": "25 Sep"
       },
       {
-       "t": "Send to the two specialists (Dr Yeoh, Dr Joan)",
-       "s": ""
+       "t": "Send to the two specialists (Dr Yeoh, Dr Joan) \u2014 a thinner version without the everyday clauses; Lydia to trim",
+       "s": "",
+       "w": "Lau \u2192 Lydia"
       },
       {
-       "t": "Priscilla + Amy signed; Ling, Mah, Azelia outstanding",
+       "t": "All signed except Dr Ling and Dr Ong (29 Sep)",
        "s": "now",
        "w": "by Wed 30 Sep"
+      },
+      {
+       "t": "Lydia's invoice (RM15k): Emily pays in three RM5k instalments, sending the first today",
+       "s": "now",
+       "w": "Emily \u00b7 from 29 Sep"
+      },
+      {
+       "t": "First pay-timing change: clean cut 1 Oct; the first locum run under the new rules pays 10 Nov",
+       "s": "done",
+       "w": "Emily mtg 29 Sep"
       }
      ],
      "noteTitle": "Narrative \u2014 how this gets said",
@@ -1172,7 +1240,7 @@
        "s": "now"
       },
       {
-       "t": "Doctors\u2019 2027 look-ahead chats (incl. Dr Azelia\u2019s 2027 growth goals)",
+       "t": "Doctors' 2027 look-ahead chats, one-on-one with Lau (incl. Dr Azelia's path to 45%: RM30k+ in 6 months of the year)",
        "s": "",
        "w": "Dec"
       }
@@ -1278,8 +1346,8 @@
       },
       {
        "t": "Minimum fees: each doctor texts Dr Ong their minimums; Dr Ong updates them personally",
-       "s": "now",
-       "w": "must be complete by Wed 30 Sep \u2014 rules start 1 Oct"
+       "s": "done",
+       "w": "Dr Ong entered all the fees the doctors asked about (confirmed by Lau 29 Sep)"
       },
       {
        "t": "Doctor briefing: discount lines, never touch production price",
@@ -1287,8 +1355,18 @@
       },
       {
        "t": "Lau checks with Mom that every minimum fee the doctors sent her has been entered; reminds Emily at the Tue 29 Sep meeting",
-       "s": "next",
+       "s": "done",
        "w": "Tue 29 \u2013 Wed 30 Sep"
+      },
+      {
+       "t": "Emily goes through every OpenDent code we actually use: which minimum fees changed, and which used codes still have none \u2014 Locum Calculation session to produce the list from OpenDent",
+       "s": "now",
+       "w": "before 1 Oct \u00b7 Emily (list from the Locum session)"
+      },
+      {
+       "t": "Rulings 29 Sep: discounts above 15% are asked of Emily first (the locum sheet will flag any not asked); family = parents, spouse, children (Dr Amy's addendum adds her sister, brother-in-law and their kids); new walk-ins, especially international patients, are told upfront about the RM100 minimum consult",
+       "s": "done",
+       "w": "Emily mtg 29 Sep"
       }
      ],
      "open": [
@@ -1336,7 +1414,7 @@
       },
       {
        "t": "Minimum fee update: each doctor texts Dr Ong their minimum fees; Dr Ong updates them personally \u00b7 owner Dr Ong",
-       "s": "now",
+       "s": "done",
        "w": "agreed 23 Sep \u00b7 no due date set"
       }
      ],
@@ -1534,6 +1612,11 @@
       {
        "t": "Waves 2\u20133 \u00b7 funnel read via campaign tags",
        "s": ""
+      },
+      {
+       "t": "Blast is ~4,000 patients, ~RM1,500\u20132,000; goal is appointments landing in FY2026 income. If prep slips, delay one week rather than cut corners",
+       "s": "done",
+       "w": "Emily mtg 29 Sep"
       }
      ],
      "open": [
@@ -1655,7 +1738,7 @@
     {
      "id": "g4",
      "dot": "now",
-     "chip": "signed + returned 9 Sep \u00b7 starts 26 Oct",
+     "chip": "signed \u00b7 starts Tue 27 Oct",
      "name": "Dr Jia Yin (new doctor)",
      "one": "She tendered on a handshake for a 26 Oct start. Her contract was sent on 6 Sep and signed and returned on 9 Sep; what is left is the two conversations that follow.",
      "steps": [
@@ -1714,7 +1797,7 @@
       {
        "t": "First day \u00b7 book steered to NEW demand",
        "s": "",
-       "w": "26 Oct"
+       "w": "Tue 27 Oct (moved from 26th; Dr Jia Yin notified by Emily)"
       }
      ],
      "open": [
@@ -1803,6 +1886,11 @@
       {
        "t": "Zernio wired - Instagram feed live 2 Sep; connect the remaining channels and check Threads-reply support",
        "s": ""
+      },
+      {
+       "t": "Idea: hire a part-time social media person (~RM2,500\u20133,000/mo) to film content (doctors explaining to kids) and run all channels \u2014 pending cash",
+       "s": "",
+       "w": "Lau"
       }
      ],
      "open": [
@@ -1940,6 +2028,11 @@
       {
        "t": "2-week front-desk tally of accompanying children, before any fixed joinery",
        "s": "now"
+      },
+      {
+       "t": "Look at the space end of year (sofa covers: the original IKEA covers are lost; replacements were bought online)",
+       "s": "",
+       "w": "Dec \u00b7 Lau"
       }
      ],
      "open": [
@@ -2279,6 +2372,11 @@
       {
        "t": "Erincy mileage building",
        "s": ""
+      },
+      {
+       "t": "Hire one front-desk person to replace Joanna. Meanwhile give Erincy and Ruth structured training and a fair chance (Emily doubts they'll suit it); fallback Eida; Jessie stays on the DSA track",
+       "s": "now",
+       "w": "Lau + Emily"
       }
      ],
      "open": [
@@ -2356,6 +2454,21 @@
        "t": "Training deck draft v1 built 29 Sep (52 slides) \u2014 Google Slides 19CEkrQ2\u2026; Lau confirms by Wed 30 Sep",
        "s": "now",
        "w": "Wed 30 Sep"
+      },
+      {
+       "t": "Training day Sat 3 Oct from 3:30 PM, downstairs after the last patient; dinner nearby afterwards (tell the girls it's training + dinner). Lau sends Emily the deck outline Wed 30 Sep; Emily texts anything to add. No DSA content \u2014 too much at once",
+       "s": "now",
+       "w": "Lau \u2192 Emily Wed 30 Sep"
+      },
+      {
+       "t": "Rulings for the deck: always 'patient', never 'client' (Dr Ling asked Joanna to say client \u2014 Lau to square it with her); answer price questions with confidence ('these are our fees'), not 'let me check with the doctor'; keep supplier brochures off the front desk (doctors hand them to their own target patients)",
+       "s": "done",
+       "w": "Emily mtg 29 Sep"
+      },
+      {
+       "t": "Target: shorten new-hire ramp-up (Joanna took ~1 year) by writing things down",
+       "s": "",
+       "w": "ongoing"
       }
      ],
      "open": [
@@ -2475,6 +2588,11 @@
       {
        "t": "Confirm cash covers remaining capex, the RM15k Sep legal fee, and the Jan-2027 increment step-up",
        "s": "now"
+      },
+      {
+       "t": "Cash 29 Sep \u2248 RM104k; out next week \u2248 RM40k (EPF, rent), then locum on the 10th. Dad will inject cash if needed \u2014 tell Lau if it gets tight",
+       "s": "now",
+       "w": "Emily mtg 29 Sep"
       }
      ],
      "open": [
@@ -2558,7 +2676,7 @@
   "<b>Reconnect financials:</b> the migrated OpenDental computer disrupted the extract/push pipeline; restore the daily cash and P&L feed.",
   "Check with Emily on the denture height for the TOC group.",
   "Fix the cash digest tomorrow using the new PC.",
-  "<b>Dr Mah braces pricing:</b> follow up after her market check on the ~RM8,000 lower-priced braces option, ~RM12,000 Damon pricing, and the agreed RM1,200 Damon case-related cost."
+  "<b>Braces pricing (Damon ~RM1,200/set cost):</b> Emily asks suppliers/market what others charge for Damon and a cheaper brand; proposal Damon ~RM11\u201312k vs budget ~RM8k (wide gap, floor never near RM3k; material \u226410% of fee). Partial (2\u00d74) braces need their own minimum fee \u2014 tell Dr Ong. Ormco's Spark aligner lands ~end 2026."
  ],
  "archive": [
   {
@@ -3016,6 +3134,6 @@
  },
  "meta": {
   "asof": "TUE 29 SEP 2026",
-  "updated": "2026-09-29T21:32:48+08:00"
+  "updated": "2026-09-29T23:17:20+08:00"
  }
 }

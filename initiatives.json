@@ -1,9 +1,9 @@
 {
- "updated": "2026-09-29T21:32:48+08:00",
+ "updated": "2026-09-29T23:17:20+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Code Capsule": {
-   "init": "CC",
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -12,23 +12,23 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Lau": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
+  "Edith": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
-   "init": "E",
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   }
@@ -63,14 +63,18 @@
     "X-ray software installed on the downstairs PCs",
     "Receipt + e-invoice run-through with actual data, including FIFO, partial payments and the integration/payment-creation workflow; simulate the downstairs front-desk journey and validate sub-account data flow",
     "Jason fixes the database/SQL error blocking OpenDent \u2192 AutoCount invoices \u2014 AutoCount holds sales invoices only up to ~5\u20137 Sep (live test failed on 25 Sep; coincides with the 5 Sep server swap)",
-    "Jason: send the faulty downstairs mini PC to China for warranty claim; Lau to confirm RM35\u201350 shipping (confirmed 29 Sep)",
+    "Jason: faulty downstairs mini PC goes back to China (the CPU gets no power) \u2014 clinic pays customs + shipping \u2248 RM120; vendor bears the return; fallback is a local repair shop",
     "Leow clears all test invoices/data at end of day, then the link is switched on",
     "Link live \u2014 every transaction from 1 Oct flows into AutoCount",
     "Invoices from 1\u20135 Oct approved by hand, one by one, so October receivables start clean",
     "Leow sets up an individual AutoCount login + access rights for each staff member \u2014 we send him the details he needs",
     "Update Leow once the doctors consistently enter discounts as a discount line (not an edited price) \u2014 Lau",
     "Training for front-of-house staff + dinner (Leow not attending \u2014 Lau + Emily teach; Emily + Joanna = on-ground contacts)",
-    "Go live \u2014 new digital receipts (Lau and Emily on standby that week)"
+    "Go live \u2014 new digital receipts (Lau and Emily on standby that week)",
+    "OpenDent glitch: two patients' old records (a 2023 account; a 2022 monthly payment plan of Dr Amy's) suddenly re-dated to today as treatment plans \u2014 one now shows the clinic owing the patient ~RM9k. Emily posts screenshots in the CC group; raise with Jason at the Wed 30 Sep meeting",
+    "Decide which downstairs PC issues receipts from 6 Oct: Joanna's PC first (Emily), or the new PC on Elaine's monitor so all receipts go digital (Lau) \u2014 Elaine's PC runs Windows 7 and cannot run AutoCount",
+    "Import historical accounting data: move 10 years into AutoCount (LHDN needs 7), older years kept as a raw database; Emily confirms with Leow that the import can happen after go-live",
+    "ABSS licence expires end Oct (~RM1,000\u20131,200/yr to renew): don't renew now; decide mid-Oct if AutoCount has problems"
    ],
    "pillar": "P1"
   },
@@ -80,7 +84,7 @@
    "status": "active",
    "owner": "Code Capsule",
    "why": "The original why: transactions >RM10k need e-invoices; LHDN mandate lands Jan 2027.",
-   "next": "LZ 28 Sep reversed 'off until RM3M': act as though e-invoicing is required and issue on request. Emily/Lau ask Leow to enable it; mention at the Sat 3 Oct training; full training before 1 Jan 2027.",
+   "next": "29 Sep (Emily mtg): Emily says issuing ANY e-invoice to a patient obliges us to report it to LHDN; Lau: 'then we don't do'. This reverses the 28 Sep 'ON anyway' ruling. Lau confirms with Cindy (accountant) before anyone asks Leow to enable it.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": null,
@@ -90,7 +94,8 @@
     "Run-through held \u2014 Vision Tech advised e-invoicing can stay off until the RM3M threshold (later reversed by LZ, 28 Sep)",
     "Ask Leow to enable e-invoicing (LZ 28 Sep: act as though required)",
     "E-invoice format + submission flow configured",
-    "First live e-invoice issued"
+    "First live e-invoice issued",
+    "Lau checks with Cindy: can we issue an e-invoice on request below RM3M without monthly LHDN reporting? If not, stay off until the threshold"
    ],
    "pillar": "P1"
   },
@@ -111,15 +116,17 @@
     "Receipt + e-invoice run-through with actual data, including FIFO and partial payments",
     "Receipt samples received (A4 and half-page) \u2192 Lau prefers A4; Leow to move the logo farther left and confirm final design",
     "Front-desk receipts SOP written",
-    "Payment methods set up in AutoCount receive-payment: credit card, Touch 'n Go, DuitNow, bank transfer \u2014 who sets it up (Leow or us)?",
+    "Payment methods set up in AutoCount receive-payment: credit card, Touch 'n Go, DuitNow, bank transfer \u2014 who sets it up (Leow or us)? \u2014 Leow's question: which GL code does each payment type post to? Lau is calling Cindy about how GL is done today; aim for a separate code per type (cash, QR, card, e-wallet) so card/QR fees can be reconciled",
     "WhatsApp quick reply for the desk: paste after the receipt link, with the Google review ask (fallback if AutoCount's message cannot be edited) \u2014 Lau",
     "Lau + Emily practise approving invoices and generating receipts on live data",
     "Leow asks AutoCount for an editable default WhatsApp receipt message (to append the Google review ask). Receipts go by WhatsApp link or PDF \u2014 no printing",
     "Receipts + e-invoices taught at the FOH training",
     "Go live \u2014 receipts from AutoCount, paper retired",
     "Follow up the two patient cases Dr Ling raised where the patient has not paid / refuses to pay \u2014 agreed with all doctors on 23 Sep: a patient-payment matter, not a doctor matter \u00b7 owner Emily + front desk",
-    "Staff-family onlay (Dr Joan): the patient agreed to pay his share given the complexity (rules: non-case-related fees are borne by the practice) \u2014 payment not yet received; follow up \u00b7 owner Emily",
-    "e-Invoice ON anyway (LZ 28 Sep: act as though required) \u2014 ask Leow to enable; issue on request; full training before 1 Jan 2027"
+    "Staff-family onlay (Dr Joan), RM2,000 outstanding since April: family waiting on a church claim. Emily chases tomorrow and offers whatever documents the church needs; deadline mid-Oct \u2014 if the church won't pay, offer a salary-deduction plan",
+    "e-Invoice ON anyway (LZ 28 Sep: act as though required) \u2014 ask Leow to enable; issue on request; full training before 1 Jan 2027",
+    "Create a general clinic Gmail (e.g. ismile.general@\u2026) with ismiledental76 as the backup \u2014 goes on receipts and the website instead of the 76 address",
+    "Bad debt: OpenDent shows ~RM174k outstanding, some >90 days and some years old. Define bad debt (e.g. overdue 30 days = delinquent, 6 months = write off) then clean the old balances out of OpenDent"
    ],
    "pillar": "P1"
   },
@@ -140,7 +147,8 @@
     "Supplier-side (AP) AutoCount training with Leow, in person \u2014 Lau + Emily",
     "Suppliers + lab AP into AutoCount",
     "Inventory module on \u00b7 opening stock count",
-    "Weekly rotated stock-count routine live"
+    "Weekly rotated stock-count routine live",
+    "From 1 Oct: no doctor pays suppliers directly; every payment approved by the clinic (said in the doctors' group). Idea: per-supplier WhatsApp groups \u2014 doctor answers technical, clinic answers money"
    ],
    "pillar": "P1"
   },
@@ -150,7 +158,7 @@
    "status": "active",
    "owner": "Emily",
    "why": "AutoCount Cloud HRMS bought: RM1,139.05/yr \u2014 Payroll 14 \u00b7 E-leave & E-claim 12 \u00b7 E-attendance 10. Attendance feeds the same environment.",
-   "next": "Training is done. Lau to check with Emily whether a follow-up is due \u2014 employee data entry, configuration, and the cut-over month were the open items from 27 Aug.",
+   "next": "Answered 29 Sep: Emily keys employee data (including the last 1\u20132 years so the 2026 EA forms print) from mid-Oct, after receipts settle; live by December at the latest.",
    "dept": "finance",
    "lens": "efficiency",
    "endMonth": null,
@@ -172,7 +180,7 @@
    "status": "blocked",
    "owner": "Lau",
    "why": "Calculator already reproduces all 8 doctors to the cent \u2014 end-to-end statements now possible under the new timing rules.",
-   "next": "Agree the payment\u2192procedure allocation convention (the blocker on per-doctor statements)",
+   "next": "Lau shares the OpenDent\u2192Sheet locum draft with Emily; Emily writes down the edge-case rules as she meets them. Target: a working method by early Nov (first locum under the new rules pays 10 Nov).",
    "dept": "finance",
    "lens": "efficiency",
    "endMonth": "2026-08",
@@ -180,9 +188,12 @@
    "tasks": [
     "Engine built + validated to the cent",
     "Timing rules decided (invoice month @ production-month rate)",
-    "Payment\u2192procedure allocation convention agreed",
+    "Payment\u2192procedure allocation: same-day matching then first-in-first-out (\u224890%+ reconciles automatically) \u2014 shown to Emily 29 Sep; Emily to confirm after using it",
     "Per-doctor monthly statements generated",
-    "Feed into AutoCount AP"
+    "Feed into AutoCount AP",
+    "Rules agreed 29 Sep: pay when the money is collected AND the full lab invoice(s) are in (both, e.g. chrome plate + denture); instalment cases (braces) pay on each collection with lab cost taken from the first payment (min 50% upfront); no locum on written-off patients by default (Lau decides big cases)",
+    "Statement: the general statement plus only the rows where a discount was deducted; lab-pending cases need not be listed",
+    "Lau shares the locum sheet with Emily; Emily notes the edge cases and rules as she finds them"
    ],
    "pillar": "P1"
   },
@@ -342,8 +353,10 @@
     "In-person walkthrough and Q&A at the clinic \u2014 all doctors except the specialists (Yeoh, Joan)",
     "Update the 30-day provision and clause 3.1 wording before sending",
     "Revised contracts sent to the five non-specialist doctors",
-    "Send to the two specialists (Dr Yeoh, Dr Joan)",
-    "Priscilla + Amy signed; Ling, Mah, Azelia outstanding"
+    "Send to the two specialists (Dr Yeoh, Dr Joan) \u2014 a thinner version without the everyday clauses; Lydia to trim",
+    "All signed except Dr Ling and Dr Ong (29 Sep)",
+    "Lydia's invoice (RM15k): Emily pays in three RM5k instalments, sending the first today",
+    "First pay-timing change: clean cut 1 Oct; the first locum run under the new rules pays 10 Nov"
    ],
    "pillar": "P2"
   },
@@ -364,7 +377,7 @@
     "Rate-follows-production-month for late collections",
     "40%\u219245% basis decided: RM30k+ production in 6 months of a calendar year \u2192 45% from the next January. Promotion only, permanent once earned (replaces days worked)",
     "Write into Schedule 1 + the calculator",
-    "Doctors\u2019 2027 look-ahead chats (incl. Dr Azelia\u2019s 2027 growth goals)"
+    "Doctors' 2027 look-ahead chats, one-on-one with Lau (incl. Dr Azelia's path to 45%: RM30k+ in 6 months of the year)"
    ],
    "pillar": "P2"
   },
@@ -409,7 +422,9 @@
     "LZ ruling: a discount is deducted from the doctor only up to the shortfall below the minimum fee \u2014 deductible = max(0, minimum fee \u2212 net collected)",
     "Minimum fees: each doctor texts Dr Ong their minimums; Dr Ong updates them personally",
     "Doctor briefing: discount lines, never touch production price",
-    "Lau checks with Mom that every minimum fee the doctors sent her has been entered; reminds Emily at the Tue 29 Sep meeting"
+    "Lau checks with Mom that every minimum fee the doctors sent her has been entered; reminds Emily at the Tue 29 Sep meeting",
+    "Emily goes through every OpenDent code we actually use: which minimum fees changed, and which used codes still have none \u2014 Locum Calculation session to produce the list from OpenDent",
+    "Rulings 29 Sep: discounts above 15% are asked of Emily first (the locum sheet will flag any not asked); family = parents, spouse, children (Dr Amy's addendum adds her sister, brother-in-law and their kids); new walk-ins, especially international patients, are told upfront about the RM100 minimum consult"
    ],
    "pillar": "P2"
   },
@@ -488,7 +503,8 @@
     "Lau checks OpenDent for planned recipients who already made an appointment; remove or handle appropriately",
     "Planned campaign window \u2014 W1 Tue 6 \u00b7 W2 Wed 7 \u00b7 W3 Thu 8\u2013Fri 9 Oct",
     "Lau confirms the FOH training deck",
-    "Waves 2\u20133 \u00b7 funnel read via campaign tags"
+    "Waves 2\u20133 \u00b7 funnel read via campaign tags",
+    "Blast is ~4,000 patients, ~RM1,500\u20132,000; goal is appointments landing in FY2026 income. If prep slips, delay one week rather than cut corners"
    ],
    "pillar": "P3"
   },
@@ -595,7 +611,8 @@
     "Strategy + first-cut plan written",
     "Buy clip-on mic \u00b7 pick shoot days",
     "First Dr Ling consult footage",
-    "Zernio wired - Instagram feed live 2 Sep; connect the remaining channels and check Threads-reply support"
+    "Zernio wired - Instagram feed live 2 Sep; connect the remaining channels and check Threads-reply support",
+    "Idea: hire a part-time social media person (~RM2,500\u20133,000/mo) to film content (doctors explaining to kids) and run all channels \u2014 pending cash"
    ],
    "pillar": "P3"
   },
@@ -657,7 +674,8 @@
     "Pick the winning direction per area",
     "Source furnishings secondhand \u2014 marketplace hunting, low budget",
     "Belongings storage \u2014 the gap patients notice most",
-    "2-week front-desk tally of accompanying children, before any fixed joinery"
+    "2-week front-desk tally of accompanying children, before any fixed joinery",
+    "Look at the space end of year (sofa covers: the original IKEA covers are lost; replacements were bought online)"
    ],
    "pillar": "P3"
   },
@@ -811,7 +829,8 @@
    "tasks": [
     "Elaine calling lists issued",
     "Jessy FOH stretch posting running",
-    "Erincy mileage building"
+    "Erincy mileage building",
+    "Hire one front-desk person to replace Joanna. Meanwhile give Erincy and Ruth structured training and a fair chance (Emily doubts they'll suit it); fallback Eida; Jessie stays on the DSA track"
    ],
    "pillar": "F1"
   },
@@ -840,7 +859,10 @@
     "Check whether a clinic stamp can stand in for a doctor's signature on external letters",
     "Training aiming for Sat 3 Oct \u2014 Emily books the girls\u2019 time Tue 22 Sep; confirmation pending",
     "FOH training pack refreshed 28 Sep (go-live 6 Oct, desk flow, discount line, 1 Oct fee rules, blast replies) \u2014 Lau settling 14 open questions in the L&D chat; deck confirmed by Wed 30 Sep",
-    "Training deck draft v1 built 29 Sep (52 slides) \u2014 Google Slides 19CEkrQ2\u2026; Lau confirms by Wed 30 Sep"
+    "Training deck draft v1 built 29 Sep (52 slides) \u2014 Google Slides 19CEkrQ2\u2026; Lau confirms by Wed 30 Sep",
+    "Training day Sat 3 Oct from 3:30 PM, downstairs after the last patient; dinner nearby afterwards (tell the girls it's training + dinner). Lau sends Emily the deck outline Wed 30 Sep; Emily texts anything to add. No DSA content \u2014 too much at once",
+    "Rulings for the deck: always 'patient', never 'client' (Dr Ling asked Joanna to say client \u2014 Lau to square it with her); answer price questions with confidence ('these are our fees'), not 'let me check with the doctor'; keep supplier brochures off the front desk (doctors hand them to their own target patients)",
+    "Target: shorten new-hire ramp-up (Joanna took ~1 year) by writing things down"
    ],
    "pillar": "F1"
   },
@@ -896,7 +918,8 @@
    "tasks": [
     "AutoCount licence + Cloud HRMS paid",
     "Code Capsule + hardware invoices paid",
-    "Confirm cash covers remaining capex, the RM15k Sep legal fee, and the Jan-2027 increment step-up"
+    "Confirm cash covers remaining capex, the RM15k Sep legal fee, and the Jan-2027 increment step-up",
+    "Cash 29 Sep \u2248 RM104k; out next week \u2248 RM40k (EPF, rent), then locum on the 10th. Dad will inject cash if needed \u2014 tell Lau if it gets tight"
    ],
    "pillar": "F2"
   },
