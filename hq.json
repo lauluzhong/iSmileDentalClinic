@@ -147,7 +147,7 @@
    "l": "Updated contracts sent to five non-specialists \u00b7 2 signed, 3 outstanding",
    "s": "now",
    "iso": "2026-09-25",
-   "tip": "Lau updated the 30-day provision and clause 3.1 wording before sending the revised contracts to all five non-specialist doctors. Priscilla (25 Sep) and Amy (25 Sep, with Addendum 1) have returned signed copies, filed in Drive; Ling, Mah and Azelia remain outstanding, due Wed 30 Sep."
+   "tip": "Lau updated the 30-day provision and clause 3.1 wording before sending the revised contracts to all five non-specialist doctors. Signed copies returned: Priscilla (25 Sep), Amy (25 Sep, with Addendum 1), Mah and Azelia (29 Sep). Only Ling remains outstanding, due Wed 30 Sep."
   },
   {
    "d": "25 Sep",
@@ -1177,7 +1177,7 @@
       "\u26a0\ufe0f <b>Work the full narrative out in a dedicated session</b> \u2014 this note is the skeleton, not the script. Share it with your parents once they have given their input on the three changes."
      ],
      "open": [
-      "<b>Updated contracts sent (25 Sep).</b> Lau updated the 30-day provision and clause 3.1 wording before sending the revised contracts to all five non-specialist doctors. Priscilla (25 Sep) and Amy (25 Sep, with Addendum 1) have returned signed copies, filed in Drive; Ling, Mah and Azelia remain outstanding, due Wed 30 Sep.",
+      "<b>Updated contracts sent (25 Sep).</b> Lau updated the 30-day provision and clause 3.1 wording before sending the revised contracts to all five non-specialist doctors. Signed copies returned: Priscilla (25 Sep), Amy (25 Sep, with Addendum 1), Mah and Azelia (29 Sep). Only Ling remains outstanding, due Wed 30 Sep.",
       "<b>Specialists remain pending:</b> the separate action to send to Dr Yeoh and Dr Joan is unchanged.",
       "<b>New in the agreement (9 Sep):</b> a doctor can be paid by the practice in three ways only &mdash; professional fees; reimbursement of pre-approved spend at documented cost against the original supplier invoice (nothing payable for items obtained free); or as an approved supplier with the interest declared. Patient money must go through the authorised billing process, for services and for materials, appliances and laboratory work alike.",
       "<b>Live master is v1.0</b> (9 Sep). The new Section 3 &ldquo;Minimum Fee and Concessions&rdquo; renumbered everything after Sessions &mdash; procurement is now Clause 7, termination 14, general 16.",
@@ -1311,7 +1311,7 @@
      "from_initiatives": [
       18
      ],
-     "next": "The deduction is gone from the agreements sent 25 Sep (Priscilla and Amy signed; Ling, Mah and Azelia due Wed 30 Sep). Collect the remaining signed copies by Wed 30 Sep, then switch the locum engine to the agreement basis. Recosted 28 Sep: about \u2212RM30.4k a year (not \u2212RM57k): under the 25 Sep shortfall-only rule doctors still bear below-floor concessions. FY2026 is hit Oct\u2013Dec only: \u2212RM13.1k if the minimum-fee floor works, \u2212RM26.1k if not.",
+     "next": "The deduction is gone from the agreements sent 25 Sep (Priscilla, Amy, Mah and Azelia signed; Ling due Wed 30 Sep). Collect Ling's signed copy by Wed 30 Sep, then switch the locum engine to the agreement basis. Recosted 28 Sep: about \u2212RM30.4k a year (not \u2212RM57k): under the 25 Sep shortfall-only rule doctors still bear below-floor concessions. FY2026 is hit Oct\u2013Dec only: \u2212RM13.1k if the minimum-fee floor works, \u2212RM26.1k if not.",
      "endMonth": "2026-12"
     },
     {
@@ -3039,7 +3039,7 @@
       "start": "2026-09-25",
       "status": "done",
       "who": "Lau",
-      "note": "The 30-day provision and clause 3.1 wording were updated before sending. Priscilla and Amy (with Addendum 1) returned signed copies; Ling, Mah and Azelia remain outstanding, due Wed 30 Sep."
+      "note": "The 30-day provision and clause 3.1 wording were updated before sending. Priscilla, Amy (with Addendum 1), Mah and Azelia returned signed copies; only Ling remains outstanding, due Wed 30 Sep."
      },
      {
       "label": "Signed copies back to Lau",
@@ -3047,7 +3047,7 @@
       "end": "2026-09-30",
       "status": "now",
       "who": "Doctors",
-      "note": "Priscilla (25 Sep) and Amy (25 Sep, with Addendum 1) have returned signed copies, filed in Drive; Ling, Mah and Azelia remain outstanding, due Wed 30 Sep."
+      "note": "Signed copies returned: Priscilla (25 Sep), Amy (25 Sep, with Addendum 1), Mah and Azelia (29 Sep). Only Ling remains outstanding, due Wed 30 Sep."
      },
      {
       "label": "Signed copies due",
@@ -3134,6 +3134,6 @@
  },
  "meta": {
   "asof": "TUE 29 SEP 2026",
-  "updated": "2026-09-29T23:17:33+08:00"
+  "updated": "2026-09-29T23:17:36+08:00"
  }
 }
