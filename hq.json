@@ -534,8 +534,8 @@
        "w": "chase Wed 30 Sep \u00b7 deadline mid-Oct"
       },
       {
-       "t": "e-Invoice ON anyway (LZ 28 Sep: act as though required) \u2014 ask Leow to enable; issue on request; full training before 1 Jan 2027",
-       "s": "skip"
+       "t": "e-Invoice: NOT issued for now (LZ \u00d7 Emily 29 Sep \u2014 one e-invoice triggers monthly LHDN reporting)",
+       "s": "done"
       },
       {
        "t": "Create a general clinic Gmail (e.g. ismile.general@\u2026) with ismiledental76 as the backup \u2014 goes on receipts and the website instead of the 76 address",
@@ -2453,7 +2453,7 @@
        "w": "for Sat 3 Oct"
       },
       {
-       "t": "Training deck draft v1 built 29 Sep (52 slides) \u2014 Google Slides 19CEkrQ2\u2026; Lau confirms by Wed 30 Sep",
+       "t": "Training deck v2 built 29 Sep (26 slides, three parts: new tools \u00b7 new rules \u00b7 how we talk) \u2014 Google Slides 1E6mpVf6\u2026; Lau shares with Emily Wed 30 Sep",
        "s": "now",
        "w": "Wed 30 Sep"
       },
@@ -2484,7 +2484,7 @@
      "from_initiatives": [
       19
      ],
-     "next": "Lau reviews the Google Slides draft and confirms by Wed 30 Sep; chase Dr Ling + Dr Ong sign-offs for slide 43 by Thu 1 Oct; load the v2 shortcuts on the clinic phone.",
+     "next": "Lau reviews deck v2 and shares it with Emily Wed 30 Sep; tell the girls it is training + dinner; load the v2 shortcuts on the clinic phone before Sat 3 Oct.",
      "endMonth": "2026-11",
      "flag": {
       "k": "due",
@@ -2908,7 +2908,7 @@
       "end": "2026-09-30",
       "status": "now",
       "who": "Lau \u00b7 Emily",
-      "note": "Draft v1 (52 slides) on Google Slides 29 Sep; Lau confirms by Wed 30 Sep."
+      "note": "Deck v2 (26 slides, three parts) on Google Slides 29 Sep; Lau shares with Emily Wed 30 Sep."
      },
      {
       "label": "Training for front-of-house staff",
@@ -3136,6 +3136,6 @@
  },
  "meta": {
   "asof": "TUE 29 SEP 2026",
-  "updated": "2026-09-29T23:36:51+08:00"
+  "updated": "2026-09-29T23:44:11+08:00"
  }
 }

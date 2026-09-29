@@ -1,14 +1,9 @@
 {
- "updated": "2026-09-29T23:36:51+08:00",
+ "updated": "2026-09-29T23:44:11+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -17,8 +12,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
-   "init": "E",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
+  "Emily": {
    "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -124,7 +124,7 @@
     "Go live \u2014 receipts from AutoCount, paper retired",
     "Follow up the two patient cases Dr Ling raised where the patient has not paid / refuses to pay \u2014 agreed with all doctors on 23 Sep: a patient-payment matter, not a doctor matter \u00b7 owner Emily + front desk",
     "Staff-family onlay (Dr Joan), RM2,000 outstanding since April: family waiting on a church claim. Emily chases tomorrow and offers whatever documents the church needs; deadline mid-Oct \u2014 if the church won't pay, offer a salary-deduction plan",
-    "e-Invoice ON anyway (LZ 28 Sep: act as though required) \u2014 ask Leow to enable; issue on request; full training before 1 Jan 2027",
+    "e-Invoice: NOT issued for now (LZ \u00d7 Emily 29 Sep \u2014 one e-invoice triggers monthly LHDN reporting)",
     "Create a general clinic Gmail (e.g. ismile.general@\u2026) with ismiledental76 as the backup \u2014 goes on receipts and the website instead of the 76 address",
     "Bad debt: OpenDent shows ~RM174k outstanding, some >90 days and some years old. Define bad debt (e.g. overdue 30 days = delinquent, 6 months = write off) then clean the old balances out of OpenDent"
    ],
@@ -840,7 +840,7 @@
    "status": "active",
    "owner": "Emily",
    "why": "The clinic has no SOP for issuing letters to patients \u2014 medical certificates, referral letters, insurance reports, quotations. Nobody had ever said whose job it was, and that gap caused real friction between a doctor and",
-   "next": "Lau reviews the Google Slides draft and confirms by Wed 30 Sep; chase Dr Ling + Dr Ong sign-offs for slide 43 by Thu 1 Oct; load the v2 shortcuts on the clinic phone.",
+   "next": "Lau reviews deck v2 and shares it with Emily Wed 30 Sep; tell the girls it is training + dinner; load the v2 shortcuts on the clinic phone before Sat 3 Oct.",
    "dept": "people",
    "lens": "efficiency",
    "endMonth": "2026-11",
@@ -859,7 +859,7 @@
     "Check whether a clinic stamp can stand in for a doctor's signature on external letters",
     "Training aiming for Sat 3 Oct \u2014 Emily books the girls\u2019 time Tue 22 Sep; confirmation pending",
     "FOH training pack refreshed 28 Sep (go-live 6 Oct, desk flow, discount line, 1 Oct fee rules, blast replies) \u2014 Lau settling 14 open questions in the L&D chat; deck confirmed by Wed 30 Sep",
-    "Training deck draft v1 built 29 Sep (52 slides) \u2014 Google Slides 19CEkrQ2\u2026; Lau confirms by Wed 30 Sep",
+    "Training deck v2 built 29 Sep (26 slides, three parts: new tools \u00b7 new rules \u00b7 how we talk) \u2014 Google Slides 1E6mpVf6\u2026; Lau shares with Emily Wed 30 Sep",
     "Training day Sat 3 Oct from 3:30 PM, downstairs after the last patient; dinner nearby afterwards (tell the girls it's training + dinner). Lau sends Emily the deck outline Wed 30 Sep; Emily texts anything to add. No DSA content \u2014 too much at once",
     "Rulings for the deck: always 'patient', never 'client' (Dr Ling asked Joanna to say client \u2014 Lau to square it with her); answer price questions with confidence ('these are our fees'), not 'let me check with the doctor'; keep supplier brochures off the front desk (doctors hand them to their own target patients)",
     "Target: shorten new-hire ramp-up (Joanna took ~1 year) by writing things down"
