@@ -2557,7 +2557,8 @@
   "holidays.txt repopulate each January (closed-day digest guard)",
   "<b>Reconnect financials:</b> the migrated OpenDental computer disrupted the extract/push pipeline; restore the daily cash and P&L feed.",
   "Check with Emily on the denture height for the TOC group.",
-  "Fix the cash digest tomorrow using the new PC."
+  "Fix the cash digest tomorrow using the new PC.",
+  "<b>Dr Mah braces pricing:</b> follow up after her market check on the ~RM8,000 lower-priced braces option, ~RM12,000 Damon pricing, and the agreed RM1,200 Damon case-related cost."
  ],
  "archive": [
   {
@@ -3015,6 +3016,6 @@
  },
  "meta": {
   "asof": "TUE 29 SEP 2026",
-  "updated": "2026-09-29T14:57:15+08:00"
+  "updated": "2026-09-29T17:42:02+08:00"
  }
 }
