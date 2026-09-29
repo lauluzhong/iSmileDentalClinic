@@ -1367,6 +1367,11 @@
        "t": "Rulings 29 Sep: discounts above 15% are asked of Emily first (the locum sheet will flag any not asked); family = parents, spouse, children (Dr Amy's addendum adds her sister, brother-in-law and their kids); new walk-ins, especially international patients, are told upfront about the RM100 minimum consult",
        "s": "done",
        "w": "Emily mtg 29 Sep"
+      },
+      {
+       "t": "Action list sent to Emily (Lau, WhatsApp): fill the Fees to check tab (47 codes, incl. RM0 by-report codes and D8040 at RM250), then confirm with Dr Ong",
+       "s": "done",
+       "w": "30 Sep"
       }
      ],
      "open": [
@@ -3135,7 +3140,7 @@
   ]
  },
  "meta": {
-  "asof": "TUE 29 SEP 2026",
-  "updated": "2026-09-29T23:53:26+08:00"
+  "asof": "WED 30 SEP 2026",
+  "updated": "2026-09-30T00:23:22+08:00"
  }
 }

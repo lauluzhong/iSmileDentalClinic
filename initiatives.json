@@ -1,14 +1,9 @@
 {
- "updated": "2026-09-29T23:53:26+08:00",
+ "updated": "2026-09-30T00:23:22+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
   "Lau": {
    "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Emily": {
-   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -22,13 +17,18 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
-   "init": "L",
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
   "Dr Ong": {
    "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -424,7 +424,8 @@
     "Doctor briefing: discount lines, never touch production price",
     "Lau checks with Mom that every minimum fee the doctors sent her has been entered; reminds Emily at the Tue 29 Sep meeting",
     "Emily goes through every OpenDent code we actually use: which minimum fees changed, and which used codes still have none \u2014 Locum Calculation session to produce the list from OpenDent",
-    "Rulings 29 Sep: discounts above 15% are asked of Emily first (the locum sheet will flag any not asked); family = parents, spouse, children (Dr Amy's addendum adds her sister, brother-in-law and their kids); new walk-ins, especially international patients, are told upfront about the RM100 minimum consult"
+    "Rulings 29 Sep: discounts above 15% are asked of Emily first (the locum sheet will flag any not asked); family = parents, spouse, children (Dr Amy's addendum adds her sister, brother-in-law and their kids); new walk-ins, especially international patients, are told upfront about the RM100 minimum consult",
+    "Action list sent to Emily (Lau, WhatsApp): fill the Fees to check tab (47 codes, incl. RM0 by-report codes and D8040 at RM250), then confirm with Dr Ong"
    ],
    "pillar": "P2"
   },
