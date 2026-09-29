@@ -340,8 +340,8 @@
        "w": "Chased Mon 28 Sep 11:38 (CC group) \u00b7 awaiting Jason \u00b7 blocks go-live Tue 6 Oct"
       },
       {
-       "t": "Jason: faulty downstairs mini PC goes back to China (the CPU gets no power) \u2014 clinic pays customs + shipping \u2248 RM120; vendor bears the return; fallback is a local repair shop",
-       "s": "now",
+       "t": "Warranty return shipping for the faulty downstairs mini PC \u2014 Lau confirmed with Jason Tai that he will bear the cost; it is above the earlier RM35\u201350 estimate (exact amount not recorded)",
+       "s": "done",
        "w": "confirmed 29 Sep"
       },
       {
@@ -361,8 +361,8 @@
       },
       {
        "t": "Leow sets up an individual AutoCount login + access rights for each staff member \u2014 we send him the details he needs",
-       "s": "next",
-       "w": "before Sat 3 Oct \u00b7 Leow shared the staff-login Excel in the AC group \u2014 Emily fills it in"
+       "s": "now",
+       "w": "before Sat 3 Oct \u00b7 Leow shared the staff-login Excel in the AC group \u2014 Emily is working on it"
       },
       {
        "t": "Update Leow once the doctors consistently enter discounts as a discount line (not an edited price) \u2014 Lau",
@@ -565,7 +565,7 @@
      "from_initiatives": [
       15
      ],
-     "next": "Leow: finalise receipt logo placement and details; staff-login template, payment methods, WhatsApp message (all asked 28 Sep) \u2192 Lau/Emily complete SOP by Fri 2 Oct; practise 1\u20132 Oct; train Sat 3 Oct; go live Tue 6 Oct.",
+     "next": "Leow: finalise receipt logo placement and details; Emily is working on the staff-login Excel; payment methods and WhatsApp message (all asked 28 Sep) \u2192 Lau/Emily complete SOP by Fri 2 Oct; practise 1\u20132 Oct; train Sat 3 Oct; go live Tue 6 Oct.",
      "endMonth": "2026-10"
     },
     {
@@ -819,14 +819,14 @@
       }
      ],
      "open": [
-      "<b>One downstairs computer has failed:</b> Jason confirmed on 29 Sep it must go to China for a warranty claim; estimated shipping is RM35\u201350 and Lau must confirm bearing it. AutoCount can run temporarily on another laptop at no charge.",
+      "<b>One downstairs computer has failed:</b> Jason confirmed on 29 Sep it must go to China for a warranty claim. Lau has confirmed he will bear the return shipping cost; it is above the earlier RM35\u201350 estimate (exact amount not recorded). AutoCount can run temporarily on another laptop at no charge.",
       "<b>AutoCount installation complete 22 Sep:</b> Vision Tech confirmed successful installation on both new front-desk PCs at 09:20. X-ray software is also installed."
      ],
      "owner": "codecapsule",
      "dept": "tech",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Jason to confirm repair vs return for the spoilt downstairs computer (asked 28 Sep). The OpenDent\u2192AutoCount SQL error is tracked on the integration card."
+     "next": "Warranty return shipping is settled. The OpenDent\u2192AutoCount SQL error is tracked on the integration card."
     },
     {
      "id": "d8",
@@ -2283,8 +2283,9 @@
        "w": "12 Jul"
       },
       {
-       "t": "Dr Ong \u00d7 Elaine job-description talk \u2014 confirmed not yet happened; make it happen",
-       "s": "now"
+       "t": "Dr Jean meets Elaine for the job-description conversation",
+       "s": "now",
+       "w": "Tue 6 Oct"
       },
       {
        "t": "Book the amounts sit-down",
@@ -2302,8 +2303,9 @@
      ],
      "flag": {
       "k": "talk",
-      "who": "Dr Ong",
-      "w": "Dr Ong still has not sat down with Elaine about her job description."
+      "by": "2026-10-06",
+      "who": "Dr Jean",
+      "w": "Dr Jean meets Elaine on 6 Oct for the job-description conversation."
      },
      "owner": "lu",
      "dept": "people",
@@ -2311,7 +2313,7 @@
      "from_initiatives": [
       17
      ],
-     "next": "Remaining scope = the YEAR-END INCREMENT only (bonus paid Jul). Owner + Emily to sit down and set per-person amounts. Settled: staff under 1 year (Erincy/Ruth/Suriza) are PRO-RATED in their one-to-ones; Elaine gets none (decided 2 Sep).",
+     "next": "Dr Jean meets Elaine on Tue 6 Oct for the job-description conversation. Remaining scope = the YEAR-END INCREMENT only (bonus paid Jul). Owner + Emily to sit down and set per-person amounts. Settled: staff under 1 year (Erincy/Ruth/Suriza) are PRO-RATED in their one-to-ones; Elaine gets none (decided 2 Sep).",
      "endMonth": "2026-12"
     },
     {
@@ -2863,8 +2865,8 @@
       "start": "2026-09-28",
       "end": "2026-10-02",
       "status": "now",
-      "who": "Leow (Vision Tech)",
-      "note": "All four asked in the AutoCount group Mon 28 Sep. Receipt samples arrived Tue 29 Sep; Lau prefers A4 and final logo placement is being adjusted. Logins and payment methods must be ready before the Sat 3 Oct training."
+      "who": "Leow (Vision Tech) \u00b7 Emily",
+      "note": "All four asked in the AutoCount group Mon 28 Sep. Receipt samples arrived Tue 29 Sep; Lau prefers A4 and final logo placement is being adjusted. Emily is working on the staff-login Excel. Logins and payment methods must be ready before the Sat 3 Oct training."
      },
      {
       "label": "WhatsApp quick reply: receipt + Google review ask",
@@ -3134,6 +3136,6 @@
  },
  "meta": {
   "asof": "TUE 29 SEP 2026",
-  "updated": "2026-09-29T23:28:14+08:00"
+  "updated": "2026-09-29T23:36:51+08:00"
  }
 }

@@ -1,9 +1,24 @@
 {
- "updated": "2026-09-29T23:28:14+08:00",
+ "updated": "2026-09-29T23:36:51+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
+  "Code Capsule": {
+   "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Dr Ong": {
    "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -14,21 +29,6 @@
   },
   "Edith": {
    "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Emily": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Code Capsule": {
-   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   }
@@ -63,7 +63,7 @@
     "X-ray software installed on the downstairs PCs",
     "Receipt + e-invoice run-through with actual data, including FIFO, partial payments and the integration/payment-creation workflow; simulate the downstairs front-desk journey and validate sub-account data flow",
     "Jason fixes the database/SQL error blocking OpenDent \u2192 AutoCount invoices \u2014 AutoCount holds sales invoices only up to ~5\u20137 Sep (live test failed on 25 Sep; coincides with the 5 Sep server swap)",
-    "Jason: faulty downstairs mini PC goes back to China (the CPU gets no power) \u2014 clinic pays customs + shipping \u2248 RM120; vendor bears the return; fallback is a local repair shop",
+    "Warranty return shipping for the faulty downstairs mini PC \u2014 Lau confirmed with Jason Tai that he will bear the cost; it is above the earlier RM35\u201350 estimate (exact amount not recorded)",
     "Leow clears all test invoices/data at end of day, then the link is switched on",
     "Link live \u2014 every transaction from 1 Oct flows into AutoCount",
     "Invoices from 1\u20135 Oct approved by hand, one by one, so October receivables start clean",
@@ -105,7 +105,7 @@
    "status": "review",
    "owner": "Emily",
    "why": "Receipts out of AutoCount replace the paper book \u2014 front desk switches only after training.",
-   "next": "Leow: finalise receipt logo placement and details; staff-login template, payment methods, WhatsApp message (all asked 28 Sep) \u2192 Lau/Emily complete SOP by Fri 2 Oct; practise 1\u20132 Oct; train Sat 3 Oct; go live Tue 6 Oct.",
+   "next": "Leow: finalise receipt logo placement and details; Emily is working on the staff-login Excel; payment methods and WhatsApp message (all asked 28 Sep) \u2192 Lau/Emily complete SOP by Fri 2 Oct; practise 1\u20132 Oct; train Sat 3 Oct; go live Tue 6 Oct.",
    "dept": "clinical",
    "lens": "efficiency",
    "endMonth": "2026-10",
@@ -203,7 +203,7 @@
    "status": "active",
    "owner": "Code Capsule",
    "why": "Server swapped and every PC reconnected; AutoCount installed on both front-desk PCs. One downstairs computer has since failed.",
-   "next": "Jason to confirm repair vs return for the spoilt downstairs computer (asked 28 Sep). The OpenDent\u2192AutoCount SQL error is tracked on the integration card.",
+   "next": "Warranty return shipping is settled. The OpenDent\u2192AutoCount SQL error is tracked on the integration card.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": null,
@@ -784,14 +784,14 @@
    "status": "review",
    "owner": "Lau",
    "why": "Decided: year end, BASE only, <1yr staff pro-rated, Elaine none. Amounts = the Q4 sit-down.",
-   "next": "Remaining scope = the YEAR-END INCREMENT only (bonus paid Jul). Owner + Emily to sit down and set per-person amounts. Settled: staff under 1 year (Erincy/Ruth/Suriza) are PRO-RATED in their one-to-ones; Elaine gets none (decided 2 Sep).",
+   "next": "Dr Jean meets Elaine on Tue 6 Oct for the job-description conversation. Remaining scope = the YEAR-END INCREMENT only (bonus paid Jul). Owner + Emily to sit down and set per-person amounts. Settled: staff under 1 year (Erincy/Ruth/Suriza) are PRO-RATED in their one-to-ones; Elaine gets none (decided 2 Sep).",
    "dept": "people",
    "lens": "cost",
    "endMonth": "2026-12",
    "note": "",
    "tasks": [
     "July bonus paid + announced",
-    "Dr Ong \u00d7 Elaine job-description talk \u2014 confirmed not yet happened; make it happen",
+    "Dr Jean meets Elaine for the job-description conversation",
     "Book the amounts sit-down",
     "Scorecard tool (defensible raises) \u2014 still unbuilt"
    ],
