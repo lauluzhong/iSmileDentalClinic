@@ -340,9 +340,9 @@
        "w": "Chased Mon 28 Sep 11:38 (CC group) \u00b7 awaiting Jason \u00b7 blocks go-live Tue 6 Oct"
       },
       {
-       "t": "Jason: repair or return the faulty downstairs front-desk PC (asked in the same 28 Sep chase)",
+       "t": "Jason: send the faulty downstairs mini PC to China for warranty claim; Lau to confirm RM35\u201350 shipping (confirmed 29 Sep)",
        "s": "now",
-       "w": "Chased Mon 28 Sep \u00b7 awaiting Jason"
+       "w": "29 Sep \u00b7 return to China confirmed; Lau to confirm estimated RM35\u201350 shipping"
       },
       {
        "t": "Leow clears all test invoices/data at end of day, then the link is switched on",
@@ -762,7 +762,7 @@
       }
      ],
      "open": [
-      "<b>Hardware was complete on 19 Sep</b>, but one downstairs computer has since failed \u2014 repair vs return pending with Jason.",
+      "<b>One downstairs computer has failed:</b> Jason confirmed on 29 Sep it must go to China for a warranty claim; estimated shipping is RM35\u201350 and Lau must confirm bearing it. AutoCount can run temporarily on another laptop at no charge.",
       "<b>AutoCount installation complete 22 Sep:</b> Vision Tech confirmed successful installation on both new front-desk PCs at 09:20. X-ray software is also installed."
      ],
      "owner": "codecapsule",
@@ -3016,6 +3016,6 @@
  },
  "meta": {
   "asof": "TUE 29 SEP 2026",
-  "updated": "2026-09-29T17:42:02+08:00"
+  "updated": "2026-09-29T21:32:48+08:00"
  }
 }
