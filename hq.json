@@ -538,9 +538,9 @@
        "s": "done"
       },
       {
-       "t": "Create a general clinic Gmail (e.g. ismile.general@\u2026) with ismiledental76 as the backup \u2014 goes on receipts and the website instead of the 76 address",
-       "s": "now",
-       "w": "Emily \u00b7 before go-live"
+       "t": "Create a general clinic Gmail: ismile.general@gmail.com, with ismiledental76 as the backup \u2014 goes on receipts and the website instead of the 76 address",
+       "s": "done",
+       "w": "Created 30 Sep \u00b7 apply to receipts and website before go-live"
       },
       {
        "t": "Bad debt: OpenDent shows ~RM174k outstanding, some >90 days and some years old. Define bad debt (e.g. overdue 30 days = delinquent, 6 months = write off) then clean the old balances out of OpenDent",
@@ -3141,6 +3141,6 @@
  },
  "meta": {
   "asof": "WED 30 SEP 2026",
-  "updated": "2026-09-30T00:23:22+08:00"
+  "updated": "2026-09-30T09:27:06+08:00"
  }
 }
