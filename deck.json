@@ -1,39 +1,39 @@
 {
- "generated_myt": "2026-10-01 07:00",
- "generated_at": "2026-10-01T07:00:12+08:00",
+ "generated_myt": "2026-10-01 07:30",
+ "generated_at": "2026-10-01T07:30:11+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 107.6,
   "nproc": 4,
   "load": [
-   0.47,
-   0.23,
-   0.26
+   0.63,
+   0.41,
+   0.6
   ],
-  "cpu_pct": 11.8,
-  "cpu_pct_sample": 88.8,
+  "cpu_pct": 15.8,
+  "cpu_pct_sample": 24.0,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 5045,
-   "avail_mb": 2895,
-   "pct": 63.5,
+   "used_mb": 4684,
+   "avail_mb": 3256,
+   "pct": 59.0,
    "swap_total_mb": 2047,
-   "swap_used_mb": 2033
+   "swap_used_mb": 2045
   },
   "disk": {
    "total_gb": 154.9,
-   "used_gb": 29.3,
-   "pct": 18.9
+   "used_gb": 29.7,
+   "pct": 19.2
   },
   "gateway_ok": true,
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 26,
-    "last_myt": "2026-10-01 07:00 MYT"
+    "age_s": 24,
+    "last_myt": "2026-10-01 07:30 MYT"
    },
    "hq_publish": {
-    "age_s": 21388,
+    "age_s": 23187,
     "last_myt": "2026-10-01 01:03 MYT",
     "detail": "asof=THU 01 OCT 2026 streams=41 sideboard=20 decisions=0 archive=11"
    }
@@ -43,9 +43,9 @@
    "total": 16,
    "failed": [],
    "running": [
-    "seo_outcome"
+    "recall_funnel"
    ],
-   "status_updated": "2026-10-01 07:00 MYT"
+   "status_updated": "2026-10-01 07:30 MYT"
   },
   "last_clinic_push": "2026-10-01"
  },
@@ -490,18 +490,18 @@
  },
  "seo": {
   "window": [
-   "2026-08-01",
-   "2026-08-31"
+   "2026-09-01",
+   "2026-09-30"
   ],
-  "clicks": 176,
-  "impressions": 14915,
-  "avg_position": 13.0,
-  "nonbrand_clicks": 28,
-  "nonbrand_ctr_pct": 0.3,
-  "organic_sessions": 228,
-  "organic_sessions_mobile": 160,
-  "whatsapp_submit_click": 46,
-  "source": "seo_scorecard_2026-09.json"
+  "clicks": 179,
+  "impressions": 12767,
+  "avg_position": 10.7,
+  "nonbrand_clicks": 41,
+  "nonbrand_ctr_pct": 0.57,
+  "organic_sessions": 270,
+  "organic_sessions_mobile": 186,
+  "whatsapp_submit_click": 42,
+  "source": "seo_scorecard_2026-10.json"
  },
  "reviews": {
   "rating": "4.8",
