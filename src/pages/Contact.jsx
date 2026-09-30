@@ -26,7 +26,7 @@ const Contact = () => {
                 </header>
                 <dl className="contact-details">
                     <div className="contact-detail-row"><dt>Visit Us</dt><dd><p>75 &amp; 75A, Jalan SS 22/23,<br />Damansara Jaya, 47400 Petaling Jaya,<br />Selangor, Malaysia</p><div className="contact-directions"><a className="quiet-link" href="https://maps.app.goo.gl/yt8MxXDpDxXgXqre6" target="_blank" rel="noopener noreferrer">Google Maps</a><a className="quiet-link" href="https://ul.waze.com/ul?place=ChIJMyz-_jZJzDERBTVNqS_uGzg&ll=3.12583430%2C101.61623380&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location" target="_blank" rel="noopener noreferrer">Waze</a></div></dd></div>
-                    <div className="contact-detail-row"><dt>Contact</dt><dd><p><a href="tel:+60163222135" className="contact-phone">+60163222135</a></p><Button onClick={() => {
+                    <div className="contact-detail-row"><dt>Contact</dt><dd><p><a href="tel:+60163222135" className="contact-phone">+60163222135</a></p><p><a href="mailto:ismile.general@gmail.com" className="contact-phone">ismile.general@gmail.com</a></p><Button onClick={() => {
                         const ctaLocation = 'contact_page_cta';
                         const eventData = {
                             event: 'whatsapp_click',

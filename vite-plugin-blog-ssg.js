@@ -248,6 +248,7 @@ export default function blogSSG() {
             'Su off'
           ],
           telephone: '+6016-322-2135',
+          email: 'ismile.general@gmail.com',
           rating: {
             ratingValue: String(reviewStats.rating),
             reviewCount: String(reviewStats.count)
@@ -416,6 +417,7 @@ export default function blogSSG() {
           },
           "openingHours": location.openingHours,
           "telephone": location.telephone,
+          "email": location.email,
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": location.rating.ratingValue,

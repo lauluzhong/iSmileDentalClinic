@@ -1,7 +1,7 @@
 import { useBooking } from '../context/BookingContext';
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Smartphone } from 'lucide-react';
+import { Smartphone, Mail } from 'lucide-react';
 import Button from './Button';
 import reviewStats from '../data/review-stats.json';
 import { enrichEvent } from '../lib/attribution';
@@ -169,6 +169,20 @@ const Footer = () => {
                                     }, 'footer'));
                                 }}
                             >+60163222135</a>
+                        </div>
+                        <div className="phone-block email-block">
+                            <Mail size={20} className="phone-icon" />
+                            <a
+                                href="mailto:ismile.general@gmail.com"
+                                className="phone-link email-link"
+                                onClick={() => {
+                                    window.dataLayer = window.dataLayer || [];
+                                    window.dataLayer.push(enrichEvent({
+                                        event: 'email_click',
+                                        link_url: 'mailto:ismile.general@gmail.com'
+                                    }, 'footer'));
+                                }}
+                            >ismile.general@gmail.com</a>
                         </div>
                         <p className="cta-desc">Ready to schedule your visit?</p>
                         <div className="mt-4">
@@ -338,6 +352,8 @@ const Footer = () => {
         .phone-link:hover {
             color: var(--color-primary);
         }
+        .phone-block:has(+ .email-block) { margin-bottom: 10px; }
+        .email-link { font-size: 0.95rem; overflow-wrap: anywhere; }
 
         /* The white outline pills are BACK by the owner's call (8 Sep 2026):
            he prefers the earlier Maps/Waze buttons over quiet links. Kept on
