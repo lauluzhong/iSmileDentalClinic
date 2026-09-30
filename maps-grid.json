@@ -1,5 +1,5 @@
 {
- "generated_myt": "2026-10-01 00:53",
+ "generated_myt": "2026-10-01 00:54",
  "clinic": {
   "name": "iSmile Dental Clinic",
   "lat": 3.1258343,
@@ -21,9 +21,902 @@
   {
    "date": "2026-09-30",
    "centre": {
+    "lat": 3.1283,
+    "lng": 101.6232
+   },
+   "partial": false,
+   "note": "old grid centre, about 820 m north-east of the clinic; coordinates back-filled 1 Oct 2026",
+   "keywords": {
+    "dentist": [
+     {
+      "pt": 0,
+      "lat": 3.1148,
+      "lng": 101.6097,
+      "rank": null,
+      "top3": [
+       "Oralis Dental",
+       "Klinik Pergigian Goodcare",
+       "Sim & Hooi Dental Centre (PJ)"
+      ],
+      "error": false
+     },
+     {
+      "pt": 1,
+      "lat": 3.1148,
+      "lng": 101.6232,
+      "rank": null,
+      "top3": [
+       "Dr MeiLuk by L&M Dental Clinic PJ (Braces Dentist ss2)",
+       "BioSmile Dental Clinic",
+       "Oralis Dental"
+      ],
+      "error": false
+     },
+     {
+      "pt": 2,
+      "lat": 3.1148,
+      "lng": 101.6367,
+      "rank": null,
+      "top3": [
+       "SmileGram Dental Clinic PJ (Petaling Jaya)",
+       "Dr. Jay Dental Clinic",
+       "Clarity Dental Clinic \u6e05\u6670\u7259\u79d1\u8a3a\u6240"
+      ],
+      "error": false
+     },
+     {
+      "pt": 3,
+      "lat": 3.1283,
+      "lng": 101.6097,
+      "rank": 8,
+      "top3": [
+       "M Dental Clinic Damansara Uptown PJ",
+       "Oralis Dental",
+       "Bunny Dental Clinic (Damansara Jaya)"
+      ],
+      "error": false
+     },
+     {
+      "pt": 4,
+      "lat": 3.1283,
+      "lng": 101.6232,
+      "rank": 15,
+      "top3": [
+       "M Dental Clinic Damansara Uptown PJ",
+       "Smile Haven Dental Clinic \u2022 Damansara Jaya",
+       "The ARC Dental Clinic Damansara Uptown"
+      ],
+      "error": false
+     },
+     {
+      "pt": 5,
+      "lat": 3.1283,
+      "lng": 101.6367,
+      "rank": null,
+      "top3": [
+       "Smile Life Dental",
+       "M Dental Clinic Damansara Uptown PJ",
+       "Clarity Dental Clinic \u6e05\u6670\u7259\u79d1\u8a3a\u6240"
+      ],
+      "error": false
+     },
+     {
+      "pt": 6,
+      "lat": 3.1418,
+      "lng": 101.6097,
+      "rank": null,
+      "top3": [
+       "Klinik Pergigian aiDentist Damansara",
+       "M Dental Clinic Damansara Uptown PJ",
+       "THE DENTIST@TROPICANA( GUM Treatmnt, RCT, IMPLANTS, INVISALIGN, BRACES,CHILDRENS DENTISTRY,WISDOM TOOTH , GENERALDENTISTRY)"
+      ],
+      "error": false
+     },
+     {
+      "pt": 7,
+      "lat": 3.1418,
+      "lng": 101.6232,
+      "rank": null,
+      "top3": [
+       "Klinik Pergigian Dentabay Taman Tun Dr Ismail",
+       "M Dental Clinic Damansara Uptown PJ",
+       "The ARC Dental Clinic Damansara Uptown"
+      ],
+      "error": false
+     },
+     {
+      "pt": 8,
+      "lat": 3.1418,
+      "lng": 101.6367,
+      "rank": null,
+      "top3": [
+       "Klinik Pergigian Dentabay Taman Tun Dr Ismail",
+       "M Dental Clinic Damansara Uptown PJ",
+       "SEPA Dental Clinic (TTDI) \u2013 Dentist in Damansara, Kuala Lumpur"
+      ],
+      "error": false
+     }
+    ],
+    "dental clinic": [
+     {
+      "pt": 0,
+      "lat": 3.1148,
+      "lng": 101.6097,
+      "rank": null,
+      "top3": [
+       "Oralis Dental",
+       "JL Dental Clinic",
+       "Circle Dental Clinic"
+      ],
+      "error": false
+     },
+     {
+      "pt": 1,
+      "lat": 3.1148,
+      "lng": 101.6232,
+      "rank": null,
+      "top3": [
+       "T.Low Dental Clinic",
+       "SEPA Dental Clinic (SS2) \u2013 Petaling Jaya",
+       "V Dental Clinic"
+      ],
+      "error": false
+     },
+     {
+      "pt": 2,
+      "lat": 3.1148,
+      "lng": 101.6367,
+      "rank": null,
+      "top3": [
+       "SmileGram Dental Clinic PJ (Petaling Jaya)",
+       "Chuah Dental Clinic",
+       "We Smile Dental Clinic"
+      ],
+      "error": false
+     },
+     {
+      "pt": 3,
+      "lat": 3.1283,
+      "lng": 101.6097,
+      "rank": 18,
+      "top3": [
+       "SEPA Dental Clinic (SS2) \u2013 Petaling Jaya",
+       "M Dental Clinic Damansara Uptown PJ",
+       "Oralis Dental"
+      ],
+      "error": false
+     },
+     {
+      "pt": 4,
+      "lat": 3.1283,
+      "lng": 101.6232,
+      "rank": null,
+      "top3": [
+       "M Dental Clinic Damansara Uptown PJ",
+       "SEPA Dental Clinic (SS2) \u2013 Petaling Jaya",
+       "Smile Haven Dental Clinic \u2022 Damansara Jaya"
+      ],
+      "error": false
+     },
+     {
+      "pt": 5,
+      "lat": 3.1283,
+      "lng": 101.6367,
+      "rank": null,
+      "top3": [
+       "Smile Life Dental",
+       "M Dental Clinic Damansara Uptown PJ",
+       "We Smile Dental Clinic"
+      ],
+      "error": false
+     },
+     {
+      "pt": 6,
+      "lat": 3.1418,
+      "lng": 101.6097,
+      "rank": null,
+      "top3": [
+       "Klinik Pergigian aiDentist Damansara",
+       "Little GiGi Children Dental Clinic @ Bandar Utama",
+       "M Dental Clinic Damansara Uptown PJ"
+      ],
+      "error": false
+     },
+     {
+      "pt": 7,
+      "lat": 3.1418,
+      "lng": 101.6232,
+      "rank": null,
+      "top3": [
+       "Klinik Pergigian Dentabay Taman Tun Dr Ismail",
+       "M Dental Clinic Damansara Uptown PJ",
+       "Primecare Dental Clinic Damansara Uptown"
+      ],
+      "error": false
+     },
+     {
+      "pt": 8,
+      "lat": 3.1418,
+      "lng": 101.6367,
+      "rank": null,
+      "top3": [
+       "M Dental Clinic Damansara Uptown PJ",
+       "Klinik Pergigian Dentabay Taman Tun Dr Ismail",
+       "SEPA Dental Clinic (TTDI) \u2013 Dentist in Damansara, Kuala Lumpur"
+      ],
+      "error": false
+     }
+    ],
+    "family dentist": [
+     {
+      "pt": 0,
+      "lat": 3.1148,
+      "lng": 101.6097,
+      "rank": null,
+      "top3": [
+       "Oralis Dental",
+       "Tooth Family Dental Clinic",
+       "Circle Dental Clinic"
+      ],
+      "error": false
+     },
+     {
+      "pt": 1,
+      "lat": 3.1148,
+      "lng": 101.6232,
+      "rank": null,
+      "top3": [
+       "Tooth Family Dental Clinic",
+       "The Tooth Dr",
+       "V Dental Clinic"
+      ],
+      "error": false
+     },
+     {
+      "pt": 2,
+      "lat": 3.1148,
+      "lng": 101.6367,
+      "rank": null,
+      "top3": [
+       "Tooth Family Dental Clinic",
+       "The Tooth Dr",
+       "Dr. Jay Dental Clinic"
+      ],
+      "error": false
+     },
+     {
+      "pt": 3,
+      "lat": 3.1283,
+      "lng": 101.6097,
+      "rank": 11,
+      "top3": [
+       "Tooth Family Dental Clinic",
+       "Klinik Pergigian aiDentist Damansara",
+       "IVORY Dental at Atria Shopping Gallery by Icare Dental"
+      ],
+      "error": false
+     },
+     {
+      "pt": 4,
+      "lat": 3.1283,
+      "lng": 101.6232,
+      "rank": null,
+      "top3": [
+       "Tooth Family Dental Clinic",
+       "M Dental Clinic Damansara Uptown PJ",
+       "iCare Dental 3 Damansara Mall (previously Tropicana City Mall)"
+      ],
+      "error": false
+     },
+     {
+      "pt": 5,
+      "lat": 3.1283,
+      "lng": 101.6367,
+      "rank": null,
+      "top3": [
+       "Tooth Family Dental Clinic",
+       "Smile Life Dental",
+       "Smile Partners Dental Clinic"
+      ],
+      "error": false
+     },
+     {
+      "pt": 6,
+      "lat": 3.1418,
+      "lng": 101.6097,
+      "rank": null,
+      "top3": [
+       "Tooth Family Dental Clinic",
+       "Klinik Pergigian aiDentist Damansara",
+       "Little GiGi Children Dental Clinic @ Bandar Utama"
+      ],
+      "error": false
+     },
+     {
+      "pt": 7,
+      "lat": 3.1418,
+      "lng": 101.6232,
+      "rank": null,
+      "top3": [
+       "Klinik Pergigian Dentabay Taman Tun Dr Ismail",
+       "Fresh Smile Dental Clinic",
+       "Klinik Pergigian Mawarni TTDI"
+      ],
+      "error": false
+     },
+     {
+      "pt": 8,
+      "lat": 3.1418,
+      "lng": 101.6367,
+      "rank": null,
+      "top3": [
+       "Tooth Family Dental Clinic",
+       "Dental Home - KLGCC Mall, Mont Kiara",
+       "Klinik Pergigian Dentabay Taman Tun Dr Ismail"
+      ],
+      "error": false
+     }
+    ],
+    "children dentist": [
+     {
+      "pt": 0,
+      "lat": 3.1148,
+      "lng": 101.6097,
+      "rank": null,
+      "top3": [
+       "Little GiGi Children Dental Clinic @ Bandar Utama",
+       "Kindlehouse Dental Clinic (Klinik Pergigian Kindlehouse)",
+       "Little GiGi Children Dental Clinic @ Mont Kiara"
+      ],
+      "error": false
+     },
+     {
+      "pt": 1,
+      "lat": 3.1148,
+      "lng": 101.6232,
+      "rank": null,
+      "top3": [
+       "Little GiGi Children Dental Clinic @ Bandar Utama",
+       "Kindlehouse Dental Clinic (Klinik Pergigian Kindlehouse)",
+       "Bright Dental ( Children & Invisalign)"
+      ],
+      "error": false
+     },
+     {
+      "pt": 2,
+      "lat": 3.1148,
+      "lng": 101.6367,
+      "rank": null,
+      "top3": [
+       "Little GiGi Children Dental Clinic @ Bandar Utama",
+       "Little GiGi Children Dental Clinic @ Mont Kiara",
+       "Kindlehouse Dental Clinic (Klinik Pergigian Kindlehouse)"
+      ],
+      "error": false
+     },
+     {
+      "pt": 3,
+      "lat": 3.1283,
+      "lng": 101.6097,
+      "rank": 20,
+      "top3": [
+       "Little GiGi Children Dental Clinic @ Bandar Utama",
+       "Kindlehouse Dental Clinic (Klinik Pergigian Kindlehouse)",
+       "The Dental Studio"
+      ],
+      "error": false
+     },
+     {
+      "pt": 4,
+      "lat": 3.1283,
+      "lng": 101.6232,
+      "rank": null,
+      "top3": [
+       "Little GiGi Children Dental Clinic @ Bandar Utama",
+       "Little GiGi Children Dental Clinic @ Mont Kiara",
+       "Kindlehouse Dental Clinic (Klinik Pergigian Kindlehouse)"
+      ],
+      "error": false
+     },
+     {
+      "pt": 5,
+      "lat": 3.1283,
+      "lng": 101.6367,
+      "rank": null,
+      "top3": [
+       "Little GiGi Children Dental Clinic @ Bandar Utama",
+       "Little GiGi Children Dental Clinic @ Mont Kiara",
+       "Little GiGi Children Dental Clinic @ Desa ParkCity"
+      ],
+      "error": false
+     },
+     {
+      "pt": 6,
+      "lat": 3.1418,
+      "lng": 101.6097,
+      "rank": null,
+      "top3": [
+       "Little GiGi Children Dental Clinic @ Bandar Utama",
+       "Little GiGi Children Dental Clinic @ Mont Kiara",
+       "Little GiGi Children Dental Clinic @ Desa ParkCity"
+      ],
+      "error": false
+     },
+     {
+      "pt": 7,
+      "lat": 3.1418,
+      "lng": 101.6232,
+      "rank": null,
+      "top3": [
+       "Little GiGi Children Dental Clinic @ Bandar Utama",
+       "The Dental Studio",
+       "Little GiGi Children Dental Clinic @ Mont Kiara"
+      ],
+      "error": false
+     },
+     {
+      "pt": 8,
+      "lat": 3.1418,
+      "lng": 101.6367,
+      "rank": null,
+      "top3": [
+       "Little GiGi Children Dental Clinic @ Mont Kiara",
+       "Little GiGi Children Dental Clinic @ Bandar Utama",
+       "Little GiGi Children Dental Clinic @ Desa ParkCity"
+      ],
+      "error": false
+     }
+    ],
+    "dentist near me": [
+     {
+      "pt": 0,
+      "lat": 3.1148,
+      "lng": 101.6097,
+      "rank": null,
+      "top3": [
+       "Oralis Dental",
+       "Sim & Hooi Dental Centre (PJ)",
+       "JL Dental Clinic"
+      ],
+      "error": false
+     },
+     {
+      "pt": 1,
+      "lat": 3.1148,
+      "lng": 101.6232,
+      "rank": null,
+      "top3": [
+       "T.Low Dental Clinic",
+       "V Dental Clinic",
+       "BioSmile Dental Clinic"
+      ],
+      "error": false
+     },
+     {
+      "pt": 2,
+      "lat": 3.1148,
+      "lng": 101.6367,
+      "rank": null,
+      "top3": [
+       "Dr. Jay Dental Clinic",
+       "SmileGram Dental Clinic PJ (Petaling Jaya)",
+       "Chuah Dental Clinic"
+      ],
+      "error": false
+     },
+     {
+      "pt": 3,
+      "lat": 3.1283,
+      "lng": 101.6097,
+      "rank": 10,
+      "top3": [
+       "Oralis Dental",
+       "Bunny Dental Clinic (Damansara Jaya)",
+       "SEPA Dental Clinic (SS2) \u2013 Petaling Jaya"
+      ],
+      "error": false
+     },
+     {
+      "pt": 4,
+      "lat": 3.1283,
+      "lng": 101.6232,
+      "rank": null,
+      "top3": [
+       "M Dental Clinic Damansara Uptown PJ",
+       "Smile Haven Dental Clinic \u2022 Damansara Jaya",
+       "The ARC Dental Clinic Damansara Uptown"
+      ],
+      "error": false
+     },
+     {
+      "pt": 5,
+      "lat": 3.1283,
+      "lng": 101.6367,
+      "rank": null,
+      "top3": [
+       "Smile Life Dental",
+       "M Dental Clinic Damansara Uptown PJ",
+       "Clarity Dental Clinic \u6e05\u6670\u7259\u79d1\u8a3a\u6240"
+      ],
+      "error": false
+     },
+     {
+      "pt": 6,
+      "lat": 3.1418,
+      "lng": 101.6097,
+      "rank": null,
+      "top3": [
+       "Klinik Pergigian aiDentist Damansara",
+       "M Dental Clinic Damansara Uptown PJ",
+       "Primecare Dental Clinic Damansara Uptown"
+      ],
+      "error": false
+     },
+     {
+      "pt": 7,
+      "lat": 3.1418,
+      "lng": 101.6232,
+      "rank": null,
+      "top3": [
+       "M Dental Clinic Damansara Uptown PJ",
+       "ALL SMILE DENTAL SPECIALIST",
+       "Luxe Dental(Invisalign Black Diamond/Wisdom tooth/ All dental service) )"
+      ],
+      "error": false
+     },
+     {
+      "pt": 8,
+      "lat": 3.1418,
+      "lng": 101.6367,
+      "rank": null,
+      "top3": [
+       "Klinik Pergigian Dentabay Taman Tun Dr Ismail",
+       "ALL SMILE DENTAL SPECIALIST",
+       "Klinik Pergigian Mawarni TTDI"
+      ],
+      "error": false
+     }
+    ],
+    "dentist damansara jaya": [
+     {
+      "pt": 0,
+      "lat": 3.1148,
+      "lng": 101.6097,
+      "rank": 4,
+      "top3": [
+       "Smile Haven Dental Clinic \u2022 Damansara Jaya",
+       "Bunny Dental Clinic (Damansara Jaya)",
+       "M Dental Clinic Damansara Uptown PJ"
+      ],
+      "error": false
+     },
+     {
+      "pt": 1,
+      "lat": 3.1148,
+      "lng": 101.6232,
+      "rank": 5,
+      "top3": [
+       "Smile Haven Dental Clinic \u2022 Damansara Jaya",
+       "Bunny Dental Clinic (Damansara Jaya)",
+       "M Dental Clinic Damansara Uptown PJ"
+      ],
+      "error": false
+     },
+     {
+      "pt": 2,
+      "lat": 3.1148,
+      "lng": 101.6367,
+      "rank": 6,
+      "top3": [
+       "Smile Haven Dental Clinic \u2022 Damansara Jaya",
+       "M Dental Clinic Damansara Uptown PJ",
+       "Bunny Dental Clinic (Damansara Jaya)"
+      ],
+      "error": false
+     },
+     {
+      "pt": 3,
+      "lat": 3.1283,
+      "lng": 101.6097,
+      "rank": 4,
+      "top3": [
+       "Bunny Dental Clinic (Damansara Jaya)",
+       "Smile Haven Dental Clinic \u2022 Damansara Jaya",
+       "M Dental Clinic Damansara Uptown PJ"
+      ],
+      "error": false
+     },
+     {
+      "pt": 4,
+      "lat": 3.1283,
+      "lng": 101.6232,
+      "rank": 6,
+      "top3": [
+       "Smile Haven Dental Clinic \u2022 Damansara Jaya",
+       "M Dental Clinic Damansara Uptown PJ",
+       "Bunny Dental Clinic (Damansara Jaya)"
+      ],
+      "error": false
+     },
+     {
+      "pt": 5,
+      "lat": 3.1283,
+      "lng": 101.6367,
+      "rank": 4,
+      "top3": [
+       "Smile Haven Dental Clinic \u2022 Damansara Jaya",
+       "M Dental Clinic Damansara Uptown PJ",
+       "Bunny Dental Clinic (Damansara Jaya)"
+      ],
+      "error": false
+     },
+     {
+      "pt": 6,
+      "lat": 3.1418,
+      "lng": 101.6097,
+      "rank": 9,
+      "top3": [
+       "Smile Haven Dental Clinic \u2022 Damansara Jaya",
+       "M Dental Clinic Damansara Uptown PJ",
+       "Bunny Dental Clinic (Damansara Jaya)"
+      ],
+      "error": false
+     },
+     {
+      "pt": 7,
+      "lat": 3.1418,
+      "lng": 101.6232,
+      "rank": 9,
+      "top3": [
+       "Smile Haven Dental Clinic \u2022 Damansara Jaya",
+       "M Dental Clinic Damansara Uptown PJ",
+       "Luxe Dental(Invisalign Black Diamond/Wisdom tooth/ All dental service) )"
+      ],
+      "error": false
+     },
+     {
+      "pt": 8,
+      "lat": 3.1418,
+      "lng": 101.6367,
+      "rank": 6,
+      "top3": [
+       "Smile Haven Dental Clinic \u2022 Damansara Jaya",
+       "M Dental Clinic Damansara Uptown PJ",
+       "Bunny Dental Clinic (Damansara Jaya)"
+      ],
+      "error": false
+     }
+    ],
+    "dental clinic petaling jaya": [
+     {
+      "pt": 0,
+      "lat": 3.1148,
+      "lng": 101.6097,
+      "rank": null,
+      "top3": [
+       "Dr MeiLuk Dental Clinic PJ (Petaling Jaya)",
+       "Dr MeiLuk by L&M Dental Clinic PJ (Braces Dentist ss2)",
+       "JL Dental Clinic"
+      ],
+      "error": false
+     },
+     {
+      "pt": 1,
+      "lat": 3.1148,
+      "lng": 101.6232,
+      "rank": null,
+      "top3": [
+       "Dr MeiLuk by L&M Dental Clinic PJ (Braces Dentist ss2)",
+       "T.Low Dental Clinic",
+       "SEPA Dental Clinic (SS2) \u2013 Petaling Jaya"
+      ],
+      "error": false
+     },
+     {
+      "pt": 2,
+      "lat": 3.1148,
+      "lng": 101.6367,
+      "rank": null,
+      "top3": [
+       "SmileGram Dental Clinic PJ (Petaling Jaya)",
+       "Dr. Jay Dental Clinic",
+       "Dr MeiLuk by L&M Dental Clinic PJ (Braces Dentist ss2)"
+      ],
+      "error": false
+     },
+     {
+      "pt": 3,
+      "lat": 3.1283,
+      "lng": 101.6097,
+      "rank": 10,
+      "top3": [
+       "SEPA Dental Clinic (SS2) \u2013 Petaling Jaya",
+       "M Dental Clinic Damansara Uptown PJ",
+       "Dr MeiLuk Dental Clinic PJ (Petaling Jaya)"
+      ],
+      "error": false
+     },
+     {
+      "pt": 4,
+      "lat": 3.1283,
+      "lng": 101.6232,
+      "rank": 16,
+      "top3": [
+       "M Dental Clinic Damansara Uptown PJ",
+       "SEPA Dental Clinic (SS2) \u2013 Petaling Jaya",
+       "Smile Haven Dental Clinic \u2022 Damansara Jaya"
+      ],
+      "error": false
+     },
+     {
+      "pt": 5,
+      "lat": 3.1283,
+      "lng": 101.6367,
+      "rank": null,
+      "top3": [
+       "Smile Life Dental",
+       "SmileGram Dental Clinic PJ (Petaling Jaya)",
+       "Dr MeiLuk by L&M Dental Clinic PJ (Braces Dentist ss2)"
+      ],
+      "error": false
+     },
+     {
+      "pt": 6,
+      "lat": 3.1418,
+      "lng": 101.6097,
+      "rank": null,
+      "top3": [
+       "M Dental Clinic Damansara Uptown PJ",
+       "Dr MeiLuk Dental Clinic PJ (Petaling Jaya)",
+       "Klinik Pergigian aiDentist Damansara"
+      ],
+      "error": false
+     },
+     {
+      "pt": 7,
+      "lat": 3.1418,
+      "lng": 101.6232,
+      "rank": null,
+      "top3": [
+       "M Dental Clinic Damansara Uptown PJ",
+       "Primecare Dental Clinic Damansara Uptown",
+       "Dr MeiLuk Dental Clinic PJ (Petaling Jaya)"
+      ],
+      "error": false
+     },
+     {
+      "pt": 8,
+      "lat": 3.1418,
+      "lng": 101.6367,
+      "rank": null,
+      "top3": [
+       "SmileGram Dental Clinic PJ (Petaling Jaya)",
+       "Smile Life Dental",
+       "Dr MeiLuk by L&M Dental Clinic PJ (Braces Dentist ss2)"
+      ],
+      "error": false
+     }
+    ],
+    "denture": [
+     {
+      "pt": 0,
+      "lat": 3.1148,
+      "lng": 101.6097,
+      "rank": null,
+      "top3": [
+       "Oralis Dental",
+       "Klinik Pergigian Goodcare",
+       "Precious Denture Lab Services (Makmal Gigi Palsu)"
+      ],
+      "error": false
+     },
+     {
+      "pt": 1,
+      "lat": 3.1148,
+      "lng": 101.6232,
+      "rank": null,
+      "top3": [
+       "KC Dental Lab Malaysia",
+       "Precious Denture Lab Services (Makmal Gigi Palsu)",
+       "\u5065\u660e\u4e49\u9f7f\u5de5\u4f5c\u574a Perfect Dentures Workshop"
+      ],
+      "error": false
+     },
+     {
+      "pt": 2,
+      "lat": 3.1148,
+      "lng": 101.6367,
+      "rank": null,
+      "top3": [
+       "KC Dental Lab Malaysia",
+       "\u5065\u660e\u4e49\u9f7f\u5de5\u4f5c\u574a Perfect Dentures Workshop",
+       "Precious Denture Lab Services (Makmal Gigi Palsu)"
+      ],
+      "error": false
+     },
+     {
+      "pt": 3,
+      "lat": 3.1283,
+      "lng": 101.6097,
+      "rank": 7,
+      "top3": [
+       "Precious Denture Lab Services (Makmal Gigi Palsu)",
+       "KC Dental Lab Malaysia",
+       "DENTURE PRO ( Makmal Gigi )"
+      ],
+      "error": false
+     },
+     {
+      "pt": 4,
+      "lat": 3.1283,
+      "lng": 101.6232,
+      "rank": null,
+      "top3": [
+       "Smile Haven Dental Clinic \u2022 Damansara Jaya",
+       "M Dental Clinic Damansara Uptown PJ",
+       "The ARC Dental Clinic Damansara Uptown"
+      ],
+      "error": false
+     },
+     {
+      "pt": 5,
+      "lat": 3.1283,
+      "lng": 101.6367,
+      "rank": null,
+      "top3": [
+       "KC Dental Lab Malaysia",
+       "\u5065\u660e\u4e49\u9f7f\u5de5\u4f5c\u574a Perfect Dentures Workshop",
+       "Precious Denture Lab Services (Makmal Gigi Palsu)"
+      ],
+      "error": false
+     },
+     {
+      "pt": 6,
+      "lat": 3.1418,
+      "lng": 101.6097,
+      "rank": null,
+      "top3": [
+       "QuickDent Dental",
+       "Smile Haven Dental Clinic \u2022 Damansara Jaya",
+       "The ARC Dental Clinic Damansara Uptown"
+      ],
+      "error": false
+     },
+     {
+      "pt": 7,
+      "lat": 3.1418,
+      "lng": 101.6232,
+      "rank": null,
+      "top3": [
+       "The ARC Dental Clinic Damansara Uptown",
+       "Luxe Dental(Invisalign Black Diamond/Wisdom tooth/ All dental service) )",
+       "Smile Haven Dental Clinic \u2022 Damansara Jaya"
+      ],
+      "error": false
+     },
+     {
+      "pt": 8,
+      "lat": 3.1418,
+      "lng": 101.6367,
+      "rank": null,
+      "top3": [
+       "KC Dental Lab Malaysia",
+       "DENTURE PRO ( Makmal Gigi )",
+       "Precious Denture Lab Services (Makmal Gigi Palsu)"
+      ],
+      "error": false
+     }
+    ]
+   }
+  },
+  {
+   "date": "2026-10-01",
+   "centre": {
     "lat": 3.1258343,
     "lng": 101.6162338
    },
+   "partial": true,
+   "note": "first run centred on the clinic; 35 of 72 searches were refused (daily API cap, run the same day as the 30 Sep run) and are marked not checked",
    "keywords": {
     "dentist": [
      {
@@ -35,7 +928,8 @@
        "Klinik Pergigian Goodcare",
        "Healteeth Dental Clinic \u597d\u5eb7\u7259\u79d1",
        "Kindlehouse Dental Clinic (Klinik Pergigian Kindlehouse)"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 1,
@@ -46,7 +940,8 @@
        "Dr MeiLuk by L&M Dental Clinic PJ (Braces Dentist ss2)",
        "Oralis Dental",
        "BioSmile Dental Clinic"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 2,
@@ -57,7 +952,8 @@
        "Sinaran Dental",
        "SmileGram Dental Clinic PJ (Petaling Jaya)",
        "T.Low Dental Clinic"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 3,
@@ -68,7 +964,8 @@
        "Oralis Dental",
        "M Dental Clinic Damansara Uptown PJ",
        "Klinik Pergigian Goodcare"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 4,
@@ -79,7 +976,8 @@
        "M Dental Clinic Damansara Uptown PJ",
        "Oralis Dental",
        "IVORY Dental at Atria Shopping Gallery by Icare Dental"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 5,
@@ -90,7 +988,8 @@
        "M Dental Clinic Damansara Uptown PJ",
        "Smile Life Dental",
        "iCare Dental 3 Damansara Mall (previously Tropicana City Mall)"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 6,
@@ -101,7 +1000,8 @@
        "THE DENTIST@TROPICANA( GUM Treatmnt, RCT, IMPLANTS, INVISALIGN, BRACES,CHILDRENS DENTISTRY,WISDOM TOOTH , GENERALDENTISTRY)",
        "DING DENTAL CLINIC TROPICANA AVENUE (INVISALIGN PROVIDER,\u9690\u9002\u7f8e\u77eb\u6b63)",
        "M Dental Clinic Damansara Uptown PJ"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 7,
@@ -112,7 +1012,8 @@
        "M Dental Clinic Damansara Uptown PJ",
        "Klinik Pergigian aiDentist Damansara",
        "The ARC Dental Clinic Damansara Uptown"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 8,
@@ -123,7 +1024,8 @@
        "M Dental Clinic Damansara Uptown PJ",
        "ALL SMILE DENTAL SPECIALIST",
        "Klinik Pergigian Dentabay Taman Tun Dr Ismail"
-      ]
+      ],
+      "error": false
      }
     ],
     "dental clinic": [
@@ -136,7 +1038,8 @@
        "Healteeth Dental Clinic \u597d\u5eb7\u7259\u79d1",
        "Klinik Pergigian Goodcare",
        "JL Dental Clinic"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 1,
@@ -147,7 +1050,8 @@
        "Oralis Dental",
        "SEPA Dental Clinic (SS2) \u2013 Petaling Jaya",
        "T.Low Dental Clinic"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 2,
@@ -158,7 +1062,8 @@
        "Sinaran Dental",
        "SmileGram Dental Clinic PJ (Petaling Jaya)",
        "Chuah Dental Clinic"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 3,
@@ -169,7 +1074,8 @@
        "Smileland Dental Clinic",
        "Qualiteeth Dental Clinic @ Aman Suria (Sunwaymas Commercial Center)",
        "Oralis Dental"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 4,
@@ -180,7 +1086,8 @@
        "SEPA Dental Clinic (SS2) \u2013 Petaling Jaya",
        "iSmile Dental Clinic",
        "M Dental Clinic Damansara Uptown PJ"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 5,
@@ -191,7 +1098,8 @@
        "M Dental Clinic Damansara Uptown PJ",
        "Smile Life Dental",
        "SEPA Dental Clinic (SS2) \u2013 Petaling Jaya"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 6,
@@ -202,7 +1110,8 @@
        "Tropicana Dental Surgery",
        "Little GiGi Children Dental Clinic @ Bandar Utama",
        "DING DENTAL CLINIC TROPICANA AVENUE (INVISALIGN PROVIDER,\u9690\u9002\u7f8e\u77eb\u6b63)"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 7,
@@ -213,7 +1122,8 @@
        "M Dental Clinic Damansara Uptown PJ",
        "Primecare Dental Clinic Damansara Uptown",
        "The ARC Dental Clinic Damansara Uptown"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 8,
@@ -224,7 +1134,8 @@
        "M Dental Clinic Damansara Uptown PJ",
        "SEPA Dental Clinic (TTDI) \u2013 Dentist in Damansara, Kuala Lumpur",
        "Fresh Smile Dental Clinic"
-      ]
+      ],
+      "error": false
      }
     ],
     "family dentist": [
@@ -237,7 +1148,8 @@
        "Tooth Family Dental Clinic",
        "Kindlehouse Dental Clinic (Klinik Pergigian Kindlehouse)",
        "Klinik Pergigian Goodcare"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 1,
@@ -248,7 +1160,8 @@
        "Tooth Family Dental Clinic",
        "Dr MeiLuk by L&M Dental Clinic PJ (Braces Dentist ss2)",
        "Klinik Pergigian Famili"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 2,
@@ -259,7 +1172,8 @@
        "Tooth Family Dental Clinic",
        "The Tooth Dr",
        "Dr MeiLuk by L&M Dental Clinic PJ (Braces Dentist ss2)"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 3,
@@ -270,7 +1184,8 @@
        "Klinik Pergigian Famili Kota Damansara",
        "Tooth Family Dental Clinic",
        "THE DENTIST@TROPICANA( GUM Treatmnt, RCT, IMPLANTS, INVISALIGN, BRACES,CHILDRENS DENTISTRY,WISDOM TOOTH , GENERALDENTISTRY)"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 4,
@@ -281,7 +1196,8 @@
        "Tooth Family Dental Clinic",
        "iSmile Dental Clinic",
        "Bunny Dental Clinic (Damansara Jaya)"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 5,
@@ -292,7 +1208,8 @@
        "Smile Life Dental",
        "Tooth Family Dental Clinic",
        "M Dental Clinic Damansara Uptown PJ"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 6,
@@ -303,7 +1220,8 @@
        "Tooth Family Dental Clinic",
        "DING DENTAL CLINIC TROPICANA AVENUE (INVISALIGN PROVIDER,\u9690\u9002\u7f8e\u77eb\u6b63)",
        "Klinik Pergigian Famili Kota Damansara"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 7,
@@ -314,7 +1232,8 @@
        "Klinik Pergigian aiDentist Damansara",
        "Tooth Family Dental Clinic",
        "Klinik Pergigian Famili Kota Damansara"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 8,
@@ -325,7 +1244,8 @@
        "Tooth Family Dental Clinic",
        "M Dental Clinic Damansara Uptown PJ",
        "Klinik Pergigian Mawarni TTDI"
-      ]
+      ],
+      "error": false
      }
     ],
     "children dentist": [
@@ -338,14 +1258,16 @@
        "Little GiGi Children Dental Clinic @ Bandar Utama",
        "Kindlehouse Dental Clinic (Klinik Pergigian Kindlehouse)",
        "Bright Dental ( Children & Invisalign)"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 1,
       "lat": 3.112334,
       "lng": 101.616234,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 2,
@@ -356,7 +1278,8 @@
        "Little GiGi Children Dental Clinic @ Bandar Utama",
        "Kindlehouse Dental Clinic (Klinik Pergigian Kindlehouse)",
        "Dr MeiLuk by L&M Dental Clinic PJ (Braces Dentist ss2)"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 3,
@@ -367,14 +1290,16 @@
        "Little GiGi Children Dental Clinic @ Bandar Utama",
        "Kindlehouse Dental Clinic (Klinik Pergigian Kindlehouse)",
        "Little GiGi Children Dental Clinic @ Mont Kiara"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 4,
       "lat": 3.125834,
       "lng": 101.616234,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 5,
@@ -385,7 +1310,8 @@
        "Little GiGi Children Dental Clinic @ Bandar Utama",
        "Little GiGi Children Dental Clinic @ Mont Kiara",
        "Little GiGi Children Dental Clinic @ Desa ParkCity"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 6,
@@ -396,7 +1322,8 @@
        "Little GiGi Children Dental Clinic @ Bandar Utama",
        "Kindlehouse Dental Clinic (Klinik Pergigian Kindlehouse)",
        "Little GiGi Children Dental Clinic @ Desa ParkCity"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 7,
@@ -407,7 +1334,8 @@
        "Little GiGi Children Dental Clinic @ Bandar Utama",
        "Little GiGi Children Dental Clinic @ Mont Kiara",
        "The Dental Studio"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 8,
@@ -418,7 +1346,8 @@
        "Little GiGi Children Dental Clinic @ Bandar Utama",
        "Little GiGi Children Dental Clinic @ Mont Kiara",
        "The Dental Studio"
-      ]
+      ],
+      "error": false
      }
     ],
     "dentist near me": [
@@ -427,7 +1356,8 @@
       "lat": 3.112334,
       "lng": 101.602734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 1,
@@ -438,14 +1368,16 @@
        "Oralis Dental",
        "Dr MeiLuk by L&M Dental Clinic PJ (Braces Dentist ss2)",
        "T.Low Dental Clinic"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 2,
       "lat": 3.112334,
       "lng": 101.629734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 3,
@@ -456,42 +1388,48 @@
        "Oralis Dental",
        "Smileland Dental Clinic",
        "Cornerstone Dental Specialist PJ"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 4,
       "lat": 3.125834,
       "lng": 101.616234,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 5,
       "lat": 3.125834,
       "lng": 101.629734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 6,
       "lat": 3.139334,
       "lng": 101.602734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 7,
       "lat": 3.139334,
       "lng": 101.616234,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 8,
       "lat": 3.139334,
       "lng": 101.629734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      }
     ],
     "dentist damansara jaya": [
@@ -500,7 +1438,8 @@
       "lat": 3.112334,
       "lng": 101.602734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 1,
@@ -511,56 +1450,64 @@
        "Smile Haven Dental Clinic \u2022 Damansara Jaya",
        "Bunny Dental Clinic (Damansara Jaya)",
        "M Dental Clinic Damansara Uptown PJ"
-      ]
+      ],
+      "error": false
      },
      {
       "pt": 2,
       "lat": 3.112334,
       "lng": 101.629734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 3,
       "lat": 3.125834,
       "lng": 101.602734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 4,
       "lat": 3.125834,
       "lng": 101.616234,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 5,
       "lat": 3.125834,
       "lng": 101.629734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 6,
       "lat": 3.139334,
       "lng": 101.602734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 7,
       "lat": 3.139334,
       "lng": 101.616234,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 8,
       "lat": 3.139334,
       "lng": 101.629734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      }
     ],
     "dental clinic petaling jaya": [
@@ -569,63 +1516,72 @@
       "lat": 3.112334,
       "lng": 101.602734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 1,
       "lat": 3.112334,
       "lng": 101.616234,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 2,
       "lat": 3.112334,
       "lng": 101.629734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 3,
       "lat": 3.125834,
       "lng": 101.602734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 4,
       "lat": 3.125834,
       "lng": 101.616234,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 5,
       "lat": 3.125834,
       "lng": 101.629734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 6,
       "lat": 3.139334,
       "lng": 101.602734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 7,
       "lat": 3.139334,
       "lng": 101.616234,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 8,
       "lat": 3.139334,
       "lng": 101.629734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      }
     ],
     "denture": [
@@ -634,63 +1590,72 @@
       "lat": 3.112334,
       "lng": 101.602734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 1,
       "lat": 3.112334,
       "lng": 101.616234,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 2,
       "lat": 3.112334,
       "lng": 101.629734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 3,
       "lat": 3.125834,
       "lng": 101.602734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 4,
       "lat": 3.125834,
       "lng": 101.616234,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 5,
       "lat": 3.125834,
       "lng": 101.629734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 6,
       "lat": 3.139334,
       "lng": 101.602734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 7,
       "lat": 3.139334,
       "lng": 101.616234,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      },
      {
       "pt": 8,
       "lat": 3.139334,
       "lng": 101.629734,
       "rank": null,
-      "top3": []
+      "top3": [],
+      "error": true
      }
     ]
    }
