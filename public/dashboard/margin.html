@@ -218,6 +218,28 @@
   table.mini tr:hover td{background:rgba(var(--p1rgb),.07);cursor:pointer;}
 
   .note{font-size:11.5px;color:var(--dim);margin-top:12px;line-height:1.6;border-top:1px dashed var(--line);padding-top:10px;}
+  /* P&L statement */
+  .pnl-panel{padding:6px 22px 10px;max-width:760px;}
+  .pnl{display:grid;grid-template-columns:1fr auto auto;column-gap:28px;align-items:baseline;}
+  .pnl>div{display:contents;}
+  .pnl>div>div{padding:9px 0;border-bottom:1px solid var(--line);}
+  .pnl .hd{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);text-align:right;border-bottom:1px solid var(--line-hi);}
+  .pnl .hd:first-child,.pnl .lbl{text-align:left;}
+  .pnl .lbl{font-size:13px;color:var(--mut);}
+  .pnl .lbl small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-top:2px;}
+  .pnl .val{font-family:var(--disp);font-size:22px;font-weight:600;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .pnl .less .lbl::before{content:"less  ";font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);}
+  .pnl .less .val{font-size:17px;font-weight:500;color:var(--mut);}
+  .pnl .total>div{border-bottom:2px solid var(--line-hi);}
+  .pnl .total .lbl{color:var(--ink);font-weight:600;}
+  .pnl .final>div{border-bottom:none;}
+  .pnl .final .val{font-size:28px;}
+  .pnl .pos{color:var(--ok);} .pnl .neg{color:var(--bad);}
+  .pnl .proj{opacity:.45;}
+  .pnl .sub .lbl{padding-left:16px;font-size:12px;} .pnl .sub .val{font-size:14px;font-weight:400;color:var(--dim);font-family:var(--mono);}
+  .pnl .sub>div{border-bottom:none;padding:3px 0;}
+  .pnl>div.hd{display:block;}
+  @media (max-width:600px){ .pnl .val{font-size:17px;} .pnl .final .val{font-size:21px;} .pnl-panel{padding:6px 14px 10px;} .pnl{column-gap:14px;} }
   .note b{color:var(--mut);font-weight:600;}
   .ti{font-family:inherit;} /* placeholder */
   .tscroll{-webkit-overflow-scrolling:touch;}
@@ -307,6 +329,7 @@
       <button class="tab" data-view="summary" id="tab-summary"><span class="i">◫</span> Summary</button>
       <button class="tab" data-view="day" id="tab-day"><span class="i">▤</span> By day</button>
       <button class="tab" data-view="efficiency" id="tab-efficiency"><span class="i">◷</span> Efficiency</button>
+      <button class="tab" data-view="pnl" id="tab-pnl"><span class="i">≡</span> P&amp;L</button>
     </div>
     <div class="topbar-right">
       <span class="pill-sample" id="data-pill">LIVE DATA · loading…</span>
@@ -462,6 +485,31 @@
       </div>
     </div>
     <div class="note" id="day-note"></div>
+  </section>
+
+  <!-- ====================== P&L STATEMENT VIEW ====================== -->
+  <section class="view" id="view-pnl">
+    <div class="sec-head">
+      <div>
+        <h1>P&amp;L — the year, top to bottom</h1>
+        <p>Revenue, less direct cost, gross profit, less fixed cost, EBITDA, less depreciation, net profit. Left column is the year to date; the faded column is where the year lands if the recent run-rate holds.</p>
+      </div>
+      <div class="window-badge" id="pnl-asof"></div>
+    </div>
+    <div class="panel pnl-panel" id="pnl-statement"></div>
+    <div class="tcard" style="margin-top:18px">
+      <div class="tscroll">
+        <table class="tx" id="pnl-months" style="min-width:820px">
+          <thead><tr>
+            <th>Month</th><th class="num">Revenue</th><th class="num">Direct cost</th><th class="num">Gross profit</th>
+            <th class="num">Fixed cost</th><th class="num">EBITDA</th><th class="num">Dep. + HP int.</th><th class="num col-final">Net profit</th>
+          </tr></thead>
+          <tbody id="pnl-months-body"></tbody>
+          <tfoot id="pnl-months-foot"></tfoot>
+        </table>
+      </div>
+    </div>
+    <div class="note" id="pnl-note"></div>
   </section>
 
   <!-- ====================== EFFICIENCY VIEW ====================== -->
@@ -1134,12 +1182,57 @@ function renderEfficiency(){
 
 function switchView(v){
   document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.view===v));
-  ['tx','summary','day','efficiency'].forEach(k=>
+  ['tx','summary','day','efficiency','pnl'].forEach(k=>
     document.getElementById('view-'+k).classList.toggle('active',k===v));
   if(v==='efficiency') renderEfficiency();
   if(v==='day') renderDay();
+  if(v==='pnl') renderPnl();
   window.scrollTo({top:0,behavior:'smooth'});
 }
+
+/* ---- P&L statement (deck.json → finance.pnl; published every 30 min by deck_stats.py) ---- */
+const DECK_JSON_URL = "https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/deck.json";
+let STMT=null, PNL_STATE='idle';
+async function loadPnl(){
+  if(PNL_STATE!=='idle') return; PNL_STATE='loading';
+  try{ const r=await fetch(DECK_JSON_URL,{cache:'no-store'}); if(!r.ok) throw new Error('HTTP '+r.status);
+       const d=await r.json(); STMT=d&&d.finance&&d.finance.pnl||null; PNL_STATE=STMT?'ok':'missing'; }
+  catch(e){ PNL_STATE='error:'+(e&&e.message||e); }
+  renderPnl();
+}
+function renderPnl(){
+  const host=document.getElementById('pnl-statement'); if(!host) return;
+  if(PNL_STATE==='idle'){ loadPnl(); return; }
+  if(!STMT){ host.innerHTML='<div class="note" style="border:0;margin:0">'+(PNL_STATE==='loading'?'Loading the statement…':'P&amp;L not available yet ('+PNL_STATE+'). deck.json on the status branch carries it once the 30-minute publisher has run with the P&amp;L module.')+'</div>'; return; }
+  const y=STMT.ytd, p=STMT.projected||{};
+  const sgn=v=>v==null?'':(v>=0?'pos':'neg');
+  const money=v=>v==null?'—':(v<0?'−':'')+'RM '+Math.round(Math.abs(v)).toLocaleString('en-MY');
+  const yy=y, pp=p;
+  const g=(cls,l,val,pval,extra)=>`<div class="${cls}"><div class="lbl">${l}${extra||''}</div><div class="val ${cls.includes('total')||cls.includes('final')?sgn(val):''}">${money(val)}</div><div class="val proj ${cls.includes('total')||cls.includes('final')?sgn(pval):''}">${money(pval)}</div></div>`;
+  const F=PNL_FIXED_LABELS;
+  let h='<div class="pnl"><div class="hd">1 Jan – '+(STMT.as_of||'')+'</div><div class="hd">Year to date</div><div class="hd">Projected '+(STMT.year||'')+'</div>';
+  h+=g('total','Revenue',yy.revenue,pp.revenue,'<small>OpenDent production</small>');
+  h+=g('less','Direct cost',yy.direct.total,pp.direct.total,'<small>locum · lab · materials</small>');
+  h+=g('sub','Locum',yy.direct.locum,pp.direct.locum)+g('sub','Lab (est.)',yy.direct.lab,pp.direct.lab)+g('sub','Materials &amp; sundries (10.4% driver)',yy.direct.materials,pp.direct.materials);
+  h+=g('total','Gross profit',yy.gross_profit,pp.gross_profit);
+  h+=g('less','Fixed cost',yy.fixed.total,pp.fixed.total,'<small>staff · directors · premises · other</small>');
+  for(const k of PNL_FIXED_ORDER.concat(Object.keys(yy.fixed).filter(k=>!PNL_FIXED_ORDER.includes(k)))) if(k!=='total'&&yy.fixed[k]!=null) h+=g('sub',F[k]||k,yy.fixed[k],(pp.fixed||{})[k]);
+  h+=g('total','EBITDA',yy.ebitda,pp.ebitda);
+  h+=g('less','Depreciation &amp; HP interest',yy.below.total,pp.below.total);
+  for(const k of Object.keys(yy.below)) if(k!=='total') h+=g('sub',F[k]||k,yy.below[k],(pp.below||{})[k]);
+  h+=g('total final','Net profit',yy.net_profit,pp.net_profit);
+  h+='</div>';
+  host.innerHTML=h;
+  const badge=document.getElementById('pnl-asof'); if(badge) badge.textContent='as at '+(STMT.as_of||'');
+  // month table
+  const body=document.getElementById('pnl-months-body'), foot=document.getElementById('pnl-months-foot');
+  const cell=(v,cls)=>`<td class="num ${cls||''}">${v<0?'−':''}${Math.round(Math.abs(v)).toLocaleString('en-MY')}</td>`;
+  body.innerHTML=(STMT.months||[]).map(m=>`<tr><td>${m.month}</td>${cell(m.revenue)}${cell(m.direct.total)}${cell(m.gross_profit)}${cell(m.fixed.total)}${cell(m.ebitda)}${cell(m.below.total)}${cell(m.net_profit,'col-final '+sgn(m.net_profit))}</tr>`).join('');
+  foot.innerHTML=`<tr><td>YTD</td>${cell(yy.revenue)}${cell(yy.direct.total)}${cell(yy.gross_profit)}${cell(yy.fixed.total)}${cell(yy.ebitda)}${cell(yy.below.total)}${cell(yy.net_profit,'col-final '+sgn(yy.net_profit))}</tr>`;
+  document.getElementById('pnl-note').innerHTML='<b>Basis:</b> '+(STMT.basis||'')+' <b>Projection:</b> '+(pp.method||'')+(STMT.known_gap?' <b>Note:</b> '+STMT.known_gap:'');
+}
+const PNL_FIXED_ORDER=['staff','director','owner_salary','premises','other_opex'];
+const PNL_FIXED_LABELS={staff:'Staff costs',director:'Director remuneration (incl. Dr Ong)',owner_salary:'Owner salary (from Aug)',premises:'Premises &amp; utilities',other_opex:'Other operating',depreciation:'Depreciation',hp_interest:'HP interest'};
 
 /* ---- Filters wiring ---- */
 function initFilters(){
