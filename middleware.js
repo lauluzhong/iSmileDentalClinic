@@ -19,6 +19,7 @@ import { next, rewrite } from '@vercel/functions';
  *   /dashboard/margin     → margin dashboard      (public/dashboard/margin.html)
  *   /dashboard/analytics  → website analytics      (public/dashboard/analytics.html)
  *   /dashboard/margin-data.js → data asset for the margin dashboard
+ *   /dashboard/locum/     → Locum tool on the Contabo box (api/locum.js proxy, tool has its own sign-in)
  *
  * Legacy URLs are 308-redirected to the above so nothing old keeps working.
  */
@@ -116,6 +117,16 @@ export default function middleware(request) {
   // 3) Collapse physical .html URLs onto their clean form.
   if (CANONICAL[pathname]) {
     return Response.redirect(new URL(CANONICAL[pathname], request.url), 308);
+  }
+
+  // 4a) Locum tool (api/locum.js proxies to the box). Trailing slash so the page's relative api/... URLs resolve under it.
+  if (pathname === '/dashboard/locum') {
+    return Response.redirect(new URL('/dashboard/locum/', request.url), 308);
+  }
+  if (pathname.startsWith('/dashboard/locum/')) {
+    const { search } = new URL(request.url);
+    const sub = pathname.slice('/dashboard/locum'.length) + search;   // "/", "/login", "/api/month/2026-09?x"
+    return rewrite(new URL('/api/locum?p=' + encodeURIComponent(sub), request.url));
   }
 
   // 4) Serve clean URLs from their physical file (address bar stays clean).
