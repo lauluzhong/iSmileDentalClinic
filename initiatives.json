@@ -1,19 +1,9 @@
 {
- "updated": "2026-09-30T10:05:40+08:00",
+ "updated": "2026-09-30T10:12:20+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Edith": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
@@ -22,13 +12,23 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
+  "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -502,7 +502,7 @@
     "Configure the MiniCRM/CRM campaign after verification",
     "FOH training deck work",
     "Lau checks OpenDent for planned recipients who already made an appointment; remove or handle appropriately",
-    "Planned campaign window \u2014 W1 Tue 6 \u00b7 W2 Wed 7 \u00b7 W3 Thu 8\u2013Fri 9 Oct",
+    "Campaign window confirmed \u2014 W1 Tue 6 \u00b7 W2 Wed 7 \u00b7 W3 Thu 8\u2013Fri 9 Oct",
     "Lau confirms the FOH training deck",
     "Waves 2\u20133 \u00b7 funnel read via campaign tags",
     "Blast is ~4,000 patients, ~RM1,500\u20132,000; goal is appointments landing in FY2026 income. If prep slips, delay one week rather than cut corners"
@@ -785,14 +785,14 @@
    "status": "review",
    "owner": "Lau",
    "why": "Decided: year end, BASE only, <1yr staff pro-rated, Elaine none. Amounts = the Q4 sit-down.",
-   "next": "Dr Jean meets Elaine on Tue 6 Oct for the job-description conversation. Remaining scope = the YEAR-END INCREMENT only (bonus paid Jul). Owner + Emily to sit down and set per-person amounts. Settled: staff under 1 year (Erincy/Ruth/Suriza) are PRO-RATED in their one-to-ones; Elaine gets none (decided 2 Sep).",
+   "next": "Dr Ong meets Elaine on Tue 6 Oct for the job-description conversation. Remaining scope = the YEAR-END INCREMENT only (bonus paid Jul). Owner + Emily to sit down and set per-person amounts. Settled: staff under 1 year (Erincy/Ruth/Suriza) are PRO-RATED in their one-to-ones; Elaine gets none (decided 2 Sep).",
    "dept": "people",
    "lens": "cost",
    "endMonth": "2026-12",
    "note": "",
    "tasks": [
     "July bonus paid + announced",
-    "Dr Jean meets Elaine for the job-description conversation",
+    "Dr Ong meets Elaine for the job-description conversation",
     "Book the amounts sit-down",
     "Scorecard tool (defensible raises) \u2014 still unbuilt"
    ],

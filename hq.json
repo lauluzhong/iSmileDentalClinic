@@ -1,13 +1,5 @@
 {
- "decisions": [
-  {
-   "hot": false,
-   "k": "Decision pending",
-   "t": "Cold reactivation blast window: 6\u20139 Oct (planned, same week as go-live)",
-   "w": "Lau set 6\u20139 Oct on 28 Sep (\"probably\"): W1 Tue 6 \u00b7 W2 Wed 7 \u00b7 W3 Thu 8\u2013Fri 9 at 1,800/day. Lock it once the 2 Oct prep lands.",
-   "ref": "g1"
-  }
- ],
+ "decisions": [],
  "rail": [
   {
    "d": "24 Aug",
@@ -571,7 +563,7 @@
     {
      "id": "d4",
      "dot": "blocked",
-     "chip": "reg. due now",
+     "chip": "supplier list mid-Oct",
      "name": "AP \u00b7 suppliers + inventory",
      "one": "Supplier register \u2192 lab + equipment AP in AutoCount \u2192 inventory with PO\u2192invoice\u2192receipt flow.",
      "steps": [
@@ -581,7 +573,8 @@
       },
       {
        "t": "Full register from Emily \u2014 committed end Aug",
-       "s": "now"
+       "s": "now",
+       "w": "mid-Oct (moved from end Aug)"
       },
       {
        "t": "Supplier-side (AP) AutoCount training with Leow, in person \u2014 Lau + Emily",
@@ -617,9 +610,9 @@
      ],
      "flag": {
       "k": "due",
-      "by": "2026-08-31",
+      "by": "2026-10-15",
       "who": "Emily",
-      "w": "Emily's full supplier list was committed for end of August. The largest cost line of all \u2014 RM246k of dental sundries \u2014 is still missing from it."
+      "w": "Full supplier list (incl. the RM246k dental sundries) by mid-October, ahead of the AutoCount supplier setup."
      },
      "owner": "emily",
      "dept": "finance",
@@ -1498,7 +1491,7 @@
     {
      "id": "g1",
      "dot": "wait",
-     "chip": "paused \u00b7 verification + setup pending",
+     "chip": "confirmed 6\u20139 Oct \u00b7 list due 2 Oct",
      "name": "Cold reactivation blast",
      "one": "The clearest Q4 lever: 4,201 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
      "steps": [
@@ -1575,7 +1568,7 @@
       {
        "t": "Confirm excluded list for discounted individuals (immediate family, full-time staff, pastors, etc.)",
        "s": "now",
-       "w": "Wed 23 Sep"
+       "w": "Lau \u00b7 by Fri 2 Oct"
       },
       {
        "t": "Emily \u2014 confirm the 45 \"to confirm\" + 2 \"check\" rows in the Clinic-Covered Persons Register (only she knows who they are). The register drives BOTH the blast exclusions and the locum calculation.",
@@ -1585,7 +1578,7 @@
       {
        "t": "Confirm the family/shared-number recipient list with front desk",
        "s": "now",
-       "w": "Wed 23 Sep"
+       "w": "Lau \u00b7 by Fri 2 Oct"
       },
       {
        "t": "Configure the MiniCRM/CRM campaign after verification",
@@ -1603,7 +1596,7 @@
        "w": "Fri 2 or Sat 3 Oct"
       },
       {
-       "t": "Planned campaign window \u2014 W1 Tue 6 \u00b7 W2 Wed 7 \u00b7 W3 Thu 8\u2013Fri 9 Oct",
+       "t": "Campaign window confirmed \u2014 W1 Tue 6 \u00b7 W2 Wed 7 \u00b7 W3 Thu 8\u2013Fri 9 Oct",
        "s": "next",
        "w": "6\u20139 Oct"
       },
@@ -1638,8 +1631,10 @@
       "From the initiatives board: Birthday trigger de-prioritised by the owner. The review ask moves a lever that already feeds the website automatically."
      ],
      "flag": {
-      "k": "decide",
-      "w": "Confirm the exclusion list and the family-number recipients before the campaign is rebuilt in MiniCRM."
+      "k": "due",
+      "by": "2026-10-02",
+      "who": "Lau",
+      "w": "Lau confirms the exclusion list and family-number recipients by Fri 2 Oct."
      },
      "owner": "lu",
      "dept": "crm",
@@ -2286,7 +2281,7 @@
        "w": "12 Jul"
       },
       {
-       "t": "Dr Jean meets Elaine for the job-description conversation",
+       "t": "Dr Ong meets Elaine for the job-description conversation",
        "s": "now",
        "w": "Tue 6 Oct"
       },
@@ -2307,8 +2302,8 @@
      "flag": {
       "k": "talk",
       "by": "2026-10-06",
-      "who": "Dr Jean",
-      "w": "Dr Jean meets Elaine on 6 Oct for the job-description conversation."
+      "who": "Dr Ong",
+      "w": "Dr Ong meets Elaine on 6 Oct for the job-description conversation."
      },
      "owner": "lu",
      "dept": "people",
@@ -2316,7 +2311,7 @@
      "from_initiatives": [
       17
      ],
-     "next": "Dr Jean meets Elaine on Tue 6 Oct for the job-description conversation. Remaining scope = the YEAR-END INCREMENT only (bonus paid Jul). Owner + Emily to sit down and set per-person amounts. Settled: staff under 1 year (Erincy/Ruth/Suriza) are PRO-RATED in their one-to-ones; Elaine gets none (decided 2 Sep).",
+     "next": "Dr Ong meets Elaine on Tue 6 Oct for the job-description conversation. Remaining scope = the YEAR-END INCREMENT only (bonus paid Jul). Owner + Emily to sit down and set per-person amounts. Settled: staff under 1 year (Erincy/Ruth/Suriza) are PRO-RATED in their one-to-ones; Elaine gets none (decided 2 Sep).",
      "endMonth": "2026-12"
     },
     {
@@ -3139,6 +3134,6 @@
  },
  "meta": {
   "asof": "WED 30 SEP 2026",
-  "updated": "2026-09-30T10:05:40+08:00"
+  "updated": "2026-09-30T10:12:20+08:00"
  }
 }
