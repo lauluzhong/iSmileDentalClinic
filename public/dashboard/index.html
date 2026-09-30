@@ -60,6 +60,14 @@
 
   /* stat rows */
   .stats{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px}
+  /* YTD statement: label | YTD | projected (faded) */
+  .pl{display:grid;grid-template-columns:1fr auto auto;gap:5px 14px;align-items:baseline}
+  .pl .h{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);text-align:right}
+  .pl .h:first-child{text-align:left}
+  .pl .l{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+  .pl .v{font-family:var(--disp);font-size:20px;font-weight:600;line-height:1.15;text-align:right;font-variant-numeric:tabular-nums}
+  .pl .v.ok{color:var(--ok)} .pl .v.bad{color:var(--bad)}
+  .pl .p{opacity:.45}
   .stat .l{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
   .stat .v{font-family:var(--disp);font-size:20px;font-weight:600;line-height:1.15}
   .stat .v small{font-size:11px;color:var(--mut);font-family:var(--mono);font-weight:400;margin-left:4px}
@@ -190,7 +198,7 @@
         <div class="cb" id="vps"><div class="empty">loading…</div></div>
       </div>
       <div class="card fin"><div class="top"></div>
-        <a class="ch go" href="/dashboard/profitability#day" title="Open Profitability, day by day, line by line"><span class="k">Financial status</span><span class="arr">→</span><span class="m" id="finm">—</span></a>
+        <a class="ch go" href="/dashboard/profitability#pnl" title="Open Profitability — the P&amp;L statement"><span class="k">Financial status</span><span class="arr">→</span><span class="m" id="finm">—</span></a>
         <div class="cb" id="fin"><div class="empty">loading…</div></div>
       </div>
       <div class="card rec"><div class="top"></div>
@@ -339,17 +347,27 @@ function renderFin(){
   const tm=f&&f.mtd?f.mtd.true_margin:null;
   g.appendChild(stat("True margin",fmtK(tm),tm==null?"":tm>=0?"ok":"bad"));
   box.appendChild(g);
-  // ----- YTD
-  if(f&&f.ytd){
+  // ----- YTD: statement view (owner ask 30 Sep 2026) — YTD actual | projected FY (faded)
+  const pl=f&&f.pnl;
+  if(pl&&pl.ytd){
+    const y=pl.ytd, pj=pl.projected||{};
+    box.appendChild(el("div","sec",`<b>Year to date</b> · 1 Jan – ${isoLabel(pl.as_of||c.as_of).replace(/^\w+ /,"")}`));
+    const t=el("div","pl");
+    const sign=v=>v==null?"":v>=0?"ok":"bad";
+    const fk=v=>v==null?"—":(v<0?"−":"")+fmtK(Math.abs(v));
+    const row=(l,k)=>`<div class="l">${l}</div><div class="v ${sign(y[k])}">${fk(y[k])}</div><div class="v p ${sign(pj[k])}">${fk(pj[k])}</div>`;
+    t.innerHTML=`<div class="h"></div><div class="h">YTD</div><div class="h p">Projected ${pl.year||""}</div>`
+      +row("Revenue","revenue")+row("Gross profit","gross_profit")+row("EBITDA","ebitda")+row("Net profit","net_profit");
+    box.appendChild(t);
+    box.appendChild(spark(f.months));
+    box.appendChild(el("div","note",`Production basis, statutory view (Dr Ong salaried). Projected = YTD + ${pj.remaining_months??"the remaining"} months at the recent run-rate. Full statement under Profitability → P&amp;L.`));
+  } else if(f&&f.ytd){
     box.appendChild(el("div","sec",`<b>Year to date</b> · 1 Jan – ${isoLabel(c.as_of).replace(/^\w+ /,"")}`));
     g=el("div","stats");
     g.appendChild(stat("Production",fmtK(f.ytd.production)));
     g.appendChild(stat("True margin",fmtK(f.ytd.true_margin),f.ytd.true_margin>=0?"ok":"bad"));
-    g.appendChild(stat("Locum + lab",fmtK(f.ytd.locum_est+f.ytd.lab_est)));
-    g.appendChild(stat("Chair burn",fmtK(f.ytd.burn_loaded)));
     box.appendChild(g);
     box.appendChild(spark(f.months));
-    box.appendChild(el("div","note","True margin = production − locum − lab − chair-time burn (the margin dashboard basis, not the statutory P&L). Collection runs at ~96% of production, so YTD collection ≈ production."));
   }
 }
 function spark(months){
@@ -631,7 +649,8 @@ function brief(){
     if(c.mtd) L.push(`Month to date, production is ${fmtRM(c.mtd.produced)} over ${c.mtd.trading_days} trading day${c.mtd.trading_days==1?"":"s"}; collection is running at ${fmtRM(c.mtd.run_rate_26d)} over 26 trading days.`);
     const fb=c.forward_book&&c.forward_book.next_7d; if(fb) L.push(`The forward book has ${fb.appts} appointments in the next seven days, ${Math.round(fb.pct)} percent of capacity.`);
   }
-  if(d&&d.finance&&d.finance.ytd) L.push(`Year to date, production stands at ${fmtRM(d.finance.ytd.production)} with a true margin of ${fmtRM(d.finance.ytd.true_margin)}.`);
+  if(d&&d.finance&&d.finance.pnl&&d.finance.pnl.ytd){const y=d.finance.pnl.ytd,pj=d.finance.pnl.projected||{};L.push(`Year to date, revenue is ${fmtRM(y.revenue)}, EBITDA ${fmtRM(y.ebitda)} and net ${y.net_profit>=0?"profit":"loss"} ${fmtRM(Math.abs(y.net_profit))}${pj.net_profit!=null?`; at the current run-rate the year lands at a net ${pj.net_profit>=0?"profit":"loss"} of ${fmtRM(Math.abs(pj.net_profit))}`:""}.`);}
+  else if(d&&d.finance&&d.finance.ytd) L.push(`Year to date, production stands at ${fmtRM(d.finance.ytd.production)} with a true margin of ${fmtRM(d.finance.ytd.true_margin)}.`);
   if(d&&d.vps){const v=d.vps;L.push(v.gateway_ok&&!(v.crons.failed||[]).length?`The box is healthy: gateway up, ${v.crons.total} tracked jobs, none failed, CPU at ${Math.round(v.cpu_pct)} percent.`:`Attention on the box: ${v.gateway_ok?"":"the gateway is down. "}${(v.crons.failed||[]).length?"failed jobs: "+v.crons.failed.join(", ")+".":""}`);}
   if(r&&r.value&&r.value.available) L.push(`Recall has brought back ${r.value.all_time.patients_converted} patients and ${fmtRM(r.value.all_time.production)} of production all time${r.value.mtd.production?`, ${fmtRM(r.value.mtd.production)} of it this month`:""}.`);
   else if(r&&r.conversion&&r.conversion.available) L.push(`Recall is converting at ${r.conversion.conversion_pct.toFixed(0)} percent within ninety days.`);
