@@ -9,6 +9,7 @@
 <title>iSmile Analytics</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <style>
   /* Single-theme by design: the same dark mission-control as /dashboard/hq and /dashboard/deck. */
   :root{
@@ -156,6 +157,29 @@
   .kfilter span.on{border-color:var(--p1);color:var(--ink)}
   .tw table{width:100%;border-collapse:collapse;font-size:12.5px} .tw th{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);text-align:left;padding:6px 8px;border-bottom:1px solid var(--line)}
   .tw td{padding:6px 8px;border-bottom:1px solid rgba(var(--linergb),.5)} .tw .num{text-align:right;font-family:var(--mono)} .tw tr:nth-child(even) td{background:rgba(var(--panel2rgb),.5)}
+  /* ---------- Maps rank map (Geographical) ---------- */
+  .maps{--ac:var(--p3)}
+  .mapsum{font-size:14px;color:var(--ink);margin:2px 0 8px}
+  .mapsum b{color:var(--p3)}
+  .mapctl{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin-bottom:8px}
+  .mapctl select{font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:7px 10px;max-width:100%}
+  .mapctl .kfilter{margin:0}
+  #rankmap{height:420px;border-radius:10px;border:1px solid var(--line);background:#0b1220;z-index:0}
+  @media(max-width:760px){#rankmap{height:340px}}
+  .rdot{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:600;font-size:13px;color:#0A101E;border:2px solid rgba(255,255,255,.85);box-shadow:0 2px 10px rgba(0,0,0,.5);cursor:pointer}
+  .rdot.g{background:var(--ok)} .rdot.a{background:var(--warn)} .rdot.r{background:var(--bad);color:#fff}
+  .rdot.n{background:rgba(10,16,30,.75);border:2px solid var(--mut);color:var(--mut);font-size:11px}
+  .rdot.x{background:transparent;border:2px dashed var(--dim);color:var(--dim)}
+  .cdot{width:50px;height:50px;border-radius:50%;background:rgba(69,196,255,.18);border:3px solid var(--p1);box-shadow:0 0 14px rgba(69,196,255,.6)}
+  .darktiles{filter:invert(1) hue-rotate(180deg) brightness(.85) contrast(.9) saturate(.6)}
+  .mapleg{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:11.5px;color:var(--mut);margin-top:8px}
+  .mapleg i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+  .leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--panel2);color:var(--ink);border:1px solid var(--line)}
+  .leaflet-popup-content{margin:10px 12px;font-family:var(--body);font-size:12.5px;line-height:1.45}
+  .leaflet-popup-content ol{margin:4px 0 0 18px}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--mut)}
+  .leaflet-control-attribution{background:rgba(10,16,30,.7)!important;color:var(--dim)!important;font-size:9px!important}
+  .leaflet-control-attribution a{color:var(--mut)!important}
 </style>
 </head>
 <body>
@@ -215,6 +239,15 @@
     </div>
   </div>
 
+  <!-- ================= GEOGRAPHICAL ================= -->
+  <div class="secthead" id="maps">Geographical <small>Google Maps rank at 9 spots around the clinic · weekly · maps-grid.json on the status branch</small></div>
+  <div class="grid">
+    <div class="card maps full reveal" id="card-maps"><div class="top"></div>
+      <div class="ch"><span class="k">Maps rank map</span><span class="m" id="m-maps">weekly</span></div>
+      <div class="cb" id="c-maps"><div class="empty">loading…</div></div>
+    </div>
+  </div>
+
   <!-- ================= REPUTATION & SOCIAL ================= -->
   <div class="secthead">Reputation &amp; social <small>Google Business Profile · Zernio social feed · via deck.json on the status branch</small></div>
   <div class="grid">
@@ -246,6 +279,7 @@
 </div>
 <div id="tip"><div class="tk"></div><div class="tb"></div></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
 /* ============================================================
    iSmile Analytics — all marketing metrics, honestly labelled.
@@ -526,6 +560,51 @@ function renderRecall(){
   box.appendChild(el("div","note","Funnel counts message events, not distinct patients. Conversion is the matured cohort's recall→appointment rate — a correlation, not proven lift."+(cv.available?` Cohort matures after ${esc(cv.mature_days)} days; appointments as of ${esc(cv.data_as_of||r.as_of||"—")}.`:"")));
 }
 
+/* ============================== Maps rank map ============================== */
+const MAPS={kw:null,run:null,map:null,layer:null};
+function rankCls(p){if(p.error)return"x";const r=p.rank;return r==null?"n":r<=3?"g":r<=10?"a":"r";}
+function renderMaps(){
+  const g=D.maps, box=$("#c-maps");
+  if(!g||!g.runs||!g.runs.length){setMeta("m-maps","not measured yet","bad");$("#card-maps").classList.add("na");fail("c-maps",`<b>No Maps rank run yet.</b> ${esc(D.err.maps||"The grid runs on Sundays.")}`);return;}
+  if(typeof L==="undefined"){fail("c-maps","<b>The map library did not load.</b> Check the connection and refresh.");return;}
+  const runs=g.runs; if(MAPS.run==null||MAPS.run>=runs.length)MAPS.run=runs.length-1;
+  const run=runs[MAPS.run]; const kws=g.keywords||Object.keys(run.keywords);
+  if(!MAPS.kw||!kws.includes(MAPS.kw))MAPS.kw=kws[0];
+  setMeta("m-maps",`weekly · ${runs.length} run${runs.length>1?"s":""} · latest ${esc(runs[runs.length-1].date)}`);
+  if(!box.querySelector("#rankmap")){
+    box.innerHTML=`<div class="mapsum" id="mapsum"></div><div class="mapctl" id="mapctl"></div><div id="rankmap"></div>
+      <div class="mapleg"><span><i style="background:var(--ok)"></i>1 to 3</span><span><i style="background:var(--warn)"></i>4 to 10</span><span><i style="background:var(--bad)"></i>11 to 20</span><span><i style="border:2px solid var(--mut)"></i>not in top 20</span><span><i style="border:2px dashed var(--dim)"></i>not checked</span><span><i style="border:2px solid var(--p1);background:rgba(69,196,255,.18)"></i>blue ring = the clinic</span></div>
+      <div class="note" id="mapnote"></div>`;
+    MAPS.map=L.map("rankmap",{scrollWheelZoom:false,attributionControl:true}).setView([g.clinic.lat,g.clinic.lng],14);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,className:"darktiles",attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(MAPS.map);
+    L.marker([g.clinic.lat,g.clinic.lng],{icon:L.divIcon({className:"",html:'<div class="cdot"></div>',iconSize:[50,50],iconAnchor:[25,25]}),zIndexOffset:-1000})
+      .bindPopup(`<b>${esc(g.clinic.name)}</b><br>75 Jalan SS22/23, Damansara Jaya`).addTo(MAPS.map);
+    MAPS.layer=L.layerGroup().addTo(MAPS.map);
+    const refit=()=>{MAPS.map.invalidateSize({animate:false});if(MAPS.bounds)MAPS.map.fitBounds(MAPS.bounds,{padding:[26,26],animate:false});};
+    if(window.ResizeObserver)new ResizeObserver(refit).observe($("#rankmap")); setTimeout(refit,900);
+  }
+  // controls
+  const ctl=$("#mapctl"); ctl.innerHTML="";
+  const sel=el("select"); sel.setAttribute("aria-label","Search words");
+  kws.forEach(k=>{const o=el("option",null,esc(k));o.value=k;if(k===MAPS.kw)o.selected=true;sel.appendChild(o);});
+  sel.addEventListener("change",()=>{MAPS.kw=sel.value;renderMaps();}); ctl.appendChild(sel);
+  if(runs.length>1){const rf=el("div","kfilter");runs.forEach((r,i)=>{const sp=el("span",i===MAPS.run?"on":"",esc(r.date.slice(8,10)+" "+["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][+r.date.slice(5,7)-1]));sp.addEventListener("click",()=>{MAPS.run=i;renderMaps();});rf.appendChild(sp);});ctl.appendChild(rf);}
+  // dots
+  const pts=run.keywords[MAPS.kw]||[]; MAPS.layer.clearLayers();
+  const ll=pts.filter(p=>p.lat!=null).map(p=>[p.lat,p.lng]);
+  if(ll.length&&MAPS.fitted!==MAPS.run){MAPS.fitted=MAPS.run;ll.push([g.clinic.lat,g.clinic.lng]);MAPS.bounds=ll;MAPS.map.fitBounds(ll,{padding:[26,26],animate:false});}
+  pts.forEach(p=>{if(p.lat==null)return;const c=rankCls(p);const lab=p.error?"?":p.rank==null?"20+":p.rank;
+    const pop=p.error?`<b>Not checked here in this run.</b><br>Google refused the search, so we do not know our rank at this spot.`
+      :`<b>Our rank here: ${p.rank==null?"not in the top 20":"#"+p.rank}</b><br>Top 3 for "${esc(MAPS.kw)}":<ol>${(p.top3||[]).map(n=>`<li>${esc(n)}</li>`).join("")}</ol>`;
+    L.marker([p.lat,p.lng],{icon:L.divIcon({className:"",html:`<div class="rdot ${c}">${lab}</div>`,iconSize:[34,34],iconAnchor:[17,17]})}).bindPopup(pop).addTo(MAPS.layer);});
+  const checked=pts.filter(p=>!p.error), top10=checked.filter(p=>p.rank!=null&&p.rank<=10).length, top3=checked.filter(p=>p.rank!=null&&p.rank<=3).length;
+  let sum=`Top 10 at <b>${top10} of ${checked.length}</b> spots for "${esc(MAPS.kw)}"`+(top3?`, top 3 at ${top3}`:"")+".";
+  if(checked.length<pts.length)sum+=` ${pts.length-checked.length} spot${pts.length-checked.length>1?"s were":" was"} not checked in this run.`;
+  $("#mapsum").innerHTML=sum;
+  $("#mapnote").innerHTML="Ranks come from Google's Places search at each point; close to, but not identical to, what a phone sees. Spots are about 1.5 km apart. Tap a dot to see the top 3 there."
+    +(run.note?` <br>This run: ${esc(run.note.charAt(0).toUpperCase()+run.note.slice(1))}.`:"");
+}
+
 /* ============================== tooltip ============================== */
 (function(){const t=$("#tip");document.addEventListener("mouseover",e=>{const n=e.target.closest("[data-tip]");if(!n){t.classList.remove("show");return;}t.querySelector(".tk").textContent=n.dataset.tipk||"";t.querySelector(".tb").textContent=n.dataset.tip;t.classList.add("show");});
 document.addEventListener("mousemove",e=>{if(!t.classList.contains("show"))return;const x=Math.min(e.clientX+14,window.innerWidth-270),y=Math.min(e.clientY+16,window.innerHeight-80);t.style.left=x+"px";t.style.top=y+"px";});})();
@@ -533,18 +612,20 @@ document.addEventListener("mousemove",e=>{if(!t.classList.contains("show"))retur
 /* ============================== load ============================== */
 async function load(){
   const q="?t="+Date.now();
-  const [ga,deck,recall]=await Promise.all([
+  const [ga,deck,recall,maps]=await Promise.all([
     getJSON("/api/analytics").then(j=>{if(j&&j.error)throw new Error(j.message||j.error);return j;}).catch(e=>{D.err.ga=e.message;return null;}),
     getJSON(RAW+"deck.json"+q).catch(e=>{D.err.deck=e.message;return null;}),
-    getJSON(RAW+"recall.json"+q).catch(e=>{D.err.recall=e.message;return null;})
+    getJSON(RAW+"recall.json"+q).catch(e=>{D.err.recall=e.message;return null;}),
+    getJSON(RAW+"maps-grid.json"+q).catch(e=>{D.err.maps=e.message;return null;})
   ]);
-  Object.assign(D,{ga,deck,recall});
+  Object.assign(D,{ga,deck,recall,maps});
   status("st-ga",!!(ga&&ga.summary),ga&&ga.summary?"GA4 · "+myt(ga.generatedAt):"GA4 · /api/analytics "+(D.err.ga||"unavailable"));
   status("st-deck",!!deck,deck?"status branch · deck.json "+(deck.generated_myt||"")+" MYT":"status branch · deck.json "+(D.err.deck||"unavailable"));
   status("st-recall",!!recall,recall?"recall · as at "+(recall.as_of||""):"recall · "+(D.err.recall||"unavailable"));
   try{renderGA();}catch(e){gaDead(e.message);}
   try{renderSEO();}catch(e){fail("c-seo","Could not render: "+esc(e.message));}
   try{renderGEO();}catch(e){fail("c-geo","Could not render: "+esc(e.message));}
+  try{renderMaps();}catch(e){fail("c-maps","Could not render: "+esc(e.message));}
   try{renderReviews();}catch(e){fail("c-rev","Could not render: "+esc(e.message));}
   try{renderSocial();}catch(e){fail("c-soc","Could not render: "+esc(e.message));}
   try{renderRecall();}catch(e){fail("c-rec","Could not render: "+esc(e.message));}
