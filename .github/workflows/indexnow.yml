@@ -1,0 +1,18 @@
+name: IndexNow ping
+# Tells Bing (and Copilot, which reads Bing's index) that pages changed, so new and edited
+# pages are recrawled within hours instead of weeks. Runs after each push to main.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for the Vercel production deploy
+        run: sleep 180
+      - name: Submit sitemap URLs to IndexNow
+        run: |
+          URLS=$(curl -fsS https://ismile.com.my/sitemap.xml | grep -o '<loc>[^<]*</loc>' | sed -e 's/<loc>//' -e 's/<\/loc>//' | head -9000)
+          BODY=$(printf '%s\n' "$URLS" | python3 -c 'import json,sys; print(json.dumps({"host":"ismile.com.my","key":"c708f208f54e08a1691d4e2780141ae8","keyLocation":"https://ismile.com.my/c708f208f54e08a1691d4e2780141ae8.txt","urlList":[u.strip() for u in sys.stdin if u.strip()]}))')
+          curl -sS -o /dev/null -w 'IndexNow HTTP %{http_code}\n' -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' -d "$BODY"

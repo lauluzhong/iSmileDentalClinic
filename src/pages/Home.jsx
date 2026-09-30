@@ -313,7 +313,7 @@ const Home = () => {
         <div className="home-page">
             <Helmet>
                 <title>Family Dental Clinic in Damansara Jaya, Petaling Jaya | iSmile</title>
-                <meta name="description" content="Family dental clinic in Damansara Jaya, Petaling Jaya since 2006. Check-ups, braces, implants & kids' dentistry. Rated 4.8★ from 91 Google reviews. WhatsApp us to book." />
+                <meta name="description" content="Family dental clinic in Damansara Jaya, Petaling Jaya, serving PJ families since 2006. Check-ups, braces, implants & kids' dentistry. Rated 4.8★ from 91 Google reviews. WhatsApp us to book." />
                 <link rel="canonical" href="https://ismile.com.my/" />
             </Helmet>
 
@@ -446,7 +446,7 @@ const Home = () => {
             {/* ============ 5. CLOSING — just the invitation; the footer holds the facts ============ */}
             <section className="closing-cta">
                 <div className="container closing-inner">
-                    <h2 className="closing-title">Come and <em>meet us.</em></h2>
+                    <h2 className="closing-title">Come and meet us in <em>Damansara Jaya.</em></h2>
                     <p className="closing-line">
                         Tell us who is coming in and we will find a time that suits the family.
                     </p>

@@ -156,8 +156,8 @@ const JoinUs = () => {
                     </Reveal>
                     <Reveal delay={0.1} width="100%">
                         <p className="join-lead">
-                            Where competency and compassion meet. A family dental practice in Damansara
-                            Jaya, caring for the same families since 2006.
+                            Where competency and compassion meet. A family dental practice caring for the same
+                            families since 2006, at home in Damansara Jaya today.
                         </p>
                     </Reveal>
                 </div>
