@@ -1,14 +1,24 @@
 {
- "updated": "2026-10-01T00:49:21+08:00",
+ "updated": "2026-10-01T01:03:56+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Dr Ong": {
-   "init": "DO",
+  "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
   "Code Capsule": {
    "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -19,16 +29,6 @@
   },
   "Lau": {
    "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
-   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -955,11 +955,11 @@
   },
   {
    "id": "f9",
-   "title": "Intern allowance reimbursement (Ryan, MYNext)",
+   "title": "Intern allowance tax claim (Ryan, MYNext)",
    "status": "active",
    "owner": "Lau",
-   "why": "Ryan finished his internship on 30 Jun. The clinic paid his allowance and was meant to claim part of it back from TalentCorp. The claim has not been filed.",
-   "next": "Email likes@talentcorp.com.my with the attendance record and allowance payment proof, and ask about the deadline.",
+   "why": "Ryan finished his internship on 30 Jun, registered through the MYNext portal (the MySIP scheme). MySIP pays no cash back: the clinic claims a double tax deduction on his allowance instead, using a TalentCorp endorsement letter.",
+   "next": "Check the MYNext portal for the endorsement letter, then pass it to the accountant.",
    "dept": "finance",
    "lens": "cost",
    "endMonth": null,
@@ -967,9 +967,9 @@
    "tasks": [
     "Internship completed, 2 Mar to 30 Jun 2026",
     "Attendance record made (80 days, full attendance)",
-    "Confirm which scheme the clinic signed up for: LiKES (cash back, up to 50% of the allowance, capped at RM850 a month) or MySIP (tax deduction only)",
-    "Email likes@talentcorp.com.my with the attendance record and allowance payment proof",
-    "Reimbursement received (about 14 working days after approval)"
+    "Check the MYNext portal: is the internship marked complete, and is the TalentCorp Letter of Endorsement issued or pending?",
+    "Give the endorsement letter and the allowance payment records to the accountant",
+    "Accountant claims the double deduction in the 2026 company tax return"
    ],
    "pillar": "F2"
   },

@@ -2697,8 +2697,8 @@
      "id": "f9",
      "dot": "now",
      "chip": "claim",
-     "name": "Intern allowance reimbursement (Ryan, MYNext)",
-     "one": "Ryan finished his internship on 30 Jun. The clinic paid his allowance and was meant to claim part of it back from TalentCorp. The claim has not been filed.",
+     "name": "Intern allowance tax claim (Ryan, MYNext)",
+     "one": "Ryan finished his internship on 30 Jun, registered through the MYNext portal (the MySIP scheme). MySIP pays no cash back: the clinic claims a double tax deduction on his allowance instead, using a TalentCorp endorsement letter.",
      "steps": [
       {
        "t": "Internship completed, 2 Mar to 30 Jun 2026",
@@ -2711,31 +2711,30 @@
        "w": "10 Jul"
       },
       {
-       "t": "Confirm which scheme the clinic signed up for: LiKES (cash back, up to 50% of the allowance, capped at RM850 a month) or MySIP (tax deduction only)",
+       "t": "Check the MYNext portal: is the internship marked complete, and is the TalentCorp Letter of Endorsement issued or pending?",
        "s": "now"
       },
       {
-       "t": "Email likes@talentcorp.com.my with the attendance record and allowance payment proof",
+       "t": "Give the endorsement letter and the allowance payment records to the accountant",
        "s": ""
       },
       {
-       "t": "Reimbursement received (about 14 working days after approval)",
+       "t": "Accountant claims the double deduction in the 2026 company tax return",
        "s": ""
       }
      ],
      "open": [
-      "<b>Deadline:</b> LiKES claims are due within 3 months of the internship ending, so about 30 Sep 2026. Ask TalentCorp whether a late claim is still accepted."
+      "MySIP gives a tax deduction, not a refund. In a loss year it only adds to losses carried forward, so the ringgit benefit comes later."
      ],
      "flag": {
       "k": "due",
-      "by": "2026-09-30",
-      "w": "Email TalentCorp today to claim back Ryan's internship allowance; the claim window was 3 months from 30 Jun.",
-      "hot": true
+      "w": "Log into MYNext and check whether Ryan's internship is marked complete and the endorsement letter is ready.",
+      "who": "Lu"
      },
      "owner": "lu",
      "dept": "finance",
      "lens": "cost",
-     "next": "Email likes@talentcorp.com.my with the attendance record and allowance payment proof, and ask about the deadline."
+     "next": "Check the MYNext portal for the endorsement letter, then pass it to the accountant."
     }
    ]
   }
@@ -3218,6 +3217,6 @@
  },
  "meta": {
   "asof": "THU 01 OCT 2026",
-  "updated": "2026-10-01T00:49:21+08:00"
+  "updated": "2026-10-01T01:03:56+08:00"
  }
 }
