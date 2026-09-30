@@ -529,9 +529,9 @@
        "w": "raised 23 Sep \u00b7 no due date set"
       },
       {
-       "t": "Staff-family onlay (Dr Joan), RM2,000 outstanding since April: family waiting on a church claim. Emily chases tomorrow and offers whatever documents the church needs; deadline mid-Oct \u2014 if the church won't pay, offer a salary-deduction plan",
+       "t": "Staff-family onlay (Dr Joan), RM2,000 outstanding since April: Joanna says the family will pay when Adonis receives his salary. Keep the payment open until received; no salary-deduction discussion needed unless this commitment fails",
        "s": "now",
-       "w": "chase Wed 30 Sep \u00b7 deadline mid-Oct"
+       "w": "payment expected after Adonis receives salary \u00b7 verify receipt"
       },
       {
        "t": "e-Invoice: NOT issued for now (LZ \u00d7 Emily 29 Sep \u2014 one e-invoice triggers monthly LHDN reporting)",
@@ -3108,7 +3108,7 @@
       "start": "2026-09-23",
       "status": "now",
       "who": "Emily",
-      "note": "Patient agreed to pay his share given the complexity; not yet paid."
+      "note": "Joanna said the family will pay RM2,000 when Adonis receives his salary; verify receipt after that event."
      }
     ]
    },
@@ -3141,6 +3141,6 @@
  },
  "meta": {
   "asof": "WED 30 SEP 2026",
-  "updated": "2026-09-30T09:27:06+08:00"
+  "updated": "2026-09-30T09:27:43+08:00"
  }
 }

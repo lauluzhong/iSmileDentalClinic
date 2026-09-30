@@ -1,19 +1,14 @@
 {
- "updated": "2026-09-30T09:27:06+08:00",
+ "updated": "2026-09-30T09:27:43+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
+  "Code Capsule": {
+   "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Dr Ong": {
    "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Emily": {
-   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -123,7 +123,7 @@
     "Receipts + e-invoices taught at the FOH training",
     "Go live \u2014 receipts from AutoCount, paper retired",
     "Follow up the two patient cases Dr Ling raised where the patient has not paid / refuses to pay \u2014 agreed with all doctors on 23 Sep: a patient-payment matter, not a doctor matter \u00b7 owner Emily + front desk",
-    "Staff-family onlay (Dr Joan), RM2,000 outstanding since April: family waiting on a church claim. Emily chases tomorrow and offers whatever documents the church needs; deadline mid-Oct \u2014 if the church won't pay, offer a salary-deduction plan",
+    "Staff-family onlay (Dr Joan), RM2,000 outstanding since April: Joanna says the family will pay when Adonis receives his salary. Keep the payment open until received; no salary-deduction discussion needed unless this commitment fails",
     "e-Invoice: NOT issued for now (LZ \u00d7 Emily 29 Sep \u2014 one e-invoice triggers monthly LHDN reporting)",
     "Create a general clinic Gmail: ismile.general@gmail.com, with ismiledental76 as the backup \u2014 goes on receipts and the website instead of the 76 address",
     "Bad debt: OpenDent shows ~RM174k outstanding, some >90 days and some years old. Define bad debt (e.g. overdue 30 days = delinquent, 6 months = write off) then clean the old balances out of OpenDent"
