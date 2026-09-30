@@ -69,7 +69,7 @@ export const CORE_PAGES = [
     title: "About iSmile Dental Clinic — Our Team in Damansara Jaya, PJ",
     description: "Meet the team at iSmile Dental Clinic, Damansara Jaya — caring for Petaling Jaya smiles since 2006. WhatsApp us to book a visit.",
     h1: "Where Competency and Compassion Meet",
-    intro: "iSmile Dental Clinic has been a family dental practice in Damansara Jaya, Petaling Jaya since 2006, founded by principal dentist Dr Ong. We care for families across Selangor — from children’s first visits through to implants and orthodontics.",
+    intro: "iSmile Dental Clinic is a family dental practice in Damansara Jaya, Petaling Jaya, founded in 2006 by principal dentist Dr Ong. We care for families across Selangor — from children’s first visits through to implants and orthodontics.",
   },
   {
     // In sitemap.xml since forever, but never prerendered — the services hub
@@ -101,7 +101,7 @@ export const CORE_PAGES = [
     title: "Practise at iSmile — Dental Practitioners | Petaling Jaya",
     description: "Dental practitioners: iSmile Dental Clinic in Damansara Jaya, PJ welcomes expressions of interest — an established family patient base and a safe environment to practise, where competency and compassion meet.",
     h1: "Practise at iSmile",
-    intro: "iSmile Dental Clinic is a family dental practice in Damansara Jaya, Petaling Jaya, caring for the same families since 2006. We believe dentistry is at its best where competency meets compassion, and we welcome expressions of interest from dental practitioners at every stage of practice.",
+    intro: "iSmile Dental Clinic is a family dental practice in Damansara Jaya, Petaling Jaya, caring for the same families since 2006 (in Damansara Jaya since 2022). We believe dentistry is at its best where competency meets compassion, and we welcome expressions of interest from dental practitioners at every stage of practice.",
     facts: [
       "An established patient base built over two decades of family care",
       "A broad case mix across the family, with digital workflows and multidisciplinary care under one roof",
@@ -137,7 +137,7 @@ export const HOME_PAGE = {
   },
   sections: [
     { h2: "Comprehensive care for every stage of life", p: "A child's first check-up. Braces in the teenage years. A grandparent's new smile. One team that knows your family and grows with it." },
-    { h2: "Where competency and compassion meet", p: "iSmile Dental Clinic has cared for families in Damansara Jaya, Petaling Jaya since 2006 — general dentistry, orthodontics, implants, cosmetic dentistry and children's dentistry under one roof." },
+    { h2: "Where competency and compassion meet", p: "iSmile Dental Clinic has cared for Petaling Jaya families since 2006 and is at home in Damansara Jaya today: general dentistry, orthodontics, implants, cosmetic dentistry and children's dentistry under one roof." },
     { h2: "Visit us in Damansara Jaya", p: "75 & 75A, Jalan SS 22/23, Damansara Jaya, 47400 Petaling Jaya, Selangor. Open Monday–Friday 9:30 AM – 5:30 PM and Saturday 9:30 AM – 3:30 PM. Call or WhatsApp +60163222135 to book." },
   ],
 };

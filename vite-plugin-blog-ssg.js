@@ -230,7 +230,7 @@ export default function blogSSG() {
           slug: 'damansara-jaya',
           path: 'services/locations/damansara-jaya',
           title: 'Dentist in Damansara Jaya, PJ | iSmile Dental Clinic',
-          description: 'Family dentist in Damansara Jaya, Petaling Jaya — check-ups, braces, implants & kids\' dentistry since 2006. Open Mon–Sat. WhatsApp us to book.',
+          description: 'Family dentist on Jalan SS 22/23, Damansara Jaya, near Atria. Check-ups, braces, implants and children\'s dentistry. Open Mon to Sat. WhatsApp us to book.',
           address: {
             streetAddress: '75 & 75A, Jalan SS 22/23',
             addressLocality: 'Damansara Jaya, Petaling Jaya',
@@ -427,7 +427,14 @@ export default function blogSSG() {
           },
           "priceRange": "$$",
           "url": canonicalUrl,
+          "hasMap": "https://maps.app.goo.gl/yt8MxXDpDxXgXqre6",
+          "areaServed": [
+            { "@type": "Place", "name": "Damansara Jaya" },
+            { "@type": "Place", "name": "Damansara Utama" },
+            { "@type": "Place", "name": "Petaling Jaya" }
+          ],
           "sameAs": [
+            "https://maps.app.goo.gl/yt8MxXDpDxXgXqre6",
             "https://www.facebook.com/share/18RSFR4Zww/?mibextid=wwXIfr",
             "https://www.instagram.com/ismiledentalclinicmy"
           ]
