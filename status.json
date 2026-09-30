@@ -1,8 +1,6 @@
 {
-  "updated": "2026-10-01 07:00 MYT",
-  "running": [
-    "seo_outcome"
-  ],
+  "updated": "2026-10-01 07:05 MYT",
+  "running": [],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -17,8 +15,8 @@
       "last": "2026-09-27 06:33 MYT"
     },
     "seo_outcome": {
-      "state": "running",
-      "last": "2026-09-01 07:06 MYT"
+      "state": "idle",
+      "last": "2026-10-01 07:05 MYT"
     },
     "weekly_digest": {
       "state": "idle",
