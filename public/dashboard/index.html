@@ -186,7 +186,7 @@
     <div class="brand"><h1>iSmile <b>Dashboard</b></h1><div class="sub" id="asof">loading…</div></div>
     <div class="clock"><div class="t" id="clock">--:--<small>--</small></div><div class="d" id="date">—</div></div>
     <nav>
-      <a href="/dashboard" class="active">Dashboard</a><a href="/dashboard/org">Org Chart</a><a href="/dashboard/tasks">Task Tracker</a><a href="/dashboard/profitability">Profitability</a><a href="/dashboard/analytics">Analytics</a><a href="/dashboard/office">Office</a>
+      <a href="/dashboard" class="active">Dashboard</a><a href="/dashboard/org">Org Chart</a><a href="/dashboard/tasks">Task Tracker</a><a href="/dashboard/profitability">Finance</a><a href="/dashboard/analytics">Analytics</a><a href="/dashboard/office">Office</a>
     </nav>
   </header>
 
@@ -198,7 +198,7 @@
         <div class="cb" id="vps"><div class="empty">loading…</div></div>
       </div>
       <div class="card fin"><div class="top"></div>
-        <a class="ch go" href="/dashboard/profitability#pnl" title="Open Profitability — the P&amp;L statement"><span class="k">Financial status</span><span class="arr">→</span><span class="m" id="finm">—</span></a>
+        <a class="ch go" href="/dashboard/profitability#pnl" title="Open Finance — the P&amp;L statement"><span class="k">Financial status</span><span class="arr">→</span><span class="m" id="finm">—</span></a>
         <div class="cb" id="fin"><div class="empty">loading…</div></div>
       </div>
       <div class="card rec"><div class="top"></div>
@@ -361,7 +361,7 @@ function renderFin(){
     box.appendChild(t);
     box.appendChild(spark(f.months));
     const thru=pl.actual_through?["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][+pl.actual_through.slice(5)-1]:null;
-    box.appendChild(el("div","note",`${thru?"Accountant actuals to "+thru+", estimated after":"Estimated from OpenDent production"} (Dr Ong salaried). Projected = YTD + ${pj.remaining_months??"the remaining"} months at the recent run-rate. Full statement under Profitability → P&amp;L.`));
+    box.appendChild(el("div","note",`${thru?"Accountant actuals to "+thru+", estimated after":"Estimated from OpenDent production"} (Dr Ong salaried). Projected = YTD + ${pj.remaining_months??"the remaining"} months at the recent run-rate. Full statement under Finance → P&amp;L.`));
   } else if(f&&f.ytd){
     box.appendChild(el("div","sec",`<b>Year to date</b> · 1 Jan – ${isoLabel(c.as_of).replace(/^\w+ /,"")}`));
     g=el("div","stats");
