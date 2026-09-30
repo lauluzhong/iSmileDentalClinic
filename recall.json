@@ -1,59 +1,59 @@
 {
-  "as_of": "2026-09-30",
+  "as_of": "2026-10-01",
   "source": "redirect.ismile.com.my/admin/webhook/webhooklog",
   "note": "Funnel = event counts (per-message callbacks), not distinct patients. Conversion = matured-cohort recall->appointment rate (correlation, not proven causal lift); as-of the latest OpenDent export only.",
   "funnel_live": true,
-  "funnel_as_of": "2026-09-30",
+  "funnel_as_of": "2026-10-01",
   "cumulative": {
-    "total": 17030,
-    "sent": 5832,
-    "delivered": 6846,
-    "read": 2370,
-    "failed": 540,
+    "total": 17177,
+    "sent": 5886,
+    "delivered": 6912,
+    "read": 2382,
+    "failed": 549,
     "clicks": 203,
-    "replies": 1239
+    "replies": 1245
   },
   "this_month": {
-    "sent": 900,
-    "clicks": 43,
-    "replies": 141
+    "sent": 0,
+    "clicks": 0,
+    "replies": 0
   },
   "conversion": {
     "mature_days": 21,
     "attrib_window_days": 90,
-    "data_as_of": "2026-09-29",
-    "appt_export": "inbox/2026-09-29 e5+e6+backfill",
+    "data_as_of": "2026-09-30",
+    "appt_export": "inbox/2026-09-30 e5+e6+backfill",
     "appt_range": [
       "2024-08-12",
-      "2027-01-26"
+      "2027-01-27"
     ],
     "stale": false,
     "cohort_source": "blastlog (e10_blastlog.tsv)",
     "cohort_from": "2026-04-16",
-    "cohort_to": "2026-09-28",
-    "cohort_age_days": 2,
+    "cohort_to": "2026-09-30",
+    "cohort_age_days": 1,
     "cohort_static": false,
     "join": "external_patient_id -> PatNum (direct)",
     "available": true,
     "bridge": "external_patient_id (direct PatNum)",
-    "sent_total": 1570,
-    "matured_cohort": 1474,
-    "resolved_to_patient": 1473,
-    "resolved_via_patnum": 1473,
-    "booked_within_window": 297,
-    "booked_anytime": 386,
-    "conversion_pct": 20.2
+    "sent_total": 1574,
+    "matured_cohort": 1481,
+    "resolved_to_patient": 1480,
+    "resolved_via_patnum": 1480,
+    "booked_within_window": 294,
+    "booked_anytime": 385,
+    "conversion_pct": 19.9
   },
   "value": {
     "available": true,
-    "as_of": "2026-09-30",
+    "as_of": "2026-10-01",
     "bridge": "e8_patient_master.tsv (2026-09-27)",
     "sends": 767,
     "patients_in_cohort": 1137,
     "attrib_window_days": 90,
     "mature_days": 21,
-    "production_lines": 20135,
-    "month": "2026-09",
+    "production_lines": 20179,
+    "month": "2026-10",
     "rule": "production by a recalled patient within 90 days after their first recall send, credited to the line's doctor; correlation, not proven lift",
     "all_time": {
       "patients_reached": 1137,
@@ -138,60 +138,14 @@
       ]
     },
     "mtd": {
-      "patients_reached": 775,
-      "patients_converted": 14,
-      "visits": 17,
-      "repeat_patients": 1,
-      "production": 3750,
-      "conversion_pct": 1.5,
-      "by_doctor": [
-        {
-          "provnum": "3",
-          "abbr": "Amy",
-          "name": "Dr Amy Chin",
-          "patients": 3,
-          "visits": 5,
-          "repeat_visits": 2,
-          "production": 1500
-        },
-        {
-          "provnum": "1",
-          "abbr": "Jean",
-          "name": "Dr Jean Ong",
-          "patients": 3,
-          "visits": 3,
-          "repeat_visits": 0,
-          "production": 970
-        },
-        {
-          "provnum": "7",
-          "abbr": "Mah",
-          "name": "Dr Mah Haw Yeng",
-          "patients": 5,
-          "visits": 5,
-          "repeat_visits": 0,
-          "production": 600
-        },
-        {
-          "provnum": "8",
-          "abbr": "Azeli",
-          "name": "Dr Azelia",
-          "patients": 3,
-          "visits": 3,
-          "repeat_visits": 0,
-          "production": 450
-        },
-        {
-          "provnum": "4",
-          "abbr": "Pris",
-          "name": "Dr Priscilla",
-          "patients": 1,
-          "visits": 1,
-          "repeat_visits": 0,
-          "production": 230
-        }
-      ],
-      "patients_first_converted": 12
+      "patients_reached": 0,
+      "patients_converted": 0,
+      "visits": 0,
+      "repeat_patients": 0,
+      "production": 0,
+      "conversion_pct": null,
+      "by_doctor": [],
+      "patients_first_converted": 0
     }
   }
 }
