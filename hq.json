@@ -244,7 +244,7 @@
     {
      "id": "d1",
      "dot": "live",
-     "chip": "go-live 6 Oct \u00b7 SQL fix pending",
+     "chip": "SQL fix done 30 Sep \u00b7 go-live 6 Oct",
      "name": "OpenDent \u2194 AutoCount integration",
      "one": "AutoCount is installed on both new front-desk PCs. The confirmed 25 Sep run-through will validate the front-desk receipt journey and downstairs sub-account data flow before training.",
      "steps": [
@@ -328,8 +328,8 @@
       },
       {
        "t": "Jason fixes the database/SQL error blocking OpenDent \u2192 AutoCount invoices \u2014 AutoCount holds sales invoices only up to ~5\u20137 Sep (live test failed on 25 Sep; coincides with the 5 Sep server swap)",
-       "s": "now",
-       "w": "Chased Mon 28 Sep 11:38 (CC group) \u00b7 awaiting Jason \u00b7 blocks go-live Tue 6 Oct"
+       "s": "done",
+       "w": "30 Sep 11:45 \u00b7 JX (Code Capsule): AutoCount invoices fixed and integrated \u2014 confirm on live data 1 Oct"
       },
       {
        "t": "Warranty return shipping for the faulty downstairs mini PC \u2014 Lau confirmed with Jason Tai that he will bear the cost; it is above the earlier RM35\u201350 estimate (exact amount not recorded)",
@@ -354,7 +354,7 @@
       {
        "t": "Leow sets up an individual AutoCount login + access rights for each staff member \u2014 we send him the details he needs",
        "s": "now",
-       "w": "before Sat 3 Oct \u00b7 Leow shared the staff-login Excel in the AC group \u2014 Emily is working on it"
+       "w": "Emily 30 Sep: two access levels (1 full, 2 invoice/receipt/payment/MC/product sales); short names OK; admin sets passwords and keeps a record"
       },
       {
        "t": "Update Leow once the doctors consistently enter discounts as a discount line (not an edited price) \u2014 Lau",
@@ -374,7 +374,7 @@
       {
        "t": "OpenDent glitch: two patients' old records (a 2023 account; a 2022 monthly payment plan of Dr Amy's) suddenly re-dated to today as treatment plans \u2014 one now shows the clinic owing the patient ~RM9k. Emily posts screenshots in the CC group; raise with Jason at the Wed 30 Sep meeting",
        "s": "now",
-       "w": "Jason's staff checking Wed 30 Sep (with the OD\u2192AC SQL bug) \u00b7 follow up EOD 30 Sep if no update"
+       "w": "30 Sep \u00b7 Emily walked JX through it on a call (11 am); JX: the rows were added on 29 Sep on the OpenDent server; cause not yet explained \u2014 Emily to update"
       },
       {
        "t": "Joanna's old laptop (newer Windows) replaces the broken new PC for receipts; the broken PC has gone to China for warranty",
@@ -407,7 +407,7 @@
      "from_initiatives": [
       1
      ],
-     "next": "Jason fixes the SQL error (invoices stuck since ~5\u20137 Sep); Leow clears test data by EOD 30 Sep; link on 1 Oct; hand-approve 1\u20135 Oct; train Sat 3 Oct; go live Tue 6 Oct.",
+     "next": "JX fixed the OpenDent\u2192AutoCount invoice error 30 Sep. Still open: why two old records were re-added on 29 Sep (Emily updating). Leow clears test data EOD 30 Sep; link on 1 Oct; hand-approve 1\u20135 Oct; train Sat 3 Oct; go live Tue 6 Oct.",
      "endMonth": "2026-09"
     },
     {
@@ -478,7 +478,7 @@
       {
        "t": "Receipt samples received (A4 and half-page) \u2192 Lau prefers A4; Leow to move the logo farther left and confirm final design",
        "s": "now",
-       "w": "Tue 29 Sep \u00b7 samples shared; final placement adjustment pending"
+       "w": "v5 samples 30 Sep with the new email; no customer address (Emily) \u00b7 awaiting final OK, then Leow imports the design to the server PC"
       },
       {
        "t": "Front-desk receipts SOP written",
@@ -547,12 +547,17 @@
       {
        "t": "Revenue basis: the accountant books revenue on COLLECTION, but AutoCount posts sales when an invoice is approved (charge basis). Leow + Sarah agree how to handle it before numbers flow (or Sarah journals it monthly)",
        "s": "now",
-       "w": "before go-live 6 Oct \u00b7 Leow + Sarah"
+       "w": "Leow will take payment types, AR split and data migration up with Sarah once he has her contact"
       },
       {
-       "t": "Service vs product sales accounts, and how the desk receipts a toothbrush/product sale \u2014 asked Leow 30 Sep, no answer yet",
+       "t": "Service vs product sales accounts + receipting a toothbrush sale \u2014 Leow 30 Sep: needs the accountant first and probably a change on Jason's side",
        "s": "now",
-       "w": "before Sat 3 Oct \u00b7 Leow"
+       "w": "after Sarah's contact reaches Leow"
+      },
+      {
+       "t": "MC (medical certificate) template in AutoCount: printed from AR Payment as a second print, only when needed; IC-only line; running number MC-00001 would need manual keying (Emily deciding)",
+       "s": "now",
+       "w": "Leow designing \u00b7 30 Sep"
       }
      ],
      "open": [
@@ -3149,6 +3154,6 @@
  },
  "meta": {
   "asof": "WED 30 SEP 2026",
-  "updated": "2026-09-30T16:30:34+08:00"
+  "updated": "2026-09-30T16:34:11+08:00"
  }
 }

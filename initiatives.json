@@ -1,19 +1,14 @@
 {
- "updated": "2026-09-30T16:30:34+08:00",
+ "updated": "2026-09-30T16:34:11+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Edith": {
-   "init": "E",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
   "Dr Ong": {
    "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -40,7 +40,7 @@
    "status": "active",
    "owner": "Code Capsule",
    "why": "AutoCount is installed on both new front-desk PCs. The confirmed 25 Sep run-through will validate the front-desk receipt journey and downstairs sub-account data flow before training.",
-   "next": "Jason fixes the SQL error (invoices stuck since ~5\u20137 Sep); Leow clears test data by EOD 30 Sep; link on 1 Oct; hand-approve 1\u20135 Oct; train Sat 3 Oct; go live Tue 6 Oct.",
+   "next": "JX fixed the OpenDent\u2192AutoCount invoice error 30 Sep. Still open: why two old records were re-added on 29 Sep (Emily updating). Leow clears test data EOD 30 Sep; link on 1 Oct; hand-approve 1\u20135 Oct; train Sat 3 Oct; go live Tue 6 Oct.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -129,7 +129,8 @@
     "Bad debt: OpenDent shows ~RM174k outstanding, some >90 days and some years old. Define bad debt (e.g. overdue 30 days = delinquent, 6 months = write off) then clean the old balances out of OpenDent",
     "Sarah texts Lau her number \u2192 Lau passes it to Leow",
     "Revenue basis: the accountant books revenue on COLLECTION, but AutoCount posts sales when an invoice is approved (charge basis). Leow + Sarah agree how to handle it before numbers flow (or Sarah journals it monthly)",
-    "Service vs product sales accounts, and how the desk receipts a toothbrush/product sale \u2014 asked Leow 30 Sep, no answer yet"
+    "Service vs product sales accounts + receipting a toothbrush sale \u2014 Leow 30 Sep: needs the accountant first and probably a change on Jason's side",
+    "MC (medical certificate) template in AutoCount: printed from AR Payment as a second print, only when needed; IC-only line; running number MC-00001 would need manual keying (Emily deciding)"
    ],
    "pillar": "P1"
   },
