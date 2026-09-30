@@ -1,5 +1,5 @@
 {
- "generated_myt": "2026-10-01 00:54",
+ "generated_myt": "2026-10-01 00:56",
  "clinic": {
   "name": "iSmile Dental Clinic",
   "lat": 3.1258343,
@@ -25,7 +25,7 @@
     "lng": 101.6232
    },
    "partial": false,
-   "note": "old grid centre, about 820 m north-east of the clinic; coordinates back-filled 1 Oct 2026",
+   "note": "this older grid was centred about 820 m north-east of the clinic, so its spots sit off to one side",
    "keywords": {
     "dentist": [
      {
@@ -916,7 +916,7 @@
     "lng": 101.6162338
    },
    "partial": true,
-   "note": "first run centred on the clinic; 35 of 72 searches were refused (daily API cap, run the same day as the 30 Sep run) and are marked not checked",
+   "note": "first run centred on the clinic. Google turned away 35 of the 72 searches because of the daily limit, so those spots show as not checked. The full run is next Sunday",
    "keywords": {
     "dentist": [
      {
