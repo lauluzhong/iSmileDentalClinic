@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>iSmile Profitability</title>
+<title>iSmile Finance</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -63,6 +63,7 @@
   .topbar{background:rgba(var(--bgrgb),.86);backdrop-filter:blur(8px);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:0 18px;position:sticky;top:0;z-index:50;}
   .topbar-in{max-width:1480px;margin:0 auto;display:flex;align-items:center;gap:14px;min-height:50px;}
   .tabs{display:flex;gap:6px;flex-wrap:wrap;}
+  a.tab{text-decoration:none}
   .tab{appearance:none;font-family:var(--mono);font-size:11px;color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:rgba(var(--panelrgb),.7);cursor:pointer;display:flex;align-items:center;gap:7px;letter-spacing:.02em;transition:border-color .15s,color .15s,box-shadow .2s}
   .tab:hover{border-color:var(--line-hi);color:var(--ink);}
   .tab.active{border-color:var(--p1);color:var(--ink);box-shadow:0 0 14px -5px var(--p1);}
@@ -320,9 +321,9 @@
 
 <div class="hdr">
   <header>
-    <div class="brand"><h1>iSmile <b>Profitability</b></h1><div class="sub">transaction-level margin · locum recon · day P&amp;L · chair-hour efficiency</div></div>
+    <div class="brand"><h1>iSmile <b>Finance</b></h1><div class="sub">transactions · profitability · day P&amp;L · efficiency · locum</div></div>
     <nav>
-      <a href="/dashboard">Dashboard</a><a href="/dashboard/org">Org Chart</a><a href="/dashboard/tasks">Task Tracker</a><a href="/dashboard/profitability" class="active">Profitability</a><a href="/dashboard/analytics">Analytics</a><a href="/dashboard/office">Office</a>
+      <a href="/dashboard">Dashboard</a><a href="/dashboard/org">Org Chart</a><a href="/dashboard/tasks">Task Tracker</a><a href="/dashboard/profitability" class="active">Finance</a><a href="/dashboard/analytics">Analytics</a><a href="/dashboard/office">Office</a>
     </nav>
   </header>
 </div>
@@ -335,6 +336,7 @@
       <button class="tab" data-view="day" id="tab-day"><span class="i">▤</span> By day</button>
       <button class="tab" data-view="efficiency" id="tab-efficiency"><span class="i">◷</span> Efficiency</button>
       <button class="tab" data-view="pnl" id="tab-pnl"><span class="i">≡</span> P&amp;L</button>
+      <a class="tab" href="/dashboard/locum/" id="tab-locum" title="Locum calculation: monthly statements, the journey, the bank file"><span class="i">◎</span> Locum</a>
     </div>
     <div class="topbar-right">
       <span class="pill-sample" id="data-pill">LIVE DATA · loading…</span>
