@@ -2692,6 +2692,50 @@
      ],
      "next": "Confirm the mechanics with the office, get the ethics position confirmed, then communicate it and fold it into the contractor agreement.",
      "endMonth": "2026-09"
+    },
+    {
+     "id": "f9",
+     "dot": "now",
+     "chip": "claim",
+     "name": "Intern allowance reimbursement (Ryan, MYNext)",
+     "one": "Ryan finished his internship on 30 Jun. The clinic paid his allowance and was meant to claim part of it back from TalentCorp. The claim has not been filed.",
+     "steps": [
+      {
+       "t": "Internship completed, 2 Mar to 30 Jun 2026",
+       "s": "done",
+       "w": "30 Jun"
+      },
+      {
+       "t": "Attendance record made (80 days, full attendance)",
+       "s": "done",
+       "w": "10 Jul"
+      },
+      {
+       "t": "Confirm which scheme the clinic signed up for: LiKES (cash back, up to 50% of the allowance, capped at RM850 a month) or MySIP (tax deduction only)",
+       "s": "now"
+      },
+      {
+       "t": "Email likes@talentcorp.com.my with the attendance record and allowance payment proof",
+       "s": ""
+      },
+      {
+       "t": "Reimbursement received (about 14 working days after approval)",
+       "s": ""
+      }
+     ],
+     "open": [
+      "<b>Deadline:</b> LiKES claims are due within 3 months of the internship ending, so about 30 Sep 2026. Ask TalentCorp whether a late claim is still accepted."
+     ],
+     "flag": {
+      "k": "due",
+      "by": "2026-09-30",
+      "w": "Email TalentCorp today to claim back Ryan's internship allowance; the claim window was 3 months from 30 Jun.",
+      "hot": true
+     },
+     "owner": "lu",
+     "dept": "finance",
+     "lens": "cost",
+     "next": "Email likes@talentcorp.com.my with the attendance record and allowance payment proof, and ask about the deadline."
     }
    ]
   }
@@ -3173,7 +3217,7 @@
   ]
  },
  "meta": {
-  "asof": "WED 30 SEP 2026",
-  "updated": "2026-09-30T18:11:52+08:00"
+  "asof": "THU 01 OCT 2026",
+  "updated": "2026-10-01T00:49:21+08:00"
  }
 }

@@ -1,9 +1,9 @@
 {
- "updated": "2026-09-30T18:11:52+08:00",
+ "updated": "2026-10-01T00:49:21+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Edith": {
-   "init": "E",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -17,18 +17,18 @@
    "role": "",
    "color": "#45C4FF"
   },
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Lydia": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -950,6 +950,26 @@
     "Legal to confirm the ethics and inducement position",
     "Communicate to the doctors, leading with the good news",
     "Fold into the contractor agreement"
+   ],
+   "pillar": "F2"
+  },
+  {
+   "id": "f9",
+   "title": "Intern allowance reimbursement (Ryan, MYNext)",
+   "status": "active",
+   "owner": "Lau",
+   "why": "Ryan finished his internship on 30 Jun. The clinic paid his allowance and was meant to claim part of it back from TalentCorp. The claim has not been filed.",
+   "next": "Email likes@talentcorp.com.my with the attendance record and allowance payment proof, and ask about the deadline.",
+   "dept": "finance",
+   "lens": "cost",
+   "endMonth": null,
+   "note": "",
+   "tasks": [
+    "Internship completed, 2 Mar to 30 Jun 2026",
+    "Attendance record made (80 days, full attendance)",
+    "Confirm which scheme the clinic signed up for: LiKES (cash back, up to 50% of the allowance, capped at RM850 a month) or MySIP (tax deduction only)",
+    "Email likes@talentcorp.com.my with the attendance record and allowance payment proof",
+    "Reimbursement received (about 14 working days after approval)"
    ],
    "pillar": "F2"
   },
