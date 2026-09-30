@@ -1868,6 +1868,26 @@
       {
        "t": "NAP fix on old-address listings",
        "s": ""
+      },
+      {
+       "t": "One-off (LZ): create a Google Places API key under a billing account, daily quota capped ~100 calls, and give it to Edith (turns on the monthly Maps grid rank)",
+       "s": "now",
+       "w": "owner LZ"
+      },
+      {
+       "t": "One-off (LZ): Bing Webmaster Tools \u2014 sign in with Microsoft, Import from Google Search Console, then Settings \u2192 API Access \u2192 give the key to Edith",
+       "s": "now",
+       "w": "owner LZ"
+      },
+      {
+       "t": "One-off (LZ): Bing Places for Business \u2014 import the listing from Google Business Profile (~5 min)",
+       "s": "now",
+       "w": "owner LZ"
+      },
+      {
+       "t": "SEO/GEO/Maps routine live on the box: Sunday priority-keyword scorecard + Maps visibility + 5 priority AI questions in the audit; daily review-drought alert; Mon 09:00 Google post draft for approval; fortnightly content brief from 12 Oct. Grid rank + Bing wait on the one-offs above",
+       "s": "done",
+       "w": "30 Sep"
       }
      ],
      "open": [
@@ -3154,6 +3174,6 @@
  },
  "meta": {
   "asof": "WED 30 SEP 2026",
-  "updated": "2026-09-30T16:34:11+08:00"
+  "updated": "2026-09-30T18:11:52+08:00"
  }
 }
