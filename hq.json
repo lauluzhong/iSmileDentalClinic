@@ -384,7 +384,7 @@
       {
        "t": "Import historical accounting data: move 10 years into AutoCount (LHDN needs 7), older years kept as a raw database; Emily confirms with Leow that the import can happen after go-live",
        "s": "next",
-       "w": "Oct \u00b7 Emily \u2194 Leow"
+       "w": "Nov/Dec, before year end \u00b7 Leow + Sarah"
       },
       {
        "t": "ABSS licence expires end Oct (~RM1,000\u20131,200/yr to renew): don't renew now; decide mid-Oct if AutoCount has problems",
@@ -413,7 +413,7 @@
     {
      "id": "d2",
      "dot": "now",
-     "chip": "OFF \u00b7 easy no if monthly reporting",
+     "chip": "dropped \u00b7 not offered",
      "name": "E-invoicing readiness",
      "one": "The original why: transactions >RM10k need e-invoices; LHDN mandate lands Jan 2027.",
      "steps": [
@@ -440,9 +440,9 @@
        "s": ""
       },
       {
-       "t": "Lau checks with Cindy: can we issue an e-invoice on request below RM3M without monthly LHDN reporting? If not, stay off until the threshold",
-       "s": "now",
-       "w": "Cindy pending Lau's reply"
+       "t": "E-invoicing dropped (LZ 30 Sep): not offered, since issuing means monthly LHDN submission",
+       "s": "done",
+       "w": "30 Sep"
       }
      ],
      "open": [
@@ -486,9 +486,9 @@
        "w": "Mon 28 Sep\u2013Fri 2 Oct"
       },
       {
-       "t": "Payment methods set up in AutoCount receive-payment: credit card, Touch 'n Go, DuitNow, bank transfer \u2014 who sets it up (Leow or us)? \u2014 Leow's question: which GL code does each payment type post to? Lau is calling Cindy about how GL is done today; aim for a separate code per type (cash, QR, card, e-wallet) so card/QR fees can be reconciled",
+       "t": "Payment methods: the accountant uses 4 accounts (internet banking, QR, cash, bank card); AutoCount's 6 methods map onto them (credit + debit \u2192 bank card; DuitNow QR + PBB QR \u2192 QR). Leow + Sarah (accountant) to configure",
        "s": "now",
-       "w": "Cindy pending Lau's reply"
+       "w": "Lau passes Sarah's contact to Leow once she texts it"
       },
       {
        "t": "WhatsApp quick reply for the desk: paste after the receipt link, with the Google review ask (fallback if AutoCount's message cannot be edited) \u2014 Lau",
@@ -538,6 +538,21 @@
        "t": "Bad debt: OpenDent shows ~RM174k outstanding, some >90 days and some years old. Define bad debt (e.g. overdue 30 days = delinquent, 6 months = write off) then clean the old balances out of OpenDent",
        "s": "next",
        "w": "Lau + Emily \u00b7 after go-live"
+      },
+      {
+       "t": "Sarah texts Lau her number \u2192 Lau passes it to Leow",
+       "s": "now",
+       "w": "30 Sep \u00b7 Lau"
+      },
+      {
+       "t": "Revenue basis: the accountant books revenue on COLLECTION, but AutoCount posts sales when an invoice is approved (charge basis). Leow + Sarah agree how to handle it before numbers flow (or Sarah journals it monthly)",
+       "s": "now",
+       "w": "before go-live 6 Oct \u00b7 Leow + Sarah"
+      },
+      {
+       "t": "Service vs product sales accounts, and how the desk receipts a toothbrush/product sale \u2014 asked Leow 30 Sep, no answer yet",
+       "s": "now",
+       "w": "before Sat 3 Oct \u00b7 Leow"
       }
      ],
      "open": [
@@ -3134,6 +3149,6 @@
  },
  "meta": {
   "asof": "WED 30 SEP 2026",
-  "updated": "2026-09-30T10:12:20+08:00"
+  "updated": "2026-09-30T16:30:34+08:00"
  }
 }
