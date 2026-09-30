@@ -239,6 +239,8 @@
   .pnl .final .val{font-size:28px;}
   .pnl .pos{color:var(--ok);} .pnl .neg{color:var(--bad);}
   .pnl .proj{opacity:.45;}
+  .pill-a,.pill-e{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;padding:2px 6px;border-radius:4px;border:1px solid;}
+  .pill-a{color:var(--ok);border-color:rgba(var(--okrgb),.45);} .pill-e{color:var(--dim);border-color:var(--line);}
   .pnl .sub .lbl{padding-left:16px;font-size:12px;} .pnl .sub .val{font-size:14px;font-weight:400;color:var(--dim);font-family:var(--mono);}
   .pnl .sub>div{border-bottom:none;padding-top:3px;padding-bottom:3px;}
   .pnl>div.hd{display:block;}
@@ -495,7 +497,7 @@
     <div class="sec-head">
       <div>
         <h1>P&amp;L — the year, top to bottom</h1>
-        <p>Revenue, less direct cost, gross profit, less fixed cost, EBITDA, less depreciation, net profit. Left column is the year to date; the faded column is where the year lands if the recent run-rate holds.</p>
+        <p>Revenue, less direct cost, gross profit, less fixed cost, EBITDA, less depreciation, net profit. Months the accountant has closed are their actual figures; later months are estimates from OpenDent production and the FY2026 model. Left column is the year to date; the faded column is where the year lands if the recent run-rate holds.</p>
       </div>
       <div class="window-badge" id="pnl-asof"></div>
     </div>
@@ -504,7 +506,7 @@
       <div class="tscroll">
         <table class="tx" id="pnl-months" style="min-width:820px">
           <thead><tr>
-            <th>Month</th><th class="num">Revenue</th><th class="num">Direct cost</th><th class="num">Gross profit</th>
+            <th>Month</th><th>Basis</th><th class="num">Revenue</th><th class="num">Direct cost</th><th class="num">Gross profit</th>
             <th class="num">Fixed cost</th><th class="num">EBITDA</th><th class="num">Dep. + HP int.</th><th class="num col-final">Net profit</th>
           </tr></thead>
           <tbody id="pnl-months-body"></tbody>
@@ -1213,10 +1215,11 @@ function renderPnl(){
   const yy=y, pp=p;
   const g=(cls,l,val,pval,extra)=>`<div class="${cls}"><div class="lbl">${l}${extra||''}</div><div class="val ${cls.includes('total')||cls.includes('final')?sgn(val):''}">${money(val)}</div><div class="val proj ${cls.includes('total')||cls.includes('final')?sgn(pval):''}">${money(pval)}</div></div>`;
   const F=PNL_FIXED_LABELS;
-  let h='<div class="pnl"><div class="hd">1 Jan – '+(STMT.as_of||'')+'</div><div class="hd">Year to date</div><div class="hd">Projected '+(STMT.year||'')+'</div>';
-  h+=g('total','Revenue',yy.revenue,pp.revenue,'<small>OpenDent production</small>');
+  const thru=STMT.actual_through?monthName(STMT.actual_through):null;
+  let h='<div class="pnl"><div class="hd">1 Jan – '+(STMT.as_of||'')+(thru?' · actual to '+thru+', estimated after':'')+'</div><div class="hd">Year to date</div><div class="hd">Projected '+(STMT.year||'')+'</div>';
+  h+=g('total','Revenue',yy.revenue,pp.revenue,'<small>'+(thru?'accountant to '+thru+' · OpenDent production after':'OpenDent production')+'</small>');
   h+=g('less','Direct cost',yy.direct.total,pp.direct.total,'<small>locum · lab · materials</small>');
-  h+=g('sub','Locum',yy.direct.locum,pp.direct.locum)+g('sub','Lab (est.)',yy.direct.lab,pp.direct.lab)+g('sub','Materials &amp; sundries (10.4% driver)',yy.direct.materials,pp.direct.materials);
+  h+=g('sub','Locum',yy.direct.locum,pp.direct.locum)+g('sub','Lab',yy.direct.lab,pp.direct.lab)+g('sub','Materials &amp; sundries',yy.direct.materials,pp.direct.materials);
   h+=g('total','Gross profit',yy.gross_profit,pp.gross_profit);
   h+=g('less','Fixed cost',yy.fixed.total,pp.fixed.total,'<small>staff · directors · premises · other</small>');
   for(const k of PNL_FIXED_ORDER.concat(Object.keys(yy.fixed).filter(k=>!PNL_FIXED_ORDER.includes(k)))) if(k!=='total'&&yy.fixed[k]!=null) h+=g('sub',F[k]||k,yy.fixed[k],(pp.fixed||{})[k]);
@@ -1230,10 +1233,13 @@ function renderPnl(){
   // month table
   const body=document.getElementById('pnl-months-body'), foot=document.getElementById('pnl-months-foot');
   const cell=(v,cls)=>`<td class="num ${cls||''}">${v<0?'−':''}${Math.round(Math.abs(v)).toLocaleString('en-MY')}</td>`;
-  body.innerHTML=(STMT.months||[]).map(m=>`<tr><td>${m.month}</td>${cell(m.revenue)}${cell(m.direct.total)}${cell(m.gross_profit)}${cell(m.fixed.total)}${cell(m.ebitda)}${cell(m.below.total)}${cell(m.net_profit,'col-final '+sgn(m.net_profit))}</tr>`).join('');
-  foot.innerHTML=`<tr><td>YTD</td>${cell(yy.revenue)}${cell(yy.direct.total)}${cell(yy.gross_profit)}${cell(yy.fixed.total)}${cell(yy.ebitda)}${cell(yy.below.total)}${cell(yy.net_profit,'col-final '+sgn(yy.net_profit))}</tr>`;
+  const bas=b=>b==='actual'?'<span class="pill-a">ACTUAL</span>':'<span class="pill-e">ESTIMATE</span>';
+  body.innerHTML=(STMT.months||[]).map(m=>`<tr><td>${m.month}</td><td>${bas(m.basis)}</td>${cell(m.revenue)}${cell(m.direct.total)}${cell(m.gross_profit)}${cell(m.fixed.total)}${cell(m.ebitda)}${cell(m.below.total)}${cell(m.net_profit,'col-final '+sgn(m.net_profit))}</tr>`).join('');
+  const na=(yy.actual_months||[]).length, ne=(yy.estimate_months||[]).length;
+  foot.innerHTML=`<tr><td>YTD</td><td>${na} A · ${ne} E</td>${cell(yy.revenue)}${cell(yy.direct.total)}${cell(yy.gross_profit)}${cell(yy.fixed.total)}${cell(yy.ebitda)}${cell(yy.below.total)}${cell(yy.net_profit,'col-final '+sgn(yy.net_profit))}</tr>`;
   document.getElementById('pnl-note').innerHTML='<b>Basis:</b> '+(STMT.basis||'')+' <b>Projection:</b> '+(pp.method||'')+(STMT.known_gap?' <b>Note:</b> '+STMT.known_gap:'');
 }
+const monthName=ym=>{const [y,m]=ym.split('-');return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+m-1]+' '+y;};
 const PNL_FIXED_ORDER=['staff','director','owner_salary','premises','other_opex'];
 const PNL_FIXED_LABELS={staff:'Staff costs',director:'Director remuneration (incl. Dr Ong)',owner_salary:'Owner salary (from Aug)',premises:'Premises &amp; utilities',other_opex:'Other operating',depreciation:'Depreciation',hp_interest:'HP interest'};
 

@@ -360,7 +360,8 @@ function renderFin(){
       +row("Revenue","revenue")+row("Gross profit","gross_profit")+row("EBITDA","ebitda")+row("Net profit","net_profit");
     box.appendChild(t);
     box.appendChild(spark(f.months));
-    box.appendChild(el("div","note",`Production basis, statutory view (Dr Ong salaried). Projected = YTD + ${pj.remaining_months??"the remaining"} months at the recent run-rate. Full statement under Profitability → P&amp;L.`));
+    const thru=pl.actual_through?["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][+pl.actual_through.slice(5)-1]:null;
+    box.appendChild(el("div","note",`${thru?"Accountant actuals to "+thru+", estimated after":"Estimated from OpenDent production"} (Dr Ong salaried). Projected = YTD + ${pj.remaining_months??"the remaining"} months at the recent run-rate. Full statement under Profitability → P&amp;L.`));
   } else if(f&&f.ytd){
     box.appendChild(el("div","sec",`<b>Year to date</b> · 1 Jan – ${isoLabel(c.as_of).replace(/^\w+ /,"")}`));
     g=el("div","stats");
