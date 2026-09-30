@@ -1,9 +1,9 @@
 {
- "updated": "2026-09-30T09:27:43+08:00",
+ "updated": "2026-09-30T10:05:40+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Code Capsule": {
-   "init": "CC",
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -17,7 +17,7 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
+  "Emily": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
@@ -27,8 +27,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
-   "init": "E",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   }
@@ -180,7 +180,7 @@
    "status": "blocked",
    "owner": "Lau",
    "why": "Calculator already reproduces all 8 doctors to the cent \u2014 end-to-end statements now possible under the new timing rules.",
-   "next": "Lau shares the OpenDent\u2192Sheet locum draft with Emily; Emily writes down the edge-case rules as she meets them. Target: a working method by early Nov (first locum under the new rules pays 10 Nov).",
+   "next": "Method set 29 Sep (same-day match, then first-in-first-out; the rest checked by hand). Lau is refining the sheet with the Locum Calculation session; share with Emily after go-live. She runs October locum in the first week of Nov (paid 10 Nov).",
    "dept": "finance",
    "lens": "efficiency",
    "endMonth": "2026-08",
@@ -325,7 +325,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "The revised contracts were sent to all five non-specialist doctors after the 30-day provision and clause 3.1 wording were updated. One signed copy is back; four remain outstanding; the two specialists follow separately.",
-   "next": "Collect the four outstanding signed copies by Wed 30 Sep. The two specialists (Yeoh, Joan) remain to be sent.",
+   "next": "Collect Dr Ling's signed copy by Wed 30 Sep. Lydia thins the contract for Dr Yeoh and Dr Joan, then send.",
    "dept": "people",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -409,7 +409,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "Floor price + mandatory discount lines, 100% doctor-borne. IPP as the alternative to upfront discounts \u2014 doctor bears MDR above the 0.85% BAU.",
-   "next": "Collect each doctor's minimum fees (via Dr Ong) so the capped-deduction rule can run. Keying rule still applies: a reduction is a discount line in OpenDent, never an edited price \u2014 this is also what AutoCount needs (25 Sep).",
+   "next": "Dr Ong entered 50 minimum fees 27\u201329 Sep. Emily now goes through the 47 used codes still without one (incl. RM0 by-report codes and D8040 at RM250) and confirms with Dr Ong. Keying rule: a reduction is a discount line, never an edited price.",
    "dept": "finance",
    "lens": "cost",
    "endMonth": "2026-12",

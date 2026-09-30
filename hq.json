@@ -691,7 +691,7 @@
     {
      "id": "d6",
      "dot": "blocked",
-     "chip": "sheet v1 built \u00b7 shown to Emily 29 Sep",
+     "chip": "method set \u00b7 first run early Nov",
      "name": "AP \u00b7 locum statements",
      "one": "Calculator already reproduces all 8 doctors to the cent \u2014 end-to-end statements now possible under the new timing rules.",
      "steps": [
@@ -706,7 +706,8 @@
       },
       {
        "t": "Payment\u2192procedure allocation: same-day matching then first-in-first-out (\u224890%+ reconciles automatically) \u2014 shown to Emily 29 Sep; Emily to confirm after using it",
-       "s": "now"
+       "s": "done",
+       "w": "decided 29 Sep: same-day match, then first-in-first-out"
       },
       {
        "t": "Per-doctor monthly statements generated",
@@ -738,17 +739,13 @@
       "60-day backstop for implant-case invoices",
       "From the initiatives board: 100% deterministic arithmetic \u2014 NO LLM, offline. Volume rule: production \u2265 RM55k \u2192 whole month at 50%. Ortho/Invisalign 10%-exemption is Dr LING's deal (corrected \u2014 not Mah). GM write-up sent; awaiting answers + workbooks."
      ],
-     "flag": {
-      "k": "decide",
-      "w": "When a patient pays, OpenDental almost never records which treatment the money was for. Agree how payments get matched to procedures and the doctor statements can be built."
-     },
      "owner": "lu",
      "dept": "finance",
      "lens": "efficiency",
      "from_initiatives": [
       3
      ],
-     "next": "Lau shares the OpenDent\u2192Sheet locum draft with Emily; Emily writes down the edge-case rules as she meets them. Target: a working method by early Nov (first locum under the new rules pays 10 Nov).",
+     "next": "Method set 29 Sep (same-day match, then first-in-first-out; the rest checked by hand). Lau is refining the sheet with the Locum Calculation session; share with Emily after go-live. She runs October locum in the first week of Nov (paid 10 Nov).",
      "endMonth": "2026-08"
     },
     {
@@ -1033,7 +1030,7 @@
     {
      "id": "l1",
      "dot": "now",
-     "chip": "1 signed \u00b7 4 due 30 Sep",
+     "chip": "all signed except Dr Ling \u00b7 specialists pending",
      "name": "Contractor agreement & doctor rollout",
      "one": "The revised contracts were sent to all five non-specialist doctors after the 30-day provision and clause 3.1 wording were updated. One signed copy is back; four remain outstanding; the two specialists follow separately.",
      "steps": [
@@ -1202,12 +1199,12 @@
      "from_initiatives": [
       16
      ],
-     "next": "Collect the four outstanding signed copies by Wed 30 Sep. The two specialists (Yeoh, Joan) remain to be sent.",
+     "next": "Collect Dr Ling's signed copy by Wed 30 Sep. Lydia thins the contract for Dr Yeoh and Dr Joan, then send.",
      "endMonth": "2026-09",
      "flag": {
       "k": "due",
       "by": "2026-09-30",
-      "w": "Collect the four outstanding signed copies by Wed 30 Sep."
+      "w": "Dr Ling is the last signed copy outstanding (Dr Ong is employed and needs none)."
      }
     },
     {
@@ -1317,7 +1314,7 @@
     {
      "id": "l4",
      "dot": "now",
-     "chip": "policy set",
+     "chip": "rules live 1 Oct \u00b7 47 fees to check",
      "name": "Discounts & IPP",
      "one": "Floor price + mandatory discount lines, 100% doctor-borne. IPP as the alternative to upfront discounts \u2014 doctor bears MDR above the 0.85% BAU.",
      "steps": [
@@ -1385,12 +1382,13 @@
      "from_initiatives": [
       29
      ],
-     "next": "Collect each doctor's minimum fees (via Dr Ong) so the capped-deduction rule can run. Keying rule still applies: a reduction is a discount line in OpenDent, never an edited price \u2014 this is also what AutoCount needs (25 Sep).",
+     "next": "Dr Ong entered 50 minimum fees 27\u201329 Sep. Emily now goes through the 47 used codes still without one (incl. RM0 by-report codes and D8040 at RM250) and confirms with Dr Ong. Keying rule: a reduction is a discount line, never an edited price.",
      "endMonth": "2026-12",
      "flag": {
       "k": "due",
-      "by": "2026-09-30",
-      "w": "Minimum fees must be live before the new rules start on 1 Oct."
+      "by": "2026-10-02",
+      "who": "Emily",
+      "w": "Emily fills the Fees to check tab (47 codes) and confirms each with Dr Ong."
      }
     },
     {
@@ -2494,7 +2492,7 @@
      "flag": {
       "k": "due",
       "by": "2026-10-03",
-      "w": "Build the training deck for Sat 3 Oct."
+      "w": "Deck built. Lau sends Emily the first-cut outline Wed 30 Sep; tell the girls it is training + dinner."
      }
     }
    ]
@@ -2608,7 +2606,7 @@
      ],
      "flag": {
       "k": "decide",
-      "w": "Confirm the cash covers what is left to pay for the digitisation, the September legal fee, and January 2027's increment step-up."
+      "w": "Cash \u2248 RM104k on 29 Sep, \u2248 RM40k out next week plus locum on the 10th; Lydia paid in 3\u00d7RM5k. Lau's dad will inject if needed \u2014 decide only if it gets tight."
      },
      "owner": "emily",
      "dept": "finance",
@@ -3141,6 +3139,6 @@
  },
  "meta": {
   "asof": "WED 30 SEP 2026",
-  "updated": "2026-09-30T09:27:43+08:00"
+  "updated": "2026-09-30T10:05:40+08:00"
  }
 }
