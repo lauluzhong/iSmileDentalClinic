@@ -336,7 +336,7 @@
       <button class="tab" data-view="day" id="tab-day"><span class="i">▤</span> By day</button>
       <button class="tab" data-view="efficiency" id="tab-efficiency"><span class="i">◷</span> Efficiency</button>
       <button class="tab" data-view="pnl" id="tab-pnl"><span class="i">≡</span> P&amp;L</button>
-      <a class="tab" href="/dashboard/locum/" id="tab-locum" title="Locum calculation: monthly statements, the journey, the bank file"><span class="i">◎</span> Locum</a>
+      <button class="tab" data-view="locum" id="tab-locum" title="Locum: monthly statements, the journey, the bank file"><span class="i">◎</span> Locum</button>
     </div>
     <div class="topbar-right">
       <span class="pill-sample" id="data-pill">LIVE DATA · loading…</span>
@@ -465,6 +465,15 @@
     </div>
 
     <div class="note" id="sum-note"></div>
+  </section>
+
+  <!-- ====================== LOCUM VIEW (data from the locum tool on the box, via /dashboard/locum/) ====================== -->
+  <section class="view" id="view-locum">
+    <div class="sec-head"><div><h1>Locum — paid out by month</h1>
+      <p>Professional fees per doctor. Months before September 2026 are this dashboard's estimate under the old agreement; from September the locum tool calculates line by line. Click a month for every treatment and the calculation journey.</p></div></div>
+    <div id="locum-callout"></div>
+    <div class="panel"><h3>Locum by month</h3><p class="ph-sub">RM, professional fees payable</p><div id="locum-body"><span class="pill-sample">loading…</span></div></div>
+    <div class="note" id="locum-note"></div>
   </section>
 
   <!-- ====================== BY-DAY P&L VIEW ====================== -->
@@ -1189,12 +1198,40 @@ function renderEfficiency(){
 
 function switchView(v){
   document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.view===v));
-  ['tx','summary','day','efficiency','pnl'].forEach(k=>
+  ['tx','summary','day','efficiency','pnl','locum'].forEach(k=>
     document.getElementById('view-'+k).classList.toggle('active',k===v));
+  if(v==='locum') renderLocum();
   if(v==='efficiency') renderEfficiency();
   if(v==='day') renderDay();
   if(v==='pnl') renderPnl();
   window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ---- Locum (the locum tool's API, proxied at /dashboard/locum/; the tool has its own sign-in) ---- */
+const rmL=v=>'RM'+(+v||0).toLocaleString('en-MY',{minimumFractionDigits:2,maximumFractionDigits:2});
+async function renderLocum(){
+  const body=document.getElementById('locum-body'), co=document.getElementById('locum-callout');
+  let r; try{ r=await fetch('locum/api/summary',{cache:'no-store'}); }catch(e){ body.innerHTML='<span class="pill-sample">locum tool not reachable</span>'; return; }
+  if(r.status===401){
+    body.innerHTML=`<form id="locum-login" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span style="color:var(--mut)">Sign in to the locum tool:</span>
+      <input placeholder="name" autocomplete="username" style="padding:6px 9px;border:1px solid var(--line);border-radius:6px;background:var(--panel2);color:var(--ink)">
+      <input type="password" placeholder="password" autocomplete="current-password" style="padding:6px 9px;border:1px solid var(--line);border-radius:6px;background:var(--panel2);color:var(--ink)">
+      <button class="tab" type="submit">Sign in</button><span id="locum-err" style="color:var(--bad)"></span></form>`;
+    const f=document.getElementById('locum-login'); f.onsubmit=async ev=>{ev.preventDefault(); const [u,p]=f.querySelectorAll('input');
+      const x=await fetch('locum/login',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({user:u.value,password:p.value})});
+      if(x.ok) renderLocum(); else document.getElementById('locum-err').textContent='not right';};
+    return;
+  }
+  if(!r.ok){ body.innerHTML='<span class="pill-sample">locum tool error '+r.status+'</span>'; return; }
+  const S=await r.json(); const ms=S.months; const docs=[...new Set(ms.flatMap(m=>m.doctors.map(d=>d.doctor)))].sort();
+  const next=[...ms].reverse().find(m=>m.source==='engine'&&!m.signed);
+  co.innerHTML=next?`<div class="panel" style="margin-bottom:14px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;border-color:rgba(var(--warnrgb),.5)"><span style="color:var(--mut)">Next to do</span><b style="font-family:var(--disp);font-size:15px">${next.label}</b><span style="color:var(--dim)">${next.open?next.open+' rows still need something':'nothing outstanding'}</span><a class="tab active" style="margin-left:auto" href="locum/?m=${next.month}&go=1">Calculate locum for ${next.label.replace(' (dry run)','')} →</a></div>`:'';
+  body.innerHTML=`<table class="mini"><thead><tr><th>Month</th>${docs.map(d=>`<th class="num">${d}</th>`).join('')}<th class="num">Total</th><th>Status</th></tr></thead><tbody>
+    ${ms.map(m=>{const tot=m.doctors.reduce((a,d)=>a+(d.professional_fees||0),0);
+      const st=m.source==='estimate'?'<span style="color:var(--dim)">old agreement · estimate</span>':m.signed?'<span style="color:var(--ok)">approved</span>':m.open?`<span style="color:var(--warn)">${m.open} rows to go</span>`:'<span style="color:var(--warn)">ready to sign off</span>';
+      return `<tr onclick="location.href='locum/?m=${m.month}'"><td><b>${m.label}</b></td>${docs.map(d=>{const x=m.doctors.find(y=>y.doctor===d);return `<td class="num">${x?rmL(x.professional_fees):''}</td>`}).join('')}<td class="num"><b>${rmL(tot)}</b></td><td>${st}</td></tr>`}).join('')}
+    </tbody></table>`;
+  document.getElementById('locum-note').textContent='Signed in as '+S.user+'. The locum tool runs on the Contabo box; figures from September 2026 recalculate whenever an input is saved.';
 }
 
 /* ---- P&L statement (deck.json → finance.pnl; published every 30 min by deck_stats.py) ---- */
