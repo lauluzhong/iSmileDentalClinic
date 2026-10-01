@@ -556,8 +556,8 @@
       },
       {
        "t": "MC (medical certificate) template in AutoCount: printed from AR Payment as a second print, only when needed; IC-only line; running number MC-00001 would need manual keying (Emily deciding)",
-       "s": "now",
-       "w": "Leow designing \u00b7 30 Sep"
+       "s": "done",
+       "w": "1 Oct \u00b7 Vision Tech issued Medical Certificate v2; doctor-signature treatment still pending Emily"
       }
      ],
      "open": [
@@ -3217,6 +3217,6 @@
  },
  "meta": {
   "asof": "THU 01 OCT 2026",
-  "updated": "2026-10-01T11:07:58+08:00"
+  "updated": "2026-10-01T21:32:56+08:00"
  }
 }
