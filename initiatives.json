@@ -1,9 +1,9 @@
 {
- "updated": "2026-10-01T21:32:56+08:00",
+ "updated": "2026-10-01T21:47:47+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lau": {
-   "init": "L",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -12,13 +12,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +27,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
-   "init": "E",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   }
@@ -74,7 +74,8 @@
     "OpenDent glitch: two patients' old records (a 2023 account; a 2022 monthly payment plan of Dr Amy's) suddenly re-dated to today as treatment plans \u2014 one now shows the clinic owing the patient ~RM9k. Emily posts screenshots in the CC group; raise with Jason at the Wed 30 Sep meeting",
     "Joanna's old laptop (newer Windows) replaces the broken new PC for receipts; the broken PC has gone to China for warranty",
     "Import historical accounting data: move 10 years into AutoCount (LHDN needs 7), older years kept as a raw database; Emily confirms with Leow that the import can happen after go-live",
-    "ABSS licence expires end Oct (~RM1,000\u20131,200/yr to renew): don't renew now; decide mid-Oct if AutoCount has problems"
+    "ABSS licence expires end Oct (~RM1,000\u20131,200/yr to renew): don't renew now; decide mid-Oct if AutoCount has problems",
+    "Medical certificate template v2 done (Klinik Pergigian iSmile, mobile + website); doctor signature still to confirm (Emily)"
    ],
    "pillar": "P1"
   },
@@ -130,7 +131,8 @@
     "Sarah texts Lau her number \u2192 Lau passes it to Leow",
     "Revenue basis: the accountant books revenue on COLLECTION, but AutoCount posts sales when an invoice is approved (charge basis). Leow + Sarah agree how to handle it before numbers flow (or Sarah journals it monthly)",
     "Service vs product sales accounts + receipting a toothbrush sale \u2014 Leow 30 Sep: needs the accountant first and probably a change on Jason's side",
-    "MC (medical certificate) template in AutoCount: printed from AR Payment as a second print, only when needed; IC-only line; running number MC-00001 would need manual keying (Emily deciding)"
+    "MC (medical certificate) template in AutoCount: printed from AR Payment as a second print, only when needed; IC-only line; running number MC-00001 would need manual keying (Emily deciding)",
+    "GL mapping: Sarah shared the ABSS chart of accounts; Leow created the main accounts in AutoCount (keeps ABSS last 4 digits); the desk only picks the payment method and AutoCount posts it"
    ],
    "pillar": "P1"
   },

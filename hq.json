@@ -244,7 +244,7 @@
     {
      "id": "d1",
      "dot": "live",
-     "chip": "SQL fix done 30 Sep \u00b7 go-live 6 Oct",
+     "chip": "data flow 1 Oct unconfirmed \u00b7 Leow away until 5 Oct",
      "name": "OpenDent \u2194 AutoCount integration",
      "one": "AutoCount is installed on both new front-desk PCs. The confirmed 25 Sep run-through will validate the front-desk receipt journey and downstairs sub-account data flow before training.",
      "steps": [
@@ -343,8 +343,8 @@
       },
       {
        "t": "Link live \u2014 every transaction from 1 Oct flows into AutoCount",
-       "s": "next",
-       "w": "Thu 1 Oct"
+       "s": "now",
+       "w": "Thu 1 Oct \u00b7 Lau asked the AC group 11:11 whether data is flowing \u2014 no answer yet; Leow on leave until Mon 5 Oct (his team covers the group)"
       },
       {
        "t": "Invoices from 1\u20135 Oct approved by hand, one by one, so October receivables start clean",
@@ -354,7 +354,7 @@
       {
        "t": "Leow sets up an individual AutoCount login + access rights for each staff member \u2014 we send him the details he needs",
        "s": "now",
-       "w": "Emily 30 Sep: two access levels (1 full, 2 invoice/receipt/payment/MC/product sales); short names OK; admin sets passwords and keeps a record"
+       "w": "Leow set up usernames on the server PC 1 Oct; not yet confirmed that every front-desk login is done"
       },
       {
        "t": "Update Leow once the doctors consistently enter discounts as a discount line (not an edited price) \u2014 Lau",
@@ -390,6 +390,11 @@
        "t": "ABSS licence expires end Oct (~RM1,000\u20131,200/yr to renew): don't renew now; decide mid-Oct if AutoCount has problems",
        "s": "next",
        "w": "mid-Oct \u00b7 Lau + Emily"
+      },
+      {
+       "t": "Medical certificate template v2 done (Klinik Pergigian iSmile, mobile + website); doctor signature still to confirm (Emily)",
+       "s": "done",
+       "w": "1 Oct"
       }
      ],
      "open": [
@@ -558,6 +563,11 @@
        "t": "MC (medical certificate) template in AutoCount: printed from AR Payment as a second print, only when needed; IC-only line; running number MC-00001 would need manual keying (Emily deciding)",
        "s": "done",
        "w": "1 Oct \u00b7 Vision Tech issued Medical Certificate v2; doctor-signature treatment still pending Emily"
+      },
+      {
+       "t": "GL mapping: Sarah shared the ABSS chart of accounts; Leow created the main accounts in AutoCount (keeps ABSS last 4 digits); the desk only picks the payment method and AutoCount posts it",
+       "s": "done",
+       "w": "1 Oct \u00b7 rest after Leow returns Mon 5 Oct"
       }
      ],
      "open": [
@@ -3217,6 +3227,6 @@
  },
  "meta": {
   "asof": "THU 01 OCT 2026",
-  "updated": "2026-10-01T21:32:56+08:00"
+  "updated": "2026-10-01T21:47:47+08:00"
  }
 }
