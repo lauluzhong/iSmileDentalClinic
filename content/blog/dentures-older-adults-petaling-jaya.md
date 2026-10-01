@@ -110,4 +110,4 @@ A few everyday habits help dentures stay comfortable.
 
 ## Planning the Next Step
 
-Whether it is your first denture, a parent's loose one, or a question about implants, the first step is the same: an examination and an honest conversation about what suits the mouth and the person. The clinic is open Monday to Friday from 9:30 AM to 5:30 PM and Saturday from 9:30 AM to 3:30 PM, and you can reach us by phone or WhatsApp on +6016-322 2135. Our team will arrange an assessment and explain each option, so you and your family can decide with a clear picture.
+Whether it is your first denture, a parent's loose one, or a question about implants, the first step is the same: an examination and an honest conversation about what suits the mouth and the person. The clinic is open Monday to Friday from 9:30 AM to 5:30 PM and Saturday from 9:30 AM to 3:30 PM, and you can [call us](tel:+60163222135) or [WhatsApp us](https://wa.me/60163222135) on +6016-322 2135. Our team will arrange an assessment and explain each option, so you and your family can decide with a clear picture.
