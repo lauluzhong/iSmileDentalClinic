@@ -1,5 +1,46 @@
 [
   {
+    "slug": "dentures-older-adults-petaling-jaya",
+    "title": "Dentures for Older Adults in Petaling Jaya: A Guide for Patients and Families",
+    "categories": [
+      "Restorative Dentistry"
+    ],
+    "tags": [
+      "Restorative Dentistry",
+      "Oral Health"
+    ],
+    "date": "2026-10-01",
+    "img": "/images/blog/dentures-older-adults-hero.jpg",
+    "excerpt": "Thinking about dentures for yourself or an older parent? A plain guide to partial dentures, complete dentures, implant-retained options, and what the fitting process involves.",
+    "seo_title": null,
+    "seo_description": null,
+    "featured": false,
+    "faq": [
+      {
+        "q": "Where can I get dentures near me in Petaling Jaya?",
+        "a": "iSmile Dental Clinic in Damansara Jaya, Petaling Jaya, provides partial dentures, complete dentures, denture repairs and relines, and implant-retained full-arch dentures. The dentist will examine your mouth first and talk you through which options suit your situation."
+      },
+      {
+        "q": "What is the difference between a partial denture and a complete denture?",
+        "a": "A partial denture replaces some missing teeth and sits alongside the natural teeth that remain. A complete denture replaces all the teeth in the upper or lower jaw. Which one fits your situation depends on how many healthy teeth you still have."
+      },
+      {
+        "q": "Can dentures be held in place with implants?",
+        "a": "Yes. iSmile provides implant-retained full-arch dentures, where the denture is supported by dental implants placed in the jaw. Suitability depends on your general health and the bone available, which the dentist can check with 3D CBCT imaging."
+      },
+      {
+        "q": "My old dentures feel loose. Do I need a new set?",
+        "a": "Not always. Gums and bone can change shape over time, so a denture that once fitted well may start to feel loose. In many cases a reline or repair can improve the fit, and the dentist will advise whether that or a new denture makes more sense."
+      },
+      {
+        "q": "Is there a geriatric dentist near me?",
+        "a": "iSmile sees adults of all ages, including older patients, and the clinic is on the ground floor with wheelchair access and parking right in front. Older adults can come in for check-ups, dentures, repairs and tooth replacement planning."
+      }
+    ],
+    "content_type": "educational",
+    "canonical_url": null
+  },
+  {
     "slug": "adult-mouth-breathing",
     "title": "Why Am I Breathing Through My Mouth? An Adult Guide",
     "categories": [
