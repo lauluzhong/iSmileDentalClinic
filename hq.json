@@ -139,7 +139,7 @@
    "l": "Updated contracts sent to five non-specialists \u00b7 2 signed, 3 outstanding",
    "s": "now",
    "iso": "2026-09-25",
-   "tip": "Lau updated the 30-day provision and clause 3.1 wording before sending the revised contracts to all five non-specialist doctors. Signed copies returned: Priscilla (25 Sep), Amy (25 Sep, with Addendum 1), Mah and Azelia (29 Sep). Only Ling remains outstanding, due Wed 30 Sep."
+   "tip": "Lau updated the 30-day provision and clause 3.1 wording before sending the revised contracts to all five non-specialist doctors. Signed copies returned: Priscilla (25 Sep), Amy (25 Sep, with Addendum 1), Mah and Azelia (29 Sep), Ling (1 Oct). All five non-specialists signed; filed in Drive."
   },
   {
    "d": "25 Sep",
@@ -1163,7 +1163,7 @@
        "w": "Lau \u2192 Lydia"
       },
       {
-       "t": "All signed except Dr Ling (Dr Ong is employed \u2014 no contractor agreement needed)",
+       "t": "All five signed \u2014 Dr Ling signed 1 Oct (Dr Ong is employed \u2014 no contractor agreement needed)",
        "s": "now",
        "w": "by Wed 30 Sep"
       },
@@ -1187,7 +1187,7 @@
       "\u26a0\ufe0f <b>Work the full narrative out in a dedicated session</b> \u2014 this note is the skeleton, not the script. Share it with your parents once they have given their input on the three changes."
      ],
      "open": [
-      "<b>Updated contracts sent (25 Sep).</b> Lau updated the 30-day provision and clause 3.1 wording before sending the revised contracts to all five non-specialist doctors. Signed copies returned: Priscilla (25 Sep), Amy (25 Sep, with Addendum 1), Mah and Azelia (29 Sep). Only Ling remains outstanding, due Wed 30 Sep.",
+      "<b>Updated contracts sent (25 Sep).</b> Lau updated the 30-day provision and clause 3.1 wording before sending the revised contracts to all five non-specialist doctors. Signed copies returned: Priscilla (25 Sep), Amy (25 Sep, with Addendum 1), Mah and Azelia (29 Sep), Ling (1 Oct). All five non-specialists signed; filed in Drive.",
       "<b>Specialists remain pending:</b> the separate action to send to Dr Yeoh and Dr Joan is unchanged.",
       "<b>New in the agreement (9 Sep):</b> a doctor can be paid by the practice in three ways only &mdash; professional fees; reimbursement of pre-approved spend at documented cost against the original supplier invoice (nothing payable for items obtained free); or as an approved supplier with the interest declared. Patient money must go through the authorised billing process, for services and for materials, appliances and laboratory work alike.",
       "<b>Live master is v1.0</b> (9 Sep). The new Section 3 &ldquo;Minimum Fee and Concessions&rdquo; renumbered everything after Sessions &mdash; procurement is now Clause 7, termination 14, general 16.",
@@ -1217,7 +1217,7 @@
      "flag": {
       "k": "due",
       "by": "2026-09-30",
-      "w": "Dr Ling is the last signed copy outstanding (Dr Ong is employed and needs none)."
+      "w": "All five signed copies are in; Dr Ling signed 1 Oct (Dr Ong is employed and needs none)."
      }
     },
     {
@@ -3122,7 +3122,7 @@
       "start": "2026-09-25",
       "status": "done",
       "who": "Lau",
-      "note": "The 30-day provision and clause 3.1 wording were updated before sending. Priscilla, Amy (with Addendum 1), Mah and Azelia returned signed copies; only Ling remains outstanding, due Wed 30 Sep."
+      "note": "The 30-day provision and clause 3.1 wording were updated before sending. Priscilla, Amy (with Addendum 1), Mah, Azelia and Ling returned signed copies; all five signed."
      },
      {
       "label": "Signed copies back to Lau",
@@ -3130,7 +3130,7 @@
       "end": "2026-09-30",
       "status": "now",
       "who": "Doctors",
-      "note": "Signed copies returned: Priscilla (25 Sep), Amy (25 Sep, with Addendum 1), Mah and Azelia (29 Sep). Only Ling remains outstanding, due Wed 30 Sep."
+      "note": "Signed copies returned: Priscilla (25 Sep), Amy (25 Sep, with Addendum 1), Mah and Azelia (29 Sep), Ling (1 Oct). All five non-specialists signed; filed in Drive."
      },
      {
       "label": "Signed copies due",
@@ -3217,6 +3217,6 @@
  },
  "meta": {
   "asof": "THU 01 OCT 2026",
-  "updated": "2026-10-01T01:03:56+08:00"
+  "updated": "2026-10-01T11:07:58+08:00"
  }
 }

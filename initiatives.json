@@ -1,13 +1,8 @@
 {
- "updated": "2026-10-01T01:03:56+08:00",
+ "updated": "2026-10-01T11:07:58+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Edith": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
+  "Lau": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
@@ -17,8 +12,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +27,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
-   "init": "L",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   }
@@ -358,7 +358,7 @@
     "Update the 30-day provision and clause 3.1 wording before sending",
     "Revised contracts sent to the five non-specialist doctors",
     "Lydia reviews and thins the contract for Dr Yeoh and Dr Joan (not day-to-day doctors), then send",
-    "All signed except Dr Ling (Dr Ong is employed \u2014 no contractor agreement needed)",
+    "All five signed \u2014 Dr Ling signed 1 Oct (Dr Ong is employed \u2014 no contractor agreement needed)",
     "Lydia's invoice (RM15k): Emily pays in three RM5k instalments, sending the first today",
     "First pay-timing change: clean cut 1 Oct; the first locum run under the new rules pays 10 Nov"
    ],
