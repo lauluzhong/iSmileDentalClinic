@@ -41,6 +41,7 @@ TARGETS = [
     # Added 2026-09-08: replacement blog heroes generated to the owner-approved
     # candid-realism rules (no text, generic premises, plausible photographer,
     # matte skin). See the ismile-image-generation skill.
+    '/images/blog/dentures-older-adults-hero.jpg',
     '/images/blog/braces-mother-teen-hero.png',
     '/images/blog/adult-tired-morning.png',
     '/images/blog/bedtime-story-toddler.png',

@@ -473,6 +473,38 @@
     ],
     "width": 1536
   },
+  "/images/blog/dentures-older-adults-hero.jpg": {
+    "fallbackType": "image/jpeg",
+    "height": 1024,
+    "original": "/images/blog/dentures-older-adults-hero.jpg",
+    "variants": [
+      {
+        "avif": "/images/blog/dentures-older-adults-hero-480w.avif",
+        "raster": "/images/blog/dentures-older-adults-hero-480w.jpg",
+        "w": 480,
+        "webp": "/images/blog/dentures-older-adults-hero-480w.webp"
+      },
+      {
+        "avif": "/images/blog/dentures-older-adults-hero-768w.avif",
+        "raster": "/images/blog/dentures-older-adults-hero-768w.jpg",
+        "w": 768,
+        "webp": "/images/blog/dentures-older-adults-hero-768w.webp"
+      },
+      {
+        "avif": "/images/blog/dentures-older-adults-hero-1024w.avif",
+        "raster": "/images/blog/dentures-older-adults-hero-1024w.jpg",
+        "w": 1024,
+        "webp": "/images/blog/dentures-older-adults-hero-1024w.webp"
+      },
+      {
+        "avif": "/images/blog/dentures-older-adults-hero-1536w.avif",
+        "raster": "/images/blog/dentures-older-adults-hero-1536w.jpg",
+        "w": 1536,
+        "webp": "/images/blog/dentures-older-adults-hero-1536w.webp"
+      }
+    ],
+    "width": 1536
+  },
   "/images/blog/family-livingroom-together.png": {
     "fallbackType": "image/jpeg",
     "height": 1024,
