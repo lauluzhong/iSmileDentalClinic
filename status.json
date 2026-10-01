@@ -1,6 +1,8 @@
 {
-  "updated": "2026-10-01 20:00 MYT",
-  "running": [],
+  "updated": "2026-10-01 20:10 MYT",
+  "running": [
+    "locum_sheet"
+  ],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -63,7 +65,7 @@
       "last": "2026-09-27 15:34 MYT"
     },
     "locum_sheet": {
-      "state": "idle",
+      "state": "running",
       "last": "2026-09-30 20:10 MYT"
     }
   }
