@@ -30,7 +30,10 @@ const ALLOWED_ORIGINS = [
 // shared counter without a KV store. It is enough to blunt a naive flood from
 // one source; real abuse protection is Vercel's bot rules at the edge.
 const RATE_WINDOW_MS = 10 * 60 * 1000;
-const RATE_MAX = 12; // a family registering together must not trip this
+// 40, not 12: the whole clinic sits behind ONE Wi-Fi address, so a training
+// session (15 staff submitting in minutes) or a busy Saturday at the desk
+// would otherwise 429 real submissions. Still blunts a naive flood.
+const RATE_MAX = 40;
 const recentByIp = new Map();
 
 function rateLimited(ip) {
