@@ -136,8 +136,8 @@
   },
   {
    "d": "25 Sep",
-   "l": "Updated contracts sent to five non-specialists \u00b7 2 signed, 3 outstanding",
-   "s": "now",
+   "l": "Updated contracts sent to five non-specialists",
+   "s": "done",
    "iso": "2026-09-25",
    "tip": "Lau updated the 30-day provision and clause 3.1 wording before sending the revised contracts to all five non-specialist doctors. Signed copies returned: Priscilla (25 Sep), Amy (25 Sep, with Addendum 1), Mah and Azelia (29 Sep), Ling (1 Oct). All five non-specialists signed; filed in Drive."
   },
@@ -150,22 +150,22 @@
   },
   {
    "d": "28\u201330 Sep",
-   "l": "FOH training deck prepared + confirmed",
-   "s": "",
+   "l": "FOH training deck \u2014 done",
+   "s": "done",
    "iso": "2026-09-28",
    "tip": "Deck work runs Monday 28 to Wednesday 30 September; Lau confirms the deck by Wednesday 30 September for the tentative Sat 3 Oct training."
   },
   {
    "d": "28 Sep\u20132 Oct",
-   "l": "Design receipt + front-desk SOP",
-   "s": "",
+   "l": "Receipt design + front-desk SOP \u2014 done",
+   "s": "done",
    "iso": "2026-09-28",
-   "tip": "Leow supplied A4 and half-page samples on Tue 29 Sep. Lau prefers A4 and asked for the logo farther left; Leow confirmed it can be adjusted. SOP ready for the Sat 3 Oct FOH training."
+   "tip": "Done 2 Oct: A4 receipt design final and the front-desk SOP ready for the Sat 3 Oct training."
   },
   {
    "d": "30 Sep",
-   "l": "Doctors' signed copies due",
-   "s": "",
+   "l": "Doctors' signed copies \u2014 all in (Dr Ling 1 Oct)",
+   "s": "done",
    "iso": "2026-09-30",
    "tip": "One week after the walkthrough."
   },
@@ -195,7 +195,7 @@
    "l": "Go live \u2014 new digital receipts",
    "s": "",
    "iso": "2026-10-06",
-   "tip": "Moved from 5 Oct at the 25 Sep run-through. Paper receipts retired; invoices 1\u20135 Oct approved by hand. Lau and Emily on standby that week. Blocked until Jason fixes the SQL insert error."
+   "tip": "Moved from 5 Oct at the 25 Sep run-through. Paper receipts retired; invoices 1\u20135 Oct approved by hand. Lau and Emily on standby that week. The OpenDent \u2192 AutoCount link has been on since 1 Oct (Jason, 2 Oct)."
   },
   {
    "d": "27 Oct",
@@ -220,10 +220,10 @@
   },
   {
    "d": "Jan 2027",
-   "l": "LHDN e-invoicing mandate",
+   "l": "E-invoicing: not required for us (under RM3M; dropped)",
    "s": "",
    "iso": "2027-01-01",
-   "tip": "E-invoicing becomes mandatory \u2014 the regulatory deadline the whole digital pillar was built to beat."
+   "tip": "Since 30 Aug, businesses under RM3M a year are exempt. LZ dropped e-invoicing on 30 Sep: issuing any e-invoice means submitting to LHDN."
   }
  ],
  "pillars": [
@@ -244,7 +244,7 @@
     {
      "id": "d1",
      "dot": "live",
-     "chip": "data flow 1 Oct unconfirmed \u00b7 Leow away until 5 Oct",
+     "chip": "link on since 1 Oct \u00b7 go-live Tue 6 Oct",
      "name": "OpenDent \u2194 AutoCount integration",
      "one": "AutoCount is installed on both new front-desk PCs. The confirmed 25 Sep run-through will validate the front-desk receipt journey and downstairs sub-account data flow before training.",
      "steps": [
@@ -338,13 +338,13 @@
       },
       {
        "t": "Leow clears all test invoices/data at end of day, then the link is switched on",
-       "s": "next",
+       "s": "done",
        "w": "by EOD Wed 30 Sep"
       },
       {
        "t": "Link live \u2014 every transaction from 1 Oct flows into AutoCount",
-       "s": "now",
-       "w": "Thu 1 Oct \u00b7 Lau asked the AC group 11:11 whether data is flowing \u2014 no answer yet; Leow on leave until Mon 5 Oct (his team covers the group)"
+       "s": "done",
+       "w": "on since 1 Oct (Jason confirmed 2 Oct 11:11)"
       },
       {
        "t": "Invoices from 1\u20135 Oct approved by hand, one by one, so October receivables start clean",
@@ -412,7 +412,7 @@
      "from_initiatives": [
       1
      ],
-     "next": "JX fixed the OpenDent\u2192AutoCount invoice error 30 Sep. Still open: why two old records were re-added on 29 Sep (Emily updating). Leow clears test data EOD 30 Sep; link on 1 Oct; hand-approve 1\u20135 Oct; train Sat 3 Oct; go live Tue 6 Oct.",
+     "next": "Link on since 1 Oct (Jason, 2 Oct). Still open: Emily's 29 Sep record glitch (RM2,300 crown line / dates), staff logins confirmed, 1\u20135 Oct invoices hand-approved; train Sat 3 Oct; go live Tue 6 Oct. Leow back Mon 5 Oct.",
      "endMonth": "2026-09"
     },
     {
@@ -2913,7 +2913,7 @@
      "h5"
     ],
     "owner": "Lau \u00b7 Emily \u00b7 Code Capsule",
-    "summary": "Run-through held 25 Sep with actual data. Test data cleared EOD 30 Sep, link on 1 Oct, 1\u20135 Oct hand-approved, FOH training Sat 3 Oct, go live Tue 6 Oct \u2014 blocked until Jason fixes the SQL insert error.",
+    "summary": "Link on since 1 Oct. 1\u20135 Oct invoices hand-approved, FOH training Sat 3 Oct, go live Tue 6 Oct.",
     "items": [
      {
       "label": "OpenDent migrated to the new server",
@@ -3228,6 +3228,6 @@
  },
  "meta": {
   "asof": "FRI 02 OCT 2026",
-  "updated": "2026-10-02T10:59:26+08:00"
+  "updated": "2026-10-02T17:03:24+08:00"
  }
 }

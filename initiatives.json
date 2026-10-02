@@ -1,7 +1,17 @@
 {
- "updated": "2026-10-02T10:59:26+08:00",
+ "updated": "2026-10-02T17:03:24+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Code Capsule": {
    "init": "CC",
    "role": "",
@@ -17,18 +27,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Lydia": {
    "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   }
@@ -40,7 +40,7 @@
    "status": "active",
    "owner": "Code Capsule",
    "why": "AutoCount is installed on both new front-desk PCs. The confirmed 25 Sep run-through will validate the front-desk receipt journey and downstairs sub-account data flow before training.",
-   "next": "JX fixed the OpenDent\u2192AutoCount invoice error 30 Sep. Still open: why two old records were re-added on 29 Sep (Emily updating). Leow clears test data EOD 30 Sep; link on 1 Oct; hand-approve 1\u20135 Oct; train Sat 3 Oct; go live Tue 6 Oct.",
+   "next": "Link on since 1 Oct (Jason, 2 Oct). Still open: Emily's 29 Sep record glitch (RM2,300 crown line / dates), staff logins confirmed, 1\u20135 Oct invoices hand-approved; train Sat 3 Oct; go live Tue 6 Oct. Leow back Mon 5 Oct.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",
