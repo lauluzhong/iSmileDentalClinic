@@ -23,13 +23,6 @@
    "tip": "Parents approved the three compensation changes on 2 Sep, with the discount-approval threshold amended to 15% rather than 10%. The contractor agreement can now be finalised."
   },
   {
-   "d": "31 Aug",
-   "l": "Supplier register due (Emily)",
-   "s": "",
-   "iso": "2026-08-31",
-   "tip": "Committed for end of August. The RM246k dental-sundries group is still not on it, and the register is also what produces the list of labs invoicing more than 7 days after month end."
-  },
-  {
    "d": "1 Sep",
    "l": "AutoCount licence \u00b7 Dr Jia Yin's contract (sent 6 Sep)",
    "s": "done",
@@ -115,8 +108,8 @@
   },
   {
    "d": "23 Sep",
-   "l": "Cold campaign list + FOH availability checks",
-   "s": "",
+   "l": "FOH availability checked (training set for 3 Oct)",
+   "s": "done",
    "iso": "2026-09-23",
    "tip": "At the 09:00 huddle on Wednesday 23 September, Emily checks the girls' availability for the tentative Sat 3 Oct FOH training; the excluded list and family/shared-number recipient list are due for confirmation the same day."
   },
@@ -126,13 +119,6 @@
    "s": "done",
    "iso": "2026-09-23",
    "tip": "The doctors meeting went well. Remaining contract changes are a 30-day statement-dispute period and an addendum to Dr Amy's contract defining immediate family as her sister, her sister's husband (brother-in-law), and the sister's two children."
-  },
-  {
-   "d": "25 Sep",
-   "l": "MiniCRM campaign configured",
-   "s": "",
-   "iso": "2026-09-25",
-   "tip": "Configure the cold reactivation campaign in MiniCRM/CRM by end of day Friday 25 September, after the exclusion and shared-number recipient checks."
   },
   {
    "d": "25 Sep",
@@ -184,6 +170,13 @@
    "tip": "Set at the 25 Sep run-through: Sat 3 Oct after the 3:30 PM close, dinner after. Leow not attending (weekend) \u2014 Lau and Emily teach. Emily and Joanna are the on-ground contacts afterwards. Deck to be confirmed by Wed 30 Sep. Compulsory: Joanna, Erincy, Jessy, Ida, Elaine."
   },
   {
+   "d": "2\u20135 Oct",
+   "l": "MiniCRM campaign configured",
+   "s": "",
+   "iso": "2026-10-05",
+   "tip": "After Lau confirms the exclusion and family-number lists (due Fri 2 Oct), the three waves are set up in MiniCRM before the 6\u20139 Oct window."
+  },
+  {
    "d": "6\u20139 Oct",
    "l": "Cold reactivation blast \u2014 planned 6\u20139 Oct",
    "s": "",
@@ -196,6 +189,13 @@
    "s": "",
    "iso": "2026-10-06",
    "tip": "Moved from 5 Oct at the 25 Sep run-through. Paper receipts retired; invoices 1\u20135 Oct approved by hand. Lau and Emily on standby that week. The OpenDent \u2192 AutoCount link has been on since 1 Oct (Jason, 2 Oct)."
+  },
+  {
+   "d": "mid-Oct",
+   "l": "Supplier register due (Emily)",
+   "s": "",
+   "iso": "2026-10-15",
+   "tip": "Moved from 31 Aug to mid-October, ahead of the AutoCount supplier setup."
   },
   {
    "d": "27 Oct",
@@ -359,7 +359,7 @@
       {
        "t": "Update Leow once the doctors consistently enter discounts as a discount line (not an edited price) \u2014 Lau",
        "s": "next",
-       "w": "after 1 Oct"
+       "w": "after go-live \u00b7 Lau"
       },
       {
        "t": "Training for front-of-house staff + dinner (Leow not attending \u2014 Lau + Emily teach; Emily + Joanna = on-ground contacts)",
@@ -374,7 +374,7 @@
       {
        "t": "OpenDent glitch: two patients' old records (a 2023 account; a 2022 monthly payment plan of Dr Amy's) suddenly re-dated to today as treatment plans \u2014 one now shows the clinic owing the patient ~RM9k. Emily posts screenshots in the CC group; raise with Jason at the Wed 30 Sep meeting",
        "s": "now",
-       "w": "30 Sep \u00b7 Emily walked JX through it on a call (11 am); JX: the rows were added on 29 Sep on the OpenDent server; cause not yet explained \u2014 Emily to update"
+       "w": "Jason's team checking since 30 Sep \u00b7 Emily to update"
       },
       {
        "t": "Joanna's old laptop (newer Windows) replaces the broken new PC for receipts; the broken PC has gone to China for warranty",
@@ -457,7 +457,7 @@
      "dept": "tech",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "LZ 29 Sep: we won't issue e-invoices if doing so means submitting to LHDN monthly. Quick check says it does (every e-invoice goes through MyInvois; adopters also file a monthly consolidated e-invoice for the rest). Stays off unless Cindy says otherwise."
+     "next": "Dropped (LZ 30 Sep): we are under RM3M so exempt, and issuing any e-invoice means submitting to LHDN. Not offered."
     },
     {
      "id": "d3",
@@ -546,8 +546,8 @@
       },
       {
        "t": "Sarah texts Lau her number \u2192 Lau passes it to Leow",
-       "s": "now",
-       "w": "30 Sep \u00b7 Lau"
+       "s": "done",
+       "w": "Sarah + Leow working directly in the new accounting group since 1 Oct"
       },
       {
        "t": "Revenue basis: the accountant books revenue on COLLECTION, but AutoCount posts sales when an invoice is approved (charge basis). Leow + Sarah agree how to handle it before numbers flow (or Sarah journals it monthly)",
@@ -625,7 +625,7 @@
       },
       {
        "t": "From 1 Oct: no doctor pays suppliers directly; every payment approved by the clinic (said in the doctors' group). Idea: per-supplier WhatsApp groups \u2014 doctor answers technical, clinic answers money",
-       "s": "now",
+       "s": "done",
        "w": "in force 1 Oct"
       }
      ],
@@ -1313,8 +1313,8 @@
       },
       {
        "t": "Remaining signed copies back \u2014 the rule takes effect with the signed agreements",
-       "s": "now",
-       "w": "due Wed 30 Sep"
+       "s": "done",
+       "w": "all signed by 1 Oct"
       },
       {
        "t": "Locum engine switched to the agreement basis (Financial session built the draft 25 Sep; live engine unchanged until then)",
@@ -1332,7 +1332,7 @@
      "from_initiatives": [
       18
      ],
-     "next": "The deduction is gone from the agreements sent 25 Sep (Priscilla, Amy, Mah and Azelia signed; Ling due Wed 30 Sep). Collect Ling's signed copy by Wed 30 Sep, then switch the locum engine to the agreement basis. Recosted 28 Sep: about \u2212RM30.4k a year (not \u2212RM57k): under the 25 Sep shortfall-only rule doctors still bear below-floor concessions. FY2026 is hit Oct\u2013Dec only: \u2212RM13.1k if the minimum-fee floor works, \u2212RM26.1k if not.",
+     "next": "Done: the 10% deduction is gone from every signed agreement (all five non-specialists signed by 1 Oct). Takes effect for October production, paid 10 Nov.",
      "endMonth": "2026-12"
     },
     {
@@ -1406,7 +1406,7 @@
      "from_initiatives": [
       29
      ],
-     "next": "Dr Ong entered 50 minimum fees 27\u201329 Sep. Emily now goes through the 47 used codes still without one (incl. RM0 by-report codes and D8040 at RM250) and confirms with Dr Ong. Keying rule: a reduction is a discount line, never an edited price.",
+     "next": "Rules live 1 Oct. Dr Ong entered 50 minimum fees 27\u201329 Sep; Emily is going through the 47 used codes still without one (incl. RM0 by-report codes and D8040 at RM250) and confirming each with Dr Ong.",
      "endMonth": "2026-12",
      "flag": {
       "k": "due",
@@ -1593,7 +1593,7 @@
       },
       {
        "t": "Emily checks the girls' availability for Sat 3 Oct FOH training at the 09:00 huddle",
-       "s": "now",
+       "s": "done",
        "w": "Wed 23 Sep"
       },
       {
@@ -1614,11 +1614,11 @@
       {
        "t": "Configure the MiniCRM/CRM campaign after verification",
        "s": "next",
-       "w": "By EOD Fri 25 Sep"
+       "w": "2\u20135 Oct \u00b7 after Lau's lists"
       },
       {
        "t": "FOH training deck work",
-       "s": "next",
+       "s": "done",
        "w": "Mon 28 Sep\u2013Wed 30 Sep"
       },
       {
@@ -1633,7 +1633,7 @@
       },
       {
        "t": "Lau confirms the FOH training deck",
-       "s": "next",
+       "s": "done",
        "w": "Wed 30 Sep"
       },
       {
@@ -1957,7 +1957,7 @@
       32,
       33
      ],
-     "next": "Lau works on LinkedIn tomorrow (Mon 21 Sep); then return to the social shoot plan.",
+     "next": "Next: buy the clip-on mic and pick shoot days; LinkedIn runs weekly on its own cron.",
      "endMonth": "2026-12"
     },
     {
@@ -2093,7 +2093,7 @@
      "from_initiatives": [
       5
      ],
-     "next": "Fourteen renders done. Before any fixed joinery: the 2-week front-desk tally of accompanying children (Emily) - the age data says power/USB and Wi-Fi at adult seats beats a toddler corner. The RM0 fixes can go today.",
+     "next": "Fourteen renders done. Before any fixed joinery, Emily runs a 2-week front-desk tally of accompanying children (the age data says power/USB and Wi-Fi at adult seats beats a toddler corner). Lau looks at the space end of year.",
      "endMonth": "2026-09"
     },
     {
@@ -2503,13 +2503,13 @@
       },
       {
        "t": "Training deck v3 built 29 Sep (28 slides + 8-slide appendix of step-by-step journeys) \u2014 Google Slides 13tdSXpW\u2026; Lau shares with Emily Wed 30 Sep",
-       "s": "now",
-       "w": "Wed 30 Sep"
+       "s": "done",
+       "w": "done 2 Oct"
       },
       {
        "t": "Training day Sat 3 Oct from 3:30 PM, downstairs after the last patient; dinner nearby afterwards (tell the girls it's training + dinner). Lau sends Emily the deck outline Wed 30 Sep; Emily texts anything to add. No DSA content \u2014 too much at once",
        "s": "now",
-       "w": "Lau sends first-cut outline to Emily Wed 30 Sep"
+       "w": "Sat 3 Oct 3:30 PM"
       },
       {
        "t": "Rulings for the deck: always 'patient', never 'client' (Dr Ling asked Joanna to say client \u2014 Lau to square it with her); answer price questions with confidence ('these are our fees'), not 'let me check with the doctor'; keep supplier brochures off the front desk (doctors hand them to their own target patients)",
@@ -2642,7 +2642,7 @@
       },
       {
        "t": "Cash 29 Sep \u2248 RM104k; out next week \u2248 RM40k (EPF, rent), then locum on the 10th. Dad will inject cash if needed \u2014 tell Lau if it gets tight",
-       "s": "now",
+       "s": "done",
        "w": "Emily mtg 29 Sep"
       }
      ],
@@ -3047,18 +3047,18 @@
     "summary": "Cold reactivation blast planned 6\u20139 Oct (Lau, 28 Sep): one wave a day, W3 over two days; prep by Fri 2 Oct incl. the OpenDent appointment check.",
     "items": [
      {
-      "label": "Emily checks FOH availability + confirm excluded and family/shared-number lists",
+      "label": "FOH availability checked; exclusion + family-number lists \u2192 Lau by Fri 2 Oct",
       "start": "2026-09-23",
-      "status": "now",
+      "status": "done",
       "who": "Emily \u00b7 Lau \u00b7 Front desk",
       "time": "09:00 huddle",
       "note": "Emily checks the girls' availability for tentative Sat 3 Oct FOH training; excluded list and family/shared-number recipient list are due for confirmation Wed 23 Sep."
      },
      {
       "label": "MiniCRM/CRM campaign configured",
-      "start": "2026-09-24",
-      "end": "2026-09-25",
-      "status": "next",
+      "start": "2026-10-02",
+      "end": "2026-10-05",
+      "status": "now",
       "who": "Lau \u00b7 Front desk",
       "note": "Configure by end of day Fri 25 Sep after the exclusion and shared-number recipient checks."
      },
@@ -3116,7 +3116,7 @@
       "label": "Questions by text, answered as they come",
       "start": "2026-09-10",
       "end": "2026-09-23",
-      "status": "now",
+      "status": "done",
       "who": "Lau"
      },
      {
@@ -3139,28 +3139,29 @@
       "label": "Signed copies back to Lau",
       "start": "2026-09-25",
       "end": "2026-09-30",
-      "status": "now",
+      "status": "done",
       "who": "Doctors",
       "note": "Signed copies returned: Priscilla (25 Sep), Amy (25 Sep, with Addendum 1), Mah and Azelia (29 Sep), Ling (1 Oct). All five non-specialists signed; filed in Drive."
      },
      {
       "label": "Signed copies due",
       "start": "2026-09-30",
-      "status": "next",
+      "status": "done",
       "locked": true,
       "who": "Doctors"
      },
      {
       "label": "Follow up two unpaid / refused-payment patient cases",
-      "start": "2026-09-23",
+      "start": "2026-10-05",
       "status": "now",
       "who": "Emily \u00b7 Front desk",
-      "note": "Raised by Dr Ling at the 23 Sep meeting; agreed with all doctors as a patient-payment matter, not a doctor matter. No due date set."
+      "note": "Raised by Dr Ling at the 23 Sep meeting; agreed with all doctors as a patient-payment matter, not a doctor matter. No due date set.",
+      "end": "2026-10-16"
      },
      {
       "label": "Minimum fee update \u2014 doctors text Dr Ong their minimum fees",
       "start": "2026-09-23",
-      "status": "now",
+      "status": "done",
       "who": "Dr Ong",
       "note": "Dr Ong updates the minimum fees personally. Must be complete by Wed 30 Sep: the new rules start 1 Oct and the FY2026 model assumes the minimum-fee floor is live (if not, the 10% abolition costs ~2\u00d7 \u2014 ~RM13k more this year).",
       "end": "2026-09-30"
@@ -3168,7 +3169,7 @@
      {
       "label": "Lau reminds Emily: minimum fees must be live before 1 Oct",
       "start": "2026-09-29",
-      "status": "next",
+      "status": "done",
       "locked": true,
       "time": "3:00 PM",
       "who": "Lau \u00b7 Emily",
@@ -3178,24 +3179,25 @@
       "label": "Lau checks with Mom that every minimum fee the doctors sent her has been entered",
       "start": "2026-09-29",
       "end": "2026-09-30",
-      "status": "next",
+      "status": "done",
       "who": "Lau",
       "note": "Essential: the doctors texted their minimum fees to Dr Ong after the 23 Sep meeting; confirm none are missing before the 1 Oct start."
      },
      {
       "label": "Minimum fees live \u2014 new agreement rules start",
       "start": "2026-10-01",
-      "status": "next",
+      "status": "done",
       "locked": true,
       "who": "Dr Ong \u00b7 Emily",
       "note": "Discount deductions are capped at the shortfall below the minimum fee from this date (Lau ruling 25 Sep)."
      },
      {
       "label": "Collect staff-family onlay payment (Dr Joan case)",
-      "start": "2026-09-23",
+      "start": "2026-10-01",
       "status": "now",
       "who": "Emily",
-      "note": "Joanna said the family will pay RM2,000 when Adonis receives his salary; verify receipt after that event."
+      "note": "Emily chasing; church claim deadline mid-Oct, then a salary-deduction plan.",
+      "end": "2026-10-16"
      }
     ]
    },
@@ -3228,6 +3230,6 @@
  },
  "meta": {
   "asof": "FRI 02 OCT 2026",
-  "updated": "2026-10-02T17:03:24+08:00"
+  "updated": "2026-10-02T19:11:49+08:00"
  }
 }

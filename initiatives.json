@@ -1,7 +1,22 @@
 {
- "updated": "2026-10-02T17:03:24+08:00",
+ "updated": "2026-10-02T19:11:49+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
+  "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Emily": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Dr Ong": {
    "init": "DO",
    "role": "",
@@ -14,21 +29,6 @@
   },
   "Code Capsule": {
    "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Emily": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -85,7 +85,7 @@
    "status": "active",
    "owner": "Code Capsule",
    "why": "The original why: transactions >RM10k need e-invoices; LHDN mandate lands Jan 2027.",
-   "next": "LZ 29 Sep: we won't issue e-invoices if doing so means submitting to LHDN monthly. Quick check says it does (every e-invoice goes through MyInvois; adopters also file a monthly consolidated e-invoice for the rest). Stays off unless Cindy says otherwise.",
+   "next": "Dropped (LZ 30 Sep): we are under RM3M so exempt, and issuing any e-invoice means submitting to LHDN. Not offered.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": null,
@@ -392,7 +392,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "Abolish it clinic-wide; offset by doctors bearing their own discounts. Cleaner \u2014 especially for Dr Jia Yin \u2014 but a real net cost.",
-   "next": "The deduction is gone from the agreements sent 25 Sep (Priscilla, Amy, Mah and Azelia signed; Ling due Wed 30 Sep). Collect Ling's signed copy by Wed 30 Sep, then switch the locum engine to the agreement basis. Recosted 28 Sep: about \u2212RM30.4k a year (not \u2212RM57k): under the 25 Sep shortfall-only rule doctors still bear below-floor concessions. FY2026 is hit Oct\u2013Dec only: \u2212RM13.1k if the minimum-fee floor works, \u2212RM26.1k if not.",
+   "next": "Done: the 10% deduction is gone from every signed agreement (all five non-specialists signed by 1 Oct). Takes effect for October production, paid 10 Nov.",
    "dept": "finance",
    "lens": "cost",
    "endMonth": "2026-12",
@@ -414,7 +414,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "Floor price + mandatory discount lines, 100% doctor-borne. IPP as the alternative to upfront discounts \u2014 doctor bears MDR above the 0.85% BAU.",
-   "next": "Dr Ong entered 50 minimum fees 27\u201329 Sep. Emily now goes through the 47 used codes still without one (incl. RM0 by-report codes and D8040 at RM250) and confirms with Dr Ong. Keying rule: a reduction is a discount line, never an edited price.",
+   "next": "Rules live 1 Oct. Dr Ong entered 50 minimum fees 27\u201329 Sep; Emily is going through the 47 used codes still without one (incl. RM0 by-report codes and D8040 at RM250) and confirming each with Dr Ong.",
    "dept": "finance",
    "lens": "cost",
    "endMonth": "2026-12",
@@ -612,7 +612,7 @@
    "status": "parked",
    "owner": "Lau",
    "why": "Plan written with Mandy: experience + educational pillars, shoot once post everywhere, DSA girls as videographers, Dr Ling first.",
-   "next": "Lau works on LinkedIn tomorrow (Mon 21 Sep); then return to the social shoot plan.",
+   "next": "Next: buy the clip-on mic and pick shoot days; LinkedIn runs weekly on its own cron.",
    "dept": "growth",
    "lens": "revenue",
    "endMonth": "2026-12",
@@ -673,7 +673,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "As families return, the arrival experience must justify the premium. CX is stagnating / team too comfortable. The first visit back is the moment of truth for a reactivated patient.",
-   "next": "Fourteen renders done. Before any fixed joinery: the 2-week front-desk tally of accompanying children (Emily) - the age data says power/USB and Wi-Fi at adult seats beats a toddler corner. The RM0 fixes can go today.",
+   "next": "Fourteen renders done. Before any fixed joinery, Emily runs a 2-week front-desk tally of accompanying children (the age data says power/USB and Wi-Fi at adult seats beats a toddler corner). Lau looks at the space end of year.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-09",
