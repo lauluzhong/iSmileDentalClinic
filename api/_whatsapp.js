@@ -12,11 +12,13 @@
 // recorded registration. The bridge itself spools and retries a failed send.
 import https from 'node:https';
 
-// Telegram HTML → WhatsApp: <b>x</b> → *x*, drop any other tags, decode the
+// Telegram HTML → Markdown for the OpenClaw gateway: <b>x</b> → **x**, which
+// the gateway renders as WhatsApp bold (*x*). A single *x* is Markdown ITALIC
+// and arrives as _x_ — measured 2 Oct 2026. Drop any other tags and decode the
 // three entities the notifiers escape.
 export function telegramHtmlToWhatsApp(html) {
   return String(html || '')
-    .replace(/<\/?b>/g, '*')
+    .replace(/<\/?b>/g, '**')
     .replace(/<[^>]+>/g, '')
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
