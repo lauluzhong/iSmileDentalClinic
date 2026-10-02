@@ -880,8 +880,7 @@
      ],
      "open": [
       "Sheet holds IC numbers + medical history \u2014 settle access + row-deletion policy",
-      "Delete the TEST PATIENT row",
-      "Parked: Dr Ling's segment questionnaires (airway pre-visit set) as a form module"
+      "Delete the TEST PATIENT row"
      ],
      "owner": "lu",
      "dept": "crm",
@@ -3277,6 +3276,6 @@
  },
  "meta": {
   "asof": "FRI 02 OCT 2026",
-  "updated": "2026-10-02T22:44:20+08:00"
+  "updated": "2026-10-02T22:44:45+08:00"
  }
 }
