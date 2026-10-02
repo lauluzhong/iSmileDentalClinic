@@ -482,13 +482,13 @@
       },
       {
        "t": "Receipt samples received (A4 and half-page) \u2192 Lau prefers A4; Leow to move the logo farther left and confirm final design",
-       "s": "now",
+       "s": "done",
        "w": "v5 samples 30 Sep with the new email; no customer address (Emily) \u00b7 awaiting final OK, then Leow imports the design to the server PC"
       },
       {
        "t": "Front-desk receipts SOP written",
-       "s": "now",
-       "w": "Mon 28 Sep\u2013Fri 2 Oct"
+       "s": "done",
+       "w": "done 2 Oct"
       },
       {
        "t": "Payment methods: the accountant uses 4 accounts (internet banking, QR, cash, bank card); AutoCount's 6 methods map onto them (credit + debit \u2192 bank card; DuitNow QR + PBB QR \u2192 QR). Leow + Sarah (accountant) to configure",
@@ -578,8 +578,8 @@
      ],
      "flag": {
       "k": "due",
-      "by": "2026-10-02",
-      "w": "Receipt design and the front-desk SOP done Mon 28 Sep\u2013Fri 2 Oct, ready for the 3 Oct training."
+      "by": "2026-10-06",
+      "w": "Receipt design and front-desk SOP done; next is the 3 Oct training and go-live Tue 6 Oct."
      },
      "owner": "emily",
      "dept": "clinical",
@@ -714,7 +714,7 @@
     {
      "id": "d6",
      "dot": "blocked",
-     "chip": "method set \u00b7 first run early Nov",
+     "chip": "on hold \u00b7 Lau + Emily review 4th week Oct",
      "name": "AP \u00b7 locum statements",
      "one": "Calculator already reproduces all 8 doctors to the cent \u2014 end-to-end statements now possible under the new timing rules.",
      "steps": [
@@ -768,8 +768,14 @@
      "from_initiatives": [
       3
      ],
-     "next": "Method set 29 Sep (same-day match, then first-in-first-out; the rest checked by hand). Lau is refining the sheet with the Locum Calculation session; share with Emily after go-live. She runs October locum in the first week of Nov (paid 10 Nov).",
-     "endMonth": "2026-08"
+     "next": "On hold until Lau and Emily go through the locum sheet together in the 4th week of October; Emily runs October locum in the first week of November.",
+     "endMonth": "2026-08",
+     "flag": {
+      "k": "due",
+      "by": "2026-10-30",
+      "who": "Lau + Emily",
+      "w": "Not blocked on anyone else: on hold until Lau goes through the locum sheet with Emily in the 4th week of October."
+     }
     },
     {
      "id": "d7",
@@ -1053,7 +1059,7 @@
     {
      "id": "l1",
      "dot": "now",
-     "chip": "all signed except Dr Ling \u00b7 specialists pending",
+     "chip": "done \u00b7 specialists by end Oct",
      "name": "Contractor agreement & doctor rollout",
      "one": "The revised contracts were sent to all five non-specialist doctors after the 30-day provision and clause 3.1 wording were updated. One signed copy is back; four remain outstanding; the two specialists follow separately.",
      "steps": [
@@ -1168,19 +1174,14 @@
        "w": "25 Sep"
       },
       {
-       "t": "Lydia reviews and thins the contract for Dr Yeoh and Dr Joan (not day-to-day doctors), then send",
-       "s": "now",
-       "w": "Lau \u2192 Lydia"
+       "t": "Dr Yeoh and Dr Joan sign their (thinner) agreements by end October; they go live 1 Nov",
+       "s": "next",
+       "w": "by Sat 31 Oct \u00b7 Lau \u2192 Lydia"
       },
       {
        "t": "All five signed \u2014 Dr Ling signed 1 Oct (Dr Ong is employed \u2014 no contractor agreement needed)",
        "s": "now",
        "w": "by Wed 30 Sep"
-      },
-      {
-       "t": "Lydia's invoice (RM15k): Emily pays in three RM5k instalments, sending the first today",
-       "s": "now",
-       "w": "Emily \u00b7 from 29 Sep"
       },
       {
        "t": "First pay-timing change: clean cut 1 Oct; the first locum run under the new rules pays 10 Nov",
@@ -1222,12 +1223,12 @@
      "from_initiatives": [
       16
      ],
-     "next": "Collect Dr Ling's signed copy by Wed 30 Sep. Lydia thins the contract for Dr Yeoh and Dr Joan, then send.",
+     "next": "Rollout to the working doctors is complete (LZ 2 Oct). Only Dr Yeoh and Dr Joan remain: sign by end Oct, go live 1 Nov, since they work very differently.",
      "endMonth": "2026-09",
      "flag": {
       "k": "due",
-      "by": "2026-09-30",
-      "w": "All five signed copies are in; Dr Ling signed 1 Oct (Dr Ong is employed and needs none)."
+      "by": "2026-10-31",
+      "w": "Dr Yeoh and Dr Joan sign by end October, live 1 Nov."
      }
     },
     {
@@ -2497,8 +2498,8 @@
       },
       {
        "t": "FOH training pack refreshed 28 Sep (go-live 6 Oct, desk flow, discount line, 1 Oct fee rules, blast replies) \u2014 Lau settling 14 open questions in the L&D chat; deck confirmed by Wed 30 Sep",
-       "s": "now",
-       "w": "for Sat 3 Oct"
+       "s": "done",
+       "w": "deck done 2 Oct"
       },
       {
        "t": "Training deck v3 built 29 Sep (28 slides + 8-slide appendix of step-by-step journeys) \u2014 Google Slides 13tdSXpW\u2026; Lau shares with Emily Wed 30 Sep",
@@ -2537,7 +2538,7 @@
      "flag": {
       "k": "due",
       "by": "2026-10-03",
-      "w": "Deck built. Lau sends Emily the first-cut outline Wed 30 Sep; tell the girls it is training + dinner."
+      "w": "Deck done. Training Sat 3 Oct 3:30 PM; tell the girls it is training + dinner."
      }
     }
    ]
@@ -2947,7 +2948,7 @@
       "label": "Design the receipt + front-desk SOP",
       "start": "2026-09-28",
       "end": "2026-10-02",
-      "status": "now",
+      "status": "done",
       "who": "Lau \u00b7 Emily",
       "note": "Leow supplied A4 and half-page samples Tue 29 Sep; Lau prefers A4 and final logo placement is being adjusted. SOP by Fri 2 Oct for the Sat 3 Oct training."
      },
@@ -2997,7 +2998,7 @@
       "label": "Prepare and confirm the FOH training deck",
       "start": "2026-09-28",
       "end": "2026-09-30",
-      "status": "now",
+      "status": "done",
       "who": "Lau \u00b7 Emily",
       "note": "Deck v3 (28 slides + appendix) on Google Slides 29 Sep; Lau shares with Emily Wed 30 Sep."
      },
@@ -3065,7 +3066,7 @@
       "label": "FOH training deck work",
       "start": "2026-09-28",
       "end": "2026-09-30",
-      "status": "next",
+      "status": "done",
       "who": "Lau \u00b7 Emily",
       "note": "Deck work runs Mon 28\u2013Wed 30 Sep; Lau confirms the deck by Wed 30 Sep for the tentative Sat 3 Oct training."
      },
@@ -3226,7 +3227,7 @@
   ]
  },
  "meta": {
-  "asof": "THU 01 OCT 2026",
-  "updated": "2026-10-01T21:47:47+08:00"
+  "asof": "FRI 02 OCT 2026",
+  "updated": "2026-10-02T10:55:43+08:00"
  }
 }

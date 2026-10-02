@@ -1,19 +1,9 @@
 {
- "updated": "2026-10-01T21:47:47+08:00",
+ "updated": "2026-10-02T10:55:43+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
-   "init": "E",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
@@ -22,13 +12,23 @@
    "role": "",
    "color": "#45C4FF"
   },
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Emily": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -186,7 +186,7 @@
    "status": "blocked",
    "owner": "Lau",
    "why": "Calculator already reproduces all 8 doctors to the cent \u2014 end-to-end statements now possible under the new timing rules.",
-   "next": "Method set 29 Sep (same-day match, then first-in-first-out; the rest checked by hand). Lau is refining the sheet with the Locum Calculation session; share with Emily after go-live. She runs October locum in the first week of Nov (paid 10 Nov).",
+   "next": "On hold until Lau and Emily go through the locum sheet together in the 4th week of October; Emily runs October locum in the first week of November.",
    "dept": "finance",
    "lens": "efficiency",
    "endMonth": "2026-08",
@@ -331,7 +331,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "The revised contracts were sent to all five non-specialist doctors after the 30-day provision and clause 3.1 wording were updated. One signed copy is back; four remain outstanding; the two specialists follow separately.",
-   "next": "Collect Dr Ling's signed copy by Wed 30 Sep. Lydia thins the contract for Dr Yeoh and Dr Joan, then send.",
+   "next": "Rollout to the working doctors is complete (LZ 2 Oct). Only Dr Yeoh and Dr Joan remain: sign by end Oct, go live 1 Nov, since they work very differently.",
    "dept": "people",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -359,9 +359,8 @@
     "In-person walkthrough and Q&A at the clinic \u2014 all doctors except the specialists (Yeoh, Joan)",
     "Update the 30-day provision and clause 3.1 wording before sending",
     "Revised contracts sent to the five non-specialist doctors",
-    "Lydia reviews and thins the contract for Dr Yeoh and Dr Joan (not day-to-day doctors), then send",
+    "Dr Yeoh and Dr Joan sign their (thinner) agreements by end October; they go live 1 Nov",
     "All five signed \u2014 Dr Ling signed 1 Oct (Dr Ong is employed \u2014 no contractor agreement needed)",
-    "Lydia's invoice (RM15k): Emily pays in three RM5k instalments, sending the first today",
     "First pay-timing change: clean cut 1 Oct; the first locum run under the new rules pays 10 Nov"
    ],
    "pillar": "P2"
