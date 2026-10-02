@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-02T19:11:59+08:00",
+ "updated": "2026-10-02T22:44:20+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
   "Edith": {
@@ -12,13 +12,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
-   "init": "E",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -322,6 +322,28 @@
     "Merge the ~25 duplicate patient pairs; correct IC typos on same-IC different-person pairs",
     "Ask for and update grown children's own mobile numbers as they visit or call (~680 affected)",
     "New-registration rule: patients 18+ give their own number; parent's number goes in the note field"
+   ],
+   "pillar": "P1"
+  },
+  {
+   "id": "d13",
+   "title": "Pre-visit consult forms (airway first)",
+   "status": "review",
+   "owner": "Lau",
+   "why": "Dr Ling\u2019s three airway questionnaires (PSQ, Epworth\u2013Children, NOSE) as one digital form patients fill in before the consult; scores computed; desk pastes a summary into OpenDental. Same pattern for future consults.",
+   "next": "Dr Ling feedback + output format \u2192 build /api/airway (Sheet tab + Telegram ping) \u2192 DNS for forms.ismile.com.my \u2192 load /airway shortcut",
+   "dept": "crm",
+   "lens": "efficiency",
+   "endMonth": "2026-10",
+   "note": "",
+   "tasks": [
+    "Three questionnaires received from Dr Ling (1 Oct)",
+    "Form built, all 35 items verbatim, every item required, scores computed; registration-form look",
+    "Deployed: ismile-forms.vercel.app/airway (noindex). ?staff=1 = paste block for OpenDental",
+    "Link sent to Dr Ling via Lau for feedback + preferred output (PDF or info)",
+    "DNS: forms.ismile.com.my A 76.76.21.21 (or CNAME cname.vercel-dns.com) at mschosting",
+    "Build /api/airway: copy of api/register.js \u2192 own Sheet tab + Telegram ping (iSmile Engineer)",
+    "/airway WhatsApp shortcut; desk journey: send with /remind for airway consults, paste summary before the visit"
    ],
    "pillar": "P1"
   },
