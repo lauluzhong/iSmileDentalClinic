@@ -1058,10 +1058,10 @@
    "streams": [
     {
      "id": "l1",
-     "dot": "now",
+     "dot": "live",
      "chip": "done \u00b7 specialists by end Oct",
      "name": "Contractor agreement & doctor rollout",
-     "one": "The revised contracts were sent to all five non-specialist doctors after the 30-day provision and clause 3.1 wording were updated. One signed copy is back; four remain outstanding; the two specialists follow separately.",
+     "one": "Rollout complete: every non-specialist doctor has signed (Dr Ling on 1 Oct; Dr Ong is employed and needs none). Dr Yeoh and Dr Joan get a thinner agreement to sign by end October and go live 1 Nov.",
      "steps": [
       {
        "t": "Synthesised draft with owner rulings",
@@ -3228,6 +3228,6 @@
  },
  "meta": {
   "asof": "FRI 02 OCT 2026",
-  "updated": "2026-10-02T10:55:43+08:00"
+  "updated": "2026-10-02T10:59:17+08:00"
  }
 }

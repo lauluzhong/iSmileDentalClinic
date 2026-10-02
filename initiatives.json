@@ -1,24 +1,9 @@
 {
- "updated": "2026-10-02T10:55:43+08:00",
+ "updated": "2026-10-02T10:59:17+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Dr Ong": {
    "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
-   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +12,23 @@
    "role": "",
    "color": "#45C4FF"
   },
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Code Capsule": {
+   "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Lydia": {
    "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -330,7 +330,7 @@
    "title": "Contractor agreement & doctor rollout",
    "status": "active",
    "owner": "Lau",
-   "why": "The revised contracts were sent to all five non-specialist doctors after the 30-day provision and clause 3.1 wording were updated. One signed copy is back; four remain outstanding; the two specialists follow separately.",
+   "why": "Rollout complete: every non-specialist doctor has signed (Dr Ling on 1 Oct; Dr Ong is employed and needs none). Dr Yeoh and Dr Joan get a thinner agreement to sign by end October and go live 1 Nov.",
    "next": "Rollout to the working doctors is complete (LZ 2 Oct). Only Dr Yeoh and Dr Joan remain: sign by end Oct, go live 1 Nov, since they work very differently.",
    "dept": "people",
    "lens": "efficiency",
