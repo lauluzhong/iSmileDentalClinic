@@ -85,7 +85,7 @@ Where it differs is flexibility, and the range of what can be considered.
 <ul style="list-style:none;padding-left:0">
 <li>✅ <strong>No queue, and no eligibility threshold.</strong> A child who scores below the public criteria can still be assessed and advised</li>
 <li>✅ <strong>Imaging where it helps.</strong> We use cone beam CT, a fast, low radiation 3D scan, which lets us look at structures such as the airway rather than the teeth alone</li>
-<li>✅ <strong>More than one kind of appliance.</strong> Depending on what the assessment finds, options can include myofunctional appliances, expanders and other growth-related appliances, clear aligners, or braces</li>
+<li>✅ <strong>More than one kind of appliance.</strong> Depending on what the assessment finds, options can include myofunctional appliances, expanders and other growth-related appliances, <a href="/services/straighten/clear-aligners">clear aligners</a>, or braces</li>
 <li>✅ <strong>Sometimes nothing yet.</strong> A common outcome is advice on diet, habits and oral posture, with a plan to keep watching</li>
 </ul>
 
