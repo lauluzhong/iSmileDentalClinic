@@ -17,6 +17,7 @@
 //   TELEGRAM_REGISTRATION_CHAT_ID optional; falls back to TELEGRAM_CHAT_ID
 
 import { JWT } from 'google-auth-library';
+import { notifyWhatsApp, telegramHtmlToWhatsApp } from './_whatsapp.js';
 
 // The form lives on its own Vercel project, so this endpoint is cross-origin.
 const ALLOWED_ORIGINS = [
@@ -158,7 +159,7 @@ async function appendToSheet(row) {
 async function notifyTelegram(payload) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_REGISTRATION_CHAT_ID || process.env.TELEGRAM_CHAT_ID;
-  if (!token || !chatId) return;
+  const telegramOn = !!(token && chatId); // WhatsApp still fires when Telegram is retired
 
   // Same visual language as the website's "New Booking Request" message, but a
   // distinct header: bookings are LEADS; this fires when a patient who already
@@ -183,8 +184,9 @@ async function notifyTelegram(payload) {
   if (isMinor) lines.push('🧒 <b>Under 18</b> — contact the guardian');
   lines.push('', '🗂 Full details are in the <b>Registrations sheet</b>', `🕐 <b>Time:</b> ${timeDisplay} (MYT)`);
   const text = lines.join('\n');
+  const whatsapp = notifyWhatsApp('registration', telegramHtmlToWhatsApp(text));
 
-  try {
+  if (telegramOn) try {
     const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -195,12 +197,13 @@ async function notifyTelegram(payload) {
   } catch (err) {
     console.error('Telegram notify failed:', err.message);
   }
+  await whatsapp;
 }
 
 async function notifyTelegramFailure(name) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_REGISTRATION_CHAT_ID || process.env.TELEGRAM_CHAT_ID;
-  if (!token || !chatId) return;
+  const telegramOn = !!(token && chatId); // WhatsApp still fires when Telegram is retired
   const esc = (s) => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const text = [
     '\u26a0\ufe0f <b>Registration NOT recorded</b>',
@@ -208,7 +211,8 @@ async function notifyTelegramFailure(name) {
     `A form was submitted for <b>${esc(String(name).slice(0, 120))}</b> but could not be saved.`,
     'Their answers are still on the device they used — ask them to tap "Try again" before they leave.',
   ].join('\n');
-  try {
+  const whatsapp = notifyWhatsApp('registration_failed', telegramHtmlToWhatsApp(text));
+  if (telegramOn) try {
     await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -217,6 +221,7 @@ async function notifyTelegramFailure(name) {
   } catch (err) {
     console.error('Telegram failure-alert failed:', err.message);
   }
+  await whatsapp;
 }
 
 export default async function handler(req, res) {
