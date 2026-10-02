@@ -15,6 +15,7 @@ const AVATAR_KAH_MUN_WEBP = "/images/reviews/kah_mun_hew.webp";
 const AVATAR_LYDIA_JPG = "/images/reviews/lydia_ng.jpg";
 
 import blogIndex from '../data/blog-index.json';
+import homeFeatured from '../data/home-featured.json';
 import Style from '../components/Style';
 
 // The five areas of care, in the order families actually meet them.
@@ -146,15 +147,21 @@ const MosaicRow = ({ tiles, className }) => (
 const Home = () => {
     const { openBooking } = useBooking();
 
-    // Get the specific blog posts in the requested order
-    // Updated 2026-03-28: Feature newest posts covering priority topics
-    const orderedBlogSlugs = [
-        'child-candidate-myofunctional-orthodontics',      // P2: Myofunctional Orthodontics
-        'mouth-breathing-thumb-sucking-crowded-teeth',     // P2: Myofunctional + Kids
-        'signs-child-early-orthodontic-assessment',        // P2: Orthodontics
-        'lm-activator-vs-invisalign',                      // P2: Myofunctional vs Clear Aligners
-        'dental-implants-malaysia-explained'               // P3: Implants
+    // Featured posts = top educational posts by Google search clicks (last 28 days),
+    // refreshed weekly by the Contabo job loop/home_featured_posts.py, which opens a
+    // data-only PR against src/data/home-featured.json. Imported statically so the
+    // list is fixed at build time (SSR + hydration stay identical).
+    // Fallback: the hand-picked March 2026 list, if the data file is empty.
+    const fallbackBlogSlugs = [
+        'child-candidate-myofunctional-orthodontics',
+        'mouth-breathing-thumb-sucking-crowded-teeth',
+        'signs-child-early-orthodontic-assessment',
+        'lm-activator-vs-invisalign',
+        'dental-implants-malaysia-explained'
     ];
+    const orderedBlogSlugs = Array.isArray(homeFeatured?.slugs) && homeFeatured.slugs.length
+        ? homeFeatured.slugs
+        : fallbackBlogSlugs;
 
     const featuredBlogs = orderedBlogSlugs
         .map(slug => blogIndex.find(post => post.slug === slug))
