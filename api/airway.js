@@ -1,18 +1,23 @@
 // Vercel Serverless Function — Airway Evaluation questionnaire → Google Sheet
 // Receives the airway form's submission (Operations/Airway Questionnaire,
 // served at https://ismile-forms.vercel.app/airway), RECOMPUTES the three
-// scores server-side, and appends one row to the "Airway" tab of the same
-// private Sheet the registration form writes to. Built 3 Oct 2026 on the
-// owner's approval (Dr Ling signed off the form and its PDF output).
+// scores server-side, and appends one row to its OWN private Sheet. Built
+// 3 Oct 2026 on the owner's approval (Dr Ling signed off the form and its PDF).
+//
+// ⚠️ Deliberately NOT the Registrations Sheet and NOT the registration key
+// (owner ruling 3 Oct 2026): a Contabo job reads this Sheet to send the PDF,
+// and that box must never hold the key to IC numbers or medical history. So
+// the airway Sheet has its own service account, and there is no fallback.
 //
 // This is PATIENT PII + health information (a child's sleep and breathing):
 //   - same safeguards as api/register.js: CORS allowlist, honeypot, per-IP
 //     limit, valueInputOption=RAW, the body is NEVER logged
-//   - notifications are PII-minimal (name, who filled it in, mobile; NO scores)
+//   - NO message on success: the one message per form is the WhatsApp PDF the
+//     Contabo job sends. Only a failure is alerted (booking chat + WhatsApp group).
 //
-// Env vars: GOOGLE_SERVICE_ACCOUNT_JSON, REGISTRATION_SHEET_ID (shared with
-// register.js), TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID (optional), and the
-// EDITH_BRIDGE_* trio for the WhatsApp mirror (see api/_whatsapp.js).
+// Env vars: AIRWAY_SHEET_ID, AIRWAY_SHEET_TAB (default "Airway"),
+// AIRWAY_SERVICE_ACCOUNT_JSON (airway-only key, no fallback), plus
+// TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID and EDITH_BRIDGE_* for the failure alert.
 
 import { JWT } from 'google-auth-library';
 import { notifyWhatsApp, telegramHtmlToWhatsApp } from './_whatsapp.js';
@@ -43,7 +48,7 @@ function rateLimited(ip) {
   return hits.length > RATE_MAX;
 }
 
-const TAB = 'Airway';
+const TAB = process.env.AIRWAY_SHEET_TAB || 'Airway';
 const MAX_CELL = 45000;
 const cell = (v) => {
   if (v === true) return 'Yes';
@@ -71,7 +76,7 @@ const HEADER = [
   'Submitted (MYT)', 'Submitted ISO', 'Patient name', 'DOB', 'Age', 'Filled in by',
   'Completer name', 'Mobile', 'First time or follow-up', 'PSQ yes', 'PSQ answered',
   'PSQ ratio', 'PSQ positive', 'Epworth total', 'NOSE score', 'NOSE band',
-  ...ITEMS, 'Full JSON', 'PDF status', 'PDF sent at',
+  ...ITEMS, 'Full JSON', 'PDF link', 'PDF status', 'PDF sent at',
 ];
 
 // Scores are recomputed here; the client's own `scores` are never trusted.
@@ -144,14 +149,15 @@ function buildRow(payload, sc) {
     sc.ess, sc.nose, sc.noseBand,
     ...ITEMS.map((k) => a[k]),
     fullJson.length > MAX_CELL ? JSON.stringify({ meta: m, _note: 'too large to store inline' }) : fullJson,
-    '', '', // PDF status · PDF sent at — filled by the Contabo PDF job
+    '', '', '', // PDF link · PDF status · PDF sent at — filled by the Contabo PDF job
   ].map(cell);
 }
 
 function sheetsClient() {
-  const raw = process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
-  const sheetId = process.env.REGISTRATION_SHEET_ID;
-  if (!raw || !sheetId) throw new Error('Google Sheet not configured');
+  // No fallback to the registration key or Sheet, on purpose (see header).
+  const raw = process.env.AIRWAY_SERVICE_ACCOUNT_JSON;
+  const sheetId = process.env.AIRWAY_SHEET_ID;
+  if (!raw || !sheetId) throw new Error('Airway Sheet not configured');
   const sa = JSON.parse(raw);
   const client = new JWT({ email: sa.client_email, key: sa.private_key, scopes: ['https://www.googleapis.com/auth/spreadsheets'] });
   return { client, base: `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}` };
@@ -198,7 +204,7 @@ async function appendRow(row) {
 
 const esc = (s) => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-async function notify(text, kind) {
+async function notifyFailure(text, kind) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_REGISTRATION_CHAT_ID || process.env.TELEGRAM_CHAT_ID;
   const whatsapp = notifyWhatsApp(kind, telegramHtmlToWhatsApp(text));
@@ -254,19 +260,15 @@ export default async function handler(req, res) {
     await appendRow(buildRow(payload, sc));
   } catch (error) {
     console.error('Airway sheet append failed:', error.message);
-    await notify([
-      '⚠️ <b>Airway questionnaire NOT recorded</b>',
+    await notifyFailure([
+      `⚠️ <b>Airway form NOT recorded</b> — ${esc(name)}`,
       '',
-      `A form was submitted for <b>${esc(name)}</b> but could not be saved.`,
       'The answers are still on the device used — ask the family to tap "Try again".',
     ].join('\n'), 'airway_failed');
     return res.status(502).json({ ok: false, error: 'Could not record the questionnaire' });
   }
 
-  // PII-minimal: name, who filled it in, mobile. NO scores.
-  await notify([
-    `🫁 <b>Airway Evaluation completed</b> — ${esc(name)} · filled in by ${esc(filledByLabel(a))} · mobile ${esc(String(a.mobile).trim())}. PDF follows shortly.`,
-  ].join('\n'), 'airway');
-
+  // No success message by design: the Contabo job's WhatsApp PDF is the one
+  // message per form (owner ruling 3 Oct 2026).
   return res.status(200).json({ ok: true });
 }
