@@ -1041,15 +1041,15 @@
     },
     {
      "id": "d13",
-     "dot": "wait",
-     "chip": "draft live \u00b7 with Dr Ling for feedback",
+     "dot": "now",
+     "chip": "Dr Ling OK \u00b7 pipeline built \u00b7 Lau deploys Drive script",
      "name": "Pre-visit consult forms (airway first)",
      "one": "Dr Ling\u2019s three airway questionnaires (PSQ, Epworth\u2013Children, NOSE) as one digital form patients fill in before the consult; scores computed; desk pastes a summary into OpenDental. Same pattern for future consults.",
      "open": "Dr Ling: who answers for young children \u00b7 cadence (first consult, repeat at reviews) \u00b7 preferred output: PDF to her, or the summary pasted into OpenDental \u00b7 ESS-CHAD licence check",
      "owner": "lu",
      "dept": "crm",
      "lens": "efficiency",
-     "next": "Dr Ling feedback + output format \u2192 build /api/airway (Sheet tab + Telegram ping) \u2192 DNS for forms.ismile.com.my \u2192 load /airway shortcut",
+     "next": "Lau: deploy drive-saver.gs as a web app and send the URL \u2192 first end-to-end PDF in the group \u2192 add Dr Ling \u2192 DNS for forms.ismile.com.my \u2192 /airway shortcut",
      "endMonth": "2026-10",
      "steps": [
       {
@@ -1068,16 +1068,30 @@
        "w": "2 Oct"
       },
       {
-       "t": "Link sent to Dr Ling via Lau for feedback + preferred output (PDF or info)",
-       "s": "now",
-       "w": "sent 2 Oct"
+       "t": "Dr Ling approved the form and the PDF output",
+       "s": "done",
+       "w": "3 Oct"
       },
       {
-       "t": "DNS: forms.ismile.com.my A 76.76.21.21 (or CNAME cname.vercel-dns.com) at mschosting",
+       "t": "/api/airway live (PRs #280\u2013282): own Sheet, no success pings, hands off to Edith",
+       "s": "done",
+       "w": "3 Oct \u00b7 iSmile Engineer"
+      },
+      {
+       "t": "Contabo: bridge /airway + worker (PDF \u2192 Drive \u2192 one WhatsApp to the airway group); test PDF posted",
+       "s": "done",
+       "w": "3 Oct"
+      },
+      {
+       "t": "Lau deploys the Drive-saver Apps Script and sends its URL",
+       "s": "now"
+      },
+      {
+       "t": "Add Dr Ling to \u201ciSmile Airway Evaluations\u201d; delete test rows + stray tab",
        "s": "next"
       },
       {
-       "t": "Build /api/airway: copy of api/register.js \u2192 own Sheet tab + Telegram ping (iSmile Engineer)",
+       "t": "DNS: forms.ismile.com.my A 76.76.21.21 (or CNAME cname.vercel-dns.com) at mschosting",
        "s": "next"
       },
       {
@@ -3275,7 +3289,7 @@
   ]
  },
  "meta": {
-  "asof": "FRI 02 OCT 2026",
-  "updated": "2026-10-02T22:44:45+08:00"
+  "asof": "SAT 03 OCT 2026",
+  "updated": "2026-10-03T16:01:27+08:00"
  }
 }
