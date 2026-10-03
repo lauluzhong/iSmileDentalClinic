@@ -4,23 +4,30 @@
 // scores server-side, and appends one row to its OWN private Sheet. Built
 // 3 Oct 2026 on the owner's approval (Dr Ling signed off the form and its PDF).
 //
-// ⚠️ Deliberately NOT the Registrations Sheet and NOT the registration key
-// (owner ruling 3 Oct 2026): a Contabo job reads this Sheet to send the PDF,
-// and that box must never hold the key to IC numbers or medical history. So
-// the airway Sheet has its own service account, and there is no fallback.
+// ⚠️ Deliberately NOT the Registrations Sheet (owner rulings 3 Oct 2026). The
+// row lives in its own Sheet (AIRWAY_SHEET_ID). Credentials: AIRWAY_SERVICE_ACCOUNT_JSON
+// if set, else the registration service account — acceptable ONLY because the
+// Contabo box holds NO Google key in this design (the PDF goes to Drive through
+// an Apps Script web app owned by Lau). If a Google key is ever placed on
+// Contabo, it must be an airway-only key, and this fallback must be removed.
+//
+// After a successful append the submission is handed to the Edith bridge
+// (POST /airway): it renders the PDF, saves it to Drive, writes PDF link /
+// status / sent-at back into the row matched by "Submitted ISO", and sends the
+// ONE WhatsApp message per form to the "iSmile Airway Evaluations" group.
+// Gated by AIRWAY_BRIDGE_ENABLED=1 until that bridge path is confirmed live.
 //
 // This is PATIENT PII + health information (a child's sleep and breathing):
 //   - same safeguards as api/register.js: CORS allowlist, honeypot, per-IP
 //     limit, valueInputOption=RAW, the body is NEVER logged
-//   - NO message on success: the one message per form is the WhatsApp PDF the
-//     Contabo job sends. Only a failure is alerted (booking chat + WhatsApp group).
+//   - NO message on success from here. A failure is alerted on Telegram only.
 //
 // Env vars: AIRWAY_SHEET_ID, AIRWAY_SHEET_TAB (default "Airway"),
-// AIRWAY_SERVICE_ACCOUNT_JSON (airway-only key, no fallback), plus
-// TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID and EDITH_BRIDGE_* for the failure alert.
+// AIRWAY_SERVICE_ACCOUNT_JSON (optional; falls back to GOOGLE_SERVICE_ACCOUNT_JSON),
+// AIRWAY_BRIDGE_ENABLED, EDITH_BRIDGE_URL / _TOKEN / _CA, TELEGRAM_BOT_TOKEN / _CHAT_ID.
 
 import { JWT } from 'google-auth-library';
-import { notifyWhatsApp, telegramHtmlToWhatsApp } from './_whatsapp.js';
+import https from 'node:https';
 
 const ALLOWED_ORIGINS = [
   'https://ismile-forms.vercel.app',
@@ -92,11 +99,13 @@ export function computeScores(a) {
   const ess = ESS.reduce((t, k) => t + Number(a[k]), 0);
   const nose = NOSE.reduce((t, k) => t + Number(a[k]), 0) * 5;
   const band = nose === 0 ? 'none' : nose <= 25 ? 'mild' : nose <= 50 ? 'moderate' : nose <= 75 ? 'severe' : 'extreme';
+  const dk = PSQ.length - answered;
+  const noseRaw = nose / 5;
   return {
-    psqYes: yes, psqAnswered: answered,
-    psqRatio: ratio === null ? '' : Math.round(ratio * 100) / 100,
+    psqYes: yes, psqNo: no, psqDk: dk, psqAnswered: answered,
+    psqRatio: ratio, // unrounded (null when nothing answered Yes/No)
     psqPositive: ratio !== null && ratio >= 0.33,
-    ess, nose, noseBand: band,
+    ess, nose, noseRaw, noseBand: band,
   };
 }
 
@@ -130,10 +139,10 @@ function filledByLabel(a) {
   return a.filledBy === 'Other' ? (String(a.filledByOther || '').trim() || 'Other') : a.filledBy;
 }
 
-function buildRow(payload, sc) {
+function buildRow(payload, sc, submittedIso) {
   const a = payload.answers;
   const m = payload.meta || {};
-  const submitted = new Date(Date.parse(m.submittedAt) || Date.now());
+  const submitted = new Date(submittedIso);
   const fullJson = JSON.stringify({ meta: m, answers: a, scoresServer: sc });
   return [
     submitted.toLocaleString('en-MY', { timeZone: 'Asia/Kuala_Lumpur', dateStyle: 'medium', timeStyle: 'short' }),
@@ -145,7 +154,7 @@ function buildRow(payload, sc) {
     a.filledBy === 'The patient' ? '' : String(a.fillerName || '').trim(),
     String(a.mobile).trim(),
     a.doneBefore,
-    sc.psqYes, sc.psqAnswered, sc.psqRatio, sc.psqPositive ? 'Yes' : 'No',
+    sc.psqYes, sc.psqAnswered, sc.psqRatio === null ? '' : Math.round(sc.psqRatio * 100) / 100, sc.psqPositive ? 'Yes' : 'No',
     sc.ess, sc.nose, sc.noseBand,
     ...ITEMS.map((k) => a[k]),
     fullJson.length > MAX_CELL ? JSON.stringify({ meta: m, _note: 'too large to store inline' }) : fullJson,
@@ -154,9 +163,9 @@ function buildRow(payload, sc) {
 }
 
 function sheetsClient() {
-  // No fallback to the registration key or Sheet, on purpose (see header).
-  const raw = process.env.AIRWAY_SERVICE_ACCOUNT_JSON;
-  const sheetId = process.env.AIRWAY_SHEET_ID;
+  // Own Sheet always; key fallback allowed while Contabo holds no Google key (see header).
+  const raw = process.env.AIRWAY_SERVICE_ACCOUNT_JSON || process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
+  const sheetId = process.env.AIRWAY_SHEET_ID; // never REGISTRATION_SHEET_ID
   if (!raw || !sheetId) throw new Error('Airway Sheet not configured');
   const sa = JSON.parse(raw);
   const client = new JWT({ email: sa.client_email, key: sa.private_key, scopes: ['https://www.googleapis.com/auth/spreadsheets'] });
@@ -204,10 +213,9 @@ async function appendRow(row) {
 
 const esc = (s) => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-async function notifyFailure(text, kind) {
+async function notifyFailure(text) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_REGISTRATION_CHAT_ID || process.env.TELEGRAM_CHAT_ID;
-  const whatsapp = notifyWhatsApp(kind, telegramHtmlToWhatsApp(text));
   if (token && chatId) {
     try {
       const r = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
@@ -220,7 +228,33 @@ async function notifyFailure(text, kind) {
       console.error('Telegram notify failed:', err.message);
     }
   }
-  await whatsapp;
+}
+
+// Hand the recorded submission to the Edith bridge (POST /airway → 202).
+// Best-effort: the row is already saved, so a bridge problem never fails the form.
+function handToBridge(body) {
+  const base = process.env.EDITH_BRIDGE_URL;
+  if (process.env.AIRWAY_BRIDGE_ENABLED !== '1' || !base || !process.env.EDITH_BRIDGE_TOKEN || !process.env.EDITH_BRIDGE_CA) {
+    return Promise.resolve();
+  }
+  const url = new URL('/airway', base);
+  const data = JSON.stringify(body);
+  return new Promise((resolve) => {
+    const req = https.request({
+      method: 'POST', hostname: url.hostname, port: url.port || 443, path: url.pathname,
+      headers: { 'content-type': 'application/json', 'content-length': Buffer.byteLength(data),
+                 authorization: 'Bearer ' + process.env.EDITH_BRIDGE_TOKEN },
+      ca: process.env.EDITH_BRIDGE_CA, servername: url.hostname, timeout: 10000,
+    }, (res) => {
+      res.resume();
+      if (res.statusCode !== 202 && res.statusCode !== 200) console.error('Airway bridge hand-off status:', res.statusCode);
+      res.on('end', resolve);
+    });
+    req.on('timeout', () => req.destroy(new Error('bridge timeout')));
+    req.on('error', (err) => { console.error('Airway bridge hand-off failed:', err.message); resolve(); });
+    req.write(data);
+    req.end();
+  });
 }
 
 export default async function handler(req, res) {
@@ -256,19 +290,22 @@ export default async function handler(req, res) {
   const sc = computeScores(a);
   const name = String(a.patientName).trim().slice(0, 120);
 
+  const submittedIso = new Date(Date.parse((payload.meta || {}).submittedAt) || Date.now()).toISOString();
+
   try {
-    await appendRow(buildRow(payload, sc));
+    await appendRow(buildRow(payload, sc, submittedIso));
   } catch (error) {
     console.error('Airway sheet append failed:', error.message);
     await notifyFailure([
       `⚠️ <b>Airway form NOT recorded</b> — ${esc(name)}`,
       '',
       'The answers are still on the device used — ask the family to tap "Try again".',
-    ].join('\n'), 'airway_failed');
+    ].join('\n'));
     return res.status(502).json({ ok: false, error: 'Could not record the questionnaire' });
   }
 
-  // No success message by design: the Contabo job's WhatsApp PDF is the one
-  // message per form (owner ruling 3 Oct 2026).
+  // No success message from here: the bridge's WhatsApp PDF is the one message
+  // per form (owner ruling 3 Oct 2026). submittedIso is the row's join key.
+  await handToBridge({ submittedIso, meta: payload.meta, answers: a, scores: sc });
   return res.status(200).json({ ok: true });
 }
