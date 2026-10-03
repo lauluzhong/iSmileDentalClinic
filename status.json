@@ -1,8 +1,7 @@
 {
-  "updated": "2026-10-04 06:00 MYT",
+  "updated": "2026-10-04 06:04 MYT",
   "running": [
-    "gbp_reply",
-    "competitor_watch"
+    "gbp_reply"
   ],
   "jobs": {
     "gbp_reply": {
@@ -10,8 +9,8 @@
       "last": "2026-10-03 06:04 MYT"
     },
     "competitor_watch": {
-      "state": "running",
-      "last": "2026-09-27 06:05 MYT"
+      "state": "idle",
+      "last": "2026-10-04 06:04 MYT"
     },
     "review_curation": {
       "state": "idle",
