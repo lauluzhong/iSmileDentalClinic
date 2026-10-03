@@ -2,6 +2,7 @@
   "updated": "2026-10-04 06:00 MYT",
   "running": [
     "gbp_reply",
+    "competitor_watch",
     "deck_stats"
   ],
   "jobs": {
@@ -10,7 +11,7 @@
       "last": "2026-10-03 06:04 MYT"
     },
     "competitor_watch": {
-      "state": "idle",
+      "state": "running",
       "last": "2026-09-27 06:05 MYT"
     },
     "review_curation": {
