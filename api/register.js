@@ -17,7 +17,7 @@
 //   TELEGRAM_REGISTRATION_CHAT_ID optional; falls back to TELEGRAM_CHAT_ID
 
 import { JWT } from 'google-auth-library';
-import { notifyWhatsApp, telegramHtmlToWhatsApp } from './_whatsapp.js';
+import { notifyWhatsApp, telegramHtmlToWhatsApp, postToBridge } from './_whatsapp.js';
 
 // The form lives on its own Vercel project, so this endpoint is cross-origin.
 const ALLOWED_ORIGINS = [
@@ -184,7 +184,22 @@ async function notifyTelegram(payload) {
   if (isMinor) lines.push('🧒 <b>Under 18</b> — contact the guardian');
   lines.push('', '🗂 Full details are in the <b>Registrations sheet</b>', `🕐 <b>Time:</b> ${timeDisplay} (MYT)`);
   const text = lines.join('\n');
-  const whatsapp = notifyWhatsApp('registration', telegramHtmlToWhatsApp(text));
+
+  // WhatsApp (owner request 4 Oct 2026): the front desk gets ONE message per
+  // registration — the PDF of the full form with a caption — instead of this
+  // text. The full submission (incl. signature) goes to the Edith bridge, which
+  // renders the PDF on the Contabo box (Lau approved Contabo for this) and posts
+  // it to the "iSmile New Patient Notification" group within seconds. If the
+  // hand-off fails, fall back to the text message so the desk is never left blind.
+  const whatsapp = postToBridge('/registration', {
+    submittedIso: new Date(Date.parse((payload.meta || {}).submittedAt) || Date.now()).toISOString(),
+    meta: payload.meta,
+    answers: payload.answers,
+  }).then((r) => {
+    if (r.status === 202) return null;
+    console.error('Registration PDF hand-off failed:', r.status, r.error || '');
+    return notifyWhatsApp('registration', telegramHtmlToWhatsApp(text));
+  });
 
   if (telegramOn) try {
     const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
