@@ -69,3 +69,35 @@ export function notifyWhatsApp(kind, text) {
     req.end();
   });
 }
+
+// POST any JSON body to an Edith bridge path (same token + pinned cert).
+// Resolves {status, ...json}; never rejects. Used by register.js to hand the
+// full registration to POST /registration, where the box renders the PDF and
+// sends it with the caption to the new-patient group (4 Oct 2026).
+export function postToBridge(path, payload, timeoutMs = 10000) {
+  const base = process.env.EDITH_BRIDGE_URL;
+  const token = process.env.EDITH_BRIDGE_TOKEN;
+  const ca = process.env.EDITH_BRIDGE_CA;
+  if (!base || !token || !ca) return Promise.resolve({ status: 0, error: 'not_configured' });
+  const url = new URL(path, base);
+  const body = JSON.stringify(payload);
+  return new Promise((resolve) => {
+    const req = https.request({
+      method: 'POST', hostname: url.hostname, port: url.port || 443, path: url.pathname,
+      headers: { 'content-type': 'application/json', 'content-length': Buffer.byteLength(body), authorization: 'Bearer ' + token },
+      ca, servername: url.hostname, timeout: timeoutMs,
+    }, (res) => {
+      let data = '';
+      res.on('data', (c) => { data += c; });
+      res.on('end', () => {
+        let json = {};
+        try { json = JSON.parse(data); } catch (e) { /* keep {} */ }
+        resolve({ status: res.statusCode, ...json });
+      });
+    });
+    req.on('timeout', () => req.destroy(new Error('bridge timeout')));
+    req.on('error', (err) => resolve({ status: 0, error: err.message }));
+    req.write(body);
+    req.end();
+  });
+}
