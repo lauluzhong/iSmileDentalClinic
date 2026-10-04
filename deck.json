@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-10-04 15:30",
- "generated_at": "2026-10-04T15:30:11+08:00",
+ "generated_myt": "2026-10-04 16:00",
+ "generated_at": "2026-10-04T16:00:08+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 110.9,
   "nproc": 4,
   "load": [
-   0.28,
-   0.17,
-   0.17
+   0.46,
+   0.15,
+   0.11
   ],
-  "cpu_pct": 7.0,
-  "cpu_pct_sample": 4.7,
+  "cpu_pct": 11.5,
+  "cpu_pct_sample": 2.3,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 5486,
-   "avail_mb": 2454,
-   "pct": 69.1,
+   "used_mb": 5476,
+   "avail_mb": 2464,
+   "pct": 69.0,
    "swap_total_mb": 2047,
    "swap_used_mb": 1720
   },
@@ -29,11 +29,11 @@
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 24,
-    "last_myt": "2026-10-04 15:30 MYT"
+    "age_s": 21,
+    "last_myt": "2026-10-04 16:00 MYT"
    },
    "hq_publish": {
-    "age_s": 84536,
+    "age_s": 86333,
     "last_myt": "2026-10-03 16:01 MYT",
     "detail": "asof=SAT 03 OCT 2026 streams=42 sideboard=20 decisions=0 archive=11"
    }
@@ -42,10 +42,8 @@
   "crons": {
    "total": 17,
    "failed": [],
-   "running": [
-    "geo_visibility"
-   ],
-   "status_updated": "2026-10-04 15:30 MYT"
+   "running": [],
+   "status_updated": "2026-10-04 16:00 MYT"
   },
   "last_clinic_push": "2026-10-04"
  },
@@ -575,21 +573,21 @@
   "note": "Instagram @ismiledentalclinicmy is connected through Zernio. Posts published outside Zernio are not counted in posts_published_via_zernio."
  },
  "geo": {
-  "generated_myt": "2026-09-30 18:07",
-  "generated_at": "2026-09-30T18:07:29+08:00",
+  "generated_myt": "2026-10-04 15:30",
+  "generated_at": "2026-10-04T15:30:13+08:00",
   "ai_referrals": {
    "available": true,
    "window": [
-    "2026-09-02",
-    "2026-09-29"
+    "2026-09-06",
+    "2026-10-03"
    ],
-   "sessions": 1,
+   "sessions": 3,
    "sessions_prev": 1,
-   "all_sessions": 566,
+   "all_sessions": 538,
    "by_source": [
     {
      "source": "chatgpt.com",
-     "sessions": 1
+     "sessions": 3
     }
    ]
   },
@@ -649,9 +647,9 @@
    "engine": "OpenAI gpt-5.6-luna + web search",
    "asked": 20,
    "failed": 0,
-   "mentioned": 11,
-   "cited_own_site": 11,
-   "mention_rate_pct": 55.0,
+   "mentioned": 8,
+   "cited_own_site": 8,
+   "mention_rate_pct": 40.0,
    "by_theme": {
     "family": {
      "asked": 3,
@@ -659,11 +657,11 @@
     },
     "children": {
      "asked": 2,
-     "mentioned": 1
+     "mentioned": 0
     },
     "braces": {
      "asked": 3,
-     "mentioned": 2
+     "mentioned": 1
     },
     "implants": {
      "asked": 2,
@@ -683,49 +681,49 @@
     },
     "priority": {
      "asked": 5,
-     "mentioned": 3
+     "mentioned": 2
     }
    },
    "top_cited_domains": [
     {
-     "domain": "ismile.com.my",
+     "domain": "vdental.com.my",
      "questions": 11
     },
     {
-     "domain": "vdental.com.my",
-     "questions": 9
+     "domain": "ismile.com.my",
+     "questions": 8
     },
     {
-     "domain": "smilehavendental.com.my",
-     "questions": 6
-    },
-    {
-     "domain": "dentalclinicpj.my",
+     "domain": "damansaradentalstudio.com.my",
      "questions": 5
     },
     {
-     "domain": "pristinedental.com.my",
-     "questions": 4
-    },
-    {
-     "domain": "smilegramdental.com",
-     "questions": 4
-    },
-    {
-     "domain": "business.google.com",
-     "questions": 3
+     "domain": "smilehavendental.com.my",
+     "questions": 5
     },
     {
      "domain": "hq.moh.gov.my",
      "questions": 3
     },
     {
-     "domain": "circledentalpj.com",
+     "domain": "business.google.com",
      "questions": 3
     },
     {
-     "domain": "ivorydental.com.my",
-     "questions": 2
+     "domain": "claritydentalclinic.com",
+     "questions": 3
+    },
+    {
+     "domain": "arcdentalclinic-damansarauptown.com",
+     "questions": 3
+    },
+    {
+     "domain": "seekdentist.my",
+     "questions": 3
+    },
+    {
+     "domain": "circledentalpj.com",
+     "questions": 3
     }
    ],
    "questions": [
@@ -736,28 +734,24 @@
      "ok": true,
      "mentioned": true,
      "cited_own_site": true,
-     "competitors_named": [
-      "Ivory Dental (Atria, Damansara Jaya)"
-     ]
+     "competitors_named": []
     },
     {
      "id": "family-2",
      "theme": "family",
      "q": "Which dental clinics near Damansara Utama or SS22 in PJ are good for a routine check-up and cleaning?",
      "ok": true,
-     "mentioned": false,
-     "cited_own_site": false,
-     "competitors_named": [
-      "Lai Dental (Damansara Jaya)"
-     ]
+     "mentioned": true,
+     "cited_own_site": true,
+     "competitors_named": []
     },
     {
      "id": "family-3",
      "theme": "family",
      "q": "I want one dental clinic in Petaling Jaya that can look after my whole family, from kids to grandparents. Where should I go?",
      "ok": true,
-     "mentioned": true,
-     "cited_own_site": true,
+     "mentioned": false,
+     "cited_own_site": false,
      "competitors_named": []
     },
     {
@@ -776,9 +770,10 @@
      "theme": "children",
      "q": "Which dentists in Damansara, PJ are good with nervous kids?",
      "ok": true,
-     "mentioned": true,
-     "cited_own_site": true,
+     "mentioned": false,
+     "cited_own_site": false,
      "competitors_named": [
+      "Smile Doctor (Ara Damansara)",
       "V Dental (SS2)"
      ]
     },
@@ -787,9 +782,12 @@
      "theme": "braces",
      "q": "Which dental clinics would you recommend for braces in Damansara Jaya, Petaling Jaya?",
      "ok": true,
-     "mentioned": true,
-     "cited_own_site": true,
-     "competitors_named": []
+     "mentioned": false,
+     "cited_own_site": false,
+     "competitors_named": [
+      "Ivory Dental (Atria, Damansara Jaya)",
+      "The Arc Dental (Damansara Uptown)"
+     ]
     },
     {
      "id": "braces-2",
@@ -799,8 +797,7 @@
      "mentioned": false,
      "cited_own_site": false,
      "competitors_named": [
-      "V Dental (SS2)",
-      "Pearl Smile Dental"
+      "V Dental (SS2)"
      ]
     },
     {
@@ -811,6 +808,7 @@
      "mentioned": true,
      "cited_own_site": true,
      "competitors_named": [
+      "The Arc Dental (Damansara Uptown)",
       "V Dental (SS2)"
      ]
     },
@@ -833,7 +831,8 @@
      "mentioned": true,
      "cited_own_site": true,
      "competitors_named": [
-      "Ivory Dental (Atria, Damansara Jaya)"
+      "Ivory Dental (Atria, Damansara Jaya)",
+      "V Dental (SS2)"
      ]
     },
     {
@@ -844,7 +843,6 @@
      "mentioned": false,
      "cited_own_site": false,
      "competitors_named": [
-      "SEPA Dental (SS2)",
       "V Dental (SS2)"
      ]
     },
@@ -856,6 +854,7 @@
      "mentioned": false,
      "cited_own_site": false,
      "competitors_named": [
+      "Ivory Dental (Atria, Damansara Jaya)",
       "The Arc Dental (Damansara Uptown)"
      ]
     },
@@ -866,7 +865,10 @@
      "ok": true,
      "mentioned": true,
      "cited_own_site": true,
-     "competitors_named": []
+     "competitors_named": [
+      "Smile Doctor (Ara Damansara)",
+      "V Dental (SS2)"
+     ]
     },
     {
      "id": "airway-2",
@@ -914,8 +916,7 @@
      "mentioned": false,
      "cited_own_site": false,
      "competitors_named": [
-      "V Dental (SS2)",
-      "Primecare Dental (Uptown)"
+      "V Dental (SS2)"
      ]
     },
     {
@@ -934,17 +935,16 @@
      "theme": "priority",
      "q": "Which dental clinic in Damansara Jaya is good?",
      "ok": true,
-     "mentioned": true,
-     "cited_own_site": true,
+     "mentioned": false,
+     "cited_own_site": false,
      "competitors_named": [
-      "Ivory Dental (Atria, Damansara Jaya)",
-      "Lai Dental (Damansara Jaya)"
+      "Ivory Dental (Atria, Damansara Jaya)"
      ]
     }
    ],
    "tokens": {
-    "input": 439699,
-    "output": 22103
+    "input": 418142,
+    "output": 20856
    }
   },
   "panel_trend": [
@@ -970,6 +970,12 @@
     "date": "2026-09-30",
     "mention_rate_pct": 55.0,
     "mentioned": 11,
+    "asked": 20
+   },
+   {
+    "date": "2026-10-04",
+    "mention_rate_pct": 40.0,
+    "mentioned": 8,
     "asked": 20
    }
   ]
