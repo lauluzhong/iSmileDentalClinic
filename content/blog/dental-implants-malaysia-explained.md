@@ -25,7 +25,7 @@ content_type: educational
 
 A dental implant is basically an artificial tooth root that gets surgically placed into your jawbone. Made from titanium (which your body accepts pretty well, unlike some metals), it fuses with the bone over a few months through a process called osseointegration. Once that bond is solid, a crown sits on top and functions like your real tooth.
 
-Think of it as a replacement for the whole tooth structure, not just the visible part. Bridges sit on top of neighboring teeth. Dentures float on your gums. Implants actually go into the bone, which is why they feel so natural. Most patients tell me they forget it's even there after a while.
+Think of it as a replacement for the whole tooth structure, not just the visible part. Bridges sit on top of neighboring teeth. [Dentures](/blog/dentures-older-adults-petaling-jaya) float on your gums. Implants actually go into the bone, which is why they feel so natural. Most patients tell me they forget it's even there after a while.
 
 <p>To learn more about dental implants and our full range of tooth replacement options, visit our <a href="https://ismile.com.my/services/replace/dental-implants">dental implants service</a> page.</p>
 
