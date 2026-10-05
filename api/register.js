@@ -21,7 +21,8 @@ import { notifyWhatsApp, telegramHtmlToWhatsApp, postToBridge } from './_whatsap
 
 // The form lives on its own Vercel project, so this endpoint is cross-origin.
 const ALLOWED_ORIGINS = [
-  'https://register.ismile.com.my',
+  'https://forms.ismile.com.my',     // the registration form's home from 5 Oct 2026 (/register)
+  'https://register.ismile.com.my',  // old address, now a redirect to forms.ismile.com.my/register
   'https://ismile-registration-form.vercel.app',
   'https://ismile.com.my',
   'https://www.ismile.com.my',
