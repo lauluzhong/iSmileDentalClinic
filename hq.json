@@ -164,8 +164,8 @@
   },
   {
    "d": "3 Oct",
-   "l": "FOH training Saturday + dinner",
-   "s": "",
+   "l": "FOH training + dinner \u2014 held",
+   "s": "done",
    "iso": "2026-10-03",
    "tip": "Set at the 25 Sep run-through: Sat 3 Oct after the 3:30 PM close, dinner after. Leow not attending (weekend) \u2014 Lau and Emily teach. Emily and Joanna are the on-ground contacts afterwards. Deck to be confirmed by Wed 30 Sep. Compulsory: Joanna, Erincy, Jessy, Ida, Elaine."
   },
@@ -363,8 +363,8 @@
       },
       {
        "t": "Training for front-of-house staff + dinner (Leow not attending \u2014 Lau + Emily teach; Emily + Joanna = on-ground contacts)",
-       "s": "",
-       "w": "Sat 3 Oct, 3:30 PM"
+       "s": "done",
+       "w": "held Sat 3 Oct \u00b7 all good (Lau)"
       },
       {
        "t": "Go live \u2014 new digital receipts (Lau and Emily on standby that week)",
@@ -512,8 +512,8 @@
       },
       {
        "t": "Receipts + e-invoices taught at the FOH training",
-       "s": "",
-       "w": "Sat 3 Oct, 3:30 PM"
+       "s": "done",
+       "w": "held Sat 3 Oct \u00b7 all good (Lau)"
       },
       {
        "t": "Go live \u2014 receipts from AutoCount, paper retired",
@@ -1655,7 +1655,7 @@
       {
        "t": "Emily checks the girls' availability for Sat 3 Oct FOH training at the 09:00 huddle",
        "s": "done",
-       "w": "Wed 23 Sep"
+       "w": "held Sat 3 Oct \u00b7 all good (Lau)"
       },
       {
        "t": "Confirm excluded list for discounted individuals (immediate family, full-time staff, pastors, etc.)",
@@ -2554,8 +2554,8 @@
       },
       {
        "t": "Training aiming for Sat 3 Oct \u2014 Emily books the girls\u2019 time Tue 22 Sep; confirmation pending",
-       "s": "now",
-       "w": "Sat 3 Oct, 3:30 PM"
+       "s": "done",
+       "w": "held Sat 3 Oct \u00b7 all good (Lau)"
       },
       {
        "t": "FOH training pack refreshed 28 Sep (go-live 6 Oct, desk flow, discount line, 1 Oct fee rules, blast replies) \u2014 Lau settling 14 open questions in the L&D chat; deck confirmed by Wed 30 Sep",
@@ -2569,8 +2569,8 @@
       },
       {
        "t": "Training day Sat 3 Oct from 3:30 PM, downstairs after the last patient; dinner nearby afterwards (tell the girls it's training + dinner). Lau sends Emily the deck outline Wed 30 Sep; Emily texts anything to add. No DSA content \u2014 too much at once",
-       "s": "now",
-       "w": "Sat 3 Oct 3:30 PM"
+       "s": "done",
+       "w": "held Sat 3 Oct \u00b7 all good (Lau)"
       },
       {
        "t": "Rulings for the deck: always 'patient', never 'client' (Dr Ling asked Joanna to say client \u2014 Lau to square it with her); answer price questions with confidence ('these are our fees'), not 'let me check with the doctor'; keep supplier brochures off the front desk (doctors hand them to their own target patients)",
@@ -2598,8 +2598,8 @@
      "endMonth": "2026-11",
      "flag": {
       "k": "due",
-      "by": "2026-10-03",
-      "w": "Deck done. Training Sat 3 Oct 3:30 PM; tell the girls it is training + dinner."
+      "by": "2026-10-06",
+      "w": "FOH training held Sat 3 Oct \u2014 all good. Next: go-live Tue 6 Oct."
      }
     }
    ]
@@ -3066,7 +3066,7 @@
      {
       "label": "Training for front-of-house staff",
       "start": "2026-10-03",
-      "status": "next",
+      "status": "done",
       "time": "3:30 PM",
       "who": "Joanna \u00b7 Erincy \u00b7 Jessy \u00b7 Ida \u00b7 Elaine",
       "note": "Set Sat 3 Oct after the 3:30 PM close (25 Sep run-through). Leow not attending; Lau + Emily teach; Emily + Joanna on-ground contacts."
@@ -3291,6 +3291,6 @@
  },
  "meta": {
   "asof": "MON 05 OCT 2026",
-  "updated": "2026-10-05T11:31:57+08:00"
+  "updated": "2026-10-05T11:42:11+08:00"
  }
 }
