@@ -1,9 +1,9 @@
 {
- "updated": "2026-10-05T15:22:32+08:00",
+ "updated": "2026-10-05T21:33:58+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Dr Ong": {
-   "init": "DO",
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
@@ -17,18 +17,18 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Edith": {
    "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   }
@@ -897,7 +897,7 @@
     "Letters: obtain the example from the office, then build the letterhead templates",
     "Check whether a clinic stamp can stand in for a doctor's signature on external letters",
     "Training aiming for Sat 3 Oct \u2014 Emily books the girls\u2019 time Tue 22 Sep; confirmation pending",
-    "FOH training pack refreshed 28 Sep (go-live 6 Oct, desk flow, discount line, 1 Oct fee rules, blast replies) \u2014 Lau settling 14 open questions in the L&D chat; deck confirmed by Wed 30 Sep",
+    "FOH training pack refreshed 28 Sep (go-live 7 Oct, desk flow, discount line, 1 Oct fee rules, blast replies) \u2014 Lau settling 14 open questions in the L&D chat; deck confirmed by Wed 30 Sep",
     "Training deck v3 built 29 Sep (28 slides + 8-slide appendix of step-by-step journeys) \u2014 Google Slides 13tdSXpW\u2026; Lau shares with Emily Wed 30 Sep",
     "Training day Sat 3 Oct from 3:30 PM, downstairs after the last patient; dinner nearby afterwards (tell the girls it's training + dinner). Lau sends Emily the deck outline Wed 30 Sep; Emily texts anything to add. No DSA content \u2014 too much at once",
     "Rulings for the deck: always 'patient', never 'client' (Dr Ling asked Joanna to say client \u2014 Lau to square it with her); answer price questions with confidence ('these are our fees'), not 'let me check with the doctor'; keep supplier brochures off the front desk (doctors hand them to their own target patients)",

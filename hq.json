@@ -132,7 +132,7 @@
    "l": "Receipt + e-invoice run-through \u2014 held",
    "s": "done",
    "iso": "2026-09-25",
-   "tip": "Held Fri 25 Sep (60 min, Google Meet: Jason, Leow, Lau, Emily). Agreed: go-live Tue 6 Oct; test data cleared EOD 30 Sep, link on 1 Oct; 1\u20135 Oct invoices hand-approved; payments knock off at invoice level (locum allocates FIFO); discounts as a discount line only; receipts by WhatsApp/PDF, no printing; e-Invoice off until RM3M; one login per staff. Open: Jason SQL fix; receipt design final placement/details."
+   "tip": "Held Fri 25 Sep (60 min, Google Meet: Jason, Leow, Lau, Emily). Initially agreed go-live Tue 6 Oct, later moved by Lau to Wed 7 Oct; test data cleared EOD 30 Sep, link on 1 Oct; 1\u20136 Oct invoices hand-approved; payments knock off at invoice level (locum allocates FIFO); discounts as a discount line only; receipts by WhatsApp/PDF, no printing; e-Invoice off until RM3M; one login per staff. Open: Jason SQL fix; receipt design final placement/details."
   },
   {
    "d": "28\u201330 Sep",
@@ -2589,7 +2589,7 @@
        "w": "held Sat 3 Oct \u00b7 all good (Lau)"
       },
       {
-       "t": "FOH training pack refreshed 28 Sep (go-live 6 Oct, desk flow, discount line, 1 Oct fee rules, blast replies) \u2014 Lau settling 14 open questions in the L&D chat; deck confirmed by Wed 30 Sep",
+       "t": "FOH training pack refreshed 28 Sep (go-live 7 Oct, desk flow, discount line, 1 Oct fee rules, blast replies) \u2014 Lau settling 14 open questions in the L&D chat; deck confirmed by Wed 30 Sep",
        "s": "done",
        "w": "deck done 2 Oct"
       },
@@ -3084,7 +3084,7 @@
       "locked": true,
       "time": "15:17 \u00b7 60 min \u00b7 Google Meet",
       "who": "Jason \u00b7 Leow \u00b7 Lau \u00b7 Emily",
-      "note": "Held. Go-live moved to 6 Oct; FIFO at invoice level; discount lines only; WhatsApp/PDF receipts; e-Invoice off until RM3M. SQL insert error found live \u2014 Jason fixing."
+      "note": "Held. Go-live initially set for 6 Oct and later moved by Lau to 7 Oct; FIFO at invoice level; discount lines only; WhatsApp/PDF receipts; e-Invoice off until RM3M. SQL insert error found live \u2014 Jason fixing."
      },
      {
       "label": "Prepare and confirm the FOH training deck",
@@ -3322,6 +3322,6 @@
  },
  "meta": {
   "asof": "MON 05 OCT 2026",
-  "updated": "2026-10-05T15:22:32+08:00"
+  "updated": "2026-10-05T21:33:58+08:00"
  }
 }
