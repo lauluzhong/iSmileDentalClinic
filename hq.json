@@ -1049,7 +1049,7 @@
      "owner": "lu",
      "dept": "crm",
      "lens": "efficiency",
-     "next": "Lau: deploy drive-saver.gs as a web app and send the URL \u2192 first end-to-end PDF in the group \u2192 add Dr Ling \u2192 DNS for forms.ismile.com.my \u2192 /airway shortcut",
+     "next": "Lau: deploy drive-saver.gs as a web app and send the URL \u2192 first end-to-end PDF in the group \u2192 add Dr Ling \u2192 /airway shortcut with forms.ismile.com.my/airway",
      "endMonth": "2026-10",
      "steps": [
       {
@@ -1083,15 +1083,16 @@
        "w": "3 Oct"
       },
       {
+       "t": "Live at forms.ismile.com.my/airway (DNS + certificate)",
+       "s": "done",
+       "w": "5 Oct \u00b7 iSmile Engineer"
+      },
+      {
        "t": "Lau deploys the Drive-saver Apps Script and sends its URL",
        "s": "now"
       },
       {
        "t": "Add Dr Ling to \u201ciSmile Airway Evaluations\u201d; delete test rows + stray tab",
-       "s": "next"
-      },
-      {
-       "t": "DNS: forms.ismile.com.my A 76.76.21.21 (or CNAME cname.vercel-dns.com) at mschosting",
        "s": "next"
       },
       {
@@ -3289,7 +3290,7 @@
   ]
  },
  "meta": {
-  "asof": "SAT 03 OCT 2026",
-  "updated": "2026-10-03T16:01:27+08:00"
+  "asof": "MON 05 OCT 2026",
+  "updated": "2026-10-05T11:31:57+08:00"
  }
 }
