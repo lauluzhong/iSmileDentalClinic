@@ -3,6 +3,13 @@
   "entries": [
     {
       "ts": "2026-10-05 09:00 MYT",
+      "agent": "edith",
+      "job": "gbp_post_weekly",
+      "event": "started",
+      "result": ""
+    },
+    {
+      "ts": "2026-10-05 09:00 MYT",
       "agent": "analytics",
       "job": "deck_stats",
       "event": "started",
@@ -1393,13 +1400,6 @@
       "job": "cash_digest",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-10-03 19:40 MYT",
-      "agent": "analytics",
-      "job": "margin_build",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
