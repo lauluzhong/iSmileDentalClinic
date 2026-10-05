@@ -1053,14 +1053,14 @@
     {
      "id": "d13",
      "dot": "now",
-     "chip": "Dr Ling OK \u00b7 pipeline built \u00b7 Lau deploys Drive script",
+     "chip": "live end to end \u00b7 Lau checks first PDF, then adds Dr Ling",
      "name": "Pre-visit consult forms (airway first)",
      "one": "Dr Ling\u2019s three airway questionnaires (PSQ, Epworth\u2013Children, NOSE) as one digital form patients fill in before the consult; scores computed; desk pastes a summary into OpenDental. Same pattern for future consults.",
      "open": "Dr Ling: who answers for young children \u00b7 cadence (first consult, repeat at reviews) \u00b7 preferred output: PDF to her, or the summary pasted into OpenDental \u00b7 ESS-CHAD licence check",
      "owner": "lu",
      "dept": "crm",
      "lens": "efficiency",
-     "next": "Lau: deploy drive-saver.gs as a web app and send the URL \u2192 first end-to-end PDF in the group \u2192 add Dr Ling \u2192 /airway shortcut with forms.ismile.com.my/airway",
+     "next": "Lau confirms the test PDF + caption in the group \u2192 add Dr Ling to the group \u2192 /airway WhatsApp shortcut with forms.ismile.com.my/airway",
      "endMonth": "2026-10",
      "steps": [
       {
@@ -1095,6 +1095,11 @@
       },
       {
        "t": "Live at forms.ismile.com.my/airway (DNS + certificate)",
+       "s": "done",
+       "w": "5 Oct \u00b7 iSmile Engineer"
+      },
+      {
+       "t": "Moved to ismile.general (one Sheet \u201ciSmile Patient Forms\u201d + Drive saver); end-to-end test passed: row \u2192 PDF in Drive \u2192 one WhatsApp",
        "s": "done",
        "w": "5 Oct \u00b7 iSmile Engineer"
       },
@@ -3303,6 +3308,6 @@
  },
  "meta": {
   "asof": "MON 05 OCT 2026",
-  "updated": "2026-10-05T11:59:00+08:00"
+  "updated": "2026-10-05T12:00:34+08:00"
  }
 }
