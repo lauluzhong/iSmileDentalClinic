@@ -1,7 +1,8 @@
 {
   "updated": "2026-10-05 09:00 MYT",
   "running": [
-    "deck_stats"
+    "deck_stats",
+    "gbp_post_weekly"
   ],
   "jobs": {
     "gbp_reply": {
@@ -71,6 +72,9 @@
     "wa_group_digest_dry": {
       "state": "idle",
       "last": "2026-10-03 22:45 MYT"
+    },
+    "gbp_post_weekly": {
+      "state": "running"
     }
   }
 }
