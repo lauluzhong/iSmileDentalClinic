@@ -867,7 +867,18 @@
       },
       {
        "t": "Sheet access ruling \u2014 Emily proposes a dedicated email",
-       "s": "now"
+       "s": "done",
+       "w": "5 Oct \u00b7 moved to ismile.general@gmail.com \u2014 one Sheet \"iSmile Patient Forms\" (tab per form) + Drive folder iSmile Forms"
+      },
+      {
+       "t": "Each registration arrives in the new-patient WhatsApp group as a PDF; the PDF is saved to Drive and its link logged in the Sheet",
+       "s": "done",
+       "w": "5 Oct \u00b7 tested end to end \u00b7 iSmile Engineer"
+      },
+      {
+       "t": "Lau: change the /new WhatsApp Business shortcut to forms.ismile.com.my/register (old register.ismile.com.my link will keep redirecting)",
+       "s": "now",
+       "w": "after the Engineer moves the form to forms.ismile.com.my/register"
       },
       {
        "t": "Fold into FOH training + desk SOP",
@@ -1088,8 +1099,9 @@
        "w": "5 Oct \u00b7 iSmile Engineer"
       },
       {
-       "t": "Lau deploys the Drive-saver Apps Script and sends its URL",
-       "s": "now"
+       "t": "Drive saver deployed (shared ismile.general script for all forms)",
+       "s": "done",
+       "w": "5 Oct \u00b7 TEST Drive Airway: row \u2192 Drive PDF + link \u2192 WhatsApp, verified \u00b7 iSmile Engineer"
       },
       {
        "t": "Add Dr Ling to \u201ciSmile Airway Evaluations\u201d; delete test rows + stray tab",
@@ -3291,6 +3303,6 @@
  },
  "meta": {
   "asof": "MON 05 OCT 2026",
-  "updated": "2026-10-05T11:42:11+08:00"
+  "updated": "2026-10-05T11:59:00+08:00"
  }
 }
