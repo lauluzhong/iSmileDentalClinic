@@ -53,6 +53,22 @@ function rateLimited(ip) {
 
 const SHEET_TAB = process.env.REGISTRATION_SHEET_TAB || 'Registrations';
 
+// Row 1 of the tab, written by ensureTab() when the tab is new or empty. The last
+// four columns (5 Oct 2026) tie the row to its PDF: "Submitted ISO" is the key
+// the Drive saver (Apps Script, ismile.general) matches on to write the PDF
+// link / status / sent-at back. Do not rename them.
+const HEADER = [
+  'Submitted (MYT)', 'Full name', 'Preferred name', 'Gender', 'DOB', 'Age', 'IC / Passport', 'Nationality',
+  'Address 1', 'Address 2', 'City', 'State', 'Postcode', 'Mobile', 'Email', 'Occupation', 'Source', 'Referred by',
+  'Last dental visit', 'Last clean', 'Emergency name', 'Emergency relationship', 'Emergency phone', 'Payer',
+  'Payer name', 'Payer mobile', 'Payer email', 'Guardian name', 'Guardian relationship', 'Guardian mobile',
+  'Guardian email', 'Under doctor', 'Condition', 'Doctor name', 'Doctor phone', 'Medicines', 'Medicines list',
+  'Allergies', 'Allergy detail', 'Premed', 'Premed detail', 'Bleeding', 'Pregnant', 'Breastfeeding',
+  'Contraceptives', 'ALERTS', 'Consent: treatment', 'Consent: recall', 'Consent: retention', 'Declaration',
+  'Consent version', 'Filled for', 'Signer role', 'Signer name', 'Signer relationship', 'Minor', 'Full JSON',
+  'Signature PNG', 'Submitted ISO', 'PDF link', 'PDF status', 'PDF sent at',
+];
+
 // Google Sheets caps a cell at 50,000 characters.
 const MAX_CELL = 45000;
 
@@ -76,7 +92,7 @@ const cell = (v) => {
 
 // Column order mirrors the form's staff view (OpenDental entry order).
 // Header row for the Sheet is listed in REGISTRATION-BACKEND-SETUP.md.
-function buildRow(payload) {
+function buildRow(payload, submittedIso) {
   const a = payload.answers || {};
   const m = payload.meta || {};
 
@@ -128,7 +144,34 @@ function buildRow(payload) {
     a.filledFor, a.signerRole, a.signerName, a.signerRelationship,
     m.isMinor ? 'YES' : 'No',
     fullJson,
-  ].map(cell).concat([sigCell(signatureDataUri)]);
+  ].map(cell).concat([sigCell(signatureDataUri), submittedIso, '', '', '']);
+}
+
+// Create the tab and its header the first time (the Sheet moved to the
+// ismile.general account on 5 Oct 2026 and starts empty). Cached per warm instance.
+let tabReady = false;
+async function ensureTab(client, base) {
+  if (tabReady) return;
+  const meta = await client.request({ url: `${base}?fields=sheets.properties.title`, method: 'GET' });
+  const titles = (meta.data.sheets || []).map((x) => x.properties.title);
+  if (!titles.includes(SHEET_TAB)) {
+    try {
+      await client.request({
+        url: `${base}:batchUpdate`, method: 'POST',
+        data: { requests: [{ addSheet: { properties: { title: SHEET_TAB, gridProperties: { frozenRowCount: 1 } } } }] },
+      });
+    } catch (err) {
+      if (!/already exists/i.test(String(err.message))) throw err;
+    }
+  }
+  const head = await client.request({ url: `${base}/values/${encodeURIComponent(SHEET_TAB + '!1:1')}`, method: 'GET' });
+  if (!(head.data.values && head.data.values[0] && head.data.values[0].length)) {
+    await client.request({
+      url: `${base}/values/${encodeURIComponent(SHEET_TAB + '!A1')}?valueInputOption=RAW`, method: 'PUT',
+      data: { values: [HEADER] },
+    });
+  }
+  tabReady = true;
 }
 
 async function appendToSheet(row) {
@@ -142,13 +185,15 @@ async function appendToSheet(row) {
     key: sa.private_key,
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
+  const base = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}`;
+  await ensureTab(client, base);
 
   const range = encodeURIComponent(`${SHEET_TAB}!A1`);
   await client.request({
     // ⚠️ valueInputOption=RAW is what stops Google Sheets FORMULA INJECTION: a
     // patient typing =HYPERLINK(...) or @SUM(...) into a field is stored as
     // literal text. Do NOT change this to USER_ENTERED to get dates parsing.
-    url: `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`,
+    url: `${base}/values/${range}:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`,
     method: 'POST',
     data: { values: [row] },
   });
@@ -156,7 +201,7 @@ async function appendToSheet(row) {
 
 // Heads-up in the existing booking-bot chat. Deliberately PII-minimal:
 // name only — no IC, no contact details, no medical information.
-async function notifyTelegram(payload) {
+async function notifyTelegram(payload, submittedIso) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_REGISTRATION_CHAT_ID || process.env.TELEGRAM_CHAT_ID;
   const telegramOn = !!(token && chatId); // WhatsApp still fires when Telegram is retired
@@ -192,7 +237,7 @@ async function notifyTelegram(payload) {
   // it to the "iSmile New Patient Notification" group within seconds. If the
   // hand-off fails, fall back to the text message so the desk is never left blind.
   const whatsapp = postToBridge('/registration', {
-    submittedIso: new Date(Date.parse((payload.meta || {}).submittedAt) || Date.now()).toISOString(),
+    submittedIso, // same value as the row's "Submitted ISO" — the Drive saver's join key
     meta: payload.meta,
     answers: payload.answers,
   }).then((r) => {
@@ -287,8 +332,10 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Name or mobile does not look valid' });
   }
 
+  const submittedIso = new Date(Date.parse((payload.meta || {}).submittedAt) || Date.now()).toISOString();
+
   try {
-    await appendToSheet(buildRow(payload));
+    await appendToSheet(buildRow(payload, submittedIso));
   } catch (error) {
     // Log the failure, never the submission body.
     console.error('Sheet append failed:', error.message);
@@ -300,7 +347,7 @@ export default async function handler(req, res) {
   }
 
   // Best-effort; a Telegram hiccup must not fail a recorded registration.
-  await notifyTelegram(payload);
+  await notifyTelegram(payload, submittedIso);
 
   return res.status(200).json({ ok: true });
 }
