@@ -184,11 +184,11 @@
    "tip": "Set by Lau 28 Sep (probable): Wave 1 Tue 6 Oct, Wave 2 Wed 7 Oct, Wave 3 Thu 8 \u2013 Fri 9 Oct (over the 1,800/day cap, so two days). All prep lands by Fri 2 Oct: front-desk pass, Emily confirms the register rows, upload test, final rebuild, Lau OpenDent appointment check."
   },
   {
-   "d": "6 Oct",
+   "d": "7 Oct",
    "l": "Go live \u2014 new digital receipts",
    "s": "",
-   "iso": "2026-10-06",
-   "tip": "Moved from 5 Oct at the 25 Sep run-through. Paper receipts retired; invoices 1\u20135 Oct approved by hand. Lau and Emily on standby that week. The OpenDent \u2192 AutoCount link has been on since 1 Oct (Jason, 2 Oct)."
+   "iso": "2026-10-07",
+   "tip": "Moved to Wed 7 Oct by Lau on 5 Oct (was Tue 6 Oct; first moved from 5 Oct at the 25 Sep run-through). Paper receipts retired; invoices 1\u20136 Oct approved by hand. Lau and Emily on standby that week. The OpenDent \u2192 AutoCount link has been on since 1 Oct (Jason, 2 Oct)."
   },
   {
    "d": "mid-Oct",
@@ -244,7 +244,7 @@
     {
      "id": "d1",
      "dot": "live",
-     "chip": "link on since 1 Oct \u00b7 go-live Tue 6 Oct",
+     "chip": "link on since 1 Oct \u00b7 go-live Wed 7 Oct",
      "name": "OpenDent \u2194 AutoCount integration",
      "one": "AutoCount is installed on both new front-desk PCs. The confirmed 25 Sep run-through will validate the front-desk receipt journey and downstairs sub-account data flow before training.",
      "steps": [
@@ -369,7 +369,7 @@
       {
        "t": "Go live \u2014 new digital receipts (Lau and Emily on standby that week)",
        "s": "",
-       "w": "Tue 6 Oct (moved from 5 Oct)"
+       "w": "Wed 7 Oct (moved from 6 Oct by Lau on 5 Oct; first from 5 Oct)"
       },
       {
        "t": "OpenDent glitch: two patients' old records (a 2023 account; a 2022 monthly payment plan of Dr Amy's) suddenly re-dated to today as treatment plans \u2014 one now shows the clinic owing the patient ~RM9k. Emily posts screenshots in the CC group; raise with Jason at the Wed 30 Sep meeting",
@@ -412,7 +412,7 @@
      "from_initiatives": [
       1
      ],
-     "next": "Link on since 1 Oct (Jason, 2 Oct). Still open: Emily's 29 Sep record glitch (RM2,300 crown line / dates), staff logins confirmed, 1\u20135 Oct invoices hand-approved; train Sat 3 Oct; go live Tue 6 Oct. Leow back Mon 5 Oct.",
+     "next": "Link on since 1 Oct (Jason, 2 Oct). Still open: Emily's 29 Sep record glitch (RM2,300 crown line / dates), staff logins confirmed, 1\u20136 Oct invoices hand-approved; train Sat 3 Oct; go live Wed 7 Oct. Leow back Mon 5 Oct.",
      "endMonth": "2026-09"
     },
     {
@@ -434,7 +434,7 @@
       {
        "t": "Ask Leow to enable e-invoicing (LZ 28 Sep: act as though required)",
        "s": "skip",
-       "w": "Emily/Lau \u00b7 before go-live 6 Oct"
+       "w": "Emily/Lau \u00b7 before go-live 7 Oct"
       },
       {
        "t": "E-invoice format + submission flow configured",
@@ -462,7 +462,7 @@
     {
      "id": "d3",
      "dot": "wait",
-     "chip": "A4 sample received \u00b7 final logo placement \u00b7 live 6 Oct",
+     "chip": "A4 sample received \u00b7 final logo placement \u00b7 live Wed 7 Oct",
      "name": "Digital receipts (AR)",
      "one": "Receipts out of AutoCount replace the paper book \u2014 front desk switches only after training.",
      "steps": [
@@ -518,7 +518,7 @@
       {
        "t": "Go live \u2014 receipts from AutoCount, paper retired",
        "s": "",
-       "w": "Tue 6 Oct (moved from 5 Oct)"
+       "w": "Wed 7 Oct (moved from 6 Oct by Lau on 5 Oct; first from 5 Oct)"
       },
       {
        "t": "Follow up the two patient cases Dr Ling raised where the patient has not paid / refuses to pay \u2014 agreed with all doctors on 23 Sep: a patient-payment matter, not a doctor matter \u00b7 owner Emily + front desk",
@@ -572,14 +572,14 @@
      ],
      "open": [
       "<b>Run-through HELD Fri 25 Sep.</b> Receipts go by WhatsApp link (copy-to-clipboard preferred) or PDF export \u2014 no printing. Payments knock off at invoice level; locum allocates FIFO. Discounts only as a discount line in OpenDent. e-Invoice stays OFF until the RM3M threshold.",
-      "<b>Training set Sat 3 Oct</b> from 3:30 PM, dinner after. Hand-approve invoices 1\u20135 Oct; go live Tue 6 Oct with Lau and Emily on standby that week.",
+      "<b>Training set Sat 3 Oct</b> from 3:30 PM, dinner after. Hand-approve invoices 1\u20136 Oct; go live Wed 7 Oct with Lau and Emily on standby that week.",
       "Receipt-name nuance: AutoCount name changes stick (parent paying for child, company claims) \u2014 teach it explicitly",
       "Physical receipts continue until training done \u2014 decided, not a slip"
      ],
      "flag": {
       "k": "due",
-      "by": "2026-10-06",
-      "w": "Receipt design and front-desk SOP done; next is the 3 Oct training and go-live Tue 6 Oct."
+      "by": "2026-10-07",
+      "w": "Receipt design and front-desk SOP done; training held 3 Oct; go-live Wed 7 Oct."
      },
      "owner": "emily",
      "dept": "clinical",
@@ -1060,7 +1060,7 @@
      "owner": "lu",
      "dept": "crm",
      "lens": "efficiency",
-     "next": "Lau confirms the test PDF + caption in the group \u2192 add Dr Ling to the group \u2192 /airway WhatsApp shortcut with forms.ismile.com.my/airway",
+     "next": "Tue 6 Oct at the clinic: load /airway \u2192 Lau confirms the test PDF + caption in the group \u2192 add Dr Ling",
      "endMonth": "2026-10",
      "steps": [
       {
@@ -1113,10 +1113,18 @@
        "s": "next"
       },
       {
-       "t": "/airway WhatsApp shortcut; desk journey: send with /remind for airway consults, paste summary before the visit",
-       "s": "next"
+       "t": "Load /airway on WhatsApp Business at the clinic (text in this card\u2019s note)",
+       "s": "now",
+       "w": "Tue 6 Oct \u00b7 Lau"
       }
-     ]
+     ],
+     "flag": {
+      "k": "due",
+      "by": "2026-10-06",
+      "w": "At the clinic Tue 6 Oct: load the /airway shortcut on WhatsApp Business (text in the note on this card)."
+     },
+     "noteTitle": "/airway shortcut \u2014 load on WhatsApp Business",
+     "note": "Before [PATIENT]\u2019s airway consultation, please fill in this short questionnaire. It takes about 5 minutes, and the dentist will read your answers before you come in:\nhttps://forms.ismile.com.my/airway\n\nThe questions are about sleep, daytime tiredness and breathing through the nose over the past month.\n\nChain: Hi [Name], \u2192 /confirm \u2192 /first (new only) \u2192 /airway \u2192 sign-off. Once forms.ismile.com.my/register is live, update the link in /first too."
     }
    ]
   },
@@ -2615,8 +2623,8 @@
      "endMonth": "2026-11",
      "flag": {
       "k": "due",
-      "by": "2026-10-06",
-      "w": "FOH training held Sat 3 Oct \u2014 all good. Next: go-live Tue 6 Oct."
+      "by": "2026-10-07",
+      "w": "FOH training held Sat 3 Oct \u2014 all good. Next: go-live Wed 7 Oct."
      }
     }
    ]
@@ -2991,7 +2999,7 @@
      "h5"
     ],
     "owner": "Lau \u00b7 Emily \u00b7 Code Capsule",
-    "summary": "Link on since 1 Oct. 1\u20135 Oct invoices hand-approved, FOH training Sat 3 Oct, go live Tue 6 Oct.",
+    "summary": "Link on since 1 Oct. 1\u20136 Oct invoices hand-approved, FOH training Sat 3 Oct, go live Wed 7 Oct.",
     "items": [
      {
       "label": "OpenDent migrated to the new server",
@@ -3090,11 +3098,11 @@
      },
      {
       "label": "Go live \u2014 new digital receipts",
-      "start": "2026-10-06",
+      "start": "2026-10-07",
       "status": "next",
       "locked": true,
       "who": "Front desk \u00b7 Lau + Emily on standby",
-      "note": "Paper receipts retired from this day. Lau and Emily on standby in person that week."
+      "note": "Paper receipts retired from this day (moved from Tue 6 to Wed 7 Oct by Lau, 5 Oct). Lau and Emily on standby in person that week."
      },
      {
       "label": "FOH training pack drafted",
@@ -3308,6 +3316,6 @@
  },
  "meta": {
   "asof": "MON 05 OCT 2026",
-  "updated": "2026-10-05T12:00:34+08:00"
+  "updated": "2026-10-05T12:04:04+08:00"
  }
 }
