@@ -1978,9 +1978,9 @@
        "w": "owner LZ"
       },
       {
-       "t": "One-off (LZ): Bing Webmaster Tools \u2014 sign in with Microsoft, Import from Google Search Console, then Settings \u2192 API Access \u2192 give the key to Edith",
-       "s": "now",
-       "w": "owner LZ"
+       "t": "Bing Webmaster Tools connected: site verified, API key live on the box (Bing data feeds the Sunday audit)",
+       "s": "done",
+       "w": "5 Oct"
       },
       {
        "t": "One-off (LZ): Bing Places for Business \u2014 import the listing from Google Business Profile (~5 min)",
@@ -1988,7 +1988,7 @@
        "w": "owner LZ"
       },
       {
-       "t": "SEO/GEO/Maps routine live on the box: Sunday priority-keyword scorecard + Maps visibility + 5 priority AI questions in the audit; daily review-drought alert; Mon 09:00 Google post draft for approval; fortnightly content brief from 12 Oct. Grid rank + Bing wait on the one-offs above",
+       "t": "SEO/GEO/Maps routine live on the box: Sunday priority-keyword scorecard + Maps visibility + 5 priority AI questions in the audit; daily review-drought alert; Mon 09:00 Google post draft for approval; fortnightly content brief from 12 Oct. Bing is connected but too new to read (history starts ~1 Oct, first useful read mid-to-late Oct); Bing Places listing still waits on LZ",
        "s": "done",
        "w": "30 Sep"
       }
@@ -3322,6 +3322,6 @@
  },
  "meta": {
   "asof": "MON 05 OCT 2026",
-  "updated": "2026-10-05T13:40:46+08:00"
+  "updated": "2026-10-05T15:22:32+08:00"
  }
 }
