@@ -1104,6 +1104,11 @@
        "w": "5 Oct \u00b7 iSmile Engineer"
       },
       {
+       "t": "Instant delivery (~8 s); caption = name (age), three scores, who/when; registration form moved to forms.ismile.com.my/register",
+       "s": "done",
+       "w": "5 Oct \u00b7 iSmile Engineer"
+      },
+      {
        "t": "Drive saver deployed (shared ismile.general script for all forms)",
        "s": "done",
        "w": "5 Oct \u00b7 TEST Drive Airway: row \u2192 Drive PDF + link \u2192 WhatsApp, verified \u00b7 iSmile Engineer"
@@ -1113,7 +1118,7 @@
        "s": "next"
       },
       {
-       "t": "Load /airway on WhatsApp Business at the clinic (text in this card\u2019s note)",
+       "t": "Load /airway + update /first link to forms.ismile.com.my/register on WhatsApp Business (text in this card\u2019s note)",
        "s": "now",
        "w": "Tue 6 Oct \u00b7 Lau"
       }
@@ -1121,10 +1126,10 @@
      "flag": {
       "k": "due",
       "by": "2026-10-06",
-      "w": "At the clinic Tue 6 Oct: load the /airway shortcut on WhatsApp Business (text in the note on this card)."
+      "w": "At the clinic Tue 6 Oct: load /airway and update the /first link on WhatsApp Business (text in the note on this card)."
      },
      "noteTitle": "/airway shortcut \u2014 load on WhatsApp Business",
-     "note": "Before [PATIENT]\u2019s airway consultation, please fill in this short questionnaire. It takes about 5 minutes, and the dentist will read your answers before you come in:\nhttps://forms.ismile.com.my/airway\n\nThe questions are about sleep, daytime tiredness and breathing through the nose over the past month.\n\nChain: Hi [Name], \u2192 /confirm \u2192 /first (new only) \u2192 /airway \u2192 sign-off. Once forms.ismile.com.my/register is live, update the link in /first too."
+     "note": "Before [PATIENT]\u2019s airway consultation, please fill in this short questionnaire. It takes about 5 minutes, and the dentist will read your answers before you come in:\nhttps://forms.ismile.com.my/airway\n\nThe questions are about sleep, daytime tiredness and breathing through the nose over the past month.\n\nChain: Hi [Name], \u2192 /confirm \u2192 /first (new only) \u2192 /airway \u2192 sign-off. ALSO: in /first, change the link to https://forms.ismile.com.my/register (live 5 Oct; the old register link redirects, so no rush)."
     }
    ]
   },
@@ -3316,6 +3321,6 @@
  },
  "meta": {
   "asof": "MON 05 OCT 2026",
-  "updated": "2026-10-05T12:04:44+08:00"
+  "updated": "2026-10-05T12:06:16+08:00"
  }
 }

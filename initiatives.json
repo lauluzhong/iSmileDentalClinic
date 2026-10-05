@@ -1,13 +1,18 @@
 {
- "updated": "2026-10-05T12:04:44+08:00",
+ "updated": "2026-10-05T12:06:16+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Dr Ong": {
    "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
+  "Lau": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
@@ -24,11 +29,6 @@
   },
   "Emily": {
    "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -347,9 +347,10 @@
     "Contabo: bridge /airway + worker (PDF \u2192 Drive \u2192 one WhatsApp to the airway group); test PDF posted",
     "Live at forms.ismile.com.my/airway (DNS + certificate)",
     "Moved to ismile.general (one Sheet \u201ciSmile Patient Forms\u201d + Drive saver); end-to-end test passed: row \u2192 PDF in Drive \u2192 one WhatsApp",
+    "Instant delivery (~8 s); caption = name (age), three scores, who/when; registration form moved to forms.ismile.com.my/register",
     "Drive saver deployed (shared ismile.general script for all forms)",
     "Add Dr Ling to \u201ciSmile Airway Evaluations\u201d; delete test rows + stray tab",
-    "Load /airway on WhatsApp Business at the clinic (text in this card\u2019s note)"
+    "Load /airway + update /first link to forms.ismile.com.my/register on WhatsApp Business (text in this card\u2019s note)"
    ],
    "pillar": "P1"
   },
