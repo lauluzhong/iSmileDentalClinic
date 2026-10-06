@@ -1,9 +1,19 @@
 {
- "updated": "2026-10-06T17:13:33+08:00",
+ "updated": "2026-10-06T17:14:50+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
   "Emily": {
    "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
@@ -17,18 +27,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Lau": {
    "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
-   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -466,21 +466,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "Explore whether iSmile should turn on IPP, with the rationale and operational implications clear before any decision.",
-   "next": "Define the IPP scope and bring the on/off recommendation to Lau for decision.",
-   "dept": "finance",
-   "lens": "revenue",
-   "endMonth": "2026-12",
-   "note": "",
-   "tasks": [],
-   "pillar": "P2"
-  },
-  {
-   "id": "l7",
-   "title": "IPP exploration",
-   "status": "active",
-   "owner": "Lau",
-   "why": "Explore whether to enable instalment payment plans as an alternative to upfront discounts.",
-   "next": "Decide whether IPP should be enabled after the scope and operating rules are clear.",
+   "next": "Define the suitable long-treatment scope and operating rules, then decide whether IPP should be turned on.",
    "dept": "finance",
    "lens": "revenue",
    "endMonth": "2026-12",
@@ -567,9 +553,7 @@
     "Blast-exclusion import bug reported in the Code Capsule group: one retained row per phone, other family members skipped as duplicates, and the retained row may link to the wrong patient",
     "Suraya, Jason and Code Capsule fix the exclusion import and rebuild a reliable Wave 1 audience",
     "Proposed blast window: Mon 12\u2013Wed 14 Oct \u2014 under consideration, not committed",
-    "Waves 1\u20133 \u00b7 funnel read via campaign tags",
-    "Exclusion-import bug: shared phone numbers collapse rows and may link to the wrong patient",
-    "Cold reactivation blast \u2014 proposed Mon 12\u2013Wed 14 Oct window"
+    "Waves 1\u20133 \u00b7 funnel read via campaign tags"
    ],
    "pillar": "P3"
   },

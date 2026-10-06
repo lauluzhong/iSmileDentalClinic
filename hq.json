@@ -1497,27 +1497,6 @@
      "chip": "decision to explore \u00b7 IPP",
      "name": "IPP \u2014 explore whether to turn it on",
      "one": "Explore whether iSmile should turn on IPP, with the rationale and operational implications clear before any decision.",
-     "steps": [],
-     "open": [],
-     "owner": "lu",
-     "dept": "finance",
-     "lens": "revenue",
-     "from_initiatives": [
-      29
-     ],
-     "next": "Define the IPP scope and bring the on/off recommendation to Lau for decision.",
-     "endMonth": "2026-12",
-     "flag": {
-      "k": "decide",
-      "w": "Decide whether IPP should be turned on after the scope and implications are documented."
-     }
-    },
-    {
-     "id": "l7",
-     "dot": "now",
-     "chip": "whether to turn IPP on",
-     "name": "IPP exploration",
-     "one": "Explore whether to enable instalment payment plans as an alternative to upfront discounts.",
      "steps": [
       {
        "t": "Pine Labs rate card + 12-month simulation",
@@ -1546,8 +1525,12 @@
      "from_initiatives": [
       29
      ],
-     "next": "Decide whether IPP should be enabled after the scope and operating rules are clear.",
-     "endMonth": "2026-12"
+     "next": "Define the suitable long-treatment scope and operating rules, then decide whether IPP should be turned on.",
+     "endMonth": "2026-12",
+     "flag": {
+      "k": "decide",
+      "w": "Decide whether IPP should be turned on after the scope and implications are documented."
+     }
     },
     {
      "id": "l5",
@@ -1768,16 +1751,6 @@
       {
        "t": "Waves 1\u20133 \u00b7 funnel read via campaign tags",
        "s": ""
-      },
-      {
-       "t": "Exclusion-import bug: shared phone numbers collapse rows and may link to the wrong patient",
-       "s": "now",
-       "w": "reported 6 Oct \u00b7 awaiting Suraya / Jason / Code Capsule"
-      },
-      {
-       "t": "Cold reactivation blast \u2014 proposed Mon 12\u2013Wed 14 Oct window",
-       "s": "",
-       "w": "provisional; only after audience fix"
       }
      ],
      "open": [
@@ -1792,10 +1765,7 @@
       "<b>Daily cap: the system allows 2,000/day; we set ours at 1,800</b> to leave headroom for the other automations sharing the number (recall, birthday). At 1,800 the 4,011 sends clear in three days.",
       "PDPA check with Lydia",
       "250 sends/day cap shapes the wave calendar",
-      "From the initiatives board: Birthday trigger de-prioritised by the owner. The review ask moves a lever that already feeds the website automatically.",
-      "<b>Blocker reported 6 Oct:</b> exclusion import keeps one row per phone number, skips other family members as duplicates, and can link the retained row to the wrong patient. Wave 1 audience is not reliable until fixed.",
-      "Lau checked OpenDent for the latest appointments (done 6 Oct).",
-      "Blast timing is under consideration for Mon 12\u2013Wed 14 Oct; not committed until the import fix and audience rebuild are proven."
+      "From the initiatives board: Birthday trigger de-prioritised by the owner. The review ask moves a lever that already feeds the website automatically."
      ],
      "flag": {
       "k": "blocked",
@@ -3231,9 +3201,9 @@
      {
       "label": "OpenDent check for latest appointments",
       "start": "2026-10-06",
-      "status": "now",
+      "status": "done",
       "who": "Lau",
-      "note": "Original week is no longer reliable because the exclusion import is faulty; proposed 12\u201314 Oct is not committed."
+      "note": "Lau checked the latest appointments before the blast."
      },
      {
       "label": "Audience import attempted; exclusion bug reported",
@@ -3256,14 +3226,6 @@
       "status": "next",
       "who": "MiniCRM (after verification)",
       "note": "Proposed by Lau, not committed. Depends on a fixed import and a verified Wave 1 audience."
-     },
-     {
-      "label": "Cold reactivation blast \u2014 proposed 12\u201314 Oct window",
-      "start": "2026-10-12",
-      "end": "2026-10-14",
-      "status": "next",
-      "who": "Lau",
-      "note": "Provisional pending exclusion-import fix and reliable Wave 1 audience."
      }
     ]
    },
@@ -3273,7 +3235,6 @@
     "color": "p2",
     "streams": [
      "l1",
-     "l7",
      "l4-discounts",
      "l4-ipp"
     ],
@@ -3410,6 +3371,6 @@
  },
  "meta": {
   "asof": "TUE 06 OCT 2026",
-  "updated": "2026-10-06T17:13:33+08:00"
+  "updated": "2026-10-06T17:14:50+08:00"
  }
 }
