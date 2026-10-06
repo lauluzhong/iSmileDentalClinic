@@ -1,18 +1,8 @@
 {
- "updated": "2026-10-06T08:34:08+08:00",
+ "updated": "2026-10-06T17:13:33+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
+  "Emily": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
@@ -22,13 +12,23 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
-   "init": "E",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
   "Lydia": {
    "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -438,21 +438,18 @@
    "pillar": "P2"
   },
   {
-   "id": "l4",
-   "title": "Discounts & IPP",
+   "id": "l4-discounts",
+   "title": "Discounts \u2014 contract deployment",
    "status": "active",
    "owner": "Lau",
-   "why": "Floor price + mandatory discount lines, 100% doctor-borne. IPP as the alternative to upfront discounts \u2014 doctor bears MDR above the 0.85% BAU.",
-   "next": "Rules live 1 Oct. Dr Ong entered 50 minimum fees 27\u201329 Sep; Emily is going through the 47 used codes still without one (incl. RM0 by-report codes and D8040 at RM250) and confirming each with Dr Ong.",
+   "why": "Deploy the contract rules so each discount can be calculated consistently as doctor-owned where applicable.",
+   "next": "Complete the contract deployment and confirm the discount calculation works on the used OpenDent codes.",
    "dept": "finance",
    "lens": "cost",
    "endMonth": "2026-12",
    "note": "",
    "tasks": [
     "20-yr discount forensics (all clean cases = Dr Ling, ~10%)",
-    "Pine Labs rate card + 12-month simulation",
-    "Scenario A chosen: doctor bears MDR \u2014 self-policing",
-    "Approved 2 Sep at a 15% gate; carried into the agreements sent 25 Sep",
     "LZ ruling: a discount is deducted from the doctor only up to the shortfall below the minimum fee \u2014 deductible = max(0, minimum fee \u2212 net collected)",
     "Minimum fees: each doctor texts Dr Ong their minimums; Dr Ong updates them personally",
     "Doctor briefing: discount lines, never touch production price",
@@ -460,6 +457,39 @@
     "Emily goes through every OpenDent code we actually use: which minimum fees changed, and which used codes still have none \u2014 Locum Calculation session to produce the list from OpenDent",
     "Rulings 29 Sep: discounts above 15% are asked of Emily first (the locum sheet will flag any not asked); family = parents, spouse, children (Dr Amy's addendum adds her sister, brother-in-law and their kids); new walk-ins, especially international patients, are told upfront about the RM100 minimum consult",
     "Action list sent to Emily (Lau, WhatsApp): fill the Fees to check tab (47 codes, incl. RM0 by-report codes and D8040 at RM250), then confirm with Dr Ong"
+   ],
+   "pillar": "P2"
+  },
+  {
+   "id": "l4-ipp",
+   "title": "IPP \u2014 explore whether to turn it on",
+   "status": "active",
+   "owner": "Lau",
+   "why": "Explore whether iSmile should turn on IPP, with the rationale and operational implications clear before any decision.",
+   "next": "Define the IPP scope and bring the on/off recommendation to Lau for decision.",
+   "dept": "finance",
+   "lens": "revenue",
+   "endMonth": "2026-12",
+   "note": "",
+   "tasks": [],
+   "pillar": "P2"
+  },
+  {
+   "id": "l7",
+   "title": "IPP exploration",
+   "status": "active",
+   "owner": "Lau",
+   "why": "Explore whether to enable instalment payment plans as an alternative to upfront discounts.",
+   "next": "Decide whether IPP should be enabled after the scope and operating rules are clear.",
+   "dept": "finance",
+   "lens": "revenue",
+   "endMonth": "2026-12",
+   "note": "",
+   "tasks": [
+    "Pine Labs rate card + 12-month simulation",
+    "Scenario A chosen: doctor bears MDR \u2014 self-policing",
+    "Define the suitable long-treatment scope and operating rules",
+    "Decide whether to turn IPP on"
    ],
    "pillar": "P2"
   },
@@ -509,8 +539,8 @@
    "title": "Cold reactivation blast",
    "status": "review",
    "owner": "Lau",
-   "why": "The clearest Q4 lever: 4,201 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
-   "next": "Prep lands by Fri 2 Oct (front-desk pass, Emily confirms register rows, upload test, final rebuild); Lau checks OpenDent 2 or 3 Oct; send W1 Tue 6 \u00b7 W2 Wed 7 \u00b7 W3 Thu 8\u2013Fri 9 Oct.",
+   "why": "Wave 1 cannot launch reliably until Code Capsule fixes the family/shared-phone exclusion import and the audience is rebuilt.",
+   "next": "Suraya/Jason/Code Capsule to fix the exclusion import and rebuild a reliable Wave 1 audience; Lau to choose the final blast window.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-10",
@@ -530,16 +560,16 @@
     "MiniCRM issue fixed by Suraya; recall resend logic changed, tested and applied to exclude candidates with a new last visit",
     "Recall batch for the preceding 6\u20137 days sent",
     "Emily checks the girls' availability for Sat 3 Oct FOH training at the 09:00 huddle",
-    "Confirm excluded list for discounted individuals (immediate family, full-time staff, pastors, etc.)",
-    "Emily \u2014 confirm the 45 \"to confirm\" + 2 \"check\" rows in the Clinic-Covered Persons Register (only she knows who they are). The register drives BOTH the blast exclusions and the locum calculation.",
-    "Confirm the family/shared-number recipient list with front desk",
-    "Configure the MiniCRM/CRM campaign after verification",
     "FOH training deck work",
-    "Lau checks OpenDent for planned recipients who already made an appointment; remove or handle appropriately",
-    "Campaign window confirmed \u2014 W1 Tue 6 \u00b7 W2 Wed 7 \u00b7 W3 Thu 8\u2013Fri 9 Oct",
     "Lau confirms the FOH training deck",
-    "Waves 2\u20133 \u00b7 funnel read via campaign tags",
-    "Blast is ~4,000 patients, ~RM1,500\u20132,000; goal is appointments landing in FY2026 income. If prep slips, delay one week rather than cut corners"
+    "Blast is ~4,000 patients, ~RM1,500\u20132,000; goal is appointments landing in FY2026 income. If prep slips, delay one week rather than cut corners",
+    "Lau checked OpenDent for the latest appointments before the blast",
+    "Blast-exclusion import bug reported in the Code Capsule group: one retained row per phone, other family members skipped as duplicates, and the retained row may link to the wrong patient",
+    "Suraya, Jason and Code Capsule fix the exclusion import and rebuild a reliable Wave 1 audience",
+    "Proposed blast window: Mon 12\u2013Wed 14 Oct \u2014 under consideration, not committed",
+    "Waves 1\u20133 \u00b7 funnel read via campaign tags",
+    "Exclusion-import bug: shared phone numbers collapse rows and may link to the wrong patient",
+    "Cold reactivation blast \u2014 proposed Mon 12\u2013Wed 14 Oct window"
    ],
    "pillar": "P3"
   },
@@ -588,8 +618,8 @@
    "title": "Dr Jia Yin (new doctor)",
    "status": "active",
    "owner": "Lau",
-   "why": "She tendered on a handshake for a 27 Oct start. Her contract was sent on 6 Sep and signed and returned on 9 Sep; what is left is the two conversations that follow.",
-   "next": "Have the Dr Ong practitioner chat and the Dr Ling chemistry/arrangement talk before announcing to Amy, Mah and the rest.",
+   "why": "Her contract was signed and returned on 9 Sep. Dr Ong / Jean met Dr Jia Yin on 6 Oct; the remaining conversation is the Dr Ling chemistry and arrangement talk before the wider announcement.",
+   "next": "Complete the Dr Ling chemistry/arrangement talk, then handle the remaining internal conversations before announcing.",
    "dept": "clinical",
    "lens": "revenue",
    "endMonth": "2026-12",
@@ -603,7 +633,7 @@
     "Ask Dr Jia Yin for personal information for Schedule 1",
     "Contract sent to Dr Jia Yin (offer letter = her Schedule 1)",
     "Contract signed and returned",
-    "Dr Jia Yin \u2194 Dr Ong practitioner chat",
+    "Dr Ong / Jean meets Dr Jia Yin \u2014 held",
     "Dr Jia Yin \u2194 Dr Ling chemistry + arrangement talk",
     "Amy + Mah, then the rest, then announce",
     "First day \u00b7 book steered to NEW demand"
@@ -902,6 +932,24 @@
     "Training day Sat 3 Oct from 3:30 PM, downstairs after the last patient; dinner nearby afterwards (tell the girls it's training + dinner). Lau sends Emily the deck outline Wed 30 Sep; Emily texts anything to add. No DSA content \u2014 too much at once",
     "Rulings for the deck: always 'patient', never 'client' (Dr Ling asked Joanna to say client \u2014 Lau to square it with her); answer price questions with confidence ('these are our fees'), not 'let me check with the doctor'; keep supplier brochures off the front desk (doctors hand them to their own target patients)",
     "Target: shorten new-hire ramp-up (Joanna took ~1 year) by writing things down"
+   ],
+   "pillar": "F1"
+  },
+  {
+   "id": "h6",
+   "title": "Hiring \u00b7 Front of House & Marketing",
+   "status": "active",
+   "owner": "Lau",
+   "why": "Build the candidate pipeline for the next Front of House and Marketing hires.",
+   "next": "Lau starts outreach for Front of House and Marketing CVs, then builds the interview shortlist.",
+   "dept": "people",
+   "lens": "growth",
+   "endMonth": "2026-11",
+   "note": "",
+   "tasks": [
+    "Emily greenlit the latest Front Desk job description",
+    "Lau begins outreach for candidate CVs",
+    "Review incoming CVs and set the interview shortlist"
    ],
    "pillar": "F1"
   },

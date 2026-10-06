@@ -156,13 +156,6 @@
    "tip": "One week after the walkthrough."
   },
   {
-   "d": "2\u20133 Oct",
-   "l": "OpenDent recipient appointment check",
-   "s": "",
-   "iso": "2026-10-02",
-   "tip": "Before the planned 6\u20139 October campaign window, Lau checks OpenDent on Friday 2 or Saturday 3 October for planned recipients who already made an appointment, so they can be removed or handled appropriately."
-  },
-  {
    "d": "3 Oct",
    "l": "FOH training + dinner \u2014 held",
    "s": "done",
@@ -170,18 +163,18 @@
    "tip": "Set at the 25 Sep run-through: Sat 3 Oct after the 3:30 PM close, dinner after. Leow not attending (weekend) \u2014 Lau and Emily teach. Emily and Joanna are the on-ground contacts afterwards. Deck to be confirmed by Wed 30 Sep. Compulsory: Joanna, Erincy, Jessy, Ida, Elaine."
   },
   {
-   "d": "2\u20135 Oct",
-   "l": "MiniCRM campaign configured",
-   "s": "",
-   "iso": "2026-10-05",
-   "tip": "After Lau confirms the exclusion and family-number lists (due Fri 2 Oct), the three waves are set up in MiniCRM before the 6\u20139 Oct window."
+   "d": "6 Oct",
+   "l": "OpenDent recipient appointment check \u2014 done",
+   "s": "done",
+   "iso": "2026-10-06",
+   "tip": "Lau checked OpenDent for the latest appointments before the cold reactivation blast."
   },
   {
-   "d": "6\u20139 Oct",
-   "l": "Cold reactivation blast \u2014 planned 6\u20139 Oct",
-   "s": "",
+   "d": "6 Oct",
+   "l": "Blast audience import bug reported",
+   "s": "done",
    "iso": "2026-10-06",
-   "tip": "Set by Lau 28 Sep (probable): Wave 1 Tue 6 Oct, Wave 2 Wed 7 Oct, Wave 3 Thu 8 \u2013 Fri 9 Oct (over the 1,800/day cap, so two days). All prep lands by Fri 2 Oct: front-desk pass, Emily confirms the register rows, upload test, final rebuild, Lau OpenDent appointment check."
+   "tip": "Reported in the Code Capsule group: the exclusion import keeps only one row per phone number, skips other family members as duplicates and may link the retained row to the wrong patient. The resulting Wave 1 audience is not reliable."
   },
   {
    "d": "7 Oct",
@@ -189,6 +182,13 @@
    "s": "",
    "iso": "2026-10-07",
    "tip": "Moved to Wed 7 Oct by Lau on 5 Oct (was Tue 6 Oct; first moved from 5 Oct at the 25 Sep run-through). Paper receipts retired; invoices 1\u20136 Oct approved by hand. Lau and Emily on standby that week. The OpenDent \u2192 AutoCount link has been on since 1 Oct (Jason, 2 Oct)."
+  },
+  {
+   "d": "12\u201314 Oct",
+   "l": "Cold reactivation blast \u2014 proposed window",
+   "s": "",
+   "iso": "2026-10-12",
+   "tip": "Lau is considering moving the blast to Monday 12 through Wednesday 14 October. This is proposed, not committed, and depends on Suraya, Jason and Code Capsule fixing the exclusion import and rebuilding a reliable Wave 1 audience."
   },
   {
    "d": "mid-Oct",
@@ -1428,29 +1428,15 @@
      "endMonth": "2026-12"
     },
     {
-     "id": "l4",
+     "id": "l4-discounts",
      "dot": "now",
-     "chip": "rules live 1 Oct \u00b7 47 fees to check",
-     "name": "Discounts & IPP",
-     "one": "Floor price + mandatory discount lines, 100% doctor-borne. IPP as the alternative to upfront discounts \u2014 doctor bears MDR above the 0.85% BAU.",
+     "chip": "contract deployment \u00b7 doctor-owned discounts",
+     "name": "Discounts \u2014 contract deployment",
+     "one": "Deploy the contract rules so each discount can be calculated consistently as doctor-owned where applicable.",
      "steps": [
       {
        "t": "20-yr discount forensics (all clean cases = Dr Ling, ~10%)",
        "s": "done"
-      },
-      {
-       "t": "Pine Labs rate card + 12-month simulation",
-       "s": "done",
-       "w": "20 Aug"
-      },
-      {
-       "t": "Scenario A chosen: doctor bears MDR \u2014 self-policing",
-       "s": "done"
-      },
-      {
-       "t": "Approved 2 Sep at a 15% gate; carried into the agreements sent 25 Sep",
-       "s": "done",
-       "w": "2 Sep"
       },
       {
        "t": "LZ ruling: a discount is deducted from the doctor only up to the shortfall below the minimum fee \u2014 deductible = max(0, minimum fee \u2212 net collected)",
@@ -1489,9 +1475,7 @@
      ],
      "open": [
       "Family benefit stays verbal for contractors (handbook only): free treatment for immediate family, invoiced costs (crowns/implants/aligners) borne by doctor or member",
-      "Lau to consider Dr Azelia's family-treatment question: implications of clinic-borne cost versus doctor-borne locum deduction, and one consistent rule across the practice",
-      "Scope IPP as \u226512-month treatment courses >RM10k \u2014 justification, not money",
-      "Sim says doctor +RM22.6k / clinic \u2212RM2.3k on scenario A \u2014 everybody earns more than discounting"
+      "Lau to consider Dr Azelia's family-treatment question: implications of clinic-borne cost versus doctor-borne locum deduction, and one consistent rule across the practice"
      ],
      "owner": "lu",
      "dept": "finance",
@@ -1499,14 +1483,71 @@
      "from_initiatives": [
       29
      ],
-     "next": "Rules live 1 Oct. Dr Ong entered 50 minimum fees 27\u201329 Sep; Emily is going through the 47 used codes still without one (incl. RM0 by-report codes and D8040 at RM250) and confirming each with Dr Ong.",
+     "next": "Complete the contract deployment and confirm the discount calculation works on the used OpenDent codes.",
      "endMonth": "2026-12",
      "flag": {
       "k": "due",
-      "by": "2026-10-02",
       "who": "Emily",
-      "w": "Emily fills the Fees to check tab (47 codes) and confirms each with Dr Ong."
+      "w": "Finish deploying the discount rules and confirm the calculation against the used OpenDent codes."
      }
+    },
+    {
+     "id": "l4-ipp",
+     "dot": "now",
+     "chip": "decision to explore \u00b7 IPP",
+     "name": "IPP \u2014 explore whether to turn it on",
+     "one": "Explore whether iSmile should turn on IPP, with the rationale and operational implications clear before any decision.",
+     "steps": [],
+     "open": [],
+     "owner": "lu",
+     "dept": "finance",
+     "lens": "revenue",
+     "from_initiatives": [
+      29
+     ],
+     "next": "Define the IPP scope and bring the on/off recommendation to Lau for decision.",
+     "endMonth": "2026-12",
+     "flag": {
+      "k": "decide",
+      "w": "Decide whether IPP should be turned on after the scope and implications are documented."
+     }
+    },
+    {
+     "id": "l7",
+     "dot": "now",
+     "chip": "whether to turn IPP on",
+     "name": "IPP exploration",
+     "one": "Explore whether to enable instalment payment plans as an alternative to upfront discounts.",
+     "steps": [
+      {
+       "t": "Pine Labs rate card + 12-month simulation",
+       "s": "done",
+       "w": "20 Aug"
+      },
+      {
+       "t": "Scenario A chosen: doctor bears MDR \u2014 self-policing",
+       "s": "done"
+      },
+      {
+       "t": "Define the suitable long-treatment scope and operating rules",
+       "s": "now"
+      },
+      {
+       "t": "Decide whether to turn IPP on",
+       "s": "next"
+      }
+     ],
+     "open": [
+      "Scope IPP for long treatment courses \u2014 justification, not money."
+     ],
+     "owner": "lu",
+     "dept": "finance",
+     "lens": "revenue",
+     "from_initiatives": [
+      29
+     ],
+     "next": "Decide whether IPP should be enabled after the scope and operating rules are clear.",
+     "endMonth": "2026-12"
     },
     {
      "id": "l5",
@@ -1615,9 +1656,9 @@
     {
      "id": "g1",
      "dot": "wait",
-     "chip": "confirmed 6\u20139 Oct \u00b7 list due 2 Oct",
+     "chip": "blocked on exclusion-import fix \u00b7 proposed blast 12\u201314 Oct",
      "name": "Cold reactivation blast",
-     "one": "The clearest Q4 lever: 4,201 sends in 3 warm-first waves, built and owner-approved \u2014 bring patients back before year end.",
+     "one": "Wave 1 cannot launch reliably until Code Capsule fixes the family/shared-phone exclusion import and the audience is rebuilt.",
      "steps": [
       {
        "t": "Send list + exclusions built (9,833 excluded w/ reasons)",
@@ -1690,39 +1731,9 @@
        "w": "held Sat 3 Oct \u00b7 all good (Lau)"
       },
       {
-       "t": "Confirm excluded list for discounted individuals (immediate family, full-time staff, pastors, etc.)",
-       "s": "now",
-       "w": "Lau \u00b7 by Fri 2 Oct"
-      },
-      {
-       "t": "Emily \u2014 confirm the 45 \"to confirm\" + 2 \"check\" rows in the Clinic-Covered Persons Register (only she knows who they are). The register drives BOTH the blast exclusions and the locum calculation.",
-       "s": "now",
-       "w": "before the 6\u20139 Oct campaign window"
-      },
-      {
-       "t": "Confirm the family/shared-number recipient list with front desk",
-       "s": "now",
-       "w": "Lau \u00b7 by Fri 2 Oct"
-      },
-      {
-       "t": "Configure the MiniCRM/CRM campaign after verification",
-       "s": "next",
-       "w": "2\u20135 Oct \u00b7 after Lau's lists"
-      },
-      {
        "t": "FOH training deck work",
        "s": "done",
        "w": "Mon 28 Sep\u2013Wed 30 Sep"
-      },
-      {
-       "t": "Lau checks OpenDent for planned recipients who already made an appointment; remove or handle appropriately",
-       "s": "next",
-       "w": "Fri 2 or Sat 3 Oct"
-      },
-      {
-       "t": "Campaign window confirmed \u2014 W1 Tue 6 \u00b7 W2 Wed 7 \u00b7 W3 Thu 8\u2013Fri 9 Oct",
-       "s": "next",
-       "w": "6\u20139 Oct"
       },
       {
        "t": "Lau confirms the FOH training deck",
@@ -1730,35 +1741,66 @@
        "w": "Wed 30 Sep"
       },
       {
-       "t": "Waves 2\u20133 \u00b7 funnel read via campaign tags",
-       "s": ""
-      },
-      {
        "t": "Blast is ~4,000 patients, ~RM1,500\u20132,000; goal is appointments landing in FY2026 income. If prep slips, delay one week rather than cut corners",
        "s": "done",
        "w": "Emily mtg 29 Sep"
+      },
+      {
+       "t": "Lau checked OpenDent for the latest appointments before the blast",
+       "s": "done",
+       "w": "6 Oct"
+      },
+      {
+       "t": "Blast-exclusion import bug reported in the Code Capsule group: one retained row per phone, other family members skipped as duplicates, and the retained row may link to the wrong patient",
+       "s": "done",
+       "w": "6 Oct"
+      },
+      {
+       "t": "Suraya, Jason and Code Capsule fix the exclusion import and rebuild a reliable Wave 1 audience",
+       "s": "now",
+       "w": "waiting on Code Capsule"
+      },
+      {
+       "t": "Proposed blast window: Mon 12\u2013Wed 14 Oct \u2014 under consideration, not committed",
+       "s": "next",
+       "w": "depends on a reliable rebuilt audience"
+      },
+      {
+       "t": "Waves 1\u20133 \u00b7 funnel read via campaign tags",
+       "s": ""
+      },
+      {
+       "t": "Exclusion-import bug: shared phone numbers collapse rows and may link to the wrong patient",
+       "s": "now",
+       "w": "reported 6 Oct \u00b7 awaiting Suraya / Jason / Code Capsule"
+      },
+      {
+       "t": "Cold reactivation blast \u2014 proposed Mon 12\u2013Wed 14 Oct window",
+       "s": "",
+       "w": "provisional; only after audience fix"
       }
      ],
      "open": [
+      "<b>Current blocker reported 6 Oct:</b> the blast-exclusion import keeps only one row per phone number, skips other family members as duplicates, and may link the retained row to the wrong patient. Wave 1 is unreliable until Code Capsule fixes the import.",
+      "<b>Import result:</b> 16,521 uploaded; 13,339 added; 3,182 skipped. Wave 1 was expected to be about 843 people, but the audience shows more than 5,000.",
+      "<b>Waiting on:</b> Suraya, Jason and Code Capsule to fix the import and rebuild a reliable audience.",
+      "<b>Timing under consideration:</b> Lau suspects the blast should move to Mon 12\u2013Wed 14 Oct 2026. This is proposed, not committed.",
       "<b>Price confirmed from Code Capsule's cost deck (21 Sep):</b> a marketing message is 860 points plus a 50-point platform fee = RM0.4095, or RM0.442 with SST. 4,201 messages = about RM1,858, paid by the clinic. RM0.387 is the WhatsApp charge alone, not the full price.",
       "<b>MiniCRM campaign deleted/paused (22 Sep):</b> setup complexity requires staff verification before the campaign is rebuilt in the UI.",
       "<b>Recall operations restored 22 Sep:</b> Suraya fixed the MiniCRM issue. Resends now exclude candidates with a newer last visit, and the batch for the preceding 6\u20137 days was sent that morning. A prior blast failed for insufficient balance; the balance was topped up.",
-      "<b>Due Wed 23 Sep:</b> confirm the excluded list and the family/shared-number recipient list; Emily checks the girls' Sat 3 Oct FOH availability at the 09:00 huddle.",
-      "<b>Due EOD Fri 25 Sep:</b> configure the MiniCRM/CRM campaign after the staff checks.",
-      "<b>Before the tentative window:</b> Lau checks OpenDent on Fri 2 or Sat 3 Oct for planned recipients who already made an appointment, so they can be removed or handled appropriately.",
-      "<b>Planned:</b> 6\u20139 Oct 2026 (Lau, 28 Sep \u2014 probable), same week as AutoCount go-live; all prep by Fri 2 Oct.",
-      "<b>FOH training deck:</b> work runs Mon 28\u2013Wed 30 Sep; Lau confirms it by Wed 30 Sep for the tentative Sat 3 Oct training.",
       "<b>UI terminology changed by Code Capsule 7 Sep:</b> the flow is now Audience Filters \u2192 Audience List \u2192 Recipients. \"Selected Patients\" is renamed \"Recipients\"; \"Audience\" is the filtered pool, \"Recipients\" the patients actually selected to receive the campaign.",
       "<b>Daily cap: the system allows 2,000/day; we set ours at 1,800</b> to leave headroom for the other automations sharing the number (recall, birthday). At 1,800 the 4,011 sends clear in three days.",
       "PDPA check with Lydia",
       "250 sends/day cap shapes the wave calendar",
-      "From the initiatives board: Birthday trigger de-prioritised by the owner. The review ask moves a lever that already feeds the website automatically."
+      "From the initiatives board: Birthday trigger de-prioritised by the owner. The review ask moves a lever that already feeds the website automatically.",
+      "<b>Blocker reported 6 Oct:</b> exclusion import keeps one row per phone number, skips other family members as duplicates, and can link the retained row to the wrong patient. Wave 1 audience is not reliable until fixed.",
+      "Lau checked OpenDent for the latest appointments (done 6 Oct).",
+      "Blast timing is under consideration for Mon 12\u2013Wed 14 Oct; not committed until the import fix and audience rebuild are proven."
      ],
      "flag": {
-      "k": "due",
-      "by": "2026-10-02",
-      "who": "Lau",
-      "w": "Lau confirms the exclusion list and family-number recipients by Fri 2 Oct."
+      "k": "blocked",
+      "who": "Suraya / Jason / Code Capsule",
+      "w": "Fix the exclusion import so shared family phone numbers retain the correct patient rows before the blast is scheduled."
      },
      "owner": "lu",
      "dept": "crm",
@@ -1766,7 +1808,7 @@
      "from_initiatives": [
       28
      ],
-     "next": "Prep lands by Fri 2 Oct (front-desk pass, Emily confirms register rows, upload test, final rebuild); Lau checks OpenDent 2 or 3 Oct; send W1 Tue 6 \u00b7 W2 Wed 7 \u00b7 W3 Thu 8\u2013Fri 9 Oct.",
+     "next": "Suraya/Jason/Code Capsule to fix the exclusion import and rebuild a reliable Wave 1 audience; Lau to choose the final blast window.",
      "endMonth": "2026-10"
     },
     {
@@ -1862,7 +1904,7 @@
      "dot": "now",
      "chip": "signed \u00b7 starts Tue 27 Oct",
      "name": "Dr Jia Yin (new doctor)",
-     "one": "She tendered on a handshake for a 27 Oct start. Her contract was sent on 6 Sep and signed and returned on 9 Sep; what is left is the two conversations that follow.",
+     "one": "Her contract was signed and returned on 9 Sep. Dr Ong / Jean met Dr Jia Yin on 6 Oct; the remaining conversation is the Dr Ling chemistry and arrangement talk before the wider announcement.",
      "steps": [
       {
        "t": "Terms agreed: RM7k/6mo or 40%, whichever higher",
@@ -1905,8 +1947,9 @@
        "w": "9 Sep"
       },
       {
-       "t": "Dr Jia Yin \u2194 Dr Ong practitioner chat",
-       "s": ""
+       "t": "Dr Ong / Jean meets Dr Jia Yin \u2014 held",
+       "s": "done",
+       "w": "6 Oct"
       },
       {
        "t": "Dr Jia Yin \u2194 Dr Ling chemistry + arrangement talk",
@@ -1923,7 +1966,6 @@
       }
      ],
      "open": [
-      "<b>Contract sent to Dr Jia Yin on 6 Sep.</b> Waiting on her signature.",
       "Close in the letter: 55k\u219250% tier (leaning: keep, consistency), Oct pro-rating (27 Oct start = part month)",
       "Ling arrangement: apprentice override vs independent \u2014 fair remuneration expected; design as clinic-paid supervision fee, not fee-splitting",
       "<b>She builds her own book</b> \u2014 the RM7k floor is the ramp support; blast + call-list patients route to her",
@@ -1935,7 +1977,7 @@
      "from_initiatives": [
       27
      ],
-     "next": "Have the Dr Ong practitioner chat and the Dr Ling chemistry/arrangement talk before announcing to Amy, Mah and the rest.",
+     "next": "Complete the Dr Ling chemistry/arrangement talk, then handle the remaining internal conversations before announcing.",
      "endMonth": "2026-12"
     },
     {
@@ -2633,6 +2675,37 @@
       "by": "2026-10-07",
       "w": "FOH training held Sat 3 Oct \u2014 all good. Next: go-live Wed 7 Oct."
      }
+    },
+    {
+     "id": "h6",
+     "dot": "now",
+     "chip": "outreach starting",
+     "name": "Hiring \u00b7 Front of House & Marketing",
+     "one": "Build the candidate pipeline for the next Front of House and Marketing hires.",
+     "steps": [
+      {
+       "t": "Emily greenlit the latest Front Desk job description",
+       "s": "done",
+       "w": "6 Oct"
+      },
+      {
+       "t": "Lau begins outreach for candidate CVs",
+       "s": "now",
+       "w": "from 6 Oct"
+      },
+      {
+       "t": "Review incoming CVs and set the interview shortlist",
+       "s": "next"
+      }
+     ],
+     "open": [
+      "Keep Front of House and Marketing candidate pipelines distinct as outreach begins."
+     ],
+     "owner": "lu",
+     "dept": "people",
+     "lens": "growth",
+     "next": "Lau starts outreach for Front of House and Marketing CVs, then builds the interview shortlist.",
+     "endMonth": "2026-11"
     }
    ]
   },
@@ -3136,24 +3209,16 @@
     "streams": [
      "g1"
     ],
-    "owner": "Lau \u00b7 Code Capsule",
-    "summary": "Cold reactivation blast planned 6\u20139 Oct (Lau, 28 Sep): one wave a day, W3 over two days; prep by Fri 2 Oct incl. the OpenDent appointment check.",
+    "owner": "Lau \u00b7 Suraya \u00b7 Jason \u00b7 Code Capsule",
+    "summary": "The 6 Oct exclusion import produced an unreliable Wave 1 audience. Waiting on Code Capsule to fix family/shared-phone handling; Mon 12\u2013Wed 14 Oct is proposed, not committed.",
     "items": [
      {
-      "label": "FOH availability checked; exclusion + family-number lists \u2192 Lau by Fri 2 Oct",
+      "label": "FOH availability and exclusion-list preparation",
       "start": "2026-09-23",
       "status": "done",
       "who": "Emily \u00b7 Lau \u00b7 Front desk",
       "time": "09:00 huddle",
-      "note": "Emily checks the girls' availability for tentative Sat 3 Oct FOH training; excluded list and family/shared-number recipient list are due for confirmation Wed 23 Sep."
-     },
-     {
-      "label": "MiniCRM/CRM campaign configured",
-      "start": "2026-10-02",
-      "end": "2026-10-05",
-      "status": "now",
-      "who": "Lau \u00b7 Front desk",
-      "note": "Configure by end of day Fri 25 Sep after the exclusion and shared-number recipient checks."
+      "note": "Preparation completed before the audience import."
      },
      {
       "label": "FOH training deck work",
@@ -3161,30 +3226,44 @@
       "end": "2026-09-30",
       "status": "done",
       "who": "Lau \u00b7 Emily",
-      "note": "Deck work runs Mon 28\u2013Wed 30 Sep; Lau confirms the deck by Wed 30 Sep for the tentative Sat 3 Oct training."
+      "note": "Deck completed before the 3 Oct training."
      },
      {
-      "label": "OpenDent check for planned recipients with appointments",
-      "start": "2026-10-02",
-      "end": "2026-10-03",
-      "status": "next",
+      "label": "OpenDent check for latest appointments",
+      "start": "2026-10-06",
+      "status": "now",
       "who": "Lau",
-      "note": "Before the tentative campaign window, remove or handle planned recipients who already made an appointment."
+      "note": "Original week is no longer reliable because the exclusion import is faulty; proposed 12\u201314 Oct is not committed."
      },
      {
-      "label": "MiniCRM campaign deleted/paused pending staff verification",
-      "start": "2026-09-22",
+      "label": "Audience import attempted; exclusion bug reported",
+      "start": "2026-10-06",
       "status": "done",
       "who": "Lau \u00b7 Front desk",
-      "note": "Setup complexity requires verification of discounted-individual exclusions and the correct recipient for shared-number families."
+      "note": "16,521 uploaded; 13,339 added; 3,182 skipped. Expected Wave 1 was about 843, but the audience showed more than 5,000."
      },
      {
-      "label": "Blast window \u2014 6\u20139 Oct",
+      "label": "Fix family/shared-phone exclusion import and rebuild Wave 1",
       "start": "2026-10-06",
-      "end": "2026-10-09",
+      "status": "now",
+      "who": "Suraya \u00b7 Jason \u00b7 Code Capsule",
+      "note": "Current import keeps one row per phone, skips other family members as duplicates and may link the retained row to the wrong patient."
+     },
+     {
+      "label": "Proposed blast window \u2014 under consideration",
+      "start": "2026-10-12",
+      "end": "2026-10-14",
       "status": "next",
       "who": "MiniCRM (after verification)",
-      "note": "Tentative/planned only. Pending the 23 Sep list checks, configuration by EOD 25 Sep, and Lau's OpenDent check on 2 or 3 Oct; no blast date is confirmed."
+      "note": "Proposed by Lau, not committed. Depends on a fixed import and a verified Wave 1 audience."
+     },
+     {
+      "label": "Cold reactivation blast \u2014 proposed 12\u201314 Oct window",
+      "start": "2026-10-12",
+      "end": "2026-10-14",
+      "status": "next",
+      "who": "Lau",
+      "note": "Provisional pending exclusion-import fix and reliable Wave 1 audience."
      }
     ]
    },
@@ -3194,7 +3273,9 @@
     "color": "p2",
     "streams": [
      "l1",
-     "l4"
+     "l7",
+     "l4-discounts",
+     "l4-ipp"
     ],
     "owner": "Lau",
     "summary": "Updated agreements sent to five non-specialists; one signed copy back and four outstanding.",
@@ -3311,6 +3392,12 @@
       "who": "Lau"
      },
      {
+      "label": "Dr Ong / Jean meeting with Dr Jia Yin",
+      "start": "2026-10-06",
+      "status": "done",
+      "who": "Dr Ong / Jean \u00b7 Dr Jia Yin"
+     },
+     {
       "label": "First day (5 days a week)",
       "start": "2026-10-27",
       "status": "next",
@@ -3323,6 +3410,6 @@
  },
  "meta": {
   "asof": "TUE 06 OCT 2026",
-  "updated": "2026-10-06T08:34:08+08:00"
+  "updated": "2026-10-06T17:13:33+08:00"
  }
 }
