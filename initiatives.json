@@ -1,9 +1,14 @@
 {
- "updated": "2026-10-06T17:39:23+08:00",
+ "updated": "2026-10-06T17:41:21+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Emily": {
-   "init": "E",
+  "Code Capsule": {
+   "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -12,13 +17,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Code Capsule": {
-   "init": "CC",
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +27,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -892,7 +892,7 @@
    "title": "Front-of-house SOP, training & bench",
    "status": "active",
    "owner": "Emily",
-   "why": "The clinic has no SOP for issuing letters to patients \u2014 medical certificates, referral letters, insurance reports, quotations. Nobody had ever said whose job it was, and that gap caused real friction between a doctor and",
+   "why": "The remaining achievable FOH gap is putting the patient-letters SOP into force: Google Docs masters, Joanna's walkthrough, and a clear filing location.",
    "next": "Lau reviews deck v2 and shares it with Emily Wed 30 Sep; tell the girls it is training + dinner; load the v2 shortcuts on the clinic phone before Sat 3 Oct.",
    "dept": "people",
    "lens": "efficiency",
@@ -900,22 +900,21 @@
    "note": "",
    "tasks": [
     "Scope written \u2014 ~25 front-of-house duties mapped, P1 vs P2",
-    "Letters SOP FOH-01 drafted (v1.0, 30 Jul) - put it in force: Google Docs masters + Joanna walkthrough; filing location still unresolved",
-    "Erincy on the front desk about 30% of her time inside her first three months",
+    "Letters SOP FOH-01 drafted (v1.0, 30 Jul) \u2014 put it in force: Google Docs masters + Joanna walkthrough; resolve filing location",
+    "Erin C on the front desk for the next two weeks and increasingly going forward",
     "Escalation matrix \u2014 what the desk answers vs what needs a doctor",
-    "Answer bank \u2014 the 30\u201340 most common questions, approved once by a doctor",
+    "Answer bank \u2014 adapt answers confidently rather than maintain a standalone 30\u201340-question bank",
     "Combined front-desk training, timed to digital receipts",
     "Ruth rotated in",
     "Training scope agreed \u2014 receipts, the digital form, letters, and difficult conversations",
     "Attendance agreed \u2014 four required, the rest of the assistants welcome",
     "Letters: obtain the example from the office, then build the letterhead templates",
-    "Check whether a clinic stamp can stand in for a doctor's signature on external letters",
+    "Clinic stamp cannot stand in for a doctor's signature on external letters; use each doctor's signed letters",
     "Training aiming for Sat 3 Oct \u2014 Emily books the girls\u2019 time Tue 22 Sep; confirmation pending",
     "FOH training pack refreshed 28 Sep (go-live 7 Oct, desk flow, discount line, 1 Oct fee rules, blast replies) \u2014 Lau settling 14 open questions in the L&D chat; deck confirmed by Wed 30 Sep",
     "Training deck v3 built 29 Sep (28 slides + 8-slide appendix of step-by-step journeys) \u2014 Google Slides 13tdSXpW\u2026; Lau shares with Emily Wed 30 Sep",
     "Training day Sat 3 Oct from 3:30 PM, downstairs after the last patient; dinner nearby afterwards (tell the girls it's training + dinner). Lau sends Emily the deck outline Wed 30 Sep; Emily texts anything to add. No DSA content \u2014 too much at once",
-    "Rulings for the deck: always 'patient', never 'client' (Dr Ling asked Joanna to say client \u2014 Lau to square it with her); answer price questions with confidence ('these are our fees'), not 'let me check with the doctor'; keep supplier brochures off the front desk (doctors hand them to their own target patients)",
-    "Target: shorten new-hire ramp-up (Joanna took ~1 year) by writing things down"
+    "Rulings for the deck: always 'patient', never 'client' (Dr Ling asked Joanna to say client \u2014 Lau to square it with her); answer price questions with confidence ('these are our fees'), not 'let me check with the doctor'; keep supplier brochures off the front desk (doctors hand them to their own target patients)"
    ],
    "pillar": "F1"
   },

@@ -2549,37 +2549,41 @@
     {
      "id": "h5",
      "dot": "now",
-     "chip": "aiming \u00b7 confirmation pending",
+     "chip": "letters SOP \u00b7 next fix",
      "name": "Front-of-house SOP, training & bench",
-     "one": "The clinic has no SOP for issuing letters to patients \u2014 medical certificates, referral letters, insurance reports, quotations. Nobody had ever said whose job it was, and that gap caused real friction between a doctor and",
+     "one": "The remaining achievable FOH gap is putting the patient-letters SOP into force: Google Docs masters, Joanna's walkthrough, and a clear filing location.",
      "steps": [
       {
        "t": "Scope written \u2014 ~25 front-of-house duties mapped, P1 vs P2",
        "s": "done"
       },
       {
-       "t": "Letters SOP FOH-01 drafted (v1.0, 30 Jul) - put it in force: Google Docs masters + Joanna walkthrough; filing location still unresolved",
+       "t": "Letters SOP FOH-01 drafted (v1.0, 30 Jul) \u2014 put it in force: Google Docs masters + Joanna walkthrough; resolve filing location",
        "s": ""
       },
       {
-       "t": "Erincy on the front desk about 30% of her time inside her first three months",
+       "t": "Erin C on the front desk for the next two weeks and increasingly going forward",
        "s": ""
       },
       {
        "t": "Escalation matrix \u2014 what the desk answers vs what needs a doctor",
-       "s": ""
+       "s": "done",
+       "w": "established in FOH training \u00b7 Sat 3 Oct"
       },
       {
-       "t": "Answer bank \u2014 the 30\u201340 most common questions, approved once by a doctor",
-       "s": ""
+       "t": "Answer bank \u2014 adapt answers confidently rather than maintain a standalone 30\u201340-question bank",
+       "s": "done",
+       "w": "covered in FOH training \u00b7 Sat 3 Oct"
       },
       {
        "t": "Combined front-desk training, timed to digital receipts",
-       "s": ""
+       "s": "done",
+       "w": "held Sat 3 Oct"
       },
       {
        "t": "Ruth rotated in",
-       "s": ""
+       "s": "done",
+       "w": "confirmed by Lau \u00b7 6 Oct"
       },
       {
        "t": "Training scope agreed \u2014 receipts, the digital form, letters, and difficult conversations",
@@ -2595,8 +2599,9 @@
        "w": "30 Jul"
       },
       {
-       "t": "Check whether a clinic stamp can stand in for a doctor's signature on external letters",
-       "s": ""
+       "t": "Clinic stamp cannot stand in for a doctor's signature on external letters; use each doctor's signed letters",
+       "s": "done",
+       "w": "confirmed by Lau \u00b7 6 Oct"
       },
       {
        "t": "Training aiming for Sat 3 Oct \u2014 Emily books the girls\u2019 time Tue 22 Sep; confirmation pending",
@@ -2622,16 +2627,10 @@
        "t": "Rulings for the deck: always 'patient', never 'client' (Dr Ling asked Joanna to say client \u2014 Lau to square it with her); answer price questions with confidence ('these are our fees'), not 'let me check with the doctor'; keep supplier brochures off the front desk (doctors hand them to their own target patients)",
        "s": "done",
        "w": "Emily mtg 29 Sep"
-      },
-      {
-       "t": "Target: shorten new-hire ramp-up (Joanna took ~1 year) by writing things down",
-       "s": "",
-       "w": "ongoing"
       }
      ],
      "open": [
-      "<b>Training is targeted for Sat 3 Oct.</b> After the clinic closes at 3:30 PM, training then dinner together. Emily books the girls' time on Tue 22 Sep. It must sit AFTER AutoCount is installed and after Leow has taught Lau and Emily \u2014 receipts and e-invoices are part of the syllabus.",
-      "Merges the two front-of-house items raised on 20 Jul \u2014 the SOP gap and the upskilling/bench \u2014 because they are the same problem. TRAINING SYLLABUS INPUTS (consolidated 19 Aug, for the future training deck): (1) FOH training compulsory attendees Joanna/Erincy/Jessy/Ida; (2) FOH-01 patient-letters SOP (5 templates, 7-step process, Joanna pilot); (3) WhatsApp quick replies house voice + desk usage, plus desk-training sheet coming from chat-history mining (id 30); (4) DSA professionalism standards (noise, phones, occupied rooms), to be discussed in Lau's October conversation with Siti and Eida after the doctors' agreement work); (5) digital registration form staff flow (?staff=1); (6) rebooking-at-checkout habit (real baseline ~55-65%); (7) AutoCount front-desk training once migration timeline lands (invoice edits in OpenDent only - 30s rule); (8) phone/WhatsApp etiquette + name sign-offs. Detail lives in local memory/chat archives - enough to whip up a deck on request.",
+      "<b>FOH training held Sat 3 Oct.</b> Escalation handling, answer adaptation, and the combined digital-receipts training were covered. Remaining achievable work: put FOH-01 letters SOP into force with Joanna and resolve the filing location.",
       "Dr Joan and Dr Yeoh letter templates still blocked on their chops and on what the RES00104 / PRO0033 registration prefixes denote - Emily."
      ],
      "owner": "emily",
@@ -3373,6 +3372,6 @@
  },
  "meta": {
   "asof": "TUE 06 OCT 2026",
-  "updated": "2026-10-06T17:39:23+08:00"
+  "updated": "2026-10-06T17:41:21+08:00"
  }
 }
