@@ -205,7 +205,9 @@ async function appendToSheet(row) {
 async function notifyTelegram(payload, submittedIso) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_REGISTRATION_CHAT_ID || process.env.TELEGRAM_CHAT_ID;
-  const telegramOn = !!(token && chatId); // WhatsApp still fires when Telegram is retired
+  // Telegram retired for registrations (LZ 7 Oct 2026): WhatsApp already delivers
+  // every new-patient form, so the Telegram copy was a duplicate. Bookings unaffected.
+  const telegramOn = false && !!(token && chatId);
 
   // Same visual language as the website's "New Booking Request" message, but a
   // distinct header: bookings are LEADS; this fires when a patient who already
@@ -264,7 +266,9 @@ async function notifyTelegram(payload, submittedIso) {
 async function notifyTelegramFailure(name) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_REGISTRATION_CHAT_ID || process.env.TELEGRAM_CHAT_ID;
-  const telegramOn = !!(token && chatId); // WhatsApp still fires when Telegram is retired
+  // Telegram retired for registrations (LZ 7 Oct 2026): WhatsApp already delivers
+  // every new-patient form, so the Telegram copy was a duplicate. Bookings unaffected.
+  const telegramOn = false && !!(token && chatId);
   const esc = (s) => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const text = [
     '\u26a0\ufe0f <b>Registration NOT recorded</b>',
