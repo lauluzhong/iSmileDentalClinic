@@ -1,9 +1,9 @@
 {
- "updated": "2026-10-08T20:01:11+08:00",
+ "updated": "2026-10-08T21:32:13+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Dr Ong": {
-   "init": "DO",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
@@ -12,13 +12,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
-   "init": "E",
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -39,8 +39,8 @@
    "title": "OpenDent \u2194 AutoCount integration",
    "status": "active",
    "owner": "Code Capsule",
-   "why": "AutoCount is installed on both new front-desk PCs. The confirmed 25 Sep run-through will validate the front-desk receipt journey and downstairs sub-account data flow before training.",
-   "next": "Link on since 1 Oct (Jason, 2 Oct). Still open: Emily's 29 Sep record glitch (RM2,300 crown line / dates), staff logins confirmed, 1\u20136 Oct invoices hand-approved; train Sat 3 Oct; go live Wed 7 Oct. Leow back Mon 5 Oct.",
+   "why": "The OpenDent \u2192 AutoCount integration is live after the 8 Oct default-account fix; invoices from the day were recovered. Lau still needs to validate the post-fix receipt flow.",
+   "next": "Post-fix validation of recovered invoices and receipt flow; Emily's 29 Sep record glitch and staff-login confirmation remain open.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",

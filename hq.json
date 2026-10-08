@@ -243,10 +243,10 @@
    "streams": [
     {
      "id": "d1",
-     "dot": "live",
-     "chip": "link on since 1 Oct \u00b7 go-live Wed 7 Oct",
+     "dot": "now",
+     "chip": "integration fix live \u00b7 post-fix validation",
      "name": "OpenDent \u2194 AutoCount integration",
-     "one": "AutoCount is installed on both new front-desk PCs. The confirmed 25 Sep run-through will validate the front-desk receipt journey and downstairs sub-account data flow before training.",
+     "one": "The OpenDent \u2192 AutoCount integration is live after the 8 Oct default-account fix; invoices from the day were recovered. Lau still needs to validate the post-fix receipt flow.",
      "steps": [
       {
        "t": "Sandbox on the side PC \u2014 integration proven",
@@ -368,8 +368,8 @@
       },
       {
        "t": "Go live \u2014 new digital receipts (Lau and Emily on standby that week)",
-       "s": "",
-       "w": "Wed 7 Oct (moved from 6 Oct by Lau on 5 Oct; first from 5 Oct)"
+       "s": "now",
+       "w": "8 Oct \u00b7 integration fix live; post-fix receipt validation remains"
       },
       {
        "t": "OpenDent glitch: two patients' old records (a 2023 account; a 2022 monthly payment plan of Dr Amy's) suddenly re-dated to today as treatment plans \u2014 one now shows the clinic owing the patient ~RM9k. Emily posts screenshots in the CC group; raise with Jason at the Wed 30 Sep meeting",
@@ -412,7 +412,7 @@
      "from_initiatives": [
       1
      ],
-     "next": "Link on since 1 Oct (Jason, 2 Oct). Still open: Emily's 29 Sep record glitch (RM2,300 crown line / dates), staff logins confirmed, 1\u20136 Oct invoices hand-approved; train Sat 3 Oct; go live Wed 7 Oct. Leow back Mon 5 Oct.",
+     "next": "Post-fix validation of recovered invoices and receipt flow; Emily's 29 Sep record glitch and staff-login confirmation remain open.",
      "endMonth": "2026-09"
     },
     {
@@ -567,7 +567,7 @@
       {
        "t": "GL mapping: Sarah shared the ABSS chart of accounts; Leow created the main accounts in AutoCount (keeps ABSS last 4 digits); the desk only picks the payment method and AutoCount posts it",
        "s": "done",
-       "w": "1 Oct \u00b7 rest after Leow returns Mon 5 Oct"
+       "w": "8 Oct \u00b7 Chart of Account / GL Code complete"
       }
      ],
      "open": [
@@ -3373,6 +3373,6 @@
  },
  "meta": {
   "asof": "THU 08 OCT 2026",
-  "updated": "2026-10-08T20:01:11+08:00"
+  "updated": "2026-10-08T21:32:13+08:00"
  }
 }
