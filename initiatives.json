@@ -1,24 +1,9 @@
 {
- "updated": "2026-10-06T17:41:21+08:00",
+ "updated": "2026-10-08T20:00:10+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Dr Ong": {
    "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Emily": {
-   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +12,23 @@
    "role": "",
    "color": "#45C4FF"
   },
+  "Emily": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Lau": {
    "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   }
