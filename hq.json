@@ -2011,7 +2011,8 @@
      "open": [
       "OpenSEO installed but gated on your DataForSEO key (US$50 min top-up)",
       "Open on claims: Dr Ling still owes claim 21 (Invisalign First + growth appliances); Dr Ong has not been told about the age-one override.",
-      "Proportion check: organic = 26 enquiries/90d \u2014 keep SEO cheap; reactivation is the bigger lever"
+      "Proportion check: organic = 26 enquiries/90d \u2014 keep SEO cheap; reactivation is the bigger lever",
+      "Later investigation for Lau: verify whether the website still has the CTA pop-up that appears after a visitor has stayed on the site for roughly 20 seconds; confirm the exact trigger timing. This is open \u2014 do not assume it is missing."
      ],
      "owner": "edith",
      "dept": "growth",
@@ -3372,6 +3373,6 @@
  },
  "meta": {
   "asof": "THU 08 OCT 2026",
-  "updated": "2026-10-08T20:00:10+08:00"
+  "updated": "2026-10-08T20:01:11+08:00"
  }
 }
