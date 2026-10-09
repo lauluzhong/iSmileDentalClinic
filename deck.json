@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-10-09 16:00",
- "generated_at": "2026-10-09T16:00:11+08:00",
+ "generated_myt": "2026-10-09 16:30",
+ "generated_at": "2026-10-09T16:30:10+08:00",
  "vps": {
   "hostname": "vmi3374460",
-  "uptime_days": 115.9,
+  "uptime_days": 116.0,
   "nproc": 4,
   "load": [
-   0.75,
-   0.32,
-   0.29
+   0.95,
+   0.34,
+   0.27
   ],
-  "cpu_pct": 18.8,
-  "cpu_pct_sample": 1.0,
+  "cpu_pct": 23.8,
+  "cpu_pct_sample": 1.1,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 4773,
-   "avail_mb": 3167,
-   "pct": 60.1,
+   "used_mb": 4718,
+   "avail_mb": 3222,
+   "pct": 59.4,
    "swap_total_mb": 2047,
    "swap_used_mb": 2047
   },
@@ -29,11 +29,11 @@
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 24,
-    "last_myt": "2026-10-09 16:00 MYT"
+    "age_s": 23,
+    "last_myt": "2026-10-09 16:30 MYT"
    },
    "hq_publish": {
-    "age_s": 66489,
+    "age_s": 68289,
     "last_myt": "2026-10-08 21:32 MYT",
     "detail": "asof=THU 08 OCT 2026 streams=44 sideboard=20 decisions=0 archive=11"
    }
@@ -43,7 +43,7 @@
    "total": 18,
    "failed": [],
    "running": [],
-   "status_updated": "2026-10-09 16:00 MYT"
+   "status_updated": "2026-10-09 16:30 MYT"
   },
   "last_clinic_push": "2026-10-09"
  },
@@ -551,26 +551,8 @@
   "checked": "2026-10-09"
  },
  "social": {
-  "available": true,
-  "source": "Zernio MCP (Edith's connection)",
-  "as_of": "2026-10-09",
-  "window_days": 30,
-  "accounts": [
-   {
-    "platform": "instagram",
-    "username": "ismiledentalclinicmy",
-    "display": "iSmile Dental Clinic",
-    "followers": 98.0,
-    "growth_30d": 0.0,
-    "growth_pct_30d": 0.0,
-    "posts_on_platform": 13.0,
-    "last_updated": "2026-10-09T04:45:16.833000Z",
-    "active": true
-   }
-  ],
-  "instagram_30d": null,
-  "posts_published_via_zernio": 0,
-  "note": "Instagram @ismiledentalclinicmy is connected through Zernio. Posts published outside Zernio are not counted in posts_published_via_zernio."
+  "available": false,
+  "note": "Zernio call failed: TimeoutError('The read operation timed out')"
  },
  "geo": {
   "generated_myt": "2026-10-04 15:30",
