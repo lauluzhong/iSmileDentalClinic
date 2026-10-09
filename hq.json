@@ -1641,9 +1641,9 @@
     {
      "id": "g1",
      "dot": "wait",
-     "chip": "blocked on exclusion-import fix \u00b7 proposed blast 12\u201314 Oct",
+     "chip": "awaiting blast window \u00b7 proposed 12\u201314 Oct",
      "name": "Cold reactivation blast",
-     "one": "Wave 1 cannot launch reliably until Code Capsule fixes the family/shared-phone exclusion import and the audience is rebuilt.",
+     "one": "Wave 1 is ready for a reliable audience rebuild after Code Capsule fixed the family/shared-phone exclusion import.",
      "steps": [
       {
        "t": "Send list + exclusions built (9,833 excluded w/ reasons)",
@@ -1741,9 +1741,9 @@
        "w": "6 Oct"
       },
       {
-       "t": "Suraya, Jason and Code Capsule fix the exclusion import and rebuild a reliable Wave 1 audience",
-       "s": "now",
-       "w": "waiting on Code Capsule"
+       "t": "Code Capsule fixes the exclusion import using PatientID matching",
+       "s": "done",
+       "w": "9 Oct"
       },
       {
        "t": "Proposed blast window: Mon 12\u2013Wed 14 Oct \u2014 under consideration, not committed",
@@ -1756,9 +1756,9 @@
       }
      ],
      "open": [
-      "<b>Current blocker reported 6 Oct:</b> the blast-exclusion import keeps only one row per phone number, skips other family members as duplicates, and may link the retained row to the wrong patient. Wave 1 is unreliable until Code Capsule fixes the import.",
+      "<b>Exclusion import fixed 9 Oct:</b> Code Capsule changed the CSV to use PatientID matching, preventing shared-phone family rows from being skipped or linked to the wrong patient.",
       "<b>Import result:</b> 16,521 uploaded; 13,339 added; 3,182 skipped. Wave 1 was expected to be about 843 people, but the audience shows more than 5,000.",
-      "<b>Waiting on:</b> Suraya, Jason and Code Capsule to fix the import and rebuild a reliable audience.",
+      "<b>Next:</b> rebuild and validate the reliable Wave 1 audience, then choose the final blast window.",
       "<b>Timing under consideration:</b> Lau suspects the blast should move to Mon 12\u2013Wed 14 Oct 2026. This is proposed, not committed.",
       "<b>Price confirmed from Code Capsule's cost deck (21 Sep):</b> a marketing message is 860 points plus a 50-point platform fee = RM0.4095, or RM0.442 with SST. 4,201 messages = about RM1,858, paid by the clinic. RM0.387 is the WhatsApp charge alone, not the full price.",
       "<b>MiniCRM campaign deleted/paused (22 Sep):</b> setup complexity requires staff verification before the campaign is rebuilt in the UI.",
@@ -1770,9 +1770,9 @@
       "From the initiatives board: Birthday trigger de-prioritised by the owner. The review ask moves a lever that already feeds the website automatically."
      ],
      "flag": {
-      "k": "blocked",
-      "who": "Suraya / Jason / Code Capsule",
-      "w": "Fix the exclusion import so shared family phone numbers retain the correct patient rows before the blast is scheduled."
+      "k": "decide",
+      "who": "Lau",
+      "w": "Choose the final blast window after the rebuilt Wave 1 audience passes validation."
      },
      "owner": "lu",
      "dept": "crm",
@@ -1780,7 +1780,7 @@
      "from_initiatives": [
       28
      ],
-     "next": "Suraya/Jason/Code Capsule to fix the exclusion import and rebuild a reliable Wave 1 audience; Lau to choose the final blast window.",
+     "next": "Rebuild and validate the Wave 1 audience; Lau to choose the final blast window.",
      "endMonth": "2026-10"
     },
     {
@@ -3372,7 +3372,7 @@
   ]
  },
  "meta": {
-  "asof": "THU 08 OCT 2026",
-  "updated": "2026-10-08T21:32:13+08:00"
+  "asof": "FRI 09 OCT 2026",
+  "updated": "2026-10-09T21:31:46+08:00"
  }
 }

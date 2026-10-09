@@ -1,9 +1,9 @@
 {
- "updated": "2026-10-08T21:32:13+08:00",
+ "updated": "2026-10-09T21:31:46+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Code Capsule": {
-   "init": "CC",
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +27,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
-   "init": "L",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   }
@@ -525,8 +525,8 @@
    "title": "Cold reactivation blast",
    "status": "review",
    "owner": "Lau",
-   "why": "Wave 1 cannot launch reliably until Code Capsule fixes the family/shared-phone exclusion import and the audience is rebuilt.",
-   "next": "Suraya/Jason/Code Capsule to fix the exclusion import and rebuild a reliable Wave 1 audience; Lau to choose the final blast window.",
+   "why": "Wave 1 is ready for a reliable audience rebuild after Code Capsule fixed the family/shared-phone exclusion import.",
+   "next": "Rebuild and validate the Wave 1 audience; Lau to choose the final blast window.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-10",
@@ -551,7 +551,7 @@
     "Blast is ~4,000 patients, ~RM1,500\u20132,000; goal is appointments landing in FY2026 income. If prep slips, delay one week rather than cut corners",
     "Lau checked OpenDent for the latest appointments before the blast",
     "Blast-exclusion import bug reported in the Code Capsule group: one retained row per phone, other family members skipped as duplicates, and the retained row may link to the wrong patient",
-    "Suraya, Jason and Code Capsule fix the exclusion import and rebuild a reliable Wave 1 audience",
+    "Code Capsule fixes the exclusion import using PatientID matching",
     "Proposed blast window: Mon 12\u2013Wed 14 Oct \u2014 under consideration, not committed",
     "Waves 1\u20133 \u00b7 funnel read via campaign tags"
    ],
