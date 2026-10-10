@@ -72,6 +72,11 @@ const PSQ = ['psq1a', 'psq1b', 'psq1c', 'psq1d', 'psq1e', 'psq2', 'psq3a', 'psq3
 const ESS = ['ess1', 'ess2', 'ess3', 'ess4', 'ess5', 'ess6', 'ess7', 'ess8'];
 const NOSE = ['nose1', 'nose2', 'nose3', 'nose4', 'nose5'];
 const ITEMS = [...PSQ, ...ESS, ...NOSE];
+// Dr Ling's consult questions (v3, 10 Oct 2026). Generated from
+// Operations/Airway Questionnaire/tools/dl_questions.py — keep in step with it.
+// [answer key, column header = the question as the parent saw it]
+const DL_COLUMNS = [["dl_main","What is the main reason you are bringing your child to see us?"],["dl_c_growth","Do you have any concerns about your child's growth and development?"],["dl_c_growth_d","Please tell us more"],["dl_c_sleep","Any concerns about your child's sleep and breathing?"],["dl_c_sleep_d","Please tell us more"],["dl_c_mood","Any concerns about your child's mood and behaviour?"],["dl_c_mood_d","Please tell us more"],["dl_c_learn","Any concerns about how your child is learning or doing at school?"],["dl_c_learn_d","Please tell us more"],["dl_screen_h","On a usual day, how many hours does your child spend on screens (phone, tablet, TV, games)?"],["dl_screen_d","How many days a week?"],["dl_sleep_signs","During sleep, does your child usually… (tick all that apply)"],["dl_sleep_mouth","When asleep, your child's mouth is usually:"],["dl_sleep_pos","Your child usually sleeps:"],["dl_bedtime","Usual bedtime:"],["dl_sleep_hrs","Hours of sleep a night:"],["dl_fall_asleep","How long does it take to fall asleep?"],["dl_dry_throat","Does your child wake up with a dry or sore throat?"],["dl_focus","How is your child's focus and concentration?"],["dl_adhd","Has your child ever been diagnosed with ADHD or hyperactivity?"],["dl_focus_d","Anything you'd like to add about focus?"],["dl_ear","Has your child had ear infections, from baby until now?"],["dl_ear_d","How often, and at what age?"],["dl_nose_often","Does your child often have… (tick all that apply)"],["dl_treated","Has your child ever been treated for… (tick all that apply)"],["dl_surgery","Has your child had any of these operations?"],["dl_surgery_d","Which operation, and when?"],["dl_therapist","Has your child seen any of these, now or before?"],["dl_other_health","Any other health conditions or treatment we should know about?"],["dl_allergy","Does your child have… (tick all that apply)"],["dl_allergy_d","What sets it off?"],["dl_habits","At any age, has your child… (tick all that apply)"],["dl_habit_len1","Breathed through the mouth — how long"],["dl_habit_len2","Bitten or sucked the lips — how long"],["dl_habit_len3","Sucked a thumb or finger — how long"],["dl_habit_len4","Pushed the tongue against the teeth — how long"],["dl_habit_len5","Used a pacifier — how long"],["dl_habit_len6","Used a milk bottle — how long"],["dl_habit_len7","Bitten nails — how long"],["dl_habit_len8","Pushed the lower jaw forward — how long"],["dl_habit_len9","Sucked clothes or a blanket — how long"],["dl_food","Your child mostly eats:"],["dl_fussy","Is your child a fussy eater?"],["dl_meal_time","How long does a meal usually take?"],["dl_eat_style","When eating, your child:"],["dl_chew","Any trouble chewing or swallowing?"],["dl_sugar","How often does your child have sweet, processed or fast food?"],["dl_food_d","Anything to add about your child's eating?"],["dl_sport","Does your child do sports or physical activities?"],["dl_sport_d","Which ones?"],["dl_can_early","Can you answer questions about the pregnancy and birth?"],["dl_conceive","How was the pregnancy conceived?"],["dl_preg_issues","During the pregnancy, were there… (tick all that apply)"],["dl_preg_stress","Was there a lot of stress during the pregnancy (work, family, loss, accident)?"],["dl_preg_meds","Was any medicine taken during the pregnancy, other than pregnancy vitamins?"],["dl_preg_meds_d","Which medicine?"],["dl_preg_subst","Any alcohol or other substances during the pregnancy?"],["dl_preg_subst_d","Which?"],["dl_delivery","How was your child born?"],["dl_birth","At birth, were there… (tick all that apply)"],["dl_breast","Breastfed directly (latching) for:"],["dl_bottle","Bottle-fed for:"],["dl_feed_issue","Any feeding problems as a baby?"],["dl_feed_issue_d","What happened?"],["dl_tie","Was your child told they had a tongue tie or lip tie?"],["dl_tie_tx","Was it treated?"],["dl_head","As a baby, was the head shape normal?"],["dl_neck","As a baby, was there a stiff neck, head tilt or body tightness?"],["dl_tummy","Did your baby have plenty of tummy time and crawling?"],["dl_walk","Age when your child started walking:"],["dl_talk","Age when your child started talking:"],["dl_delay","Any delays in development?"],["dl_delay_d","What kind of delay?"],["dl_baby_sleep","After 3 months old, your baby usually:"],["dl_baby_signs","As a baby, were there… (tick all that apply)"],["dl_outdoor","As a young child, how much outdoor play and sunlight?"],["dl_order","Your child is the… in the family"],["dl_fam_teeth","Does anyone in the family have crooked teeth, bite or jaw problems?"],["dl_fam_teeth_d","Who, and what problem?"],["dl_fam_osa","Has anyone in the family been diagnosed with sleep apnoea?"],["dl_parent_allergy","Does either parent have nose or skin allergies?"]];
+const DL_KEYS = DL_COLUMNS.map((c) => c[0]);
 const PSQ_VALUES = ['Yes', 'No', "Don't know"];
 const ESS_VALUES = ['0', '1', '2', '3'];
 const NOSE_VALUES = ['0', '1', '2', '3', '4'];
@@ -83,7 +88,7 @@ const HEADER = [
   'Submitted (MYT)', 'Submitted ISO', 'Patient name', 'DOB', 'Age', 'Filled in by',
   'Completer name', 'Mobile', 'First time or follow-up', 'PSQ yes', 'PSQ answered',
   'PSQ ratio', 'PSQ positive', 'Epworth total', 'NOSE score', 'NOSE band',
-  ...ITEMS, 'Full JSON', 'PDF link', 'PDF status', 'PDF sent at',
+  ...ITEMS, ...DL_COLUMNS.map((c) => c[1]), 'Full JSON', 'PDF link', 'PDF status', 'PDF sent at',
 ];
 
 // Scores are recomputed here; the client's own `scores` are never trusted.
@@ -157,6 +162,7 @@ function buildRow(payload, sc, submittedIso) {
     sc.psqYes, sc.psqAnswered, sc.psqRatio === null ? '' : Math.round(sc.psqRatio * 100) / 100, sc.psqPositive ? 'Yes' : 'No',
     sc.ess, sc.nose, sc.noseBand,
     ...ITEMS.map((k) => a[k]),
+    ...DL_KEYS.map((k) => (typeof a[k] === 'string' ? a[k].trim() : '')),
     fullJson.length > MAX_CELL ? JSON.stringify({ meta: m, _note: 'too large to store inline' }) : fullJson,
     '', '', '', // PDF link · PDF status · PDF sent at — filled by the Contabo PDF job
   ].map(cell);
@@ -191,7 +197,20 @@ async function ensureTab(client, base) {
     }
   }
   const head = await client.request({ url: `${base}/values/${encodeURIComponent(TAB + '!1:1')}`, method: 'GET' });
-  if (!(head.data.values && head.data.values[0] && head.data.values[0].length)) {
+  const current = (head.data.values && head.data.values[0]) || [];
+  if (current.length && current.indexOf(DL_COLUMNS[0][1]) < 0) {
+    // One-time migration (v3): insert the consult-question columns just before
+    // "Full JSON", so rows already in the tab keep their values under the right header.
+    const at = current.indexOf('Full JSON');
+    if (at < 0) throw new Error('Airway header has no "Full JSON" column');
+    const meta2 = await client.request({ url: `${base}?fields=sheets.properties(sheetId,title)`, method: 'GET' });
+    const sheet = meta2.data.sheets.find((x) => x.properties.title === TAB);
+    await client.request({
+      url: `${base}:batchUpdate`, method: 'POST',
+      data: { requests: [{ insertDimension: { range: { sheetId: sheet.properties.sheetId, dimension: 'COLUMNS', startIndex: at, endIndex: at + DL_COLUMNS.length }, inheritFromBefore: true } }] },
+    });
+  }
+  if (current.join('\u0001') !== HEADER.join('\u0001')) {
     await client.request({
       url: `${base}/values/${encodeURIComponent(TAB + '!A1')}?valueInputOption=RAW`, method: 'PUT',
       data: { values: [HEADER] },
