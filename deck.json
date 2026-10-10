@@ -1,39 +1,39 @@
 {
- "generated_myt": "2026-10-11 04:00",
- "generated_at": "2026-10-11T04:00:08+08:00",
+ "generated_myt": "2026-10-11 04:30",
+ "generated_at": "2026-10-11T04:30:09+08:00",
  "vps": {
   "hostname": "vmi3374460",
-  "uptime_days": 117.4,
+  "uptime_days": 117.5,
   "nproc": 4,
   "load": [
-   0.17,
-   0.18,
-   0.19
+   0.76,
+   0.32,
+   0.22
   ],
-  "cpu_pct": 4.2,
-  "cpu_pct_sample": 1.6,
+  "cpu_pct": 19.0,
+  "cpu_pct_sample": 27.9,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 4868,
-   "avail_mb": 3072,
-   "pct": 61.3,
+   "used_mb": 1881,
+   "avail_mb": 6059,
+   "pct": 23.7,
    "swap_total_mb": 2047,
    "swap_used_mb": 2042
   },
   "disk": {
    "total_gb": 154.9,
-   "used_gb": 31.8,
-   "pct": 20.5
+   "used_gb": 28.6,
+   "pct": 18.5
   },
-  "gateway_ok": true,
+  "gateway_ok": false,
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
     "age_s": 22,
-    "last_myt": "2026-10-11 04:00 MYT"
+    "last_myt": "2026-10-11 04:30 MYT"
    },
    "hq_publish": {
-    "age_s": 31267,
+    "age_s": 33068,
     "last_myt": "2026-10-10 19:19 MYT",
     "detail": "asof=SAT 10 OCT 2026 streams=44 sideboard=20 decisions=0 archive=11"
    }
@@ -43,7 +43,7 @@
    "total": 18,
    "failed": [],
    "running": [],
-   "status_updated": "2026-10-11 04:00 MYT"
+   "status_updated": "2026-10-11 04:30 MYT"
   },
   "last_clinic_push": "2026-10-10"
  },
@@ -551,8 +551,26 @@
   "checked": "2026-10-10"
  },
  "social": {
-  "available": false,
-  "note": "Zernio call failed: TimeoutError('The read operation timed out')"
+  "available": true,
+  "source": "Zernio MCP (Edith's connection)",
+  "as_of": "2026-10-10",
+  "window_days": 30,
+  "accounts": [
+   {
+    "platform": "instagram",
+    "username": "ismiledentalclinicmy",
+    "display": "iSmile Dental Clinic",
+    "followers": 98.0,
+    "growth_30d": 0.0,
+    "growth_pct_30d": 0.0,
+    "posts_on_platform": 13.0,
+    "last_updated": "2026-10-10T04:34:05.090000Z",
+    "active": true
+   }
+  ],
+  "instagram_30d": null,
+  "posts_published_via_zernio": 0,
+  "note": "Instagram @ismiledentalclinicmy is connected through Zernio. Posts published outside Zernio are not counted in posts_published_via_zernio."
  },
  "geo": {
   "generated_myt": "2026-10-04 15:30",
