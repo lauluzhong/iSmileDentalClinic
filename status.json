@@ -1,6 +1,8 @@
 {
-  "updated": "2026-10-10 20:00 MYT",
-  "running": [],
+  "updated": "2026-10-10 20:10 MYT",
+  "running": [
+    "locum_sheet"
+  ],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -63,7 +65,7 @@
       "last": "2026-10-04 15:35 MYT"
     },
     "locum_sheet": {
-      "state": "idle",
+      "state": "running",
       "last": "2026-10-09 20:10 MYT"
     },
     "wa_group_digest_dry": {
