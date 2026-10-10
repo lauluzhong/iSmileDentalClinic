@@ -244,9 +244,9 @@
     {
      "id": "d1",
      "dot": "now",
-     "chip": "integration fix live \u00b7 post-fix validation",
+     "chip": "integration fix live \u00b7 discrepancy review Tue 13 Oct",
      "name": "OpenDent \u2194 AutoCount integration",
-     "one": "The OpenDent \u2192 AutoCount integration is live after the 8 Oct default-account fix; invoices from the day were recovered. Lau still needs to validate the post-fix receipt flow.",
+     "one": "The OpenDent \u2192 AutoCount integration is live after the 8 Oct default-account fix; invoices from the day were recovered. A Dr Ling amount discrepancy is queued for Lau and Emily to close on Tue 13 Oct.",
      "steps": [
       {
        "t": "Sandbox on the side PC \u2014 integration proven",
@@ -395,6 +395,11 @@
        "t": "Medical certificate template v2 done (Klinik Pergigian iSmile, mobile + website); doctor signature still to confirm (Emily)",
        "s": "done",
        "w": "1 Oct"
+      },
+      {
+       "t": "Close Dr Ling's discrepancy between the amount documented in OpenDent and the amount expected; verify whether it is a front-desk error with Emily",
+       "s": "now",
+       "w": "Tue 13 Oct \u00b7 Lau + Emily (Emily back)"
       }
      ],
      "open": [
@@ -412,7 +417,13 @@
      "from_initiatives": [
       1
      ],
-     "next": "Post-fix validation of recovered invoices and receipt flow; Emily's 29 Sep record glitch and staff-login confirmation remain open.",
+     "flag": {
+      "k": "due",
+      "by": "2026-10-13",
+      "w": "Review Dr Ling's OpenDent amount discrepancy with Emily and close whether the front desk entered it incorrectly.",
+      "who": "Lau + Emily"
+     },
+     "next": "On Tue 13 Oct, Lau and Emily review Dr Ling's amount discrepancy, then record the confirmed cause and correction; post-fix receipt validation remains open.",
      "endMonth": "2026-09"
     },
     {
@@ -3372,7 +3383,7 @@
   ]
  },
  "meta": {
-  "asof": "FRI 09 OCT 2026",
-  "updated": "2026-10-09T21:31:46+08:00"
+  "asof": "SAT 10 OCT 2026",
+  "updated": "2026-10-10T19:19:14+08:00"
  }
 }

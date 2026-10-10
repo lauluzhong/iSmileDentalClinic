@@ -1,13 +1,8 @@
 {
- "updated": "2026-10-09T21:31:46+08:00",
+ "updated": "2026-10-10T19:19:14+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
   "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
@@ -27,6 +22,11 @@
    "role": "",
    "color": "#45C4FF"
   },
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Code Capsule": {
    "init": "CC",
    "role": "",
@@ -39,8 +39,8 @@
    "title": "OpenDent \u2194 AutoCount integration",
    "status": "active",
    "owner": "Code Capsule",
-   "why": "The OpenDent \u2192 AutoCount integration is live after the 8 Oct default-account fix; invoices from the day were recovered. Lau still needs to validate the post-fix receipt flow.",
-   "next": "Post-fix validation of recovered invoices and receipt flow; Emily's 29 Sep record glitch and staff-login confirmation remain open.",
+   "why": "The OpenDent \u2192 AutoCount integration is live after the 8 Oct default-account fix; invoices from the day were recovered. A Dr Ling amount discrepancy is queued for Lau and Emily to close on Tue 13 Oct.",
+   "next": "On Tue 13 Oct, Lau and Emily review Dr Ling's amount discrepancy, then record the confirmed cause and correction; post-fix receipt validation remains open.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -75,7 +75,8 @@
     "Joanna's old laptop (newer Windows) replaces the broken new PC for receipts; the broken PC has gone to China for warranty",
     "Import historical accounting data: move 10 years into AutoCount (LHDN needs 7), older years kept as a raw database; Emily confirms with Leow that the import can happen after go-live",
     "ABSS licence expires end Oct (~RM1,000\u20131,200/yr to renew): don't renew now; decide mid-Oct if AutoCount has problems",
-    "Medical certificate template v2 done (Klinik Pergigian iSmile, mobile + website); doctor signature still to confirm (Emily)"
+    "Medical certificate template v2 done (Klinik Pergigian iSmile, mobile + website); doctor signature still to confirm (Emily)",
+    "Close Dr Ling's discrepancy between the amount documented in OpenDent and the amount expected; verify whether it is a front-desk error with Emily"
    ],
    "pillar": "P1"
   },
