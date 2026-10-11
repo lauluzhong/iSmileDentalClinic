@@ -1,7 +1,7 @@
 import { useBooking } from '../context/BookingContext';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
-import { ChevronDown, ChevronRight, ChevronLeft, Menu, X, Phone } from 'lucide-react';
+import { ChevronDown, ChevronRight, ChevronLeft, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from './Button';
 import Style from './Style';
@@ -17,6 +17,11 @@ const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
     const [activeSubmenu, setActiveSubmenu] = useState(null);
+    const dropdownOpenTimer = useRef(null);
+    const dropdownCloseTimer = useRef(null);
+    const dropdownTriggerRefs = useRef({});
+    const mobileToggleRef = useRef(null);
+    const suppressDropdownFocusOpen = useRef(false);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -35,6 +40,36 @@ const Header = () => {
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    useEffect(() => () => {
+        window.clearTimeout(dropdownOpenTimer.current);
+        window.clearTimeout(dropdownCloseTimer.current);
+    }, []);
+
+    useEffect(() => {
+        const handleEscape = (event) => {
+            if (event.key !== 'Escape') return;
+
+            if (mobileMenuOpen) {
+                setMobileMenuOpen(false);
+                window.requestAnimationFrame(() => mobileToggleRef.current?.focus());
+                return;
+            }
+
+            if (activeDropdown) {
+                const openDropdown = activeDropdown;
+                suppressDropdownFocusOpen.current = true;
+                setActiveDropdown(null);
+                window.requestAnimationFrame(() => {
+                    dropdownTriggerRefs.current[openDropdown]?.focus();
+                    suppressDropdownFocusOpen.current = false;
+                });
+            }
+        };
+
+        document.addEventListener('keydown', handleEscape);
+        return () => document.removeEventListener('keydown', handleEscape);
+    }, [activeDropdown, mobileMenuOpen]);
 
     // Mobile header state (CSS scopes it to <=1024px; desktop unaffected):
     // once scrolled, the logo fades out and only a small floating frosted
@@ -119,16 +154,27 @@ const Header = () => {
         setMobileMenuOpen(false);
     };
 
-    const menuVariants = {
-        hidden: { x: '-100%', opacity: 0 },
-        visible: { x: 0, opacity: 1 },
-        exit: { x: '-100%', opacity: 0 }
+    const openDropdownWithIntent = (name) => {
+        window.clearTimeout(dropdownCloseTimer.current);
+        window.clearTimeout(dropdownOpenTimer.current);
+        dropdownOpenTimer.current = window.setTimeout(() => {
+            setActiveDropdown(name);
+        }, activeDropdown ? 160 : 100);
     };
 
-    const submenuVariants = {
-        hidden: { x: '100%', opacity: 0 },
-        visible: { x: 0, opacity: 1 },
-        exit: { x: '100%', opacity: 0 }
+    const closeDropdownWithIntent = () => {
+        window.clearTimeout(dropdownOpenTimer.current);
+        window.clearTimeout(dropdownCloseTimer.current);
+        dropdownCloseTimer.current = window.setTimeout(() => {
+            setActiveDropdown(null);
+        }, 250);
+    };
+
+    const openDropdownForFocus = (name) => {
+        if (suppressDropdownFocusOpen.current) return;
+        window.clearTimeout(dropdownOpenTimer.current);
+        window.clearTimeout(dropdownCloseTimer.current);
+        setActiveDropdown(name);
     };
 
     // Find the current active submenu object
@@ -161,20 +207,31 @@ const Header = () => {
                     </Link>
 
                     {/* Desktop Navigation */}
-                    <nav className="desktop-nav">
+                    <nav className="desktop-nav" aria-label="Primary navigation">
                         <ul className="nav-list">
                             {navLinks.map((link) => (
                                 <li
                                     key={link.name}
                                     className="nav-item"
-                                    onMouseEnter={() => setActiveDropdown(link.name)}
-                                    onMouseLeave={() => setActiveDropdown(null)}
+                                    onMouseEnter={() => link.dropdown && openDropdownWithIntent(link.name)}
+                                    onMouseLeave={closeDropdownWithIntent}
+                                    onFocusCapture={() => link.dropdown && openDropdownForFocus(link.name)}
+                                    onBlur={(event) => {
+                                        if (!event.currentTarget.contains(event.relatedTarget)) {
+                                            setActiveDropdown(null);
+                                        }
+                                    }}
                                 >
                                     {link.path ? (
                                         <Link
                                             to={link.path}
+                                            ref={(node) => { dropdownTriggerRefs.current[link.name] = node; }}
                                             className={`nav-link${location.pathname === link.path || location.pathname.startsWith(`${link.path}/`) ? ' nav-link-active' : ''}`} data-analytics-click="nav-link" data-analytics-label={link.name}
+                                            aria-haspopup={link.dropdown ? 'true' : undefined}
+                                            aria-expanded={link.dropdown ? activeDropdown === link.name : undefined}
+                                            aria-controls={link.dropdown ? `desktop-dropdown-${link.name.toLowerCase().replaceAll(' ', '-')}` : undefined}
                                             onClick={(e) => {
+                                                setActiveDropdown(null);
                                                 if (location.pathname === link.path) {
                                                     e.preventDefault();
                                                     scrollToTop();
@@ -193,20 +250,31 @@ const Header = () => {
 
                                     {/* Dropdown Menu */}
                                     {link.dropdown && (
-                                        <div className={`dropdown-menu ${activeDropdown === link.name ? 'active' : ''}`}>
+                                        <div
+                                            id={`desktop-dropdown-${link.name.toLowerCase().replaceAll(' ', '-')}`}
+                                            className={`dropdown-menu ${activeDropdown === link.name ? 'active' : ''}`}
+                                            aria-hidden={activeDropdown !== link.name}
+                                        >
                                             {link.dropdown.map((item, i) => (
                                                 item.label ? (
                                                     <div key={item.label} className="dropdown-label">{item.label}</div>
                                                 ) : item.divider ? (
                                                     <div key={`divider-${i}`} className="dropdown-divider" />
                                                 ) : (
-                                                    <div
+                                                    <Link
                                                         key={item.name}
+                                                        to={item.hash ? `${link.path}${item.hash}` : item.path}
                                                         className="dropdown-item"
-                                                        onClick={() => handleDropdownClick(link.path, item.hash || item.path)}
+                                                        data-analytics-click="nav-dropdown-link"
+                                                        data-analytics-label={item.name}
+                                                        onClick={(event) => {
+                                                            event.preventDefault();
+                                                            handleDropdownClick(link.path, item.hash || item.path);
+                                                            setActiveDropdown(null);
+                                                        }}
                                                     >
                                                         {item.name}
-                                                    </div>
+                                                    </Link>
                                                 )
                                             ))}
                                         </div>
@@ -225,7 +293,7 @@ const Header = () => {
                 {/* Mobile Menu Toggle */}
                 {/* Opening always resets to the top-level list; closing resets it
                     via onExitComplete once the panel is gone. */}
-                <div className="mobile-toggle" onClick={() => {
+                <button type="button" className="mobile-toggle" ref={mobileToggleRef} aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={mobileMenuOpen} aria-controls="mobile-navigation" onClick={() => {
                     if (mobileMenuOpen) {
                         handleMobileMenuClose();
                     } else {
@@ -234,14 +302,16 @@ const Header = () => {
                     }
                 }}>
                     {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </div>
+                </button>
             </div>
 
             {/* Mobile Navigation Overlay — transform-origin sits top-right so the
                 panel grows out of the burger chip that summoned it. */}
             <AnimatePresence onExitComplete={() => setActiveSubmenu(null)}>
                 {mobileMenuOpen && (
-                    <motion.div
+                    <motion.nav
+                        id="mobile-navigation"
+                        aria-label="Mobile navigation"
                         className="mobile-nav-overlay"
                         initial={{ opacity: 0, y: -20, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -264,14 +334,16 @@ const Header = () => {
                                             {navLinks.map((link) => (
                                                 <li key={link.name} className="mobile-nav-item">
                                                     {link.dropdown ? (
-                                                        <div
+                                                        <button
+                                                            type="button"
                                                             className="mobile-nav-link-header"
+                                                            aria-expanded={activeSubmenu === link.name}
                                                             onClick={() => setActiveSubmenu(link.name)}
                                                             style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}
                                                         >
                                                             <span style={{ fontWeight: '600', fontSize: '1.05rem', color: '#1e293b' }}>{link.name}</span>
                                                             <ChevronRight size={18} color="#94a3b8" />
-                                                        </div>
+                                                        </button>
                                                     ) : (
                                                         <Link
                                                             to={link.path}
@@ -365,13 +437,19 @@ const Header = () => {
                                                         key={subItem.name}
                                                         className={`mobile-nav-item ${activeSubmenuData?.dropdown?.[subIndex + 1]?.divider ? 'mobile-nav-item-before-divider' : ''}`}
                                                     >
-                                                        <span
-                                                            onClick={() => handleDropdownClick(activeSubmenuData.path, subItem.hash || subItem.path)}
+                                                        <Link
+                                                            to={subItem.hash ? `${activeSubmenuData.path}${subItem.hash}` : subItem.path}
+                                                            onClick={(event) => {
+                                                                event.preventDefault();
+                                                                handleDropdownClick(activeSubmenuData.path, subItem.hash || subItem.path);
+                                                            }}
                                                             className="mobile-nav-link-header"
+                                                            data-analytics-click="nav-dropdown-link"
+                                                            data-analytics-label={subItem.name}
                                                             style={{ fontWeight: '500', color: '#475569', fontSize: '1rem' }}
                                                         >
                                                             {subItem.name}
-                                                        </span>
+                                                        </Link>
                                                     </li>
                                                 )
                                             ))}
@@ -380,7 +458,7 @@ const Header = () => {
                                 )}
                             </AnimatePresence>
                         </div>
-                    </motion.div>
+                    </motion.nav>
                 )}
             </AnimatePresence>
 
@@ -510,6 +588,7 @@ const Header = () => {
         }
 
         .dropdown-item {
+            display: block;
             padding: 10px 15px;
             border-radius: 8px;
             cursor: pointer;
@@ -546,6 +625,8 @@ const Header = () => {
         .mobile-toggle {
             display: none;
             cursor: pointer;
+            border: 0;
+            font: inherit;
         }
 
         .desktop-nav {
@@ -638,6 +719,20 @@ const Header = () => {
             align-items: center;
             border-radius: 10px;
             -webkit-tap-highlight-color: transparent;
+            border: 0;
+            background: transparent;
+            font: inherit;
+            text-align: left;
+        }
+
+        .nav-link:focus-visible,
+        .dropdown-item:focus-visible,
+        .mobile-toggle:focus-visible,
+        .mobile-nav-link-header:focus-visible,
+        .mobile-submenu-back:focus-visible,
+        .mobile-menu-home:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 3px;
         }
 
         /* Instant press highlight on menu rows */
