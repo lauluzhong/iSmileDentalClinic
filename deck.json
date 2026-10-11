@@ -1,39 +1,39 @@
 {
- "generated_myt": "2026-10-11 19:30",
- "generated_at": "2026-10-11T19:30:09+08:00",
+ "generated_myt": "2026-10-11 20:00",
+ "generated_at": "2026-10-11T20:00:07+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 118.1,
   "nproc": 4,
   "load": [
-   0.42,
-   0.21,
-   0.18
+   0.13,
+   0.07,
+   0.09
   ],
-  "cpu_pct": 10.5,
-  "cpu_pct_sample": 1.4,
+  "cpu_pct": 3.2,
+  "cpu_pct_sample": 6.6,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 5674,
-   "avail_mb": 2267,
-   "pct": 71.5,
+   "used_mb": 5771,
+   "avail_mb": 2169,
+   "pct": 72.7,
    "swap_total_mb": 2047,
    "swap_used_mb": 2047
   },
   "disk": {
    "total_gb": 154.9,
-   "used_gb": 32.6,
+   "used_gb": 32.7,
    "pct": 21.1
   },
   "gateway_ok": true,
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 22,
-    "last_myt": "2026-10-11 19:30 MYT"
+    "age_s": 20,
+    "last_myt": "2026-10-11 20:00 MYT"
    },
    "hq_publish": {
-    "age_s": 9705,
+    "age_s": 11503,
     "last_myt": "2026-10-11 16:48 MYT",
     "detail": "asof=SUN 11 OCT 2026 streams=44 sideboard=20 decisions=0 archive=11"
    }
@@ -43,14 +43,14 @@
    "total": 18,
    "failed": [],
    "running": [],
-   "status_updated": "2026-10-11 19:30 MYT"
+   "status_updated": "2026-10-11 20:00 MYT"
   },
   "last_clinic_push": "2026-10-11"
  },
  "agents": [],
  "finance": {
-  "as_of": "2026-10-10",
-  "generated_myt": "2026-10-10 19:40",
+  "as_of": "2026-10-11",
+  "generated_myt": "2026-10-11 19:40",
   "basis": "margin dashboard: true margin = production \u2212 locum est \u2212 lab est \u2212 chair-time burn (RM160/h loaded). Not the statutory P&L.",
   "mtd": {
    "production": 69575,
@@ -156,7 +156,7 @@
   "pnl": {
    "basis": "Hybrid: months closed by the accountant are their actual income statement (every line, incl. revenue; locum reclassified to direct cost). Later months are estimates on a PRODUCTION basis: revenue = OpenDent production; locum + lab as in the margin dashboard; materials at the FY2026 model driver; fixed cost and depreciation from the FY2026 model v6 (27 Aug 2026). Dr Ong is salaried (inside Director remuneration).",
    "year": "2026",
-   "as_of": "2026-10-10",
+   "as_of": "2026-10-11",
    "ytd": {
     "month": "2026-01",
     "basis": "actual",
