@@ -1651,10 +1651,10 @@
    "streams": [
     {
      "id": "g1",
-     "dot": "wait",
-     "chip": "awaiting blast window \u00b7 proposed 12\u201314 Oct",
+     "dot": "next",
+     "chip": "campaign setup Tue 13 Oct \u00b7 sends Wed 14\u2013Fri 16 Oct",
      "name": "Cold reactivation blast",
-     "one": "Wave 1 is ready for a reliable audience rebuild after Code Capsule fixed the family/shared-phone exclusion import.",
+     "one": "Import fixed (PatientID). Files rebuilt 9 Oct in the new format. Lau sets up the campaigns Tue 13 Oct 10am at the clinic; target sends Wed 14 to Fri 16 Oct.",
      "steps": [
       {
        "t": "Send list + exclusions built (9,833 excluded w/ reasons)",
@@ -1757,28 +1757,54 @@
        "w": "9 Oct"
       },
       {
-       "t": "Proposed blast window: Mon 12\u2013Wed 14 Oct \u2014 under consideration, not committed",
-       "s": "next",
-       "w": "depends on a reliable rebuilt audience"
+       "t": "Files rebuilt in PatientID format (W1 836 \u00b7 W2 1,047 \u00b7 W3 2,193)",
+       "s": "done",
+       "w": "9 Oct"
       },
       {
-       "t": "Waves 1\u20133 \u00b7 funnel read via campaign tags",
-       "s": ""
+       "t": "Rebuild on the fresh weekly patient list",
+       "s": "next",
+       "w": "Mon 12 Oct"
+      },
+      {
+       "t": "Lau uploads exclusions and sets up the 3 campaigns at the clinic",
+       "s": "next",
+       "w": "Tue 13 Oct 10:00"
+      },
+      {
+       "t": "Upload the Restore file after Wave 3 is saved",
+       "s": "",
+       "w": "Tue 13 Oct"
+      },
+      {
+       "t": "Wave 1 sends (836)",
+       "s": "",
+       "w": "Wed 14 Oct"
+      },
+      {
+       "t": "Wave 2 sends (1,047)",
+       "s": "",
+       "w": "Thu 15 Oct"
+      },
+      {
+       "t": "Wave 3 sends (2,193; over the 1,800/day cap, remainder rolls over)",
+       "s": "",
+       "w": "Fri 16 Oct"
+      },
+      {
+       "t": "Funnel read via campaign tags",
+       "s": "",
+       "w": "from Mon 19 Oct"
       }
      ],
      "open": [
-      "<b>Exclusion import fixed 9 Oct:</b> Code Capsule changed the CSV to use PatientID matching, preventing shared-phone family rows from being skipped or linked to the wrong patient.",
-      "<b>Import result:</b> 16,521 uploaded; 13,339 added; 3,182 skipped. Wave 1 was expected to be about 843 people, but the audience shows more than 5,000.",
-      "<b>Next:</b> rebuild and validate the reliable Wave 1 audience, then choose the final blast window.",
-      "<b>Timing under consideration:</b> Lau suspects the blast should move to Mon 12\u2013Wed 14 Oct 2026. This is proposed, not committed.",
-      "<b>Price confirmed from Code Capsule's cost deck (21 Sep):</b> a marketing message is 860 points plus a 50-point platform fee = RM0.4095, or RM0.442 with SST. 4,201 messages = about RM1,858, paid by the clinic. RM0.387 is the WhatsApp charge alone, not the full price.",
-      "<b>MiniCRM campaign deleted/paused (22 Sep):</b> setup complexity requires staff verification before the campaign is rebuilt in the UI.",
-      "<b>Recall operations restored 22 Sep:</b> Suraya fixed the MiniCRM issue. Resends now exclude candidates with a newer last visit, and the batch for the preceding 6\u20137 days was sent that morning. A prior blast failed for insufficient balance; the balance was topped up.",
-      "<b>UI terminology changed by Code Capsule 7 Sep:</b> the flow is now Audience Filters \u2192 Audience List \u2192 Recipients. \"Selected Patients\" is renamed \"Recipients\"; \"Audience\" is the filtered pool, \"Recipients\" the patients actually selected to receive the campaign.",
-      "<b>Daily cap: the system allows 2,000/day; we set ours at 1,800</b> to leave headroom for the other automations sharing the number (recall, birthday). At 1,800 the 4,011 sends clear in three days.",
-      "PDPA check with Lydia",
-      "250 sends/day cap shapes the wave calendar",
-      "From the initiatives board: Birthday trigger de-prioritised by the owner. The review ask moves a lever that already feeds the website automatically."
+      "<b>Plan (Lau, 11 Oct):</b> campaign setup Tue 13 Oct 10:00 at the clinic. Target sends: Wave 1 Wed 14 \u00b7 Wave 2 Thu 15 \u00b7 Wave 3 Fri 16 Oct.",
+      "<b>Files:</b> CRM/Cold Blast 2026/Refresh 2026-10-09/ (PatientID format). W1 836 \u00b7 W2 1,047 \u00b7 W3 2,193 = 4,076 messages, about RM1,800 incl SST. One message per shared phone (owner ticks + phone notes).",
+      "<b>\u26a0\ufe0f Wave 3 is 2,193, above the 1,800/day cap.</b> The last ~400 roll to Sat 17 or Mon 19 Oct unless the cap is raised. Decide at setup.",
+      "<b>Check on Tue upload:</b> summary must say ~16,307 added, 0 skipped; searching 0122336857 must show 8 rows each linked to its own name; audience ~836. If not, stop.",
+      "<b>Per wave:</b> empty the Excluded list, upload that wave's name-route file, set the campaign (tiers A\u2013E, birth year 1910\u20132008, both exclusions ticked), save. After W3: empty and upload the Restore file.",
+      "<b>Mon 12 Oct:</b> rebuild on the fresh weekly patient list (Sat 10 Oct) so new bookings and visits drop out.",
+      "<b>Price confirmed from Code Capsule's cost deck (21 Sep):</b> a marketing message is 860 points plus a 50-point platform fee = RM0.4095, or RM0.442 with SST. 4,201 messages = about RM1,858, paid by the clinic. RM0.387 is the WhatsApp charge alone, not the full price."
      ],
      "flag": {
       "k": "decide",
@@ -3193,7 +3219,7 @@
      "g1"
     ],
     "owner": "Lau \u00b7 Suraya \u00b7 Jason \u00b7 Code Capsule",
-    "summary": "The 6 Oct exclusion import produced an unreliable Wave 1 audience. Waiting on Code Capsule to fix family/shared-phone handling; Mon 12\u2013Wed 14 Oct is proposed, not committed.",
+    "summary": "Import fixed 9 Oct (PatientID). Campaign setup Tue 13 Oct 10:00; target sends Wed 14 \u2013 Fri 16 Oct.",
     "items": [
      {
       "label": "FOH availability and exclusion-list preparation",
@@ -3228,17 +3254,26 @@
      {
       "label": "Fix family/shared-phone exclusion import and rebuild Wave 1",
       "start": "2026-10-06",
-      "status": "now",
+      "status": "done",
       "who": "Suraya \u00b7 Jason \u00b7 Code Capsule",
-      "note": "Current import keeps one row per phone, skips other family members as duplicates and may link the retained row to the wrong patient."
+      "note": "Fixed 9 Oct: import now matches by PatientID.",
+      "end": "2026-10-09"
      },
      {
-      "label": "Proposed blast window \u2014 under consideration",
-      "start": "2026-10-12",
-      "end": "2026-10-14",
+      "label": "Campaign setup at the clinic",
+      "start": "2026-10-13",
       "status": "next",
-      "who": "MiniCRM (after verification)",
-      "note": "Proposed by Lau, not committed. Depends on a fixed import and a verified Wave 1 audience."
+      "who": "Lau",
+      "time": "10:00",
+      "note": "Upload each wave's exclusion file, check ~16,307 added / 0 skipped and audience ~836, save campaigns."
+     },
+     {
+      "label": "Blast sends: W1 Wed \u00b7 W2 Thu \u00b7 W3 Fri",
+      "start": "2026-10-14",
+      "end": "2026-10-16",
+      "status": "next",
+      "who": "MiniCRM",
+      "note": "W1 836 \u00b7 W2 1,047 \u00b7 W3 2,193 (over the 1,800/day cap, remainder rolls over)."
      }
     ]
    },
@@ -3383,7 +3418,7 @@
   ]
  },
  "meta": {
-  "asof": "SAT 10 OCT 2026",
-  "updated": "2026-10-10T19:19:14+08:00"
+  "asof": "SUN 11 OCT 2026",
+  "updated": "2026-10-11T16:48:37+08:00"
  }
 }

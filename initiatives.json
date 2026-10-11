@@ -1,14 +1,9 @@
 {
- "updated": "2026-10-10T19:19:14+08:00",
+ "updated": "2026-10-11T16:48:37+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Emily": {
-   "init": "E",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -17,8 +12,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -524,9 +524,9 @@
   {
    "id": "g1",
    "title": "Cold reactivation blast",
-   "status": "review",
+   "status": "active",
    "owner": "Lau",
-   "why": "Wave 1 is ready for a reliable audience rebuild after Code Capsule fixed the family/shared-phone exclusion import.",
+   "why": "Import fixed (PatientID). Files rebuilt 9 Oct in the new format. Lau sets up the campaigns Tue 13 Oct 10am at the clinic; target sends Wed 14 to Fri 16 Oct.",
    "next": "Rebuild and validate the Wave 1 audience; Lau to choose the final blast window.",
    "dept": "crm",
    "lens": "revenue",
@@ -553,8 +553,14 @@
     "Lau checked OpenDent for the latest appointments before the blast",
     "Blast-exclusion import bug reported in the Code Capsule group: one retained row per phone, other family members skipped as duplicates, and the retained row may link to the wrong patient",
     "Code Capsule fixes the exclusion import using PatientID matching",
-    "Proposed blast window: Mon 12\u2013Wed 14 Oct \u2014 under consideration, not committed",
-    "Waves 1\u20133 \u00b7 funnel read via campaign tags"
+    "Files rebuilt in PatientID format (W1 836 \u00b7 W2 1,047 \u00b7 W3 2,193)",
+    "Rebuild on the fresh weekly patient list",
+    "Lau uploads exclusions and sets up the 3 campaigns at the clinic",
+    "Upload the Restore file after Wave 3 is saved",
+    "Wave 1 sends (836)",
+    "Wave 2 sends (1,047)",
+    "Wave 3 sends (2,193; over the 1,800/day cap, remainder rolls over)",
+    "Funnel read via campaign tags"
    ],
    "pillar": "P3"
   },
