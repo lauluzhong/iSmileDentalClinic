@@ -1,6 +1,8 @@
 {
-  "updated": "2026-10-11 15:00 MYT",
-  "running": [],
+  "updated": "2026-10-11 15:30 MYT",
+  "running": [
+    "geo_visibility"
+  ],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -59,7 +61,7 @@
       "last": "2026-10-04 17:17 MYT"
     },
     "geo_visibility": {
-      "state": "idle",
+      "state": "running",
       "last": "2026-10-04 15:35 MYT"
     },
     "locum_sheet": {
