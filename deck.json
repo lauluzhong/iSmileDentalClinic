@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-10-11 15:30",
- "generated_at": "2026-10-11T15:30:13+08:00",
+ "generated_myt": "2026-10-11 16:00",
+ "generated_at": "2026-10-11T16:00:09+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 117.9,
   "nproc": 4,
   "load": [
-   0.35,
-   0.23,
-   0.15
+   0.29,
+   0.32,
+   0.32
   ],
-  "cpu_pct": 8.8,
-  "cpu_pct_sample": 1.2,
+  "cpu_pct": 7.2,
+  "cpu_pct_sample": 2.8,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 4993,
-   "avail_mb": 2947,
-   "pct": 62.9,
+   "used_mb": 4985,
+   "avail_mb": 2956,
+   "pct": 62.8,
    "swap_total_mb": 2047,
    "swap_used_mb": 2047
   },
@@ -29,11 +29,11 @@
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 26,
-    "last_myt": "2026-10-11 15:30 MYT"
+    "age_s": 20,
+    "last_myt": "2026-10-11 16:00 MYT"
    },
    "hq_publish": {
-    "age_s": 72672,
+    "age_s": 74467,
     "last_myt": "2026-10-10 19:19 MYT",
     "detail": "asof=SAT 10 OCT 2026 streams=44 sideboard=20 decisions=0 archive=11"
    }
@@ -42,10 +42,8 @@
   "crons": {
    "total": 18,
    "failed": [],
-   "running": [
-    "geo_visibility"
-   ],
-   "status_updated": "2026-10-11 15:30 MYT"
+   "running": [],
+   "status_updated": "2026-10-11 16:00 MYT"
   },
   "last_clinic_push": "2026-10-11"
  },
@@ -575,17 +573,17 @@
   "note": "Instagram @ismiledentalclinicmy is connected through Zernio. Posts published outside Zernio are not counted in posts_published_via_zernio."
  },
  "geo": {
-  "generated_myt": "2026-10-04 15:30",
-  "generated_at": "2026-10-04T15:30:13+08:00",
+  "generated_myt": "2026-10-11 15:30",
+  "generated_at": "2026-10-11T15:30:11+08:00",
   "ai_referrals": {
    "available": true,
    "window": [
-    "2026-09-06",
-    "2026-10-03"
+    "2026-09-13",
+    "2026-10-10"
    ],
    "sessions": 3,
    "sessions_prev": 1,
-   "all_sessions": 538,
+   "all_sessions": 564,
    "by_source": [
     {
      "source": "chatgpt.com",
@@ -655,7 +653,7 @@
    "by_theme": {
     "family": {
      "asked": 3,
-     "mentioned": 2
+     "mentioned": 1
     },
     "children": {
      "asked": 2,
@@ -663,7 +661,7 @@
     },
     "braces": {
      "asked": 3,
-     "mentioned": 1
+     "mentioned": 2
     },
     "implants": {
      "asked": 2,
@@ -675,7 +673,7 @@
     },
     "airway": {
      "asked": 2,
-     "mentioned": 2
+     "mentioned": 1
     },
     "urgent": {
      "asked": 1,
@@ -683,49 +681,49 @@
     },
     "priority": {
      "asked": 5,
-     "mentioned": 2
+     "mentioned": 3
     }
    },
    "top_cited_domains": [
-    {
-     "domain": "vdental.com.my",
-     "questions": 11
-    },
     {
      "domain": "ismile.com.my",
      "questions": 8
     },
     {
-     "domain": "damansaradentalstudio.com.my",
-     "questions": 5
+     "domain": "vdental.com.my",
+     "questions": 8
     },
     {
      "domain": "smilehavendental.com.my",
-     "questions": 5
+     "questions": 6
     },
     {
-     "domain": "hq.moh.gov.my",
-     "questions": 3
+     "domain": "dentalclinicpj.my",
+     "questions": 6
     },
     {
      "domain": "business.google.com",
-     "questions": 3
-    },
-    {
-     "domain": "claritydentalclinic.com",
-     "questions": 3
+     "questions": 4
     },
     {
      "domain": "arcdentalclinic-damansarauptown.com",
      "questions": 3
     },
     {
-     "domain": "seekdentist.my",
+     "domain": "damansaradentalstudio.com.my",
      "questions": 3
     },
     {
-     "domain": "circledentalpj.com",
+     "domain": "whatclinic.com",
      "questions": 3
+    },
+    {
+     "domain": "thedentalstudio.my",
+     "questions": 2
+    },
+    {
+     "domain": "claritydentalclinic.com",
+     "questions": 2
     }
    ],
    "questions": [
@@ -743,9 +741,12 @@
      "theme": "family",
      "q": "Which dental clinics near Damansara Utama or SS22 in PJ are good for a routine check-up and cleaning?",
      "ok": true,
-     "mentioned": true,
-     "cited_own_site": true,
-     "competitors_named": []
+     "mentioned": false,
+     "cited_own_site": false,
+     "competitors_named": [
+      "Resmile Dental (The Starling, Uptown)",
+      "V Dental (SS2)"
+     ]
     },
     {
      "id": "family-3",
@@ -774,20 +775,16 @@
      "ok": true,
      "mentioned": false,
      "cited_own_site": false,
-     "competitors_named": [
-      "Smile Doctor (Ara Damansara)",
-      "V Dental (SS2)"
-     ]
+     "competitors_named": []
     },
     {
      "id": "braces-1",
      "theme": "braces",
      "q": "Which dental clinics would you recommend for braces in Damansara Jaya, Petaling Jaya?",
      "ok": true,
-     "mentioned": false,
-     "cited_own_site": false,
+     "mentioned": true,
+     "cited_own_site": true,
      "competitors_named": [
-      "Ivory Dental (Atria, Damansara Jaya)",
       "The Arc Dental (Damansara Uptown)"
      ]
     },
@@ -799,7 +796,7 @@
      "mentioned": false,
      "cited_own_site": false,
      "competitors_named": [
-      "V Dental (SS2)"
+      "Pearl Smile Dental"
      ]
     },
     {
@@ -810,7 +807,6 @@
      "mentioned": true,
      "cited_own_site": true,
      "competitors_named": [
-      "The Arc Dental (Damansara Uptown)",
       "V Dental (SS2)"
      ]
     },
@@ -822,6 +818,7 @@
      "mentioned": false,
      "cited_own_site": false,
      "competitors_named": [
+      "SEPA Dental (SS2)",
       "V Dental (SS2)"
      ]
     },
@@ -833,8 +830,7 @@
      "mentioned": true,
      "cited_own_site": true,
      "competitors_named": [
-      "Ivory Dental (Atria, Damansara Jaya)",
-      "V Dental (SS2)"
+      "The Arc Dental (Damansara Uptown)"
      ]
     },
     {
@@ -845,7 +841,8 @@
      "mentioned": false,
      "cited_own_site": false,
      "competitors_named": [
-      "V Dental (SS2)"
+      "V Dental (SS2)",
+      "Smile Arts Dental (Kota Damansara)"
      ]
     },
     {
@@ -877,8 +874,8 @@
      "theme": "airway",
      "q": "Is there a dentist in the Klang Valley who treats children's airway and jaw development problems early, without waiting for braces?",
      "ok": true,
-     "mentioned": true,
-     "cited_own_site": true,
+     "mentioned": false,
+     "cited_own_site": false,
      "competitors_named": []
     },
     {
@@ -915,11 +912,9 @@
      "theme": "priority",
      "q": "Where can I take my elderly parents to a dentist in PJ?",
      "ok": true,
-     "mentioned": false,
-     "cited_own_site": false,
-     "competitors_named": [
-      "V Dental (SS2)"
-     ]
+     "mentioned": true,
+     "cited_own_site": true,
+     "competitors_named": []
     },
     {
      "id": "priority-4",
@@ -945,8 +940,8 @@
     }
    ],
    "tokens": {
-    "input": 418142,
-    "output": 20856
+    "input": 442837,
+    "output": 23164
    }
   },
   "panel_trend": [
@@ -976,6 +971,12 @@
    },
    {
     "date": "2026-10-04",
+    "mention_rate_pct": 40.0,
+    "mentioned": 8,
+    "asked": 20
+   },
+   {
+    "date": "2026-10-11",
     "mention_rate_pct": 40.0,
     "mentioned": 8,
     "asked": 20
