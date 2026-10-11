@@ -2163,6 +2163,7 @@ function openPanel(){document.body.classList.add("panel-open");}
 function closePanel(){document.body.classList.remove("panel-open"); PANELCTX=null; if(lastFocus)lastFocus.focus();}
 
 function navBtn(t,fn){const b=el("button",null,t); b.addEventListener("click",fn); return b;}
+function listField(v){return Array.isArray(v)?v:(v?[v]:[]);}
 function slideTo(dir,fn){
   const sh=$("#dsheet");
   if(matchMedia("(prefers-reduced-motion: reduce)").matches){fn();return;}
@@ -2224,16 +2225,18 @@ function openStream(s,parent){
     });
     sec.appendChild(ol); b.appendChild(sec);
   }
-  if(s.note&&s.note.length){
+  const notes=listField(s.note);
+  if(notes.length){
     const sec=el("div","dsec",`<h3>${s.noteTitle||"Narrative &amp; talking points"}</h3>`);
     const ul=el("ul","notes");
-    s.note.forEach(n=>ul.appendChild(el("li",null,n)));
+    notes.forEach(n=>ul.appendChild(el("li",null,n)));
     sec.appendChild(ul); b.appendChild(sec);
   }
-  if(s.open&&s.open.length){
+  const opens=listField(s.open);
+  if(opens.length){
     const sec=el("div","dsec","<h3>Open / watch-outs</h3>");
     const ul=el("ul","opens");
-    s.open.forEach(o=>ul.appendChild(el("li",null,o)));
+    opens.forEach(o=>ul.appendChild(el("li",null,o)));
     sec.appendChild(ul); b.appendChild(sec);
   }
   b.appendChild(talkSection(s,parent));
