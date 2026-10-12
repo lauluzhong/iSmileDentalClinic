@@ -1488,7 +1488,8 @@
      ],
      "open": [
       "Family benefit stays verbal for contractors (handbook only): free treatment for immediate family, invoiced costs (crowns/implants/aligners) borne by doctor or member",
-      "<b>Lau to reply to Dr Azelia</b> about her family-treatment question: first decide the implications of clinic-borne cost versus doctor-borne locum deduction, then apply one consistent rule across the practice"
+      "<b>Lau to reply to Dr Azelia</b> about her family-treatment question: first decide the implications of clinic-borne cost versus doctor-borne locum deduction, then apply one consistent rule across the practice",
+      "<b>Review aged patient prepaid balances:</b> extract the full list and ageing, decide the treatment/depletion deadline, then run a reactivation campaign before considering revenue recognition for balances that remain unused"
      ],
      "owner": "lu",
      "dept": "finance",
@@ -3419,6 +3420,6 @@
  },
  "meta": {
   "asof": "MON 12 OCT 2026",
-  "updated": "2026-10-12T09:05:32+08:00"
+  "updated": "2026-10-12T09:09:41+08:00"
  }
 }
