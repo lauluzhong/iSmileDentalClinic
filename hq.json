@@ -406,8 +406,8 @@
       },
       {
        "t": "Close Dr Ling's discrepancy between the amount documented in OpenDent and the amount expected; verify whether it is a front-desk error with Emily",
-       "s": "now",
-       "w": "Wed 14 Oct morning \u00b7 Lau + Emily"
+       "s": "done",
+       "w": "12 Oct: front desk had informed her 5 Jun; she keyed it 5 Oct; share pays in Nov locum; reply sent"
       },
       {
        "t": "OpenDent\u2192AutoCount sync gaps (AC group, 11\u201312 Oct): a RM9,500 line changed to RM0 in OpenDent stayed RM9,500 in the AutoCount invoice; an X-ray in OpenDent is missing from its AutoCount invoice. JX: the sync only tracks adds and edits; Jason testing",
@@ -434,7 +434,7 @@
       "k": "due",
       "by": "2026-10-14",
       "who": "Lau + Emily",
-      "w": "Dr Ling's RM9,500 discrepancy at the Wed 14 Oct session; Jason/JX testing the sync gaps."
+      "w": "Jason/JX sync test results; reconcile invoices from 1 Oct."
      },
      "next": "Receipts and logins work. Open: Jason/JX fixing the OpenDent\u2192AutoCount sync gaps (edits to RM0 not carried over, a missing X-ray line); then hand-approve the 1\u20135 Oct invoices. Lau settles Dr Ling's discrepancy today.",
      "endMonth": "2026-09"
@@ -3586,6 +3586,6 @@
  },
  "meta": {
   "asof": "TUE 13 OCT 2026",
-  "updated": "2026-10-13T01:48:42+08:00"
+  "updated": "2026-10-13T01:51:46+08:00"
  }
 }
