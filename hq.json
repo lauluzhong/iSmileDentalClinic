@@ -355,9 +355,9 @@
        "w": "on since 1 Oct (Jason confirmed 2 Oct 11:11)"
       },
       {
-       "t": "Invoices from 1\u20135 Oct approved by hand, one by one, so October receivables start clean",
+       "t": "Reconcile invoices from 1 Oct to the fix date (OpenDent vs AutoCount) and approve them; desk deletes any AutoCount line that does not exist in OpenDent",
        "s": "now",
-       "w": "blocked by the integration issues below (LZ 12 Oct)"
+       "w": "Emily + front desk, after the 13 Oct test"
       },
       {
        "t": "Leow sets up an individual AutoCount login + access rights for each staff member \u2014 we send him the details he needs",
@@ -412,7 +412,7 @@
       {
        "t": "OpenDent\u2192AutoCount sync gaps (AC group, 11\u201312 Oct): a RM9,500 line changed to RM0 in OpenDent stayed RM9,500 in the AutoCount invoice; an X-ray in OpenDent is missing from its AutoCount invoice. JX: the sync only tracks adds and edits; Jason testing",
        "s": "now",
-       "w": "Jason/JX testing \u00b7 blocks the 1\u20135 Oct hand-approval"
+       "w": "test with Jason + JX Tue 13 Oct 9:30: add, edit, change to RM0, delete; timing"
       }
      ],
      "open": [
@@ -1163,12 +1163,17 @@
       {
        "t": "Product sales: simple \u2014 Leow creates the sales item in AutoCount posting to GL 4-2000 Sales-Products, added to the patient's active invoice (products are not in OpenDent); Leow teaches the desk",
        "s": "now",
-       "w": "Leow \u00b7 confirmed with Lau 12 Oct"
+       "w": "Leow shows us online \u00b7 proposed Thu 15 Oct 9:30\u201310:00 Google Meet (Lau asking Leow)"
+      },
+      {
+       "t": "Export ABSS general-ledger detail for income accounts 4-1000 to 4-2000 (Jan 2025 to date) to Excel at the clinic \u2014 to check the drafted mapping against what Sarah actually posted",
+       "s": "now",
+       "w": "Lau \u00b7 Tue 13 Oct morning, guided"
       },
       {
        "t": "Tag every OpenDent procedure code to its service GL (4-1000 Procedure, 4-1010 Britesmile, 4-1020 Opalescence, 4-1030 Orthodontic, 4-1040 Implant, 4-1050 Zoom, 4-1060 Biomimetic, 4-1070 Myobrace, 4-1080 Removable Appliance, 4-1090 MyoFunction) \u2014 no mapping exists today (Sarah posted by hand)",
        "s": "now",
-       "w": "Lau + Emily \u00b7 Wed 14 Oct morning"
+       "w": "Claude drafts the mapping from OpenDent + ABSS history; Emily eyeballs at Wed 14 Oct session"
       },
       {
        "t": "Leow confirms the GL list with Sarah, then arranges with Jason when to hand over the mapping",
@@ -1186,9 +1191,9 @@
        "w": ""
       },
       {
-       "t": "Train Sarah on AutoCount, in the clinic, with Leow \u2014 first week of November (ABSS ends 9 Nov; she must start using AutoCount that week). Leow had proposed the 8th\u201310th monthly",
+       "t": "In-person session at the clinic: AutoCount training for Sarah + moving ABSS data into AutoCount (ABSS ends 9 Nov)",
        "s": "next",
-       "w": "first week Nov \u00b7 Lau to set the date with Leow + Sarah"
+       "w": "proposed Wed 21 or Thu 22 Oct \u00b7 asked Leow + Sarah 12 Oct"
       }
      ],
      "flag": {
@@ -3564,6 +3569,6 @@
  },
  "meta": {
   "asof": "MON 12 OCT 2026",
-  "updated": "2026-10-12T16:05:32+08:00"
+  "updated": "2026-10-12T16:32:02+08:00"
  }
 }

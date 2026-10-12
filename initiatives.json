@@ -1,7 +1,17 @@
 {
- "updated": "2026-10-12T16:05:32+08:00",
+ "updated": "2026-10-12T16:32:02+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
+  "Code Capsule": {
+   "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Emily": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Dr Ong": {
    "init": "DO",
    "role": "",
@@ -12,23 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Edith": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
-   "init": "E",
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -66,7 +66,7 @@
     "Warranty return shipping for the faulty downstairs mini PC \u2014 Lau confirmed with Jason Tai that he will bear the cost; it is above the earlier RM35\u201350 estimate (exact amount not recorded)",
     "Leow clears all test invoices/data at end of day, then the link is switched on",
     "Link live \u2014 every transaction from 1 Oct flows into AutoCount",
-    "Invoices from 1\u20135 Oct approved by hand, one by one, so October receivables start clean",
+    "Reconcile invoices from 1 Oct to the fix date (OpenDent vs AutoCount) and approve them; desk deletes any AutoCount line that does not exist in OpenDent",
     "Leow sets up an individual AutoCount login + access rights for each staff member \u2014 we send him the details he needs",
     "Update Leow once the doctors consistently enter discounts as a discount line (not an edited price) \u2014 Lau",
     "Training for front-of-house staff + dinner (Leow not attending \u2014 Lau + Emily teach; Emily + Joanna = on-ground contacts)",
@@ -367,11 +367,12 @@
    "note": "",
    "tasks": [
     "Product sales: simple \u2014 Leow creates the sales item in AutoCount posting to GL 4-2000 Sales-Products, added to the patient's active invoice (products are not in OpenDent); Leow teaches the desk",
+    "Export ABSS general-ledger detail for income accounts 4-1000 to 4-2000 (Jan 2025 to date) to Excel at the clinic \u2014 to check the drafted mapping against what Sarah actually posted",
     "Tag every OpenDent procedure code to its service GL (4-1000 Procedure, 4-1010 Britesmile, 4-1020 Opalescence, 4-1030 Orthodontic, 4-1040 Implant, 4-1050 Zoom, 4-1060 Biomimetic, 4-1070 Myobrace, 4-1080 Removable Appliance, 4-1090 MyoFunction) \u2014 no mapping exists today (Sarah posted by hand)",
     "Leow confirms the GL list with Sarah, then arranges with Jason when to hand over the mapping",
     "One-off remapping window (a day, half a day or one night), then preliminary testing",
     "GL posted daily: every procedure locked to its service GL",
-    "Train Sarah on AutoCount, in the clinic, with Leow \u2014 first week of November (ABSS ends 9 Nov; she must start using AutoCount that week). Leow had proposed the 8th\u201310th monthly"
+    "In-person session at the clinic: AutoCount training for Sarah + moving ABSS data into AutoCount (ABSS ends 9 Nov)"
    ],
    "pillar": "P1"
   },
