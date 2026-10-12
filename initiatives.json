@@ -1,8 +1,8 @@
 {
- "updated": "2026-10-12T12:38:24+08:00",
+ "updated": "2026-10-12T12:38:29+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Emily": {
+  "Edith": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
@@ -12,13 +12,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
-   "init": "E",
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
-   "init": "L",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +27,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -1039,6 +1039,29 @@
     "Check the MYNext portal: is the internship marked complete, and is the TalentCorp Letter of Endorsement issued or pending?",
     "Give the endorsement letter and the allowance payment records to the accountant",
     "Accountant claims the double deduction in the 2026 company tax return"
+   ],
+   "pillar": "F2"
+  },
+  {
+   "id": "f10",
+   "title": "Prepaid patient credits: draw down and close",
+   "status": "active",
+   "owner": "Lau",
+   "why": "Decided with Lau's parents: iSmile no longer takes prepayments or parked insurance budgets. 261 families hold RM113,205 in credit (8 Oct). Use it up against a hard deadline, then close it off.",
+   "next": "Run Financials/Prepaid credits/prepaid_credit_ledger.sql in OpenDental and approve the tier deadlines.",
+   "dept": "finance",
+   "lens": "cost",
+   "endMonth": null,
+   "note": "",
+   "tasks": [
+    "Decision: no more prepayments; draw existing credits down fast, then close",
+    "Ageing pulled from OpenDental: 261 families in credit, RM113,205",
+    "Draft plan: under RM300 use by 31 Dec 2026 (158 families, RM20.7k); RM300 to 1,500 by 31 Mar 2027 (86, RM57.7k); over RM1,500 or overseas, a personal call from Emily and an agreed plan by 30 Jun 2027 (17, RM34.8k). Any family member, any treatment",
+    "Lau runs prepaid_credit_ledger.sql in OpenDental for each family's deposit date and last use",
+    "Lau approves the tiers and deadlines",
+    "Accountant: what happens to credit left after the deadline, and how it sits in AutoCount",
+    "Families told; Emily calls the large balances",
+    "Track the balance down each month to zero"
    ],
    "pillar": "F2"
   },

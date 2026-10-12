@@ -2927,6 +2927,65 @@
      "dept": "finance",
      "lens": "cost",
      "next": "Check the MYNext portal for the endorsement letter, then pass it to the accountant."
+    },
+    {
+     "id": "f10",
+     "dot": "now",
+     "chip": "RM113k liability",
+     "name": "Prepaid patient credits: draw down and close",
+     "one": "Decided with Lau's parents: iSmile no longer takes prepayments or parked insurance budgets. 261 families hold RM113,205 in credit (8 Oct). Use it up against a hard deadline, then close it off.",
+     "steps": [
+      {
+       "t": "Decision: no more prepayments; draw existing credits down fast, then close",
+       "s": "done",
+       "w": "Lau with parents"
+      },
+      {
+       "t": "Ageing pulled from OpenDental: 261 families in credit, RM113,205",
+       "s": "done",
+       "w": "8 Oct"
+      },
+      {
+       "t": "Draft plan: under RM300 use by 31 Dec 2026 (158 families, RM20.7k); RM300 to 1,500 by 31 Mar 2027 (86, RM57.7k); over RM1,500 or overseas, a personal call from Emily and an agreed plan by 30 Jun 2027 (17, RM34.8k). Any family member, any treatment",
+       "s": "done",
+       "w": "12 Oct"
+      },
+      {
+       "t": "Lau runs prepaid_credit_ledger.sql in OpenDental for each family's deposit date and last use",
+       "s": "now"
+      },
+      {
+       "t": "Lau approves the tiers and deadlines",
+       "s": ""
+      },
+      {
+       "t": "Accountant: what happens to credit left after the deadline, and how it sits in AutoCount",
+       "s": ""
+      },
+      {
+       "t": "Families told; Emily calls the large balances",
+       "s": ""
+      },
+      {
+       "t": "Track the balance down each month to zero",
+       "s": ""
+      }
+     ],
+     "open": [
+      "Credit still unused after the deadline: keep it as income, or refund it? Ask the accountant whether the Unclaimed Moneys Act 1965 means it must be lodged with the Registrar rather than written off.",
+      "In AutoCount the credits should sit as money owed to patients (a liability), not as income.",
+      "These 261 families are excluded from the cold blast (refresh 12 Oct).",
+      "Separate list: Emily's 8 Oct creditor sheet is 91 people who OWE the clinic (stopped braces or root canals, short payments). That belongs to the bad-debt item, not this one."
+     ],
+     "flag": {
+      "k": "decide",
+      "w": "Run the prepaid credits query in OpenDental, then approve the three deadlines (31 Dec, 31 Mar, 30 Jun).",
+      "who": "Lu"
+     },
+     "owner": "lu",
+     "dept": "finance",
+     "lens": "cost",
+     "next": "Run Financials/Prepaid credits/prepaid_credit_ledger.sql in OpenDental and approve the tier deadlines."
     }
    ]
   }
@@ -3425,6 +3484,6 @@
  },
  "meta": {
   "asof": "MON 12 OCT 2026",
-  "updated": "2026-10-12T12:38:24+08:00"
+  "updated": "2026-10-12T12:38:29+08:00"
  }
 }
