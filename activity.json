@@ -4,6 +4,13 @@
     {
       "ts": "2026-10-12 09:03 MYT",
       "agent": "edith",
+      "job": "gbp_post_weekly",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-10-12 09:03 MYT",
+      "agent": "edith",
       "job": "wa_group_digest",
       "event": "finished",
       "result": "ok"
@@ -1393,13 +1400,6 @@
       "job": "margin_build",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-10-10 19:30 MYT",
-      "agent": "analytics",
-      "job": "deck_stats",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
