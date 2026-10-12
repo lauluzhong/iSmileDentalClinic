@@ -399,7 +399,7 @@
       {
        "t": "Close Dr Ling's discrepancy between the amount documented in OpenDent and the amount expected; verify whether it is a front-desk error with Emily",
        "s": "now",
-       "w": "today Mon 12 Oct \u00b7 Lau (+ Emily)"
+       "w": "Wed 14 Oct morning \u00b7 Lau + Emily"
       },
       {
        "t": "OpenDent\u2192AutoCount sync gaps (AC group, 11\u201312 Oct): a RM9,500 line changed to RM0 in OpenDent stayed RM9,500 in the AutoCount invoice; an X-ray in OpenDent is missing from its AutoCount invoice. JX: the sync only tracks adds and edits; Jason testing",
@@ -424,9 +424,9 @@
      ],
      "flag": {
       "k": "due",
-      "by": "2026-10-12",
-      "who": "Lau",
-      "w": "Settle Dr Ling's RM9,500 discrepancy today; Jason/JX testing the sync gaps."
+      "by": "2026-10-14",
+      "who": "Lau + Emily",
+      "w": "Dr Ling's RM9,500 discrepancy at the Wed 14 Oct session; Jason/JX testing the sync gaps."
      },
      "next": "Receipts and logins work. Open: Jason/JX fixing the OpenDent\u2192AutoCount sync gaps (edits to RM0 not carried over, a missing X-ray line); then hand-approve the 1\u20135 Oct invoices. Lau settles Dr Ling's discrepancy today.",
      "endMonth": "2026-09"
@@ -926,7 +926,8 @@
       },
       {
        "t": "Agree the payment\u2192procedure allocation convention with Emily",
-       "s": "now"
+       "s": "done",
+       "w": "decided 29 Sep: same day, then oldest first"
       },
       {
        "t": "Locum attribution view feeds per-doctor statements",
@@ -952,7 +953,7 @@
     },
     {
      "id": "d11",
-     "dot": "live",
+     "dot": "parked",
      "chip": "live",
      "name": "Transcription & AI listening",
      "one": "The capture arm: walogger records the working WhatsApp groups, Edith listens, digests and answers \u2014 the substrate the brain will read.",
@@ -967,7 +968,8 @@
       },
       {
        "t": "Resolve Dr Ling's listener concern \u2014 she has an offered opt-out, unanswered",
-       "s": "now"
+       "s": "next",
+       "w": "deprioritised to Jan 2027"
       },
       {
        "t": "Consult-room transcription via the clip-on mic (doubles as social audio)",
@@ -995,7 +997,8 @@
      "steps": [
       {
        "t": "All data lands on one server",
-       "s": "now"
+       "s": "next",
+       "w": "Q1 2027"
       },
       {
        "t": "Local model + data access layer",
@@ -1038,17 +1041,17 @@
       {
        "t": "Merge the ~25 duplicate patient pairs; correct IC typos on same-IC different-person pairs",
        "s": "next",
-       "w": "front-desk quiet time"
+       "w": "queued \u00b7 front-desk quiet time"
       },
       {
        "t": "Ask for and update grown children's own mobile numbers as they visit or call (~680 affected)",
        "s": "next",
-       "w": "ongoing"
+       "w": "ongoing, organically at visits"
       },
       {
        "t": "New-registration rule: patients 18+ give their own number; parent's number goes in the note field",
-       "s": "next",
-       "w": "adopt at FOH training Sat 3 Oct"
+       "s": "done",
+       "w": "desk already asks 18+ for their own number; not formalised (LZ 12 Oct)"
       }
      ]
     },
@@ -1118,13 +1121,14 @@
        "w": "5 Oct \u00b7 TEST Drive Airway: row \u2192 Drive PDF + link \u2192 WhatsApp, verified \u00b7 iSmile Engineer"
       },
       {
-       "t": "Add Dr Ling to \u201ciSmile Airway Evaluations\u201d; delete test rows + stray tab",
-       "s": "next"
+       "t": "Delete the test rows + stray tab in iSmile Airway Evaluations (Dr Ling already added)",
+       "s": "now",
+       "w": "Lau"
       },
       {
-       "t": "Load /airway + update /first link to forms.ismile.com.my/register on WhatsApp Business (text in this card\u2019s note)",
+       "t": "Build the /airway WhatsApp shortcut once Dr Ling says whether she wants the output as PDF or Word",
        "s": "now",
-       "w": "Tue 6 Oct \u00b7 Lau"
+       "w": "waiting on Dr Ling"
       }
      ],
      "flag": {
@@ -1144,51 +1148,47 @@
      "dot": "now",
      "owner": "lu",
      "name": "GL posting by service type (+ product sales)",
-     "chip": "Leow confirming service types with Sarah",
+     "chip": "mapping session Wed 14 Oct \u00b7 Sarah training early Nov",
      "one": "Post every procedure daily to the right service-type GL (the accountant's 5\u20139 types) instead of one default type with a monthly reallocation; add product sales (toothbrush/toothpaste) properly.",
-     "next": "Leow confirms the service types with Sarah, then arranges with Jason when to hand over the GL mapping; a one-off cut-over (half a day or a night), testing, then daily posting.",
+     "next": "Wed 14 Oct: Lau + Emily tag OpenDent codes to the service GLs. Product sales go to 4-2000 via AutoCount (Leow). Sarah's AutoCount training in the clinic in the first week of November, before ABSS ends 9 Nov.",
      "steps": [
       {
-       "t": "Leow confirms the service types (5\u20139) with Sarah",
+       "t": "Product sales: simple \u2014 Leow creates the sales item in AutoCount posting to GL 4-2000 Sales-Products, added to the patient's active invoice (products are not in OpenDent); Leow teaches the desk",
        "s": "now",
-       "w": "Leow + Sarah"
+       "w": "Leow \u00b7 confirmed with Lau 12 Oct"
       },
       {
-       "t": "Leow arranges with Jason when to hand over the GL mapping",
+       "t": "Tag every OpenDent procedure code to its service GL (4-1000 Procedure, 4-1010 Britesmile, 4-1020 Opalescence, 4-1030 Orthodontic, 4-1040 Implant, 4-1050 Zoom, 4-1060 Biomimetic, 4-1070 Myobrace, 4-1080 Removable Appliance, 4-1090 MyoFunction) \u2014 no mapping exists today (Sarah posted by hand)",
+       "s": "now",
+       "w": "Lau + Emily \u00b7 Wed 14 Oct morning"
+      },
+      {
+       "t": "Leow confirms the GL list with Sarah, then arranges with Jason when to hand over the mapping",
        "s": "next",
-       "w": "Leow + Jason"
+       "w": "Leow + Sarah + Jason"
       },
       {
-       "t": "One-off remapping window (a day, half a day or one night)",
-       "s": "next",
-       "w": "Jason"
-      },
-      {
-       "t": "Preliminary testing",
+       "t": "One-off remapping window (a day, half a day or one night), then preliminary testing",
        "s": "next",
        "w": "Jason + Leow"
       },
       {
-       "t": "GL posted daily: every procedure locked to its service type",
+       "t": "GL posted daily: every procedure locked to its service GL",
        "s": "next",
        "w": ""
       },
       {
-       "t": "Product sales GL: toothbrush/toothpaste as a service type or a sibling GL \u2014 Leow checks Sarah's GL code",
+       "t": "Train Sarah on AutoCount, in the clinic, with Leow \u2014 first week of November (ABSS ends 9 Nov; she must start using AutoCount that week). Leow had proposed the 8th\u201310th monthly",
        "s": "next",
-       "w": "Leow + Sarah"
-      },
-      {
-       "t": "Leow teaches the desk to log a product sale in AutoCount and issue its receipt (products are not entered in OpenDent)",
-       "s": "next",
-       "w": "Leow"
-      },
-      {
-       "t": "Check whether a product can go on the same invoice so the patient pays once, one receipt",
-       "s": "next",
-       "w": "Leow"
+       "w": "first week Nov \u00b7 Lau to set the date with Leow + Sarah"
       }
-     ]
+     ],
+     "flag": {
+      "k": "due",
+      "by": "2026-10-14",
+      "who": "Lau + Emily",
+      "w": "Tag OpenDent codes to service GLs at the Wed 14 Oct session."
+     }
     }
    ]
   },
@@ -3579,6 +3579,6 @@
  },
  "meta": {
   "asof": "MON 12 OCT 2026",
-  "updated": "2026-10-12T14:57:09+08:00"
+  "updated": "2026-10-12T15:08:20+08:00"
  }
 }
