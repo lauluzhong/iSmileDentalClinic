@@ -1,7 +1,12 @@
 {
- "updated": "2026-10-12T12:38:29+08:00",
+ "updated": "2026-10-12T13:17:26+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Edith": {
    "init": "E",
    "role": "",
@@ -12,13 +17,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +27,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
-   "init": "E",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   }
@@ -40,7 +40,7 @@
    "status": "active",
    "owner": "Code Capsule",
    "why": "The OpenDent \u2192 AutoCount integration is live after the 8 Oct default-account fix; invoices from the day were recovered. A Dr Ling amount discrepancy is queued for Lau and Emily to close on Tue 13 Oct.",
-   "next": "On Tue 13 Oct, Lau and Emily review Dr Ling's amount discrepancy, then record the confirmed cause and correction; post-fix receipt validation remains open.",
+   "next": "Receipts and logins work. Open: Jason/JX fixing the OpenDent\u2192AutoCount sync gaps (edits to RM0 not carried over, a missing X-ray line); then hand-approve the 1\u20135 Oct invoices. Lau settles Dr Ling's discrepancy today.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -74,9 +74,10 @@
     "OpenDent glitch: two patients' old records (a 2023 account; a 2022 monthly payment plan of Dr Amy's) suddenly re-dated to today as treatment plans \u2014 one now shows the clinic owing the patient ~RM9k. Emily posts screenshots in the CC group; raise with Jason at the Wed 30 Sep meeting",
     "Joanna's old laptop (newer Windows) replaces the broken new PC for receipts; the broken PC has gone to China for warranty",
     "Import historical accounting data: move 10 years into AutoCount (LHDN needs 7), older years kept as a raw database; Emily confirms with Leow that the import can happen after go-live",
-    "ABSS licence expires end Oct (~RM1,000\u20131,200/yr to renew): don't renew now; decide mid-Oct if AutoCount has problems",
+    "ABSS not renewed: licence ends 9 Nov; agreed with the accounting firm to migrate fully to AutoCount",
     "Medical certificate template v2 done (Klinik Pergigian iSmile, mobile + website); doctor signature still to confirm (Emily)",
-    "Close Dr Ling's discrepancy between the amount documented in OpenDent and the amount expected; verify whether it is a front-desk error with Emily"
+    "Close Dr Ling's discrepancy between the amount documented in OpenDent and the amount expected; verify whether it is a front-desk error with Emily",
+    "OpenDent\u2192AutoCount sync gaps (AC group, 11\u201312 Oct): a RM9,500 line changed to RM0 in OpenDent stayed RM9,500 in the AutoCount invoice; an X-ray in OpenDent is missing from its AutoCount invoice. JX: the sync only tracks adds and edits; Jason testing"
    ],
    "pillar": "P1"
   },

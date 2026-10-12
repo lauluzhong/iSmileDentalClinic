@@ -244,7 +244,7 @@
     {
      "id": "d1",
      "dot": "now",
-     "chip": "integration fix live \u00b7 discrepancy review Tue 13 Oct",
+     "chip": "receipts live \u00b7 sync gaps being fixed",
      "name": "OpenDent \u2194 AutoCount integration",
      "one": "The OpenDent \u2192 AutoCount integration is live after the 8 Oct default-account fix; invoices from the day were recovered. A Dr Ling amount discrepancy is queued for Lau and Emily to close on Tue 13 Oct.",
      "steps": [
@@ -348,18 +348,18 @@
       },
       {
        "t": "Invoices from 1\u20135 Oct approved by hand, one by one, so October receivables start clean",
-       "s": "next",
-       "w": "Thu 1 \u2013 Mon 5 Oct \u00b7 Emily/front desk"
+       "s": "now",
+       "w": "blocked by the integration issues below (LZ 12 Oct)"
       },
       {
        "t": "Leow sets up an individual AutoCount login + access rights for each staff member \u2014 we send him the details he needs",
-       "s": "now",
-       "w": "Leow set up usernames on the server PC 1 Oct; not yet confirmed that every front-desk login is done"
+       "s": "done",
+       "w": "all working (LZ 12 Oct)"
       },
       {
        "t": "Update Leow once the doctors consistently enter discounts as a discount line (not an edited price) \u2014 Lau",
-       "s": "next",
-       "w": "after go-live \u00b7 Lau"
+       "s": "done",
+       "w": "doctors use discount lines; so far so good (LZ 12 Oct)"
       },
       {
        "t": "Training for front-of-house staff + dinner (Leow not attending \u2014 Lau + Emily teach; Emily + Joanna = on-ground contacts)",
@@ -368,13 +368,13 @@
       },
       {
        "t": "Go live \u2014 new digital receipts (Lau and Emily on standby that week)",
-       "s": "now",
-       "w": "8 Oct \u00b7 integration fix live; post-fix receipt validation remains"
+       "s": "done",
+       "w": "receipts work (LZ 12 Oct)"
       },
       {
        "t": "OpenDent glitch: two patients' old records (a 2023 account; a 2022 monthly payment plan of Dr Amy's) suddenly re-dated to today as treatment plans \u2014 one now shows the clinic owing the patient ~RM9k. Emily posts screenshots in the CC group; raise with Jason at the Wed 30 Sep meeting",
-       "s": "now",
-       "w": "Jason's team checking since 30 Sep \u00b7 Emily to update"
+       "s": "done",
+       "w": "earlier glitches fixed (LZ 12 Oct)"
       },
       {
        "t": "Joanna's old laptop (newer Windows) replaces the broken new PC for receipts; the broken PC has gone to China for warranty",
@@ -387,9 +387,9 @@
        "w": "Nov/Dec, before year end \u00b7 Leow + Sarah"
       },
       {
-       "t": "ABSS licence expires end Oct (~RM1,000\u20131,200/yr to renew): don't renew now; decide mid-Oct if AutoCount has problems",
-       "s": "next",
-       "w": "mid-Oct \u00b7 Lau + Emily"
+       "t": "ABSS not renewed: licence ends 9 Nov; agreed with the accounting firm to migrate fully to AutoCount",
+       "s": "done",
+       "w": "decided 12 Oct"
       },
       {
        "t": "Medical certificate template v2 done (Klinik Pergigian iSmile, mobile + website); doctor signature still to confirm (Emily)",
@@ -399,7 +399,12 @@
       {
        "t": "Close Dr Ling's discrepancy between the amount documented in OpenDent and the amount expected; verify whether it is a front-desk error with Emily",
        "s": "now",
-       "w": "Tue 13 Oct \u00b7 Lau + Emily (Emily back)"
+       "w": "today Mon 12 Oct \u00b7 Lau (+ Emily)"
+      },
+      {
+       "t": "OpenDent\u2192AutoCount sync gaps (AC group, 11\u201312 Oct): a RM9,500 line changed to RM0 in OpenDent stayed RM9,500 in the AutoCount invoice; an X-ray in OpenDent is missing from its AutoCount invoice. JX: the sync only tracks adds and edits; Jason testing",
+       "s": "now",
+       "w": "Jason/JX testing \u00b7 blocks the 1\u20135 Oct hand-approval"
       }
      ],
      "open": [
@@ -419,11 +424,11 @@
      ],
      "flag": {
       "k": "due",
-      "by": "2026-10-13",
-      "w": "Review Dr Ling's OpenDent amount discrepancy with Emily and close whether the front desk entered it incorrectly.",
-      "who": "Lau + Emily"
+      "by": "2026-10-12",
+      "who": "Lau",
+      "w": "Settle Dr Ling's RM9,500 discrepancy today; Jason/JX testing the sync gaps."
      },
-     "next": "On Tue 13 Oct, Lau and Emily review Dr Ling's amount discrepancy, then record the confirmed cause and correction; post-fix receipt validation remains open.",
+     "next": "Receipts and logins work. Open: Jason/JX fixing the OpenDent\u2192AutoCount sync gaps (edits to RM0 not carried over, a missing X-ray line); then hand-approve the 1\u20135 Oct invoices. Lau settles Dr Ling's discrepancy today.",
      "endMonth": "2026-09"
     },
     {
@@ -3484,6 +3489,6 @@
  },
  "meta": {
   "asof": "MON 12 OCT 2026",
-  "updated": "2026-10-12T12:38:29+08:00"
+  "updated": "2026-10-12T13:17:26+08:00"
  }
 }
