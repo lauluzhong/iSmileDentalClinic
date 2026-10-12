@@ -191,18 +191,18 @@
    "tip": "Lau is considering moving the blast to Monday 12 through Wednesday 14 October. This is proposed, not committed, and depends on Suraya, Jason and Code Capsule fixing the exclusion import and rebuilding a reliable Wave 1 audience."
   },
   {
-   "d": "mid-Oct",
-   "l": "Supplier register due (Emily)",
-   "s": "",
-   "iso": "2026-10-15",
-   "tip": "Moved from 31 Aug to mid-October, ahead of the AutoCount supplier setup."
-  },
-  {
    "d": "27 Oct",
    "l": "Dr Jia Yin's first day (5 days/wk)",
    "s": "",
    "iso": "2026-10-27",
    "tip": "Confirmed first date: Tuesday 27 October 2026 (moved from 26th). Dr Jia Yin joins 5 days/wk (+2 Elite Saturdays during her ~6-month transition). RM7k floor or 40%, whichever higher, for 6 months."
+  },
+  {
+   "d": "mid-Nov",
+   "l": "Supplier register due (Emily)",
+   "s": "",
+   "iso": "2026-11-15",
+   "tip": "Moved from 31 Aug to mid-October, ahead of the AutoCount supplier setup."
   },
   {
    "d": "Q4",
@@ -594,7 +594,7 @@
     {
      "id": "d4",
      "dot": "blocked",
-     "chip": "supplier list mid-Oct",
+     "chip": "supplier list mid-Nov",
      "name": "AP \u00b7 suppliers + inventory",
      "one": "Supplier register \u2192 lab + equipment AP in AutoCount \u2192 inventory with PO\u2192invoice\u2192receipt flow.",
      "steps": [
@@ -605,7 +605,7 @@
       {
        "t": "Full register from Emily \u2014 committed end Aug",
        "s": "now",
-       "w": "mid-Oct (moved from end Aug)"
+       "w": "mid-Nov (moved 12 Oct)"
       },
       {
        "t": "Supplier-side (AP) AutoCount training with Leow, in person \u2014 Lau + Emily",
@@ -641,9 +641,9 @@
      ],
      "flag": {
       "k": "due",
-      "by": "2026-10-15",
+      "by": "2026-11-15",
       "who": "Emily",
-      "w": "Full supplier list (incl. the RM246k dental sundries) by mid-October, ahead of the AutoCount supplier setup."
+      "w": "Full supplier list (incl. the dental sundries) by mid-November."
      },
      "owner": "emily",
      "dept": "finance",
@@ -682,7 +682,7 @@
       {
        "t": "Employee data entry + configuration",
        "s": "now",
-       "w": "from mid-Oct \u00b7 Emily"
+       "w": "by end Oct \u00b7 Emily"
       },
       {
        "t": "First parallel payroll run",
@@ -878,8 +878,8 @@
       },
       {
        "t": "Lau: change the /new WhatsApp Business shortcut to forms.ismile.com.my/register (old register.ismile.com.my link will keep redirecting)",
-       "s": "now",
-       "w": "after the Engineer moves the form to forms.ismile.com.my/register"
+       "s": "done",
+       "w": "done (LZ 12 Oct)"
       },
       {
        "t": "Fold into FOH training + desk SOP",
@@ -3579,6 +3579,6 @@
  },
  "meta": {
   "asof": "MON 12 OCT 2026",
-  "updated": "2026-10-12T14:54:33+08:00"
+  "updated": "2026-10-12T14:57:09+08:00"
  }
 }
