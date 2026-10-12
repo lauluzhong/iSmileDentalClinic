@@ -3,6 +3,13 @@
   "entries": [
     {
       "ts": "2026-10-12 09:00 MYT",
+      "agent": "analytics",
+      "job": "deck_stats",
+      "event": "started",
+      "result": ""
+    },
+    {
+      "ts": "2026-10-12 09:00 MYT",
       "agent": "edith",
       "job": "gbp_post_weekly",
       "event": "started",
@@ -1393,13 +1400,6 @@
       "job": "deck_stats",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-10-10 18:30 MYT",
-      "agent": "analytics",
-      "job": "deck_stats",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
