@@ -3076,7 +3076,7 @@
      "lens": "control",
      "from_initiatives": [],
      "open": [],
-     "id": "f10",
+     "id": "f12",
      "dot": "now",
      "owner": "lu",
      "name": "Outstanding patient balances review",
@@ -3095,7 +3095,7 @@
        "w": ""
       },
       {
-       "t": "Chase, clean up or write off each case; old prepaid credits handled in the same pass",
+       "t": "Chase, clean up or write off each case (prepaid credits: see their own card)",
        "s": "next",
        "w": ""
       }
@@ -3623,6 +3623,6 @@
  },
  "meta": {
   "asof": "MON 12 OCT 2026",
-  "updated": "2026-10-12T16:00:22+08:00"
+  "updated": "2026-10-12T16:00:33+08:00"
  }
 }

@@ -1,14 +1,14 @@
 {
- "updated": "2026-10-12T16:00:22+08:00",
+ "updated": "2026-10-12T16:00:33+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Code Capsule": {
-   "init": "CC",
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
-   "init": "L",
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -22,13 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
-   "init": "E",
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
-   "init": "E",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   }
@@ -1087,7 +1087,7 @@
    "pillar": "F2"
   },
   {
-   "id": "f10",
+   "id": "f12",
    "title": "Outstanding patient balances review",
    "status": "active",
    "owner": "Lau",
@@ -1100,7 +1100,7 @@
    "tasks": [
     "Balance list prepared (marketing session)",
     "Lau + Emily classify each case: active / old data / paid since export / unsure",
-    "Chase, clean up or write off each case; old prepaid credits handled in the same pass"
+    "Chase, clean up or write off each case (prepaid credits: see their own card)"
    ],
    "pillar": "F2"
   },
