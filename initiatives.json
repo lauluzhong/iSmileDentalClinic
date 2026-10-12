@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-12T15:51:29+08:00",
+ "updated": "2026-10-12T16:00:22+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Emily": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Code Capsule": {
    "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -22,8 +22,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
-   "init": "L",
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -845,7 +845,7 @@
   {
    "id": "h1",
    "title": "Doctor wellbeing",
-   "status": "active",
+   "status": "parked",
    "owner": "Dr Ong",
    "why": "Low visibility is the risk. Live: Dr Mah's morale plan and building a regular check-in rhythm.",
    "next": "Confirm the birthday date (via Emily). Nearer the time: front desk selects safe long-tenured patients to write notes.",
@@ -855,7 +855,7 @@
    "note": "",
    "tasks": [
     "Align workshop 8 Sep \u2014 declined, nobody attending",
-    "Mah appreciation-notes plan set (Dec birthday \u2014 confirm date, keep secret)",
+    "Doctor appreciation (all doctors, not just Dr Mah): decide an approach",
     "Light doctor check-in rhythm, not event-driven"
    ],
    "pillar": "F1"
@@ -912,7 +912,7 @@
     "Elaine calling lists issued",
     "Jessy FOH stretch posting running",
     "Erincy mileage building",
-    "Longer term (not a go-live blocker): Joanna leaves by end Q1 2027 \u2014 hire one replacement; give Erincy and Ruth structured training meanwhile; fallback Eida; Jessie stays DSA"
+    "Joanna leaves by end Q1 2027; front desk is Joanna + Erincy now; replacement hire on the hiring card"
    ],
    "pillar": "F1"
   },

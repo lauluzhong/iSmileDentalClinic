@@ -2513,7 +2513,7 @@
    "streams": [
     {
      "id": "h1",
-     "dot": "now",
+     "dot": "parked",
      "chip": "sensitive",
      "name": "Doctor wellbeing",
      "one": "Low visibility is the risk. Live: Dr Mah's morale plan and building a regular check-in rhythm.",
@@ -2524,8 +2524,9 @@
        "w": "28 Aug"
       },
       {
-       "t": "Mah appreciation-notes plan set (Dec birthday \u2014 confirm date, keep secret)",
-       "s": "now"
+       "t": "Doctor appreciation (all doctors, not just Dr Mah): decide an approach",
+       "s": "next",
+       "w": "January 2027 \u00b7 Lau"
       },
       {
        "t": "Light doctor check-in rhythm, not event-driven",
@@ -2538,7 +2539,8 @@
      ],
      "flag": {
       "k": "talk",
-      "w": "Confirm Dr Mah's birthday date and settle the check-in rhythm."
+      "by": "2027-01-15",
+      "w": "Doctor appreciation approach, January 2027."
      },
      "owner": "jean",
      "dept": "people",
@@ -2564,7 +2566,7 @@
       {
        "t": "Dr Ong meets Elaine for the job-description conversation",
        "s": "now",
-       "w": "Tue 6 Oct"
+       "w": "December"
       },
       {
        "t": "Book the amounts sit-down",
@@ -2582,9 +2584,8 @@
      ],
      "flag": {
       "k": "talk",
-      "by": "2026-10-06",
-      "who": "Dr Ong",
-      "w": "Dr Ong meets Elaine on 6 Oct for the job-description conversation."
+      "by": "2026-12-15",
+      "w": "December: Dr Ong + Elaine job-description talk; year-end increment sit-down with Emily."
      },
      "owner": "lu",
      "dept": "people",
@@ -2613,7 +2614,7 @@
       {
        "t": "Lau-led conversation with Siti and Eida about DSA training",
        "s": "now",
-       "w": "October, after the doctors' agreement work"
+       "w": "December"
       }
      ],
      "open": [
@@ -2623,8 +2624,9 @@
      ],
      "flag": {
       "k": "talk",
+      "by": "2026-12-15",
       "who": "Lau",
-      "w": "Lead the conversation with Siti and Eida about DSA training in October, after the doctors' agreement work."
+      "w": "December: conversation with Siti and Eida about DSA training."
      },
      "owner": "lu",
      "dept": "people",
@@ -2648,14 +2650,15 @@
       },
       {
        "t": "Jessy FOH stretch posting running",
-       "s": "now"
+       "s": "done",
+       "w": "ended \u2014 front desk is now Joanna + Erincy"
       },
       {
        "t": "Erincy mileage building",
        "s": ""
       },
       {
-       "t": "Longer term (not a go-live blocker): Joanna leaves by end Q1 2027 \u2014 hire one replacement; give Erincy and Ruth structured training meanwhile; fallback Eida; Jessie stays DSA",
+       "t": "Joanna leaves by end Q1 2027; front desk is Joanna + Erincy now; replacement hire on the hiring card",
        "s": "next",
        "w": "plan before Q1 2027"
       }
@@ -2672,7 +2675,7 @@
     {
      "id": "h5",
      "dot": "now",
-     "chip": "letters SOP \u00b7 next fix",
+     "chip": "training done \u00b7 letters SOP next",
      "name": "Front-of-house SOP, training & bench",
      "one": "The remaining achievable FOH gap is putting the patient-letters SOP into force: Google Docs masters, Joanna's walkthrough, and a clear filing location.",
      "steps": [
@@ -2763,12 +2766,7 @@
       19
      ],
      "next": "Lau reviews deck v2 and shares it with Emily Wed 30 Sep; tell the girls it is training + dinner; load the v2 shortcuts on the clinic phone before Sat 3 Oct.",
-     "endMonth": "2026-11",
-     "flag": {
-      "k": "due",
-      "by": "2026-10-07",
-      "w": "FOH training held Sat 3 Oct \u2014 all good. Next: go-live Wed 7 Oct."
-     }
+     "endMonth": "2026-11"
     },
     {
      "id": "h6",
@@ -2785,11 +2783,12 @@
       {
        "t": "Lau begins outreach for candidate CVs",
        "s": "now",
-       "w": "from 6 Oct"
+       "w": "barely started \u00b7 send out more aggressively (LZ 12 Oct)"
       },
       {
        "t": "Review incoming CVs and set the interview shortlist",
-       "s": "next"
+       "s": "next",
+       "w": "no CVs yet"
       }
      ],
      "open": [
@@ -2799,7 +2798,13 @@
      "dept": "people",
      "lens": "growth",
      "next": "Lau starts outreach for Front of House and Marketing CVs, then builds the interview shortlist.",
-     "endMonth": "2026-11"
+     "endMonth": "2026-11",
+     "flag": {
+      "k": "due",
+      "by": "2026-10-19",
+      "who": "Lau",
+      "w": "Push the job ads out harder this week; no CVs yet."
+     }
     }
    ]
   },
@@ -3618,6 +3623,6 @@
  },
  "meta": {
   "asof": "MON 12 OCT 2026",
-  "updated": "2026-10-12T15:51:29+08:00"
+  "updated": "2026-10-12T16:00:22+08:00"
  }
 }
