@@ -5,6 +5,13 @@
       "ts": "2026-10-12 20:10 MYT",
       "agent": "analytics",
       "job": "locum_sheet",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-10-12 20:10 MYT",
+      "agent": "analytics",
+      "job": "locum_sheet",
       "event": "started",
       "result": ""
     },
@@ -1393,13 +1400,6 @@
       "job": "review_stats_sync",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-10-11 06:04 MYT",
-      "agent": "seo",
-      "job": "competitor_watch",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
