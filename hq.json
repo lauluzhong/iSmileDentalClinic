@@ -1065,17 +1065,15 @@
     },
     {
      "id": "d13",
-     "dot": "now",
-     "chip": "live end to end \u00b7 Lau checks first PDF, then adds Dr Ling",
+     "dot": "live",
+     "chip": "done \u00b7 live with Dr Ling\u2019s consult questions",
      "name": "Pre-visit consult forms (airway first)",
      "one": "Dr Ling\u2019s three airway questionnaires (PSQ, Epworth\u2013Children, NOSE) as one digital form patients fill in before the consult; scores computed; desk pastes a summary into OpenDental. Same pattern for future consults.",
-     "open": [
-      "Dr Ling: who answers for young children \u00b7 cadence (first consult, repeat at reviews) \u00b7 preferred output: PDF to her, or the summary pasted into OpenDental \u00b7 ESS-CHAD licence check"
-     ],
+     "open": [],
      "owner": "lu",
      "dept": "crm",
      "lens": "efficiency",
-     "next": "Tue 6 Oct at the clinic: load /airway \u2192 Lau confirms the test PDF + caption in the group \u2192 add Dr Ling",
+     "next": "Done. Same pattern is ready for future consult forms.",
      "endMonth": "2026-10",
      "steps": [
       {
@@ -1130,20 +1128,35 @@
       },
       {
        "t": "Delete the test rows + stray tab in iSmile Airway Evaluations (Dr Ling already added)",
-       "s": "now",
-       "w": "Lau"
+       "s": "done",
+       "w": "Lau, by 12 Oct"
       },
       {
-       "t": "Build the /airway WhatsApp shortcut once Dr Ling says whether she wants the output as PDF or Word",
-       "s": "now",
-       "w": "waiting on Dr Ling"
+       "t": "Output settled: PDF + plain-text OpenDent note (no Word); /airway link in use on WhatsApp",
+       "s": "done",
+       "w": "13 Oct"
+      },
+      {
+       "t": "v3 live: Dr Ling\u2019s consult questions merged into the airway form, 5 numbered steps; her feedback applied (no \u2018Prefer not to say\u2019, no skip button)",
+       "s": "done",
+       "w": "10\u201311 Oct"
+      },
+      {
+       "t": "PDF shows every option with the answer filled in; Sheet has one column per question",
+       "s": "done",
+       "w": "11 Oct"
+      },
+      {
+       "t": "Each form now posts the PDF + an OpenDent-ready note (her headings) to the airway group; script-only, no AI",
+       "s": "done",
+       "w": "13 Oct"
+      },
+      {
+       "t": "First real patient form received and delivered",
+       "s": "done",
+       "w": "12 Oct"
       }
      ],
-     "flag": {
-      "k": "due",
-      "by": "2026-10-06",
-      "w": "At the clinic Tue 6 Oct: load /airway and update the /first link on WhatsApp Business (text in the note on this card)."
-     },
      "noteTitle": "/airway shortcut \u2014 load on WhatsApp Business",
      "note": "Before [PATIENT]\u2019s airway consultation, please fill in this short questionnaire. It takes about 5 minutes, and the dentist will read your answers before you come in:\nhttps://forms.ismile.com.my/airway\n\nThe questions are about sleep, daytime tiredness and breathing through the nose over the past month.\n\nChain: Hi [Name], \u2192 /confirm \u2192 /first (new only) \u2192 /airway \u2192 sign-off. ALSO: in /first, change the link to https://forms.ismile.com.my/register (live 5 Oct; the old register link redirects, so no rush)."
     },
@@ -3573,6 +3586,6 @@
  },
  "meta": {
   "asof": "TUE 13 OCT 2026",
-  "updated": "2026-10-13T01:29:40+08:00"
+  "updated": "2026-10-13T01:48:42+08:00"
  }
 }

@@ -1,19 +1,9 @@
 {
- "updated": "2026-10-13T01:29:40+08:00",
+ "updated": "2026-10-13T01:48:42+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Edith": {
+  "Emily": {
    "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Code Capsule": {
-   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
@@ -22,13 +12,23 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
+  "Lau": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
   "Lydia": {
    "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   }
@@ -333,7 +333,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "Dr Ling\u2019s three airway questionnaires (PSQ, Epworth\u2013Children, NOSE) as one digital form patients fill in before the consult; scores computed; desk pastes a summary into OpenDental. Same pattern for future consults.",
-   "next": "Tue 6 Oct at the clinic: load /airway \u2192 Lau confirms the test PDF + caption in the group \u2192 add Dr Ling",
+   "next": "Done. Same pattern is ready for future consult forms.",
    "dept": "crm",
    "lens": "efficiency",
    "endMonth": "2026-10",
@@ -350,7 +350,11 @@
     "Instant delivery (~8 s); caption = name (age), three scores, who/when; registration form moved to forms.ismile.com.my/register",
     "Drive saver deployed (shared ismile.general script for all forms)",
     "Delete the test rows + stray tab in iSmile Airway Evaluations (Dr Ling already added)",
-    "Build the /airway WhatsApp shortcut once Dr Ling says whether she wants the output as PDF or Word"
+    "Output settled: PDF + plain-text OpenDent note (no Word); /airway link in use on WhatsApp",
+    "v3 live: Dr Ling\u2019s consult questions merged into the airway form, 5 numbered steps; her feedback applied (no \u2018Prefer not to say\u2019, no skip button)",
+    "PDF shows every option with the answer filled in; Sheet has one column per question",
+    "Each form now posts the PDF + an OpenDent-ready note (her headings) to the airway group; script-only, no AI",
+    "First real patient form received and delivered"
    ],
    "pillar": "P1"
   },
