@@ -1,24 +1,9 @@
 {
- "updated": "2026-10-12T09:09:41+08:00",
+ "updated": "2026-10-12T09:11:36+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Emily": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
-   "init": "E",
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +12,23 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
-   "init": "L",
+  "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Emily": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   }
@@ -129,6 +129,7 @@
     "e-Invoice: NOT issued for now (LZ \u00d7 Emily 29 Sep \u2014 one e-invoice triggers monthly LHDN reporting)",
     "Create a general clinic Gmail: ismile.general@gmail.com, with ismiledental76 as the backup \u2014 goes on receipts and the website instead of the 76 address",
     "Bad debt: OpenDent shows ~RM174k outstanding, some >90 days and some years old. Define bad debt (e.g. overdue 30 days = delinquent, 6 months = write off) then clean the old balances out of OpenDent",
+    "Review the full outstanding patient-balance list: classify active balances, old data, paid-since-export and uncertain cases, then decide the chase / clean-up action for each",
     "Sarah texts Lau her number \u2192 Lau passes it to Leow",
     "Revenue basis: the accountant books revenue on COLLECTION, but AutoCount posts sales when an invoice is approved (charge basis). Leow + Sarah agree how to handle it before numbers flow (or Sarah journals it monthly)",
     "Service vs product sales accounts + receipting a toothbrush sale \u2014 Leow 30 Sep: needs the accountant first and probably a change on Jason's side",

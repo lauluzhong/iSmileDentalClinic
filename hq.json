@@ -556,6 +556,11 @@
        "w": "Lau + Emily \u00b7 after go-live"
       },
       {
+       "t": "Review the full outstanding patient-balance list: classify active balances, old data, paid-since-export and uncertain cases, then decide the chase / clean-up action for each",
+       "s": "next",
+       "w": "Lau + Emily \u00b7 after go-live"
+      },
+      {
        "t": "Sarah texts Lau her number \u2192 Lau passes it to Leow",
        "s": "done",
        "w": "Sarah + Leow working directly in the new accounting group since 1 Oct"
@@ -3420,6 +3425,6 @@
  },
  "meta": {
   "asof": "MON 12 OCT 2026",
-  "updated": "2026-10-12T09:09:41+08:00"
+  "updated": "2026-10-12T09:11:36+08:00"
  }
 }
