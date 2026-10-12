@@ -2832,7 +2832,8 @@
       },
       {
        "t": "Add a bank-balance line to the daily view",
-       "s": "now"
+       "s": "skip",
+       "w": "not possible for now (LZ 12 Oct)"
       }
      ],
      "open": [
@@ -2846,7 +2847,7 @@
     },
     {
      "id": "f2",
-     "dot": "now",
+     "dot": "live",
      "chip": "v6",
      "name": "FY2026 landing projection",
      "one": "V6 redone. Expecting a loss year \u2014 the job is knowing the landing zone, not pretending otherwise.",
@@ -2857,7 +2858,8 @@
       },
       {
        "t": "Track landing vs actuals monthly",
-       "s": "now"
+       "s": "skip",
+       "w": "business as usual, not a card item (LZ 12 Oct)"
       },
       {
        "t": "Year-end close + FY2027 base",
@@ -2870,8 +2872,8 @@
       },
       {
        "t": "Import Jul/Aug actuals into Model v6 (Sheet last edited 28 Aug)",
-       "s": "next",
-       "w": "Financial session"
+       "s": "skip",
+       "w": "business as usual, not a card item (LZ 12 Oct)"
       }
      ],
      "open": [
@@ -2886,7 +2888,7 @@
     },
     {
      "id": "f3",
-     "dot": "now",
+     "dot": "live",
      "chip": "bills paid",
      "name": "Capex & cash runway",
      "one": "...What's left is confirming cash covers the September legal fee and the January 2027 increment step-up.",
@@ -2903,7 +2905,8 @@
       },
       {
        "t": "Confirm cash covers remaining capex, the RM15k Sep legal fee, and the Jan-2027 increment step-up",
-       "s": "now"
+       "s": "done",
+       "w": "closed (LZ 12 Oct)"
       },
       {
        "t": "Cash 29 Sep \u2248 RM104k; out next week \u2248 RM40k (EPF, rent), then locum on the 10th. Dad will inject cash if needed \u2014 tell Lau if it gets tight",
@@ -2915,59 +2918,11 @@
       "Increments + bonus are reserve-funded \u2014 keep them in the cash view, not just the P&L",
       "Your own payroll is now on the books \u2014 it changes the monthly cash floor"
      ],
-     "flag": {
-      "k": "decide",
-      "w": "Cash \u2248 RM104k on 29 Sep, \u2248 RM40k out next week plus locum on the 10th; Lydia paid in 3\u00d7RM5k. Lau's dad will inject if needed \u2014 decide only if it gets tight."
-     },
      "owner": "emily",
      "dept": "finance",
      "lens": "efficiency",
      "from_initiatives": [],
      "next": "Confirm cash covers remaining capex + Dec bonus/increment wave"
-    },
-    {
-     "id": "f4",
-     "dot": "wait",
-     "chip": "policy",
-     "name": "Supplier rebates & benefits policy",
-     "one": "Suppliers give us more than goods \u2014 early-payment cashback, volume discounts, seasonal promotions, free units, sponsored courses. Today there is no rule about who those benefits belong to, which means every case is a neg",
-     "steps": [
-      {
-       "t": "Policy drafted \u2014 three buckets, with a worked example table",
-       "s": "done"
-      },
-      {
-       "t": "Key insight captured: cost-linked rebates are ALREADY shared, because lab and material costs are deducted before the doctor's share",
-       "s": "done"
-      },
-      {
-       "t": "Confirm rebates are actually booked against the cost line in the month they relate to \u2014 the policy fails quietly if they are not",
-       "s": ""
-      },
-      {
-       "t": "Legal to confirm the ethics and inducement position",
-       "s": ""
-      },
-      {
-       "t": "Communicate to the doctors, leading with the good news",
-       "s": ""
-      },
-      {
-       "t": "Fold into the contractor agreement",
-       "s": ""
-      }
-     ],
-     "open": [
-      "Cash-flow-earned benefits are the clinic's outright. Case-cost-earned benefits reduce the cost line and reach the doctors automatically \u2014 paying them on top would be double-counting. Personal benefits are declared and logged."
-     ],
-     "owner": "lu",
-     "dept": "finance",
-     "lens": "cost",
-     "from_initiatives": [
-      22
-     ],
-     "next": "Confirm the mechanics with the office, get the ethics position confirmed, then communicate it and fold it into the contractor agreement.",
-     "endMonth": "2026-09"
     },
     {
      "id": "f9",
@@ -2988,7 +2943,8 @@
       },
       {
        "t": "Check the MYNext portal: is the internship marked complete, and is the TalentCorp Letter of Endorsement issued or pending?",
-       "s": "now"
+       "s": "now",
+       "w": "first check whether a claim is still possible; if not, drop"
       },
       {
        "t": "Give the endorsement letter and the allowance payment records to the accountant",
@@ -3016,8 +2972,8 @@
      "id": "f10",
      "dot": "now",
      "chip": "RM113k liability",
-     "name": "Prepaid patient credits: draw down and close",
-     "one": "Decided with Lau's parents: iSmile no longer takes prepayments or parked insurance budgets. 261 families hold RM113,205 in credit (8 Oct). Use it up against a hard deadline, then close it off.",
+     "name": "Patient balances: prepaid credits + amounts owed",
+     "one": "One exercise with the marketing session, both directions: prepaid credits patients hold with us (~RM113k) and balances patients owe us.",
      "steps": [
       {
        "t": "Decision: no more prepayments; draw existing credits down fast, then close",
@@ -3053,6 +3009,21 @@
       {
        "t": "Track the balance down each month to zero",
        "s": ""
+      },
+      {
+       "t": "Balance list prepared (marketing session)",
+       "s": "now",
+       "w": "in progress"
+      },
+      {
+       "t": "Lau + Emily classify each case: active / old data / paid since export / unsure",
+       "s": "next",
+       "w": ""
+      },
+      {
+       "t": "Chase, clean up or write off each case (prepaid credits: see their own card)",
+       "s": "next",
+       "w": ""
       }
      ],
      "open": [
@@ -3069,37 +3040,7 @@
      "owner": "lu",
      "dept": "finance",
      "lens": "cost",
-     "next": "Run Financials/Prepaid credits/prepaid_credit_ledger.sql in OpenDental and approve the tier deadlines."
-    },
-    {
-     "dept": "finance",
-     "lens": "control",
-     "from_initiatives": [],
-     "open": [],
-     "id": "f12",
-     "dot": "now",
-     "owner": "lu",
-     "name": "Outstanding patient balances review",
-     "chip": "list being prepared",
-     "one": "Go through every outstanding patient balance in OpenDent and decide chase, clean-up or write-off, case by case.",
-     "next": "The marketing session is preparing the balance list; then Lau and Emily classify each case (active, old data, paid since, unsure) and decide the action. No formal bad-debt rule: rare cases, decided case by case.",
-     "steps": [
-      {
-       "t": "Balance list prepared (marketing session)",
-       "s": "now",
-       "w": "in progress"
-      },
-      {
-       "t": "Lau + Emily classify each case: active / old data / paid since export / unsure",
-       "s": "next",
-       "w": ""
-      },
-      {
-       "t": "Chase, clean up or write off each case (prepaid credits: see their own card)",
-       "s": "next",
-       "w": ""
-      }
-     ]
+     "next": "Lau follows up with the marketing session on the balance list, then decides credit deadlines and each owed balance (chase / clean up / write off) with Emily."
     },
     {
      "dept": "finance",
@@ -3623,6 +3564,6 @@
  },
  "meta": {
   "asof": "MON 12 OCT 2026",
-  "updated": "2026-10-12T16:00:33+08:00"
+  "updated": "2026-10-12T16:02:54+08:00"
  }
 }

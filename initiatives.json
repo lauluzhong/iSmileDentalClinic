@@ -1,24 +1,14 @@
 {
- "updated": "2026-10-12T16:00:33+08:00",
+ "updated": "2026-10-12T16:02:54+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Emily": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Edith": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +17,18 @@
    "role": "",
    "color": "#45C4FF"
   },
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Code Capsule": {
    "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -1023,27 +1023,6 @@
    "pillar": "F2"
   },
   {
-   "id": "f4",
-   "title": "Supplier rebates & benefits policy",
-   "status": "review",
-   "owner": "Lau",
-   "why": "Suppliers give us more than goods \u2014 early-payment cashback, volume discounts, seasonal promotions, free units, sponsored courses. Today there is no rule about who those benefits belong to, which means every case is a neg",
-   "next": "Confirm the mechanics with the office, get the ethics position confirmed, then communicate it and fold it into the contractor agreement.",
-   "dept": "finance",
-   "lens": "cost",
-   "endMonth": "2026-09",
-   "note": "",
-   "tasks": [
-    "Policy drafted \u2014 three buckets, with a worked example table",
-    "Key insight captured: cost-linked rebates are ALREADY shared, because lab and material costs are deducted before the doctor's share",
-    "Confirm rebates are actually booked against the cost line in the month they relate to \u2014 the policy fails quietly if they are not",
-    "Legal to confirm the ethics and inducement position",
-    "Communicate to the doctors, leading with the good news",
-    "Fold into the contractor agreement"
-   ],
-   "pillar": "F2"
-  },
-  {
    "id": "f9",
    "title": "Intern allowance tax claim (Ryan, MYNext)",
    "status": "active",
@@ -1065,11 +1044,11 @@
   },
   {
    "id": "f10",
-   "title": "Prepaid patient credits: draw down and close",
+   "title": "Patient balances: prepaid credits + amounts owed",
    "status": "active",
    "owner": "Lau",
-   "why": "Decided with Lau's parents: iSmile no longer takes prepayments or parked insurance budgets. 261 families hold RM113,205 in credit (8 Oct). Use it up against a hard deadline, then close it off.",
-   "next": "Run Financials/Prepaid credits/prepaid_credit_ledger.sql in OpenDental and approve the tier deadlines.",
+   "why": "One exercise with the marketing session, both directions: prepaid credits patients hold with us (~RM113k) and balances patients owe us.",
+   "next": "Lau follows up with the marketing session on the balance list, then decides credit deadlines and each owed balance (chase / clean up / write off) with Emily.",
    "dept": "finance",
    "lens": "cost",
    "endMonth": null,
@@ -1082,22 +1061,7 @@
     "Lau approves the tiers and deadlines",
     "Accountant: what happens to credit left after the deadline, and how it sits in AutoCount",
     "Families told; Emily calls the large balances",
-    "Track the balance down each month to zero"
-   ],
-   "pillar": "F2"
-  },
-  {
-   "id": "f12",
-   "title": "Outstanding patient balances review",
-   "status": "active",
-   "owner": "Lau",
-   "why": "Go through every outstanding patient balance in OpenDent and decide chase, clean-up or write-off, case by case.",
-   "next": "The marketing session is preparing the balance list; then Lau and Emily classify each case (active, old data, paid since, unsure) and decide the action. No formal bad-debt rule: rare cases, decided case by case.",
-   "dept": "finance",
-   "lens": "control",
-   "endMonth": null,
-   "note": "",
-   "tasks": [
+    "Track the balance down each month to zero",
     "Balance list prepared (marketing session)",
     "Lau + Emily classify each case: active / old data / paid since export / unsure",
     "Chase, clean up or write off each case (prepaid credits: see their own card)"
