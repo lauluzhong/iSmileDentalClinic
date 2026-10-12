@@ -477,8 +477,8 @@
     },
     {
      "id": "d3",
-     "dot": "wait",
-     "chip": "A4 sample received \u00b7 final logo placement \u00b7 live Wed 7 Oct",
+     "dot": "now",
+     "chip": "receipts live \u00b7 fixing sync bugs",
      "name": "Digital receipts (AR)",
      "one": "Receipts out of AutoCount replace the paper book \u2014 front desk switches only after training.",
      "steps": [
@@ -508,23 +508,23 @@
       },
       {
        "t": "Payment methods: the accountant uses 4 accounts (internet banking, QR, cash, bank card); AutoCount's 6 methods map onto them (credit + debit \u2192 bank card; DuitNow QR + PBB QR \u2192 QR). Leow + Sarah (accountant) to configure",
-       "s": "now",
-       "w": "Lau passes Sarah's contact to Leow once she texts it"
+       "s": "done",
+       "w": "chart of accounts shared; payment types settled (LZ 12 Oct)"
       },
       {
        "t": "WhatsApp quick reply for the desk: paste after the receipt link, with the Google review ask (fallback if AutoCount's message cannot be edited) \u2014 Lau",
-       "s": "next",
+       "s": "done",
        "w": "by Fri 2 Oct"
       },
       {
        "t": "Lau + Emily practise approving invoices and generating receipts on live data",
-       "s": "next",
+       "s": "skip",
        "w": "Thu 1 \u2013 Fri 2 Oct"
       },
       {
        "t": "Leow asks AutoCount for an editable default WhatsApp receipt message (to append the Google review ask). Receipts go by WhatsApp link or PDF \u2014 no printing",
-       "s": "now",
-       "w": "feedback to vendor \u00b7 Asked Leow in the AutoCount group Mon 28 Sep for an update"
+       "s": "skip",
+       "w": "not possible in AutoCount (LZ 12 Oct)"
       },
       {
        "t": "Receipts + e-invoices taught at the FOH training",
@@ -538,13 +538,13 @@
       },
       {
        "t": "Follow up the two patient cases Dr Ling raised where the patient has not paid / refuses to pay \u2014 agreed with all doctors on 23 Sep: a patient-payment matter, not a doctor matter \u00b7 owner Emily + front desk",
-       "s": "now",
+       "s": "done",
        "w": "raised 23 Sep \u00b7 no due date set"
       },
       {
        "t": "Staff-family onlay (Dr Joan), RM2,000 outstanding since April: Joanna says the family will pay when Adonis receives his salary. Keep the payment open until received; no salary-deduction discussion needed unless this commitment fails",
        "s": "now",
-       "w": "payment expected after Adonis receives salary \u00b7 verify receipt"
+       "w": "no payment recorded 1 Sep\u201311 Oct (checked 12 Oct) \u00b7 keep open until paid"
       },
       {
        "t": "e-Invoice: NOT issued for now (LZ \u00d7 Emily 29 Sep \u2014 one e-invoice triggers monthly LHDN reporting)",
@@ -557,28 +557,13 @@
       },
       {
        "t": "Bad debt: OpenDent shows ~RM174k outstanding, some >90 days and some years old. Define bad debt (e.g. overdue 30 days = delinquent, 6 months = write off) then clean the old balances out of OpenDent",
-       "s": "next",
-       "w": "Lau + Emily \u00b7 after go-live"
-      },
-      {
-       "t": "Review the full outstanding patient-balance list: classify active balances, old data, paid-since-export and uncertain cases, then decide the chase / clean-up action for each",
-       "s": "next",
-       "w": "Lau + Emily \u00b7 after go-live"
+       "s": "skip",
+       "w": "no formal definition needed \u2014 rare, decided case by case (LZ 12 Oct)"
       },
       {
        "t": "Sarah texts Lau her number \u2192 Lau passes it to Leow",
        "s": "done",
        "w": "Sarah + Leow working directly in the new accounting group since 1 Oct"
-      },
-      {
-       "t": "Revenue basis: the accountant books revenue on COLLECTION, but AutoCount posts sales when an invoice is approved (charge basis). Leow + Sarah agree how to handle it before numbers flow (or Sarah journals it monthly)",
-       "s": "now",
-       "w": "Leow will take payment types, AR split and data migration up with Sarah once he has her contact"
-      },
-      {
-       "t": "Service vs product sales accounts + receipting a toothbrush sale \u2014 Leow 30 Sep: needs the accountant first and probably a change on Jason's side",
-       "s": "now",
-       "w": "after Sarah's contact reaches Leow"
       },
       {
        "t": "MC (medical certificate) template in AutoCount: printed from AR Payment as a second print, only when needed; IC-only line; running number MC-00001 would need manual keying (Emily deciding)",
@@ -597,18 +582,13 @@
       "Receipt-name nuance: AutoCount name changes stick (parent paying for child, company claims) \u2014 teach it explicitly",
       "Physical receipts continue until training done \u2014 decided, not a slip"
      ],
-     "flag": {
-      "k": "due",
-      "by": "2026-10-07",
-      "w": "Receipt design and front-desk SOP done; training held 3 Oct; go-live Wed 7 Oct."
-     },
      "owner": "emily",
      "dept": "clinical",
      "lens": "efficiency",
      "from_initiatives": [
       15
      ],
-     "next": "Leow: finalise receipt logo placement and details; Emily is working on the staff-login Excel; payment methods and WhatsApp message (all asked 28 Sep) \u2192 Lau/Emily complete SOP by Fri 2 Oct; practise 1\u20132 Oct; train Sat 3 Oct; go live Wed 7 Oct.",
+     "next": "Receipts are live. Remaining: the OpenDent\u2192AutoCount sync bugs (see integration card) and Dr Joan's staff-family onlay payment.",
      "endMonth": "2026-10"
     },
     {
@@ -1154,6 +1134,61 @@
      },
      "noteTitle": "/airway shortcut \u2014 load on WhatsApp Business",
      "note": "Before [PATIENT]\u2019s airway consultation, please fill in this short questionnaire. It takes about 5 minutes, and the dentist will read your answers before you come in:\nhttps://forms.ismile.com.my/airway\n\nThe questions are about sleep, daytime tiredness and breathing through the nose over the past month.\n\nChain: Hi [Name], \u2192 /confirm \u2192 /first (new only) \u2192 /airway \u2192 sign-off. ALSO: in /first, change the link to https://forms.ismile.com.my/register (live 5 Oct; the old register link redirects, so no rush)."
+    },
+    {
+     "dept": "finance",
+     "lens": "control",
+     "from_initiatives": [],
+     "open": [],
+     "id": "d14",
+     "dot": "now",
+     "owner": "lu",
+     "name": "GL posting by service type (+ product sales)",
+     "chip": "Leow confirming service types with Sarah",
+     "one": "Post every procedure daily to the right service-type GL (the accountant's 5\u20139 types) instead of one default type with a monthly reallocation; add product sales (toothbrush/toothpaste) properly.",
+     "next": "Leow confirms the service types with Sarah, then arranges with Jason when to hand over the GL mapping; a one-off cut-over (half a day or a night), testing, then daily posting.",
+     "steps": [
+      {
+       "t": "Leow confirms the service types (5\u20139) with Sarah",
+       "s": "now",
+       "w": "Leow + Sarah"
+      },
+      {
+       "t": "Leow arranges with Jason when to hand over the GL mapping",
+       "s": "next",
+       "w": "Leow + Jason"
+      },
+      {
+       "t": "One-off remapping window (a day, half a day or one night)",
+       "s": "next",
+       "w": "Jason"
+      },
+      {
+       "t": "Preliminary testing",
+       "s": "next",
+       "w": "Jason + Leow"
+      },
+      {
+       "t": "GL posted daily: every procedure locked to its service type",
+       "s": "next",
+       "w": ""
+      },
+      {
+       "t": "Product sales GL: toothbrush/toothpaste as a service type or a sibling GL \u2014 Leow checks Sarah's GL code",
+       "s": "next",
+       "w": "Leow + Sarah"
+      },
+      {
+       "t": "Leow teaches the desk to log a product sale in AutoCount and issue its receipt (products are not entered in OpenDent)",
+       "s": "next",
+       "w": "Leow"
+      },
+      {
+       "t": "Check whether a product can go on the same invoice so the patient pays once, one receipt",
+       "s": "next",
+       "w": "Leow"
+      }
+     ]
     }
    ]
   },
@@ -2991,6 +3026,61 @@
      "dept": "finance",
      "lens": "cost",
      "next": "Run Financials/Prepaid credits/prepaid_credit_ledger.sql in OpenDental and approve the tier deadlines."
+    },
+    {
+     "dept": "finance",
+     "lens": "control",
+     "from_initiatives": [],
+     "open": [],
+     "id": "f10",
+     "dot": "now",
+     "owner": "lu",
+     "name": "Outstanding patient balances review",
+     "chip": "list being prepared",
+     "one": "Go through every outstanding patient balance in OpenDent and decide chase, clean-up or write-off, case by case.",
+     "next": "The marketing session is preparing the balance list; then Lau and Emily classify each case (active, old data, paid since, unsure) and decide the action. No formal bad-debt rule: rare cases, decided case by case.",
+     "steps": [
+      {
+       "t": "Balance list prepared (marketing session)",
+       "s": "now",
+       "w": "in progress"
+      },
+      {
+       "t": "Lau + Emily classify each case: active / old data / paid since export / unsure",
+       "s": "next",
+       "w": ""
+      },
+      {
+       "t": "Chase, clean up or write off each case; old prepaid credits handled in the same pass",
+       "s": "next",
+       "w": ""
+      }
+     ]
+    },
+    {
+     "dept": "finance",
+     "lens": "control",
+     "from_initiatives": [],
+     "open": [],
+     "id": "f11",
+     "dot": "wait",
+     "owner": "lu",
+     "name": "Revenue recognition (production vs collection)",
+     "chip": "waiting on accountant",
+     "one": "Decide whether the books recognise revenue on production or on collection now that AutoCount posts sales when an invoice is approved.",
+     "next": "Sarah (accountant) reviews best practice and our data, then advises production vs collection; Leow configures AutoCount to match (or Sarah journals monthly).",
+     "steps": [
+      {
+       "t": "Sarah reviews best practice + our data and recommends production or collection basis",
+       "s": "now",
+       "w": "waiting on Sarah"
+      },
+      {
+       "t": "Decision taken; Leow configures AutoCount accordingly (or monthly journal)",
+       "s": "next",
+       "w": ""
+      }
+     ]
     }
    ]
   }
@@ -3489,6 +3579,6 @@
  },
  "meta": {
   "asof": "MON 12 OCT 2026",
-  "updated": "2026-10-12T13:17:26+08:00"
+  "updated": "2026-10-12T14:54:33+08:00"
  }
 }

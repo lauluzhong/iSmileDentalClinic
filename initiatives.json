@@ -1,19 +1,24 @@
 {
- "updated": "2026-10-12T13:17:26+08:00",
+ "updated": "2026-10-12T14:54:33+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Edith": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Code Capsule": {
    "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -24,11 +29,6 @@
   },
   "Lau": {
    "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   }
@@ -105,10 +105,10 @@
   {
    "id": "d3",
    "title": "Digital receipts (AR)",
-   "status": "review",
+   "status": "active",
    "owner": "Emily",
    "why": "Receipts out of AutoCount replace the paper book \u2014 front desk switches only after training.",
-   "next": "Leow: finalise receipt logo placement and details; Emily is working on the staff-login Excel; payment methods and WhatsApp message (all asked 28 Sep) \u2192 Lau/Emily complete SOP by Fri 2 Oct; practise 1\u20132 Oct; train Sat 3 Oct; go live Wed 7 Oct.",
+   "next": "Receipts are live. Remaining: the OpenDent\u2192AutoCount sync bugs (see integration card) and Dr Joan's staff-family onlay payment.",
    "dept": "clinical",
    "lens": "efficiency",
    "endMonth": "2026-10",
@@ -130,10 +130,7 @@
     "e-Invoice: NOT issued for now (LZ \u00d7 Emily 29 Sep \u2014 one e-invoice triggers monthly LHDN reporting)",
     "Create a general clinic Gmail: ismile.general@gmail.com, with ismiledental76 as the backup \u2014 goes on receipts and the website instead of the 76 address",
     "Bad debt: OpenDent shows ~RM174k outstanding, some >90 days and some years old. Define bad debt (e.g. overdue 30 days = delinquent, 6 months = write off) then clean the old balances out of OpenDent",
-    "Review the full outstanding patient-balance list: classify active balances, old data, paid-since-export and uncertain cases, then decide the chase / clean-up action for each",
     "Sarah texts Lau her number \u2192 Lau passes it to Leow",
-    "Revenue basis: the accountant books revenue on COLLECTION, but AutoCount posts sales when an invoice is approved (charge basis). Leow + Sarah agree how to handle it before numbers flow (or Sarah journals it monthly)",
-    "Service vs product sales accounts + receipting a toothbrush sale \u2014 Leow 30 Sep: needs the accountant first and probably a change on Jason's side",
     "MC (medical certificate) template in AutoCount: printed from AR Payment as a second print, only when needed; IC-only line; running number MC-00001 would need manual keying (Emily deciding)",
     "GL mapping: Sarah shared the ABSS chart of accounts; Leow created the main accounts in AutoCount (keeps ABSS last 4 digits); the desk only picks the payment method and AutoCount posts it"
    ],
@@ -354,6 +351,29 @@
     "Drive saver deployed (shared ismile.general script for all forms)",
     "Add Dr Ling to \u201ciSmile Airway Evaluations\u201d; delete test rows + stray tab",
     "Load /airway + update /first link to forms.ismile.com.my/register on WhatsApp Business (text in this card\u2019s note)"
+   ],
+   "pillar": "P1"
+  },
+  {
+   "id": "d14",
+   "title": "GL posting by service type (+ product sales)",
+   "status": "active",
+   "owner": "Lau",
+   "why": "Post every procedure daily to the right service-type GL (the accountant's 5\u20139 types) instead of one default type with a monthly reallocation; add product sales (toothbrush/toothpaste) properly.",
+   "next": "Leow confirms the service types with Sarah, then arranges with Jason when to hand over the GL mapping; a one-off cut-over (half a day or a night), testing, then daily posting.",
+   "dept": "finance",
+   "lens": "control",
+   "endMonth": null,
+   "note": "",
+   "tasks": [
+    "Leow confirms the service types (5\u20139) with Sarah",
+    "Leow arranges with Jason when to hand over the GL mapping",
+    "One-off remapping window (a day, half a day or one night)",
+    "Preliminary testing",
+    "GL posted daily: every procedure locked to its service type",
+    "Product sales GL: toothbrush/toothpaste as a service type or a sibling GL \u2014 Leow checks Sarah's GL code",
+    "Leow teaches the desk to log a product sale in AutoCount and issue its receipt (products are not entered in OpenDent)",
+    "Check whether a product can go on the same invoice so the patient pays once, one receipt"
    ],
    "pillar": "P1"
   },
@@ -1063,6 +1083,41 @@
     "Accountant: what happens to credit left after the deadline, and how it sits in AutoCount",
     "Families told; Emily calls the large balances",
     "Track the balance down each month to zero"
+   ],
+   "pillar": "F2"
+  },
+  {
+   "id": "f10",
+   "title": "Outstanding patient balances review",
+   "status": "active",
+   "owner": "Lau",
+   "why": "Go through every outstanding patient balance in OpenDent and decide chase, clean-up or write-off, case by case.",
+   "next": "The marketing session is preparing the balance list; then Lau and Emily classify each case (active, old data, paid since, unsure) and decide the action. No formal bad-debt rule: rare cases, decided case by case.",
+   "dept": "finance",
+   "lens": "control",
+   "endMonth": null,
+   "note": "",
+   "tasks": [
+    "Balance list prepared (marketing session)",
+    "Lau + Emily classify each case: active / old data / paid since export / unsure",
+    "Chase, clean up or write off each case; old prepaid credits handled in the same pass"
+   ],
+   "pillar": "F2"
+  },
+  {
+   "id": "f11",
+   "title": "Revenue recognition (production vs collection)",
+   "status": "review",
+   "owner": "Lau",
+   "why": "Decide whether the books recognise revenue on production or on collection now that AutoCount posts sales when an invoice is approved.",
+   "next": "Sarah (accountant) reviews best practice and our data, then advises production vs collection; Leow configures AutoCount to match (or Sarah journals monthly).",
+   "dept": "finance",
+   "lens": "control",
+   "endMonth": null,
+   "note": "",
+   "tasks": [
+    "Sarah reviews best practice + our data and recommends production or collection basis",
+    "Decision taken; Leow configures AutoCount accordingly (or monthly journal)"
    ],
    "pillar": "F2"
   },
