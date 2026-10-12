@@ -1494,7 +1494,7 @@
      "open": [
       "Family benefit stays verbal for contractors (handbook only): free treatment for immediate family, invoiced costs (crowns/implants/aligners) borne by doctor or member",
       "<b>Lau to reply to Dr Azelia</b> about her family-treatment question: first decide the implications of clinic-borne cost versus doctor-borne locum deduction, then apply one consistent rule across the practice",
-      "<b>Review aged patient prepaid balances:</b> extract the full list and ageing, decide the treatment/depletion deadline, then run a reactivation campaign before considering revenue recognition for balances that remain unused"
+      "<b>Prepaid patient credits (LZ 12 Oct):</b> no more prepayments. 261 households hold RM113,205 unused credit (OpenDent aging 8 Oct). Draft plan: A \u2264RM300 (158 \u00b7 RM20.7k) use by 31 Dec 2026 \u00b7 B RM300\u20131,500 (86 \u00b7 RM57.7k) by 31 Mar 2027 \u00b7 C >RM1,500 or overseas (17 \u00b7 RM34.8k) personal call, latest 30 Jun 2027. Next: LZ runs prepaid_credit_ledger.sql in OpenDent (deposit + last-used dates) \u2192 finalise deadlines \u2192 message each household (marketing) \u2192 accountant on breakage / Unclaimed Moneys Act. Sheet: Financials/Prepaid credits/. Households excluded from the cold blast."
      ],
      "owner": "lu",
      "dept": "finance",
@@ -1768,8 +1768,8 @@
        "w": "9 Oct"
       },
       {
-       "t": "Rebuild on the fresh weekly patient list",
-       "s": "next",
+       "t": "Rebuild on the fresh weekly patient list + prepaid-credit households excluded",
+       "s": "done",
        "w": "Mon 12 Oct"
       },
       {
@@ -1783,17 +1783,17 @@
        "w": "Tue 13 Oct"
       },
       {
-       "t": "Wave 1 sends (836)",
+       "t": "Wave 1 sends (757)",
        "s": "",
        "w": "Wed 14 Oct"
       },
       {
-       "t": "Wave 2 sends (1,047)",
+       "t": "Wave 2 sends (1,005)",
        "s": "",
        "w": "Thu 15 Oct"
       },
       {
-       "t": "Wave 3 sends (2,193; over the 1,800/day cap, remainder rolls over)",
+       "t": "Wave 3 sends (2,118; over the 1,800/day cap, remainder rolls over)",
        "s": "",
        "w": "Fri 16 Oct"
       },
@@ -1805,9 +1805,9 @@
      ],
      "open": [
       "<b>Plan (Lau, 11 Oct):</b> campaign setup Tue 13 Oct 10:00 at the clinic. Target sends: Wave 1 Wed 14 \u00b7 Wave 2 Thu 15 \u00b7 Wave 3 Fri 16 Oct.",
-      "<b>Files:</b> CRM/Cold Blast 2026/Refresh 2026-10-09/ (PatientID format). W1 836 \u00b7 W2 1,047 \u00b7 W3 2,193 = 4,076 messages, about RM1,800 incl SST. One message per shared phone (owner ticks + phone notes).",
+      "<b>Files:</b> CRM/Cold Blast 2026/Refresh 2026-10-12/ (PatientID format). W1 757 \u00b7 W2 1,005 \u00b7 W3 2,118 = 3,880 messages, about RM1,800 incl SST. One message per shared phone (owner ticks + phone notes).",
       "<b>\u26a0\ufe0f Wave 3 is 2,193, above the 1,800/day cap.</b> The last ~400 roll to Sat 17 or Mon 19 Oct unless the cap is raised. Decide at setup.",
-      "<b>Check on Tue upload:</b> summary must say ~16,307 added, 0 skipped; searching 0122336857 must show 8 rows each linked to its own name; audience ~836. If not, stop.",
+      "<b>Check on Tue upload:</b> summary must say ~16,423 added, 0 skipped; searching 0122336857 must show 8 rows each linked to its own name; audience ~757. If not, stop.",
       "<b>Per wave:</b> empty the Excluded list, upload that wave's name-route file, set the campaign (tiers A\u2013E, birth year 1910\u20132008, both exclusions ticked), save. After W3: empty and upload the Restore file.",
       "<b>Mon 12 Oct:</b> rebuild on the fresh weekly patient list (Sat 10 Oct) so new bookings and visits drop out.",
       "<b>Price confirmed from Code Capsule's cost deck (21 Sep):</b> a marketing message is 860 points plus a 50-point platform fee = RM0.4095, or RM0.442 with SST. 4,201 messages = about RM1,858, paid by the clinic. RM0.387 is the WhatsApp charge alone, not the full price."
@@ -3425,6 +3425,6 @@
  },
  "meta": {
   "asof": "MON 12 OCT 2026",
-  "updated": "2026-10-12T09:11:36+08:00"
+  "updated": "2026-10-12T12:38:24+08:00"
  }
 }
