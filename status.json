@@ -1,8 +1,6 @@
 {
-  "updated": "2026-10-12 09:30 MYT",
-  "running": [
-    "content_brief"
-  ],
+  "updated": "2026-10-12 09:32 MYT",
+  "running": [],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -77,7 +75,8 @@
       "last": "2026-10-12 09:03 MYT"
     },
     "content_brief": {
-      "state": "running"
+      "state": "idle",
+      "last": "2026-10-12 09:32 MYT"
     }
   }
 }
