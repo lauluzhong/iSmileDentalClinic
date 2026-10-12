@@ -1,7 +1,8 @@
 {
   "updated": "2026-10-12 09:30 MYT",
   "running": [
-    "deck_stats"
+    "deck_stats",
+    "content_brief"
   ],
   "jobs": {
     "gbp_reply": {
@@ -75,6 +76,9 @@
     "gbp_post_weekly": {
       "state": "idle",
       "last": "2026-10-12 09:03 MYT"
+    },
+    "content_brief": {
+      "state": "running"
     }
   }
 }
