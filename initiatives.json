@@ -1,8 +1,23 @@
 {
- "updated": "2026-10-12T15:08:20+08:00",
+ "updated": "2026-10-12T15:12:58+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
   "Emily": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
@@ -12,23 +27,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Lau": {
    "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
-   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -409,7 +409,7 @@
     "In-person walkthrough and Q&A at the clinic \u2014 all doctors except the specialists (Yeoh, Joan)",
     "Update the 30-day provision and clause 3.1 wording before sending",
     "Revised contracts sent to the five non-specialist doctors",
-    "Dr Yeoh and Dr Joan sign their (thinner) agreements by end October; they go live 1 Nov",
+    "Dr Yeoh and Dr Joan sign their (thinner) agreements",
     "All five signed \u2014 Dr Ling signed 1 Oct (Dr Ong is employed \u2014 no contractor agreement needed)",
     "First pay-timing change: clean cut 1 Oct; the first locum run under the new rules pays 10 Nov"
    ],
@@ -523,7 +523,7 @@
   {
    "id": "l6",
    "title": "Employee contracts & handbook",
-   "status": "review",
+   "status": "active",
    "owner": "Lydia",
    "why": "New hires signed on Gen-3; long-tenured staff don't re-sign \u2014 everyone signs the 2026 handbook acknowledgement instead.",
    "next": "Lydia finalises the handbook with the pending clauses (family discount included) and Elaine's papers; then plan the all-staff acknowledgement signing.",
@@ -741,7 +741,7 @@
    "id": "g9",
    "title": "CX & physical space",
    "status": "active",
-   "owner": "Lau",
+   "owner": "Lydia",
    "why": "As families return, the arrival experience must justify the premium. CX is stagnating / team too comfortable. The first visit back is the moment of truth for a reactivated patient.",
    "next": "Fourteen renders done. Before any fixed joinery, Emily runs a 2-week front-desk tally of accompanying children (the age data says power/USB and Wi-Fi at adult seats beats a toddler corner). Lau looks at the space end of year.",
    "dept": "crm",
@@ -755,7 +755,8 @@
     "Source furnishings secondhand \u2014 marketplace hunting, low budget",
     "Belongings storage \u2014 the gap patients notice most",
     "2-week front-desk tally of accompanying children, before any fixed joinery",
-    "Look at the space end of year (sofa covers: the original IKEA covers are lost; replacements were bought online)"
+    "Look at the space end of year (sofa covers: the original IKEA covers are lost; replacements were bought online)",
+    "Lydia looks at the upstairs waiting area for children and the different age groups (brief sent 12 Oct)"
    ],
    "pillar": "P3"
   },

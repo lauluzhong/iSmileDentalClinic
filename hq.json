@@ -1,5 +1,13 @@
 {
- "decisions": [],
+ "decisions": [
+  {
+   "hot": true,
+   "k": "With Lydia",
+   "t": "Close out employee contracts & handbook (3 items not done)",
+   "w": "Handbook clauses incl. family discount, Elaine's JD + contract, then all-staff signing. Sent to Lydia 12 Oct.",
+   "ref": "l6"
+  }
+ ],
  "rail": [
   {
    "d": "24 Aug",
@@ -1209,7 +1217,7 @@
     {
      "id": "l1",
      "dot": "live",
-     "chip": "done \u00b7 specialists by end Oct",
+     "chip": "done \u00b7 specialists in December",
      "name": "Contractor agreement & doctor rollout",
      "one": "Rollout complete: every non-specialist doctor has signed (Dr Ling on 1 Oct; Dr Ong is employed and needs none). Dr Yeoh and Dr Joan get a thinner agreement to sign by end October and go live 1 Nov.",
      "steps": [
@@ -1324,9 +1332,9 @@
        "w": "25 Sep"
       },
       {
-       "t": "Dr Yeoh and Dr Joan sign their (thinner) agreements by end October; they go live 1 Nov",
+       "t": "Dr Yeoh and Dr Joan sign their (thinner) agreements",
        "s": "next",
-       "w": "by Sat 31 Oct \u00b7 Lau \u2192 Lydia"
+       "w": "December \u00b7 Lau \u2192 Lydia"
       },
       {
        "t": "All five signed \u2014 Dr Ling signed 1 Oct (Dr Ong is employed \u2014 no contractor agreement needed)",
@@ -1377,8 +1385,8 @@
      "endMonth": "2026-09",
      "flag": {
       "k": "due",
-      "by": "2026-10-31",
-      "w": "Dr Yeoh and Dr Joan sign by end October, live 1 Nov."
+      "by": "2026-12-31",
+      "w": "Dr Yeoh and Dr Joan sign in December."
      }
     },
     {
@@ -1408,7 +1416,8 @@
       },
       {
        "t": "Write into Schedule 1 + the calculator",
-       "s": "now"
+       "s": "done",
+       "w": "in the signed agreements; calculator = locum sheet"
       },
       {
        "t": "Doctors' 2027 look-ahead chats, one-on-one with Lau (incl. Dr Azelia's path to 45%: RM30k+ in 6 months of the year)",
@@ -1468,8 +1477,8 @@
       },
       {
        "t": "Locum engine switched to the agreement basis (Financial session built the draft 25 Sep; live engine unchanged until then)",
-       "s": "next",
-       "w": "after signatures"
+       "s": "done",
+       "w": "handled in the locum sheet (no 10% deduction there)"
       }
      ],
      "open": [
@@ -1518,7 +1527,7 @@
       {
        "t": "Emily goes through every OpenDent code we actually use: which minimum fees changed, and which used codes still have none \u2014 Locum Calculation session to produce the list from OpenDent",
        "s": "now",
-       "w": "sent to Emily 30 Sep \u00b7 Fees to check tab \u00b7 due Fri 2 Oct"
+       "w": "Dr Ong reviewed; most are Dr Ling's codes \u2192 Dr Ong checking with Dr Ling \u00b7 needs a fresh fee pull from the clinic PC to see what is filled"
       },
       {
        "t": "Rulings 29 Sep: discounts above 15% are asked of Emily first (the locum sheet will flag any not asked); family = parents, spouse, children (Dr Amy's addendum adds her sister, brother-in-law and their kids); new walk-ins, especially international patients, are told upfront about the RM100 minimum consult",
@@ -1568,11 +1577,13 @@
       },
       {
        "t": "Define the suitable long-treatment scope and operating rules",
-       "s": "now"
+       "s": "now",
+       "w": "first week of December"
       },
       {
        "t": "Decide whether to turn IPP on",
-       "s": "next"
+       "s": "next",
+       "w": "first week of December"
       }
      ],
      "open": [
@@ -1588,7 +1599,8 @@
      "endMonth": "2026-12",
      "flag": {
       "k": "decide",
-      "w": "Decide whether IPP should be turned on after the scope and implications are documented."
+      "by": "2026-12-07",
+      "w": "Decide IPP scope and whether to turn it on, first week of December."
      }
     },
     {
@@ -1609,7 +1621,8 @@
       },
       {
        "t": "Repricing pass \u2014 Fee Guide v1 drafted 4 Sep (161 codes, 138 priced, 83 owner flags)",
-       "s": "now"
+       "s": "done",
+       "w": "done by Dr Ong; overtaken by the minimum-fee work"
       },
       {
        "t": "Becomes the floor the discount clause references",
@@ -1636,8 +1649,8 @@
     },
     {
      "id": "l6",
-     "dot": "wait",
-     "chip": "on Lydia",
+     "dot": "now",
+     "chip": "\u26a0\ufe0f not done \u00b7 with Lydia",
      "name": "Employee contracts & handbook",
      "one": "New hires signed on Gen-3; long-tenured staff don't re-sign \u2014 everyone signs the 2026 handbook acknowledgement instead.",
      "steps": [
@@ -1651,19 +1664,23 @@
       },
       {
        "t": "Handbook finalised by Lydia \u2014 including the pending clauses",
-       "s": "now"
+       "s": "now",
+       "w": "sent to Lydia 12 Oct"
       },
       {
        "t": "Family discount clause added to the handbook",
-       "s": "now"
+       "s": "now",
+       "w": "sent to Lydia 12 Oct"
       },
       {
        "t": "Elaine's JD + contract adjusted",
-       "s": "now"
+       "s": "now",
+       "w": "sent to Lydia 12 Oct"
       },
       {
        "t": "All-staff acknowledgement signatures planned and collected",
-       "s": ""
+       "s": "",
+       "w": "sent to Lydia 12 Oct"
       }
      ],
      "open": [
@@ -1677,7 +1694,13 @@
      "dept": "finance",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Lydia finalises the handbook with the pending clauses (family discount included) and Elaine's papers; then plan the all-staff acknowledgement signing."
+     "next": "Lydia finalises the handbook with the pending clauses (family discount included) and Elaine's papers; then plan the all-staff acknowledgement signing.",
+     "flag": {
+      "k": "due",
+      "by": "2026-10-31",
+      "who": "Lydia",
+      "w": "Close out: handbook with pending clauses (incl. family discount), Elaine's JD + contract, then all-staff signing. Sent to Lydia 12 Oct."
+     }
     }
    ]
   },
@@ -2273,12 +2296,17 @@
        "t": "Look at the space end of year (sofa covers: the original IKEA covers are lost; replacements were bought online)",
        "s": "",
        "w": "Dec \u00b7 Lau"
+      },
+      {
+       "t": "Lydia looks at the upstairs waiting area for children and the different age groups (brief sent 12 Oct)",
+       "s": "now",
+       "w": "Lydia"
       }
      ],
      "open": [
       "Quick wins (<~RM1k): front-desk recognition, rebook-at-checkout. \"Mirror-in-a-lift\" trick = manage <b>perceived</b> wait, not just actual wait."
      ],
-     "owner": "lu",
+     "owner": "lydia",
      "dept": "crm",
      "lens": "revenue",
      "from_initiatives": [
@@ -3579,6 +3607,6 @@
  },
  "meta": {
   "asof": "MON 12 OCT 2026",
-  "updated": "2026-10-12T15:08:20+08:00"
+  "updated": "2026-10-12T15:12:58+08:00"
  }
 }
