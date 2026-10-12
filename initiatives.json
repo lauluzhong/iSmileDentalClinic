@@ -1,9 +1,19 @@
 {
- "updated": "2026-10-12T16:32:02+08:00",
+ "updated": "2026-10-13T01:28:43+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Code Capsule": {
    "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
@@ -17,18 +27,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Edith": {
    "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
-   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -478,7 +478,8 @@
     "Lau checks with Mom that every minimum fee the doctors sent her has been entered; reminds Emily at the Tue 29 Sep meeting",
     "Emily goes through every OpenDent code we actually use: which minimum fees changed, and which used codes still have none \u2014 Locum Calculation session to produce the list from OpenDent",
     "Rulings 29 Sep: discounts above 15% are asked of Emily first (the locum sheet will flag any not asked); family = parents, spouse, children (Dr Amy's addendum adds her sister, brother-in-law and their kids); new walk-ins, especially international patients, are told upfront about the RM100 minimum consult",
-    "Action list sent to Emily (Lau, WhatsApp): fill the Fees to check tab (47 codes, incl. RM0 by-report codes and D8040 at RM250), then confirm with Dr Ong"
+    "Action list sent to Emily (Lau, WhatsApp): fill the Fees to check tab (47 codes, incl. RM0 by-report codes and D8040 at RM250), then confirm with Dr Ong",
+    "Replied to Dr Azelia on her family-treatment question: what she proposed (RM200 minus her 40% = RM120) is already how the formula works. The formula adds the discount back, applies her 40%, then deducts the discount. Her mother-in-law is an ordinary patient; no new family rule"
    ],
    "pillar": "P2"
   },
