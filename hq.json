@@ -1180,13 +1180,13 @@
       },
       {
        "t": "Export ABSS general-ledger detail for income accounts 4-1000 to 4-2000 (Jan 2025 to date) to Excel at the clinic \u2014 to check the drafted mapping against what Sarah actually posted",
-       "s": "now",
-       "w": "Lau \u00b7 Tue 13 Oct morning, guided"
+       "s": "done",
+       "w": "Sarah sent the journals 12 Oct (her GL Excel file arrived blank \u2014 ask her to resend)"
       },
       {
        "t": "Tag every OpenDent procedure code to its service GL (4-1000 Procedure, 4-1010 Britesmile, 4-1020 Opalescence, 4-1030 Orthodontic, 4-1040 Implant, 4-1050 Zoom, 4-1060 Biomimetic, 4-1070 Myobrace, 4-1080 Removable Appliance, 4-1090 MyoFunction) \u2014 no mapping exists today (Sarah posted by hand)",
        "s": "now",
-       "w": "Claude drafts the mapping from OpenDent + ABSS history; Emily eyeballs at Wed 14 Oct session"
+       "w": "DRAFT DONE 13 Oct: rule reproduces Sarah's journals 19/19 months for implant, ortho, removable appliance, Myobrace, MyoFunction; Emily confirms 7 judgement calls Wed 14 Oct"
       },
       {
        "t": "Leow confirms the GL list with Sarah, then arranges with Jason when to hand over the mapping",
@@ -1206,7 +1206,7 @@
       {
        "t": "In-person session at the clinic: AutoCount training for Sarah + moving ABSS data into AutoCount (ABSS ends 9 Nov)",
        "s": "next",
-       "w": "proposed Wed 21 or Thu 22 Oct \u00b7 asked Leow + Sarah 12 Oct"
+       "w": "Leow + Sarah both free Wed 21 / Thu 22 Oct, office hours \u2014 Lau to pick"
       }
      ],
      "flag": {
@@ -3586,6 +3586,6 @@
  },
  "meta": {
   "asof": "TUE 13 OCT 2026",
-  "updated": "2026-10-13T01:51:46+08:00"
+  "updated": "2026-10-13T01:54:14+08:00"
  }
 }
