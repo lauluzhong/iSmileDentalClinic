@@ -1552,7 +1552,6 @@
      ],
      "open": [
       "Family benefit stays verbal for contractors (handbook only): free treatment for immediate family, invoiced costs (crowns/implants/aligners) borne by doctor or member",
-      "<b>Prepaid patient credits (LZ 12 Oct):</b> no more prepayments. 261 households hold RM113,205 unused credit (OpenDent aging 8 Oct). Draft plan: A \u2264RM300 (158 \u00b7 RM20.7k) use by 31 Dec 2026 \u00b7 B RM300\u20131,500 (86 \u00b7 RM57.7k) by 31 Mar 2027 \u00b7 C >RM1,500 or overseas (17 \u00b7 RM34.8k) personal call, latest 30 Jun 2027. Next: LZ runs prepaid_credit_ledger.sql in OpenDent (deposit + last-used dates) \u2192 finalise deadlines \u2192 message each household (marketing) \u2192 accountant on breakage / Unclaimed Moneys Act. Sheet: Financials/Prepaid credits/. Households excluded from the cold blast.",
       "<b>For Lau to decide:</b> when the clinic itself gives a partial discount, does the doctor still lose her share of it (contract as written) or is it added back so the clinic bears all of it? A full write-off comes out the same either way"
      ],
      "owner": "lu",
@@ -3574,6 +3573,6 @@
  },
  "meta": {
   "asof": "TUE 13 OCT 2026",
-  "updated": "2026-10-13T01:28:43+08:00"
+  "updated": "2026-10-13T01:29:40+08:00"
  }
 }
