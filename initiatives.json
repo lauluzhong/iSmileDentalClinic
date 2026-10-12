@@ -1,23 +1,13 @@
 {
- "updated": "2026-10-12T15:12:58+08:00",
+ "updated": "2026-10-12T15:51:29+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Emily": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Dr Ong": {
    "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
+  "Emily": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
@@ -27,8 +17,18 @@
    "role": "",
    "color": "#45C4FF"
   },
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Lau": {
    "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -620,7 +620,8 @@
     "Maturation hypothesis tested \u2014 rejected (+0.8pp only)",
     "Coffee targets running (70% any 3 days)",
     "Verbal/rejection-handling module into FOH training",
-    "Re-cut targets: eligible-only or per-day"
+    "Re-cut targets: eligible-only or per-day",
+    "Idea (LZ 12 Oct): auto-book every new patient's next visit and send it right after the receipt \u2014 (a) receipt, (b) next appointment, cancel or change anytime, (c) Google review ask. Check data and decide"
    ],
    "pillar": "P3"
   },

@@ -1955,7 +1955,8 @@
       },
       {
        "t": "Coffee targets running (70% any 3 days)",
-       "s": "now"
+       "s": "now",
+       "w": "running, but the desk is not tracking it (LZ 12 Oct)"
       },
       {
        "t": "Verbal/rejection-handling module into FOH training",
@@ -1964,6 +1965,11 @@
       {
        "t": "Re-cut targets: eligible-only or per-day",
        "s": ""
+      },
+      {
+       "t": "Idea (LZ 12 Oct): auto-book every new patient's next visit and send it right after the receipt \u2014 (a) receipt, (b) next appointment, cancel or change anytime, (c) Google review ask. Check data and decide",
+       "s": "now",
+       "w": "Lau"
       }
      ],
      "open": [
@@ -2096,7 +2102,7 @@
       {
        "t": "One-off (LZ): create a Google Places API key under a billing account, daily quota capped ~100 calls, and give it to Edith (turns on the monthly Maps grid rank)",
        "s": "now",
-       "w": "owner LZ"
+       "w": "branched to its own session for Lau (12 Oct)"
       },
       {
        "t": "Bing Webmaster Tools connected: site verified, API key live on the box (Bing data feeds the Sunday audit)",
@@ -2106,7 +2112,7 @@
       {
        "t": "One-off (LZ): Bing Places for Business \u2014 import the listing from Google Business Profile (~5 min)",
        "s": "now",
-       "w": "owner LZ"
+       "w": "branched to its own session for Lau (12 Oct)"
       },
       {
        "t": "SEO/GEO/Maps routine live on the box: Sunday priority-keyword scorecard + Maps visibility + 5 priority AI questions in the audit; daily review-drought alert; Mon 09:00 Google post draft for approval; fortnightly content brief from 12 Oct. Bing is connected but too new to read (history starts ~1 Oct, first useful read mid-to-late Oct); Bing Places listing still waits on LZ",
@@ -2140,7 +2146,8 @@
       },
       {
        "t": "Buy clip-on mic \u00b7 pick shoot days",
-       "s": "now"
+       "s": "next",
+       "w": "after the social media hire"
       },
       {
        "t": "First Dr Ling consult footage",
@@ -2193,7 +2200,8 @@
       },
       {
        "t": "Stock-on-hand qty + current case unit cost from Emily",
-       "s": "now"
+       "s": "next",
+       "w": "waits for Emily's next retainer-case purchase; cash is tight (supplier quote RM8 incl. logo)"
       },
       {
        "t": "Vivienne to obtain quotation for proposed case / retainer box",
@@ -2240,7 +2248,8 @@
       },
       {
        "t": "Vetting with Dr Ong",
-       "s": "now"
+       "s": "done",
+       "w": "done long ago"
       },
       {
        "t": "Design the journey card (years, first-visit age, story)",
@@ -2290,7 +2299,8 @@
       },
       {
        "t": "2-week front-desk tally of accompanying children, before any fixed joinery",
-       "s": "now"
+       "s": "done",
+       "w": "folded into Lydia's brief"
       },
       {
        "t": "Look at the space end of year (sofa covers: the original IKEA covers are lost; replacements were bought online)",
@@ -2473,7 +2483,8 @@
       },
       {
        "t": "Load the 11 unblocked quick replies onto the clinic phone, then desk training",
-       "s": "now"
+       "s": "done",
+       "w": "done"
       }
      ],
      "open": [
@@ -3607,6 +3618,6 @@
  },
  "meta": {
   "asof": "MON 12 OCT 2026",
-  "updated": "2026-10-12T15:12:58+08:00"
+  "updated": "2026-10-12T15:51:29+08:00"
  }
 }
