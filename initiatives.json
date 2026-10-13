@@ -1,17 +1,7 @@
 {
- "updated": "2026-10-13T09:04:55+08:00",
+ "updated": "2026-10-13T09:42:39+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Emily": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Edith": {
    "init": "E",
    "role": "",
@@ -29,6 +19,16 @@
   },
   "Code Capsule": {
    "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Emily": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   }
@@ -580,12 +580,12 @@
     "Blast-exclusion import bug reported in the Code Capsule group: one retained row per phone, other family members skipped as duplicates, and the retained row may link to the wrong patient",
     "Code Capsule fixes the exclusion import using PatientID matching",
     "Files rebuilt in PatientID format (W1 836 \u00b7 W2 1,047 \u00b7 W3 2,193)",
-    "Rebuild on the fresh weekly patient list + prepaid-credit households excluded",
+    "Rebuild on the fresh weekly patient list + prepaid-credit and debtor households excluded",
     "Lau uploads exclusions and sets up the 3 campaigns at the clinic",
     "Upload the Restore file after Wave 3 is saved",
-    "Wave 1 sends (757)",
-    "Wave 2 sends (1,005)",
-    "Wave 3 sends (2,118; over the 1,800/day cap, remainder rolls over)",
+    "Wave 1 sends (749)",
+    "Wave 2 sends (1,003)",
+    "Wave 3 sends (2,092; over the 1,800/day cap, remainder rolls over)",
     "Funnel read via campaign tags"
    ],
    "pillar": "P3"
