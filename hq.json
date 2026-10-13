@@ -1742,10 +1742,10 @@
    "streams": [
     {
      "id": "g1",
-     "dot": "next",
-     "chip": "campaign setup Tue 13 Oct \u00b7 sends Wed 14\u2013Fri 16 Oct",
+     "dot": "wait",
+     "chip": "Wave 1 ON HOLD \u00b7 waiting on Code Capsule (duplicate records)",
      "name": "Cold reactivation blast",
-     "one": "Import fixed (PatientID). Files rebuilt 9 Oct in the new format. Lau sets up the campaigns Tue 13 Oct 10am at the clinic; target sends Wed 14 to Fri 16 Oct.",
+     "one": "Wave 1 on hold (13 Oct). PatientID import works, but patients with duplicate records still leak into the campaign. Waiting on Suraya's fix; sends move once it is confirmed.",
      "steps": [
       {
        "t": "Send list + exclusions built (9,833 excluded w/ reasons)",
@@ -1858,43 +1858,35 @@
        "w": "Mon 12 Oct"
       },
       {
-       "t": "Lau uploads exclusions and sets up the 3 campaigns at the clinic",
-       "s": "next",
-       "w": "Tue 13 Oct 10:00"
-      },
-      {
-       "t": "Upload the Restore file after Wave 3 is saved",
-       "s": "",
-       "w": "Tue 13 Oct"
-      },
-      {
-       "t": "Wave 1 sends (749)",
-       "s": "",
-       "w": "Wed 14 Oct"
-      },
-      {
-       "t": "Wave 2 sends (1,003)",
-       "s": "",
-       "w": "Thu 15 Oct"
-      },
-      {
-       "t": "Wave 3 sends (2,092; over the 1,800/day cap, remainder rolls over)",
-       "s": "",
-       "w": "Fri 16 Oct"
-      },
-      {
        "t": "Funnel read via campaign tags",
        "s": "",
        "w": "from Mon 19 Oct"
+      },
+      {
+       "t": "Campaign setup at the clinic: PatientID import worked, but duplicate-record patients leaked into Wave 1 (672). Not saved",
+       "s": "done",
+       "w": "Tue 13 Oct"
+      },
+      {
+       "t": "Code Capsule fixes duplicate-record exclusion + recipient-list download",
+       "s": "now",
+       "w": "raised 13 Oct 11:17 \u00b7 Suraya checking"
+      },
+      {
+       "t": "Re-upload and verify Wave 1 (~740), then Waves 2\u20133 and the Restore file",
+       "s": "next",
+       "w": "after the fix"
+      },
+      {
+       "t": "Waves 1\u20133 send (3 days, W3 needs 2)",
+       "s": "",
+       "w": "after the fix"
       }
      ],
      "open": [
-      "<b>Plan (Lau, 11 Oct):</b> campaign setup Tue 13 Oct 10:00 at the clinic. Target sends: Wave 1 Wed 14 \u00b7 Wave 2 Thu 15 \u00b7 Wave 3 Fri 16 Oct.",
-      "<b>Files:</b> CRM/Cold Blast 2026/Refresh 2026-10-13/ (PatientID format). W1 749 \u00b7 W2 1,003 \u00b7 W3 2,092 = 3,844 messages, about RM1,800 incl SST. One message per shared phone (owner ticks + phone notes).",
-      "<b>\u26a0\ufe0f Wave 3 is 2,193, above the 1,800/day cap.</b> The last ~400 roll to Sat 17 or Mon 19 Oct unless the cap is raised. Decide at setup.",
-      "<b>Check on Tue upload:</b> summary must say ~16,432 added, 0 skipped; searching 0122336857 must show 8 rows each linked to its own name; audience ~749. If not, stop.",
-      "<b>Per wave:</b> empty the Excluded list, upload that wave's name-route file, set the campaign (tiers A\u2013E, birth year 1910\u20132008, both exclusions ticked), save. After W3: empty and upload the Restore file.",
-      "<b>Mon 12 Oct:</b> rebuild on the fresh weekly patient list (Sat 10 Oct) so new bookings and visits drop out.",
+      "<b>\u26d4 On hold 13 Oct:</b> upload matched 18,479 by PatientID, but the Wave 1 recipients (672) included excluded patients. Cause: patients with duplicate records (extra copy marked Deceased in OpenDent, e.g. 131 live / 132 deceased). The import skips one as \"duplicate/exist\" (54 skipped) and the live record stays in the campaign. LZ raised it in the CC group 11:17; Edith sent a correction; Suraya checking (12:48).",
+      "<b>Ask to Code Capsule:</b> exclude every PatientID sent even when name and phone repeat; and allow downloading the campaign Recipients list before confirming so we can verify it.",
+      "<b>When fixed:</b> empty the Excluded list, re-upload Exclusion - Wave1 - name route.csv (18,533 rows, Refresh 2026-10-13), recipients should be ~740 or a little lower. Then Wave 2 and 3, then the Restore file.",
       "<b>Price confirmed from Code Capsule's cost deck (21 Sep):</b> a marketing message is 860 points plus a 50-point platform fee = RM0.4095, or RM0.442 with SST. 4,201 messages = about RM1,858, paid by the clinic. RM0.387 is the WhatsApp charge alone, not the full price."
      ],
      "flag": {
@@ -3386,7 +3378,7 @@
      "g1"
     ],
     "owner": "Lau \u00b7 Suraya \u00b7 Jason \u00b7 Code Capsule",
-    "summary": "Import fixed 9 Oct (PatientID). Campaign setup Tue 13 Oct 10:00; target sends Wed 14 \u2013 Fri 16 Oct.",
+    "summary": "Wave 1 on hold (13 Oct): duplicate patient records leak past the exclusion import. Waiting on Code Capsule; sends move once fixed.",
     "items": [
      {
       "label": "FOH availability and exclusion-list preparation",
@@ -3429,18 +3421,25 @@
      {
       "label": "Campaign setup at the clinic",
       "start": "2026-10-13",
-      "status": "next",
+      "status": "done",
       "who": "Lau",
       "time": "10:00",
-      "note": "Upload each wave's exclusion file, check ~16,307 added / 0 skipped and audience ~836, save campaigns."
+      "note": "Done 13 Oct but NOT saved: duplicate-record patients leaked into Wave 1 (672 recipients)."
      },
      {
-      "label": "Blast sends: W1 Wed \u00b7 W2 Thu \u00b7 W3 Fri",
+      "label": "Blast sends: on hold",
       "start": "2026-10-14",
       "end": "2026-10-16",
-      "status": "next",
+      "status": "blocked",
       "who": "MiniCRM",
-      "note": "W1 836 \u00b7 W2 1,047 \u00b7 W3 2,193 (over the 1,800/day cap, remainder rolls over)."
+      "note": "Was Wed 14 \u2013 Fri 16 Oct. On hold until Code Capsule fixes duplicate-record exclusion."
+     },
+     {
+      "label": "Code Capsule: duplicate-record exclusion fix",
+      "start": "2026-10-13",
+      "status": "now",
+      "who": "Suraya \u00b7 Code Capsule",
+      "note": "Exclude every PatientID sent even if name+phone repeat; allow recipient-list download."
      }
     ]
    },
@@ -3586,6 +3585,6 @@
  },
  "meta": {
   "asof": "TUE 13 OCT 2026",
-  "updated": "2026-10-13T09:42:39+08:00"
+  "updated": "2026-10-13T15:45:54+08:00"
  }
 }

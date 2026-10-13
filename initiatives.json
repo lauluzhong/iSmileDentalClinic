@@ -1,8 +1,8 @@
 {
- "updated": "2026-10-13T09:42:39+08:00",
+ "updated": "2026-10-13T15:45:54+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Edith": {
+  "Emily": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
@@ -12,8 +12,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
-   "init": "L",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -22,13 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
+  "Edith": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -550,9 +550,9 @@
   {
    "id": "g1",
    "title": "Cold reactivation blast",
-   "status": "active",
+   "status": "review",
    "owner": "Lau",
-   "why": "Import fixed (PatientID). Files rebuilt 9 Oct in the new format. Lau sets up the campaigns Tue 13 Oct 10am at the clinic; target sends Wed 14 to Fri 16 Oct.",
+   "why": "Wave 1 on hold (13 Oct). PatientID import works, but patients with duplicate records still leak into the campaign. Waiting on Suraya's fix; sends move once it is confirmed.",
    "next": "Rebuild and validate the Wave 1 audience; Lau to choose the final blast window.",
    "dept": "crm",
    "lens": "revenue",
@@ -581,12 +581,11 @@
     "Code Capsule fixes the exclusion import using PatientID matching",
     "Files rebuilt in PatientID format (W1 836 \u00b7 W2 1,047 \u00b7 W3 2,193)",
     "Rebuild on the fresh weekly patient list + prepaid-credit and debtor households excluded",
-    "Lau uploads exclusions and sets up the 3 campaigns at the clinic",
-    "Upload the Restore file after Wave 3 is saved",
-    "Wave 1 sends (749)",
-    "Wave 2 sends (1,003)",
-    "Wave 3 sends (2,092; over the 1,800/day cap, remainder rolls over)",
-    "Funnel read via campaign tags"
+    "Funnel read via campaign tags",
+    "Campaign setup at the clinic: PatientID import worked, but duplicate-record patients leaked into Wave 1 (672). Not saved",
+    "Code Capsule fixes duplicate-record exclusion + recipient-list download",
+    "Re-upload and verify Wave 1 (~740), then Waves 2\u20133 and the Restore file",
+    "Waves 1\u20133 send (3 days, W3 needs 2)"
    ],
    "pillar": "P3"
   },
