@@ -254,7 +254,7 @@
      "dot": "now",
      "chip": "receipts live \u00b7 sync gaps being fixed",
      "name": "OpenDent \u2194 AutoCount integration",
-     "one": "The OpenDent \u2192 AutoCount integration is live after the 8 Oct default-account fix; invoices from the day were recovered. A Dr Ling amount discrepancy is queued for Lau and Emily to close on Tue 13 Oct.",
+     "one": "The OpenDent \u2192 AutoCount integration is live after the 8 Oct default-account fix; invoices from the day were recovered. The remaining focus is the RM9,500 / missing-X-ray sync test on Tue 13 Oct.",
      "steps": [
       {
        "t": "Sandbox on the side PC \u2014 integration proven",
@@ -436,7 +436,7 @@
       "who": "Lau + Emily",
       "w": "Jason/JX sync test results; reconcile invoices from 1 Oct."
      },
-     "next": "Receipts and logins work. Open: Jason/JX fixing the OpenDent\u2192AutoCount sync gaps (edits to RM0 not carried over, a missing X-ray line); then hand-approve the 1\u20135 Oct invoices. Lau settles Dr Ling's discrepancy today.",
+     "next": "Receipts and logins work. Open: Jason/JX fixing the OpenDent\u2192AutoCount sync gaps (edits to RM0 not carried over, a missing X-ray line); then hand-approve the 1\u20135 Oct invoices.",
      "endMonth": "2026-09"
     },
     {
@@ -1206,7 +1206,7 @@
       {
        "t": "In-person session at the clinic: AutoCount training for Sarah + moving ABSS data into AutoCount (ABSS ends 9 Nov)",
        "s": "next",
-       "w": "Leow + Sarah both free Wed 21 / Thu 22 Oct, office hours \u2014 Lau to pick"
+       "w": "Wed 21 Oct, 10:00 at iSmile \u2014 fixed by Lau 13 Oct"
       }
      ],
      "flag": {
@@ -3586,6 +3586,6 @@
  },
  "meta": {
   "asof": "TUE 13 OCT 2026",
-  "updated": "2026-10-13T01:54:14+08:00"
+  "updated": "2026-10-13T09:04:22+08:00"
  }
 }
