@@ -1352,7 +1352,7 @@
       {
        "t": "Dr Yeoh and Dr Joan sign their (thinner) agreements",
        "s": "next",
-       "w": "December \u00b7 Lau \u2192 Lydia"
+       "w": "End Oct \u00b7 Lau \u2192 Lydia; go live 1 Nov"
       },
       {
        "t": "All five signed \u2014 Dr Ling signed 1 Oct (Dr Ong is employed \u2014 no contractor agreement needed)",
@@ -1403,8 +1403,8 @@
      "endMonth": "2026-09",
      "flag": {
       "k": "due",
-      "by": "2026-12-31",
-      "w": "Dr Yeoh and Dr Joan sign in December."
+      "by": "2026-10-31",
+      "w": "Dr Yeoh and Dr Joan sign by end October; go live 1 November."
      }
     },
     {
@@ -3586,6 +3586,6 @@
  },
  "meta": {
   "asof": "TUE 13 OCT 2026",
-  "updated": "2026-10-13T09:04:22+08:00"
+  "updated": "2026-10-13T09:04:55+08:00"
  }
 }
