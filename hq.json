@@ -3109,7 +3109,7 @@
   "<b>Reconnect financials:</b> the migrated OpenDental computer disrupted the extract/push pipeline; restore the daily cash and P&L feed.",
   "Check with Emily on the denture height for the TOC group.",
   "Fix the cash digest tomorrow using the new PC.",
-  "<b>Braces pricing (Damon ~RM1,200/set cost):</b> Emily asks suppliers/market what others charge for Damon and a cheaper brand; proposal Damon ~RM11\u201312k vs budget ~RM8k (wide gap, floor never near RM3k; material \u226410% of fee). Partial (2\u00d74) braces need their own minimum fee \u2014 tell Dr Ong. Ormco's Spark aligner lands ~end 2026."
+  "<b>Braces pricing:</b> Message with the new-case minimum fees (Damon D8090 RM11,000+; non-Damon D8092 RM8,000+, effective 15 Oct 2026) sent to Dr Ong for circulation to the doctors; doctor circulation still pending. Existing cases remain on current fees."
  ],
  "archive": [
   {
@@ -3590,6 +3590,6 @@
  },
  "meta": {
   "asof": "WED 14 OCT 2026",
-  "updated": "2026-10-14T12:59:44+08:00"
+  "updated": "2026-10-14T15:04:43+08:00"
  }
 }
