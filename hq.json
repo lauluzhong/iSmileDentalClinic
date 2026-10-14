@@ -2902,10 +2902,10 @@
     },
     {
      "id": "f3",
-     "dot": "live",
-     "chip": "bills paid",
+     "dot": "now",
+     "chip": "cash-flow simulation pending",
      "name": "Capex & cash runway",
-     "one": "...What's left is confirming cash covers the September legal fee and the January 2027 increment step-up.",
+     "one": "Lau needs to run a weekly cash-flow simulation for planned initiatives and prepare the cash-injection estimate for discussion with Dad.",
      "steps": [
       {
        "t": "AutoCount licence + Cloud HRMS paid",
@@ -2928,8 +2928,8 @@
        "w": "Emily mtg 29 Sep"
       },
       {
-       "t": "Run cash-flow simulation and estimate cash injection needed for planned initiatives; discuss with Dad",
-       "s": "now",
+       "t": "Lau to run a weekly cash-flow simulation and estimate any cash injection required for planned initiatives; prepare it for discussion with Dad",
+       "s": "",
        "w": "Wed 21 Oct"
       }
      ],
@@ -2937,11 +2937,11 @@
       "Increments + bonus are reserve-funded \u2014 keep them in the cash view, not just the P&L",
       "Your own payroll is now on the books \u2014 it changes the monthly cash floor"
      ],
-     "owner": "emily",
+     "owner": "lu",
      "dept": "finance",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Run cash-flow simulation and prepare the cash-injection estimate for discussion with Dad on 21 Oct"
+     "next": "Lau to run the weekly cash-flow simulation and prepare the cash-injection estimate for discussion with Dad on Wednesday 21 October"
     },
     {
      "id": "f9",
@@ -3590,6 +3590,6 @@
  },
  "meta": {
   "asof": "WED 14 OCT 2026",
-  "updated": "2026-10-14T12:45:34+08:00"
+  "updated": "2026-10-14T12:59:20+08:00"
  }
 }
