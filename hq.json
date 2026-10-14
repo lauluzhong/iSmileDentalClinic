@@ -1163,7 +1163,7 @@
      "dot": "now",
      "owner": "lu",
      "name": "GL posting by service type (+ product sales)",
-     "chip": "new GL list drafted 14 Oct \u00b7 Dr Ong + Emily to OK",
+     "chip": "Sarah creating the new GLs",
      "one": "Post every procedure daily to the right service-type GL (the accountant's 5\u20139 types) instead of one default type with a monthly reallocation; add product sales (toothbrush/toothpaste) properly.",
      "next": "Six income GLs agreed by Lau 14 Oct: General Procedure, Orthodontic, Fixed Prosthodontics (new), Implant, Removable Prosthodontics (new), Cosmetic (renamed from Zoom Whitening). Next: Dr Ong + Emily OK the picture, then Sarah creates the GLs and gives the codes to Leow, then Jason retags 91 active OpenDent codes.",
      "steps": [
@@ -1184,13 +1184,13 @@
       },
       {
        "t": "Dr Ong and Emily OK the new GL picture",
-       "s": "now",
-       "w": "Lau shares the image"
+       "s": "done",
+       "w": "Dr Ong OK 14 Oct"
       },
       {
        "t": "AutoCount + accounting group: Sarah creates Fixed Prosthodontics and Removable Prosthodontics, renames Zoom Whitening to Cosmetic, makes 6 old GLs inactive, then gives the GL codes to Leow",
-       "s": "next",
-       "w": "Sarah \u2192 Leow"
+       "s": "now",
+       "w": "Request + picture sent to the group 14 Oct \u00b7 waiting on Sarah"
       },
       {
        "t": "AC \u00d7 integration group: give Jason the 91 OpenDent codes and their new GL; everything else defaults to General",
@@ -3605,6 +3605,6 @@
  },
  "meta": {
   "asof": "WED 14 OCT 2026",
-  "updated": "2026-10-14T16:31:04+08:00"
+  "updated": "2026-10-14T17:39:09+08:00"
  }
 }
