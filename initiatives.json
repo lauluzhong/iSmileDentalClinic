@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-14T15:56:28+08:00",
+ "updated": "2026-10-14T16:31:04+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
   "Lau": {
@@ -12,13 +12,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
-   "init": "E",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +27,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   }
@@ -1057,7 +1057,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "One exercise with the marketing session, both directions: prepaid credits patients hold with us (~RM113k) and balances patients owe us.",
-   "next": "Lau follows up with the marketing session on the balance list, then decides credit deadlines and each owed balance (chase / clean up / write off) with Emily.",
+   "next": "Query run 14 Oct: 258 families, RM110k. RM85k is genuine prepaid credit; ~RM25k across 97 families needs Emily to check (no prepayment on record, or credit above what they prepaid). Then Lau approves the three deadlines.",
    "dept": "finance",
    "lens": "cost",
    "endMonth": null,
@@ -1067,6 +1067,7 @@
     "Ageing pulled from OpenDental: 261 families in credit, RM113,205",
     "Draft plan: under RM300 use by 31 Dec 2026 (158 families, RM20.7k); RM300 to 1,500 by 31 Mar 2027 (86, RM57.7k); over RM1,500 or overseas, a personal call from Emily and an agreed plan by 30 Jun 2027 (17, RM34.8k). Any family member, any treatment",
     "Lau runs prepaid_credit_ledger.sql in OpenDental for each family's deposit date and last use",
+    "Emily checks the 97 flagged families (about RM25k): 90 with no prepayment on record (RM18.7k, likely overpayments or changed treatment) + 7 whose credit is more than they ever prepaid (RM6.2k). Mark each real or data error",
     "Lau approves the tiers and deadlines",
     "Accountant: what happens to credit left after the deadline, and how it sits in AutoCount",
     "Families told; Emily calls the large balances",

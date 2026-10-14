@@ -2998,7 +2998,7 @@
     {
      "id": "f10",
      "dot": "now",
-     "chip": "RM113k liability",
+     "chip": "RM110k \u00b7 97 families to check",
      "name": "Patient balances: prepaid credits + amounts owed",
      "one": "One exercise with the marketing session, both directions: prepaid credits patients hold with us (~RM113k) and balances patients owe us.",
      "steps": [
@@ -3019,11 +3019,18 @@
       },
       {
        "t": "Lau runs prepaid_credit_ledger.sql in OpenDental for each family's deposit date and last use",
-       "s": "now"
+       "s": "done",
+       "w": "14 Oct: 258 families, RM110,005; ties to OpenDent (1 family off by RM270)"
+      },
+      {
+       "t": "Emily checks the 97 flagged families (about RM25k): 90 with no prepayment on record (RM18.7k, likely overpayments or changed treatment) + 7 whose credit is more than they ever prepaid (RM6.2k). Mark each real or data error",
+       "s": "next",
+       "w": "Emily \u00b7 sheet in Financials/Prepaid credits (14 Oct)"
       },
       {
        "t": "Lau approves the tiers and deadlines",
-       "s": ""
+       "s": "next",
+       "w": "Lau, when he has time. Genuine prepaid credit = RM85.1k across 161 families"
       },
       {
        "t": "Accountant: what happens to credit left after the deadline, and how it sits in AutoCount",
@@ -3061,13 +3068,13 @@
      ],
      "flag": {
       "k": "decide",
-      "w": "Run the prepaid credits query in OpenDental, then approve the three deadlines (31 Dec, 31 Mar, 30 Jun).",
+      "w": "Approve the three deadlines (31 Dec, 31 Mar, 30 Jun) for the RM85k of genuine prepaid credit; Emily checks the 97 flagged families first.",
       "who": "Lu"
      },
      "owner": "lu",
      "dept": "finance",
      "lens": "cost",
-     "next": "Lau follows up with the marketing session on the balance list, then decides credit deadlines and each owed balance (chase / clean up / write off) with Emily."
+     "next": "Query run 14 Oct: 258 families, RM110k. RM85k is genuine prepaid credit; ~RM25k across 97 families needs Emily to check (no prepayment on record, or credit above what they prepaid). Then Lau approves the three deadlines."
     },
     {
      "dept": "finance",
@@ -3598,6 +3605,6 @@
  },
  "meta": {
   "asof": "WED 14 OCT 2026",
-  "updated": "2026-10-14T15:56:28+08:00"
+  "updated": "2026-10-14T16:31:04+08:00"
  }
 }
