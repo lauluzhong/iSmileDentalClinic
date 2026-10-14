@@ -1,17 +1,7 @@
 {
- "updated": "2026-10-14T15:04:43+08:00",
+ "updated": "2026-10-14T15:28:37+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Edith": {
    "init": "E",
    "role": "",
@@ -22,6 +12,11 @@
    "role": "",
    "color": "#45C4FF"
   },
+  "Code Capsule": {
+   "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Lydia": {
    "init": "L",
    "role": "",
@@ -29,6 +24,11 @@
   },
   "Dr Ong": {
    "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -364,7 +364,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "Post every procedure daily to the right service-type GL (the accountant's 5\u20139 types) instead of one default type with a monthly reallocation; add product sales (toothbrush/toothpaste) properly.",
-   "next": "Wed 14 Oct: Lau + Emily tag OpenDent codes to the service GLs. Product sales go to 4-2000 via AutoCount (Leow). Sarah's AutoCount training in the clinic in the first week of November, before ABSS ends 9 Nov.",
+   "next": "Six income GLs agreed by Lau 14 Oct: General Procedure, Orthodontic, Fixed Prosthodontics (new), Implant, Removable Prosthodontics (new), Cosmetic (renamed from Zoom Whitening). Next: Dr Ong + Emily OK the picture, then Sarah creates the GLs and gives the codes to Leow, then Jason retags 91 active OpenDent codes.",
    "dept": "finance",
    "lens": "control",
    "endMonth": null,
@@ -372,11 +372,14 @@
    "tasks": [
     "Product sales: simple \u2014 Leow creates the sales item in AutoCount posting to GL 4-2000 Sales-Products, added to the patient's active invoice (products are not in OpenDent); Leow teaches the desk",
     "Export ABSS general-ledger detail for income accounts 4-1000 to 4-2000 (Jan 2025 to date) to Excel at the clinic \u2014 to check the drafted mapping against what Sarah actually posted",
-    "Tag every OpenDent procedure code to its service GL (4-1000 Procedure, 4-1010 Britesmile, 4-1020 Opalescence, 4-1030 Orthodontic, 4-1040 Implant, 4-1050 Zoom, 4-1060 Biomimetic, 4-1070 Myobrace, 4-1080 Removable Appliance, 4-1090 MyoFunction) \u2014 no mapping exists today (Sarah posted by hand)",
-    "Leow confirms the GL list with Sarah, then arranges with Jason when to hand over the mapping",
+    "Tag OpenDent codes to the new service GLs: 6 GLs, 91 codes used in the last 36 months move off General; everything else stays in General",
+    "Dr Ong and Emily OK the new GL picture",
+    "AutoCount + accounting group: Sarah creates Fixed Prosthodontics and Removable Prosthodontics, renames Zoom Whitening to Cosmetic, makes 6 old GLs inactive, then gives the GL codes to Leow",
+    "AC \u00d7 integration group: give Jason the 91 OpenDent codes and their new GL; everything else defaults to General",
     "One-off remapping window (a day, half a day or one night), then preliminary testing",
     "GL posted daily: every procedure locked to its service GL",
-    "In-person session at the clinic: AutoCount training for Sarah + moving ABSS data into AutoCount (ABSS ends 9 Nov)"
+    "In-person session at the clinic: AutoCount training for Sarah + moving ABSS data into AutoCount (ABSS ends 9 Nov)",
+    "Later: review the ~440 codes not used in 36 months (they post to General for now): tag them properly or hide them in OpenDent"
    ],
    "pillar": "P1"
   },
