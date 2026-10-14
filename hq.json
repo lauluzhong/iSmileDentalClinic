@@ -2926,6 +2926,11 @@
        "t": "Cash 29 Sep \u2248 RM104k; out next week \u2248 RM40k (EPF, rent), then locum on the 10th. Dad will inject cash if needed \u2014 tell Lau if it gets tight",
        "s": "done",
        "w": "Emily mtg 29 Sep"
+      },
+      {
+       "t": "Run cash-flow simulation and estimate cash injection needed for planned initiatives; discuss with Dad",
+       "s": "now",
+       "w": "Wed 21 Oct"
       }
      ],
      "open": [
@@ -2936,7 +2941,7 @@
      "dept": "finance",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Confirm cash covers remaining capex + Dec bonus/increment wave"
+     "next": "Run cash-flow simulation and prepare the cash-injection estimate for discussion with Dad on 21 Oct"
     },
     {
      "id": "f9",
@@ -3584,7 +3589,7 @@
   ]
  },
  "meta": {
-  "asof": "TUE 13 OCT 2026",
-  "updated": "2026-10-13T15:45:54+08:00"
+  "asof": "WED 14 OCT 2026",
+  "updated": "2026-10-14T12:45:34+08:00"
  }
 }
