@@ -430,12 +430,6 @@
      "from_initiatives": [
       1
      ],
-     "flag": {
-      "k": "due",
-      "by": "2026-10-14",
-      "who": "Lau + Emily",
-      "w": "Jason/JX sync test results; reconcile invoices from 1 Oct."
-     },
      "next": "Receipts and logins work. Open: Jason/JX fixing the OpenDent\u2192AutoCount sync gaps (edits to RM0 not carried over, a missing X-ray line); then hand-approve the 1\u20135 Oct invoices.",
      "endMonth": "2026-09"
     },
@@ -1176,7 +1170,7 @@
       {
        "t": "Product sales: simple \u2014 Leow creates the sales item in AutoCount posting to GL 4-2000 Sales-Products, added to the patient's active invoice (products are not in OpenDent); Leow teaches the desk",
        "s": "now",
-       "w": "Leow shows us online \u00b7 proposed Thu 15 Oct 9:30\u201310:00 Google Meet (Lau asking Leow)"
+       "w": "Leow shows us in person Wed 21 Oct 9:30\u201310:00, before Sarah's training (Lau)"
       },
       {
        "t": "Export ABSS general-ledger detail for income accounts 4-1000 to 4-2000 (Jan 2025 to date) to Excel at the clinic \u2014 to check the drafted mapping against what Sarah actually posted",
@@ -2085,7 +2079,12 @@
       27
      ],
      "next": "Complete the Dr Ling chemistry/arrangement talk, then handle the remaining internal conversations before announcing.",
-     "endMonth": "2026-12"
+     "endMonth": "2026-12",
+     "flag": {
+      "k": "talk",
+      "by": "2026-10-23",
+      "w": "Before 27 Oct: Lau tells Dr Ling in person how Dr Jia Yin joins: a traditional associate (not only A&E, not under an overriding arrangement); she sees walk-ins and consults when free, passes complex cases to Dr Ling like any other doctor. Then Dr Ong welcomes her in the group."
+     }
     },
     {
      "id": "g5",
@@ -3599,6 +3598,6 @@
  },
  "meta": {
   "asof": "WED 14 OCT 2026",
-  "updated": "2026-10-14T15:28:37+08:00"
+  "updated": "2026-10-14T15:56:28+08:00"
  }
 }
