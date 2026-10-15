@@ -1,8 +1,18 @@
 {
- "updated": "2026-10-14T17:39:09+08:00",
+ "updated": "2026-10-15T09:01:49+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
   "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Emily": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
@@ -12,22 +22,12 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
+  "Lydia": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
+  "Lau": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
@@ -39,8 +39,8 @@
    "title": "OpenDent \u2194 AutoCount integration",
    "status": "active",
    "owner": "Code Capsule",
-   "why": "The OpenDent \u2192 AutoCount integration is live after the 8 Oct default-account fix; invoices from the day were recovered. The remaining focus is the RM9,500 / missing-X-ray sync test on Tue 13 Oct.",
-   "next": "Receipts and logins work. Open: Jason/JX fixing the OpenDent\u2192AutoCount sync gaps (edits to RM0 not carried over, a missing X-ray line); then hand-approve the 1\u20135 Oct invoices.",
+   "why": "The OpenDent \u2192 AutoCount integration is live after the 8 Oct default-account fix; invoices from the day were recovered. Remaining work is the RM9,500 / missing-X-ray sync result and the service/payment GL mapping.",
+   "next": "Get the sync-test result, confirm payment GLs with Sarah, then give Jason the final mapping; hand-approve the 1\u20135 Oct invoices.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",
