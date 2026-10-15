@@ -2998,7 +2998,7 @@
     {
      "id": "f10",
      "dot": "now",
-     "chip": "RM110k \u00b7 97 families to check",
+     "chip": "RM110k credits \u00b7 RM52k bad debt to decide",
      "name": "Patient balances: prepaid credits + amounts owed",
      "one": "One exercise with the marketing session, both directions: prepaid credits patients hold with us (~RM113k) and balances patients owe us.",
      "steps": [
@@ -3051,13 +3051,13 @@
       },
       {
        "t": "Lau + Emily classify each case: active / old data / paid since export / unsure",
-       "s": "next",
-       "w": ""
+       "s": "done",
+       "w": "Emily grouped all 91 on 15 Oct: write off 45 (RM52k), check with doctors 4 (RM7.3k), ongoing treatment 41 (RM86k, not bad debt)"
       },
       {
        "t": "Chase, clean up or write off each case (prepaid credits: see their own card)",
        "s": "next",
-       "w": ""
+       "w": "Lau decides week of 19 Oct. Suggested: write off the 2009\u20132022 cases; reverse (not write off) 6 'didn't proceed' charges RM12.1k if work was never done; one last reminder to 5 recent ones (2023+, RM10.6k)"
       }
      ],
      "open": [
@@ -3068,7 +3068,8 @@
      ],
      "flag": {
       "k": "decide",
-      "w": "Approve the three deadlines (31 Dec, 31 Mar, 30 Jun) for the RM85k of genuine prepaid credit; Emily checks the 97 flagged families first.",
+      "by": "2026-10-23",
+      "w": "Next week: decide the bad-debt write-off from Emily's grouped list (45 people, RM52k) and approve the prepaid-credit deadlines (RM85k).",
       "who": "Lu"
      },
      "owner": "lu",
@@ -3605,6 +3606,6 @@
  },
  "meta": {
   "asof": "THU 15 OCT 2026",
-  "updated": "2026-10-15T12:36:35+08:00"
+  "updated": "2026-10-15T20:50:51+08:00"
  }
 }
