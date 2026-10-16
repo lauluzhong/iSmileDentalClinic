@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-10-16 10:00",
- "generated_at": "2026-10-16T10:00:08+08:00",
+ "generated_myt": "2026-10-16 10:30",
+ "generated_at": "2026-10-16T10:30:09+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 122.7,
   "nproc": 4,
   "load": [
-   0.64,
-   0.27,
-   0.24
+   0.16,
+   0.2,
+   0.22
   ],
-  "cpu_pct": 16.0,
+  "cpu_pct": 4.0,
   "cpu_pct_sample": 1.7,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 4810,
-   "avail_mb": 3130,
-   "pct": 60.6,
+   "used_mb": 4753,
+   "avail_mb": 3187,
+   "pct": 59.9,
    "swap_total_mb": 2047,
    "swap_used_mb": 2047
   },
@@ -29,11 +29,11 @@
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 20,
-    "last_myt": "2026-10-16 10:00 MYT"
+    "age_s": 21,
+    "last_myt": "2026-10-16 10:30 MYT"
    },
    "hq_publish": {
-    "age_s": 47369,
+    "age_s": 49170,
     "last_myt": "2026-10-15 20:50 MYT",
     "detail": "asof=THU 15 OCT 2026 streams=46 sideboard=20 decisions=1 archive=11"
    }
@@ -43,7 +43,7 @@
    "total": 19,
    "failed": [],
    "running": [],
-   "status_updated": "2026-10-16 10:00 MYT"
+   "status_updated": "2026-10-16 10:30 MYT"
   },
   "last_clinic_push": "2026-10-15"
  },
@@ -551,26 +551,8 @@
   "checked": "2026-10-16"
  },
  "social": {
-  "available": true,
-  "source": "Zernio MCP (Edith's connection)",
-  "as_of": "2026-10-16",
-  "window_days": 30,
-  "accounts": [
-   {
-    "platform": "instagram",
-    "username": "ismiledentalclinicmy",
-    "display": "iSmile Dental Clinic",
-    "followers": 98.0,
-    "growth_30d": 0.0,
-    "growth_pct_30d": 0.0,
-    "posts_on_platform": 13.0,
-    "last_updated": "2026-10-15T05:18:41.699000Z",
-    "active": true
-   }
-  ],
-  "instagram_30d": null,
-  "posts_published_via_zernio": 0,
-  "note": "Instagram @ismiledentalclinicmy is connected through Zernio. Posts published outside Zernio are not counted in posts_published_via_zernio."
+  "available": false,
+  "note": "Zernio call failed: TimeoutError('The read operation timed out')"
  },
  "geo": {
   "generated_myt": "2026-10-11 15:30",
