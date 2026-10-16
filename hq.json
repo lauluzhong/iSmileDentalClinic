@@ -1188,9 +1188,9 @@
      "dot": "now",
      "owner": "lu",
      "name": "GL posting by service type (+ product sales)",
-     "chip": "Sarah creating the new GLs",
+     "chip": "GLs confirmed \u00b7 Jason applies by Tue 20 Oct",
      "one": "Post every procedure daily to the right service-type GL (the accountant's 5\u20139 types) instead of one default type with a monthly reallocation; add product sales (toothbrush/toothpaste) properly.",
-     "next": "Six income GLs agreed by Lau 14 Oct: General Procedure, Orthodontic, Fixed Prosthodontics (new), Implant, Removable Prosthodontics (new), Cosmetic (renamed from Zoom Whitening). Next: Dr Ong + Emily OK the picture, then Sarah creates the GLs and gives the codes to Leow, then Jason retags 91 active OpenDent codes.",
+     "next": "Jason applies the confirmed service and payment GL list, then posts payment types back correctly to OpenDental as separate figures when multiple methods are used. Checkpoint Tue 20 Oct: complete or update Lau; not confirmed complete.",
      "steps": [
       {
        "t": "Product sales: simple \u2014 Leow creates the sales item in AutoCount posting to GL 4-2000 Sales-Products, added to the patient's active invoice (products are not in OpenDent); Leow teaches the desk",
@@ -1213,19 +1213,19 @@
        "w": "Dr Ong OK 14 Oct"
       },
       {
-       "t": "AutoCount + accounting group: Sarah creates Fixed Prosthodontics and Removable Prosthodontics, renames Zoom Whitening to Cosmetic, makes 6 old GLs inactive, then gives the GL codes to Leow",
+       "t": "Sarah confirms the payment GLs and service GLs, including 4-100 Fixed Prosthodontics and 4-110 Removable Prosthodontics",
+       "s": "done",
+       "w": "15 Oct"
+      },
+      {
+       "t": "Lau gives Jason the confirmed final GL list and payment types",
+       "s": "done",
+       "w": "16 Oct"
+      },
+      {
+       "t": "Jason applies GL tagging and makes payment types post back correctly to OpenDental, keeping multiple methods as separate figures",
        "s": "now",
-       "w": "Request + picture sent to the group 14 Oct \u00b7 waiting on Sarah"
-      },
-      {
-       "t": "AC \u00d7 integration group: give Jason the 91 OpenDent codes and their new GL; everything else defaults to General",
-       "s": "next",
-       "w": "Jason + Leow"
-      },
-      {
-       "t": "One-off remapping window (a day, half a day or one night), then preliminary testing",
-       "s": "next",
-       "w": "Jason + Leow"
+       "w": "checkpoint Tue 20 Oct: complete or update Lau; not confirmed complete"
       },
       {
        "t": "GL posted daily: every procedure locked to its service GL",
@@ -3646,6 +3646,6 @@
  },
  "meta": {
   "asof": "FRI 16 OCT 2026",
-  "updated": "2026-10-16T11:44:51+08:00"
+  "updated": "2026-10-16T11:45:01+08:00"
  }
 }
