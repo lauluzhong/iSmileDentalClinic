@@ -187,7 +187,7 @@
   {
    "d": "7 Oct",
    "l": "Go live \u2014 new digital receipts",
-   "s": "",
+   "s": "done",
    "iso": "2026-10-07",
    "tip": "Moved to Wed 7 Oct by Lau on 5 Oct (was Tue 6 Oct; first moved from 5 Oct at the 25 Sep run-through). Paper receipts retired; invoices 1\u20136 Oct approved by hand. Lau and Emily on standby that week. The OpenDent \u2192 AutoCount link has been on since 1 Oct (Jason, 2 Oct)."
   },
@@ -197,6 +197,20 @@
    "s": "",
    "iso": "2026-10-12",
    "tip": "Lau is considering moving the blast to Monday 12 through Wednesday 14 October. This is proposed, not committed, and depends on Suraya, Jason and Code Capsule fixing the exclusion import and rebuilding a reliable Wave 1 audience."
+  },
+  {
+   "d": "15 Oct",
+   "l": "OpenDental \u2194 AutoCount GL list confirmed",
+   "s": "done",
+   "iso": "2026-10-15",
+   "tip": "Sarah confirmed payment GLs: bank card 1-2510, QR/internet banking 1-2140 and cash 1-2110. Service GLs include 4-100 Fixed Prosthodontics and 4-110 Removable Prosthodontics."
+  },
+  {
+   "d": "20 Oct",
+   "l": "Jason: GL tagging + payment-type backflow checkpoint",
+   "s": "now",
+   "iso": "2026-10-20",
+   "tip": "Lau gave Jason the confirmed final GL list and payment types on 16 Oct. Jason committed to complete GL tagging and correct payment-type posting back to OpenDental, preserving multiple payment methods as separate figures, by Tuesday \u2014 or update Lau by then. This is a checkpoint, not confirmed completion."
   },
   {
    "d": "27 Oct",
@@ -252,9 +266,9 @@
     {
      "id": "d1",
      "dot": "now",
-     "chip": "receipts live \u00b7 sync gaps being fixed",
+     "chip": "GL list confirmed \u00b7 Jason checkpoint Tue 20 Oct",
      "name": "OpenDent \u2194 AutoCount integration",
-     "one": "The OpenDent \u2192 AutoCount integration is live after the 8 Oct default-account fix; invoices from the day were recovered. Remaining work is the RM9,500 / missing-X-ray sync result and the service/payment GL mapping.",
+     "one": "The OpenDent \u2192 AutoCount integration is live. The final service and payment GL list is confirmed; Jason has committed to GL tagging and correct payment-type backflow to OpenDental by Tuesday 20 Oct, or an update then. Completion is not yet confirmed.",
      "steps": [
       {
        "t": "Sandbox on the side PC \u2014 integration proven",
@@ -410,9 +424,19 @@
        "w": "12 Oct: front desk had informed her 5 Jun; she keyed it 5 Oct; share pays in Nov locum; reply sent"
       },
       {
-       "t": "OpenDent\u2192AutoCount sync gaps (AC group, 11\u201312 Oct): a RM9,500 line changed to RM0 in OpenDent stayed RM9,500 in the AutoCount invoice; an X-ray in OpenDent is missing from its AutoCount invoice. JX: the sync only tracks adds and edits; Jason testing",
+       "t": "OpenDent\u2192AutoCount sync gaps (AC group, 11\u201312 Oct): a RM9,500 line changed to RM0 in OpenDent stayed RM9,500 in the AutoCount invoice; an X-ray in OpenDent is missing from its AutoCount invoice. The 13 Oct test result is not confirmed on this board.",
        "s": "now",
-       "w": "test with Jason + JX Tue 13 Oct 9:30: add, edit, change to RM0, delete; timing"
+       "w": "result pending confirmation"
+      },
+      {
+       "t": "Sarah confirms the service and payment GL list: bank card 1-2510, QR/internet banking 1-2140, cash 1-2110; service GLs include 4-100 Fixed Prosthodontics and 4-110 Removable Prosthodontics",
+       "s": "done",
+       "w": "15 Oct"
+      },
+      {
+       "t": "Jason applies the confirmed GL tags and makes payment types post back correctly to OpenDental, keeping multiple methods as separate figures",
+       "s": "now",
+       "w": "checkpoint Tue 20 Oct: complete or update Lau; not confirmed complete"
       }
      ],
      "open": [
@@ -422,7 +446,8 @@
       "<b>FOH training set Sat 3 Oct</b> after the 3:30 PM close, dinner after (agreed 25 Sep). Leow not attending (weekend) \u2014 Lau and Emily teach. Everyone present sees the system; only a few need to master it. <b>Emily and Joanna</b> are the on-ground contacts for questions. AP/supplier-side training deferred to Q4, in person with Leow.",
       "Jason confirmed Leow must attend the run-through.",
       "EasyDent (X-ray) + CCTV stay on the old PC \u2014 do not migrate",
-      "iSmile-side testing/clearance is complete; track the remaining sync test, GL mapping and front-desk rollout."
+      "<b>GL list confirmed 15 Oct:</b> bank card 1-2510, QR/internet banking 1-2140 and cash 1-2110; service GLs include 4-100 Fixed Prosthodontics and 4-110 Removable Prosthodontics.",
+      "<b>Jason checkpoint Tue 20 Oct:</b> Lau gave the final GL list and payment types on 16 Oct. Jason is to complete GL tagging and correct payment-type backflow to OpenDental, preserving multiple payment methods as separate figures, or update Lau by then. Completion is not confirmed."
      ],
      "owner": "codecapsule",
      "dept": "tech",
@@ -430,7 +455,7 @@
      "from_initiatives": [
       1
      ],
-     "next": "Get the sync-test result, confirm payment GLs with Sarah, then give Jason the final mapping; hand-approve the 1\u20135 Oct invoices.",
+     "next": "By Tue 20 Oct, get Jason\u2019s confirmation that GL tags and separate payment-type figures now post back correctly to OpenDental \u2014 or his progress update. The 13 Oct sync-gap test result also still needs confirmation.",
      "endMonth": "2026-09"
     },
     {
@@ -3268,7 +3293,7 @@
      "h5"
     ],
     "owner": "Lau \u00b7 Emily \u00b7 Code Capsule",
-    "summary": "Link on since 1 Oct. 1\u20136 Oct invoices hand-approved, FOH training Sat 3 Oct, go live Wed 7 Oct.",
+    "summary": "Link on since 1 Oct; digital receipts live 7 Oct. GL list confirmed 15 Oct; Jason\u2019s GL-tagging and payment-type-backflow checkpoint is Tue 20 Oct, not confirmed complete.",
     "items": [
      {
       "label": "OpenDent migrated to the new server",
@@ -3368,10 +3393,25 @@
      {
       "label": "Go live \u2014 new digital receipts",
       "start": "2026-10-07",
-      "status": "next",
+      "status": "done",
       "locked": true,
       "who": "Front desk \u00b7 Lau + Emily on standby",
       "note": "Paper receipts retired from this day (moved from Tue 6 to Wed 7 Oct by Lau, 5 Oct). Lau and Emily on standby in person that week."
+     },
+     {
+      "label": "Service and payment GL list confirmed",
+      "start": "2026-10-15",
+      "status": "done",
+      "who": "Sarah",
+      "note": "Payment GLs: bank card 1-2510, QR/internet banking 1-2140, cash 1-2110. Service GLs include 4-100 Fixed Prosthodontics and 4-110 Removable Prosthodontics."
+     },
+     {
+      "label": "GL tagging and payment-type backflow to OpenDental",
+      "start": "2026-10-20",
+      "status": "now",
+      "locked": true,
+      "who": "Jason",
+      "note": "Jason committed to complete GL tagging and correct payment-type posting back to OpenDental, preserving multiple methods as separate figures, by Tuesday or update Lau then. This is a checkpoint, not confirmed completion."
      },
      {
       "label": "FOH training pack drafted",
@@ -3605,7 +3645,7 @@
   ]
  },
  "meta": {
-  "asof": "THU 15 OCT 2026",
-  "updated": "2026-10-15T20:50:51+08:00"
+  "asof": "FRI 16 OCT 2026",
+  "updated": "2026-10-16T11:44:34+08:00"
  }
 }

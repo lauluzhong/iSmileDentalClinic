@@ -1,7 +1,12 @@
 {
- "updated": "2026-10-15T20:50:51+08:00",
+ "updated": "2026-10-16T11:44:34+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
+  "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Emily": {
    "init": "E",
    "role": "",
@@ -14,11 +19,6 @@
   },
   "Code Capsule": {
    "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Edith": {
-   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -39,8 +39,8 @@
    "title": "OpenDent \u2194 AutoCount integration",
    "status": "active",
    "owner": "Code Capsule",
-   "why": "The OpenDent \u2192 AutoCount integration is live after the 8 Oct default-account fix; invoices from the day were recovered. Remaining work is the RM9,500 / missing-X-ray sync result and the service/payment GL mapping.",
-   "next": "Get the sync-test result, confirm payment GLs with Sarah, then give Jason the final mapping; hand-approve the 1\u20135 Oct invoices.",
+   "why": "The OpenDent \u2192 AutoCount integration is live. The final service and payment GL list is confirmed; Jason has committed to GL tagging and correct payment-type backflow to OpenDental by Tuesday 20 Oct, or an update then. Completion is not yet confirmed.",
+   "next": "By Tue 20 Oct, get Jason\u2019s confirmation that GL tags and separate payment-type figures now post back correctly to OpenDental \u2014 or his progress update. The 13 Oct sync-gap test result also still needs confirmation.",
    "dept": "tech",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -77,7 +77,9 @@
     "ABSS not renewed: licence ends 9 Nov; agreed with the accounting firm to migrate fully to AutoCount",
     "Medical certificate template v2 done (Klinik Pergigian iSmile, mobile + website); doctor signature still to confirm (Emily)",
     "Close Dr Ling's discrepancy between the amount documented in OpenDent and the amount expected; verify whether it is a front-desk error with Emily",
-    "OpenDent\u2192AutoCount sync gaps (AC group, 11\u201312 Oct): a RM9,500 line changed to RM0 in OpenDent stayed RM9,500 in the AutoCount invoice; an X-ray in OpenDent is missing from its AutoCount invoice. JX: the sync only tracks adds and edits; Jason testing"
+    "OpenDent\u2192AutoCount sync gaps (AC group, 11\u201312 Oct): a RM9,500 line changed to RM0 in OpenDent stayed RM9,500 in the AutoCount invoice; an X-ray in OpenDent is missing from its AutoCount invoice. The 13 Oct test result is not confirmed on this board.",
+    "Sarah confirms the service and payment GL list: bank card 1-2510, QR/internet banking 1-2140, cash 1-2110; service GLs include 4-100 Fixed Prosthodontics and 4-110 Removable Prosthodontics",
+    "Jason applies the confirmed GL tags and makes payment types post back correctly to OpenDental, keeping multiple methods as separate figures"
    ],
    "pillar": "P1"
   },
