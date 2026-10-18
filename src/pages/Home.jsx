@@ -453,7 +453,7 @@ const Home = () => {
             {/* ============ 5. CLOSING — just the invitation; the footer holds the facts ============ */}
             <section className="closing-cta">
                 <div className="container closing-inner">
-                    <h2 className="closing-title">Come and meet us in <em>Damansara Jaya.</em></h2>
+                    <h2 className="closing-title">Come and meet us in <em><Link to="/services/locations/damansara-jaya">Damansara Jaya.</Link></em></h2>
                     <p className="closing-line">
                         Tell us who is coming in and we will find a time that suits the family.
                     </p>
