@@ -3,6 +3,13 @@
   "entries": [
     {
       "ts": "2026-10-20 09:00 MYT",
+      "agent": "analytics",
+      "job": "deck_stats",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-10-20 09:00 MYT",
       "agent": "edith",
       "job": "wa_group_digest",
       "event": "started",
@@ -1391,13 +1398,6 @@
       "ts": "2026-10-18 16:40 MYT",
       "agent": "analytics",
       "job": "seo_geo_audit",
-      "event": "finished",
-      "result": "ok"
-    },
-    {
-      "ts": "2026-10-18 16:30 MYT",
-      "agent": "analytics",
-      "job": "deck_stats",
       "event": "finished",
       "result": "ok"
     }
