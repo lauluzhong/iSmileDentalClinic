@@ -447,7 +447,8 @@
       "Jason confirmed Leow must attend the run-through.",
       "EasyDent (X-ray) + CCTV stay on the old PC \u2014 do not migrate",
       "<b>GL list confirmed 15 Oct:</b> bank card 1-2510, QR/internet banking 1-2140 and cash 1-2110; service GLs include 4-100 Fixed Prosthodontics and 4-110 Removable Prosthodontics.",
-      "<b>Jason checkpoint Tue 20 Oct:</b> Lau gave the final GL list and payment types on 16 Oct. Jason is to complete GL tagging and correct payment-type backflow to OpenDental, preserving multiple payment methods as separate figures, or update Lau by then. Completion is not confirmed."
+      "<b>Jason checkpoint Tue 20 Oct:</b> Lau gave the final GL list and payment types on 16 Oct. Jason is to complete GL tagging and correct payment-type backflow to OpenDental, preserving multiple payment methods as separate figures, or update Lau by then. Completion is not confirmed.",
+      "<b>19\u201320 Oct sync issue:</b> AutoCount matched a new patient to the wrong last name, does not update debtor names after creation, and two 17 Oct payments did not sync back to OpenDental; Code Capsule and Vision Tech still need to confirm the correction and prevention step."
      ],
      "owner": "codecapsule",
      "dept": "tech",
@@ -3645,7 +3646,7 @@
   ]
  },
  "meta": {
-  "asof": "FRI 16 OCT 2026",
-  "updated": "2026-10-16T11:45:01+08:00"
+  "asof": "TUE 20 OCT 2026",
+  "updated": "2026-10-20T09:02:13+08:00"
  }
 }

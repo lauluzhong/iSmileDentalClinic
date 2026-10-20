@@ -1,19 +1,19 @@
 {
- "updated": "2026-10-16T11:45:01+08:00",
+ "updated": "2026-10-20T09:02:13+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Emily": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
@@ -22,8 +22,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Lydia": {
-   "init": "L",
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
