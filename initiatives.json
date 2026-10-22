@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-20T09:02:13+08:00",
+ "updated": "2026-10-22T09:02:48+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
   "Dr Ong": {
@@ -7,8 +7,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Emily": {
-   "init": "E",
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
@@ -17,18 +17,18 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Edith": {
    "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
-  "Lau": {
-   "init": "L",
+  "Code Capsule": {
+   "init": "CC",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -366,7 +366,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "Post every procedure daily to the right service-type GL (the accountant's 5\u20139 types) instead of one default type with a monthly reallocation; add product sales (toothbrush/toothpaste) properly.",
-   "next": "Jason applies the confirmed service and payment GL list, then posts payment types back correctly to OpenDental as separate figures when multiple methods are used. Checkpoint Tue 20 Oct: complete or update Lau; not confirmed complete.",
+   "next": "Jason applies the confirmed service and payment GL list, then posts payment types back correctly to OpenDental as separate figures when multiple methods are used. Lau's 21 Oct tracker still shows GL posting 0%, only cash returning, discount bugs, and provider not showing.",
    "dept": "finance",
    "lens": "control",
    "endMonth": null,
