@@ -1,47 +1,49 @@
 {
   "as_of": "2026-10-24",
-  "mode": "midday",
+  "mode": "eod",
   "fresh": true,
-  "generated_myt": "2026-10-24 12:05",
+  "generated_myt": "2026-10-24 19:50",
   "source_max_paydate": "2026-10-24",
   "source_max_procdate": "2026-10-24",
   "today": {
-    "collected": 1000.0,
-    "produced": 1650.0,
-    "patients_seen": 8,
-    "new_patients": 1,
+    "collected": 15332.5,
+    "produced": 10490.0,
+    "patients_seen": 25,
+    "new_patients": 2,
     "by_paytype": {
-      "Credit Card": 1000.0
+      "Credit Card": 9232.5,
+      "Internet Banking": 6000.0,
+      "Cash": 100.0
     }
   },
   "mtd": {
-    "collected": 254025.2,
-    "produced": 263637.5,
+    "collected": 268355.2,
+    "produced": 272475.0,
     "trading_days": 21,
-    "avg_per_trading_day": 12096.44,
-    "run_rate_26d": 314507.39,
+    "avg_per_trading_day": 12778.82,
+    "run_rate_26d": 332249.3,
     "by_paytype": {
-      "Credit Card": 224158.7,
-      "Internet Banking": 20301.5,
-      "Cash": 6235.0,
+      "Credit Card": 232390.2,
+      "Internet Banking": 26300.0,
+      "Cash": 6335.0,
       "PBB QR": 3330.0
     }
   },
-  "booked_next_14d": 226,
+  "booked_next_14d": 204,
   "forward_book": {
     "next_7d": {
       "days": 7,
-      "appts": 96,
-      "booked_min": 4800,
+      "appts": 95,
+      "booked_min": 4750,
       "capacity_min": 11120,
-      "pct": 43.16546762589928
+      "pct": 42.7158273381295
     },
     "next_14d": {
       "days": 14,
-      "appts": 199,
-      "booked_min": 10360,
+      "appts": 200,
+      "booked_min": 10540,
       "capacity_min": 22240,
-      "pct": 46.58273381294964
+      "pct": 47.39208633093525
     }
   },
   "doctors_worked": {
@@ -52,9 +54,23 @@
       "Mah"
     ]
   },
-  "utilization": null,
+  "utilization": {
+    "chair_minutes": 980,
+    "operatories": 4,
+    "open_minutes": 480,
+    "capacity_minutes": 1520,
+    "pct": 64.5
+  },
   "pnl": {
-    "available": false,
-    "reason": "n/a (midday)"
+    "locum_est": 3652,
+    "lab_est": 984,
+    "gp": 5854.0,
+    "overhead_day": 3385.08,
+    "ebitda_day": 2468.92,
+    "depreciation_day": 1146.54,
+    "net_day": 1322.38,
+    "visits_matched": 26,
+    "available": true,
+    "produced": 10490.0
   }
 }
