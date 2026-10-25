@@ -1,24 +1,24 @@
 {
- "generated_myt": "2026-10-25 15:30",
- "generated_at": "2026-10-25T15:30:16+08:00",
+ "generated_myt": "2026-10-25 16:00",
+ "generated_at": "2026-10-25T16:00:09+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 6.6,
   "nproc": 4,
   "load": [
-   0.83,
-   0.36,
-   0.23
+   0.94,
+   0.43,
+   0.31
   ],
-  "cpu_pct": 20.8,
-  "cpu_pct_sample": 1.0,
+  "cpu_pct": 23.5,
+  "cpu_pct_sample": 1.4,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 3858,
+   "used_mb": 3859,
    "avail_mb": 4082,
    "pct": 48.6,
    "swap_total_mb": 2047,
-   "swap_used_mb": 589
+   "swap_used_mb": 588
   },
   "disk": {
    "total_gb": 154.9,
@@ -29,11 +29,11 @@
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 28,
-    "last_myt": "2026-10-25 15:30 MYT"
+    "age_s": 620,
+    "last_myt": "2026-10-25 15:50 MYT"
    },
    "hq_publish": {
-    "age_s": 282460,
+    "age_s": 284253,
     "last_myt": "2026-10-22 09:02 MYT",
     "detail": "asof=THU 22 OCT 2026 streams=46 sideboard=20 decisions=1 archive=11"
    }
@@ -42,10 +42,8 @@
   "crons": {
    "total": 19,
    "failed": [],
-   "running": [
-    "geo_visibility"
-   ],
-   "status_updated": "2026-10-25 15:30 MYT"
+   "running": [],
+   "status_updated": "2026-10-25 16:00 MYT"
   },
   "last_clinic_push": "2026-10-25"
  },
@@ -563,13 +561,13 @@
   "note": "Instagram @ismiledentalclinicmy is connected through Zernio. Posts published outside Zernio are not counted in posts_published_via_zernio."
  },
  "geo": {
-  "generated_myt": "2026-10-18 15:30",
-  "generated_at": "2026-10-18T15:30:14+08:00",
+  "generated_myt": "2026-10-25 15:30",
+  "generated_at": "2026-10-25T15:30:13+08:00",
   "ai_referrals": {
    "available": true,
    "window": [
-    "2026-09-20",
-    "2026-10-17"
+    "2026-09-27",
+    "2026-10-24"
    ],
    "sessions": 2,
    "sessions_prev": 1,
@@ -637,17 +635,17 @@
    "engine": "OpenAI gpt-5.6-luna + web search",
    "asked": 20,
    "failed": 0,
-   "mentioned": 12,
-   "cited_own_site": 12,
-   "mention_rate_pct": 60.0,
+   "mentioned": 11,
+   "cited_own_site": 11,
+   "mention_rate_pct": 55.0,
    "by_theme": {
     "family": {
      "asked": 3,
-     "mentioned": 2
+     "mentioned": 3
     },
     "children": {
      "asked": 2,
-     "mentioned": 0
+     "mentioned": 1
     },
     "braces": {
      "asked": 3,
@@ -659,11 +657,11 @@
     },
     "cosmetic": {
      "asked": 2,
-     "mentioned": 1
+     "mentioned": 0
     },
     "airway": {
      "asked": 2,
-     "mentioned": 2
+     "mentioned": 1
     },
     "urgent": {
      "asked": 1,
@@ -671,36 +669,28 @@
     },
     "priority": {
      "asked": 5,
-     "mentioned": 4
+     "mentioned": 3
     }
    },
    "top_cited_domains": [
     {
      "domain": "ismile.com.my",
-     "questions": 12
+     "questions": 11
     },
     {
      "domain": "vdental.com.my",
-     "questions": 9
+     "questions": 8
     },
     {
      "domain": "smilehavendental.com.my",
-     "questions": 7
+     "questions": 6
     },
     {
-     "domain": "damansaradentalstudio.com.my",
+     "domain": "smilegramdental.com",
      "questions": 5
     },
     {
-     "domain": "dentalclinicpj.my",
-     "questions": 4
-    },
-    {
-     "domain": "pristinedental.com.my",
-     "questions": 3
-    },
-    {
-     "domain": "arcdentalclinic-damansarauptown.com",
+     "domain": "seekdentist.my",
      "questions": 3
     },
     {
@@ -708,11 +698,19 @@
      "questions": 2
     },
     {
-     "domain": "dingdental.com.my",
+     "domain": "kindlehousedental.com",
      "questions": 2
     },
     {
-     "domain": "kindlehousedental.com",
+     "domain": "dentalvalet.com.my",
+     "questions": 2
+    },
+    {
+     "domain": "orthodontics.com.my",
+     "questions": 2
+    },
+    {
+     "domain": "arcdentalclinic-damansarauptown.com",
      "questions": 2
     }
    ],
@@ -724,9 +722,7 @@
      "ok": true,
      "mentioned": true,
      "cited_own_site": true,
-     "competitors_named": [
-      "Lai Dental (Damansara Jaya)"
-     ]
+     "competitors_named": []
     },
     {
      "id": "family-2",
@@ -737,7 +733,7 @@
      "cited_own_site": true,
      "competitors_named": [
       "Resmile Dental (The Starling, Uptown)",
-      "Lai Dental (Damansara Jaya)"
+      "Primecare Dental (Uptown)"
      ]
     },
     {
@@ -745,8 +741,8 @@
      "theme": "family",
      "q": "I want one dental clinic in Petaling Jaya that can look after my whole family, from kids to grandparents. Where should I go?",
      "ok": true,
-     "mentioned": false,
-     "cited_own_site": false,
+     "mentioned": true,
+     "cited_own_site": true,
      "competitors_named": []
     },
     {
@@ -765,12 +761,9 @@
      "theme": "children",
      "q": "Which dentists in Damansara, PJ are good with nervous kids?",
      "ok": true,
-     "mentioned": false,
-     "cited_own_site": false,
-     "competitors_named": [
-      "Smile Doctor (Ara Damansara)",
-      "Primecare Dental (Uptown)"
-     ]
+     "mentioned": true,
+     "cited_own_site": true,
+     "competitors_named": []
     },
     {
      "id": "braces-1",
@@ -779,20 +772,19 @@
      "ok": true,
      "mentioned": true,
      "cited_own_site": true,
-     "competitors_named": [
-      "Ivory Dental (Atria, Damansara Jaya)",
-      "The Arc Dental (Damansara Uptown)"
-     ]
+     "competitors_named": []
     },
     {
      "id": "braces-2",
      "theme": "braces",
      "q": "Where can I get Invisalign or clear aligners in Petaling Jaya?",
      "ok": true,
-     "mentioned": false,
-     "cited_own_site": false,
+     "mentioned": true,
+     "cited_own_site": true,
      "competitors_named": [
-      "V Dental (SS2)"
+      "The Arc Dental (Damansara Uptown)",
+      "V Dental (SS2)",
+      "Parkhill Dental (Damansara)"
      ]
     },
     {
@@ -800,12 +792,9 @@
      "theme": "braces",
      "q": "My teenager needs braces. Which clinics in PJ or Damansara should I consider?",
      "ok": true,
-     "mentioned": true,
-     "cited_own_site": true,
-     "competitors_named": [
-      "The Arc Dental (Damansara Uptown)",
-      "V Dental (SS2)"
-     ]
+     "mentioned": false,
+     "cited_own_site": false,
+     "competitors_named": []
     },
     {
      "id": "implants-1",
@@ -826,9 +815,7 @@
      "mentioned": true,
      "cited_own_site": true,
      "competitors_named": [
-      "Ivory Dental (Atria, Damansara Jaya)",
-      "V Dental (SS2)",
-      "Smile Arts Dental (Kota Damansara)"
+      "Ivory Dental (Atria, Damansara Jaya)"
      ]
     },
     {
@@ -839,6 +826,7 @@
      "mentioned": false,
      "cited_own_site": false,
      "competitors_named": [
+      "Smile Life Dental (PJ)",
       "V Dental (SS2)"
      ]
     },
@@ -847,10 +835,12 @@
      "theme": "cosmetic",
      "q": "Where can I get professional teeth whitening in Damansara, Petaling Jaya?",
      "ok": true,
-     "mentioned": true,
-     "cited_own_site": true,
+     "mentioned": false,
+     "cited_own_site": false,
      "competitors_named": [
-      "The Arc Dental (Damansara Uptown)"
+      "Ivory Dental (Atria, Damansara Jaya)",
+      "The Arc Dental (Damansara Uptown)",
+      "Parkhill Dental (Damansara)"
      ]
     },
     {
@@ -870,8 +860,8 @@
      "theme": "airway",
      "q": "Is there a dentist in the Klang Valley who treats children's airway and jaw development problems early, without waiting for braces?",
      "ok": true,
-     "mentioned": true,
-     "cited_own_site": true,
+     "mentioned": false,
+     "cited_own_site": false,
      "competitors_named": []
     },
     {
@@ -892,7 +882,10 @@
      "ok": true,
      "mentioned": true,
      "cited_own_site": true,
-     "competitors_named": []
+     "competitors_named": [
+      "BioSmile Dental (SS2)",
+      "V Dental (SS2)"
+     ]
     },
     {
      "id": "priority-2",
@@ -928,16 +921,14 @@
      "theme": "priority",
      "q": "Which dental clinic in Damansara Jaya is good?",
      "ok": true,
-     "mentioned": true,
-     "cited_own_site": true,
-     "competitors_named": [
-      "Ivory Dental (Atria, Damansara Jaya)"
-     ]
+     "mentioned": false,
+     "cited_own_site": false,
+     "competitors_named": []
     }
    ],
    "tokens": {
-    "input": 431959,
-    "output": 21249
+    "input": 394255,
+    "output": 21366
    }
   },
   "panel_trend": [
@@ -981,6 +972,12 @@
     "date": "2026-10-18",
     "mention_rate_pct": 60.0,
     "mentioned": 12,
+    "asked": 20
+   },
+   {
+    "date": "2026-10-25",
+    "mention_rate_pct": 55.0,
+    "mentioned": 11,
     "asked": 20
    }
   ]
