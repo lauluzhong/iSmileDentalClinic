@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-10-27 05:00",
- "generated_at": "2026-10-27T05:00:10+08:00",
+ "generated_myt": "2026-10-27 05:30",
+ "generated_at": "2026-10-27T05:30:10+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 8.2,
   "nproc": 4,
   "load": [
-   1.31,
-   0.72,
-   0.86
+   0.24,
+   0.17,
+   0.26
   ],
-  "cpu_pct": 32.8,
-  "cpu_pct_sample": 3.2,
+  "cpu_pct": 6.0,
+  "cpu_pct_sample": 4.6,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 3144,
-   "avail_mb": 4796,
-   "pct": 39.6,
+   "used_mb": 3222,
+   "avail_mb": 4718,
+   "pct": 40.6,
    "swap_total_mb": 2047,
    "swap_used_mb": 119
   },
@@ -29,11 +29,11 @@
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 618,
-    "last_myt": "2026-10-27 04:50 MYT"
+    "age_s": 22,
+    "last_myt": "2026-10-27 05:30 MYT"
    },
    "hq_publish": {
-    "age_s": 417454,
+    "age_s": 419255,
     "last_myt": "2026-10-22 09:02 MYT",
     "detail": "asof=THU 22 OCT 2026 streams=46 sideboard=20 decisions=1 archive=11"
    }
@@ -49,7 +49,7 @@
     "wa_group_digest"
    ],
    "running": [],
-   "status_updated": "2026-10-27 05:00 MYT"
+   "status_updated": "2026-10-27 05:30 MYT"
   },
   "last_clinic_push": "2026-10-26"
  },
@@ -561,21 +561,9 @@
   "source": "Zernio MCP (Edith's connection)",
   "as_of": "2026-10-26",
   "window_days": 30,
-  "accounts": [
-   {
-    "platform": "instagram",
-    "username": "ismiledentalclinicmy",
-    "display": "iSmile Dental Clinic",
-    "followers": 98.0,
-    "growth_30d": 0.0,
-    "growth_pct_30d": 0.0,
-    "posts_on_platform": 13.0,
-    "last_updated": "2026-10-26T04:25:50.066000Z",
-    "active": true
-   }
-  ],
+  "accounts": [],
   "instagram_30d": null,
-  "posts_published_via_zernio": 0,
+  "posts_published_via_zernio": null,
   "note": "Instagram @ismiledentalclinicmy is connected through Zernio. Posts published outside Zernio are not counted in posts_published_via_zernio."
  },
  "geo": {
