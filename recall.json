@@ -1,52 +1,52 @@
 {
-  "as_of": "2026-10-26",
+  "as_of": "2026-10-27",
   "source": "redirect.ismile.com.my/admin/webhook/webhooklog",
   "note": "Funnel = event counts (per-message callbacks), not distinct patients. Conversion = matured-cohort recall->appointment rate (correlation, not proven causal lift); as-of the latest OpenDent export only.",
   "funnel_live": true,
-  "funnel_as_of": "2026-10-26",
+  "funnel_as_of": "2026-10-27",
   "cumulative": {
-    "total": 19419,
-    "sent": 6666,
-    "delivered": 7812,
-    "read": 2745,
-    "failed": 630,
-    "clicks": 234,
-    "replies": 1332
+    "total": 19553,
+    "sent": 6711,
+    "delivered": 7863,
+    "read": 2766,
+    "failed": 636,
+    "clicks": 236,
+    "replies": 1341
   },
   "this_month": {
-    "sent": 780,
-    "clicks": 31,
-    "replies": 87
+    "sent": 825,
+    "clicks": 33,
+    "replies": 96
   },
   "conversion": {
     "mature_days": 21,
     "attrib_window_days": 90,
-    "data_as_of": "2026-10-25",
-    "appt_export": "inbox/2026-10-25 e5+e6+backfill",
+    "data_as_of": "2026-10-26",
+    "appt_export": "inbox/2026-10-26 e5+e6+backfill",
     "appt_range": [
       "2024-08-12",
-      "2027-02-20"
+      "2027-02-22"
     ],
     "stale": false,
     "cohort_source": "blastlog (e10_blastlog.tsv)",
     "cohort_from": "2026-04-16",
     "cohort_to": "2026-10-25",
-    "cohort_age_days": 1,
+    "cohort_age_days": 2,
     "cohort_static": false,
     "join": "external_patient_id -> PatNum (direct)",
     "available": true,
     "bridge": "external_patient_id (direct PatNum)",
     "sent_total": 1703,
-    "matured_cohort": 1597,
-    "resolved_to_patient": 1596,
-    "resolved_via_patnum": 1596,
+    "matured_cohort": 1600,
+    "resolved_to_patient": 1599,
+    "resolved_via_patnum": 1599,
     "booked_within_window": 259,
     "booked_anytime": 409,
     "conversion_pct": 16.2
   },
   "value": {
     "available": true,
-    "as_of": "2026-10-26",
+    "as_of": "2026-10-27",
     "bridge": "e8_patient_master.tsv (2026-10-25)",
     "sends": 767,
     "patients_in_cohort": 1139,
