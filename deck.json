@@ -1,39 +1,39 @@
 {
- "generated_myt": "2026-10-26 13:30",
- "generated_at": "2026-10-26T13:30:18+08:00",
+ "generated_myt": "2026-10-26 14:00",
+ "generated_at": "2026-10-26T14:00:16+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 7.5,
   "nproc": 4,
   "load": [
-   1.96,
-   1.69,
-   1.72
+   1.22,
+   1.27,
+   1.27
   ],
-  "cpu_pct": 49.0,
-  "cpu_pct_sample": 21.4,
+  "cpu_pct": 30.5,
+  "cpu_pct_sample": 23.7,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 1773,
-   "avail_mb": 6167,
-   "pct": 22.3,
+   "used_mb": 979,
+   "avail_mb": 6961,
+   "pct": 12.3,
    "swap_total_mb": 2047,
    "swap_used_mb": 127
   },
   "disk": {
    "total_gb": 154.9,
-   "used_gb": 40.8,
-   "pct": 26.4
+   "used_gb": 41.8,
+   "pct": 27.0
   },
   "gateway_ok": false,
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 29,
-    "last_myt": "2026-10-26 13:30 MYT"
+    "age_s": 24,
+    "last_myt": "2026-10-26 14:00 MYT"
    },
    "hq_publish": {
-    "age_s": 361663,
+    "age_s": 363461,
     "last_myt": "2026-10-22 09:02 MYT",
     "detail": "asof=THU 22 OCT 2026 streams=46 sideboard=20 decisions=1 archive=11"
    }
@@ -49,7 +49,7 @@
     "wa_group_digest"
    ],
    "running": [],
-   "status_updated": "2026-10-26 13:30 MYT"
+   "status_updated": "2026-10-26 14:00 MYT"
   },
   "last_clinic_push": "2026-10-26"
  },
@@ -557,14 +557,8 @@
   "checked": "2026-10-26"
  },
  "social": {
-  "available": true,
-  "source": "Zernio MCP (Edith's connection)",
-  "as_of": "2026-10-26",
-  "window_days": 30,
-  "accounts": [],
-  "instagram_30d": null,
-  "posts_published_via_zernio": 0,
-  "note": "Instagram @ismiledentalclinicmy is connected through Zernio. Posts published outside Zernio are not counted in posts_published_via_zernio."
+  "available": false,
+  "note": "Zernio call failed: TimeoutError('The read operation timed out')"
  },
  "geo": {
   "generated_myt": "2026-10-25 15:30",
