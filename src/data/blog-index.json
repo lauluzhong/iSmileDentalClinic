@@ -1,5 +1,42 @@
 [
   {
+    "slug": "emergency-dental-care-damansara-jaya",
+    "title": "Dental Emergency in Damansara Jaya: What to Do Now",
+    "categories": [
+      "Emergency Dental Care"
+    ],
+    "tags": [
+      "Emergency Dental",
+      "Oral Health"
+    ],
+    "date": "2026-10-27",
+    "img": "/images/blog/toothache-breakfast-hero.png",
+    "excerpt": "A calm guide to dental emergencies: warning signs, safe first steps, what not to do, when hospital care is needed and what an urgent assessment involves.",
+    "seo_title": "Dental Emergency in Damansara Jaya — What to Do Now",
+    "seo_description": "Dental emergency in Damansara Jaya? Check warning signs, safe first steps, when hospital care is needed and what an urgent dental assessment may involve.",
+    "featured": false,
+    "faq": [
+      {
+        "q": "What counts as a dental emergency?",
+        "a": "Severe or worsening tooth pain, facial or gum swelling, a knocked-out adult tooth, a badly broken tooth, mouth trauma or bleeding that does not settle may need urgent attention. Contact a dental clinic promptly for advice. Difficulty breathing or swallowing, severe facial trauma, heavy uncontrolled bleeding or rapidly spreading swelling needs hospital emergency care."
+      },
+      {
+        "q": "Can an emergency dentist see me on the same day?",
+        "a": "iSmile provides same-day urgent dental care during clinic hours, subject to appointment availability and the urgency of each case. Call or WhatsApp as early as possible and briefly describe the symptoms, when they began and whether there is swelling, bleeding or an injury. The team can then advise on the appropriate next step."
+      },
+      {
+        "q": "What should I do for a knocked-out adult tooth?",
+        "a": "Handle the tooth by the crown rather than the root, do not scrub it, and keep it moist in milk if available. Do not force it back into place. Contact a dentist immediately because timing may affect the available treatment options. A knocked-out baby tooth should not be put back into the socket."
+      },
+      {
+        "q": "When should I go to hospital for a dental emergency?",
+        "a": "Go to a hospital emergency department if there is difficulty breathing or swallowing, severe facial or jaw trauma, heavy bleeding that does not settle with firm pressure, or rapidly increasing facial or neck swelling, especially with fever or feeling very unwell. These signs may need medical support beyond a dental clinic."
+      }
+    ],
+    "content_type": "locality",
+    "canonical_url": null
+  },
+  {
     "slug": "dentures-older-adults-petaling-jaya",
     "title": "Dentures for Older Adults in Petaling Jaya: A Guide for Patients and Families",
     "categories": [
@@ -1327,46 +1364,6 @@
       {
         "q": "What should I do if my child is anxious about dental visits?",
         "a": "Start by talking positively about dental care at home. Read children's books about visiting the dentist, play \"dentist\" with toys, and avoid sharing any negative dental experiences you might have had. Schedule morning appointments when children are typically well-rested, and let us know about any concerns beforehand. We're experienced with anxious patients and will work at your child's pace to build comfort and trust."
-      }
-    ],
-    "content_type": "locality",
-    "canonical_url": null
-  },
-  {
-    "slug": "emergency-dental-care-damansara-jaya",
-    "title": "Emergency Dental Care in Damansara Jaya: What to Expect",
-    "categories": [],
-    "tags": [],
-    "date": "2026-04-08",
-    "img": "/images/blog/toothache-breakfast-hero.png",
-    "excerpt": "Guide to emergency dental care in Damansara Jaya: recognizing dental emergencies, what to expect during urgent visits, and immediate steps to take for tooth pain, injuries, or swelling.",
-    "seo_title": "Emergency Dentist Damansara Jaya, PJ | Same-Day Care",
-    "seo_description": "Severe toothache, swelling or a knocked-out tooth? What counts as a dental emergency, the first steps to take, and how we aim to see urgent cases same-day.",
-    "featured": false,
-    "faq": [
-      {
-        "q": "What qualifies as a dental emergency?",
-        "a": "Dental emergencies typically include severe tooth pain, knocked-out teeth, broken teeth with sharp edges, swelling in the mouth or face, uncontrolled bleeding, or trauma to the mouth. If you're unsure whether your situation is an emergency, it's best to contact a dental clinic for guidance."
-      },
-      {
-        "q": "How quickly can I get an emergency dental appointment?",
-        "a": "Many dental clinics, including iSmile, try to see emergency patients on the same day or within 24 hours. We understand that dental emergencies can be painful and stressful, so we prioritize urgent cases in our scheduling."
-      },
-      {
-        "q": "What should I do if I knock out a tooth?",
-        "a": "If a permanent tooth is knocked out, get to a dentist immediately—the sooner you receive treatment, the better the chances of saving the tooth."
-      },
-      {
-        "q": "Can I go to the hospital for a dental emergency?",
-        "a": "Hospitals handle life-threatening emergencies. For most dental emergencies, contact a dental clinic as soon as possible for prompt dental care."
-      },
-      {
-        "q": "What if I have a dental emergency outside clinic hours?",
-        "a": "Many dental clinics provide after-hours contact information for emergencies. Check your clinic's website or voicemail message for instructions on reaching them outside regular hours."
-      },
-      {
-        "q": "How can I manage dental pain until I can see a dentist?",
-        "a": "Over-the-counter pain relievers, cold compresses on the outside of the cheek, and avoiding chewing on the affected side may help manage discomfort temporarily. However, these are temporary measures—you should still see a dentist as soon as possible."
       }
     ],
     "content_type": "locality",
