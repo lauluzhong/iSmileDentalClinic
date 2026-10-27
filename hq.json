@@ -1771,10 +1771,10 @@
    "streams": [
     {
      "id": "g1",
-     "dot": "wait",
-     "chip": "Wave 1 ON HOLD \u00b7 waiting on Code Capsule (duplicate records)",
+     "dot": "next",
+     "chip": "Code Capsule says fixed \u00b7 setup Wed 28 Oct at the clinic",
      "name": "Cold reactivation blast",
-     "one": "Wave 1 on hold (13 Oct). PatientID import works, but patients with duplicate records still leak into the campaign. Waiting on Suraya's fix; sends move once it is confirmed.",
+     "one": "Code Capsule reports the duplicate-record fix is done. Lists rebuilt 27 Oct; Lau sets up the campaigns at the clinic Wed 28 Oct.",
      "steps": [
       {
        "t": "Send list + exclusions built (9,833 excluded w/ reasons)",
@@ -1898,13 +1898,13 @@
       },
       {
        "t": "Code Capsule fixes duplicate-record exclusion + recipient-list download",
-       "s": "now",
-       "w": "raised 13 Oct 11:17 \u00b7 Suraya checking"
+       "s": "done",
+       "w": "reported fixed by 27 Oct"
       },
       {
-       "t": "Re-upload and verify Wave 1 (~740), then Waves 2\u20133 and the Restore file",
+       "t": "Re-upload and verify Wave 1 (\u2264718), then Waves 2\u20133 and the Restore file",
        "s": "next",
-       "w": "after the fix"
+       "w": "Wed 28 Oct"
       },
       {
        "t": "Waves 1\u20133 send (3 days, W3 needs 2)",
@@ -1913,6 +1913,7 @@
       }
      ],
      "open": [
+      "<b>Ready 27 Oct:</b> Refresh 2026-10-27 (patients 24 Oct, bookings + recalls 27 Oct). Recipients: W1 718 \u00b7 W2 999 \u00b7 W3 2,047. Upload checks: W1 file 18,571 rows, 0 unmatched; recipients \u2264718. Test Soh Kheng Tan is NOT in Wave 1 recipients before saving.",
       "<b>\u26d4 On hold 13 Oct:</b> upload matched 18,479 by PatientID, but the Wave 1 recipients (672) included excluded patients. Cause: patients with duplicate records (extra copy marked Deceased in OpenDent, e.g. 131 live / 132 deceased). The import skips one as \"duplicate/exist\" (54 skipped) and the live record stays in the campaign. LZ raised it in the CC group 11:17; Edith sent a correction; Suraya checking (12:48).",
       "<b>Ask to Code Capsule:</b> exclude every PatientID sent even when name and phone repeat; and allow downloading the campaign Recipients list before confirming so we can verify it.",
       "<b>When fixed:</b> empty the Excluded list, re-upload Exclusion - Wave1 - name route.csv (18,533 rows, Refresh 2026-10-13), recipients should be ~740 or a little lower. Then Wave 2 and 3, then the Restore file.",
@@ -3646,7 +3647,7 @@
   ]
  },
  "meta": {
-  "asof": "THU 22 OCT 2026",
-  "updated": "2026-10-22T09:02:48+08:00"
+  "asof": "TUE 27 OCT 2026",
+  "updated": "2026-10-27T23:59:06+08:00"
  }
 }
