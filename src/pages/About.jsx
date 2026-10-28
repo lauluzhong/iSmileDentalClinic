@@ -310,7 +310,7 @@ const About = () => {
                 .about-page .team-bio { color: var(--color-text-slate); line-height: 1.6; font-size: 0.95rem; margin: 0 0 20px; }
                 .about-page .team-specialties { font-size: 0.85rem; padding: 14px 0; border-top: 1px solid var(--hairline); margin-bottom: 8px; color: var(--color-text-slate); line-height: 1.55; }
                 .about-page .team-languages { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--hairline); color: var(--color-text-grey); font-weight: 500; min-height: 85px; display: flex; align-items: flex-start; }
-                .about-page .team-profile-link { display: inline-block; margin-top: 12px; font-size: 0.9rem; font-weight: 600; color: var(--color-primary-deep); }
+                .about-page .team-profile-link { display: inline-block; margin-top: 2px; padding: 10px 0; font-size: 0.9rem; font-weight: 600; color: var(--color-primary-deep); }
                 .about-page .team-profile-link:hover { text-decoration: underline; }
                 .about-page .about-closing { padding-bottom: 80px; text-align: center; }
                 .about-page .about-closing .eyebrow { margin-bottom: 14px; }

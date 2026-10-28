@@ -602,6 +602,12 @@ ${formData.experience}${familySection}${notesSection}`;
                     -webkit-tap-highlight-color: transparent;
                     transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.08s ease;
                 }
+                /* On narrow phones three-up squeezes "For someone else" onto three
+                   lines; let the third option take the full row instead. */
+                @media (max-width: 480px) {
+                    .booking-check-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+                    .booking-check-item:nth-child(3) { grid-column: 1 / -1; }
+                }
                 .booking-check-item:hover { border-color: var(--color-pastel-blue); }
                 .booking-check-item:active { transform: scale(0.985); }
                 .booking-check-item:has(input:checked) {

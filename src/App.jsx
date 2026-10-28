@@ -26,6 +26,7 @@ const FAQ = lazy(() => import('./pages/FAQ'));
 const Recall = lazy(() => import('./pages/Recall'));
 const JoinUs = lazy(() => import('./pages/JoinUs'));
 const Dentists = lazy(() => import('./pages/Dentists'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 function App() {
   const location = useLocation();
@@ -85,6 +86,7 @@ function App() {
           <Route path="/faq" element={<PageTransition><Suspense fallback={<Loader />}><FAQ /></Suspense></PageTransition>} />
           <Route path="/recall" element={<PageTransition><Suspense fallback={<Loader />}><Recall /></Suspense></PageTransition>} />
           <Route path="/join-us" element={<PageTransition><Suspense fallback={<Loader />}><JoinUs /></Suspense></PageTransition>} />
+          <Route path="*" element={<PageTransition><Suspense fallback={<Loader />}><NotFound /></Suspense></PageTransition>} />
         </Routes>
       </AnimatePresence>
     </Layout>

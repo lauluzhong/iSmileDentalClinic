@@ -677,7 +677,7 @@ const Home = () => {
         .proof-author img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex: none; }
 
         .proof-actions { padding: 48px 0 0; }
-        .proof-link { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-weight: 600; color: var(--color-primary-deep); transition: gap 0.25s ease, color 0.25s ease; }
+        .proof-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 0; margin: -10px 0; font-family: var(--font-heading); font-weight: 600; color: var(--color-primary-deep); transition: gap 0.25s ease, color 0.25s ease; }
         .proof-link:hover { gap: 12px; color: var(--color-primary-teal); }
 
         /* The slow roll: what we do, not who reviewed us. 64s per pass. */
@@ -695,7 +695,7 @@ const Home = () => {
         /* ---------- 4. DENTAL EDUCATION (no card chrome) ---------- */
         .dental-education-section { padding: 110px 0 30px; }
         .dental-edu-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 36px; }
-        .btn-link { color: var(--color-primary); font-weight: 600; display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; padding-bottom: 6px; }
+        .btn-link { color: var(--color-primary); font-weight: 600; display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; padding: 10px 0 16px; margin: -10px 0; }
         .horizontal-scroll-mask { width: 100%; overflow-x: auto; padding: 12px 0 32px; scrollbar-width: none; -ms-overflow-style: none; }
         .horizontal-scroll-mask::-webkit-scrollbar { display: none; }
         .horizontal-track-simple { display: flex; gap: 36px; width: max-content; padding: 0 4px; }
@@ -789,7 +789,7 @@ const Home = () => {
             /* Dental Education */
             .dental-education-section { padding: 48px 0 10px; }
             .dental-edu-header { flex-direction: column; align-items: flex-start; gap: 10px; margin-bottom: 16px; }
-            .btn-link { padding-bottom: 0; }
+            .btn-link { padding: 10px 0; margin: -10px 0; }
             .horizontal-scroll-mask { padding: 8px 0 12px; }
             .horizontal-track-simple { gap: 20px; padding: 0 2px; }
             .edu-item { width: 300px; }

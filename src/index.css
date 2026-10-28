@@ -447,6 +447,9 @@ h1 em, h2 em {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  /* 44px hit area without moving the layout */
+  padding: 10px 0;
+  margin: -10px 0;
   font-family: var(--font-heading);
   font-weight: 600;
   color: var(--color-primary-deep);

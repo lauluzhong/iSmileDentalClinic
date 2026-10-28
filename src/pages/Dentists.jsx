@@ -48,7 +48,6 @@ function DentistIndex() {
 
             <div className="dentists-hero">
                 <div className="container dentists-header">
-                    <p className="eyebrow">Damansara Jaya, Petaling Jaya</p>
                     <h1>Our <em>dentists</em></h1>
                     <p className="dentists-intro">
                         Our team in Damansara Jaya covers general, paediatric, orthodontic and restorative
@@ -196,9 +195,10 @@ function DentistStyles() {
             .dentists-page { padding: 170px 0 80px; }
             .dentists-page-index, .dentists-page-profile { padding-top: 0; }
 
-            .dentists-hero { text-align: center; }
+            /* Desktop had no top padding, so the heading sat under the fixed header. */
+            .dentists-hero { text-align: center; padding: 170px 0 56px; }
             .dentists-header { max-width: 720px; }
-            .dentists-header h1 { margin: 0 0 16px; letter-spacing: -0.02em; text-wrap: balance; }
+            .dentists-header h1 { margin: 0 0 16px; font-size: var(--fs-h1); line-height: 1.08; letter-spacing: -0.03em; text-wrap: balance; }
             .dentists-intro { margin: 0 auto; font-size: 1.0625rem; line-height: 1.7; color: var(--color-text-slate); }
 
             .dentists-grid {
@@ -246,7 +246,7 @@ function DentistStyles() {
                 font-family: var(--font-heading, sans-serif); font-weight: 600;
                 font-size: .875rem; text-transform: uppercase; letter-spacing: .1em;
             }
-            .dentist-profile-name { margin: 0 0 14px; letter-spacing: -0.02em; }
+            .dentist-profile-name { margin: 0 0 14px; font-size: var(--fs-h1); line-height: 1.08; letter-spacing: -0.03em; }
             .dentist-profile-bio { margin: 0 0 22px; font-size: 1.0625rem; line-height: 1.7; color: var(--color-text-grey); }
             .dentist-profile-details { display: grid; gap: 8px; }
             .dentist-profile-details p { display: flex; align-items: flex-start; gap: 8px; margin: 0; color: var(--color-text-slate); font-size: .9375rem; }
@@ -268,7 +268,7 @@ function DentistStyles() {
             .dentist-cta {
                 margin-top: 64px; max-width: 660px;
             }
-            .dentist-cta h2 { margin: 0 0 14px; }
+            .dentist-cta h2 { margin: 0 0 14px; font-size: var(--fs-h2); line-height: 1.12; letter-spacing: -0.03em; }
             .dentist-cta-copy { margin: 0 0 24px; line-height: 1.7; color: var(--color-text-slate); }
 
             /* Horizontal strip (owner, 8 Sep 2026): seven vertical rows wasted
