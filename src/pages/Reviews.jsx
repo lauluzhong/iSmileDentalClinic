@@ -1,8 +1,9 @@
 import { Helmet } from 'react-helmet-async';
-import React from 'react';
-import { Star } from 'lucide-react';
+import React, { useEffect, useId, useMemo, useRef, useState } from 'react';
+import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import Button from '../components/Button';
-import { Reveal, FadeIn } from '../components/Reveal';
+import { Reveal } from '../components/Reveal';
 import Style from '../components/Style';
 import reviewStats from '../data/review-stats.json';
 import { CORE_PAGES } from '../data/corePagesSeo';
@@ -76,6 +77,7 @@ const reviewsList = [
             </>
         ),
         author: "Mike Ngui",
+        tags: ["family", "nervous", "longtime"],
         rating: 5,
         avatar: "/images/reviews/mike_ngui.png"
     },
@@ -95,6 +97,7 @@ const reviewsList = [
             </>
         ),
         author: "Kah Mun Hew",
+        tags: ["family", "longtime"],
         rating: 5,
         avatar: "/images/reviews/kah_mun_hew.png"
     },
@@ -114,6 +117,7 @@ const reviewsList = [
             </>
         ),
         author: "Benny Kong",
+        tags: ["nervous"],
         rating: 5,
         avatar: "/images/reviews/benny_kong.png"
     },
@@ -130,12 +134,14 @@ const reviewsList = [
             </>
         ),
         author: "Ashley Chin",
+        tags: [],
         rating: 5,
         avatar: "/images/reviews/ashley_chin.png"
     },
     {
         text: "Dr Jean is thorough, professional, gentle yet strong. Have been seeing for over 20 years and will continue to do so.",
         author: "Karen Lam",
+        tags: ["nervous", "longtime"],
         rating: 5,
         avatar: "/images/reviews/karen_lam.png"
     },
@@ -150,6 +156,7 @@ const reviewsList = [
             </>
         ),
         author: "Lydia Ng",
+        tags: ["family"],
         rating: 5,
         avatar: "/images/reviews/lydia_ng.jpg",
         type: "Verified Google Review"
@@ -169,6 +176,7 @@ const reviewsList = [
             </>
         ),
         author: "Sze Yoong",
+        tags: ["family"],
         rating: 5,
         type: "Verified Google Review"
     },
@@ -182,6 +190,7 @@ const reviewsList = [
             </>
         ),
         author: "Sook Yeen Lee",
+        tags: ["family"],
         rating: 5,
         type: "Verified Google Review"
     },
@@ -198,6 +207,7 @@ const reviewsList = [
             </>
         ),
         author: "Tan Bee Wah",
+        tags: ["family", "longtime", "treatment"],
         rating: 5,
         type: "Verified Google Review"
     },
@@ -215,6 +225,7 @@ const reviewsList = [
             </>
         ),
         author: "Christina Phang",
+        tags: ["family", "nervous", "longtime"],
         rating: 5,
         avatar: "/images/reviews/christina_phang.jpg",
         type: "Verified Google Review"
@@ -222,6 +233,7 @@ const reviewsList = [
     {
         text: "Appreciate reminder of appointments, nice and clean and bright reception area and of course excellent dental services.",
         author: "Wee Min Lee",
+        tags: [],
         rating: 5,
         avatar: "/images/reviews/wee_min_lee.png"
     },
@@ -238,6 +250,7 @@ const reviewsList = [
             </>
         ),
         author: "Dashaene Mahalingam",
+        tags: ["family", "treatment"],
         rating: 5,
         type: "Verified Google Review"
     },
@@ -254,6 +267,7 @@ const reviewsList = [
             </>
         ),
         author: "Fong Lim",
+        tags: ["family", "longtime"],
         rating: 5,
         type: "Verified Google Review"
     },
@@ -266,6 +280,7 @@ const reviewsList = [
             </>
         ),
         author: "Gayatri Raja Mohan",
+        tags: ["family"],
         rating: 5,
         type: "Verified Google Review"
     },
@@ -290,6 +305,7 @@ const reviewsList = [
             </>
         ),
         author: "Max Loh",
+        tags: ["family", "nervous", "treatment"],
         rating: 5,
         type: "Verified Google Review"
     },
@@ -311,15 +327,125 @@ const reviewsList = [
             </>
         ),
         author: "Anson Chow",
+        tags: ["longtime", "treatment"],
         rating: 5,
         type: "Verified Google Review"
     }
 ];
 
+// Tabs are derived from the reviews above, not hand-picked: a group only
+// becomes a tab when at least MIN_PER_TAB reviews carry its tag, so a thin
+// group never shows an almost-empty tab. "All" is always first.
+const MIN_PER_TAB = 3;
+const GROUP_DEFS = [
+    { id: 'family', label: 'Families & kids' },
+    { id: 'nervous', label: 'Nervous patients' },
+    { id: 'longtime', label: 'Long-time patients' },
+    { id: 'treatment', label: 'Treatments' },
+];
+
+const GROUPS = [
+    { id: 'all', label: 'All', reviews: reviewsList },
+    ...GROUP_DEFS
+        .map((g) => ({ ...g, reviews: reviewsList.filter((r) => r.tags.includes(g.id)) }))
+        .filter((g) => g.reviews.length >= MIN_PER_TAB),
+];
+
+const SWIPE_PX = 48;
+
+// One review at a time: slide + fade along the direction of travel, 220ms,
+// transform and opacity only. Reduced motion collapses to a plain cross-fade.
+const slide = {
+    enter: (dir) => ({ opacity: 0, x: dir * 32 }),
+    center: { opacity: 1, x: 0 },
+    exit: (dir) => ({ opacity: 0, x: dir * -32 }),
+};
+const fade = {
+    enter: { opacity: 0, x: 0 },
+    center: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: 0 },
+};
+const EASE = [0.16, 1, 0.3, 1];
+
+const ReviewQuote = ({ review }) => (
+    <figure className="rq">
+        <div className="rq-stars" aria-label={`${review.rating} out of 5 stars`}>
+            {[...Array(review.rating)].map((_, i) => <Star key={i} size={18} fill="#E0A500" color="#E0A500" aria-hidden="true" />)}
+        </div>
+        <blockquote className="rq-text">{review.text}</blockquote>
+        <figcaption className="rq-author">
+            {review.avatar ? (
+                <img src={review.avatar} alt="" loading="lazy" width="44" height="44" className="rq-avatar" />
+            ) : (
+                <InitialsAvatar name={review.author} size={44} />
+            )}
+            <div className="rq-author-text">
+                <strong>{review.author}</strong>
+                <span className="rq-type"><GoogleG /> Verified Google review</span>
+            </div>
+        </figcaption>
+    </figure>
+);
+
 const Reviews = () => {
     // Meta comes from src/data/corePagesSeo.js, the same source the build
     // uses to prerender this page — so the two cannot drift.
     const seo = CORE_PAGES.find(p => p.path === 'reviews');
+    const uid = useId();
+    const prefersReducedMotion = useReducedMotion();
+
+    const [groupId, setGroupId] = useState(GROUPS[0].id);
+    const [index, setIndex] = useState(0);
+    const [dir, setDir] = useState(1);
+    // Drag-to-swipe only on touch screens; on a mouse it would steal text selection.
+    const [coarse, setCoarse] = useState(false);
+    useEffect(() => {
+        const mq = window.matchMedia('(pointer: coarse)');
+        const sync = () => setCoarse(mq.matches);
+        sync();
+        mq.addEventListener('change', sync);
+        return () => mq.removeEventListener('change', sync);
+    }, []);
+
+    const group = useMemo(() => GROUPS.find((g) => g.id === groupId) || GROUPS[0], [groupId]);
+    const total = group.reviews.length;
+    const review = group.reviews[index];
+
+    const go = (step) => {
+        setDir(step);
+        setIndex((i) => (i + step + total) % total);
+    };
+    const pickGroup = (id) => {
+        if (id === groupId) return;
+        setDir(1);
+        setGroupId(id);
+        setIndex(0);
+    };
+
+    // Left/right arrow keys move between tabs when the tablist has focus
+    // (WAI-ARIA tabs pattern) and between reviews when the quote has focus.
+    const tabRefs = useRef([]);
+    const onTabKey = (e, i) => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        e.preventDefault();
+        const next = (i + (e.key === 'ArrowRight' ? 1 : -1) + GROUPS.length) % GROUPS.length;
+        pickGroup(GROUPS[next].id);
+        tabRefs.current[next]?.focus();
+    };
+    const onStageKey = (e) => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+    };
+    const onDragEnd = (_, info) => {
+        if (info.offset.x < -SWIPE_PX) go(1);
+        else if (info.offset.x > SWIPE_PX) go(-1);
+    };
+
+    const variants = prefersReducedMotion ? fade : slide;
+    const transition = prefersReducedMotion
+        ? { duration: 0.15 }
+        : { duration: 0.22, ease: EASE };
+
     return (
         <div className="reviews-page">
             <Helmet>
@@ -329,8 +455,6 @@ const Reviews = () => {
             </Helmet>
             <div className="reviews-hero-gradient">
                 <div className="container">
-                    <Reveal width="100%">
-                    </Reveal>
                     <Reveal width="100%">
                         <h1 className="reviews-hero-title">
                             Stories from <em>our community</em>
@@ -358,30 +482,76 @@ const Reviews = () => {
             </div>
 
             <div className="container reviews-content">
-                <div className="reviews-grid">
-                    {reviewsList.map((review, index) => (
-                        <FadeIn key={index} className="review-card-large">
-                            <div className="stars">
-                                {[...Array(review.rating)].map((_, i) => <Star key={i} size={16} fill="#E0A500" color="#E0A500" />)}
-                            </div>
-                            <div className="review-body">{review.text}</div>
-                            <div className="review-footer">
-                                {review.avatar ? (
-                                    <img src={review.avatar} alt={review.author} loading="lazy" width="36" height="36" className="review-avatar" />
-                                ) : (
-                                    <InitialsAvatar name={review.author} size={36} />
-                                )}
-                                <div className="proof-author">
-                                    <strong>{review.author}</strong>
-                                    <span className="review-type"><GoogleG /> Verified Google review</span>
-                                </div>
-                            </div>
-                        </FadeIn>
-                    ))}
+                <div className="rv-tabs-wrap">
+                    <div className="rv-tabs" role="tablist" aria-label="Reviews by topic">
+                        {GROUPS.map((g, i) => {
+                            const active = g.id === groupId;
+                            return (
+                                <button
+                                    key={g.id}
+                                    ref={(el) => { tabRefs.current[i] = el; }}
+                                    type="button"
+                                    role="tab"
+                                    id={`${uid}-tab-${g.id}`}
+                                    aria-selected={active}
+                                    aria-controls={`${uid}-panel`}
+                                    tabIndex={active ? 0 : -1}
+                                    className={`rv-tab${active ? ' is-active' : ''}`}
+                                    onClick={() => pickGroup(g.id)}
+                                    onKeyDown={(e) => onTabKey(e, i)}
+                                >
+                                    {g.label}
+                                    <span className="rv-tab-count">{g.reviews.length}</span>
+                                </button>
+                            );
+                        })}
+                    </div>
+                </div>
+
+                <div
+                    className="rv-stage"
+                    role="tabpanel"
+                    id={`${uid}-panel`}
+                    aria-labelledby={`${uid}-tab-${groupId}`}
+                >
+                    <button type="button" className="rv-arrow rv-arrow-prev" onClick={() => go(-1)} aria-label="Previous review">
+                        <ChevronLeft size={22} strokeWidth={1.75} aria-hidden="true" />
+                    </button>
+
+                    <div className="rv-viewport" tabIndex={0} onKeyDown={onStageKey} aria-live="polite" aria-atomic="true">
+                        <AnimatePresence mode="wait" custom={dir} initial={false}>
+                            <motion.div
+                                key={`${groupId}-${index}`}
+                                className="rv-slide"
+                                custom={dir}
+                                variants={variants}
+                                initial="enter"
+                                animate="center"
+                                exit="exit"
+                                transition={transition}
+                                drag={coarse ? 'x' : false}
+                                dragConstraints={{ left: 0, right: 0 }}
+                                dragElastic={0.12}
+                                dragMomentum={false}
+                                onDragEnd={onDragEnd}
+                            >
+                                <ReviewQuote review={review} />
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
+
+                    <button type="button" className="rv-arrow rv-arrow-next" onClick={() => go(1)} aria-label="Next review">
+                        <ChevronRight size={22} strokeWidth={1.75} aria-hidden="true" />
+                    </button>
+
+                    <p className="rv-counter">
+                        <span className="rv-counter-now">{index + 1}</span>
+                        <span className="rv-counter-sep" aria-hidden="true">/</span>
+                        <span>{total}</span>
+                    </p>
                 </div>
 
                 <div className="reviews-closing">
-                    <Reveal width="100%"><span className="eyebrow">Your voice matters</span></Reveal>
                     <Reveal width="100%"><h2 className="statement">Have a <em>story</em> to share?</h2></Reveal>
                     <a href="https://g.page/r/CQU1Takv7hs4EAE/review" target="_blank" rel="noopener noreferrer"><Button>Share Your Experience</Button></a>
                 </div>
@@ -389,7 +559,7 @@ const Reviews = () => {
 
             <Style>{`
                 /* no opaque page background — the shared hero tint (index.css) shows through */
-                .reviews-page .reviews-hero-gradient { padding: 160px 0 72px; text-align: center; }
+                .reviews-page .reviews-hero-gradient { padding: 160px 0 56px; text-align: center; }
                 .reviews-page .reviews-hero-title { max-width: 780px; margin: 0 auto 20px; font-size: clamp(2.4rem, 1.6rem + 3.4vw, 4rem); font-weight: 700; line-height: 1.05; letter-spacing: -.03em; text-wrap: balance; }
                 .reviews-page .reviews-hero-subtitle { max-width: 640px; margin: 0 auto; color: var(--color-text-slate); font-size: var(--fs-lead); line-height: 1.6; }
                 .reviews-page .reviews-stats { display: inline-flex; align-items: center; gap: 14px; margin-top: 40px; color: var(--color-text-slate); font-size: .92rem; }
@@ -397,36 +567,80 @@ const Reviews = () => {
                 .reviews-page .reviews-trust-item, .reviews-page .reviews-trust-stars { display: flex; align-items: center; gap: 8px; }
                 .reviews-page .reviews-trust-stars { gap: 2px; }
                 .reviews-page .reviews-trust-item strong { color: var(--color-text-charcoal); }
-                .reviews-page .reviews-content { padding-top: 32px; }
-                /* Each review is one soft tinted block — the same language as
-                   the homepage mosaic's quote tiles — so the words and the
-                   reviewer read as a single group instead of table rows
-                   (owner, 8 Sep 2026: the hairline grid looked "tably"). */
-                .reviews-page .reviews-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
-                .reviews-page .review-card-large {
-                    display: flex; flex-direction: column;
-                    padding: 30px 32px;
-                    background: var(--color-tint-faint);
-                    border-radius: 22px;
-                    box-shadow: 0 1px 3px rgba(16, 42, 51, 0.05), 0 6px 18px rgba(16, 42, 51, 0.05);
+                .reviews-page .reviews-content { padding-top: 8px; }
+
+                /* Tabs: a pill rail. Centred when it fits, edge-bleed scroll on phones. */
+                .reviews-page .rv-tabs-wrap { overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; margin: 0 -20px; padding: 4px 20px; }
+                .reviews-page .rv-tabs-wrap::-webkit-scrollbar { display: none; }
+                .reviews-page .rv-tabs { display: flex; gap: 8px; width: max-content; max-width: 100%; margin: 0 auto; }
+                .reviews-page .rv-tab {
+                    display: inline-flex; align-items: center; gap: 8px; flex: none;
+                    min-height: 44px; padding: 10px 18px; border-radius: 50px;
+                    border: 1px solid var(--hairline-strong); background: transparent;
+                    font-family: var(--font-heading); font-weight: 600; font-size: .92rem; white-space: nowrap;
+                    color: var(--color-text-slate); cursor: pointer;
+                    transition: background 180ms var(--ease-slow), color 180ms var(--ease-slow), border-color 180ms var(--ease-slow), transform 100ms ease-out;
                 }
-                .reviews-page .review-card-large:nth-child(4n+2),
-                .reviews-page .review-card-large:nth-child(4n+3) { background: #EBF4FA; }
-                .reviews-page .stars { display: flex; gap: 4px; margin-bottom: 18px; }
-                .reviews-page .review-body { flex: 1; margin-bottom: 22px; color: var(--color-text-slate); font-size: .96rem; line-height: 1.65; }
-                .reviews-page .review-body strong { color: var(--color-text-charcoal); font-weight: 600; }
-                .reviews-page .review-body p { margin: 0 0 12px; }
-                .reviews-page .review-body p:last-child { margin-bottom: 0; }
-                .reviews-page .review-footer { display: flex !important; flex-direction: row !important; align-items: center; gap: 12px; margin-top: auto; }
-                .reviews-page .review-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex: none; }
-                .reviews-page .proof-author { display: flex; flex-direction: column; }
-                .reviews-page .review-footer strong { color: var(--color-text-charcoal); font-family: var(--font-heading); font-size: .94rem; }
-                .reviews-page .review-type { display: inline-flex; align-items: center; gap: 5px; margin-top: 2px; color: var(--color-text-grey); font-size: .78rem; }
+                .reviews-page .rv-tab:hover { color: var(--color-primary-deep); border-color: var(--color-primary-teal); }
+                .reviews-page .rv-tab:active { transform: scale(.97); }
+                .reviews-page .rv-tab.is-active { background: var(--color-primary-deep); border-color: var(--color-primary-deep); color: #fff; }
+                .reviews-page .rv-tab-count { font-size: .76rem; font-weight: 600; opacity: .72; }
+                .reviews-page .rv-tab:focus-visible, .reviews-page .rv-arrow:focus-visible, .reviews-page .rv-viewport:focus-visible { outline: 2px solid var(--color-primary-teal); outline-offset: 2px; }
+
+                /* Stage: one quote, arrows either side on desktop, counter beneath. */
+                .reviews-page .rv-stage {
+                    display: grid; grid-template-columns: 48px minmax(0, 1fr) 48px; grid-template-rows: auto auto;
+                    column-gap: 24px; align-items: center;
+                    max-width: 960px; margin: 40px auto 0;
+                }
+                .reviews-page .rv-viewport { grid-column: 2; grid-row: 1; min-height: 320px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 16px; }
+                .reviews-page .rv-slide { width: 100%; touch-action: pan-y; }
+                .reviews-page .rv-arrow-prev { grid-column: 1; grid-row: 1; }
+                .reviews-page .rv-arrow-next { grid-column: 3; grid-row: 1; }
+                .reviews-page .rv-arrow {
+                    display: inline-flex; align-items: center; justify-content: center;
+                    width: 48px; height: 48px; border-radius: 50%;
+                    border: 1px solid var(--hairline-strong); background: var(--color-bg-white); color: var(--color-text-charcoal);
+                    cursor: pointer;
+                    transition: color 180ms var(--ease-slow), border-color 180ms var(--ease-slow), transform 100ms ease-out;
+                }
+                .reviews-page .rv-arrow:hover { color: var(--color-primary-deep); border-color: var(--color-primary-teal); }
+                .reviews-page .rv-arrow:active { transform: scale(.97); }
+                .reviews-page .rv-counter { grid-column: 2; grid-row: 2; margin: 20px 0 0; text-align: center; font-family: var(--font-heading); font-size: .82rem; letter-spacing: .08em; color: var(--color-text-grey); display: flex; justify-content: center; gap: 6px; }
+                .reviews-page .rv-counter-now { color: var(--color-text-charcoal); font-weight: 600; }
+
+                /* The quote itself */
+                .reviews-page .rq { margin: 0; padding: 8px 0; text-align: center; max-width: 720px; margin-inline: auto; }
+                .reviews-page .rq-stars { display: flex; justify-content: center; gap: 4px; margin-bottom: 22px; }
+                .reviews-page .rq-text { margin: 0; font-family: var(--font-heading); font-weight: 500; font-size: clamp(1.2rem, 1.02rem + .8vw, 1.65rem); line-height: 1.45; letter-spacing: -.01em; color: var(--color-text-charcoal); text-wrap: pretty; }
+                .reviews-page .rq-text p { margin: 0 0 14px; }
+                .reviews-page .rq-text p:last-child { margin-bottom: 0; }
+                .reviews-page .rq-text strong { font-weight: 700; color: var(--color-primary-deep); }
+                .reviews-page .rq-author { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 28px; }
+                .reviews-page .rq-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex: none; }
+                .reviews-page .rq-author-text { display: flex; flex-direction: column; text-align: left; }
+                .reviews-page .rq-author-text strong { color: var(--color-text-charcoal); font-family: var(--font-heading); font-size: .96rem; }
+                .reviews-page .rq-type { display: inline-flex; align-items: center; gap: 5px; margin-top: 2px; color: var(--color-text-grey); font-size: .78rem; }
+
                 .reviews-page .reviews-closing { padding: var(--space-section-lg) 0 80px; text-align: center; }
-                .reviews-page .reviews-closing .eyebrow { margin-bottom: 14px; }
                 .reviews-page .reviews-closing .statement { max-width: 680px; margin: 0 auto 30px; }
                 .reviews-page .reviews-closing a { display: inline-block; }
-                @media (max-width: 760px) { .reviews-page .reviews-hero-gradient { padding: 118px 0 52px; } .reviews-page .reviews-grid { grid-template-columns: 1fr; gap: 16px; } .reviews-page .review-card-large { padding: 24px 22px; border-radius: 18px; } .reviews-page .reviews-trust-rule { width: 24px; } }
+
+                @media (max-width: 760px) {
+                    .reviews-page .reviews-hero-gradient { padding: 118px 0 40px; }
+                    .reviews-page .reviews-trust-rule { width: 24px; }
+                    .reviews-page .rv-tabs-wrap { margin: 0 -16px; padding: 4px 16px; }
+                    .reviews-page .rv-tabs { margin: 0; }
+                    /* Phones: quote on top, then one row of prev / counter / next in thumb reach. */
+                    .reviews-page .rv-stage { grid-template-columns: 48px 1fr 48px; grid-template-rows: auto auto; column-gap: 16px; margin-top: 28px; }
+                    .reviews-page .rv-viewport { grid-column: 1 / -1; grid-row: 1; min-height: 0; }
+                    .reviews-page .rv-arrow-prev { grid-column: 1; grid-row: 2; }
+                    .reviews-page .rv-arrow-next { grid-column: 3; grid-row: 2; }
+                    .reviews-page .rv-counter { grid-column: 2; grid-row: 2; margin: 0; align-self: center; }
+                    .reviews-page .rv-stage > .rv-arrow { margin-top: 24px; }
+                    .reviews-page .rv-counter { margin-top: 24px; }
+                    .reviews-page .rq-text { font-size: 1.15rem; line-height: 1.5; }
+                }
             `}</Style>
         </div>
     );
