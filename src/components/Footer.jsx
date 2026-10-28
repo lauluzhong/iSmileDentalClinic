@@ -182,7 +182,7 @@ const Footer = () => {
                                         link_url: 'mailto:ismile.general@gmail.com'
                                     }, 'footer'));
                                 }}
-                            >ismile.general@gmail.com</a>
+                            >ismile.general@<wbr />gmail.com</a>
                         </div>
                         <p className="cta-desc">Ready to schedule your visit?</p>
                         <div className="mt-4">
@@ -343,6 +343,7 @@ const Footer = () => {
             color: var(--color-primary-teal);
         }
         .phone-link {
+            display: inline-block; padding: 8px 0; margin: -8px 0; /* 44px hit area */
             color: #475569;
             font-size: 1.1rem;
             font-weight: 600;
@@ -353,7 +354,11 @@ const Footer = () => {
             color: var(--color-primary);
         }
         .phone-block:has(+ .email-block) { margin-bottom: 10px; }
-        .email-link { font-size: 0.95rem; overflow-wrap: anywhere; }
+        .email-block { align-items: flex-start; }
+        .email-block .phone-icon { flex: 0 0 auto; margin-top: 2px; }
+        /* Never split the address mid-word ("gmai / l.com"): wrap only at the
+           <wbr> after the @, and let the column be narrow without breaking. */
+        .email-link { font-size: 0.95rem; min-width: 0; overflow-wrap: normal; word-break: keep-all; line-height: 1.35; }
 
         /* The white outline pills are BACK by the owner's call (8 Sep 2026):
            he prefers the earlier Maps/Waze buttons over quiet links. Kept on
@@ -379,7 +384,8 @@ const Footer = () => {
         /* Footer social: bare glyphs in the quiet-link palette, no chips,
            no third-party brand gradients (design rollout, 7 Sep 2026). */
         .footer-social-icon {
-            display: inline-flex; align-items: center;
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 44px; height: 44px; margin: -12px; /* 44px hit area, glyph stays put */
             color: var(--color-text-grey);
             transition: color 0.25s ease;
         }
@@ -405,6 +411,9 @@ const Footer = () => {
             .google-rating-row { justify-content: flex-start; }
 
             .footer-col { border-bottom: 1px solid var(--hairline); padding: 6px 0; }
+            /* 44px rows for thumbs inside the accordions */
+            .footer-links li { margin-bottom: 0; }
+            .footer-links a { display: block; padding: 12px 0; }
             .footer-heading { margin-bottom: 0; font-size: 0.78rem; }
 
             .footer-accordion-header { padding: 8px 0; margin: 0; }

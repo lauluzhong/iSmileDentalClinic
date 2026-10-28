@@ -154,8 +154,6 @@ const Blog = () => {
             </Helmet>
             <div className="blog-hero-gradient" style={{
                 background: 'linear-gradient(180deg, #F3F9FE 0%, #E9F4FB 60%, rgba(233,244,251,0) 100%)',
-                paddingTop: '180px',
-                paddingBottom: '80px',
                 textAlign: 'center'
             }}>
                 <div className="container">
@@ -314,6 +312,8 @@ const Blog = () => {
 
             <style>{`
           /* Category Filter Bar */
+          /* Paddings live here (not inline) so the phone rule below can win. */
+          .blog-hero-gradient { padding-top: 180px; padding-bottom: 72px; }
           .blog-search-wrap {
               display: flex;
               align-items: center;
@@ -574,7 +574,7 @@ const Blog = () => {
                   width: auto;
               }
 
-              .blog-hero-gradient { padding-top: 120px; padding-bottom: 60px; }
+              .blog-hero-gradient { padding-top: 120px; padding-bottom: 32px; }
               .hero-title { font-size: 2.5rem; }
               .hero-subtitle { font-size: 1rem; margin-top: 15px; }
           }
