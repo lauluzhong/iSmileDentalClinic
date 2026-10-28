@@ -79,6 +79,7 @@ const reviewsList = [
             </>
         ),
         author: "Mike Ngui",
+        rank: {"all": 1, "family": 3, "nervous": 1, "longtime": 1},
         highlights: {"family": ["My family’s dental health"], "nervous": ["fear of being in the dentist chair has been completely removed", "gentle care"], "longtime": ["over a decade"]},
         tags: ["family", "nervous", "longtime"],
         rating: 5,
@@ -100,6 +101,7 @@ const reviewsList = [
             </>
         ),
         author: "Kah Mun Hew",
+        rank: {"all": 1, "family": 2, "longtime": 1},
         highlights: {"family": ["referred multiple family members"], "longtime": ["over a decade"]},
         tags: ["family", "longtime"],
         rating: 5,
@@ -121,6 +123,7 @@ const reviewsList = [
             </>
         ),
         author: "Benny Kong",
+        rank: {"all": 1, "nervous": 2},
         highlights: {"nervous": ["listen to concerns", "gentle and thorough care"]},
         tags: ["nervous"],
         rating: 5,
@@ -139,6 +142,7 @@ const reviewsList = [
             </>
         ),
         author: "Ashley Chin",
+        rank: {"all": 3},
         tags: [],
         rating: 5,
         avatar: "/images/reviews/ashley_chin.png"
@@ -146,6 +150,7 @@ const reviewsList = [
     {
         text: "Dr Jean is thorough, professional, gentle yet strong. Have been seeing for over 20 years and will continue to do so.",
         author: "Karen Lam",
+        rank: {"all": 2, "nervous": 1, "longtime": 1},
         highlights: {"nervous": ["gentle yet strong"], "longtime": ["over 20 years"]},
         tags: ["nervous", "longtime"],
         rating: 5,
@@ -162,6 +167,7 @@ const reviewsList = [
             </>
         ),
         author: "Lydia Ng",
+        rank: {"all": 1, "family": 1},
         highlights: {"family": ["my family", "2 young kids"]},
         tags: ["family"],
         rating: 5,
@@ -183,6 +189,7 @@ const reviewsList = [
             </>
         ),
         author: "Sze Yoong",
+        rank: {"all": 2, "family": 1},
         highlights: {"family": ["Family visit"]},
         tags: ["family"],
         rating: 5,
@@ -198,6 +205,7 @@ const reviewsList = [
             </>
         ),
         author: "Sook Yeen Lee",
+        rank: {"all": 2, "family": 1},
         highlights: {"family": ["myself and my family"]},
         tags: ["family"],
         rating: 5,
@@ -216,6 +224,7 @@ const reviewsList = [
             </>
         ),
         author: "Tan Bee Wah",
+        rank: {"all": 2, "family": 1, "longtime": 2, "treatment": 1},
         highlights: {"family": ["me and my kids"], "longtime": ["for many years"], "treatment": ["periodontal disease"]},
         tags: ["family", "longtime", "treatment"],
         rating: 5,
@@ -235,6 +244,7 @@ const reviewsList = [
             </>
         ),
         author: "Christina Phang",
+        rank: {"all": 1, "family": 2, "nervous": 1, "longtime": 1},
         highlights: {"family": ["family dentist"], "nervous": ["most amazing and gentle dentist"], "longtime": ["more than 10 years"]},
         tags: ["family", "nervous", "longtime"],
         rating: 5,
@@ -244,6 +254,7 @@ const reviewsList = [
     {
         text: "Appreciate reminder of appointments, nice and clean and bright reception area and of course excellent dental services.",
         author: "Wee Min Lee",
+        rank: {"all": 3},
         tags: [],
         rating: 5,
         avatar: "/images/reviews/wee_min_lee.png"
@@ -261,6 +272,7 @@ const reviewsList = [
             </>
         ),
         author: "Dashaene Mahalingam",
+        rank: {"all": 2, "family": 2, "treatment": 2},
         highlights: {"family": ["My family"], "treatment": ["multiple dental treatments"]},
         tags: ["family", "treatment"],
         rating: 5,
@@ -279,6 +291,7 @@ const reviewsList = [
             </>
         ),
         author: "Fong Lim",
+        rank: {"all": 2, "family": 1, "longtime": 1},
         highlights: {"family": ["Our family"], "longtime": ["many years"]},
         tags: ["family", "longtime"],
         rating: 5,
@@ -293,6 +306,7 @@ const reviewsList = [
             </>
         ),
         author: "Gayatri Raja Mohan",
+        rank: {"all": 3, "family": 1},
         highlights: {"family": ["good with children"]},
         tags: ["family"],
         rating: 5,
@@ -319,6 +333,7 @@ const reviewsList = [
             </>
         ),
         author: "Max Loh",
+        rank: {"all": 1, "family": 3, "nervous": 2, "treatment": 1},
         highlights: {"family": ["family-friendly environment"], "nervous": ["warm and caring", "smooth and pain-free"], "treatment": ["scaling", "teeth whitening", "brighter smile"]},
         tags: ["family", "nervous", "treatment"],
         rating: 5,
@@ -342,6 +357,7 @@ const reviewsList = [
             </>
         ),
         author: "Anson Chow",
+        rank: {"all": 1, "longtime": 1, "treatment": 3},
         highlights: {"longtime": ["nearly 20 years"], "treatment": ["helped my wife with her denture"]},
         tags: ["longtime", "treatment"],
         rating: 5,
@@ -366,6 +382,37 @@ const GROUPS = [
         .map((g) => ({ ...g, reviews: reviewsList.filter((r) => r.tags.includes(g.id)) }))
         .filter((g) => g.reviews.length >= MIN_PER_TAB),
 ];
+
+// Rank per tag lives on each review (`rank`): 1 = clearly about the topic
+// with the phrase inside the visible six lines, 2 = clear but the phrase
+// sits later or is less central, 3 = weak or the phrase is clipped. The
+// front of the rail is FRONT_SIZE cards picked by rotating through the
+// rank 1 and 2 pool, so the first cards change from day to day; rank 3
+// never rotates to the front.
+const FRONT_SIZE = 4;
+const FRONT_POOL_MAX_RANK = 2;
+const rankOf = (r, tag) => r.rank?.[tag] ?? 3;
+
+// One seed per calendar day (Malaysia time), fixed for the whole visit.
+const daySeed = () => {
+    const d = new Date(Date.now() + 8 * 60 * 60 * 1000);
+    return Math.floor(d.getTime() / 86400000);
+};
+
+const orderForTag = (reviews, tag, seed) => {
+    const byRank = [...reviews].sort((a, b) => rankOf(a, tag) - rankOf(b, tag));
+    // Rotate among rank 1 alone when there are enough of them; otherwise
+    // widen the pool to rank 2 so the front still fills.
+    const top = byRank.filter((r) => rankOf(r, tag) === 1);
+    const pool = top.length >= FRONT_SIZE ? top : byRank.filter((r) => rankOf(r, tag) <= FRONT_POOL_MAX_RANK);
+    const tail = byRank.filter((r) => !pool.includes(r));
+    if (!pool.length) return byRank;
+    const offset = seed % pool.length;
+    const rotated = pool.slice(offset).concat(pool.slice(0, offset));
+    const front = rotated.slice(0, FRONT_SIZE);
+    const rest = pool.filter((r) => !front.includes(r));
+    return [...front, ...rest, ...tail];
+};
 
 // Flatten a review's JSX (fragments, <p>, <strong>, strings) into its plain
 // paragraphs. The words are the review's own, untouched; only the emphasis
@@ -596,7 +643,11 @@ const Reviews = () => {
     const [openReview, setOpenReview] = useState(null);
     const closeReview = useCallback(() => setOpenReview(null), []);
 
-    const group = useMemo(() => GROUPS.find((g) => g.id === groupId) || GROUPS[0], [groupId]);
+    const [seed] = useState(daySeed);
+    const group = useMemo(() => {
+        const g = GROUPS.find((x) => x.id === groupId) || GROUPS[0];
+        return { ...g, reviews: orderForTag(g.reviews, g.id, seed) };
+    }, [groupId, seed]);
     const total = group.reviews.length;
 
     // Rail position -> "first–last of total", read from the real scroll offset.
@@ -815,7 +866,23 @@ const Reviews = () => {
                 .reviews-page .rv-card-text p { margin: 0 0 10px; }
                 .reviews-page .rv-card-text p:last-child { margin-bottom: 0; }
                 .reviews-page .rv-card-text strong { color: var(--color-text-charcoal); font-weight: 600; }
-                .reviews-page .rv-rail[data-tag]:not([data-tag="all"]) .rv-card-text strong { color: var(--color-primary-deep); }
+                .reviews-page .rv-rail[data-tag]:not([data-tag="all"]) .rv-card-text strong { color: var(--color-primary-deep); font-weight: 700; }
+                /* One light sweep across the accent phrases when the rail mounts
+                   (first view and every tab change), ~700ms, then solid colour.
+                   The rail is keyed by tab so the mount animation runs once per
+                   selection and never loops. */
+                .reviews-page .rv-rail .rv-card-text strong {
+                    --rv-accent: var(--color-text-charcoal); --rv-glint: #6B7C86;
+                    background-image: linear-gradient(100deg, var(--rv-accent) 0 35%, var(--rv-glint) 50%, var(--rv-accent) 65% 100%);
+                    background-size: 300% 100%; background-position: 100% 0;
+                    -webkit-background-clip: text; background-clip: text; color: transparent;
+                    animation: rv-shimmer 700ms var(--ease-slow) 1 both;
+                }
+                .reviews-page .rv-rail[data-tag]:not([data-tag="all"]) .rv-card-text strong { --rv-accent: var(--color-primary-deep); --rv-glint: #5FC2DE; }
+                @keyframes rv-shimmer { from { background-position: 0% 0; } to { background-position: 100% 0; } }
+                @media (prefers-reduced-motion: reduce) {
+                    .reviews-page .rv-rail .rv-card-text strong { animation: none; background-image: none; -webkit-background-clip: initial; background-clip: initial; color: var(--rv-accent); }
+                }
                 .reviews-page .rv-card-more { flex: 1; display: flex; align-items: flex-start; min-height: 44px; margin-top: 4px; }
                 .reviews-page .rv-more { min-height: 44px; padding: 0 2px; background: none; border: none; cursor: pointer; font-family: var(--font-heading); font-weight: 600; font-size: .9rem; color: var(--color-primary-deep); transition: color 180ms var(--ease-slow); }
                 .reviews-page .rv-more:hover { color: var(--color-primary-teal); }
