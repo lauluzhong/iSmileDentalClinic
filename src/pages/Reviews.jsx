@@ -79,6 +79,7 @@ const reviewsList = [
             </>
         ),
         author: "Mike Ngui",
+        highlights: {"family": ["My family’s dental health"], "nervous": ["fear of being in the dentist chair has been completely removed", "gentle care"], "longtime": ["over a decade"]},
         tags: ["family", "nervous", "longtime"],
         rating: 5,
         avatar: "/images/reviews/mike_ngui.png"
@@ -99,6 +100,7 @@ const reviewsList = [
             </>
         ),
         author: "Kah Mun Hew",
+        highlights: {"family": ["referred multiple family members"], "longtime": ["over a decade"]},
         tags: ["family", "longtime"],
         rating: 5,
         avatar: "/images/reviews/kah_mun_hew.png"
@@ -119,6 +121,7 @@ const reviewsList = [
             </>
         ),
         author: "Benny Kong",
+        highlights: {"nervous": ["gentle and thorough care"]},
         tags: ["nervous"],
         rating: 5,
         avatar: "/images/reviews/benny_kong.png"
@@ -143,6 +146,7 @@ const reviewsList = [
     {
         text: "Dr Jean is thorough, professional, gentle yet strong. Have been seeing for over 20 years and will continue to do so.",
         author: "Karen Lam",
+        highlights: {"nervous": ["gentle yet strong"], "longtime": ["over 20 years"]},
         tags: ["nervous", "longtime"],
         rating: 5,
         avatar: "/images/reviews/karen_lam.png"
@@ -158,6 +162,7 @@ const reviewsList = [
             </>
         ),
         author: "Lydia Ng",
+        highlights: {"family": ["my family", "2 young kids"]},
         tags: ["family"],
         rating: 5,
         avatar: "/images/reviews/lydia_ng.jpg",
@@ -178,6 +183,7 @@ const reviewsList = [
             </>
         ),
         author: "Sze Yoong",
+        highlights: {"family": ["Family visit"]},
         tags: ["family"],
         rating: 5,
         type: "Verified Google Review"
@@ -192,6 +198,7 @@ const reviewsList = [
             </>
         ),
         author: "Sook Yeen Lee",
+        highlights: {"family": ["myself and my family"]},
         tags: ["family"],
         rating: 5,
         type: "Verified Google Review"
@@ -209,6 +216,7 @@ const reviewsList = [
             </>
         ),
         author: "Tan Bee Wah",
+        highlights: {"family": ["me and my kids"], "longtime": ["for many years"], "treatment": ["periodontal disease"]},
         tags: ["family", "longtime", "treatment"],
         rating: 5,
         type: "Verified Google Review"
@@ -227,6 +235,7 @@ const reviewsList = [
             </>
         ),
         author: "Christina Phang",
+        highlights: {"family": ["family dentist"], "nervous": ["most amazing and gentle dentist"], "longtime": ["more than 10 years"]},
         tags: ["family", "nervous", "longtime"],
         rating: 5,
         avatar: "/images/reviews/christina_phang.jpg",
@@ -252,6 +261,7 @@ const reviewsList = [
             </>
         ),
         author: "Dashaene Mahalingam",
+        highlights: {"family": ["My family"], "treatment": ["multiple dental treatments"]},
         tags: ["family", "treatment"],
         rating: 5,
         type: "Verified Google Review"
@@ -269,6 +279,7 @@ const reviewsList = [
             </>
         ),
         author: "Fong Lim",
+        highlights: {"family": ["Our family"], "longtime": ["many years"]},
         tags: ["family", "longtime"],
         rating: 5,
         type: "Verified Google Review"
@@ -282,6 +293,7 @@ const reviewsList = [
             </>
         ),
         author: "Gayatri Raja Mohan",
+        highlights: {"family": ["good with children"]},
         tags: ["family"],
         rating: 5,
         type: "Verified Google Review"
@@ -307,6 +319,7 @@ const reviewsList = [
             </>
         ),
         author: "Max Loh",
+        highlights: {"family": ["family-friendly environment"], "nervous": ["smooth and pain-free"], "treatment": ["scaling", "teeth whitening", "brighter smile"]},
         tags: ["family", "nervous", "treatment"],
         rating: 5,
         type: "Verified Google Review"
@@ -329,6 +342,7 @@ const reviewsList = [
             </>
         ),
         author: "Anson Chow",
+        highlights: {"longtime": ["nearly 20 years"], "treatment": ["helped my wife with her denture"]},
         tags: ["longtime", "treatment"],
         rating: 5,
         type: "Verified Google Review"
@@ -353,6 +367,69 @@ const GROUPS = [
         .filter((g) => g.reviews.length >= MIN_PER_TAB),
 ];
 
+// Flatten a review's JSX (fragments, <p>, <strong>, strings) into its plain
+// paragraphs. The words are the review's own, untouched; only the emphasis
+// changes per tab.
+const toParagraphs = (node) => {
+    if (typeof node === 'string') return [node];
+    const out = [];
+    let current = '';
+    const walkInline = (n) => {
+        if (n == null || typeof n === 'boolean') return;
+        if (typeof n === 'string' || typeof n === 'number') { current += String(n); return; }
+        if (Array.isArray(n)) { n.forEach(walkInline); return; }
+        walkInline(n.props?.children);
+    };
+    const walk = (n) => {
+        if (n == null || typeof n === 'boolean') return;
+        if (Array.isArray(n)) { n.forEach(walk); return; }
+        if (typeof n === 'string' || typeof n === 'number') { current += String(n); return; }
+        if (n.type === 'p') {
+            if (current.trim()) out.push(current);
+            current = '';
+            walkInline(n.props.children);
+            out.push(current);
+            current = '';
+            return;
+        }
+        walk(n.props?.children);
+    };
+    walk(node);
+    if (current.trim()) out.push(current);
+    return out;
+};
+
+// Wrap every occurrence of the tab's phrases in <strong>; longest phrase first
+// so a short phrase never splits a longer one.
+const highlightText = (text, phrases) => {
+    if (!phrases.length) return text;
+    const sorted = [...phrases].sort((a, b) => b.length - a.length);
+    const parts = [];
+    let rest = text;
+    let k = 0;
+    while (rest.length) {
+        let best = null;
+        for (const ph of sorted) {
+            const i = rest.indexOf(ph);
+            if (i !== -1 && (best === null || i < best.i)) best = { i, ph };
+        }
+        if (!best) { parts.push(rest); break; }
+        if (best.i > 0) parts.push(rest.slice(0, best.i));
+        parts.push(<strong key={k++}>{best.ph}</strong>);
+        rest = rest.slice(best.i + best.ph.length);
+    }
+    return parts;
+};
+
+// On "All" the review's own general emphasis shows; on a category tab only
+// the phrases about that category are bold.
+const ReviewText = ({ review, tag }) => {
+    if (tag === 'all') return review.text;
+    const phrases = review.highlights?.[tag] || [];
+    const paragraphs = toParagraphs(review.text);
+    return paragraphs.map((p, i) => <p key={i}>{highlightText(p, phrases)}</p>);
+};
+
 const Stars = ({ n, size = 16 }) => (
     <div className="rv-stars" aria-label={`${n} out of 5 stars`}>
         {[...Array(n)].map((_, i) => <Star key={i} size={size} fill="#E0A500" color="#E0A500" aria-hidden="true" />)}
@@ -376,7 +453,7 @@ const Author = ({ review, size = 40 }) => (
 // Full review in the site's modal pattern (BookingModal): fixed overlay,
 // centred card, spring with no bounce, Escape / X / backdrop close, body
 // pinned behind. Rendered through a portal so no ancestor filter traps it.
-const ReviewModal = ({ review, onClose }) => {
+const ReviewModal = ({ review, tag, onClose }) => {
     const prefersReducedMotion = useReducedMotion();
     const closeRef = useRef(null);
     const open = !!review;
@@ -449,7 +526,7 @@ const ReviewModal = ({ review, onClose }) => {
                             <X size={22} aria-hidden="true" />
                         </button>
                         <Stars n={review.rating} size={18} />
-                        <blockquote className="rvm-text">{review.text}</blockquote>
+                        <blockquote className="rvm-text"><ReviewText review={review} tag={tag} /></blockquote>
                         <Author review={review} size={44} />
                     </motion.div>
                     <Style>{`
@@ -480,7 +557,7 @@ const ReviewModal = ({ review, onClose }) => {
 
 // One equal-height card. The quote clamps to CLAMP_LINES; "Read more" appears
 // only when the text really overflows (measured, not guessed).
-const ReviewCard = ({ review, onOpen }) => {
+const ReviewCard = ({ review, tag, onOpen }) => {
     const textRef = useRef(null);
     const [clipped, setClipped] = useState(false);
     useLayoutEffect(() => {
@@ -491,11 +568,11 @@ const ReviewCard = ({ review, onOpen }) => {
         const ro = new ResizeObserver(check);
         ro.observe(el);
         return () => ro.disconnect();
-    }, []);
+    }, [tag]);
     return (
         <article className="rv-card">
             <Stars n={review.rating} />
-            <blockquote ref={textRef} className="rv-card-text">{review.text}</blockquote>
+            <blockquote ref={textRef} className="rv-card-text"><ReviewText review={review} tag={tag} /></blockquote>
             <div className="rv-card-more">
                 {clipped && (
                     <button type="button" className="rv-more" onClick={() => onOpen(review)} aria-label={`Read the full review by ${review.author}`}>
@@ -633,7 +710,6 @@ const Reviews = () => {
                                     onKeyDown={(e) => onTabKey(e, i)}
                                 >
                                     {g.label}
-                                    <span className="rv-tab-count">{g.reviews.length}</span>
                                 </button>
                             );
                         })}
@@ -660,9 +736,9 @@ const Reviews = () => {
                     </div>
 
                     <div className="rv-rail-wrap">
-                        <div ref={railRef} className="rv-rail" key={groupId}>
+                        <div ref={railRef} className="rv-rail" key={groupId} data-tag={groupId}>
                             {group.reviews.map((review) => (
-                                <ReviewCard key={review.author} review={review} onOpen={setOpenReview} />
+                                <ReviewCard key={review.author} review={review} tag={groupId} onOpen={setOpenReview} />
                             ))}
                         </div>
                     </div>
@@ -674,7 +750,7 @@ const Reviews = () => {
                 </div>
             </div>
 
-            <ReviewModal review={openReview} onClose={closeReview} />
+            <ReviewModal review={openReview} tag={groupId} onClose={closeReview} />
 
             <Style>{`
                 /* no opaque page background — the shared hero tint (index.css) shows through */
@@ -704,7 +780,6 @@ const Reviews = () => {
                 .reviews-page .rv-tab:hover { color: var(--color-primary-deep); border-color: var(--color-primary-teal); }
                 .reviews-page .rv-tab:active { transform: scale(.97); }
                 .reviews-page .rv-tab.is-active { background: var(--color-primary-deep); border-color: var(--color-primary-deep); color: #fff; }
-                .reviews-page .rv-tab-count { font-size: .76rem; font-weight: 600; opacity: .72; }
                 .reviews-page .rv-tab:focus-visible, .reviews-page .rv-arrow:focus-visible, .reviews-page .rv-more:focus-visible { outline: 2px solid var(--color-primary-teal); outline-offset: 2px; }
 
                 /* Summary line: rating left, range + arrows right. Fixed height so it never shifts. */
@@ -740,6 +815,7 @@ const Reviews = () => {
                 .reviews-page .rv-card-text p { margin: 0 0 10px; }
                 .reviews-page .rv-card-text p:last-child { margin-bottom: 0; }
                 .reviews-page .rv-card-text strong { color: var(--color-text-charcoal); font-weight: 600; }
+                .reviews-page .rv-rail[data-tag]:not([data-tag="all"]) .rv-card-text strong { color: var(--color-primary-deep); }
                 .reviews-page .rv-card-more { flex: 1; display: flex; align-items: flex-start; min-height: 44px; margin-top: 4px; }
                 .reviews-page .rv-more { min-height: 44px; padding: 0 2px; background: none; border: none; cursor: pointer; font-family: var(--font-heading); font-weight: 600; font-size: .9rem; color: var(--color-primary-deep); transition: color 180ms var(--ease-slow); }
                 .reviews-page .rv-more:hover { color: var(--color-primary-teal); }
