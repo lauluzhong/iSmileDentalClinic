@@ -175,6 +175,8 @@ const Footer = () => {
                             <a
                                 href="mailto:ismile.general@gmail.com"
                                 className="phone-link email-link"
+                                title="ismile.general@gmail.com"
+                                aria-label="Email ismile.general@gmail.com"
                                 onClick={() => {
                                     window.dataLayer = window.dataLayer || [];
                                     window.dataLayer.push(enrichEvent({
@@ -182,7 +184,7 @@ const Footer = () => {
                                         link_url: 'mailto:ismile.general@gmail.com'
                                     }, 'footer'));
                                 }}
-                            >ismile.general@<wbr />gmail.com</a>
+                            ><span className="email-full">ismile.general@gmail.com</span><span className="email-short">Email us</span></a>
                         </div>
                         <p className="cta-desc">Ready to schedule your visit?</p>
                         <div className="mt-4">
@@ -356,9 +358,15 @@ const Footer = () => {
         .phone-block:has(+ .email-block) { margin-bottom: 10px; }
         .email-block { align-items: flex-start; }
         .email-block .phone-icon { flex: 0 0 auto; margin-top: 2px; }
-        /* Never split the address mid-word ("gmai / l.com"): wrap only at the
-           <wbr> after the @, and let the column be narrow without breaking. */
-        .email-link { font-size: 0.95rem; min-width: 0; overflow-wrap: normal; word-break: keep-all; line-height: 1.35; }
+        /* The address never wraps (owner, 28 Oct 2026). The desktop column is
+           too narrow for it, so desktop shows "Email us" (full address on
+           hover); phones have the width and show the full address. */
+        .email-link { font-size: 0.95rem; white-space: nowrap; line-height: 1.35; }
+        .email-full { display: none; }
+        @media (max-width: 1024px) {
+            .email-full { display: inline; }
+            .email-short { display: none; }
+        }
 
         /* The white outline pills are BACK by the owner's call (8 Sep 2026):
            he prefers the earlier Maps/Waze buttons over quiet links. Kept on
