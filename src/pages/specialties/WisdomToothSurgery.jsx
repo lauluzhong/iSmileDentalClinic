@@ -25,7 +25,7 @@ const WisdomToothSurgery = () => {
             eyebrow="Oral Surgery"
             title="Wisdom Tooth Surgery"
             titleAccent="Surgery"
-            subline="Petaling Jaya | iSmile Dental Clinic"
+            subline="Wisdom Tooth Surgery in Petaling Jaya"
             lead="Safe removal of impacted wisdom teeth in Petaling Jaya. Expert care for painful or problematic third molars. Book your consultation today."
             scienceTitle="The Science & Tech"
             scienceIntro="Successful wisdom tooth removal relies on advanced diagnostics and surgical precision. At iSmile, we prioritize minimally invasive techniques to ensure the fastest possible recovery."

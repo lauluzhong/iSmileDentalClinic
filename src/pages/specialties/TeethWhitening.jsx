@@ -25,7 +25,7 @@ const TeethWhitening = () => {
             eyebrow="Aesthetic Dentistry"
             title="Teeth Whitening"
             titleAccent="Whitening"
-            subline="Petaling Jaya | iSmile Dental Clinic"
+            subline="Teeth Whitening in Petaling Jaya"
             lead="Professional teeth whitening in Petaling Jaya. Brighten your smile with our custom treatment. Book your consultation today."
             scienceTitle="The Science of Gradual Whitening"
             scienceIntro="While instant results are popular, true long-term whitening occurs through a sustained oxidation process. Our protocol ensures the deepest stains are removed with minimal sensitivity."

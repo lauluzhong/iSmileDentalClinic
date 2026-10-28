@@ -25,7 +25,7 @@ const PediatricDentistry = () => {
             eyebrow="Children's Care"
             title="Pediatric Dentistry"
             titleAccent="Dentistry"
-            subline="Petaling Jaya | iSmile Dental Clinic"
+            subline="Pediatric Dentistry in Petaling Jaya"
             lead="Gentle, trauma-free dental care for children from their very first tooth onwards. We focus on prevention, education, and creating positive dental experiences that last a lifetime. Every pediatric check-up at iSmile also includes a basic myofunctional screening to assess breathing patterns and oral posture."
             scienceTitle="Prevention is Key"
             scienceIntro="Our pediatric approach focuses on early intervention, prevention, and building healthy habits from a young age so your child can maintain a healthy smile for life."

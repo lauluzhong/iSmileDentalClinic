@@ -25,7 +25,7 @@ const CosmeticDentistry = () => {
             eyebrow="Smile Design"
             title="Cosmetic Dentistry"
             titleAccent="Dentistry"
-            subline="Petaling Jaya | iSmile Dental Clinic"
+            subline="Cosmetic Dentistry in Petaling Jaya"
             lead="Design your dream smile with aesthetic dental treatments tailored to your unique facial features. From veneers to full mouth rehabilitation, we combine art and science for results that look natural and function beautifully."
             scienceTitle="The Art & Science"
             scienceIntro="True cosmetic dentistry goes beyond just 'white teeth'. We analyze and design a smile with function in mind that is pleasing and harmonious with your facial features."

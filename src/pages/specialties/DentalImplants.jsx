@@ -25,7 +25,7 @@ const DentalImplants = () => {
             eyebrow="Implantology"
             title="Dental Implants"
             titleAccent="Implants"
-            subline="Petaling Jaya | iSmile Dental Clinic"
+            subline="Dental Implants in Petaling Jaya"
             lead="A dental implant is a titanium screw placed surgically into your jawbone, where it functions as an artificial tooth root. After a healing period called osseointegration, a crown is attached to give you a replacement tooth that looks, feels, and functions like a natural one."
             scienceTitle="The Science & Tech"
             scienceIntro="We use Grade 5 Titanium for implants, a highly biocompatible material that the body readily accepts."

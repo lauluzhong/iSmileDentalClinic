@@ -75,7 +75,7 @@ const MyofunctionalOrthodontics = () => {
             eyebrow="Interceptive Orthodontics"
             title="Myofunctional Orthodontics"
             titleAccent="Orthodontics"
-            subline="Petaling Jaya | iSmile Dental Clinic"
+            subline="Myofunctional Orthodontics in Petaling Jaya"
             lead="Myofunctional orthodontics addresses the root causes of jaw underdevelopment and crowding by correcting muscle patterns, breathing habits, and oral posture. At iSmile, we use removable functional braces worn mostly at night that gently guide jaw development and habit correction."
             scienceTitle="The Science & Tech"
             scienceIntro="Instead of just moving teeth after they have gone off course, myofunctional orthodontics works upstream to address why the bite problem developed in the first place."
