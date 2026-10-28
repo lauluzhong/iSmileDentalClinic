@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
-import React, { useEffect, useId, useMemo, useRef, useState } from 'react';
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { Star, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import Button from '../components/Button';
 import { Reveal } from '../components/Reveal';
@@ -351,41 +352,153 @@ const GROUPS = [
         .filter((g) => g.reviews.length >= MIN_PER_TAB),
 ];
 
-const SWIPE_PX = 48;
-
-// One review at a time: slide + fade along the direction of travel, 220ms,
-// transform and opacity only. Reduced motion collapses to a plain cross-fade.
-const slide = {
-    enter: (dir) => ({ opacity: 0, x: dir * 32 }),
-    center: { opacity: 1, x: 0 },
-    exit: (dir) => ({ opacity: 0, x: dir * -32 }),
-};
-const fade = {
-    enter: { opacity: 0, x: 0 },
-    center: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: 0 },
-};
-const EASE = [0.16, 1, 0.3, 1];
-
-const ReviewQuote = ({ review }) => (
-    <figure className="rq">
-        <div className="rq-stars" aria-label={`${review.rating} out of 5 stars`}>
-            {[...Array(review.rating)].map((_, i) => <Star key={i} size={18} fill="#E0A500" color="#E0A500" aria-hidden="true" />)}
-        </div>
-        <blockquote className="rq-text">{review.text}</blockquote>
-        <figcaption className="rq-author">
-            {review.avatar ? (
-                <img src={review.avatar} alt="" loading="lazy" width="44" height="44" className="rq-avatar" />
-            ) : (
-                <InitialsAvatar name={review.author} size={44} />
-            )}
-            <div className="rq-author-text">
-                <strong>{review.author}</strong>
-                <span className="rq-type"><GoogleG /> Verified Google review</span>
-            </div>
-        </figcaption>
-    </figure>
+const Stars = ({ n, size = 16 }) => (
+    <div className="rv-stars" aria-label={`${n} out of 5 stars`}>
+        {[...Array(n)].map((_, i) => <Star key={i} size={size} fill="#E0A500" color="#E0A500" aria-hidden="true" />)}
+    </div>
 );
+
+const Author = ({ review, size = 40 }) => (
+    <div className="rv-author">
+        {review.avatar ? (
+            <img src={review.avatar} alt="" loading="lazy" width={size} height={size} className="rv-avatar" style={{ width: size, height: size }} />
+        ) : (
+            <InitialsAvatar name={review.author} size={size} />
+        )}
+        <div className="rv-author-text">
+            <strong>{review.author}</strong>
+            <span className="rv-type"><GoogleG /> Verified Google review</span>
+        </div>
+    </div>
+);
+
+// Full review in the site's modal pattern (BookingModal): fixed overlay,
+// centred card, spring with no bounce, Escape / X / backdrop close, body
+// pinned behind. Rendered through a portal so no ancestor filter traps it.
+const ReviewModal = ({ review, onClose }) => {
+    const prefersReducedMotion = useReducedMotion();
+    const closeRef = useRef(null);
+    const open = !!review;
+
+    useEffect(() => {
+        if (!open) return;
+        const onKeyDown = (e) => { if (e.key === 'Escape') onClose(); };
+        document.addEventListener('keydown', onKeyDown);
+        const body = document.body;
+        const root = document.documentElement;
+        const scrollY = window.scrollY;
+        const prev = { rootOverflow: root.style.overflow, bodyOverflow: body.style.overflow, position: body.style.position, top: body.style.top, left: body.style.left, right: body.style.right, width: body.style.width };
+        root.style.overflow = 'hidden';
+        body.style.overflow = 'hidden';
+        body.style.position = 'fixed';
+        body.style.top = `-${scrollY}px`;
+        body.style.left = '0';
+        body.style.right = '0';
+        body.style.width = '100%';
+        closeRef.current?.focus();
+        return () => {
+            document.removeEventListener('keydown', onKeyDown);
+            root.style.overflow = prev.rootOverflow;
+            body.style.overflow = prev.bodyOverflow;
+            body.style.position = prev.position;
+            body.style.top = prev.top;
+            body.style.left = prev.left;
+            body.style.right = prev.right;
+            body.style.width = prev.width;
+            root.style.scrollBehavior = 'auto';
+            window.scrollTo(0, scrollY);
+            root.style.scrollBehavior = '';
+        };
+    }, [open, onClose]);
+
+    if (typeof document === 'undefined') return null;
+
+    const cardMotion = prefersReducedMotion
+        ? { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 }, transition: { duration: 0.15 } }
+        : { initial: { opacity: 0, y: 40 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0, y: 40 }, transition: { type: 'spring', bounce: 0, duration: 0.35 } };
+
+    return createPortal(
+        <AnimatePresence>
+            {open && (
+                <motion.div
+                    className="rvm-overlay"
+                    data-lenis-prevent
+                    onClick={onClose}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                >
+                    <motion.div
+                        className="rvm-content"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label={`Review by ${review.author}`}
+                        onClick={(e) => e.stopPropagation()}
+                        {...cardMotion}
+                    >
+                        <button ref={closeRef} type="button" className="rvm-close" onClick={onClose} aria-label="Close review">
+                            <X size={22} aria-hidden="true" />
+                        </button>
+                        <Stars n={review.rating} size={18} />
+                        <blockquote className="rvm-text">{review.text}</blockquote>
+                        <Author review={review} size={44} />
+                    </motion.div>
+                    <Style>{`
+                        .rvm-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.4); backdrop-filter: blur(8px); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 16px; overscroll-behavior: contain; }
+                        .rvm-content { position: relative; width: 100%; max-width: 560px; max-height: calc(100vh - 32px); max-height: calc(100dvh - 32px); overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; background: #fff; padding: 28px 32px 28px; border: 1px solid var(--hairline); border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,.15); }
+                        .rvm-close { position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; background: none; border: none; border-radius: 50%; color: var(--color-text-grey); cursor: pointer; transition: color 180ms var(--ease-slow), background 180ms var(--ease-slow); }
+                        .rvm-close:hover { color: var(--color-primary-deep); background: rgba(0,0,0,.05); }
+                        .rvm-close:active { transform: scale(.97); }
+                        .rvm-close:focus-visible { outline: 2px solid var(--color-primary-teal); outline-offset: 2px; }
+                        .rvm-content .rv-stars { display: flex; gap: 4px; margin: 4px 0 18px; }
+                        .rvm-text { margin: 0 0 22px; font-size: 1.05rem; line-height: 1.6; color: var(--color-text-charcoal); }
+                        .rvm-text p { margin: 0 0 12px; }
+                        .rvm-text p:last-child { margin-bottom: 0; }
+                        .rvm-text strong { font-weight: 600; color: var(--color-primary-deep); }
+                        .rvm-content .rv-author { display: flex; align-items: center; gap: 12px; }
+                        .rvm-content .rv-avatar { border-radius: 50%; object-fit: cover; flex: none; }
+                        .rvm-content .rv-author-text { display: flex; flex-direction: column; }
+                        .rvm-content .rv-author-text strong { color: var(--color-text-charcoal); font-family: var(--font-heading); font-size: .96rem; }
+                        .rvm-content .rv-type { display: inline-flex; align-items: center; gap: 5px; margin-top: 2px; color: var(--color-text-grey); font-size: .78rem; }
+                        @media (max-width: 640px) { .rvm-overlay { padding: 12px; } .rvm-content { padding: 22px 18px 22px; border-radius: 22px; } }
+                    `}</Style>
+                </motion.div>
+            )}
+        </AnimatePresence>,
+        document.body
+    );
+};
+
+// One equal-height card. The quote clamps to CLAMP_LINES; "Read more" appears
+// only when the text really overflows (measured, not guessed).
+const ReviewCard = ({ review, onOpen }) => {
+    const textRef = useRef(null);
+    const [clipped, setClipped] = useState(false);
+    useLayoutEffect(() => {
+        const el = textRef.current;
+        if (!el) return;
+        const check = () => setClipped(el.scrollHeight > el.clientHeight + 1);
+        check();
+        const ro = new ResizeObserver(check);
+        ro.observe(el);
+        return () => ro.disconnect();
+    }, []);
+    return (
+        <article className="rv-card">
+            <Stars n={review.rating} />
+            <blockquote ref={textRef} className="rv-card-text">{review.text}</blockquote>
+            <div className="rv-card-more">
+                {clipped && (
+                    <button type="button" className="rv-more" onClick={() => onOpen(review)} aria-label={`Read the full review by ${review.author}`}>
+                        Read more
+                    </button>
+                )}
+            </div>
+            <Author review={review} />
+        </article>
+    );
+};
 
 const Reviews = () => {
     // Meta comes from src/data/corePagesSeo.js, the same source the build
@@ -395,35 +508,56 @@ const Reviews = () => {
     const prefersReducedMotion = useReducedMotion();
 
     const [groupId, setGroupId] = useState(GROUPS[0].id);
-    const [index, setIndex] = useState(0);
-    const [dir, setDir] = useState(1);
-    // Drag-to-swipe only on touch screens; on a mouse it would steal text selection.
-    const [coarse, setCoarse] = useState(false);
-    useEffect(() => {
-        const mq = window.matchMedia('(pointer: coarse)');
-        const sync = () => setCoarse(mq.matches);
-        sync();
-        mq.addEventListener('change', sync);
-        return () => mq.removeEventListener('change', sync);
-    }, []);
+    const [openReview, setOpenReview] = useState(null);
+    const closeReview = useCallback(() => setOpenReview(null), []);
 
     const group = useMemo(() => GROUPS.find((g) => g.id === groupId) || GROUPS[0], [groupId]);
     const total = group.reviews.length;
-    const review = group.reviews[index];
 
-    const go = (step) => {
-        setDir(step);
-        setIndex((i) => (i + step + total) % total);
-    };
+    // Rail position -> "first–last of total", read from the real scroll offset.
+    const railRef = useRef(null);
+    const [range, setRange] = useState({ first: 1, last: 1 });
+    const measure = useCallback(() => {
+        const rail = railRef.current;
+        if (!rail) return;
+        const cards = rail.querySelectorAll('.rv-card');
+        if (!cards.length) return;
+        const step = cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : cards[0].offsetWidth;
+        const first = Math.min(cards.length - 1, Math.max(0, Math.round(rail.scrollLeft / step)));
+        const perView = Math.max(1, Math.floor((rail.clientWidth + (step - cards[0].offsetWidth)) / step));
+        const last = Math.min(cards.length, first + perView);
+        setRange((r) => (r.first === first + 1 && r.last === last) ? r : { first: first + 1, last });
+    }, []);
+
+    useEffect(() => {
+        const rail = railRef.current;
+        if (!rail) return;
+        let raf = 0;
+        const onScroll = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(measure); };
+        rail.addEventListener('scroll', onScroll, { passive: true });
+        const ro = new ResizeObserver(measure);
+        ro.observe(rail);
+        measure();
+        return () => { rail.removeEventListener('scroll', onScroll); ro.disconnect(); cancelAnimationFrame(raf); };
+    }, [measure, groupId]);
+
     const pickGroup = (id) => {
         if (id === groupId) return;
-        setDir(1);
         setGroupId(id);
-        setIndex(0);
+        const rail = railRef.current;
+        if (rail) rail.scrollTo({ left: 0, behavior: 'auto' });
     };
 
-    // Left/right arrow keys move between tabs when the tablist has focus
-    // (WAI-ARIA tabs pattern) and between reviews when the quote has focus.
+    const scrollByCards = (dirStep) => {
+        const rail = railRef.current;
+        if (!rail) return;
+        const cards = rail.querySelectorAll('.rv-card');
+        const step = cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : rail.clientWidth;
+        const perView = Math.max(1, Math.round(rail.clientWidth / step));
+        rail.scrollBy({ left: dirStep * step * perView, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    };
+
+    // Left/right arrow keys move between tabs when the tablist has focus.
     const tabRefs = useRef([]);
     const onTabKey = (e, i) => {
         if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
@@ -432,19 +566,9 @@ const Reviews = () => {
         pickGroup(GROUPS[next].id);
         tabRefs.current[next]?.focus();
     };
-    const onStageKey = (e) => {
-        if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
-        if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
-    };
-    const onDragEnd = (_, info) => {
-        if (info.offset.x < -SWIPE_PX) go(1);
-        else if (info.offset.x > SWIPE_PX) go(-1);
-    };
 
-    const variants = prefersReducedMotion ? fade : slide;
-    const transition = prefersReducedMotion
-        ? { duration: 0.15 }
-        : { duration: 0.22, ease: EASE };
+    const atStart = range.first <= 1;
+    const atEnd = range.last >= total;
 
     return (
         <div className="reviews-page">
@@ -508,47 +632,32 @@ const Reviews = () => {
                     </div>
                 </div>
 
-                <div
-                    className="rv-stage"
-                    role="tabpanel"
-                    id={`${uid}-panel`}
-                    aria-labelledby={`${uid}-tab-${groupId}`}
-                >
-                    <button type="button" className="rv-arrow rv-arrow-prev" onClick={() => go(-1)} aria-label="Previous review">
-                        <ChevronLeft size={22} strokeWidth={1.75} aria-hidden="true" />
-                    </button>
-
-                    <div className="rv-viewport" tabIndex={0} onKeyDown={onStageKey} aria-live="polite" aria-atomic="true">
-                        <AnimatePresence mode="wait" custom={dir} initial={false}>
-                            <motion.div
-                                key={`${groupId}-${index}`}
-                                className="rv-slide"
-                                custom={dir}
-                                variants={variants}
-                                initial="enter"
-                                animate="center"
-                                exit="exit"
-                                transition={transition}
-                                drag={coarse ? 'x' : false}
-                                dragConstraints={{ left: 0, right: 0 }}
-                                dragElastic={0.12}
-                                dragMomentum={false}
-                                onDragEnd={onDragEnd}
-                            >
-                                <ReviewQuote review={review} />
-                            </motion.div>
-                        </AnimatePresence>
+                <div className="rv-panel" role="tabpanel" id={`${uid}-panel`} aria-labelledby={`${uid}-tab-${groupId}`}>
+                    <div className="rv-summary">
+                        <p className="rv-summary-rating">
+                            <Stars n={5} size={14} />
+                            <span><strong>{reviewStats.rating}</strong> on Google · {reviewStats.count} reviews</span>
+                        </p>
+                        <div className="rv-summary-nav">
+                            <p className="rv-range" aria-live="polite">
+                                <span className="rv-range-now">{range.first}{range.last > range.first ? `–${range.last}` : ''}</span> of {total}
+                            </p>
+                            <button type="button" className="rv-arrow" onClick={() => scrollByCards(-1)} aria-label="Previous reviews" disabled={atStart}>
+                                <ChevronLeft size={22} strokeWidth={1.75} aria-hidden="true" />
+                            </button>
+                            <button type="button" className="rv-arrow" onClick={() => scrollByCards(1)} aria-label="Next reviews" disabled={atEnd}>
+                                <ChevronRight size={22} strokeWidth={1.75} aria-hidden="true" />
+                            </button>
+                        </div>
                     </div>
 
-                    <button type="button" className="rv-arrow rv-arrow-next" onClick={() => go(1)} aria-label="Next review">
-                        <ChevronRight size={22} strokeWidth={1.75} aria-hidden="true" />
-                    </button>
-
-                    <p className="rv-counter">
-                        <span className="rv-counter-now">{index + 1}</span>
-                        <span className="rv-counter-sep" aria-hidden="true">/</span>
-                        <span>{total}</span>
-                    </p>
+                    <div className="rv-rail-wrap">
+                        <div ref={railRef} className="rv-rail" key={groupId}>
+                            {group.reviews.map((review) => (
+                                <ReviewCard key={review.author} review={review} onOpen={setOpenReview} />
+                            ))}
+                        </div>
+                    </div>
                 </div>
 
                 <div className="reviews-closing">
@@ -557,8 +666,11 @@ const Reviews = () => {
                 </div>
             </div>
 
+            <ReviewModal review={openReview} onClose={closeReview} />
+
             <Style>{`
                 /* no opaque page background — the shared hero tint (index.css) shows through */
+                .reviews-page { --rv-card-h: 352px; --rv-gap: 16px; }
                 .reviews-page .reviews-hero-gradient { padding: 160px 0 56px; text-align: center; }
                 .reviews-page .reviews-hero-title { max-width: 780px; margin: 0 auto 20px; font-size: clamp(2.4rem, 1.6rem + 3.4vw, 4rem); font-weight: 700; line-height: 1.05; letter-spacing: -.03em; text-wrap: balance; }
                 .reviews-page .reviews-hero-subtitle { max-width: 640px; margin: 0 auto; color: var(--color-text-slate); font-size: var(--fs-lead); line-height: 1.6; }
@@ -585,61 +697,71 @@ const Reviews = () => {
                 .reviews-page .rv-tab:active { transform: scale(.97); }
                 .reviews-page .rv-tab.is-active { background: var(--color-primary-deep); border-color: var(--color-primary-deep); color: #fff; }
                 .reviews-page .rv-tab-count { font-size: .76rem; font-weight: 600; opacity: .72; }
-                .reviews-page .rv-tab:focus-visible, .reviews-page .rv-arrow:focus-visible, .reviews-page .rv-viewport:focus-visible { outline: 2px solid var(--color-primary-teal); outline-offset: 2px; }
+                .reviews-page .rv-tab:focus-visible, .reviews-page .rv-arrow:focus-visible, .reviews-page .rv-more:focus-visible { outline: 2px solid var(--color-primary-teal); outline-offset: 2px; }
 
-                /* Stage: one quote, arrows either side on desktop, counter beneath. */
-                .reviews-page .rv-stage {
-                    display: grid; grid-template-columns: 48px minmax(0, 1fr) 48px; grid-template-rows: auto auto;
-                    column-gap: 24px; align-items: center;
-                    max-width: 960px; margin: 40px auto 0;
-                }
-                .reviews-page .rv-viewport { grid-column: 2; grid-row: 1; min-height: 320px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 16px; }
-                .reviews-page .rv-slide { width: 100%; touch-action: pan-y; }
-                .reviews-page .rv-arrow-prev { grid-column: 1; grid-row: 1; }
-                .reviews-page .rv-arrow-next { grid-column: 3; grid-row: 1; }
+                /* Summary line: rating left, range + arrows right. Fixed height so it never shifts. */
+                .reviews-page .rv-summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 48px; margin: 32px 0 16px; }
+                .reviews-page .rv-summary-rating { display: flex; align-items: center; gap: 10px; margin: 0; color: var(--color-text-slate); font-size: .92rem; }
+                .reviews-page .rv-summary-rating strong { color: var(--color-text-charcoal); }
+                .reviews-page .rv-stars { display: flex; gap: 3px; }
+                .reviews-page .rv-summary-nav { display: flex; align-items: center; gap: 8px; }
+                .reviews-page .rv-range { margin: 0 8px 0 0; font-family: var(--font-heading); font-size: .82rem; letter-spacing: .04em; color: var(--color-text-grey); white-space: nowrap; }
+                .reviews-page .rv-range-now { color: var(--color-text-charcoal); font-weight: 600; }
                 .reviews-page .rv-arrow {
                     display: inline-flex; align-items: center; justify-content: center;
                     width: 48px; height: 48px; border-radius: 50%;
                     border: 1px solid var(--hairline-strong); background: var(--color-bg-white); color: var(--color-text-charcoal);
                     cursor: pointer;
-                    transition: color 180ms var(--ease-slow), border-color 180ms var(--ease-slow), transform 100ms ease-out;
+                    transition: color 180ms var(--ease-slow), border-color 180ms var(--ease-slow), opacity 180ms var(--ease-slow), transform 100ms ease-out;
                 }
-                .reviews-page .rv-arrow:hover { color: var(--color-primary-deep); border-color: var(--color-primary-teal); }
-                .reviews-page .rv-arrow:active { transform: scale(.97); }
-                .reviews-page .rv-counter { grid-column: 2; grid-row: 2; margin: 20px 0 0; text-align: center; font-family: var(--font-heading); font-size: .82rem; letter-spacing: .08em; color: var(--color-text-grey); display: flex; justify-content: center; gap: 6px; }
-                .reviews-page .rv-counter-now { color: var(--color-text-charcoal); font-weight: 600; }
+                .reviews-page .rv-arrow:hover:not(:disabled) { color: var(--color-primary-deep); border-color: var(--color-primary-teal); }
+                .reviews-page .rv-arrow:active:not(:disabled) { transform: scale(.97); }
+                .reviews-page .rv-arrow:disabled { opacity: .35; cursor: default; }
 
-                /* The quote itself */
-                .reviews-page .rq { margin: 0; padding: 8px 0; text-align: center; max-width: 720px; margin-inline: auto; }
-                .reviews-page .rq-stars { display: flex; justify-content: center; gap: 4px; margin-bottom: 22px; }
-                .reviews-page .rq-text { margin: 0; font-family: var(--font-heading); font-weight: 500; font-size: clamp(1.2rem, 1.02rem + .8vw, 1.65rem); line-height: 1.45; letter-spacing: -.01em; color: var(--color-text-charcoal); text-wrap: pretty; }
-                .reviews-page .rq-text p { margin: 0 0 14px; }
-                .reviews-page .rq-text p:last-child { margin-bottom: 0; }
-                .reviews-page .rq-text strong { font-weight: 700; color: var(--color-primary-deep); }
-                .reviews-page .rq-author { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 28px; }
-                .reviews-page .rq-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex: none; }
-                .reviews-page .rq-author-text { display: flex; flex-direction: column; text-align: left; }
-                .reviews-page .rq-author-text strong { color: var(--color-text-charcoal); font-family: var(--font-heading); font-size: .96rem; }
-                .reviews-page .rq-type { display: inline-flex; align-items: center; gap: 5px; margin-top: 2px; color: var(--color-text-grey); font-size: .78rem; }
+                /* The rail: equal-height white cards, ~3 up with the next one peeking. */
+                .reviews-page .rv-rail-wrap { margin: 0 -20px; }
+                .reviews-page .rv-rail { display: flex; gap: var(--rv-gap); height: var(--rv-card-h); padding: 0 20px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-padding-left: 20px; scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+                .reviews-page .rv-rail::-webkit-scrollbar { display: none; }
+                .reviews-page .rv-card {
+                    flex: 0 0 calc((100% - 2 * var(--rv-gap)) / 3.25); scroll-snap-align: start;
+                    display: flex; flex-direction: column; height: var(--rv-card-h); box-sizing: border-box;
+                    padding: 24px; background: var(--color-bg-white); border: 1px solid var(--hairline); border-radius: 22px;
+                }
+                .reviews-page .rv-card .rv-stars { margin-bottom: 14px; }
+                .reviews-page .rv-card-text { margin: 0; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 6; overflow: hidden; color: var(--color-text-slate); font-size: .96rem; line-height: 1.6; }
+                .reviews-page .rv-card-text p { margin: 0 0 10px; }
+                .reviews-page .rv-card-text p:last-child { margin-bottom: 0; }
+                .reviews-page .rv-card-text strong { color: var(--color-text-charcoal); font-weight: 600; }
+                .reviews-page .rv-card-more { flex: 1; display: flex; align-items: flex-start; min-height: 44px; margin-top: 4px; }
+                .reviews-page .rv-more { min-height: 44px; padding: 0 2px; background: none; border: none; cursor: pointer; font-family: var(--font-heading); font-weight: 600; font-size: .9rem; color: var(--color-primary-deep); transition: color 180ms var(--ease-slow); }
+                .reviews-page .rv-more:hover { color: var(--color-primary-teal); }
+                .reviews-page .rv-more:active { transform: scale(.97); }
+                .reviews-page .rv-author { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+                .reviews-page .rv-avatar { border-radius: 50%; object-fit: cover; flex: none; }
+                .reviews-page .rv-author-text { display: flex; flex-direction: column; min-width: 0; }
+                .reviews-page .rv-author-text strong { color: var(--color-text-charcoal); font-family: var(--font-heading); font-size: .94rem; }
+                .reviews-page .rv-type { display: inline-flex; align-items: center; gap: 5px; margin-top: 2px; color: var(--color-text-grey); font-size: .78rem; }
 
                 .reviews-page .reviews-closing { padding: var(--space-section-lg) 0 80px; text-align: center; }
                 .reviews-page .reviews-closing .statement { max-width: 680px; margin: 0 auto 30px; }
                 .reviews-page .reviews-closing a { display: inline-block; }
 
+                @media (max-width: 1024px) {
+                    .reviews-page .rv-rail-wrap, .reviews-page .rv-tabs-wrap { margin-left: -16px; margin-right: -16px; }
+                    .reviews-page .rv-rail { padding: 0 16px; scroll-padding-left: 16px; }
+                    .reviews-page .rv-tabs-wrap { padding: 4px 16px; }
+                    .reviews-page .rv-card { flex-basis: calc((100% - var(--rv-gap)) / 2.15); }
+                }
                 @media (max-width: 760px) {
+                    .reviews-page { --rv-card-h: 372px; }
                     .reviews-page .reviews-hero-gradient { padding: 118px 0 40px; }
                     .reviews-page .reviews-trust-rule { width: 24px; }
-                    .reviews-page .rv-tabs-wrap { margin: 0 -16px; padding: 4px 16px; }
                     .reviews-page .rv-tabs { margin: 0; }
-                    /* Phones: quote on top, then one row of prev / counter / next in thumb reach. */
-                    .reviews-page .rv-stage { grid-template-columns: 48px 1fr 48px; grid-template-rows: auto auto; column-gap: 16px; margin-top: 28px; }
-                    .reviews-page .rv-viewport { grid-column: 1 / -1; grid-row: 1; min-height: 0; }
-                    .reviews-page .rv-arrow-prev { grid-column: 1; grid-row: 2; }
-                    .reviews-page .rv-arrow-next { grid-column: 3; grid-row: 2; }
-                    .reviews-page .rv-counter { grid-column: 2; grid-row: 2; margin: 0; align-self: center; }
-                    .reviews-page .rv-stage > .rv-arrow { margin-top: 24px; }
-                    .reviews-page .rv-counter { margin-top: 24px; }
-                    .reviews-page .rq-text { font-size: 1.15rem; line-height: 1.5; }
+                    /* Phones: one card with the next peeking; swipe instead of arrows. */
+                    .reviews-page .rv-summary { margin: 24px 0 14px; }
+                    .reviews-page .rv-arrow { display: none; }
+                    .reviews-page .rv-range { margin-right: 0; }
+                    .reviews-page .rv-card { flex-basis: calc(100% - 36px); padding: 22px 20px; border-radius: 18px; }
                 }
             `}</Style>
         </div>
