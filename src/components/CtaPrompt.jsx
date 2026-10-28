@@ -103,7 +103,9 @@ const snoozeFor = (days) =>
 
 const CtaPrompt = () => {
     const { pathname } = useLocation();
-    const { isBookingOpen, openBooking, setPromptOpen } = useBooking();
+    const { isBookingOpen, isDialogOpen, openBooking, setPromptOpen } = useBooking();
+    // Booking modal or any other page dialog: never stack this prompt on top.
+    const otherDialogOpen = isBookingOpen || isDialogOpen;
 
     const [visible, setVisible] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
@@ -189,7 +191,7 @@ const CtaPrompt = () => {
         }
 
         if (firedRef.current) return undefined;
-        if (isBookingOpen) return undefined;
+        if (otherDialogOpen) return undefined;
         if (safeGet(window.sessionStorage, SEEN_KEY)) return undefined;
         if (isSnoozed()) return undefined;
         // Escape hatch for the owner, staff and QA.
@@ -253,7 +255,7 @@ const CtaPrompt = () => {
             timers.forEach(clearTimeout);
             cleanups.forEach((fn) => fn());
         };
-    }, [pathname, isMobile, isBookingOpen, visible, show]);
+    }, [pathname, isMobile, otherDialogOpen, visible, show]);
 
     /* Fire the impression once the copy is settled, and mark the overlay open. */
     useEffect(() => {
@@ -297,10 +299,10 @@ const CtaPrompt = () => {
         };
     }, [visible, close, track]);
 
-    /* If the booking modal opens from anywhere, get out of its way. */
+    /* If the booking modal or another dialog opens, get out of its way. */
     useEffect(() => {
-        if (isBookingOpen && visible) close('engaged');
-    }, [isBookingOpen, visible, close]);
+        if (otherDialogOpen && visible) close('engaged');
+    }, [otherDialogOpen, visible, close]);
 
     /* A true modal on both devices now, so the page behind must not scroll. */
     useEffect(() => {

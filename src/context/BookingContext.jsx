@@ -7,6 +7,9 @@ export const BookingProvider = ({ children }) => {
     // The contextual CTA prompt lives at the bottom of the screen on mobile,
     // exactly where the sticky action bar sits, so the bar needs to know.
     const [isPromptOpen, setPromptOpen] = useState(false);
+    // Any other page dialog (e.g. the full-review modal on /reviews). The CTA
+    // prompt must not fire over it, and should step aside if it is showing.
+    const [isDialogOpen, setDialogOpen] = useState(false);
     const [prefillData, setPrefillData] = useState({
         experience: '',
         sourceButton: '',
@@ -27,7 +30,7 @@ export const BookingProvider = ({ children }) => {
     };
 
     return (
-        <BookingContext.Provider value={{ isBookingOpen, prefillData, openBooking, closeBooking, isPromptOpen, setPromptOpen }}>
+        <BookingContext.Provider value={{ isBookingOpen, prefillData, openBooking, closeBooking, isPromptOpen, setPromptOpen, isDialogOpen, setDialogOpen }}>
             {children}
         </BookingContext.Provider>
     );

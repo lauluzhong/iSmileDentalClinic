@@ -1,12 +1,15 @@
 import { Helmet } from 'react-helmet-async';
-import React from 'react';
-import { Star } from 'lucide-react';
+import React, { useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { Star, ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import Button from '../components/Button';
-import { Reveal, FadeIn } from '../components/Reveal';
+import { Reveal } from '../components/Reveal';
 import Style from '../components/Style';
 import reviewStats from '../data/review-stats.json';
 import { CORE_PAGES } from '../data/corePagesSeo';
 import { fillStats } from '../data/serviceSeo';
+import { useBooking } from '../context/BookingContext';
 
 const GoogleG = () => (
     <svg width="13" height="13" viewBox="0 0 48 48" aria-hidden="true" style={{ flexShrink: 0 }}>
@@ -76,6 +79,9 @@ const reviewsList = [
             </>
         ),
         author: "Mike Ngui",
+        rank: {"all": 1, "family": 3, "nervous": 1, "longtime": 1},
+        highlights: {"family": ["My family’s dental health"], "nervous": ["fear of being in the dentist chair has been completely removed", "gentle care"], "longtime": ["over a decade"]},
+        tags: ["family", "nervous", "longtime"],
         rating: 5,
         avatar: "/images/reviews/mike_ngui.png"
     },
@@ -95,6 +101,9 @@ const reviewsList = [
             </>
         ),
         author: "Kah Mun Hew",
+        rank: {"all": 1, "family": 2, "longtime": 1},
+        highlights: {"family": ["referred multiple family members"], "longtime": ["over a decade"]},
+        tags: ["family", "longtime"],
         rating: 5,
         avatar: "/images/reviews/kah_mun_hew.png"
     },
@@ -114,6 +123,9 @@ const reviewsList = [
             </>
         ),
         author: "Benny Kong",
+        rank: {"all": 1, "nervous": 2},
+        highlights: {"nervous": ["listen to concerns", "gentle and thorough care"]},
+        tags: ["nervous"],
         rating: 5,
         avatar: "/images/reviews/benny_kong.png"
     },
@@ -130,12 +142,17 @@ const reviewsList = [
             </>
         ),
         author: "Ashley Chin",
+        rank: {"all": 3},
+        tags: [],
         rating: 5,
         avatar: "/images/reviews/ashley_chin.png"
     },
     {
         text: "Dr Jean is thorough, professional, gentle yet strong. Have been seeing for over 20 years and will continue to do so.",
         author: "Karen Lam",
+        rank: {"all": 2, "nervous": 1, "longtime": 1},
+        highlights: {"nervous": ["gentle yet strong"], "longtime": ["over 20 years"]},
+        tags: ["nervous", "longtime"],
         rating: 5,
         avatar: "/images/reviews/karen_lam.png"
     },
@@ -150,6 +167,9 @@ const reviewsList = [
             </>
         ),
         author: "Lydia Ng",
+        rank: {"all": 1, "family": 1},
+        highlights: {"family": ["my family", "2 young kids"]},
+        tags: ["family"],
         rating: 5,
         avatar: "/images/reviews/lydia_ng.jpg",
         type: "Verified Google Review"
@@ -169,6 +189,9 @@ const reviewsList = [
             </>
         ),
         author: "Sze Yoong",
+        rank: {"all": 2, "family": 1},
+        highlights: {"family": ["Family visit"]},
+        tags: ["family"],
         rating: 5,
         type: "Verified Google Review"
     },
@@ -182,6 +205,9 @@ const reviewsList = [
             </>
         ),
         author: "Sook Yeen Lee",
+        rank: {"all": 2, "family": 1},
+        highlights: {"family": ["myself and my family"]},
+        tags: ["family"],
         rating: 5,
         type: "Verified Google Review"
     },
@@ -198,6 +224,9 @@ const reviewsList = [
             </>
         ),
         author: "Tan Bee Wah",
+        rank: {"all": 2, "family": 1, "longtime": 2, "treatment": 1},
+        highlights: {"family": ["me and my kids"], "longtime": ["for many years"], "treatment": ["periodontal disease"]},
+        tags: ["family", "longtime", "treatment"],
         rating: 5,
         type: "Verified Google Review"
     },
@@ -215,6 +244,9 @@ const reviewsList = [
             </>
         ),
         author: "Christina Phang",
+        rank: {"all": 1, "family": 2, "nervous": 1, "longtime": 1},
+        highlights: {"family": ["family dentist"], "nervous": ["most amazing and gentle dentist"], "longtime": ["more than 10 years"]},
+        tags: ["family", "nervous", "longtime"],
         rating: 5,
         avatar: "/images/reviews/christina_phang.jpg",
         type: "Verified Google Review"
@@ -222,6 +254,8 @@ const reviewsList = [
     {
         text: "Appreciate reminder of appointments, nice and clean and bright reception area and of course excellent dental services.",
         author: "Wee Min Lee",
+        rank: {"all": 3},
+        tags: [],
         rating: 5,
         avatar: "/images/reviews/wee_min_lee.png"
     },
@@ -238,6 +272,9 @@ const reviewsList = [
             </>
         ),
         author: "Dashaene Mahalingam",
+        rank: {"all": 2, "family": 2, "treatment": 2},
+        highlights: {"family": ["My family"], "treatment": ["multiple dental treatments"]},
+        tags: ["family", "treatment"],
         rating: 5,
         type: "Verified Google Review"
     },
@@ -254,6 +291,9 @@ const reviewsList = [
             </>
         ),
         author: "Fong Lim",
+        rank: {"all": 2, "family": 1, "longtime": 1},
+        highlights: {"family": ["Our family"], "longtime": ["many years"]},
+        tags: ["family", "longtime"],
         rating: 5,
         type: "Verified Google Review"
     },
@@ -266,6 +306,9 @@ const reviewsList = [
             </>
         ),
         author: "Gayatri Raja Mohan",
+        rank: {"all": 3, "family": 1},
+        highlights: {"family": ["good with children"]},
+        tags: ["family"],
         rating: 5,
         type: "Verified Google Review"
     },
@@ -290,6 +333,9 @@ const reviewsList = [
             </>
         ),
         author: "Max Loh",
+        rank: {"all": 1, "family": 3, "nervous": 2, "treatment": 1},
+        highlights: {"family": ["family-friendly environment"], "nervous": ["warm and caring", "smooth and pain-free"], "treatment": ["scaling", "teeth whitening", "brighter smile"]},
+        tags: ["family", "nervous", "treatment"],
         rating: 5,
         type: "Verified Google Review"
     },
@@ -311,15 +357,355 @@ const reviewsList = [
             </>
         ),
         author: "Anson Chow",
+        rank: {"all": 1, "longtime": 1, "treatment": 3},
+        highlights: {"longtime": ["nearly 20 years"], "treatment": ["helped my wife with her denture"]},
+        tags: ["longtime", "treatment"],
         rating: 5,
         type: "Verified Google Review"
     }
 ];
 
+// Tabs are derived from the reviews above, not hand-picked: a group only
+// becomes a tab when at least MIN_PER_TAB reviews carry its tag, so a thin
+// group never shows an almost-empty tab. "All" is always first.
+const MIN_PER_TAB = 3;
+const GROUP_DEFS = [
+    { id: 'family', label: 'Families & kids' },
+    { id: 'nervous', label: 'Nervous patients' },
+    { id: 'longtime', label: 'Long-time patients' },
+    { id: 'treatment', label: 'Treatments' },
+];
+
+const GROUPS = [
+    { id: 'all', label: 'All', reviews: reviewsList },
+    ...GROUP_DEFS
+        .map((g) => ({ ...g, reviews: reviewsList.filter((r) => r.tags.includes(g.id)) }))
+        .filter((g) => g.reviews.length >= MIN_PER_TAB),
+];
+
+// Rank per tag lives on each review (`rank`): 1 = clearly about the topic
+// with the phrase inside the visible six lines, 2 = clear but the phrase
+// sits later or is less central, 3 = weak or the phrase is clipped. The
+// front of the rail is FRONT_SIZE cards picked by rotating through the
+// rank 1 and 2 pool, so the first cards change from day to day; rank 3
+// never rotates to the front.
+const FRONT_SIZE = 4;
+const FRONT_POOL_MAX_RANK = 2;
+const rankOf = (r, tag) => r.rank?.[tag] ?? 3;
+
+// One seed per calendar day (Malaysia time), fixed for the whole visit.
+const daySeed = () => {
+    const d = new Date(Date.now() + 8 * 60 * 60 * 1000);
+    return Math.floor(d.getTime() / 86400000);
+};
+
+const orderForTag = (reviews, tag, seed) => {
+    const byRank = [...reviews].sort((a, b) => rankOf(a, tag) - rankOf(b, tag));
+    // Rotate among rank 1 alone when there are enough of them; otherwise
+    // widen the pool to rank 2 so the front still fills.
+    const top = byRank.filter((r) => rankOf(r, tag) === 1);
+    const pool = top.length >= FRONT_SIZE ? top : byRank.filter((r) => rankOf(r, tag) <= FRONT_POOL_MAX_RANK);
+    const tail = byRank.filter((r) => !pool.includes(r));
+    if (!pool.length) return byRank;
+    const offset = seed % pool.length;
+    const rotated = pool.slice(offset).concat(pool.slice(0, offset));
+    const front = rotated.slice(0, FRONT_SIZE);
+    const rest = pool.filter((r) => !front.includes(r));
+    return [...front, ...rest, ...tail];
+};
+
+// Flatten a review's JSX (fragments, <p>, <strong>, strings) into its plain
+// paragraphs. The words are the review's own, untouched; only the emphasis
+// changes per tab.
+const toParagraphs = (node) => {
+    if (typeof node === 'string') return [node];
+    const out = [];
+    let current = '';
+    const walkInline = (n) => {
+        if (n == null || typeof n === 'boolean') return;
+        if (typeof n === 'string' || typeof n === 'number') { current += String(n); return; }
+        if (Array.isArray(n)) { n.forEach(walkInline); return; }
+        walkInline(n.props?.children);
+    };
+    const walk = (n) => {
+        if (n == null || typeof n === 'boolean') return;
+        if (Array.isArray(n)) { n.forEach(walk); return; }
+        if (typeof n === 'string' || typeof n === 'number') { current += String(n); return; }
+        if (n.type === 'p') {
+            if (current.trim()) out.push(current);
+            current = '';
+            walkInline(n.props.children);
+            out.push(current);
+            current = '';
+            return;
+        }
+        walk(n.props?.children);
+    };
+    walk(node);
+    if (current.trim()) out.push(current);
+    return out;
+};
+
+// Wrap every occurrence of the tab's phrases in <strong>; longest phrase first
+// so a short phrase never splits a longer one.
+const highlightText = (text, phrases) => {
+    if (!phrases.length) return text;
+    const sorted = [...phrases].sort((a, b) => b.length - a.length);
+    const parts = [];
+    let rest = text;
+    let k = 0;
+    while (rest.length) {
+        let best = null;
+        for (const ph of sorted) {
+            const i = rest.indexOf(ph);
+            if (i !== -1 && (best === null || i < best.i)) best = { i, ph };
+        }
+        if (!best) { parts.push(rest); break; }
+        if (best.i > 0) parts.push(rest.slice(0, best.i));
+        parts.push(<strong key={k++}>{best.ph}</strong>);
+        rest = rest.slice(best.i + best.ph.length);
+    }
+    return parts;
+};
+
+// On "All" the review's own general emphasis shows; on a category tab only
+// the phrases about that category are bold.
+const ReviewText = ({ review, tag }) => {
+    if (tag === 'all') return review.text;
+    const phrases = review.highlights?.[tag] || [];
+    const paragraphs = toParagraphs(review.text);
+    return paragraphs.map((p, i) => <p key={i}>{highlightText(p, phrases)}</p>);
+};
+
+const Stars = ({ n, size = 16 }) => (
+    <div className="rv-stars" aria-label={`${n} out of 5 stars`}>
+        {[...Array(n)].map((_, i) => <Star key={i} size={size} fill="#E0A500" color="#E0A500" aria-hidden="true" />)}
+    </div>
+);
+
+const Author = ({ review, size = 40 }) => (
+    <div className="rv-author">
+        {review.avatar ? (
+            <img src={review.avatar} alt="" loading="lazy" width={size} height={size} className="rv-avatar" style={{ width: size, height: size }} />
+        ) : (
+            <InitialsAvatar name={review.author} size={size} />
+        )}
+        <div className="rv-author-text">
+            <strong>{review.author}</strong>
+            <span className="rv-type"><GoogleG /> Verified Google review</span>
+        </div>
+    </div>
+);
+
+// Full review in the site's modal pattern (BookingModal): fixed overlay,
+// centred card, spring with no bounce, Escape / X / backdrop close, body
+// pinned behind. Rendered through a portal so no ancestor filter traps it.
+const ReviewModal = ({ review, tag, onClose }) => {
+    const prefersReducedMotion = useReducedMotion();
+    const closeRef = useRef(null);
+    const open = !!review;
+    const { setDialogOpen } = useBooking();
+
+    // Tell the CTA prompt a dialog is up so it never stacks on top of this one.
+    useEffect(() => {
+        setDialogOpen(open);
+        return () => setDialogOpen(false);
+    }, [open, setDialogOpen]);
+
+    useEffect(() => {
+        if (!open) return;
+        const onKeyDown = (e) => { if (e.key === 'Escape') onClose(); };
+        document.addEventListener('keydown', onKeyDown);
+        const body = document.body;
+        const root = document.documentElement;
+        const scrollY = window.scrollY;
+        const prev = { rootOverflow: root.style.overflow, bodyOverflow: body.style.overflow, position: body.style.position, top: body.style.top, left: body.style.left, right: body.style.right, width: body.style.width };
+        root.style.overflow = 'hidden';
+        body.style.overflow = 'hidden';
+        body.style.position = 'fixed';
+        body.style.top = `-${scrollY}px`;
+        body.style.left = '0';
+        body.style.right = '0';
+        body.style.width = '100%';
+        closeRef.current?.focus();
+        return () => {
+            document.removeEventListener('keydown', onKeyDown);
+            root.style.overflow = prev.rootOverflow;
+            body.style.overflow = prev.bodyOverflow;
+            body.style.position = prev.position;
+            body.style.top = prev.top;
+            body.style.left = prev.left;
+            body.style.right = prev.right;
+            body.style.width = prev.width;
+            root.style.scrollBehavior = 'auto';
+            window.scrollTo(0, scrollY);
+            root.style.scrollBehavior = '';
+        };
+    }, [open, onClose]);
+
+    if (typeof document === 'undefined') return null;
+
+    const cardMotion = prefersReducedMotion
+        ? { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 }, transition: { duration: 0.15 } }
+        : { initial: { opacity: 0, y: 40 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0, y: 40 }, transition: { type: 'spring', bounce: 0, duration: 0.35 } };
+
+    return createPortal(
+        <AnimatePresence>
+            {open && (
+                <motion.div
+                    className="rvm-overlay"
+                    data-lenis-prevent
+                    onClick={onClose}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                >
+                    <motion.div
+                        className="rvm-content"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label={`Review by ${review.author}`}
+                        onClick={(e) => e.stopPropagation()}
+                        {...cardMotion}
+                    >
+                        <button ref={closeRef} type="button" className="rvm-close" onClick={onClose} aria-label="Close review">
+                            <X size={22} aria-hidden="true" />
+                        </button>
+                        <Stars n={review.rating} size={18} />
+                        <blockquote className="rvm-text"><ReviewText review={review} tag={tag} /></blockquote>
+                        <Author review={review} size={44} />
+                    </motion.div>
+                    <Style>{`
+                        .rvm-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.4); backdrop-filter: blur(8px); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 16px; overscroll-behavior: contain; }
+                        .rvm-content { position: relative; width: 100%; max-width: 560px; max-height: calc(100vh - 32px); max-height: calc(100dvh - 32px); overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; background: #fff; padding: 28px 32px 28px; border: 1px solid var(--hairline); border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,.15); }
+                        .rvm-close { position: absolute; top: 10px; right: 10px; width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; background: none; border: none; border-radius: 50%; color: var(--color-text-grey); cursor: pointer; transition: color 180ms var(--ease-slow), background 180ms var(--ease-slow); }
+                        .rvm-close:hover { color: var(--color-primary-deep); background: rgba(0,0,0,.05); }
+                        .rvm-close:active { transform: scale(.97); }
+                        .rvm-close:focus-visible { outline: 2px solid var(--color-primary-teal); outline-offset: 2px; }
+                        .rvm-content .rv-stars { display: flex; gap: 4px; margin: 4px 0 18px; }
+                        .rvm-text { margin: 0 0 22px; font-size: 1.05rem; line-height: 1.6; color: var(--color-text-charcoal); }
+                        .rvm-text p { margin: 0 0 12px; }
+                        .rvm-text p:last-child { margin-bottom: 0; }
+                        .rvm-text strong { font-weight: 600; color: var(--color-primary-deep); }
+                        .rvm-content .rv-author { display: flex; align-items: center; gap: 12px; }
+                        .rvm-content .rv-avatar { border-radius: 50%; object-fit: cover; flex: none; }
+                        .rvm-content .rv-author-text { display: flex; flex-direction: column; }
+                        .rvm-content .rv-author-text strong { color: var(--color-text-charcoal); font-family: var(--font-heading); font-size: .96rem; }
+                        .rvm-content .rv-type { display: inline-flex; align-items: center; gap: 5px; margin-top: 2px; color: var(--color-text-grey); font-size: .78rem; }
+                        @media (max-width: 640px) { .rvm-overlay { padding: 12px; } .rvm-content { padding: 22px 18px 22px; border-radius: 22px; } }
+                    `}</Style>
+                </motion.div>
+            )}
+        </AnimatePresence>,
+        document.body
+    );
+};
+
+// One equal-height card. The quote clamps to CLAMP_LINES; "Read more" appears
+// only when the text really overflows (measured, not guessed).
+const ReviewCard = ({ review, tag, onOpen }) => {
+    const textRef = useRef(null);
+    const [clipped, setClipped] = useState(false);
+    useLayoutEffect(() => {
+        const el = textRef.current;
+        if (!el) return;
+        const check = () => setClipped(el.scrollHeight > el.clientHeight + 1);
+        check();
+        const ro = new ResizeObserver(check);
+        ro.observe(el);
+        return () => ro.disconnect();
+    }, [tag]);
+    return (
+        <article className="rv-card">
+            <Stars n={review.rating} />
+            <blockquote ref={textRef} className="rv-card-text"><ReviewText review={review} tag={tag} /></blockquote>
+            <div className="rv-card-more">
+                {clipped && (
+                    <button type="button" className="rv-more" onClick={() => onOpen(review)} aria-label={`Read the full review by ${review.author}`}>
+                        Read more
+                    </button>
+                )}
+            </div>
+            <Author review={review} />
+        </article>
+    );
+};
+
 const Reviews = () => {
     // Meta comes from src/data/corePagesSeo.js, the same source the build
     // uses to prerender this page — so the two cannot drift.
     const seo = CORE_PAGES.find(p => p.path === 'reviews');
+    const uid = useId();
+    const prefersReducedMotion = useReducedMotion();
+
+    const [groupId, setGroupId] = useState(GROUPS[0].id);
+    const [openReview, setOpenReview] = useState(null);
+    const closeReview = useCallback(() => setOpenReview(null), []);
+
+    const [seed] = useState(daySeed);
+    const group = useMemo(() => {
+        const g = GROUPS.find((x) => x.id === groupId) || GROUPS[0];
+        return { ...g, reviews: orderForTag(g.reviews, g.id, seed) };
+    }, [groupId, seed]);
+    const total = group.reviews.length;
+
+    // Rail position -> "first–last of total", read from the real scroll offset.
+    const railRef = useRef(null);
+    const [range, setRange] = useState({ first: 1, last: 1 });
+    const measure = useCallback(() => {
+        const rail = railRef.current;
+        if (!rail) return;
+        const cards = rail.querySelectorAll('.rv-card');
+        if (!cards.length) return;
+        const step = cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : cards[0].offsetWidth;
+        const first = Math.min(cards.length - 1, Math.max(0, Math.round(rail.scrollLeft / step)));
+        const perView = Math.max(1, Math.floor((rail.clientWidth + (step - cards[0].offsetWidth)) / step));
+        const last = Math.min(cards.length, first + perView);
+        setRange((r) => (r.first === first + 1 && r.last === last) ? r : { first: first + 1, last });
+    }, []);
+
+    useEffect(() => {
+        const rail = railRef.current;
+        if (!rail) return;
+        let raf = 0;
+        const onScroll = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(measure); };
+        rail.addEventListener('scroll', onScroll, { passive: true });
+        const ro = new ResizeObserver(measure);
+        ro.observe(rail);
+        measure();
+        return () => { rail.removeEventListener('scroll', onScroll); ro.disconnect(); cancelAnimationFrame(raf); };
+    }, [measure, groupId]);
+
+    const pickGroup = (id) => {
+        if (id === groupId) return;
+        setGroupId(id);
+        const rail = railRef.current;
+        if (rail) rail.scrollTo({ left: 0, behavior: 'auto' });
+    };
+
+    const scrollByCards = (dirStep) => {
+        const rail = railRef.current;
+        if (!rail) return;
+        const cards = rail.querySelectorAll('.rv-card');
+        const step = cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : rail.clientWidth;
+        const perView = Math.max(1, Math.round(rail.clientWidth / step));
+        rail.scrollBy({ left: dirStep * step * perView, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    };
+
+    // Left/right arrow keys move between tabs when the tablist has focus.
+    const tabRefs = useRef([]);
+    const onTabKey = (e, i) => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        e.preventDefault();
+        const next = (i + (e.key === 'ArrowRight' ? 1 : -1) + GROUPS.length) % GROUPS.length;
+        pickGroup(GROUPS[next].id);
+        tabRefs.current[next]?.focus();
+    };
+
+    const atStart = range.first <= 1;
+    const atEnd = range.last >= total;
+
     return (
         <div className="reviews-page">
             <Helmet>
@@ -329,8 +715,6 @@ const Reviews = () => {
             </Helmet>
             <div className="reviews-hero-gradient">
                 <div className="container">
-                    <Reveal width="100%">
-                    </Reveal>
                     <Reveal width="100%">
                         <h1 className="reviews-hero-title">
                             Stories from <em>our community</em>
@@ -358,38 +742,71 @@ const Reviews = () => {
             </div>
 
             <div className="container reviews-content">
-                <div className="reviews-grid">
-                    {reviewsList.map((review, index) => (
-                        <FadeIn key={index} className="review-card-large">
-                            <div className="stars">
-                                {[...Array(review.rating)].map((_, i) => <Star key={i} size={16} fill="#E0A500" color="#E0A500" />)}
-                            </div>
-                            <div className="review-body">{review.text}</div>
-                            <div className="review-footer">
-                                {review.avatar ? (
-                                    <img src={review.avatar} alt={review.author} loading="lazy" width="36" height="36" className="review-avatar" />
-                                ) : (
-                                    <InitialsAvatar name={review.author} size={36} />
-                                )}
-                                <div className="proof-author">
-                                    <strong>{review.author}</strong>
-                                    <span className="review-type"><GoogleG /> Verified Google review</span>
-                                </div>
-                            </div>
-                        </FadeIn>
-                    ))}
+                <div className="rv-tabs-wrap">
+                    <div className="rv-tabs" role="tablist" aria-label="Reviews by topic">
+                        {GROUPS.map((g, i) => {
+                            const active = g.id === groupId;
+                            return (
+                                <button
+                                    key={g.id}
+                                    ref={(el) => { tabRefs.current[i] = el; }}
+                                    type="button"
+                                    role="tab"
+                                    id={`${uid}-tab-${g.id}`}
+                                    aria-selected={active}
+                                    aria-controls={`${uid}-panel`}
+                                    tabIndex={active ? 0 : -1}
+                                    className={`rv-tab${active ? ' is-active' : ''}`}
+                                    onClick={() => pickGroup(g.id)}
+                                    onKeyDown={(e) => onTabKey(e, i)}
+                                >
+                                    {g.label}
+                                </button>
+                            );
+                        })}
+                    </div>
+                </div>
+
+                <div className="rv-panel" role="tabpanel" id={`${uid}-panel`} aria-labelledby={`${uid}-tab-${groupId}`}>
+                    <div className="rv-summary">
+                        <p className="rv-summary-rating">
+                            <Stars n={5} size={14} />
+                            <span><strong>{reviewStats.rating}</strong> on Google · {reviewStats.count} reviews</span>
+                        </p>
+                        <div className="rv-summary-nav">
+                            <p className="rv-range" aria-live="polite">
+                                <span className="rv-range-now">{range.first}{range.last > range.first ? `–${range.last}` : ''}</span> of {total}
+                            </p>
+                            <button type="button" className="rv-arrow" onClick={() => scrollByCards(-1)} aria-label="Previous reviews" disabled={atStart}>
+                                <ChevronLeft size={22} strokeWidth={1.75} aria-hidden="true" />
+                            </button>
+                            <button type="button" className="rv-arrow" onClick={() => scrollByCards(1)} aria-label="Next reviews" disabled={atEnd}>
+                                <ChevronRight size={22} strokeWidth={1.75} aria-hidden="true" />
+                            </button>
+                        </div>
+                    </div>
+
+                    <div className="rv-rail-wrap">
+                        <div ref={railRef} className="rv-rail" key={groupId} data-tag={groupId}>
+                            {group.reviews.map((review) => (
+                                <ReviewCard key={review.author} review={review} tag={groupId} onOpen={setOpenReview} />
+                            ))}
+                        </div>
+                    </div>
                 </div>
 
                 <div className="reviews-closing">
-                    <Reveal width="100%"><span className="eyebrow">Your voice matters</span></Reveal>
                     <Reveal width="100%"><h2 className="statement">Have a <em>story</em> to share?</h2></Reveal>
                     <a href="https://g.page/r/CQU1Takv7hs4EAE/review" target="_blank" rel="noopener noreferrer"><Button>Share Your Experience</Button></a>
                 </div>
             </div>
 
+            <ReviewModal review={openReview} tag={groupId} onClose={closeReview} />
+
             <Style>{`
                 /* no opaque page background — the shared hero tint (index.css) shows through */
-                .reviews-page .reviews-hero-gradient { padding: 160px 0 72px; text-align: center; }
+                .reviews-page { --rv-card-h: 352px; --rv-gap: 16px; }
+                .reviews-page .reviews-hero-gradient { padding: 160px 0 56px; text-align: center; }
                 .reviews-page .reviews-hero-title { max-width: 780px; margin: 0 auto 20px; font-size: clamp(2.4rem, 1.6rem + 3.4vw, 4rem); font-weight: 700; line-height: 1.05; letter-spacing: -.03em; text-wrap: balance; }
                 .reviews-page .reviews-hero-subtitle { max-width: 640px; margin: 0 auto; color: var(--color-text-slate); font-size: var(--fs-lead); line-height: 1.6; }
                 .reviews-page .reviews-stats { display: inline-flex; align-items: center; gap: 14px; margin-top: 40px; color: var(--color-text-slate); font-size: .92rem; }
@@ -397,36 +814,106 @@ const Reviews = () => {
                 .reviews-page .reviews-trust-item, .reviews-page .reviews-trust-stars { display: flex; align-items: center; gap: 8px; }
                 .reviews-page .reviews-trust-stars { gap: 2px; }
                 .reviews-page .reviews-trust-item strong { color: var(--color-text-charcoal); }
-                .reviews-page .reviews-content { padding-top: 32px; }
-                /* Each review is one soft tinted block — the same language as
-                   the homepage mosaic's quote tiles — so the words and the
-                   reviewer read as a single group instead of table rows
-                   (owner, 8 Sep 2026: the hairline grid looked "tably"). */
-                .reviews-page .reviews-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
-                .reviews-page .review-card-large {
-                    display: flex; flex-direction: column;
-                    padding: 30px 32px;
-                    background: var(--color-tint-faint);
-                    border-radius: 22px;
-                    box-shadow: 0 1px 3px rgba(16, 42, 51, 0.05), 0 6px 18px rgba(16, 42, 51, 0.05);
+                .reviews-page .reviews-content { padding-top: 8px; }
+
+                /* Tabs: a pill rail. Centred when it fits, edge-bleed scroll on phones. */
+                .reviews-page .rv-tabs-wrap { overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; margin: 0 -20px; padding: 4px 20px; }
+                .reviews-page .rv-tabs-wrap::-webkit-scrollbar { display: none; }
+                .reviews-page .rv-tabs { display: flex; gap: 8px; width: max-content; max-width: 100%; margin: 0 auto; }
+                .reviews-page .rv-tab {
+                    display: inline-flex; align-items: center; gap: 8px; flex: none;
+                    min-height: 44px; padding: 10px 18px; border-radius: 50px;
+                    border: 1px solid var(--hairline-strong); background: transparent;
+                    font-family: var(--font-heading); font-weight: 600; font-size: .92rem; white-space: nowrap;
+                    color: var(--color-text-slate); cursor: pointer;
+                    transition: background 180ms var(--ease-slow), color 180ms var(--ease-slow), border-color 180ms var(--ease-slow), transform 100ms ease-out;
                 }
-                .reviews-page .review-card-large:nth-child(4n+2),
-                .reviews-page .review-card-large:nth-child(4n+3) { background: #EBF4FA; }
-                .reviews-page .stars { display: flex; gap: 4px; margin-bottom: 18px; }
-                .reviews-page .review-body { flex: 1; margin-bottom: 22px; color: var(--color-text-slate); font-size: .96rem; line-height: 1.65; }
-                .reviews-page .review-body strong { color: var(--color-text-charcoal); font-weight: 600; }
-                .reviews-page .review-body p { margin: 0 0 12px; }
-                .reviews-page .review-body p:last-child { margin-bottom: 0; }
-                .reviews-page .review-footer { display: flex !important; flex-direction: row !important; align-items: center; gap: 12px; margin-top: auto; }
-                .reviews-page .review-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex: none; }
-                .reviews-page .proof-author { display: flex; flex-direction: column; }
-                .reviews-page .review-footer strong { color: var(--color-text-charcoal); font-family: var(--font-heading); font-size: .94rem; }
-                .reviews-page .review-type { display: inline-flex; align-items: center; gap: 5px; margin-top: 2px; color: var(--color-text-grey); font-size: .78rem; }
+                .reviews-page .rv-tab:hover { color: var(--color-primary-deep); border-color: var(--color-primary-teal); }
+                .reviews-page .rv-tab:active { transform: scale(.97); }
+                .reviews-page .rv-tab.is-active { background: var(--color-primary-deep); border-color: var(--color-primary-deep); color: #fff; }
+                .reviews-page .rv-tab:focus-visible, .reviews-page .rv-arrow:focus-visible, .reviews-page .rv-more:focus-visible { outline: 2px solid var(--color-primary-teal); outline-offset: 2px; }
+
+                /* Summary line: rating left, range + arrows right. Fixed height so it never shifts. */
+                .reviews-page .rv-summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 48px; margin: 32px 0 16px; }
+                .reviews-page .rv-summary-rating { display: flex; align-items: center; gap: 10px; margin: 0; color: var(--color-text-slate); font-size: .92rem; }
+                .reviews-page .rv-summary-rating strong { color: var(--color-text-charcoal); }
+                .reviews-page .rv-stars { display: flex; gap: 3px; }
+                .reviews-page .rv-summary-nav { display: flex; align-items: center; gap: 8px; }
+                .reviews-page .rv-range { margin: 0 8px 0 0; font-family: var(--font-heading); font-size: .82rem; letter-spacing: .04em; color: var(--color-text-grey); white-space: nowrap; }
+                .reviews-page .rv-range-now { color: var(--color-text-charcoal); font-weight: 600; }
+                .reviews-page .rv-arrow {
+                    display: inline-flex; align-items: center; justify-content: center;
+                    width: 48px; height: 48px; border-radius: 50%;
+                    border: 1px solid var(--hairline-strong); background: var(--color-bg-white); color: var(--color-text-charcoal);
+                    cursor: pointer;
+                    transition: color 180ms var(--ease-slow), border-color 180ms var(--ease-slow), opacity 180ms var(--ease-slow), transform 100ms ease-out;
+                }
+                .reviews-page .rv-arrow:hover:not(:disabled) { color: var(--color-primary-deep); border-color: var(--color-primary-teal); }
+                .reviews-page .rv-arrow:active:not(:disabled) { transform: scale(.97); }
+                .reviews-page .rv-arrow:disabled { opacity: .35; cursor: default; }
+
+                /* The rail: equal-height white cards, ~3 up with the next one peeking. */
+                .reviews-page .rv-rail-wrap { margin: 0 -20px; }
+                .reviews-page .rv-rail { display: flex; gap: var(--rv-gap); height: var(--rv-card-h); padding: 0 20px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-padding-left: 20px; scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+                .reviews-page .rv-rail::-webkit-scrollbar { display: none; }
+                .reviews-page .rv-card {
+                    flex: 0 0 calc((100% - 2 * var(--rv-gap)) / 3.25); scroll-snap-align: start;
+                    display: flex; flex-direction: column; height: var(--rv-card-h); box-sizing: border-box;
+                    padding: 24px; background: var(--color-bg-white); border: 1px solid var(--hairline); border-radius: 22px;
+                }
+                .reviews-page .rv-card .rv-stars { margin-bottom: 14px; }
+                .reviews-page .rv-card-text { margin: 0; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 6; overflow: hidden; color: var(--color-text-slate); font-size: .96rem; line-height: 1.6; }
+                .reviews-page .rv-card-text p { margin: 0 0 10px; }
+                .reviews-page .rv-card-text p:last-child { margin-bottom: 0; }
+                .reviews-page .rv-card-text strong { color: var(--color-text-charcoal); font-weight: 600; }
+                .reviews-page .rv-rail[data-tag]:not([data-tag="all"]) .rv-card-text strong { color: var(--color-primary-deep); font-weight: 700; }
+                /* One light sweep across the accent phrases when the rail mounts
+                   (first view and every tab change), ~700ms, then solid colour.
+                   The rail is keyed by tab so the mount animation runs once per
+                   selection and never loops. */
+                .reviews-page .rv-rail .rv-card-text strong {
+                    --rv-accent: var(--color-text-charcoal); --rv-glint: #6B7C86;
+                    background-image: linear-gradient(100deg, var(--rv-accent) 0 35%, var(--rv-glint) 50%, var(--rv-accent) 65% 100%);
+                    background-size: 300% 100%; background-position: 100% 0;
+                    -webkit-background-clip: text; background-clip: text; color: transparent;
+                    animation: rv-shimmer 700ms var(--ease-slow) 1 both;
+                }
+                .reviews-page .rv-rail[data-tag]:not([data-tag="all"]) .rv-card-text strong { --rv-accent: var(--color-primary-deep); --rv-glint: #5FC2DE; }
+                @keyframes rv-shimmer { from { background-position: 0% 0; } to { background-position: 100% 0; } }
+                @media (prefers-reduced-motion: reduce) {
+                    .reviews-page .rv-rail .rv-card-text strong { animation: none; background-image: none; -webkit-background-clip: initial; background-clip: initial; color: var(--rv-accent); }
+                }
+                .reviews-page .rv-card-more { flex: 1; display: flex; align-items: flex-start; min-height: 44px; margin-top: 4px; }
+                .reviews-page .rv-more { min-height: 44px; padding: 0 2px; background: none; border: none; cursor: pointer; font-family: var(--font-heading); font-weight: 600; font-size: .9rem; color: var(--color-primary-deep); transition: color 180ms var(--ease-slow); }
+                .reviews-page .rv-more:hover { color: var(--color-primary-teal); }
+                .reviews-page .rv-more:active { transform: scale(.97); }
+                .reviews-page .rv-author { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+                .reviews-page .rv-avatar { border-radius: 50%; object-fit: cover; flex: none; }
+                .reviews-page .rv-author-text { display: flex; flex-direction: column; min-width: 0; }
+                .reviews-page .rv-author-text strong { color: var(--color-text-charcoal); font-family: var(--font-heading); font-size: .94rem; }
+                .reviews-page .rv-type { display: inline-flex; align-items: center; gap: 5px; margin-top: 2px; color: var(--color-text-grey); font-size: .78rem; }
+
                 .reviews-page .reviews-closing { padding: var(--space-section-lg) 0 80px; text-align: center; }
-                .reviews-page .reviews-closing .eyebrow { margin-bottom: 14px; }
                 .reviews-page .reviews-closing .statement { max-width: 680px; margin: 0 auto 30px; }
                 .reviews-page .reviews-closing a { display: inline-block; }
-                @media (max-width: 760px) { .reviews-page .reviews-hero-gradient { padding: 118px 0 52px; } .reviews-page .reviews-grid { grid-template-columns: 1fr; gap: 16px; } .reviews-page .review-card-large { padding: 24px 22px; border-radius: 18px; } .reviews-page .reviews-trust-rule { width: 24px; } }
+
+                @media (max-width: 1024px) {
+                    .reviews-page .rv-rail-wrap, .reviews-page .rv-tabs-wrap { margin-left: -16px; margin-right: -16px; }
+                    .reviews-page .rv-rail { padding: 0 16px; scroll-padding-left: 16px; }
+                    .reviews-page .rv-tabs-wrap { padding: 4px 16px; }
+                    .reviews-page .rv-card { flex-basis: calc((100% - var(--rv-gap)) / 2.15); }
+                }
+                @media (max-width: 760px) {
+                    .reviews-page { --rv-card-h: 372px; }
+                    .reviews-page .reviews-hero-gradient { padding: 118px 0 40px; }
+                    .reviews-page .reviews-trust-rule { width: 24px; }
+                    .reviews-page .rv-tabs { margin: 0; }
+                    /* Phones: one card with the next peeking; swipe instead of arrows. */
+                    .reviews-page .rv-summary { margin: 24px 0 14px; }
+                    .reviews-page .rv-arrow { display: none; }
+                    .reviews-page .rv-range { margin-right: 0; }
+                    .reviews-page .rv-card { flex-basis: calc(100% - 36px); padding: 22px 20px; border-radius: 18px; }
+                }
             `}</Style>
         </div>
     );
