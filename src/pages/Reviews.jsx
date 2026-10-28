@@ -9,6 +9,7 @@ import Style from '../components/Style';
 import reviewStats from '../data/review-stats.json';
 import { CORE_PAGES } from '../data/corePagesSeo';
 import { fillStats } from '../data/serviceSeo';
+import { useBooking } from '../context/BookingContext';
 
 const GoogleG = () => (
     <svg width="13" height="13" viewBox="0 0 48 48" aria-hidden="true" style={{ flexShrink: 0 }}>
@@ -379,6 +380,13 @@ const ReviewModal = ({ review, onClose }) => {
     const prefersReducedMotion = useReducedMotion();
     const closeRef = useRef(null);
     const open = !!review;
+    const { setDialogOpen } = useBooking();
+
+    // Tell the CTA prompt a dialog is up so it never stacks on top of this one.
+    useEffect(() => {
+        setDialogOpen(open);
+        return () => setDialogOpen(false);
+    }, [open, setDialogOpen]);
 
     useEffect(() => {
         if (!open) return;
