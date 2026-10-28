@@ -121,7 +121,7 @@ const reviewsList = [
             </>
         ),
         author: "Benny Kong",
-        highlights: {"nervous": ["gentle and thorough care"]},
+        highlights: {"nervous": ["listen to concerns", "gentle and thorough care"]},
         tags: ["nervous"],
         rating: 5,
         avatar: "/images/reviews/benny_kong.png"
@@ -319,7 +319,7 @@ const reviewsList = [
             </>
         ),
         author: "Max Loh",
-        highlights: {"family": ["family-friendly environment"], "nervous": ["smooth and pain-free"], "treatment": ["scaling", "teeth whitening", "brighter smile"]},
+        highlights: {"family": ["family-friendly environment"], "nervous": ["warm and caring", "smooth and pain-free"], "treatment": ["scaling", "teeth whitening", "brighter smile"]},
         tags: ["family", "nervous", "treatment"],
         rating: 5,
         type: "Verified Google Review"
