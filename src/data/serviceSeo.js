@@ -50,7 +50,7 @@ export const SERVICE_SPECIALTIES = [
     title: "Wisdom Tooth Removal in Petaling Jaya | iSmile",
     description: "Wisdom tooth surgery at iSmile Damansara Jaya, PJ — removal of impacted wisdom teeth by our clinic team. Open Mon–Sat. WhatsApp us to book.",
     canonical: "https://ismile.com.my/services/protect/wisdom-tooth",
-    h1: "Wisdom Tooth Surgery Petaling Jaya | iSmile Dental Clinic",
+    h1: "Wisdom Tooth Surgery in Petaling Jaya",
     lead: "Safe removal of impacted wisdom teeth in Petaling Jaya. Expert care for painful or problematic third molars. Book your consultation today.",
     faqs: [
       { q: "Why is surgery required instead of a normal extraction?", a: "Impacted wisdom teeth are trapped in the jawbone or gums, requiring surgical access. Unlike simple extractions, surgery involves careful tissue management and often sectioning the tooth for a minimally invasive removal." },
@@ -66,7 +66,7 @@ export const SERVICE_SPECIALTIES = [
     title: "Root Canal Treatment in Petaling Jaya | iSmile",
     description: "Root canal treatment at iSmile Damansara Jaya, PJ to save an infected tooth. Family practice, open Mon–Sat. WhatsApp us to book an assessment.",
     canonical: "https://ismile.com.my/services/protect/root-canal",
-    h1: "Root Canal Treatment Petaling Jaya | iSmile Dental Clinic",
+    h1: "Root Canal Treatment in Petaling Jaya",
     lead: "Root canal treatment in Petaling Jaya. Save infected teeth and relieve pain. Book your consultation today.",
     faqs: [
       { q: "Is root canal treatment painful?", a: "This is a common myth. With modern anesthesia and techniques, a root canal is typically no more uncomfortable than a routine filling. In fact, the procedure is designed to eliminate the pain caused by infection." },
@@ -82,7 +82,7 @@ export const SERVICE_SPECIALTIES = [
     title: "Clear Aligners in Petaling Jaya | iSmile Dental Clinic",
     description: "Invisalign & clear aligners at our Damansara Jaya clinic — discreet teeth straightening for adults & teens. Rated ${RATING}★ on Google. WhatsApp us to book.",
     canonical: "https://ismile.com.my/services/straighten/clear-aligners",
-    h1: "Clear Aligners Petaling Jaya | iSmile Dental Clinic",
+    h1: "Clear Aligners in Petaling Jaya",
     lead: "A modern orthodontic solution using a series of custom-made, transparent plastic trays to gradually shift teeth into alignment. Think of it as a sequence of almost-invisible molds, each tray slightly different from the last, with you moving to the next tray every 1 to 2 weeks. There are no brackets, no wires, and no food restrictions. We offer Invisalign, Angel Aligner, and ClearSmile systems.",
     faqs: [
       { q: "How many hours a day must I wear them?", a: "For clinical success, 20 to 22 hours per day is typically required. They should only be removed for eating, drinking (except water), and oral hygiene." },
@@ -98,7 +98,7 @@ export const SERVICE_SPECIALTIES = [
     title: "Dental Implants in Damansara Jaya, PJ | iSmile",
     description: "Replace missing teeth with titanium dental implants at iSmile Damansara Jaya, Petaling Jaya. Rated ${RATING}★ from ${COUNT} Google reviews. WhatsApp us to book.",
     canonical: "https://ismile.com.my/services/replace/dental-implants",
-    h1: "Dental Implants Petaling Jaya | iSmile Dental Clinic",
+    h1: "Dental Implants in Petaling Jaya",
     lead: "A dental implant is a titanium screw placed surgically into your jawbone, where it functions as an artificial tooth root. After a healing period called osseointegration, a crown is attached to give you a replacement tooth that looks, feels, and functions like a natural one.",
     faqs: [
       { q: "How long does the process take?", a: "The healing phase normally takes several months before the final crown is placed. Your dentist will give you a more specific estimate based on your individual case and bone quality." },
@@ -114,7 +114,7 @@ export const SERVICE_SPECIALTIES = [
     title: "Teeth Whitening in Petaling Jaya | iSmile Dental Clinic",
     description: "Professional teeth whitening at iSmile Damansara Jaya — in-clinic treatments & take-home trays. Rated ${RATING}★ from ${COUNT} Google reviews. WhatsApp us to book.",
     canonical: "https://ismile.com.my/services/enhance/teeth-whitening",
-    h1: "Teeth Whitening Petaling Jaya | iSmile Dental Clinic",
+    h1: "Teeth Whitening in Petaling Jaya",
     lead: "Professional teeth whitening in Petaling Jaya. Brighten your smile with our custom treatment. Book your consultation today.",
     faqs: [
       { q: "Why is Take-Home Whitening considered the 'Gold Standard'?", a: "Take-home whitening allows for a gradual, deeper oxidation process. By using custom-fitted trays over 10-14 days, the oxygen molecules penetrate deeper into the tooth structure, leading to more stable protocols and significantly less rebound (yellowing coming back) compared to single-session chair-side whitening." },
@@ -130,7 +130,7 @@ export const SERVICE_SPECIALTIES = [
     title: "Cosmetic Dentist in Petaling Jaya | iSmile Dental Clinic",
     description: "Veneers, smile design & full mouth rehabilitation at iSmile Damansara Jaya — a family clinic serving Petaling Jaya since 2006. WhatsApp us to book.",
     canonical: "https://ismile.com.my/services/enhance/cosmetic-dentistry",
-    h1: "Cosmetic Dentistry Petaling Jaya | iSmile Dental Clinic",
+    h1: "Cosmetic Dentistry in Petaling Jaya",
     lead: "Design your dream smile with aesthetic dental treatments tailored to your unique facial features. From veneers to full mouth rehabilitation, we combine art and science for results that look natural and function beautifully.",
     faqs: [
       { q: "What's the difference between composite and ceramic veneers?", a: "Composite veneers are directly bonded in a single visit and can be repaired easily. Ceramic veneers are lab-made from porcelain for superior aesthetics, durability, and stain resistance. Your dentist will recommend the best option based on your goals and tooth condition." },
@@ -146,7 +146,7 @@ export const SERVICE_SPECIALTIES = [
     title: "Myofunctional Orthodontics for Kids, PJ | iSmile",
     description: "Early orthodontic treatment for children in Damansara Jaya, Petaling Jaya — guiding jaw development & teeth alignment at a family clinic. WhatsApp us to book.",
     canonical: "https://ismile.com.my/services/children/myofunctional",
-    h1: "Myofunctional Orthodontics Petaling Jaya | iSmile Dental Clinic",
+    h1: "Myofunctional Orthodontics in Petaling Jaya",
     lead: "Myofunctional orthodontics addresses the root causes of jaw underdevelopment and crowding by correcting muscle patterns, breathing habits, and oral posture. At iSmile, we use removable functional braces worn mostly at night that gently guide jaw development and habit correction.",
     faqs: [
       { q: "What is myofunctional orthodontics and how does it work?", a: "Myofunctional orthodontics uses removable functional braces, typically worn at night, to address the root causes of jaw and teeth development issues. Instead of just moving teeth after they have already gone off course, this approach works on the muscle patterns, breathing habits, and oral posture that influence how the jaw develops. At iSmile Dental Clinic, each case starts with a thorough assessment covering medical history, developmental milestones, and an oral myofunctional evaluation." },
@@ -162,7 +162,7 @@ export const SERVICE_SPECIALTIES = [
     title: "Kids' Dentist in Petaling Jaya | iSmile Dental Clinic",
     description: "Gentle children's dentistry in Damansara Jaya — first visits, fissure sealants & fluoride treatment. Family practice since 2006. WhatsApp us to book.",
     canonical: "https://ismile.com.my/services/children/pediatric-dentistry",
-    h1: "Pediatric Dentistry Petaling Jaya | iSmile Dental Clinic",
+    h1: "Pediatric Dentistry in Petaling Jaya",
     lead: "Gentle, trauma-free dental care for children from their very first tooth onwards. We focus on prevention, education, and creating positive dental experiences that last a lifetime. Every pediatric check-up at iSmile also includes a basic myofunctional screening to assess breathing patterns and oral posture.",
     faqs: [
       { q: "When should my child have their first dental visit?", a: "We typically recommend around age 1, or within 6 months of the first tooth appearing, in line with the Malaysian Dental Association and the American Academy of Pediatric Dentistry. Early visits help your child become comfortable with the dental environment and allow us to monitor growth and development from the start." },
