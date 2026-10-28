@@ -25,7 +25,7 @@ const RootCanalTreatment = () => {
             eyebrow="Endodontics"
             title="Root Canal Treatment"
             titleAccent="Treatment"
-            subline="Petaling Jaya | iSmile Dental Clinic"
+            subline="Root Canal Treatment in Petaling Jaya"
             lead="Root canal treatment in Petaling Jaya. Save infected teeth and relieve pain. Book your consultation today."
             scienceTitle="The Science & Tech"
             scienceIntro="Successful endodontic therapy relies on advanced visualization and instrument flexibility. At iSmile, we use modern rotary technologies to ensure deep cleaning with minimal structural loss."
