@@ -1772,7 +1772,7 @@
     {
      "id": "g1",
      "dot": "next",
-     "chip": "Code Capsule says fixed \u00b7 setup Wed 28 Oct at the clinic",
+     "chip": "4 waves saved 28 Oct \u00b7 W1 676 checked \u00b7 W2\u20134 need Wk-phone check",
      "name": "Cold reactivation blast",
      "one": "Code Capsule reports the duplicate-record fix is done. Lists rebuilt 27 Oct; Lau sets up the campaigns at the clinic Wed 28 Oct.",
      "steps": [
@@ -3647,7 +3647,7 @@
   ]
  },
  "meta": {
-  "asof": "TUE 27 OCT 2026",
-  "updated": "2026-10-27T23:59:06+08:00"
+  "asof": "THU 29 OCT 2026",
+  "updated": "2026-10-29T00:09:31+08:00"
  }
 }
