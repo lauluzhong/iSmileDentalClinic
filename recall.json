@@ -1,58 +1,58 @@
 {
-  "as_of": "2026-10-30",
+  "as_of": "2026-10-31",
   "source": "redirect.ismile.com.my/admin/webhook/webhooklog",
   "note": "Funnel = event counts (per-message callbacks), not distinct patients. Conversion = matured-cohort recall->appointment rate (correlation, not proven causal lift); as-of the latest OpenDent export only.",
   "funnel_live": true,
-  "funnel_as_of": "2026-10-30",
+  "funnel_as_of": "2026-10-31",
   "cumulative": {
-    "total": 24696,
-    "sent": 8682,
-    "delivered": 10191,
-    "read": 3276,
-    "failed": 822,
-    "clicks": 261,
-    "replies": 1464
+    "total": 24835,
+    "sent": 8706,
+    "delivered": 10263,
+    "read": 3306,
+    "failed": 828,
+    "clicks": 262,
+    "replies": 1470
   },
   "this_month": {
-    "sent": 2796,
-    "clicks": 58,
-    "replies": 219
+    "sent": 2820,
+    "clicks": 59,
+    "replies": 225
   },
   "conversion": {
     "mature_days": 21,
     "attrib_window_days": 90,
-    "data_as_of": "2026-10-29",
-    "appt_export": "inbox/2026-10-29 e5+e6+backfill",
+    "data_as_of": "2026-10-30",
+    "appt_export": "inbox/2026-10-30 e5+e6+backfill",
     "appt_range": [
       "2024-08-12",
-      "2027-02-25"
+      "2027-02-26"
     ],
     "stale": false,
     "cohort_source": "blastlog (e10_blastlog.tsv)",
     "cohort_from": "2026-04-16",
-    "cohort_to": "2026-10-29",
+    "cohort_to": "2026-10-30",
     "cohort_age_days": 1,
     "cohort_static": false,
     "join": "external_patient_id -> PatNum (direct)",
     "available": true,
     "bridge": "external_patient_id (direct PatNum)",
-    "sent_total": 1728,
-    "matured_cohort": 1613,
-    "resolved_to_patient": 1612,
-    "resolved_via_patnum": 1612,
-    "booked_within_window": 259,
-    "booked_anytime": 420,
-    "conversion_pct": 16.1
+    "sent_total": 1731,
+    "matured_cohort": 1620,
+    "resolved_to_patient": 1619,
+    "resolved_via_patnum": 1619,
+    "booked_within_window": 255,
+    "booked_anytime": 421,
+    "conversion_pct": 15.8
   },
   "value": {
     "available": true,
-    "as_of": "2026-10-30",
+    "as_of": "2026-10-31",
     "bridge": "e8_patient_master.tsv (2026-10-25)",
     "sends": 767,
     "patients_in_cohort": 1139,
     "attrib_window_days": 90,
     "mature_days": 21,
-    "production_lines": 20935,
+    "production_lines": 20958,
     "month": "2026-10",
     "rule": "production by a recalled patient within 90 days after their first recall send, credited to the line's doctor; correlation, not proven lift",
     "all_time": {
