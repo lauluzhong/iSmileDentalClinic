@@ -1,23 +1,8 @@
 {
- "updated": "2026-10-29T00:09:31+08:00",
+ "updated": "2026-10-30T09:04:05+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Edith": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Code Capsule": {
-   "init": "CC",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lydia": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
@@ -27,8 +12,23 @@
    "role": "",
    "color": "#45C4FF"
   },
+  "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
   "Emily": {
    "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lydia": {
+   "init": "L",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   }
@@ -555,10 +555,10 @@
   {
    "id": "g1",
    "title": "Cold reactivation blast",
-   "status": "active",
+   "status": "review",
    "owner": "Lau",
-   "why": "Code Capsule reports the duplicate-record fix is done. Lists rebuilt 27 Oct; Lau sets up the campaigns at the clinic Wed 28 Oct.",
-   "next": "Rebuild and validate the Wave 1 audience; Lau to choose the final blast window.",
+   "why": "Wave 1 was sent 29 Oct after manual Tier F exclusion; patients marked N/A still need tiers before the remaining waves can be filtered cleanly.",
+   "next": "Code Capsule / Suraya assign tiers to N/A patients; Lau can then filter all tiers except F and send the remaining waves.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-10",
@@ -590,7 +590,9 @@
     "Campaign setup at the clinic: PatientID import worked, but duplicate-record patients leaked into Wave 1 (672). Not saved",
     "Code Capsule fixes duplicate-record exclusion + recipient-list download",
     "Re-upload and verify Wave 1 (\u2264718), then Waves 2\u20133 and the Restore file",
-    "Waves 1\u20133 send (3 days, W3 needs 2)"
+    "Wave 1 sent after manual Tier F exclusion",
+    "Assign tiers to N/A patients before filtering the remaining waves",
+    "Waves 2\u20133 send (W3 needs 2 days)"
    ],
    "pillar": "P3"
   },

@@ -1771,10 +1771,10 @@
    "streams": [
     {
      "id": "g1",
-     "dot": "next",
-     "chip": "4 waves saved 28 Oct \u00b7 W1 676 checked \u00b7 W2\u20134 need Wk-phone check",
+     "dot": "wait",
+     "chip": "W1 sent 29 Oct \u00b7 N/A tiers need fixing",
      "name": "Cold reactivation blast",
-     "one": "Code Capsule reports the duplicate-record fix is done. Lists rebuilt 27 Oct; Lau sets up the campaigns at the clinic Wed 28 Oct.",
+     "one": "Wave 1 was sent 29 Oct after manual Tier F exclusion; patients marked N/A still need tiers before the remaining waves can be filtered cleanly.",
      "steps": [
       {
        "t": "Send list + exclusions built (9,833 excluded w/ reasons)",
@@ -1903,34 +1903,37 @@
       },
       {
        "t": "Re-upload and verify Wave 1 (\u2264718), then Waves 2\u20133 and the Restore file",
-       "s": "next",
-       "w": "Wed 28 Oct"
+       "s": "done",
+       "w": "29 Oct"
       },
       {
-       "t": "Waves 1\u20133 send (3 days, W3 needs 2)",
+       "t": "Wave 1 sent after manual Tier F exclusion",
+       "s": "done",
+       "w": "29 Oct"
+      },
+      {
+       "t": "Assign tiers to N/A patients before filtering the remaining waves",
+       "s": "now",
+       "w": "Code Capsule / Suraya"
+      },
+      {
+       "t": "Waves 2\u20133 send (W3 needs 2 days)",
        "s": "",
-       "w": "after the fix"
+       "w": "after tier cleanup"
       }
      ],
      "open": [
-      "<b>Ready 27 Oct:</b> Refresh 2026-10-27 (patients 24 Oct, bookings + recalls 27 Oct). Recipients: W1 718 \u00b7 W2 999 \u00b7 W3 2,047. Upload checks: W1 file 18,571 rows, 0 unmatched; recipients \u2264718. Test Soh Kheng Tan is NOT in Wave 1 recipients before saving.",
-      "<b>\u26d4 On hold 13 Oct:</b> upload matched 18,479 by PatientID, but the Wave 1 recipients (672) included excluded patients. Cause: patients with duplicate records (extra copy marked Deceased in OpenDent, e.g. 131 live / 132 deceased). The import skips one as \"duplicate/exist\" (54 skipped) and the live record stays in the campaign. LZ raised it in the CC group 11:17; Edith sent a correction; Suraya checking (12:48).",
-      "<b>Ask to Code Capsule:</b> exclude every PatientID sent even when name and phone repeat; and allow downloading the campaign Recipients list before confirming so we can verify it.",
-      "<b>When fixed:</b> empty the Excluded list, re-upload Exclusion - Wave1 - name route.csv (18,533 rows, Refresh 2026-10-13), recipients should be ~740 or a little lower. Then Wave 2 and 3, then the Restore file.",
+      "<b>Wave 1 sent 29 Oct:</b> Suraya triggered the campaign after removing Tier E/F checking; Lau manually checked the 11 Tier F names. Patients marked N/A still have no tier, so a clean all-except-F filter is not yet possible.",
+      "<b>Next:</b> Code Capsule / Suraya to ensure every patient has a tier before the remaining waves are filtered and sent.",
       "<b>Price confirmed from Code Capsule's cost deck (21 Sep):</b> a marketing message is 860 points plus a 50-point platform fee = RM0.4095, or RM0.442 with SST. 4,201 messages = about RM1,858, paid by the clinic. RM0.387 is the WhatsApp charge alone, not the full price."
      ],
-     "flag": {
-      "k": "decide",
-      "who": "Lau",
-      "w": "Choose the final blast window after the rebuilt Wave 1 audience passes validation."
-     },
      "owner": "lu",
      "dept": "crm",
      "lens": "revenue",
      "from_initiatives": [
       28
      ],
-     "next": "Rebuild and validate the Wave 1 audience; Lau to choose the final blast window.",
+     "next": "Code Capsule / Suraya assign tiers to N/A patients; Lau can then filter all tiers except F and send the remaining waves.",
      "endMonth": "2026-10"
     },
     {
@@ -3647,7 +3650,7 @@
   ]
  },
  "meta": {
-  "asof": "THU 29 OCT 2026",
-  "updated": "2026-10-29T00:09:31+08:00"
+  "asof": "FRI 30 OCT 2026",
+  "updated": "2026-10-30T09:04:05+08:00"
  }
 }
