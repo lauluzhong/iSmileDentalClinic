@@ -113,7 +113,11 @@ export default function FaqAccordion({ items = [], idPrefix = 'faq', analyticsLa
                     line-height: 1.4;
                 }
 
-                .faq-accordion-trigger:hover { color: var(--color-primary-deep); }
+                /* Mouse only: on phones a tap leaves :hover stuck, so the last
+                   question tapped stayed teal. */
+                @media (hover: hover) {
+                    .faq-accordion-trigger:hover { color: var(--color-primary-deep); }
+                }
 
                 .faq-accordion-trigger:focus-visible {
                     outline: 2px solid var(--color-primary);
@@ -155,7 +159,7 @@ export default function FaqAccordion({ items = [], idPrefix = 'faq', analyticsLa
 
                 @media (max-width: 1024px) {
                     .faq-accordion { margin-top: 28px; }
-                    .faq-accordion-trigger { padding: 18px 2px; font-size: 1rem; }
+                    .faq-accordion-trigger { padding: 16px 2px; font-family: var(--font-body); font-weight: 600; font-size: 0.98rem; line-height: 1.45; }
                     .faq-accordion-panel-inner p { padding: 0 2px 18px; font-size: 0.95rem; }
                 }
 

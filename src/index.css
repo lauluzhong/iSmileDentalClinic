@@ -411,7 +411,7 @@ h1 em, h2 em {
   transform-origin: left;
   transition: transform 0.75s var(--ease-slow);
 }
-.hairline-row:hover::before,
+@media (hover: hover) { .hairline-row:hover::before { transform: scaleX(1); } }
 .hairline-row:focus-visible::before { transform: scaleX(1); }
 .hairline-row > * { position: relative; z-index: 1; }
 
