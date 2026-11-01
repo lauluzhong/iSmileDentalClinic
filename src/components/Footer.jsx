@@ -275,15 +275,17 @@ const Footer = () => {
             text-align: left;
             max-width: 280px;
         }
-        .google-reviews-badge:hover .write-review {
+        /* Same size at rest and on hover; hover shifts colour only. */
+        .write-review {
             display: inline-block;
-            color: var(--color-primary-deep);
+            color: var(--color-text-slate);
             font-family: var(--font-heading);
             font-size: 0.9rem;
             font-weight: 600;
             margin: 0;
-            transition: color 0.25s ease;
+            transition: color 0.18s ease;
         }
+        .google-reviews-badge:hover .write-review { color: var(--color-primary-deep); }
         .google-rating-row {
             display: flex;
             align-items: center;
