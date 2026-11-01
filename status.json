@@ -1,8 +1,6 @@
 {
-  "updated": "2026-11-01 13:11 MYT",
-  "running": [
-    "snippet_batch"
-  ],
+  "updated": "2026-11-01 13:14 MYT",
+  "running": [],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -81,7 +79,8 @@
       "last": "2026-10-12 09:32 MYT"
     },
     "snippet_batch": {
-      "state": "running"
+      "state": "idle",
+      "last": "2026-11-01 13:14 MYT"
     }
   }
 }
