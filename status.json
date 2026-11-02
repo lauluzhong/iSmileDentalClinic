@@ -1,6 +1,8 @@
 {
-  "updated": "2026-11-02 15:30 MYT",
-  "running": [],
+  "updated": "2026-11-02 15:50 MYT",
+  "running": [
+    "blast_tracker"
+  ],
   "jobs": {
     "gbp_reply": {
       "state": "failed",
@@ -89,6 +91,9 @@
     "geo_page": {
       "state": "idle",
       "last": "2026-11-02 09:37 MYT"
+    },
+    "blast_tracker": {
+      "state": "running"
     }
   }
 }
