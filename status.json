@@ -1,6 +1,8 @@
 {
-  "updated": "2026-11-02 09:15 MYT",
-  "running": [],
+  "updated": "2026-11-02 09:30 MYT",
+  "running": [
+    "geo_page"
+  ],
   "jobs": {
     "gbp_reply": {
       "state": "failed",
@@ -85,6 +87,9 @@
     "maps_care": {
       "state": "idle",
       "last": "2026-11-02 09:15 MYT"
+    },
+    "geo_page": {
+      "state": "running"
     }
   }
 }
