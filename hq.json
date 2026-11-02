@@ -743,7 +743,7 @@
     {
      "id": "d6",
      "dot": "blocked",
-     "chip": "October ready to check \u00b7 Lau + Emily Wed 4 Nov",
+     "chip": "v2 live \u00b7 Lau + Emily Wed 4 Nov",
      "name": "AP \u00b7 locum statements",
      "one": "Calculator already reproduces all 8 doctors to the cent \u2014 end-to-end statements now possible under the new timing rules.",
      "steps": [
@@ -788,6 +788,36 @@
        "t": "2 Nov: October computed in the tool; lab codes now Emily's tagging; Dr Jia Yin mapped; double-count of pre-October money fixed",
        "s": "done",
        "w": "2 Nov"
+      },
+      {
+       "t": "2 Nov evening: gate rules in the engine (prepaid credit when used; concession at first counted month; RM0 at treatment; approval not tested), every line tagged with an ID, new screen at /dashboard/locum/v2",
+       "s": "done",
+       "w": "2 Nov"
+      },
+      {
+       "t": "Emily: send October lab invoice list",
+       "s": "next",
+       "w": "3-4 Nov"
+      },
+      {
+       "t": "Lau: run ismile_extract_fees.bat on the clinic PC",
+       "s": "next",
+       "w": "3-4 Nov"
+      },
+      {
+       "t": "Lau: decide October check (AutoCount or OpenDental only)",
+       "s": "next",
+       "w": "3-4 Nov"
+      },
+      {
+       "t": "Emily: Register - add Dr Jia Yin + immediate family; trim the 45 same-family names to parents, spouse, children",
+       "s": "next",
+       "w": "3-4 Nov"
+      },
+      {
+       "t": "Lau: confirm Damon rule (RM1,200 on first D8090 of RM3,000+)",
+       "s": "next",
+       "w": "3-4 Nov"
       }
      ],
      "open": [
@@ -802,12 +832,12 @@
      "from_initiatives": [
       3
      ],
-     "next": "Wed 4 Nov: Lau walks Emily through the locum tool. Emily types the lab invoice costs (23 rows), the missing minimum fees (46 rows) and each doctor's AutoCount receipts, and settles the 15 discount approvals. Pay on 10 Nov.",
+     "next": "Tue 3 Nov: Emily sends the October lab invoice list; Lau double-clicks ismile_extract_fees.bat on the clinic PC (fresh minimum fees). Lau decides how October is checked (AutoCount may be incomplete after the migration). Wed 4 Nov: Lau + Emily go through the B and C piles at /dashboard/locum/v2. Pay 10 Nov.",
      "endMonth": "2026-08",
      "flag": {
       "k": "due",
       "who": "Emily",
-      "w": "Bring this month's lab invoice list to Wednesday's session so the held lab rows can be released."
+      "w": "Tue 3 Nov: October lab invoice list"
      }
     },
     {
@@ -3655,6 +3685,6 @@
  },
  "meta": {
   "asof": "MON 02 NOV 2026",
-  "updated": "2026-11-02T16:11:27+08:00"
+  "updated": "2026-11-02T19:47:33+08:00"
  }
 }

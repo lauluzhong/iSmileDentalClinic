@@ -1,9 +1,14 @@
 {
- "updated": "2026-11-02T16:11:27+08:00",
+ "updated": "2026-11-02T19:47:33+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Edith": {
+  "Emily": {
    "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
@@ -17,18 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Edith": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
   "Lau": {
    "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Emily": {
-   "init": "E",
    "role": "",
    "color": "#45C4FF"
   }
@@ -188,7 +188,7 @@
    "status": "blocked",
    "owner": "Lau",
    "why": "Calculator already reproduces all 8 doctors to the cent \u2014 end-to-end statements now possible under the new timing rules.",
-   "next": "Wed 4 Nov: Lau walks Emily through the locum tool. Emily types the lab invoice costs (23 rows), the missing minimum fees (46 rows) and each doctor's AutoCount receipts, and settles the 15 discount approvals. Pay on 10 Nov.",
+   "next": "Tue 3 Nov: Emily sends the October lab invoice list; Lau double-clicks ismile_extract_fees.bat on the clinic PC (fresh minimum fees). Lau decides how October is checked (AutoCount may be incomplete after the migration). Wed 4 Nov: Lau + Emily go through the B and C piles at /dashboard/locum/v2. Pay 10 Nov.",
    "dept": "finance",
    "lens": "efficiency",
    "endMonth": "2026-08",
@@ -202,7 +202,13 @@
     "Rules agreed 29 Sep: pay when the money is collected AND the full lab invoice(s) are in (both, e.g. chrome plate + denture); instalment cases (braces) pay on each collection with lab cost taken from the first payment (min 50% upfront); no locum on written-off patients by default (Lau decides big cases)",
     "Statement: the general statement plus only the rows where a discount was deducted; lab-pending cases need not be listed",
     "Lau shares the locum sheet with Emily; Emily notes the edge cases and rules as she finds them",
-    "2 Nov: October computed in the tool; lab codes now Emily's tagging; Dr Jia Yin mapped; double-count of pre-October money fixed"
+    "2 Nov: October computed in the tool; lab codes now Emily's tagging; Dr Jia Yin mapped; double-count of pre-October money fixed",
+    "2 Nov evening: gate rules in the engine (prepaid credit when used; concession at first counted month; RM0 at treatment; approval not tested), every line tagged with an ID, new screen at /dashboard/locum/v2",
+    "Emily: send October lab invoice list",
+    "Lau: run ismile_extract_fees.bat on the clinic PC",
+    "Lau: decide October check (AutoCount or OpenDental only)",
+    "Emily: Register - add Dr Jia Yin + immediate family; trim the 45 same-family names to parents, spouse, children",
+    "Lau: confirm Damon rule (RM1,200 on first D8090 of RM3,000+)"
    ],
    "pillar": "P1"
   },
