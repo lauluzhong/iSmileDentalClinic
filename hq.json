@@ -743,7 +743,7 @@
     {
      "id": "d6",
      "dot": "blocked",
-     "chip": "on hold \u00b7 Lau + Emily review 4th week Oct",
+     "chip": "October ready to check \u00b7 Lau + Emily Wed 4 Nov",
      "name": "AP \u00b7 locum statements",
      "one": "Calculator already reproduces all 8 doctors to the cent \u2014 end-to-end statements now possible under the new timing rules.",
      "steps": [
@@ -783,6 +783,11 @@
        "t": "Lau shares the locum sheet with Emily; Emily notes the edge cases and rules as she finds them",
        "s": "next",
        "w": "no rush \u00b7 after go-live, before Emily runs October locum in the first week of Nov"
+      },
+      {
+       "t": "2 Nov: October computed in the tool; lab codes now Emily's tagging; Dr Jia Yin mapped; double-count of pre-October money fixed",
+       "s": "done",
+       "w": "2 Nov"
       }
      ],
      "open": [
@@ -797,13 +802,12 @@
      "from_initiatives": [
       3
      ],
-     "next": "On hold until Lau and Emily go through the locum sheet together in the 4th week of October; Emily runs October locum in the first week of November.",
+     "next": "Wed 4 Nov: Lau walks Emily through the locum tool. Emily types the lab invoice costs (23 rows), the missing minimum fees (46 rows) and each doctor's AutoCount receipts, and settles the 15 discount approvals. Pay on 10 Nov.",
      "endMonth": "2026-08",
      "flag": {
       "k": "due",
-      "by": "2026-10-30",
-      "who": "Lau + Emily",
-      "w": "Not blocked on anyone else: on hold until Lau goes through the locum sheet with Emily in the 4th week of October."
+      "who": "Emily",
+      "w": "Bring this month's lab invoice list to Wednesday's session so the held lab rows can be released."
      }
     },
     {
@@ -3650,7 +3654,7 @@
   ]
  },
  "meta": {
-  "asof": "FRI 30 OCT 2026",
-  "updated": "2026-10-30T09:04:05+08:00"
+  "asof": "MON 02 NOV 2026",
+  "updated": "2026-11-02T16:11:27+08:00"
  }
 }
