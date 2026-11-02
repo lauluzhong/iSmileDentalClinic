@@ -1,44 +1,50 @@
 {
   "as_of": "2026-11-02",
-  "mode": "midday",
+  "mode": "eod",
   "fresh": true,
-  "generated_myt": "2026-11-02 12:05",
+  "generated_myt": "2026-11-02 19:50",
   "source_max_paydate": "2026-11-02",
   "source_max_procdate": "2026-11-02",
   "today": {
-    "collected": 2950.0,
-    "produced": 1300.0,
-    "patients_seen": 8,
+    "collected": 17410.0,
+    "produced": 15810.0,
+    "patients_seen": 27,
     "new_patients": 0,
     "by_paytype": {
-      "Credit Card": 2950.0
+      "Credit Card": 10250.0,
+      "Internet Banking": 6650.0,
+      "Cash": 430.0,
+      "PBB QR": 80.0
     }
   },
   "mtd": {
-    "collected": 2950.0,
-    "produced": 1300.0,
+    "collected": 17410.0,
+    "produced": 15810.0,
     "trading_days": 1,
-    "avg_per_trading_day": 2950.0,
-    "run_rate_26d": 76700.0,
+    "avg_per_trading_day": 17410.0,
+    "run_rate_26d": 452660.0,
     "by_paytype": {
-      "Credit Card": 2950.0
+      "Credit Card": 10250.0,
+      "Internet Banking": 6650.0,
+      "Cash": 430.0,
+      "PBB QR": 80.0
     }
   },
-  "booked_next_14d": 219,
+  "booked_next_14d": 208,
   "forward_book": {
     "next_7d": {
       "days": 7,
-      "appts": 96,
-      "booked_min": 5600,
+      "appts": 105,
+      "booked_min": 5980,
       "capacity_min": 11120,
-      "pct": 50.35971223021583
+      "pct": 53.776978417266186
     },
     "next_14d": {
       "days": 14,
-      "appts": 187,
-      "booked_min": 10590,
+      "appts": 203,
+      "booked_min": 11430,
       "capacity_min": 22240,
-      "pct": 47.61690647482014
+      "pct": 51.39388489208633
     }
   },
   "doctors_worked": {
@@ -49,9 +55,15 @@
       "Mah"
     ]
   },
-  "utilization": null,
+  "utilization": {
+    "chair_minutes": 1180,
+    "operatories": 4,
+    "open_minutes": 480,
+    "capacity_minutes": 1920,
+    "pct": 61.5
+  },
   "pnl": {
     "available": false,
-    "reason": "n/a (midday)"
+    "reason": "margin build stale (as_of 2026-10-31)"
   }
 }
