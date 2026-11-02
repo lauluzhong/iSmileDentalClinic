@@ -1,6 +1,8 @@
 {
-  "updated": "2026-11-02 09:09 MYT",
-  "running": [],
+  "updated": "2026-11-02 09:15 MYT",
+  "running": [
+    "maps_care"
+  ],
   "jobs": {
     "gbp_reply": {
       "state": "failed",
@@ -81,6 +83,9 @@
     "snippet_batch": {
       "state": "idle",
       "last": "2026-11-01 13:14 MYT"
+    },
+    "maps_care": {
+      "state": "running"
     }
   }
 }
