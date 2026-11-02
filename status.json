@@ -1,7 +1,8 @@
 {
   "updated": "2026-11-02 10:00 MYT",
   "running": [
-    "deck_stats"
+    "deck_stats",
+    "snippet_batch"
   ],
   "jobs": {
     "gbp_reply": {
@@ -81,7 +82,7 @@
       "last": "2026-10-12 09:32 MYT"
     },
     "snippet_batch": {
-      "state": "idle",
+      "state": "running",
       "last": "2026-11-01 13:14 MYT"
     },
     "maps_care": {
