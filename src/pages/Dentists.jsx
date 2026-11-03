@@ -37,7 +37,7 @@ function DentistPhoto({ d, className, width, height, lazy }) {
 
 function DentistCard({ d }) {
     return (
-        <Link to={`/dentists/${d.slug}`} className="media-item dentist-card">
+        <Link to={`/dentists/${d.slug}`} id={d.slug} className="media-item dentist-card">
             <div className="dentist-card-media">
                 <DentistPhoto d={d} className="dentist-card-img" lazy width="220" height="220" />
             </div>
@@ -218,6 +218,8 @@ function DentistStyles() {
                 display: grid; gap: 32px 24px; margin-top: 48px;
                 grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
             }
+            /* Anchor target for /dentists#slug (homepage mosaic); clears the sticky header. */
+            .dentist-card { scroll-margin-top: 120px; }
             .dentist-card {
                 display: flex; flex-direction: column; text-decoration: none; color: inherit;
                 border: 0; border-radius: 0; overflow: visible; background: transparent;
