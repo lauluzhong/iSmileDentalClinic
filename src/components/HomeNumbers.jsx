@@ -40,7 +40,7 @@ function Figure({ value, run }) {
         if (!run || started.current) return;
         started.current = true;
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        // Georgia has no tabular digits, so measure the box at its final
+        // Belt and braces beside tabular-nums: measure the box at its final
         // string (what is on screen right now) and lock it for the roll-up.
         if (spanRef.current) setLockedWidth(Math.ceil(spanRef.current.getBoundingClientRect().width));
         let frame;
@@ -107,17 +107,16 @@ export default function HomeNumbers() {
                 .nb-item { margin: 0; min-width: 0; }
                 .nb-item + .nb-item { border-left: 1px solid rgba(0, 141, 176, 0.12); padding-left: 32px; }
                 .nb-dt { margin: 0; }
-                /* The site's accent serif italic (same face as the headline
-                   accents), in Georgia's real bold italic. */
                 .nb-figure {
-                    display: inline-block; font-family: var(--font-accent); font-style: italic; font-weight: 700;
-                    font-synthesis: weight style; font-size: clamp(2.3rem, 1rem + 2.4vw, 3.2rem); line-height: 1;
-                    letter-spacing: -0.01em; white-space: nowrap;
+                    display: inline-block; font-family: var(--font-heading); font-weight: 700;
+                    font-size: clamp(2.4rem, 1.4rem + 2.6vw, 3.6rem); line-height: 1;
+                    letter-spacing: -0.03em; font-variant-numeric: tabular-nums; white-space: nowrap;
                     color: var(--color-primary-deep);
                 }
+                /* Labels in the site's accent serif italic (the headline-accent face). */
                 .nb-label {
-                    margin: 12px 0 0; font-size: 1.1rem; font-weight: 500; line-height: 1.4;
-                    color: var(--color-text-slate); white-space: nowrap;
+                    margin: 12px 0 0; font-family: var(--font-accent); font-style: italic; font-weight: 400;
+                    font-size: 1.2rem; line-height: 1.4; color: var(--color-text-slate); white-space: nowrap;
                 }
 
                 @media (max-width: 1024px) {
@@ -126,7 +125,7 @@ export default function HomeNumbers() {
                     .nb-item { padding: 18px 0; }
                     .nb-item + .nb-item { border-left: none; border-top: 1px solid rgba(0, 141, 176, 0.12); padding-left: 0; }
                     .nb-figure { font-size: 2.2rem; }
-                    .nb-label { margin-top: 6px; font-size: 1.0625rem; }
+                    .nb-label { margin-top: 6px; font-size: 1.15rem; }
                 }
             `}</Style>
         </section>
