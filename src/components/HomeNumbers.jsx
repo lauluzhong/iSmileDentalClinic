@@ -32,12 +32,17 @@ const fmt = (n) => Math.round(n).toLocaleString('en-US') + '+';
 
 function Figure({ value, run }) {
     const [shown, setShown] = useState(value); // SSR + first client paint = final number
+    const [lockedWidth, setLockedWidth] = useState(null);
     const started = useRef(false);
+    const spanRef = useRef(null);
 
     useEffect(() => {
         if (!run || started.current) return;
         started.current = true;
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        // Georgia has no tabular digits, so measure the box at its final
+        // string (what is on screen right now) and lock it for the roll-up.
+        if (spanRef.current) setLockedWidth(Math.ceil(spanRef.current.getBoundingClientRect().width));
         let frame;
         const t0 = performance.now();
         const tick = (now) => {
@@ -51,7 +56,11 @@ function Figure({ value, run }) {
     }, [run, value]);
 
     return (
-        <span className="nb-figure" style={{ minWidth: `${fmt(value).length}ch` }}>
+        <span
+            ref={spanRef}
+            className="nb-figure"
+            style={lockedWidth ? { width: lockedWidth } : { minWidth: `${fmt(value).length}ch` }}
+        >
             {fmt(shown)}
         </span>
     );
@@ -88,21 +97,22 @@ export default function HomeNumbers() {
                 .numbers-section { padding: 0 0 8px; }
                 /* Near-white, clearly blue: --color-tint-faint drifting to a
                    faint cyan-blue. Figures in the deep brand blue (6.0:1 on the
-                   tint), labels in slate (7.5:1). Hairline + a soft teal shadow. */
+                   tint), labels in slate (7.5:1). No outline: a soft, diffuse teal shadow defines the card. */
                 .nb-card {
                     margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 40px;
                     padding: 44px 48px; border-radius: 28px;
                     background: linear-gradient(135deg, var(--color-tint-faint) 0%, #E9F6FB 100%);
-                    border: 1px solid rgba(0, 141, 176, 0.16);
-                    box-shadow: 0 10px 30px rgba(0, 141, 176, 0.10), 0 1px 3px rgba(16, 42, 51, 0.04);
+                    box-shadow: 0 12px 40px rgba(0, 110, 140, 0.10), 0 2px 8px rgba(0, 110, 140, 0.05);
                 }
                 .nb-item { margin: 0; min-width: 0; }
-                .nb-item + .nb-item { border-left: 1px solid rgba(0, 141, 176, 0.22); padding-left: 40px; }
+                .nb-item + .nb-item { border-left: 1px solid rgba(0, 141, 176, 0.12); padding-left: 40px; }
                 .nb-dt { margin: 0; }
+                /* The site's accent serif italic (same face as the headline
+                   accents), in Georgia's real bold italic. */
                 .nb-figure {
-                    display: inline-block; font-family: var(--font-heading); font-weight: 700;
-                    font-size: clamp(2.4rem, 1.4rem + 2.6vw, 3.6rem); line-height: 1;
-                    letter-spacing: -0.03em; font-variant-numeric: tabular-nums; white-space: nowrap;
+                    display: inline-block; font-family: var(--font-accent); font-style: italic; font-weight: 700;
+                    font-synthesis: weight style; font-size: clamp(2.4rem, 1.4rem + 2.6vw, 3.6rem); line-height: 1;
+                    letter-spacing: -0.01em; white-space: nowrap;
                     color: var(--color-primary-deep);
                 }
                 .nb-label {
@@ -114,7 +124,7 @@ export default function HomeNumbers() {
                     .numbers-section { padding: 8px 0 0; }
                     .nb-card { display: block; padding: 6px 24px; }
                     .nb-item { padding: 18px 0; }
-                    .nb-item + .nb-item { border-left: none; border-top: 1px solid rgba(0, 141, 176, 0.22); padding-left: 0; }
+                    .nb-item + .nb-item { border-left: none; border-top: 1px solid rgba(0, 141, 176, 0.12); padding-left: 0; }
                     .nb-figure { font-size: 2.2rem; }
                     .nb-label { margin-top: 6px; font-size: 1.0625rem; }
                 }
