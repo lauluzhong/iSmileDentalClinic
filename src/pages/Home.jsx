@@ -106,7 +106,7 @@ const MOSAIC_QUOTES = [
 ];
 const MOSAIC_ROW_A = [
     { d: dentists[0] }, { d: dentists[1] }, { q: MOSAIC_QUOTES[0] },
-    { d: dentists[2] }, { d: dentists[3] }, { q: MOSAIC_QUOTES[1], alt: true }
+    { d: dentists[2] }, { d: dentists[3] }, { d: dentists[8] }, { q: MOSAIC_QUOTES[1], alt: true }
 ];
 const MOSAIC_ROW_B = [
     { q: MOSAIC_QUOTES[2], alt: true }, { d: dentists[4] }, { d: dentists[5] },
