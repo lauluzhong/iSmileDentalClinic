@@ -377,8 +377,8 @@ const Home = () => {
 
             {/* ============ 1b. NUMBERS — three all-time figures, three switchable designs ============ */}
             {/* Owner-approved rounded figures (Marketing-numbers/ALL-TIME-NUMBERS.md).
-                ?numbers=a|b|c picks the design; the figures roll up once on
-                first view (owner's ask, 3 Nov; this section only). */}
+                One gradient card; the figures roll up once as the card enters
+                view (owner's ask, 3 Nov; this section only). */}
             <HomeNumbers />
 
             {/* ============ 2. SERVICES — a wide, numbered index on an inset band ============ */}
@@ -814,6 +814,32 @@ const Home = () => {
         }
 
         /* ============================
+           PHONES (<=767px): the five services become a snap carousel,
+           the first one a phone visitor meets after the numbers card.
+           Same content and type as the rows, each on a light card with
+           the next one peeking in from the right edge (owner, 3 Nov).
+           ============================ */
+        @media (max-width: 767px) {
+            .stage-list {
+                display: flex; gap: 12px; border-top: none;
+                overflow-x: auto; scroll-snap-type: x mandatory;
+                margin-right: -16px; padding: 4px 16px 14px 0;
+                scrollbar-width: none; -ms-overflow-style: none;
+            }
+            .stage-list::-webkit-scrollbar { display: none; }
+            .stage-row {
+                flex: 0 0 76%; scroll-snap-align: start;
+                display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
+                padding: 22px 20px; min-height: 44px;
+                border: 1px solid rgba(16,42,51,0.12); border-bottom-width: 1px; border-radius: 20px;
+                background: var(--color-surface);
+            }
+            .stage-row::before { display: none; }
+            .stage-line { font-size: 0.92rem; line-height: 1.5; }
+            .stage-title { font-size: 1.3rem; }
+        }
+
+        /* ============================
            RESPONSIVE — PHONE (<=480px)
            ============================ */
         @media (max-width: 480px) {
@@ -830,7 +856,6 @@ const Home = () => {
             /* Services — the rows stay on phones too (chips retired, owner
                7 Sep: the white chip cards were the card language creeping back) */
             .services-section { padding: 36px 0 44px; }
-            .stage-row { padding: 18px 2px; }
             .stage-title { font-size: 1.2rem; }
             .stage-line { font-size: 0.88rem; }
 
