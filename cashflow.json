@@ -1,69 +1,59 @@
 {
-  "as_of": "2026-11-02",
-  "mode": "eod",
+  "as_of": "2026-11-03",
+  "mode": "midday",
   "fresh": true,
-  "generated_myt": "2026-11-02 19:50",
-  "source_max_paydate": "2026-11-02",
-  "source_max_procdate": "2026-11-02",
+  "generated_myt": "2026-11-03 12:05",
+  "source_max_paydate": "2026-11-03",
+  "source_max_procdate": "2026-11-03",
   "today": {
-    "collected": 17410.0,
-    "produced": 15810.0,
-    "patients_seen": 27,
+    "collected": 650.0,
+    "produced": 840.0,
+    "patients_seen": 4,
     "new_patients": 0,
     "by_paytype": {
-      "Credit Card": 10250.0,
-      "Internet Banking": 6650.0,
-      "Cash": 430.0,
-      "PBB QR": 80.0
+      "Credit Card": 650.0
     }
   },
   "mtd": {
-    "collected": 17410.0,
-    "produced": 15810.0,
-    "trading_days": 1,
-    "avg_per_trading_day": 17410.0,
-    "run_rate_26d": 452660.0,
+    "collected": 18060.0,
+    "produced": 16650.0,
+    "trading_days": 2,
+    "avg_per_trading_day": 9030.0,
+    "run_rate_26d": 234780.0,
     "by_paytype": {
-      "Credit Card": 10250.0,
+      "Credit Card": 10900.0,
       "Internet Banking": 6650.0,
       "Cash": 430.0,
       "PBB QR": 80.0
     }
   },
-  "booked_next_14d": 208,
+  "booked_next_14d": 224,
   "forward_book": {
     "next_7d": {
       "days": 7,
-      "appts": 105,
-      "booked_min": 5980,
+      "appts": 112,
+      "booked_min": 6040,
       "capacity_min": 11120,
-      "pct": 53.776978417266186
+      "pct": 54.31654676258992
     },
     "next_14d": {
       "days": 14,
       "appts": 203,
-      "booked_min": 11430,
+      "booked_min": 11390,
       "capacity_min": 22240,
-      "pct": 51.39388489208633
+      "pct": 51.21402877697842
     }
   },
   "doctors_worked": {
-    "count": 3,
+    "count": 2,
     "abbrs": [
-      "Azeli",
-      "Ling",
+      "Amy",
       "Mah"
     ]
   },
-  "utilization": {
-    "chair_minutes": 1180,
-    "operatories": 4,
-    "open_minutes": 480,
-    "capacity_minutes": 1920,
-    "pct": 61.5
-  },
+  "utilization": null,
   "pnl": {
     "available": false,
-    "reason": "margin build stale (as_of 2026-10-31)"
+    "reason": "n/a (midday)"
   }
 }
