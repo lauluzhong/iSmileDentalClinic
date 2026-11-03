@@ -40,19 +40,27 @@ function Figure({ value, run }) {
         if (!run || started.current) return;
         started.current = true;
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        // Belt and braces beside tabular-nums: measure the box at its final
-        // string (what is on screen right now) and lock it for the roll-up.
-        if (spanRef.current) setLockedWidth(Math.ceil(spanRef.current.getBoundingClientRect().width));
-        let frame;
-        const t0 = performance.now();
-        const tick = (now) => {
-            const t = Math.min(1, (now - t0) / DURATION);
-            setShown(value * easeOut(t));
-            if (t < 1) frame = requestAnimationFrame(tick);
+        let frame, cancelled = false;
+        const start = () => {
+            if (cancelled) return;
+            // Belt and braces beside tabular-nums: measure the box at its final
+            // string (what is on screen right now, in the loaded heading face)
+            // and lock it for the roll-up.
+            if (spanRef.current) setLockedWidth(Math.ceil(spanRef.current.getBoundingClientRect().width));
+            const t0 = performance.now();
+            const tick = (now) => {
+                const t = Math.min(1, (now - t0) / DURATION);
+                setShown(value * easeOut(t));
+                if (t < 1) frame = requestAnimationFrame(tick);
+            };
+            setShown(0);
+            frame = requestAnimationFrame(tick);
         };
-        setShown(0);
-        frame = requestAnimationFrame(tick);
-        return () => cancelAnimationFrame(frame);
+        // Wait for the web font so the locked width is the real one, not the
+        // fallback face's (the card can be in view before Outfit arrives).
+        if (document.fonts && document.fonts.status !== 'loaded') document.fonts.ready.then(start);
+        else start();
+        return () => { cancelled = true; cancelAnimationFrame(frame); };
     }, [run, value]);
 
     return (
