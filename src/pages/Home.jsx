@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star } from 'lucide-react';
 import Button from '../components/Button';
+import HomeNumbers from '../components/HomeNumbers';
 import { Helmet } from 'react-helmet-async';
 import { Reveal } from '../components/Reveal';
 import reviewStats from '../data/review-stats.json';
@@ -21,12 +22,6 @@ import Style from '../components/Style';
 // The five areas of care, in the order families actually meet them.
 // Row titles are the category names so they match /services and the nav
 // (section names describe the content, per the owner's standing rule).
-// Owner-approved all-time figures, rounded up. Numbers are STATIC (ruling 21 Oct).
-const ALL_TIME_NUMBERS = [
-    { figure: '10,000+', label: 'families cared for' },
-    { figure: '50,000+', label: 'cleanings for healthy teeth and gums' },
-    { figure: '120,000+', label: 'visits' },
-];
 
 const STAGES = [
     {
@@ -380,21 +375,11 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* ============ 1b. NUMBERS — three static all-time figures ============ */}
+            {/* ============ 1b. NUMBERS — three all-time figures, three switchable designs ============ */}
             {/* Owner-approved rounded figures (Marketing-numbers/ALL-TIME-NUMBERS.md).
-                Static by ruling: no count-up animation, no eyebrow, no CTA. */}
-            <section className="numbers-section" aria-label="iSmile in numbers">
-                <div className="container">
-                    <dl className="numbers-row">
-                        {ALL_TIME_NUMBERS.map(n => (
-                            <div key={n.figure} className="numbers-item">
-                                <dt className="numbers-figure">{n.figure}</dt>
-                                <dd className="numbers-label">{n.label}</dd>
-                            </div>
-                        ))}
-                    </dl>
-                </div>
-            </section>
+                ?numbers=a|b|c picks the design; the figures roll up once on
+                first view (owner's ask, 3 Nov; this section only). */}
+            <HomeNumbers />
 
             {/* ============ 2. SERVICES — a wide, numbered index on an inset band ============ */}
             <section className="services-section">
@@ -576,24 +561,6 @@ const Home = () => {
         .hero-title { font-size: clamp(2.3rem, 1.2rem + 2.6vw, 3.4rem); line-height: 1.06; margin-bottom: 24px; font-weight: 700; letter-spacing: -0.035em; }
         @media (min-width: 1025px) { .hero-title em { white-space: nowrap; } }
 
-        /* ---------- 1b. NUMBERS ---------- */
-        /* Three static figures on hairlines, straight on the background —
-           no filled band, no cards, so nothing stacks against the hero. */
-        .numbers-section { padding: 0 0 8px; }
-        .numbers-row {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 40px;
-            margin: 0; padding: 36px 0;
-            border-top: 1px solid rgba(16,42,51,0.12);
-            border-bottom: 1px solid rgba(16,42,51,0.12);
-        }
-        .numbers-item { margin: 0; min-width: 0; }
-        .numbers-figure {
-            font-family: var(--font-heading); font-weight: 700;
-            font-size: clamp(2.2rem, 1.4rem + 2.2vw, 3.2rem); line-height: 1;
-            letter-spacing: -0.03em; color: var(--color-text-charcoal);
-            font-variant-numeric: tabular-nums;
-        }
-        .numbers-label { margin: 10px 0 0; font-size: 1rem; line-height: 1.45; color: var(--color-text-slate); max-width: 260px; }
         .hero-subtitle { font-size: var(--fs-lead); color: var(--color-text-slate); margin-bottom: 36px; max-width: 480px; line-height: 1.65; }
         .hero-subtitle-mobile { display: none; }
         .hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
@@ -794,16 +761,6 @@ const Home = () => {
             .hero-subtitle { font-size: 1rem; margin-bottom: 22px; max-width: 420px; line-height: 1.55; }
             .hero-trust { margin-top: 24px; font-size: 0.88rem; }
 
-            /* Numbers — compact rows: figure left, label right, no stacking
-               of big type down the phone. */
-            .numbers-section { padding: 8px 0 0; }
-            .numbers-row { display: block; padding: 0; border-bottom: none; }
-            .numbers-item {
-                display: grid; grid-template-columns: 7.2rem 1fr; gap: 14px; align-items: baseline;
-                padding: 14px 0; border-bottom: 1px solid rgba(16,42,51,0.12);
-            }
-            .numbers-figure { font-size: 1.7rem; }
-            .numbers-label { margin: 0; font-size: 0.92rem; line-height: 1.4; max-width: none; }
 
             .hero-mosaic { gap: 12px; padding: 4px 0 8px; }
             .mosaic-row { gap: 12px; }
