@@ -56,10 +56,13 @@ function Figure({ value, run }) {
             setShown(0);
             frame = requestAnimationFrame(tick);
         };
-        // Wait for the web font so the locked width is the real one, not the
-        // fallback face's (the card can be in view before Outfit arrives).
-        if (document.fonts && document.fonts.status !== 'loaded') document.fonts.ready.then(start);
-        else start();
+        // Force the heading web font in before measuring, so the locked width
+        // is the real one and not the fallback face's (the card can be in
+        // view before Outfit arrives; fonts.status alone reads "loaded" then).
+        if (document.fonts && document.fonts.load && spanRef.current) {
+            const cs = getComputedStyle(spanRef.current);
+            document.fonts.load(`${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`).then(start, start);
+        } else start();
         return () => { cancelled = true; cancelAnimationFrame(frame); };
     }, [run, value]);
 

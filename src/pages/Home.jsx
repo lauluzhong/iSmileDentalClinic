@@ -756,7 +756,7 @@ const Home = () => {
             .hero-title { font-size: 2.8rem; line-height: 1.08; margin-bottom: 24px; }
             .hero-subtitle-desktop { display: none; }
             .hero-subtitle-mobile { display: block; }
-            .hero-subtitle { font-size: 1rem; margin-bottom: 24px; max-width: 420px; line-height: 1.55; }
+            .hero-subtitle { font-size: 1rem; margin-bottom: 24px; max-width: none; line-height: 1.55; }
             .hero-trust { margin-top: 24px; font-size: 0.88rem; }
 
 
@@ -846,7 +846,6 @@ const Home = () => {
 
             .hero-section { padding: 116px 0 32px; }
             .hero-title { font-size: 2.45rem; }
-            .hero-subtitle { max-width: 340px; }
 
             .mosaic-tile { width: 126px; height: 126px; border-radius: 14px; }
             .mosaic-quote { padding: 12px; font-size: 0.8rem; }
