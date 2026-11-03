@@ -337,13 +337,13 @@ const Home = () => {
                     {/* Hero content renders statically — above-the-fold copy must never start at opacity 0 */}
                     <div className="hero-content">
                         <h1 className="hero-title">
-                            20 years of dental care for <em>every generation.</em>
+                            Dental care for <em>every generation.</em>
                         </h1>
                         <p className="hero-subtitle hero-subtitle-desktop">
-                            From a child's first visit to a grandparent's new smile, iSmile is the Petaling Jaya dentist whole families stay with.
+                            From a child's first visit to a grandparent's new smile, iSmile has been the Petaling Jaya dentist whole families stay with for 20 years.
                         </p>
                         <p className="hero-subtitle hero-subtitle-mobile">
-                            The family dentist Petaling Jaya households have stayed with since 2006.
+                            The Petaling Jaya family dentist for 20 years.
                         </p>
                         <div className="hero-actions">
                             <Button onClick={() => openBooking('', 'hero-cta')}>Book a Visit <ArrowRight size={18} /></Button>
@@ -553,12 +553,10 @@ const Home = () => {
         .hero-content { text-align: left; min-width: 0; }
         .hero-visual { min-width: 0; max-width: 100%; }
 
-        /* Sized so "20 years of dental care" / "for every generation." sit on
-           TWO lines at desktop widths (measured 54px at 1440); the longer
-           headline needs a smaller cap than the old "Dental care for" line.
-           On phones it turns three times: "20 years of" / "dental care for" /
-           "every generation." */
-        .hero-title { font-size: clamp(2.3rem, 1.2rem + 2.6vw, 3.4rem); line-height: 1.06; margin-bottom: 24px; font-weight: 700; letter-spacing: -0.035em; }
+        /* Sized so "Dental care for" / "every generation." sit on TWO lines at
+           desktop widths, like the live site — the previous 0.92fr column plus
+           the 4.5rem cap forced a third line. */
+        .hero-title { font-size: clamp(2.5rem, 1.5rem + 3.4vw, 4rem); line-height: 1.06; margin-bottom: 24px; font-weight: 700; letter-spacing: -0.035em; }
         @media (min-width: 1025px) { .hero-title em { white-space: nowrap; } }
 
         .hero-subtitle { font-size: var(--fs-lead); color: var(--color-text-slate); margin-bottom: 36px; max-width: 480px; line-height: 1.65; }
@@ -758,7 +756,7 @@ const Home = () => {
             .hero-title { font-size: 2.8rem; line-height: 1.08; margin-bottom: 24px; }
             .hero-subtitle-desktop { display: none; }
             .hero-subtitle-mobile { display: block; }
-            .hero-subtitle { font-size: 1rem; margin-bottom: 22px; max-width: 420px; line-height: 1.55; }
+            .hero-subtitle { font-size: 1rem; margin-bottom: 24px; max-width: 420px; line-height: 1.55; }
             .hero-trust { margin-top: 24px; font-size: 0.88rem; }
 
 
@@ -767,12 +765,12 @@ const Home = () => {
             .mosaic-tile { width: 150px; height: 150px; border-radius: 16px; }
             .mosaic-quote { padding: 16px; font-size: 0.9rem; line-height: 1.4; }
 
-            .section-header { margin-bottom: 28px; }
+            .section-header { margin-bottom: 24px; }
             .section-eyebrow { margin-bottom: 12px; }
-            .section-lead { font-size: 1rem; margin-top: 10px; }
+            .section-lead { font-size: 1rem; margin-top: 16px; }
 
-            /* Services — tighter rows, arrow drops away */
-            .services-section { padding: 48px 0 56px; }
+            /* Services — one section rhythm (56px) above the heading, arrow drops away */
+            .services-section { padding: 56px 0 48px; }
             .stage-row { grid-template-columns: 34px 1fr; gap: 8px 14px; padding: 22px 6px; }
             .stage-num { font-size: 0.72rem; }
             .stage-line { grid-column: 2; font-size: 0.92rem; }
@@ -830,12 +828,12 @@ const Home = () => {
             .stage-row {
                 flex: 0 0 76%; scroll-snap-align: start;
                 display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
-                padding: 22px 20px; min-height: 44px;
+                padding: 24px 20px; min-height: 44px;
                 border: 1px solid rgba(16,42,51,0.12); border-bottom-width: 1px; border-radius: 20px;
                 background: var(--color-surface);
             }
             .stage-row::before { display: none; }
-            .stage-line { font-size: 0.92rem; line-height: 1.5; }
+            .stage-line { font-size: 0.95rem; line-height: 1.5; }
             .stage-title { font-size: 1.3rem; }
         }
 
@@ -844,7 +842,7 @@ const Home = () => {
            ============================ */
         @media (max-width: 480px) {
             .home-page .section-title { font-size: 1.6rem; line-height: 1.12; }
-            .section-header { margin-bottom: 18px; }
+            .section-header { margin-bottom: 24px; }
 
             .hero-section { padding: 116px 0 32px; }
             .hero-title { font-size: 2.45rem; }
@@ -855,7 +853,7 @@ const Home = () => {
 
             /* Services — the rows stay on phones too (chips retired, owner
                7 Sep: the white chip cards were the card language creeping back) */
-            .services-section { padding: 36px 0 44px; }
+            .services-section { padding: 56px 0 48px; }
             .stage-title { font-size: 1.2rem; }
             .stage-line { font-size: 0.88rem; }
 

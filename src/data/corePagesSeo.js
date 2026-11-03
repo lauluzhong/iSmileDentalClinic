@@ -123,9 +123,9 @@ export const CORE_PAGES = [
  * Copy mirrors the hero in src/pages/Home.jsx — keep the two in sync.
  */
 export const HOME_PAGE = {
-  h1: "20 years of dental care for every generation",
+  h1: "Dental care for every generation",
   eyebrow: "A family practice in Petaling Jaya · Est. 2006",
-  intro: "From a child's first visit to a grandparent's new smile, iSmile is the Petaling Jaya dentist whole families stay with.",
+  intro: "From a child's first visit to a grandparent's new smile, iSmile has been the Petaling Jaya dentist whole families stay with for 20 years.",
   trust: "Rated ${RATING}★ on Google from ${COUNT} reviews · 20+ years of trusted care",
   hero: {
     alt: "Three generations of a family smiling together at iSmile Dental Clinic",

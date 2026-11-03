@@ -120,9 +120,10 @@ export default function HomeNumbers() {
                 }
 
                 @media (max-width: 1024px) {
-                    .numbers-section { padding: 8px 0 0; }
-                    .nb-card { display: block; padding: 6px 24px; }
-                    .nb-item { padding: 18px 0; }
+                    /* 32px hero bottom padding + 24 here = the 56px section rhythm */
+                    .numbers-section { padding: 24px 0 0; }
+                    .nb-card { display: block; padding: 8px 24px; }
+                    .nb-item { padding: 16px 0; }
                     .nb-item + .nb-item { border-left: none; border-top: 1px solid rgba(0, 141, 176, 0.12); padding-left: 0; }
                     .nb-figure { font-size: 2.2rem; }
                     .nb-label { margin-top: 6px; font-size: 1.15rem; }
