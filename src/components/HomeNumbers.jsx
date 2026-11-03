@@ -148,8 +148,8 @@ export default function HomeNumbers() {
                         display: grid; grid-template-columns: 7.6rem 1fr; gap: 14px; align-items: baseline;
                         padding: 14px 0; border-left: none;
                     }
-                    .numbers-a .nb-item + .nb-item { border-top: 1px solid rgba(255,255,255,0.22); padding-left: 0; }
-                    .numbers-c .nb-item + .nb-item { border-top: 1px solid rgba(16,42,51,0.12); padding-left: 0; }
+                    .numbers-a .nb-item + .nb-item { border-left: none; border-top: 1px solid rgba(255,255,255,0.22); padding-left: 0; }
+                    .numbers-c .nb-item + .nb-item { border-left: none; border-top: 1px solid rgba(16,42,51,0.12); padding-left: 0; }
 
                     /* B: snap rail, next card peeking */
                     .numbers-b .container { padding-right: 0; }
