@@ -76,6 +76,18 @@ const doctors = [
         keyCompetency: "General Dentistry, Pediatric Dental Care"
     },
     {
+        name: "Dr. Lau Jia Yin",
+        role: "Dental Surgeon, DDS (MAHSA)",
+        years: "8 years",
+        qualifications: "DDS, MAHSA University",
+        bio: "Passionate about looking beyond teeth to provide personalised dental care that supports healthier breathing, better oral health, proper growth and development, and confident smiles.",
+        languages: "English, Chinese, Malay",
+        img: "/images/doctors/dr_Lau Jia Yin.jpg",
+        initials: "JY",
+        slug: "dr-lau-jia-yin",
+        keyCompetency: "General Dentistry, Airway-Focused Dentistry, Early Orthodontic Treatment for Children"
+    },
+    {
         name: "Dr Lim Zhi Yin Joan",
         role: "Specialist, BDS (Malaya), Cert. Advanced Restorative & Aesthetic Dentistry (UCLA)",
         years: "19 years",
@@ -94,19 +106,8 @@ const doctors = [
         bio: "Driven toward continual improvement while delivering functional and long-lasting treatment outcomes.",
         languages: "Malay, Mandarin, English, Cantonese, Hokkien",
         img: "/images/doctors/dr_yeoh.jpg"
-    },
-    {
-        name: "Dr. Lau Jia Yin",
-        role: "Dental Surgeon, DDS (MAHSA)",
-        years: "8 years",
-        qualifications: "DDS, MAHSA University",
-        bio: "Passionate about looking beyond teeth to provide personalised dental care that supports healthier breathing, better oral health, proper growth and development, and confident smiles.",
-        languages: "English, Chinese, Malay",
-        img: "/images/doctors/dr_Lau Jia Yin.jpg",
-        initials: "JY",
-        slug: "dr-lau-jia-yin",
-        keyCompetency: "General Dentistry, Airway-Focused Dentistry, Early Orthodontic Treatment for Children"
     }
+
 ];
 
 const About = () => {
