@@ -25,6 +25,7 @@ const CosmeticDentistry = () => {
             eyebrow="Smile Design"
             title="Cosmetic Dentistry"
             titleAccent="Dentistry"
+            numbers={["1,200+ veneers made to fix chips, gaps and stains"]}
             subline="Cosmetic Dentistry in Petaling Jaya"
             lead="Design your dream smile with aesthetic dental treatments tailored to your unique facial features. From veneers to full mouth rehabilitation, we combine art and science for results that look natural and function beautifully."
             scienceTitle="The Art & Science"

@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star } from 'lucide-react';
 import Button from '../components/Button';
+import HomeNumbers from '../components/HomeNumbers';
 import { Helmet } from 'react-helmet-async';
 import { Reveal } from '../components/Reveal';
 import reviewStats from '../data/review-stats.json';
@@ -21,6 +22,7 @@ import Style from '../components/Style';
 // The five areas of care, in the order families actually meet them.
 // Row titles are the category names so they match /services and the nav
 // (section names describe the content, per the owner's standing rule).
+
 const STAGES = [
     {
         to: '/services/protect',
@@ -338,10 +340,10 @@ const Home = () => {
                             Dental care for <em>every generation.</em>
                         </h1>
                         <p className="hero-subtitle hero-subtitle-desktop">
-                            From a child's first visit to a grandparent's new smile, iSmile is the dentist whole families stay with. Honest advice, gentle hands, and care that's looked after Petaling Jaya households for nearly two decades.
+                            From a child's first visit to a grandparent's new smile, iSmile has been the Petaling Jaya dentist whole families stay with for 20 years.
                         </p>
                         <p className="hero-subtitle hero-subtitle-mobile">
-                            The family dentist Petaling Jaya households have stayed with since 2006.
+                            The Petaling Jaya family dentist for 20 years.
                         </p>
                         <div className="hero-actions">
                             <Button onClick={() => openBooking('', 'hero-cta')}>Book a Visit <ArrowRight size={18} /></Button>
@@ -372,6 +374,12 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+            {/* ============ 1b. NUMBERS — three all-time figures, three switchable designs ============ */}
+            {/* Owner-approved rounded figures (Marketing-numbers/ALL-TIME-NUMBERS.md).
+                One gradient card; the figures roll up once as the card enters
+                view (owner's ask, 3 Nov; this section only). */}
+            <HomeNumbers />
 
             {/* ============ 2. SERVICES — a wide, numbered index on an inset band ============ */}
             <section className="services-section">
@@ -550,6 +558,7 @@ const Home = () => {
            the 4.5rem cap forced a third line. */
         .hero-title { font-size: clamp(2.5rem, 1.5rem + 3.4vw, 4rem); line-height: 1.06; margin-bottom: 24px; font-weight: 700; letter-spacing: -0.035em; }
         @media (min-width: 1025px) { .hero-title em { white-space: nowrap; } }
+
         .hero-subtitle { font-size: var(--fs-lead); color: var(--color-text-slate); margin-bottom: 36px; max-width: 480px; line-height: 1.65; }
         .hero-subtitle-mobile { display: none; }
         .hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
@@ -747,20 +756,21 @@ const Home = () => {
             .hero-title { font-size: 2.8rem; line-height: 1.08; margin-bottom: 24px; }
             .hero-subtitle-desktop { display: none; }
             .hero-subtitle-mobile { display: block; }
-            .hero-subtitle { font-size: 1rem; margin-bottom: 22px; max-width: 420px; line-height: 1.55; }
+            .hero-subtitle { font-size: 1rem; margin-bottom: 24px; max-width: none; line-height: 1.55; }
             .hero-trust { margin-top: 24px; font-size: 0.88rem; }
+
 
             .hero-mosaic { gap: 12px; padding: 4px 0 8px; }
             .mosaic-row { gap: 12px; }
             .mosaic-tile { width: 150px; height: 150px; border-radius: 16px; }
             .mosaic-quote { padding: 16px; font-size: 0.9rem; line-height: 1.4; }
 
-            .section-header { margin-bottom: 28px; }
+            .section-header { margin-bottom: 24px; }
             .section-eyebrow { margin-bottom: 12px; }
-            .section-lead { font-size: 1rem; margin-top: 10px; }
+            .section-lead { font-size: 1rem; margin-top: 16px; }
 
-            /* Services — tighter rows, arrow drops away */
-            .services-section { padding: 48px 0 56px; }
+            /* Services — one section rhythm (56px) above the heading, arrow drops away */
+            .services-section { padding: 56px 0 48px; }
             .stage-row { grid-template-columns: 34px 1fr; gap: 8px 14px; padding: 22px 6px; }
             .stage-num { font-size: 0.72rem; }
             .stage-line { grid-column: 2; font-size: 0.92rem; }
@@ -802,23 +812,47 @@ const Home = () => {
         }
 
         /* ============================
+           PHONES (<=767px): the five services become a snap carousel,
+           the first one a phone visitor meets after the numbers card.
+           Same content and type as the rows, each on a light card with
+           the next one peeking in from the right edge (owner, 3 Nov).
+           ============================ */
+        @media (max-width: 767px) {
+            .stage-list {
+                display: flex; gap: 12px; border-top: none;
+                overflow-x: auto; scroll-snap-type: x mandatory;
+                margin-right: -16px; padding: 4px 16px 14px 0;
+                scrollbar-width: none; -ms-overflow-style: none;
+            }
+            .stage-list::-webkit-scrollbar { display: none; }
+            .stage-row {
+                flex: 0 0 76%; scroll-snap-align: start;
+                display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
+                padding: 24px 20px; min-height: 44px;
+                border: 1px solid rgba(16,42,51,0.12); border-bottom-width: 1px; border-radius: 20px;
+                background: var(--color-surface);
+            }
+            .stage-row::before { display: none; }
+            .stage-line { font-size: 0.95rem; line-height: 1.5; }
+            .stage-title { font-size: 1.3rem; }
+        }
+
+        /* ============================
            RESPONSIVE — PHONE (<=480px)
            ============================ */
         @media (max-width: 480px) {
             .home-page .section-title { font-size: 1.6rem; line-height: 1.12; }
-            .section-header { margin-bottom: 18px; }
+            .section-header { margin-bottom: 24px; }
 
             .hero-section { padding: 116px 0 32px; }
             .hero-title { font-size: 2.45rem; }
-            .hero-subtitle { max-width: 340px; }
 
             .mosaic-tile { width: 126px; height: 126px; border-radius: 14px; }
             .mosaic-quote { padding: 12px; font-size: 0.8rem; }
 
             /* Services — the rows stay on phones too (chips retired, owner
                7 Sep: the white chip cards were the card language creeping back) */
-            .services-section { padding: 36px 0 44px; }
-            .stage-row { padding: 18px 2px; }
+            .services-section { padding: 56px 0 48px; }
             .stage-title { font-size: 1.2rem; }
             .stage-line { font-size: 0.88rem; }
 

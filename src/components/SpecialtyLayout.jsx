@@ -4,6 +4,7 @@ import Button from './Button';
 import FaqAccordion from './FaqAccordion';
 import RelatedReading from './RelatedReading';
 import Style from './Style';
+import ServiceNumbers from './ServiceNumbers';
 
 /**
  * Shared template for the 8 specialty pages.
@@ -56,6 +57,7 @@ export default function SpecialtyLayout({
     bookingLabel,
     bookingSource,
     relatedKey,
+    numbers,
     children,
 }) {
     const { openBooking } = useBooking();
@@ -68,6 +70,7 @@ export default function SpecialtyLayout({
                 <div className="container">
                     <h1 className="sp-title">{accent(title, titleAccent)}</h1>
                     <p className="sp-lead">{lead}</p>
+                    <ServiceNumbers lines={numbers} />
                     {subline && <p className="sp-meta">{subline}</p>}
                 </div>
             </header>
