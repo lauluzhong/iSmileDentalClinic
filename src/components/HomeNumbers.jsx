@@ -19,7 +19,7 @@ import Style from './Style';
 
 export const ALL_TIME_NUMBERS = [
     { value: 10000, label: 'families cared for' },
-    { value: 50000, label: 'check-ups & cleanings' },
+    { value: 50000, label: 'mouths cleaned' },
     { value: 120000, label: 'visits and counting' },
 ];
 
