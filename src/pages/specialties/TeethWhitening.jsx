@@ -25,6 +25,7 @@ const TeethWhitening = () => {
             eyebrow="Aesthetic Dentistry"
             title="Teeth Whitening"
             titleAccent="Whitening"
+            numbers={["1,000+ patients have whitened their teeth with us"]}
             subline="Teeth Whitening in Petaling Jaya"
             lead="Professional teeth whitening in Petaling Jaya. Brighten your smile with our custom treatment. Book your consultation today."
             scienceTitle="The Science of Gradual Whitening"

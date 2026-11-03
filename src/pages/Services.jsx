@@ -5,6 +5,7 @@ import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import Button from '../components/Button';
 import RelatedReading from '../components/RelatedReading';
 import ResponsiveImage from '../components/ResponsiveImage';
+import ServiceNumbers from '../components/ServiceNumbers';
 import { Reveal, FadeIn } from '../components/Reveal';
 import Style from '../components/Style';
 import { servicesData } from '../data/servicesData';
@@ -36,6 +37,21 @@ const HERO_ACCENTS = {
     replace: 'Smile Again.',
     enhance: 'Dream Smile.',
     children: 'Smiles & Airways.'
+};
+// Owner-approved all-time figures (rounded up), one line per service a hub
+// covers. Rendered static under the hub lead by ServiceNumbers.
+const HUB_NUMBERS = {
+    protect: ['45,000+ fillings to stop decay before it turns into toothache'],
+    straighten: ['600+ people have straightened their teeth with us'],
+    replace: [
+        '3,000+ crowns to protect cracked and weak teeth, so patients can bite and chew with confidence',
+        '2,000+ dentures made so patients can eat, speak and smile comfortably again'
+    ],
+    enhance: [
+        '1,000+ patients have whitened their teeth with us',
+        '1,200+ veneers made to fix chips, gaps and stains'
+    ],
+    children: ['4,000+ children have had their check-ups with us, many since their first tooth']
 };
 const EXPERIENCE_ACCENTS = {
     protect: 'Long-Term Care',
@@ -120,6 +136,7 @@ const ServiceHub = () => {
                     <div className="hub-hero-copy">
                         <h1 className="hub-title">{withAccent(data.hero, HERO_ACCENTS[category])}</h1>
                         <p className="hub-lead">{data.description}</p>
+                        <ServiceNumbers lines={HUB_NUMBERS[category]} className="hub-numbers" />
                     </div>
                     <div className="hub-hero-photo">
                         <ResponsiveImage
@@ -246,6 +263,7 @@ const ServiceHub = () => {
                     margin: 0;
                     max-width: 480px;
                 }
+                .hub-numbers { max-width: 480px; }
                 .hub-hero-photo {
                     min-width: 0;
                     border-radius: 26px;
