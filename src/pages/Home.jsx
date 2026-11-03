@@ -129,7 +129,7 @@ const MosaicRow = ({ tiles, className }) => (
             const d = tile.d;
             return (
                 <Link
-                    to={`/dentists/${d.slug}`}
+                    to={`/dentists#${d.slug}`}
                     key={`${copy}-${i}`}
                     className="mosaic-tile mosaic-portrait"
                     tabIndex={hidden ? -1 : 0}
@@ -140,6 +140,7 @@ const MosaicRow = ({ tiles, className }) => (
                         <source type="image/webp" srcSet={portraitSrc(d.img, '.webp')} />
                         <img src={encodeURI(d.img)} alt={hidden ? '' : (d.knownAs || d.name)} width="682" height="1024" loading="eager" decoding="async" />
                     </picture>
+                    <span className="mosaic-name" aria-hidden="true">{d.knownAs || d.name}</span>
                 </Link>
             );
         }))}
@@ -228,13 +229,16 @@ const Home = () => {
         const onDown = (e) => {
             if (e.button !== undefined && e.button !== 0) return;
             dragging = true; moved = 0; startX = e.clientX; startVal = x;
-            if (root.setPointerCapture && e.pointerId !== undefined) {
-                try { root.setPointerCapture(e.pointerId); } catch { /* no-op */ }
-            }
         };
         const onMove = (e) => {
             if (!dragging) return;
             const dx = e.clientX - startX;
+            // Capture only once it is a real drag: capturing on press would
+            // retarget the click to the strip, so a plain tap on a portrait
+            // would never reach its link.
+            if (moved <= 6 && Math.abs(dx) > 6 && root.setPointerCapture && e.pointerId !== undefined) {
+                try { root.setPointerCapture(e.pointerId); } catch { /* no-op */ }
+            }
             moved = Math.max(moved, Math.abs(dx));
             x = startVal - dx;
         };
@@ -607,8 +611,26 @@ const Home = () => {
         .mosaic-scrub:hover .mosaic-scrub-thumb { background: var(--color-primary-deep); }
 
         .mosaic-tile { flex: none; width: 192px; height: 192px; border-radius: 20px; overflow: hidden; }
-        .mosaic-portrait { display: block; transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); }
-        .mosaic-portrait:hover { transform: translateY(-5px); }
+        /* Portrait links go to /dentists#slug. Hover is colour/opacity only (owner
+           ruling, 21 Oct): no lift; the name fades in over a soft bottom
+           gradient inside the rounded frame. Touch screens have no hover, so
+           there the name shows at rest. */
+        .mosaic-portrait { display: block; position: relative; }
+        .mosaic-portrait::after {
+            content: ''; position: absolute; inset: auto 0 0 0; height: 46%;
+            background: linear-gradient(to top, rgba(16,42,51,0.62), rgba(16,42,51,0));
+            opacity: 0; transition: opacity 180ms cubic-bezier(0.16,1,0.3,1); pointer-events: none;
+        }
+        .mosaic-name {
+            position: absolute; left: 14px; right: 14px; bottom: 12px; z-index: 1;
+            color: #fff; font-weight: 600; font-size: 0.9rem; line-height: 1.25;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+            opacity: 0; transition: opacity 180ms cubic-bezier(0.16,1,0.3,1); pointer-events: none;
+        }
+        .mosaic-portrait:hover::after, .mosaic-portrait:hover .mosaic-name,
+        .mosaic-portrait:focus-visible::after, .mosaic-portrait:focus-visible .mosaic-name { opacity: 1; }
+        @media (hover: none) { .mosaic-portrait::after, .mosaic-name { opacity: 1; } }
+        @media (prefers-reduced-motion: reduce) { .mosaic-portrait::after, .mosaic-name { transition: none; } }
         .mosaic-portrait picture, .mosaic-portrait img { width: 100%; height: 100%; }
         .mosaic-portrait img { display: block; object-fit: cover; object-position: center 14%; background: #f2f0ec; }
         .mosaic-quote {
