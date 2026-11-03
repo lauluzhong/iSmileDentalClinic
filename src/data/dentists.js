@@ -131,11 +131,7 @@ const dentists = [
         qualifications: 'DDS, MAHSA University',
         bio: 'Passionate about looking beyond teeth to provide personalised dental care that supports healthier breathing, better oral health, proper growth and development, and confident smiles.',
         languages: 'English, Chinese, Malay',
-        // TODO(photo): no portrait yet. Drop the real photo at
-        // public/images/doctors/dr_Lau Jia Yin.jpg (plus .webp and .avif), portrait
-        // 682x1024 like the others, then set img to '/images/doctors/dr_Lau Jia Yin.jpg'.
-        // While img is null the pages show her initials on the brand tint instead.
-        img: null,
+        img: '/images/doctors/dr_Lau Jia Yin.jpg',
         initials: 'JY',
         keyCompetency: 'General Dentistry, Airway-Focused Dentistry, Early Orthodontic Treatment for Children',
     },

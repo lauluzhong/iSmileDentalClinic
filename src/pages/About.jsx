@@ -102,10 +102,7 @@ const doctors = [
         qualifications: "DDS, MAHSA University",
         bio: "Passionate about looking beyond teeth to provide personalised dental care that supports healthier breathing, better oral health, proper growth and development, and confident smiles.",
         languages: "English, Chinese, Malay",
-        // TODO(photo): set img to "/images/doctors/dr_Lau Jia Yin.jpg" once the
-        // portrait is in, and the same in src/data/dentists.js. Until then the
-        // card shows her initials and links to her profile by slug.
-        img: null,
+        img: "/images/doctors/dr_Lau Jia Yin.jpg",
         initials: "JY",
         slug: "dr-lau-jia-yin",
         keyCompetency: "General Dentistry, Airway-Focused Dentistry, Early Orthodontic Treatment for Children"
