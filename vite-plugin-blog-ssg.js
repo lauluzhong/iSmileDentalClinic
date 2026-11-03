@@ -714,7 +714,7 @@ export default function blogSSG() {
       fs.mkdirSync(dentistIndexPath, { recursive: true });
       fs.writeFileSync(path.resolve(dentistIndexPath, 'index.html'), buildPage({
         title: escapeHtml('Our Dentists in Damansara Jaya, Petaling Jaya | iSmile Dental Clinic'),
-        description: escapeHtml('Meet the dentists at iSmile Dental Clinic in Damansara Jaya, Petaling Jaya. Eight dental surgeons with 14 to 34 years in practice across general, paediatric, orthodontic and restorative care.'),
+        description: escapeHtml('Meet the dentists at iSmile Dental Clinic in Damansara Jaya, Petaling Jaya. Nine dental surgeons with 8 to 34 years in practice across general, paediatric, orthodontic and restorative care.'),
         canonicalUrl: SITE_URL + '/dentists',
         currentPath: '/dentists',
         ogType: 'website',
@@ -729,7 +729,7 @@ export default function blogSSG() {
         })],
         body: [
           '    <h1>Our dentists</h1>',
-          '    <p>Our team in Damansara Jaya covers general, paediatric, orthodontic and restorative care between them, with 14 to 34 years in practice each.</p>',
+          '    <p>Our team in Damansara Jaya covers general, paediatric, orthodontic and restorative care between them, with 8 to 34 years in practice each.</p>',
           '    <ul>' + dentists.map(d =>
             '<li><a href="/dentists/' + d.slug + '">' + escapeHtml(d.knownAs) + '</a> — ' +
             escapeHtml(d.role) + '. ' + escapeHtml(d.qualifications) + '</li>').join('') + '</ul>',
@@ -748,14 +748,14 @@ export default function blogSSG() {
           canonicalUrl,
           currentPath: '/dentists/' + d.slug,
           ogType: 'profile',
-          ogImage: SITE_URL + d.img,
+          ogImage: d.img ? SITE_URL + d.img : SITE_URL + '/logo.png',
           jsonLd: [
             JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Dentist',
               name: d.name,
               alternateName: d.knownAs,
-              image: SITE_URL + d.img,
+              ...(d.img ? { image: SITE_URL + d.img } : {}),
               url: canonicalUrl,
               knowsLanguage: d.languages.split(',').map(x => x.trim()),
               worksFor: {

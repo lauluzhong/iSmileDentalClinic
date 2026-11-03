@@ -44,7 +44,8 @@ const STATIC_SITEMAP_ENTRIES = [
   { path: '/dentists/dr-azelia-lau', changefreq: 'monthly', priority: '0.7' },
   { path: '/dentists/dr-priscilla-chan', changefreq: 'monthly', priority: '0.7' },
   { path: '/dentists/dr-joan-lim', changefreq: 'monthly', priority: '0.7' },
-  { path: '/dentists/dr-yeoh-oon-take', changefreq: 'monthly', priority: '0.7' }
+  { path: '/dentists/dr-yeoh-oon-take', changefreq: 'monthly', priority: '0.7' },
+  { path: '/dentists/dr-lau-jia-yin', changefreq: 'monthly', priority: '0.7' }
 ];
 
 // Ensure output directories exist

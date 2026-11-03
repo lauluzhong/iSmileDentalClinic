@@ -94,6 +94,21 @@ const doctors = [
         bio: "Driven toward continual improvement while delivering functional and long-lasting treatment outcomes.",
         languages: "Malay, Mandarin, English, Cantonese, Hokkien",
         img: "/images/doctors/dr_yeoh.jpg"
+    },
+    {
+        name: "Dr. Lau Jia Yin",
+        role: "Dental Surgeon, DDS (MAHSA)",
+        years: "8 years",
+        qualifications: "DDS, MAHSA University",
+        bio: "Passionate about looking beyond teeth to provide personalised dental care that supports healthier breathing, better oral health, proper growth and development, and confident smiles.",
+        languages: "English, Chinese, Malay",
+        // TODO(photo): set img to "/images/doctors/dr_Lau Jia Yin.jpg" once the
+        // portrait is in, and the same in src/data/dentists.js. Until then the
+        // card shows her initials and links to her profile by slug.
+        img: null,
+        initials: "JY",
+        slug: "dr-lau-jia-yin",
+        keyCompetency: "General Dentistry, Airway-Focused Dentistry, Early Orthodontic Treatment for Children"
     }
 ];
 
@@ -200,11 +215,13 @@ const About = () => {
                                     card is the same stacked photo-over-text as before. */}
                                 <div className="team-card-head">
                                     <div className="team-photo">
-                                        {doc.img && <img
+                                        {doc.img ? <img
                                             src={doc.img}
                                             alt={doc.name}
                                             loading="lazy"
-                                        />}
+                                        /> : doc.initials && (
+                                            <span className="team-initials" role="img" aria-label={doc.name}>{doc.initials}</span>
+                                        )}
                                     </div>
                                     <div className="team-header-top">
                                         <h3>{doc.name}</h3>
@@ -235,8 +252,8 @@ const About = () => {
                                         <small>Languages Spoken: {doc.languages}</small>
                                     </div>
 
-                                    {profileSlugByImg[doc.img] && (
-                                        <Link className="team-profile-link" to={`/dentists/${profileSlugByImg[doc.img]}`}>
+                                    {(doc.slug || profileSlugByImg[doc.img]) && (
+                                        <Link className="team-profile-link" to={`/dentists/${doc.slug || profileSlugByImg[doc.img]}`}>
                                             View full profile →
                                         </Link>
                                     )}
@@ -301,6 +318,7 @@ const About = () => {
                 .about-page .team-photo { height: 350px; overflow: hidden; position: relative; }
                 .about-page .team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 0.6s var(--ease-slow); display: block; }
                 .about-page .team-card:hover .team-photo img { transform: scale(1.04); }
+                .about-page .team-initials { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; background: var(--color-tint-blue); color: var(--color-primary-deep); font-family: var(--font-heading); font-weight: 600; font-size: 3rem; letter-spacing: .04em; }
                 .about-page .team-header-top { min-height: 120px; padding: 30px 30px 0; }
                 .about-page .team-header-top h3 { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; margin: 0 0 8px; color: var(--color-text-charcoal); }
                 .about-page .team-role { color: var(--color-primary-deep); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px; }
