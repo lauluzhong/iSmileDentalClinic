@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-11-04 23:30",
- "generated_at": "2026-11-04T23:30:11+08:00",
+ "generated_myt": "2026-11-05 00:00",
+ "generated_at": "2026-11-05T00:00:09+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 16.9,
   "nproc": 4,
   "load": [
-   1.29,
-   1.08,
-   0.68
+   1.82,
+   0.64,
+   0.46
   ],
-  "cpu_pct": 32.2,
-  "cpu_pct_sample": 2.2,
+  "cpu_pct": 45.5,
+  "cpu_pct_sample": 2.0,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 4347,
-   "avail_mb": 3593,
-   "pct": 54.7,
+   "used_mb": 4252,
+   "avail_mb": 3689,
+   "pct": 53.5,
    "swap_total_mb": 2047,
    "swap_used_mb": 44
   },
@@ -29,11 +29,11 @@
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 23,
-    "last_myt": "2026-11-04 23:30 MYT"
+    "age_s": 21,
+    "last_myt": "2026-11-05 00:00 MYT"
    },
    "hq_publish": {
-    "age_s": 186169,
+    "age_s": 187966,
     "last_myt": "2026-11-02 19:47 MYT",
     "detail": "asof=MON 02 NOV 2026 streams=46 sideboard=20 decisions=1 archive=11"
    }
@@ -48,7 +48,7 @@
     "snippet_batch"
    ],
    "running": [],
-   "status_updated": "2026-11-04 23:30 MYT"
+   "status_updated": "2026-11-05 00:00 MYT"
   },
   "last_clinic_push": "2026-11-04"
  },
@@ -624,8 +624,26 @@
   "checked": "2026-11-04"
  },
  "social": {
-  "available": false,
-  "note": "Zernio call failed: TimeoutError('The read operation timed out')"
+  "available": true,
+  "source": "Zernio MCP (Edith's connection)",
+  "as_of": "2026-11-04",
+  "window_days": 30,
+  "accounts": [
+   {
+    "platform": "instagram",
+    "username": "ismiledentalclinicmy",
+    "display": "iSmile Dental Clinic",
+    "followers": 98.0,
+    "growth_30d": 0.0,
+    "growth_pct_30d": 0.0,
+    "posts_on_platform": 13.0,
+    "last_updated": "2026-11-04T04:48:34.594000Z",
+    "active": true
+   }
+  ],
+  "instagram_30d": null,
+  "posts_published_via_zernio": 0,
+  "note": "Instagram @ismiledentalclinicmy is connected through Zernio. Posts published outside Zernio are not counted in posts_published_via_zernio."
  },
  "geo": {
   "generated_myt": "2026-11-01 15:30",
