@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-11-04 12:30",
- "generated_at": "2026-11-04T12:30:09+08:00",
+ "generated_myt": "2026-11-04 12:53",
+ "generated_at": "2026-11-04T12:53:08+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 16.5,
   "nproc": 4,
   "load": [
-   0.33,
-   0.58,
-   0.52
+   0.41,
+   0.24,
+   0.25
   ],
-  "cpu_pct": 8.2,
-  "cpu_pct_sample": 4.4,
+  "cpu_pct": 10.2,
+  "cpu_pct_sample": 2.4,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 3886,
-   "avail_mb": 4054,
-   "pct": 48.9,
+   "used_mb": 4012,
+   "avail_mb": 3928,
+   "pct": 50.5,
    "swap_total_mb": 2047,
    "swap_used_mb": 59
   },
@@ -29,11 +29,11 @@
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 621,
-    "last_myt": "2026-11-04 12:20 MYT"
+    "age_s": 199,
+    "last_myt": "2026-11-04 12:50 MYT"
    },
    "hq_publish": {
-    "age_s": 146567,
+    "age_s": 147946,
     "last_myt": "2026-11-02 19:47 MYT",
     "detail": "asof=MON 02 NOV 2026 streams=46 sideboard=20 decisions=1 archive=11"
    }
@@ -48,7 +48,7 @@
     "snippet_batch"
    ],
    "running": [],
-   "status_updated": "2026-11-04 12:30 MYT"
+   "status_updated": "2026-11-04 12:53 MYT"
   },
   "last_clinic_push": "2026-11-04"
  },
@@ -170,13 +170,24 @@
      "other_opex": 57403,
      "total": 933156
     },
-    "ebitda": 147944,
+    "ebitda": 74433,
     "below": {
      "depreciation": 274182,
      "hp_interest": 23691,
      "total": 297872
     },
-    "net_profit": -149928,
+    "net_profit": -223439,
+    "one_off": {
+     "total": 73511,
+     "bonus": 39000,
+     "codecapsule": 11000,
+     "hrms": 1139,
+     "autocount": 7619,
+     "hardware": 2080,
+     "legal": 10000,
+     "migration_blast": 2000,
+     "jia_yin": 673
+    },
     "months": [
      "2026-01",
      "2026-02",
@@ -224,13 +235,26 @@
      "other_opex": 69837,
      "total": 1139358
     },
-    "ebitda": 185093,
+    "ebitda": 73882,
     "below": {
      "depreciation": 328976,
      "hp_interest": 28441,
      "total": 357416
     },
-    "net_profit": -172323,
+    "net_profit": -283534,
+    "one_off": {
+     "total": 111211,
+     "bonus": 39000,
+     "codecapsule": 12000,
+     "hrms": 1139,
+     "autocount": 7619,
+     "hardware": 2080,
+     "legal": 15000,
+     "migration_blast": 3700,
+     "jia_yin": 7673,
+     "social_hire": 3000,
+     "kids_area": 20000
+    },
     "actual_months": [
      "2026-01",
      "2026-02",
@@ -275,7 +299,10 @@
       "hp_interest": 2461,
       "total": 29779
      },
-     "net_profit": -72078
+     "net_profit": -72078,
+     "one_off": {
+      "total": 0
+     }
     },
     {
      "month": "2026-02",
@@ -302,7 +329,10 @@
       "hp_interest": 2394,
       "total": 29712
      },
-     "net_profit": -58541
+     "net_profit": -58541,
+     "one_off": {
+      "total": 0
+     }
     },
     {
      "month": "2026-03",
@@ -329,7 +359,10 @@
       "hp_interest": 2327,
       "total": 29644
      },
-     "net_profit": -8829
+     "net_profit": -8829,
+     "one_off": {
+      "total": 0
+     }
     },
     {
      "month": "2026-04",
@@ -356,7 +389,10 @@
       "hp_interest": 2259,
       "total": 30105
      },
-     "net_profit": 46407
+     "net_profit": 46407,
+     "one_off": {
+      "total": 0
+     }
     },
     {
      "month": "2026-05",
@@ -375,6 +411,9 @@
       "premises": 14394,
       "other_opex": 6217,
       "total": 90601
+     },
+     "one_off": {
+      "total": 0
      },
      "ebitda": -31073,
      "below": {
@@ -402,6 +441,9 @@
       "other_opex": 6217,
       "total": 90601
      },
+     "one_off": {
+      "total": 0
+     },
      "ebitda": 46829,
      "below": {
       "depreciation": 27397,
@@ -428,13 +470,18 @@
       "other_opex": 6217,
       "total": 90601
      },
-     "ebitda": 39189,
+     "one_off": {
+      "bonus": 39000,
+      "codecapsule": 3500,
+      "total": 42500
+     },
+     "ebitda": -3311,
      "below": {
       "depreciation": 27397,
       "hp_interest": 2375,
       "total": 29772
      },
-     "net_profit": 9417
+     "net_profit": -33083
     },
     {
      "month": "2026-08",
@@ -455,13 +502,20 @@
       "other_opex": 6217,
       "total": 103101
      },
-     "ebitda": 5275,
+     "one_off": {
+      "hrms": 1139,
+      "codecapsule": 3500,
+      "autocount": 7619,
+      "hardware": 2080,
+      "total": 14338
+     },
+     "ebitda": -9063,
      "below": {
       "depreciation": 27397,
       "hp_interest": 2375,
       "total": 29772
      },
-     "net_profit": -24497
+     "net_profit": -38835
     },
     {
      "month": "2026-09",
@@ -482,13 +536,19 @@
       "other_opex": 6217,
       "total": 103101
      },
-     "ebitda": 9050,
+     "one_off": {
+      "legal": 5000,
+      "migration_blast": 2000,
+      "codecapsule": 3000,
+      "total": 10000
+     },
+     "ebitda": -950,
      "below": {
       "depreciation": 27397,
       "hp_interest": 2375,
       "total": 29772
      },
-     "net_profit": -20722
+     "net_profit": -30722
     },
     {
      "month": "2026-10",
@@ -509,17 +569,36 @@
       "other_opex": 6217,
       "total": 103101
      },
-     "ebitda": 52475,
+     "one_off": {
+      "legal": 5000,
+      "jia_yin": 673,
+      "codecapsule": 1000,
+      "total": 6673
+     },
+     "ebitda": 45802,
      "below": {
       "depreciation": 27397,
       "hp_interest": 2375,
       "total": 29772
      },
-     "net_profit": 22703
+     "net_profit": 16030
     }
    ],
    "config_source": "FY2026 Projection Refresh 2026-08-27.md (model v6, Financials/00_Models & Analysis): staff 41,674 (Apr-26 actual run-rate) \u00b7 director remuneration 28,316 \u00b7 owner salary 12,500 from Aug-26 \u00b7 premises & utilities 14,394 \u00b7 other operating 6,217 \u00b7 depreciation 27,397 (FY2026 328,760/12) \u00b7 HP interest 2,375 (TTM).",
-   "known_gap": "config/pnl.json (the day digest / By-day tab) still charges overhead 88,012 + depreciation 29,810 from the June model \u2014 it has NO owner salary. This file is the v6 base; the two were deliberately not reconciled here (owner decision pending, see _context finance page)."
+   "known_gap": "config/pnl.json (the day digest / By-day tab) still charges overhead 88,012 + depreciation 29,810 from the June model \u2014 it has NO owner salary. This file is the v6 base; the two were deliberately not reconciled here (owner decision pending, see _context finance page).",
+   "one_off_source": "Mirrors the owner's Google Sheet (Model v6) 'STRATEGIC SPEND' block, rows 104\u2013113, read 4 Nov 2026. Taken off before EBITDA, as the Sheet's 'ALL-IN EBITDA (cash view)' does, so capex is counted as cash in the month paid. In accountant-closed months only capex lines apply (opex one-offs are already in the accountant's expense lines). When the Sheet changes, update this list by hand.",
+   "one_off_labels": {
+    "bonus": "Staff bonus (paid July)",
+    "legal": "Legal fees (Lydia)",
+    "jia_yin": "Dr Jia Yin, net of her share",
+    "social_hire": "Social media hire",
+    "migration_blast": "OpenDent migration & WhatsApp blast",
+    "hrms": "HRMS payroll software (annual)",
+    "codecapsule": "CodeCapsule integration",
+    "autocount": "AutoCount software",
+    "hardware": "Hardware upgrade",
+    "kids_area": "Kids' area"
+   }
   }
  },
  "seo": {
@@ -558,7 +637,7 @@
     "growth_30d": 0.0,
     "growth_pct_30d": 0.0,
     "posts_on_platform": 13.0,
-    "last_updated": "2026-11-03T04:42:18.594000Z",
+    "last_updated": "2026-11-04T04:48:34.594000Z",
     "active": true
    }
   ],
