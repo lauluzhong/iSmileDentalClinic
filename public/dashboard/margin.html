@@ -516,10 +516,10 @@
     <div class="panel pnl-panel" id="pnl-statement"></div>
     <div class="tcard" style="margin-top:18px">
       <div class="tscroll">
-        <table class="tx" id="pnl-months" style="min-width:820px">
+        <table class="tx" id="pnl-months" style="min-width:900px">
           <thead><tr>
             <th>Month</th><th>Basis</th><th class="num">Revenue</th><th class="num">Direct cost</th><th class="num">Gross profit</th>
-            <th class="num">Fixed cost</th><th class="num">EBITDA</th><th class="num">Dep. + HP int.</th><th class="num col-final">Net profit</th>
+            <th class="num">Fixed cost</th><th class="num">One-off</th><th class="num">EBITDA</th><th class="num">Dep. + HP int.</th><th class="num col-final">Net profit</th>
           </tr></thead>
           <tbody id="pnl-months-body"></tbody>
           <tfoot id="pnl-months-foot"></tfoot>
@@ -1263,6 +1263,11 @@ function renderPnl(){
   h+=g('total','Gross profit',yy.gross_profit,pp.gross_profit);
   h+=g('less','Fixed cost',yy.fixed.total,pp.fixed.total,'<small>staff · directors · premises · other</small>');
   for(const k of PNL_FIXED_ORDER.concat(Object.keys(yy.fixed).filter(k=>!PNL_FIXED_ORDER.includes(k)))) if(k!=='total'&&yy.fixed[k]!=null) h+=g('sub',F[k]||k,yy.fixed[k],(pp.fixed||{})[k]);
+  const yo=yy.one_off||{}, po=pp.one_off||{}, OL=STMT.one_off_labels||{};
+  if(yy.one_off||pp.one_off){
+    h+=g('less','One-off &amp; strategic spend',yo.total||0,po.total||0,'<small>bonus · legal · new hires · capex — from your Sheet</small>');
+    for(const k of Object.keys(OL)) if(yo[k]!=null||po[k]!=null) h+=g('sub',OL[k],yo[k]||0,po[k]||0);
+  }
   h+=g('total','EBITDA',yy.ebitda,pp.ebitda);
   h+=g('less','Depreciation &amp; HP interest',yy.below.total,pp.below.total);
   for(const k of Object.keys(yy.below)) if(k!=='total') h+=g('sub',F[k]||k,yy.below[k],(pp.below||{})[k]);
@@ -1274,10 +1279,10 @@ function renderPnl(){
   const body=document.getElementById('pnl-months-body'), foot=document.getElementById('pnl-months-foot');
   const cell=(v,cls)=>`<td class="num ${cls||''}">${v<0?'−':''}${Math.round(Math.abs(v)).toLocaleString('en-MY')}</td>`;
   const bas=b=>b==='actual'?'<span class="pill-a">ACTUAL</span>':'<span class="pill-e">ESTIMATE</span>';
-  body.innerHTML=(STMT.months||[]).map(m=>`<tr><td>${m.month}</td><td>${bas(m.basis)}</td>${cell(m.revenue)}${cell(m.direct.total)}${cell(m.gross_profit)}${cell(m.fixed.total)}${cell(m.ebitda)}${cell(m.below.total)}${cell(m.net_profit,'col-final '+sgn(m.net_profit))}</tr>`).join('');
+  body.innerHTML=(STMT.months||[]).map(m=>`<tr><td>${m.month}</td><td>${bas(m.basis)}</td>${cell(m.revenue)}${cell(m.direct.total)}${cell(m.gross_profit)}${cell(m.fixed.total)}${cell((m.one_off||{}).total||0)}${cell(m.ebitda)}${cell(m.below.total)}${cell(m.net_profit,'col-final '+sgn(m.net_profit))}</tr>`).join('');
   const na=(yy.actual_months||[]).length, ne=(yy.estimate_months||[]).length;
-  foot.innerHTML=`<tr><td>YTD</td><td>${na} A · ${ne} E</td>${cell(yy.revenue)}${cell(yy.direct.total)}${cell(yy.gross_profit)}${cell(yy.fixed.total)}${cell(yy.ebitda)}${cell(yy.below.total)}${cell(yy.net_profit,'col-final '+sgn(yy.net_profit))}</tr>`;
-  document.getElementById('pnl-note').innerHTML='<b>Basis:</b> '+(STMT.basis||'')+' <b>Projection:</b> '+(pp.method||'')+(STMT.known_gap?' <b>Note:</b> '+STMT.known_gap:'');
+  foot.innerHTML=`<tr><td>YTD</td><td>${na} A · ${ne} E</td>${cell(yy.revenue)}${cell(yy.direct.total)}${cell(yy.gross_profit)}${cell(yy.fixed.total)}${cell((yy.one_off||{}).total||0)}${cell(yy.ebitda)}${cell(yy.below.total)}${cell(yy.net_profit,'col-final '+sgn(yy.net_profit))}</tr>`;
+  document.getElementById('pnl-note').innerHTML='<b>Basis:</b> '+(STMT.basis||'')+' <b>Projection:</b> '+(pp.method||'')+(STMT.one_off_source?' <b>One-off &amp; strategic spend:</b> '+STMT.one_off_source:'')+(STMT.known_gap?' <b>Note:</b> '+STMT.known_gap:'');
 }
 const monthName=ym=>{const [y,m]=ym.split('-');return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+m-1]+' '+y;};
 const PNL_FIXED_ORDER=['staff','director','owner_salary','premises','other_opex'];
