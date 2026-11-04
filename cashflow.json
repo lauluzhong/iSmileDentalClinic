@@ -1,60 +1,68 @@
 {
   "as_of": "2026-11-04",
-  "mode": "midday",
+  "mode": "eod",
   "fresh": true,
-  "generated_myt": "2026-11-04 12:05",
+  "generated_myt": "2026-11-04 19:50",
   "source_max_paydate": "2026-11-04",
   "source_max_procdate": "2026-11-04",
   "today": {
-    "collected": 1450.0,
-    "produced": 1650.0,
-    "patients_seen": 6,
-    "new_patients": 0,
+    "collected": 10210.0,
+    "produced": 11060.0,
+    "patients_seen": 20,
+    "new_patients": 1,
     "by_paytype": {
-      "Credit Card": 1250.0,
+      "Credit Card": 7510.0,
+      "Internet Banking": 2500.0,
       "Cash": 200.0
     }
   },
   "mtd": {
-    "collected": 24840.0,
-    "produced": 22840.0,
+    "collected": 33600.0,
+    "produced": 32250.0,
     "trading_days": 3,
-    "avg_per_trading_day": 8280.0,
-    "run_rate_26d": 215280.0,
+    "avg_per_trading_day": 11200.0,
+    "run_rate_26d": 291200.0,
     "by_paytype": {
-      "Credit Card": 16980.0,
-      "Internet Banking": 7150.0,
+      "Credit Card": 23240.0,
+      "Internet Banking": 9650.0,
       "Cash": 630.0,
       "PBB QR": 80.0
     }
   },
-  "booked_next_14d": 220,
+  "booked_next_14d": 216,
   "forward_book": {
     "next_7d": {
       "days": 7,
-      "appts": 104,
-      "booked_min": 5640,
+      "appts": 109,
+      "booked_min": 6150,
       "capacity_min": 11120,
-      "pct": 50.719424460431654
+      "pct": 55.305755395683455
     },
     "next_14d": {
       "days": 14,
-      "appts": 194,
-      "booked_min": 11520,
+      "appts": 212,
+      "booked_min": 13010,
       "capacity_min": 22240,
-      "pct": 51.798561151079134
+      "pct": 58.498201438848916
     }
   },
   "doctors_worked": {
-    "count": 2,
+    "count": 3,
     "abbrs": [
       "Amy",
+      "Joan",
       "Ling"
     ]
   },
-  "utilization": null,
+  "utilization": {
+    "chair_minutes": 1100,
+    "operatories": 4,
+    "open_minutes": 480,
+    "capacity_minutes": 1920,
+    "pct": 57.3
+  },
   "pnl": {
     "available": false,
-    "reason": "n/a (midday)"
+    "reason": "margin build stale (as_of 2026-10-31)"
   }
 }
