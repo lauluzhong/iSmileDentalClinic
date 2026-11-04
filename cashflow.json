@@ -1,68 +1,60 @@
 {
-  "as_of": "2026-11-03",
-  "mode": "eod",
+  "as_of": "2026-11-04",
+  "mode": "midday",
   "fresh": true,
-  "generated_myt": "2026-11-03 19:50",
-  "source_max_paydate": "2026-11-03",
-  "source_max_procdate": "2026-11-03",
+  "generated_myt": "2026-11-04 12:05",
+  "source_max_paydate": "2026-11-04",
+  "source_max_procdate": "2026-11-04",
   "today": {
-    "collected": 5880.0,
-    "produced": 5380.0,
-    "patients_seen": 15,
+    "collected": 1450.0,
+    "produced": 1650.0,
+    "patients_seen": 6,
     "new_patients": 0,
     "by_paytype": {
-      "Credit Card": 5380.0,
-      "Internet Banking": 500.0
+      "Credit Card": 1250.0,
+      "Cash": 200.0
     }
   },
   "mtd": {
-    "collected": 23390.0,
-    "produced": 21190.0,
-    "trading_days": 2,
-    "avg_per_trading_day": 11695.0,
-    "run_rate_26d": 304070.0,
+    "collected": 24840.0,
+    "produced": 22840.0,
+    "trading_days": 3,
+    "avg_per_trading_day": 8280.0,
+    "run_rate_26d": 215280.0,
     "by_paytype": {
-      "Credit Card": 15730.0,
+      "Credit Card": 16980.0,
       "Internet Banking": 7150.0,
-      "Cash": 430.0,
+      "Cash": 630.0,
       "PBB QR": 80.0
     }
   },
-  "booked_next_14d": 209,
+  "booked_next_14d": 220,
   "forward_book": {
     "next_7d": {
       "days": 7,
-      "appts": 111,
-      "booked_min": 5940,
+      "appts": 104,
+      "booked_min": 5640,
       "capacity_min": 11120,
-      "pct": 53.41726618705036
+      "pct": 50.719424460431654
     },
     "next_14d": {
       "days": 14,
-      "appts": 208,
-      "booked_min": 12070,
+      "appts": 194,
+      "booked_min": 11520,
       "capacity_min": 22240,
-      "pct": 54.27158273381295
+      "pct": 51.798561151079134
     }
   },
   "doctors_worked": {
-    "count": 4,
+    "count": 2,
     "abbrs": [
       "Amy",
-      "Joan",
-      "Ling",
-      "Mah"
+      "Ling"
     ]
   },
-  "utilization": {
-    "chair_minutes": 880,
-    "operatories": 4,
-    "open_minutes": 480,
-    "capacity_minutes": 1920,
-    "pct": 45.8
-  },
+  "utilization": null,
   "pnl": {
     "available": false,
-    "reason": "margin build stale (as_of 2026-10-31)"
+    "reason": "n/a (midday)"
   }
 }
