@@ -1,6 +1,8 @@
 {
-  "updated": "2026-11-05 11:01 MYT",
-  "running": [],
+  "updated": "2026-11-05 11:20 MYT",
+  "running": [
+    "site_health"
+  ],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -93,6 +95,9 @@
     "blast_tracker": {
       "state": "idle",
       "last": "2026-11-04 19:55 MYT"
+    },
+    "site_health": {
+      "state": "running"
     }
   }
 }
