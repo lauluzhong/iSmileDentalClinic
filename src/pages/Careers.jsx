@@ -252,8 +252,11 @@ const CSS = `
     position: relative; overflow: hidden; isolation: isolate;
     height: 100%; display: flex; flex-direction: column; gap: 10px;
     padding: 28px 24px;
-    border: 1px solid rgba(0, 141, 176, 0.14); border-radius: 20px;
-    background: linear-gradient(160deg, var(--color-tint-faint) 0%, #fff 70%);
+    border: 1px solid rgba(0, 141, 176, 0.32); border-radius: 20px;
+    /* Raised card (Lau, 5 Nov round 5): white surface, a thin tint band at the
+       top, layered shadow so it clearly sits above the page. */
+    background: linear-gradient(180deg, var(--color-tint-light) 0%, #fff 72px);
+    box-shadow: 0 1px 2px rgba(15, 40, 60, 0.06), 0 8px 24px rgba(15, 40, 60, 0.10);
     transition: transform 220ms var(--ease-slow);
     will-change: transform;
 }
@@ -281,8 +284,9 @@ const CSS = `
 .path-block {
     height: 100%; display: flex; flex-direction: column;
     padding: 32px 28px;
-    border: 1px solid rgba(0, 141, 176, 0.14); border-radius: 20px;
-    background: linear-gradient(160deg, var(--color-tint-faint) 0%, #fff 70%);
+    border: 1px solid rgba(0, 141, 176, 0.32); border-radius: 20px;
+    background: linear-gradient(180deg, var(--color-tint-light) 0%, #fff 72px);
+    box-shadow: 0 1px 2px rgba(15, 40, 60, 0.06), 0 8px 24px rgba(15, 40, 60, 0.10);
 }
 .path-block h3 { font-family: var(--font-heading); font-size: var(--fs-h3); font-weight: 700; color: var(--color-text-charcoal); margin: 0 0 10px; letter-spacing: -0.02em; }
 .path-block p { font-size: 0.95rem; color: var(--color-text-slate); line-height: 1.6; margin: 0 0 16px; }
