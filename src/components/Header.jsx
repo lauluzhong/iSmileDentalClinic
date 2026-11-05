@@ -107,9 +107,9 @@ const Header = () => {
             ]
         },
         { name: 'Our Reviews', path: '/reviews' },
-        { name: 'Careers', path: '/careers' },
         { name: 'Learning Centre', path: '/blog' },
         { name: 'Contact', path: '/contact' },
+        { name: 'Careers', path: '/careers' },
         { name: 'FAQ', path: '/faq' },
     ];
 

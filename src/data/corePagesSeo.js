@@ -105,8 +105,7 @@ export const CORE_PAGES = [
     facts: [
       "A family clinic since 2006, caring for the same Petaling Jaya families across generations",
       "A calm, respectful and professional experience for every patient, and for the team",
-      "Training on the clinic's systems, written job descriptions and clear expectations",
-      "Regular hours: Monday to Friday and Saturday until mid afternoon; Sundays and public holidays off",
+      "Family values, by families for families, constantly innovating with digital workflows, and a place for your long term",
       "Dental practitioners: see the Practise at iSmile page",
     ],
   },
