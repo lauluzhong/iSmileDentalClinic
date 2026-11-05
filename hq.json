@@ -200,10 +200,10 @@
   },
   {
    "d": "20 Oct",
-   "l": "Jason: GL tagging + payment-type backflow checkpoint",
-   "s": "now",
+   "l": "Jason: GL tagging + payment-type backflow \u2014 done",
+   "s": "done",
    "iso": "2026-10-20",
-   "tip": "Lau gave Jason the confirmed final GL list and payment types on 16 Oct. Jason committed to complete GL tagging and correct payment-type posting back to OpenDental, preserving multiple payment methods as separate figures, by Tuesday \u2014 or update Lau by then. This is a checkpoint, not confirmed completion."
+   "tip": "Jason reported this done in the group; Lau confirmed on 6 Nov that he takes it as complete."
   },
   {
    "d": "27 Oct",
@@ -456,8 +456,8 @@
       },
       {
        "t": "Jason applies the confirmed GL tags and makes payment types post back correctly to OpenDental, keeping multiple methods as separate figures",
-       "s": "now",
-       "w": "checkpoint Tue 20 Oct: complete or update Lau; not confirmed complete"
+       "s": "done",
+       "w": "Done, per Jason's message in the group (Lau, 6 Nov)"
       }
      ],
      "open": [
@@ -1307,8 +1307,8 @@
       },
       {
        "t": "Jason applies GL tagging and makes payment types post back correctly to OpenDental, keeping multiple methods as separate figures",
-       "s": "now",
-       "w": "21 Oct tracker: GL tagging 0%; only cash returns; discount bugs; provider not showing"
+       "s": "done",
+       "w": "Done, per Jason's message in the group (Lau, 6 Nov)"
       },
       {
        "t": "GL posted daily: every procedure locked to its service GL",
@@ -1346,7 +1346,7 @@
     {
      "id": "l1",
      "dot": "live",
-     "chip": "done \u00b7 specialists in December",
+     "chip": "done \u00b7 two specialists not signed",
      "name": "Contractor agreement & doctor rollout",
      "one": "Rollout complete: every non-specialist doctor has signed (Dr Ling on 1 Oct; Dr Ong is employed and needs none). Dr Yeoh and Dr Joan get a thinner agreement to sign by end October and go live 1 Nov.",
      "steps": [
@@ -1510,12 +1510,12 @@
      "from_initiatives": [
       16
      ],
-     "next": "Rollout to the working doctors is complete (LZ 2 Oct). Only Dr Yeoh and Dr Joan remain: sign by end Oct, go live 1 Nov, since they work very differently.",
+     "next": "Rollout to the working doctors is complete (LZ 2 Oct). Dr Yeoh and Dr Joan have not signed. Lau has not yet planned the conversation with them.",
      "endMonth": "2026-09",
      "flag": {
-      "k": "due",
-      "by": "2026-10-31",
-      "w": "Dr Yeoh and Dr Joan sign by end October; go live 1 November."
+      "k": "talk",
+      "who": "Lau",
+      "w": "Dr Yeoh and Dr Joan have not signed their agreement. Decide when to speak to them."
      }
     },
     {
@@ -2158,7 +2158,7 @@
     },
     {
      "id": "g4",
-     "dot": "now",
+     "dot": "live",
      "chip": "started 27 Oct",
      "name": "Dr Jia Yin (new doctor)",
      "one": "Dr Jia Yin started on 27 Oct 2026 as a regular associate dentist. She is on the website and has her own airway consultation form.",
@@ -2239,13 +2239,8 @@
      "from_initiatives": [
       27
      ],
-     "next": "She has started. Not confirmed on this board: Lau's in-person talk with Dr Ling about how Dr Jia Yin fits in, and Dr Ong's welcome in the doctors' group.",
-     "endMonth": "2026-12",
-     "flag": {
-      "k": "talk",
-      "by": "2026-10-23",
-      "w": "Before 27 Oct: Lau tells Dr Ling in person how Dr Jia Yin joins: a traditional associate (not only A&E, not under an overriding arrangement); she sees walk-ins and consults when free, passes complex cases to Dr Ling like any other doctor. Then Dr Ong welcomes her in the group."
-     }
+     "next": "She has started. Lau spoke to Dr Ling and mentioned Dr Jia Yin; nothing came up. Closed 6 Nov.",
+     "endMonth": "2026-12"
     },
     {
      "id": "g5",
@@ -3639,10 +3634,10 @@
      {
       "label": "GL tagging and payment-type backflow to OpenDental",
       "start": "2026-10-20",
-      "status": "now",
+      "status": "done",
       "locked": true,
       "who": "Jason",
-      "note": "Jason committed to complete GL tagging and correct payment-type posting back to OpenDental, preserving multiple methods as separate figures, by Tuesday or update Lau then. This is a checkpoint, not confirmed completion."
+      "note": "Done, per Jason's message in the group (Lau, 6 Nov)."
      },
      {
       "label": "FOH training pack drafted",
@@ -3899,6 +3894,6 @@
  },
  "meta": {
   "asof": "FRI 06 NOV 2026",
-  "updated": "2026-11-06T01:47:07+08:00"
+  "updated": "2026-11-06T01:57:37+08:00"
  }
 }

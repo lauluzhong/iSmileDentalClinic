@@ -1,24 +1,19 @@
 {
- "updated": "2026-11-06T01:47:07+08:00",
+ "updated": "2026-11-06T01:57:37+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Emily": {
-   "init": "E",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Lau": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
   "Lydia": {
    "init": "L",
    "role": "",
    "color": "#45C4FF"
   },
-  "Dr Ong": {
-   "init": "DO",
+  "Edith": {
+   "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Emily": {
+   "init": "E",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +22,13 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Edith": {
-   "init": "E",
+  "Dr Ong": {
+   "init": "DO",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Lau": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -403,7 +403,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "Rollout complete: every non-specialist doctor has signed (Dr Ling on 1 Oct; Dr Ong is employed and needs none). Dr Yeoh and Dr Joan get a thinner agreement to sign by end October and go live 1 Nov.",
-   "next": "Rollout to the working doctors is complete (LZ 2 Oct). Only Dr Yeoh and Dr Joan remain: sign by end Oct, go live 1 Nov, since they work very differently.",
+   "next": "Rollout to the working doctors is complete (LZ 2 Oct). Dr Yeoh and Dr Joan have not signed. Lau has not yet planned the conversation with them.",
    "dept": "people",
    "lens": "efficiency",
    "endMonth": "2026-09",
@@ -663,7 +663,7 @@
    "status": "active",
    "owner": "Lau",
    "why": "Dr Jia Yin started on 27 Oct 2026 as a regular associate dentist. She is on the website and has her own airway consultation form.",
-   "next": "She has started. Not confirmed on this board: Lau's in-person talk with Dr Ling about how Dr Jia Yin fits in, and Dr Ong's welcome in the doctors' group.",
+   "next": "She has started. Lau spoke to Dr Ling and mentioned Dr Jia Yin; nothing came up. Closed 6 Nov.",
    "dept": "clinical",
    "lens": "revenue",
    "endMonth": "2026-12",
