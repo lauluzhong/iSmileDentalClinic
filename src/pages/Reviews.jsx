@@ -1009,7 +1009,8 @@ const Reviews = () => {
                     -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
                 .reviews-page .mq-row { overflow: hidden; padding: 3px 0; }
                 .reviews-page .mq-track, .reviews-page .mq-dup { display: flex; gap: 14px; width: max-content; }
-                .reviews-page .mq-dup { padding-left: 14px; }
+                /* trailing gap on the track so -50% lands exactly on the copy's first card */
+                .reviews-page .mq-track { padding-right: 14px; }
                 .reviews-page .mq-track { animation: mq-left var(--mq-dur, 300s) linear infinite; will-change: transform; }
                 .reviews-page .mq-track.is-reverse { animation-name: mq-right; }
                 .reviews-page .mq.is-paused .mq-track,
