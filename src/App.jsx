@@ -1,5 +1,5 @@
 import React, { useEffect, lazy, Suspense } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Layout from './components/Layout';
 import PageTransition from './components/PageTransition';
@@ -26,6 +26,9 @@ const Contact = lazy(pageLoaders.contact);
 const FAQ = lazy(pageLoaders.faq);
 const Recall = lazy(pageLoaders.recall);
 const JoinUs = lazy(pageLoaders.joinUs);
+const Careers = lazy(pageLoaders.careers);
+const CareersDentists = lazy(pageLoaders.careersDentists);
+const CareersJob = lazy(pageLoaders.careersJob);
 const Dentists = lazy(pageLoaders.dentists);
 const NotFound = lazy(pageLoaders.notFound);
 
@@ -90,7 +93,11 @@ function App() {
           <Route path="/contact" element={<PageTransition><Suspense fallback={<Loader />}><Contact /></Suspense></PageTransition>} />
           <Route path="/faq" element={<PageTransition><Suspense fallback={<Loader />}><FAQ /></Suspense></PageTransition>} />
           <Route path="/recall" element={<PageTransition><Suspense fallback={<Loader />}><Recall /></Suspense></PageTransition>} />
-          <Route path="/join-us" element={<PageTransition><Suspense fallback={<Loader />}><JoinUs /></Suspense></PageTransition>} />
+          {/* /join-us moved into the Careers hub (5 Nov 2026); vercel.json 301s it too. */}
+          <Route path="/join-us" element={<Navigate to="/careers/dentists" replace />} />
+          <Route path="/careers" element={<PageTransition><Suspense fallback={<Loader />}><Careers /></Suspense></PageTransition>} />
+          <Route path="/careers/dentists" element={<PageTransition><Suspense fallback={<Loader />}><CareersDentists /></Suspense></PageTransition>} />
+          <Route path="/careers/:slug" element={<PageTransition><Suspense fallback={<Loader />}><CareersJob /></Suspense></PageTransition>} />
           <Route path="*" element={<PageTransition><Suspense fallback={<Loader />}><NotFound /></Suspense></PageTransition>} />
         </Routes>
       </AnimatePresence>

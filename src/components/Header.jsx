@@ -86,6 +86,7 @@ const Header = () => {
                 { name: 'Our Founder', hash: '#founder' },
                 { name: 'Our Team', hash: '#team' },
                 { divider: true },
+                { name: 'Careers', path: '/careers' },
                 { name: 'Join Our Team', path: '/join-us' }
             ]
         },

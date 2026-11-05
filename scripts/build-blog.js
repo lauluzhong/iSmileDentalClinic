@@ -34,6 +34,7 @@ const STATIC_SITEMAP_ENTRIES = [
   { path: '/services/locations/damansara-jaya', changefreq: 'weekly', priority: '0.9' },
   { path: '/faq', changefreq: 'monthly', priority: '0.6' },
   { path: '/join-us', changefreq: 'monthly', priority: '0.5' },
+  { path: '/careers', changefreq: 'weekly', priority: '0.5' },
   // Dentist pages. Doctor-name queries convert far better than anything else
   // on the site and previously had nowhere to land — see src/data/dentists.js.
   { path: '/dentists', changefreq: 'monthly', priority: '0.8' },

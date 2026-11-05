@@ -97,6 +97,20 @@ export const CORE_PAGES = [
     listsBlogIndex: true,
   },
   {
+    path: 'careers',
+    title: "Careers at iSmile Dental Clinic — Jobs in Petaling Jaya",
+    description: "Work at iSmile Dental Clinic in Damansara Jaya, PJ. A family dental clinic since 2006 hiring front desk, Dental Surgery Assistant and marketing roles. Read the role, apply with your CV.",
+    h1: "Work at iSmile",
+    intro: "iSmile Dental Clinic is a family dental clinic in Damansara Jaya, Petaling Jaya, caring for children, teenagers, adults and seniors since 2006. We are a small team, so every person here matters. This page lists the roles we are hiring for; each opens its own page with the full description and an application form.",
+    facts: [
+      "A family clinic since 2006, caring for the same Petaling Jaya families across generations",
+      "A calm, respectful and professional experience for every patient, and for the team",
+      "Training on the clinic's systems, written job descriptions and clear expectations",
+      "Regular hours: Monday to Friday and Saturday until mid afternoon; Sundays and public holidays off",
+      "Dental practitioners: see the Practise at iSmile page",
+    ],
+  },
+  {
     path: 'join-us',
     title: "Practise at iSmile — Dental Practitioners | Petaling Jaya",
     description: "Dental practitioners: iSmile Dental Clinic in Damansara Jaya, PJ welcomes expressions of interest — an established family patient base and a safe environment to practise, where competency and compassion meet.",

@@ -22,7 +22,9 @@ export const pageLoaders = {
   contact: () => import('../pages/Contact'),
   faq: () => import('../pages/FAQ'),
   recall: () => import('../pages/Recall'),
-  joinUs: () => import('../pages/JoinUs'),
+  careers: () => import('../pages/Careers'),
+  careersDentists: () => import('../pages/CareersDentists'),
+  careersJob: () => import('../pages/CareersJob'),
   dentists: () => import('../pages/Dentists'),
   notFound: () => import('../pages/NotFound'),
 };
@@ -63,7 +65,12 @@ export function prefetchRoute(pathname) {
     case 'contact': return run('contact', pageLoaders.contact);
     case 'faq': return run('faq', pageLoaders.faq);
     case 'recall': return run('recall', pageLoaders.recall);
-    case 'join-us': return run('joinUs', pageLoaders.joinUs);
+    case 'join-us': return run('careersDentists', pageLoaders.careersDentists);
+    case 'careers':
+      run('careers', pageLoaders.careers);
+      if (rest[0] === 'dentists') run('careersDentists', pageLoaders.careersDentists);
+      else if (rest.length) run('careersJob', pageLoaders.careersJob);
+      return;
     case 'dentists': return run('dentists', pageLoaders.dentists);
     case 'blog':
       run('blog', pageLoaders.blog);
@@ -114,7 +121,7 @@ export function installRoutePrefetch() {
   const idle = window.requestIdleCallback || ((fn) => window.setTimeout(fn, 2500));
   const cancelIdle = window.cancelIdleCallback || window.clearTimeout;
   const handle = idle(() => {
-    ['/services', '/about', '/dentists', '/reviews', '/blog', '/contact', '/faq']
+    ['/services', '/about', '/dentists', '/reviews', '/blog', '/careers', '/contact', '/faq']
       .forEach(prefetchRoute);
   }, { timeout: 6000 });
 
