@@ -1,59 +1,66 @@
 {
   "as_of": "2026-11-05",
-  "mode": "midday",
+  "mode": "eod",
   "fresh": true,
-  "generated_myt": "2026-11-05 12:05",
+  "generated_myt": "2026-11-05 19:50",
   "source_max_paydate": "2026-11-05",
   "source_max_procdate": "2026-11-05",
   "today": {
-    "collected": 850.0,
-    "produced": 850.0,
-    "patients_seen": 3,
+    "collected": 4600.0,
+    "produced": 4150.0,
+    "patients_seen": 11,
     "new_patients": 0,
     "by_paytype": {
-      "Credit Card": 850.0
+      "Credit Card": 4600.0
     }
   },
   "mtd": {
-    "collected": 34450.0,
-    "produced": 33100.0,
+    "collected": 38600.0,
+    "produced": 36400.0,
     "trading_days": 4,
-    "avg_per_trading_day": 8612.5,
-    "run_rate_26d": 223925.0,
+    "avg_per_trading_day": 9650.0,
+    "run_rate_26d": 250900.0,
     "by_paytype": {
-      "Credit Card": 24090.0,
+      "Credit Card": 28240.0,
       "Internet Banking": 9650.0,
       "Cash": 630.0,
       "PBB QR": 80.0
     }
   },
-  "booked_next_14d": 221,
+  "booked_next_14d": 206,
   "forward_book": {
     "next_7d": {
       "days": 7,
-      "appts": 105,
-      "booked_min": 5860,
+      "appts": 100,
+      "booked_min": 5520,
       "capacity_min": 11120,
-      "pct": 52.69784172661871
+      "pct": 49.64028776978417
     },
     "next_14d": {
       "days": 14,
-      "appts": 204,
-      "booked_min": 12420,
+      "appts": 203,
+      "booked_min": 12350,
       "capacity_min": 22240,
-      "pct": 55.84532374100719
+      "pct": 55.530575539568346
     }
   },
   "doctors_worked": {
-    "count": 2,
+    "count": 3,
     "abbrs": [
       "Azeli",
+      "Ling",
       "Mah"
     ]
   },
-  "utilization": null,
+  "utilization": {
+    "chair_minutes": 550,
+    "operatories": 4,
+    "open_minutes": 480,
+    "capacity_minutes": 1920,
+    "pct": 28.6
+  },
   "pnl": {
     "available": false,
-    "reason": "n/a (midday)"
+    "reason": "margin build stale (as_of 2026-10-31)"
   }
 }
