@@ -344,10 +344,10 @@ const Home = () => {
                             Dental care for <em>every generation.</em>
                         </h1>
                         <p className="hero-subtitle hero-subtitle-desktop">
-                            From a child's first visit to a grandparent's new smile, iSmile has been the Petaling Jaya dentist whole families stay with for 20 years.
+                            From a child's first visit to a grandparent's new smile, iSmile has been the Petaling Jaya dentist whole families stay with for <strong style={{ fontWeight: 600, color: "var(--color-text-charcoal)" }}>20 years</strong>.
                         </p>
                         <p className="hero-subtitle hero-subtitle-mobile">
-                            The Petaling Jaya family dentist for 20 years.
+                            The Petaling Jaya family dentist for <strong style={{ fontWeight: 600, color: "var(--color-text-charcoal)" }}>20 years</strong>.
                         </p>
                         <div className="hero-actions">
                             <Button onClick={() => openBooking('', 'hero-cta')}>Book a Visit <ArrowRight size={18} /></Button>
