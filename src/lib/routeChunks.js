@@ -24,6 +24,7 @@ export const pageLoaders = {
   recall: () => import('../pages/Recall'),
   careers: () => import('../pages/Careers'),
   careersDentists: () => import('../pages/CareersDentists'),
+  careersTeam: () => import('../pages/CareersTeam'),
   careersJob: () => import('../pages/CareersJob'),
   dentists: () => import('../pages/Dentists'),
   notFound: () => import('../pages/NotFound'),
@@ -69,6 +70,7 @@ export function prefetchRoute(pathname) {
     case 'careers':
       run('careers', pageLoaders.careers);
       if (rest[0] === 'dentists') run('careersDentists', pageLoaders.careersDentists);
+      else if (rest[0] === 'team') run('careersTeam', pageLoaders.careersTeam);
       else if (rest.length) run('careersJob', pageLoaders.careersJob);
       return;
     case 'dentists': return run('dentists', pageLoaders.dentists);

@@ -18,7 +18,13 @@ import { OPEN_JOBS, GENERAL_APPLICATION } from '../data/jobs';
 //   bottom = two ways to join, side by side: Dentists (one call to action to
 //            /careers/dentists) and Team roles (the open roles as cards, each
 //            opening /careers/:slug), with the open door to /careers/general
-// One primary button on the page (Dentists). Role cards are links.
+// Two paths of EQUAL weight (Lau, 5 Nov round 4): same box, same tint, same
+// outline button. No ember button on the hub, so the one-primary rule holds
+// by having none; the primary lives on each path page.
+//
+// Hover ruling (Lau, 5 Nov 2026) for the Working here tiles only: a small lift
+// and a soft ripple from the cursor point, 220ms, transform/opacity only,
+// pointer devices only, off under reduced motion.
 
 const FAMILY_POINTS = [
     {
@@ -92,6 +98,24 @@ const DrawnIcon = ({ name }) => {
     );
 };
 
+// Working-here tile: records the cursor point so the ripple starts where the
+// pointer entered. CSS does the lift and the fade; this only sets two vars.
+const Tile = ({ icon, title, body }) => {
+    const onEnter = (e) => {
+        const r = e.currentTarget.getBoundingClientRect();
+        e.currentTarget.style.setProperty('--rx', `${((e.clientX - r.left) / r.width) * 100}%`);
+        e.currentTarget.style.setProperty('--ry', `${((e.clientY - r.top) / r.height) * 100}%`);
+    };
+    return (
+        <div className="wh-card" onPointerEnter={onEnter}>
+            <span className="wh-ripple" aria-hidden="true" />
+            <DrawnIcon name={icon} />
+            <h3>{title}</h3>
+            <p>{body}</p>
+        </div>
+    );
+};
+
 const Careers = () => {
     const seo = CORE_PAGES.find((p) => p.path === 'careers');
 
@@ -146,11 +170,7 @@ const Careers = () => {
                     <div className="wh-grid">
                         {WORKING_HERE.map((c, i) => (
                             <Reveal key={c.title} delay={0.06 * i} width="100%">
-                                <div className="wh-card">
-                                    <DrawnIcon name={c.icon} />
-                                    <h3>{c.title}</h3>
-                                    <p>{c.body}</p>
-                                </div>
+                                <Tile icon={c.icon} title={c.title} body={c.body} />
                             </Reveal>
                         ))}
                     </div>
@@ -159,40 +179,39 @@ const Careers = () => {
                 {/* Two ways to join, side by side */}
                 <section className="careers-paths" aria-labelledby="careers-paths-title">
                     <Reveal width="100%">
-                        <h2 id="careers-paths-title" className="system-title">Two ways <em>to join us</em></h2>
+                        <h2 id="careers-paths-title" className="system-title">Join us <em>today</em></h2>
                     </Reveal>
                     <div className="paths-grid">
                         <Reveal width="100%">
-                            <div className="path-block path-dentists">
+                            <div className="path-block">
                                 <h3>Dentists</h3>
                                 <p>
                                     Practise at iSmile. An established family patient base, a broad case mix
                                     and a safe environment to practise. Tell us about yourself and send your CV.
                                 </p>
-                                <Link to="/careers/dentists" className="btn btn-primary path-cta" data-analytics-click="careers-path-dentists">
+                                <Link to="/careers/dentists" className="btn btn-outline path-cta" data-analytics-click="careers-path-dentists">
                                     Practise at iSmile <ArrowRight size={18} aria-hidden="true" />
                                 </Link>
                             </div>
                         </Reveal>
                         <Reveal delay={0.06} width="100%">
-                            <div className="path-block path-team">
+                            <div className="path-block">
                                 <h3>Team roles</h3>
                                 <p>
-                                    {OPEN_JOBS.length
-                                        ? 'Front desk, Dental Surgery Assistant, marketing and other clinic roles. Open now:'
-                                        : 'Front desk, Dental Surgery Assistant, marketing and other clinic roles. Nothing is open right now, but you are welcome to send your CV.'}
+                                    Front desk, Dental Surgery Assistant, marketing and other clinic roles.
+                                    {OPEN_JOBS.length ? ' Open now:' : ' Nothing is open right now, but you are welcome to send your CV.'}
                                 </p>
-                                <div className="role-cards">
-                                    {OPEN_JOBS.map((job) => (
-                                        <Link key={job.slug} to={`/careers/${job.slug}`} className="role-card" data-analytics-click={`careers-role-${job.slug}`}>
-                                            <span className="role-card-title">{job.title}</span>
-                                            <span className="role-card-meta">{job.type} · {job.location}</span>
-                                            <ArrowRight size={20} aria-hidden="true" className="role-card-arrow" />
-                                        </Link>
-                                    ))}
-                                </div>
-                                <Link to={`/careers/${GENERAL_APPLICATION.slug}`} className="role-general" data-analytics-click="careers-role-general">
-                                    None of these fit? Send us your CV anyway
+                                {OPEN_JOBS.length > 0 && (
+                                    <ul className="path-roles">
+                                        {OPEN_JOBS.map((job) => (
+                                            <li key={job.slug}>
+                                                <Link to={`/careers/${job.slug}`} data-analytics-click={`careers-role-${job.slug}`}>{job.title}</Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                                <Link to="/careers/team" className="btn btn-outline path-cta" data-analytics-click="careers-path-team">
+                                    See team roles <ArrowRight size={18} aria-hidden="true" />
                                 </Link>
                             </div>
                         </Reveal>
@@ -224,45 +243,53 @@ const CSS = `
 .careers-working, .careers-paths { max-width: 1060px; margin: 0 auto; padding: 0 0 var(--space-section); }
 .careers-working .system-title, .careers-paths .system-title { margin-bottom: 24px; }
 
-/* Four equal cards, e0 (1px hairline), no hover lift. */
+/* Four identical tiles: same height, same heading block height (two lines),
+   same soft brand tint. Lift + ripple on pointer hover only (Lau, 5 Nov 2026). */
 .wh-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
 .wh-grid > div { height: 100%; }
 .wh-card {
-    height: 100%; display: flex; flex-direction: column; gap: 12px;
-    padding: 28px 24px; border: 1px solid var(--hairline); border-radius: 20px; background: #fff;
+    position: relative; overflow: hidden; isolation: isolate;
+    height: 100%; display: flex; flex-direction: column; gap: 10px;
+    padding: 28px 24px;
+    border: 1px solid rgba(0, 141, 176, 0.14); border-radius: 20px;
+    background: linear-gradient(160deg, var(--color-tint-faint) 0%, #fff 70%);
+    transition: transform 220ms var(--ease-slow);
+    will-change: transform;
 }
-.wh-icon { color: var(--color-primary-teal); flex: none; margin-bottom: 4px; }
-.wh-card h3 { font-family: var(--font-heading); font-size: 1.12rem; font-weight: 700; color: var(--color-text-charcoal); margin: 0; letter-spacing: -0.01em; }
+.wh-ripple {
+    position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background: radial-gradient(circle at var(--rx, 50%) var(--ry, 50%), rgba(0, 141, 176, 0.18) 0%, rgba(0, 141, 176, 0.06) 35%, rgba(0, 141, 176, 0) 70%);
+    opacity: 0; transform: scale(0.6); transform-origin: var(--rx, 50%) var(--ry, 50%);
+    transition: opacity 250ms ease-out, transform 250ms var(--ease-slow);
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .wh-card:hover { transform: translateY(-3px) scale(1.025); }
+    .wh-card:hover .wh-ripple { opacity: 1; transform: scale(1); }
+}
+.wh-icon { color: var(--color-primary-teal); flex: none; margin-bottom: 6px; }
+.wh-card h3 {
+    font-family: var(--font-heading); font-size: 1.12rem; font-weight: 700; line-height: 1.3;
+    color: var(--color-text-charcoal); margin: 0; letter-spacing: -0.01em;
+    min-height: calc(1.12rem * 1.3 * 2); /* two lines, so a wrapping title never shifts the copy */
+}
 .wh-card p { font-size: 0.95rem; color: var(--color-text-slate); line-height: 1.6; margin: 0; }
 
-/* Two paths side by side. Left: one call to action. Right: the open roles. */
-.paths-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: 16px; align-items: stretch; }
+/* Join us today: two boxes, same size, same treatment, same outline button. */
+.paths-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: stretch; }
 .paths-grid > div { height: 100%; }
 .path-block {
     height: 100%; display: flex; flex-direction: column;
-    padding: 32px 28px; border: 1px solid var(--hairline); border-radius: 20px; background: #fff;
+    padding: 32px 28px;
+    border: 1px solid rgba(0, 141, 176, 0.14); border-radius: 20px;
+    background: linear-gradient(160deg, var(--color-tint-faint) 0%, #fff 70%);
 }
 .path-block h3 { font-family: var(--font-heading); font-size: var(--fs-h3); font-weight: 700; color: var(--color-text-charcoal); margin: 0 0 10px; letter-spacing: -0.02em; }
-.path-block p { font-size: 0.95rem; color: var(--color-text-slate); line-height: 1.6; margin: 0 0 20px; }
-.path-dentists { background: var(--color-tint-faint); }
-.path-dentists p { flex: 1; }
-.path-cta { align-self: flex-start; min-height: 56px; padding: 14px 28px; text-decoration: none; }
-.path-cta:hover { transform: none; }
-
-.role-cards { display: grid; gap: 12px; margin-bottom: 14px; }
-.role-card {
-    display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 16px; align-items: center;
-    min-height: 72px; padding: 16px 18px; border: 1px solid var(--hairline); border-radius: 16px; background: #fff;
-    text-decoration: none; color: inherit; transition: border-color 0.18s ease;
-}
-.role-card:hover, .role-card:focus-visible { border-color: var(--color-primary-teal); }
-.role-card:active { border-color: var(--color-primary-deep); }
-.role-card:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
-.role-card-title { font-family: var(--font-heading); font-size: 1.08rem; font-weight: 700; color: var(--color-text-charcoal); letter-spacing: -0.01em; }
-.role-card-meta { font-size: 0.85rem; color: var(--color-text-slate); grid-column: 1; }
-.role-card-arrow { color: var(--color-primary-deep); grid-row: 1 / span 2; grid-column: 2; }
-.role-general { display: inline-block; min-height: 44px; line-height: 44px; font-size: 0.9rem; font-weight: 600; color: var(--color-primary-deep); text-decoration: none; margin-top: auto; transition: color 0.18s ease; }
-.role-general:hover { color: var(--color-primary-teal); }
+.path-block p { font-size: 0.95rem; color: var(--color-text-slate); line-height: 1.6; margin: 0 0 16px; }
+.path-roles { list-style: none; padding: 0; margin: -4px 0 16px; display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.path-roles a { display: inline-block; min-height: 32px; line-height: 32px; font-size: 0.92rem; font-weight: 600; color: var(--color-primary-deep); text-decoration: none; transition: color 0.18s ease; }
+.path-roles a:hover { color: var(--color-primary-teal); }
+.path-cta { align-self: flex-start; margin-top: auto; min-height: 56px; padding: 14px 28px; text-decoration: none; background: #fff; }
+.path-cta:hover { transform: none; box-shadow: none; }
 
 @media (max-width: 1024px) {
     .wh-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

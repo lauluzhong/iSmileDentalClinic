@@ -110,6 +110,18 @@ export const CORE_PAGES = [
     ],
   },
   {
+    path: 'careers/team',
+    title: "Team Roles at iSmile Dental Clinic — Petaling Jaya",
+    description: "Front desk, Dental Surgery Assistant, marketing and other clinic roles at iSmile Dental Clinic, Damansara Jaya, PJ. Read the full description and apply with your CV.",
+    h1: "Team roles",
+    intro: "Front desk, Dental Surgery Assistant, marketing and the other roles that keep a family clinic running. Every role at iSmile Dental Clinic in Damansara Jaya, Petaling Jaya has a written description. Read it, then apply with your CV. If no listed role fits, you can still send us your CV.",
+    facts: [
+      "Each open role has its own page with the full description and an application form",
+      "No listed role fits? Send your CV anyway and we keep good applications on file for the next opening",
+      "Dental practitioners: see the Practise at iSmile page",
+    ],
+  },
+  {
     path: 'careers/dentists',
     title: "Practise at iSmile — Dental Practitioners | Petaling Jaya",
     description: "Dental practitioners: iSmile Dental Clinic in Damansara Jaya, PJ welcomes expressions of interest — an established family patient base and a safe environment to practise, where competency and compassion meet.",

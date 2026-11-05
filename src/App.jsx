@@ -27,6 +27,7 @@ const FAQ = lazy(pageLoaders.faq);
 const Recall = lazy(pageLoaders.recall);
 const Careers = lazy(pageLoaders.careers);
 const CareersDentists = lazy(pageLoaders.careersDentists);
+const CareersTeam = lazy(pageLoaders.careersTeam);
 const CareersJob = lazy(pageLoaders.careersJob);
 const Dentists = lazy(pageLoaders.dentists);
 const NotFound = lazy(pageLoaders.notFound);
@@ -96,6 +97,7 @@ function App() {
           <Route path="/join-us" element={<Navigate to="/careers/dentists" replace />} />
           <Route path="/careers" element={<PageTransition><Suspense fallback={<Loader />}><Careers /></Suspense></PageTransition>} />
           <Route path="/careers/dentists" element={<PageTransition><Suspense fallback={<Loader />}><CareersDentists /></Suspense></PageTransition>} />
+          <Route path="/careers/team" element={<PageTransition><Suspense fallback={<Loader />}><CareersTeam /></Suspense></PageTransition>} />
           <Route path="/careers/:slug" element={<PageTransition><Suspense fallback={<Loader />}><CareersJob /></Suspense></PageTransition>} />
           <Route path="*" element={<PageTransition><Suspense fallback={<Loader />}><NotFound /></Suspense></PageTransition>} />
         </Routes>
