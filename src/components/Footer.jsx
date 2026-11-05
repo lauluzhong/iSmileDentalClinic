@@ -71,7 +71,7 @@ const Footer = () => {
                             </picture>
                         </Link>
                         <p className="footer-desc">
-                            We are ready to help you smile with confidence. At iSmile Dental Clinic, we are dedicated to providing comprehensive dental care for the entire family.
+                            We are dedicated to providing comprehensive dental care for the entire family.
                         </p>
                         
                         {/* Google Reviews Badge */}

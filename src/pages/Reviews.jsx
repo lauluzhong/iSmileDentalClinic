@@ -618,12 +618,12 @@ const ReviewCard = ({ review, tag, onOpen }) => {
         return () => ro.disconnect();
     }, [tag]);
     return (
-        <article className="rv-card">
+        <article className="rv-card" onClick={() => onOpen(review)} style={{ cursor: 'pointer' }}>
             <Stars n={review.rating} />
             <blockquote ref={textRef} className="rv-card-text"><ReviewText review={review} tag={tag} /></blockquote>
             <div className="rv-card-more">
                 {clipped && (
-                    <button type="button" className="rv-more" onClick={() => onOpen(review)} aria-label={`Read the full review by ${review.author}`}>
+                    <button type="button" className="rv-more" onClick={(e) => { e.stopPropagation(); onOpen(review); }} aria-label={`Read the full review by ${review.author}`}>
                         Read more
                     </button>
                 )}
@@ -644,12 +644,10 @@ const MQ_ROWS = [
     MQ_REVIEWS.filter((_, i) => i % 2 === 0),
     MQ_REVIEWS.filter((_, i) => i % 2 === 1),
 ];
-const MQ_LONG = 150; // characters; longer reviews open in full on tap
 const MQ_PX_PER_SEC = 32;
 const MQ_CARD_STEP = 292; // card width + gap, used only to pace the loop
 
 const MarqueeCard = ({ review, onOpen, hidden }) => {
-    const long = review.text.length > MQ_LONG;
     const body = (
         <>
             <Stars n={5} size={13} />
@@ -665,14 +663,11 @@ const MarqueeCard = ({ review, onOpen, hidden }) => {
             </span>
         </>
     );
-    if (long) {
-        return (
-            <button type="button" className="mq-card is-long" onClick={() => onOpen(review)} tabIndex={hidden ? -1 : 0} aria-label={`Read the full review by ${review.author}`}>
-                {body}
-            </button>
-        );
-    }
-    return <article className="mq-card">{body}</article>;
+    return (
+        <button type="button" className="mq-card is-long" onClick={() => onOpen(review)} tabIndex={hidden ? -1 : 0} aria-label={`Read the full review by ${review.author}`}>
+            {body}
+        </button>
+    );
 };
 
 const ReviewMarquee = ({ onOpen }) => {
