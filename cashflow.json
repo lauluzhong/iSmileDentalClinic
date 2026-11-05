@@ -2,7 +2,7 @@
   "as_of": "2026-11-05",
   "mode": "eod",
   "fresh": true,
-  "generated_myt": "2026-11-05 19:50",
+  "generated_myt": "2026-11-05 19:56",
   "source_max_paydate": "2026-11-05",
   "source_max_procdate": "2026-11-05",
   "today": {
@@ -60,7 +60,15 @@
     "pct": 28.6
   },
   "pnl": {
-    "available": false,
-    "reason": "margin build stale (as_of 2026-10-31)"
+    "locum_est": 1428,
+    "lab_est": 400,
+    "gp": 2322.0,
+    "overhead_day": 3385.08,
+    "ebitda_day": -1063.08,
+    "depreciation_day": 1146.54,
+    "net_day": -2209.62,
+    "visits_matched": 11,
+    "available": true,
+    "produced": 4150.0
   }
 }
