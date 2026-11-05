@@ -99,9 +99,9 @@ export const CORE_PAGES = [
   {
     path: 'careers',
     title: "Careers at iSmile Dental Clinic — Jobs in Petaling Jaya",
-    description: "Work at iSmile Dental Clinic in Damansara Jaya, PJ. A family dental clinic since 2006 hiring front desk, Dental Surgery Assistant and marketing roles. Read the role, apply with your CV.",
+    description: "Work at iSmile Dental Clinic in Damansara Jaya, PJ. A family dental clinic since 2006, run by family people. Two ways to join: dentists, and team roles such as front desk, Dental Surgery Assistant and marketing. Read the role, apply with your CV.",
     h1: "Work at iSmile",
-    intro: "iSmile Dental Clinic is a family dental clinic in Damansara Jaya, Petaling Jaya, caring for children, teenagers, adults and seniors since 2006. We are a small team, so every person here matters. This page lists the roles we are hiring for; each opens its own page with the full description and an application form.",
+    intro: "iSmile Dental Clinic is a family dental clinic in Damansara Jaya, Petaling Jaya, caring for children, teenagers, adults and seniors since 2006. Most of us are parents ourselves, and we treat every patient the way we would want our own family treated. There are two ways to join us: dentists have their own page, and team roles are listed here, each with its full description and an application form.",
     facts: [
       "A family clinic since 2006, caring for the same Petaling Jaya families across generations",
       "A calm, respectful and professional experience for every patient, and for the team",
@@ -111,7 +111,7 @@ export const CORE_PAGES = [
     ],
   },
   {
-    path: 'join-us',
+    path: 'careers/dentists',
     title: "Practise at iSmile — Dental Practitioners | Petaling Jaya",
     description: "Dental practitioners: iSmile Dental Clinic in Damansara Jaya, PJ welcomes expressions of interest — an established family patient base and a safe environment to practise, where competency and compassion meet.",
     h1: "Practise at iSmile",

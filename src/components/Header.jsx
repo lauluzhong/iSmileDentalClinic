@@ -85,9 +85,6 @@ const Header = () => {
                 { name: 'Our Journey', hash: '#journey' },
                 { name: 'Our Founder', hash: '#founder' },
                 { name: 'Our Team', hash: '#team' },
-                { divider: true },
-                { name: 'Careers', path: '/careers' },
-                { name: 'Join Our Team', path: '/join-us' }
             ]
         },
         {
@@ -110,6 +107,7 @@ const Header = () => {
             ]
         },
         { name: 'Our Reviews', path: '/reviews' },
+        { name: 'Careers', path: '/careers' },
         { name: 'Learning Centre', path: '/blog' },
         { name: 'Contact', path: '/contact' },
         { name: 'FAQ', path: '/faq' },

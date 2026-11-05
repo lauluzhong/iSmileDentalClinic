@@ -1,4 +1,4 @@
-// Careers page listings (non-doctor roles). Dental practitioners use /join-us.
+// Careers hub listings (team roles). Dental practitioners use /careers/dentists.
 //
 // Source: "People & Competence/Job Descriptions (Oct 2026)" (v2 PDFs). Wording
 // follows those JDs; titles follow Contracts/GOVERNANCE.md ("Dental Surgery

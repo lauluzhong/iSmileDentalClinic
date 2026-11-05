@@ -25,7 +25,6 @@ const BlogPost = lazy(pageLoaders.blogPost);
 const Contact = lazy(pageLoaders.contact);
 const FAQ = lazy(pageLoaders.faq);
 const Recall = lazy(pageLoaders.recall);
-const JoinUs = lazy(pageLoaders.joinUs);
 const Careers = lazy(pageLoaders.careers);
 const CareersDentists = lazy(pageLoaders.careersDentists);
 const CareersJob = lazy(pageLoaders.careersJob);
