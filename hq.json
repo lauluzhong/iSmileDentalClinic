@@ -192,13 +192,6 @@
    "tip": "Moved to Wed 7 Oct by Lau on 5 Oct (was Tue 6 Oct; first moved from 5 Oct at the 25 Sep run-through). Paper receipts retired; invoices 1\u20136 Oct approved by hand. Lau and Emily on standby that week. The OpenDent \u2192 AutoCount link has been on since 1 Oct (Jason, 2 Oct)."
   },
   {
-   "d": "12\u201314 Oct",
-   "l": "Cold reactivation blast \u2014 proposed window",
-   "s": "",
-   "iso": "2026-10-12",
-   "tip": "Lau is considering moving the blast to Monday 12 through Wednesday 14 October. This is proposed, not committed, and depends on Suraya, Jason and Code Capsule fixing the exclusion import and rebuilding a reliable Wave 1 audience."
-  },
-  {
    "d": "15 Oct",
    "l": "OpenDental \u2194 AutoCount GL list confirmed",
    "s": "done",
@@ -214,10 +207,38 @@
   },
   {
    "d": "27 Oct",
-   "l": "Dr Jia Yin's first day (5 days/wk)",
-   "s": "",
+   "l": "Dr Jia Yin's first day",
+   "s": "done",
    "iso": "2026-10-27",
-   "tip": "Confirmed first date: Tuesday 27 October 2026 (moved from 26th). Dr Jia Yin joins 5 days/wk (+2 Elite Saturdays during her ~6-month transition). RM7k floor or 40%, whichever higher, for 6 months."
+   "tip": "Dr Jia Yin started on 27 October 2026 as a regular associate dentist, five days a week. She is on the website and has her own airway consultation form (both live 4 Nov)."
+  },
+  {
+   "d": "29 Oct",
+   "l": "Cold blast Wave 1 sent (676 messages)",
+   "s": "done",
+   "iso": "2026-10-29",
+   "tip": "Wave 1 went to patients whose household last visited 13 to 36 months ago. 99.6% delivered. By 2 Nov: 22 booked (3.3%), 5 had come in, about RM11 per booking."
+  },
+  {
+   "d": "2 Nov",
+   "l": "Cold blast Wave 2 sent (951 messages)",
+   "s": "done",
+   "iso": "2026-11-02",
+   "tip": "Wave 2 went to patients whose household last visited 37 to 60 months ago, after 11 names were removed in the final checks. Results come to Lau twice a day until he says stop."
+  },
+  {
+   "d": "6 Nov",
+   "l": "October doctor payout handed to Emily to review",
+   "s": "done",
+   "iso": "2026-11-06",
+   "tip": "October is the first month paid under the new doctor agreement. It is in the locum tool with 35 lines still open for Emily: approvals, lab costs, payments to check, discount notes and one missing minimum fee."
+  },
+  {
+   "d": "10 Nov",
+   "l": "First doctor payout under the new agreement",
+   "s": "",
+   "iso": "2026-11-10",
+   "tip": "October production is paid on 10 November. The clinic approves October in the locum tool before paying, after Emily has cleared her open lines."
   },
   {
    "d": "mid-Nov",
@@ -231,7 +252,7 @@
    "l": "Cold blast waves \u00b7 increment sit-down",
    "s": "",
    "iso": "2026-11-20",
-   "tip": "Blast waves 1\u20133 land and convert; the year-end increment amounts get decided in a sit-down."
+   "tip": "Blast Waves 1 and 2 are sent (29 Oct, 2 Nov). Waves 3 and 4 are saved and not yet sent. The year-end increment amounts get decided in a sit-down."
   },
   {
    "d": "7 Dec",
@@ -258,9 +279,9 @@
    "lead": "PMO: Lu \u00b7 prime EPM: Code Capsule",
    "gtpp": {
     "g": "Rules locked: one invoice per patient, fixed-amount line discounts, the 30-second rule (line edits in OpenDent only), no vendor spend on auto patient creation.",
-    "t": "Integration proven in the side-PC sandbox; licence paid; limits and sync parameters understood. Final integration runs 1\u20135 Sep.",
+    "t": "OpenDent \u2192 AutoCount link on since 1 Oct; digital receipts live since 7 Oct. Still open with Jason: service-type GL tagging and payment types posting back to OpenDental.",
     "p": "To write: receipts SOP, digital-form handling SOP, weekly inventory-count SOP (rotated staff; possibly WhatsApp-to-brain updates).",
-    "pe": "FOH training (compulsory: Joanna, Erincy, Jessy, Ida) \u2014 AutoCount, receipts, form + Sheet extraction, WhatsApp shortcuts, verbal skills. You and Emily learn AutoCount first. Date pending: a Saturday after work + dinner."
+    "pe": "FOH training held 3 Oct (AutoCount receipts, the digital form, WhatsApp shortcuts, how we talk). Next: supplier-side AutoCount training with Leow, in person, in Q4."
    },
    "streams": [
     {
@@ -461,7 +482,7 @@
     },
     {
      "id": "d2",
-     "dot": "now",
+     "dot": "parked",
      "chip": "dropped \u00b7 not offered",
      "name": "E-invoicing readiness",
      "one": "The original why: transactions >RM10k need e-invoices; LHDN mandate lands Jan 2027.",
@@ -482,11 +503,13 @@
       },
       {
        "t": "E-invoice format + submission flow configured",
-       "s": ""
+       "s": "skip",
+       "w": "dropped 30 Sep"
       },
       {
        "t": "First live e-invoice issued",
-       "s": ""
+       "s": "skip",
+       "w": "dropped 30 Sep"
       },
       {
        "t": "E-invoicing dropped (LZ 30 Sep): not offered, since issuing means monthly LHDN submission",
@@ -508,7 +531,7 @@
      "dot": "now",
      "chip": "receipts live \u00b7 fixing sync bugs",
      "name": "Digital receipts (AR)",
-     "one": "Receipts out of AutoCount replace the paper book \u2014 front desk switches only after training.",
+     "one": "Receipts now come out of AutoCount. The paper receipt book was retired on 7 Oct.",
      "steps": [
       {
        "t": "Receipt capability confirmed in AutoCount",
@@ -561,8 +584,8 @@
       },
       {
        "t": "Go live \u2014 receipts from AutoCount, paper retired",
-       "s": "",
-       "w": "Wed 7 Oct (moved from 6 Oct by Lau on 5 Oct; first from 5 Oct)"
+       "s": "done",
+       "w": "live since 7 Oct"
       },
       {
        "t": "Follow up the two patient cases Dr Ling raised where the patient has not paid / refuses to pay \u2014 agreed with all doctors on 23 Sep: a patient-payment matter, not a doctor matter \u00b7 owner Emily + front desk",
@@ -606,9 +629,8 @@
      ],
      "open": [
       "<b>Run-through HELD Fri 25 Sep.</b> Receipts go by WhatsApp link (copy-to-clipboard preferred) or PDF export \u2014 no printing. Payments knock off at invoice level; locum allocates FIFO. Discounts only as a discount line in OpenDent. e-Invoice stays OFF until the RM3M threshold.",
-      "<b>Training set Sat 3 Oct</b> from 3:30 PM, dinner after. Hand-approve invoices 1\u20136 Oct; go live Wed 7 Oct with Lau and Emily on standby that week.",
-      "Receipt-name nuance: AutoCount name changes stick (parent paying for child, company claims) \u2014 teach it explicitly",
-      "Physical receipts continue until training done \u2014 decided, not a slip"
+      "<b>Live since 7 Oct.</b> Training was held on 3 Oct; paper receipts are retired.",
+      "Receipt-name nuance: AutoCount name changes stick (parent paying for child, company claims) \u2014 teach it explicitly"
      ],
      "owner": "emily",
      "dept": "clinical",
@@ -742,10 +764,10 @@
     },
     {
      "id": "d6",
-     "dot": "blocked",
-     "chip": "v2 live \u00b7 Lau + Emily Wed 4 Nov",
+     "dot": "now",
+     "chip": "October with Emily \u00b7 pay 10 Nov",
      "name": "AP \u00b7 locum statements",
-     "one": "Calculator already reproduces all 8 doctors to the cent \u2014 end-to-end statements now possible under the new timing rules.",
+     "one": "The locum tool is live. October, the first month under the new agreement, is with Emily for review; the clinic approves it before the 10 Nov payout.",
      "steps": [
       {
        "t": "Engine built + validated to the cent",
@@ -781,8 +803,8 @@
       },
       {
        "t": "Lau shares the locum sheet with Emily; Emily notes the edge cases and rules as she finds them",
-       "s": "next",
-       "w": "no rush \u00b7 after go-live, before Emily runs October locum in the first week of Nov"
+       "s": "done",
+       "w": "superseded: October was handed to Emily in the locum tool (6 Nov)"
       },
       {
        "t": "2 Nov: October computed in the tool; lab codes now Emily's tagging; Dr Jia Yin mapped; double-count of pre-October money fixed",
@@ -796,18 +818,18 @@
       },
       {
        "t": "Emily: send October lab invoice list",
-       "s": "next",
-       "w": "3-4 Nov"
+       "s": "done",
+       "w": "3 Nov: entered in the tool"
       },
       {
-       "t": "Lau: run ismile_extract_fees.bat on the clinic PC",
-       "s": "next",
-       "w": "3-4 Nov"
+       "t": "Lau: refresh the minimum fees from the clinic PC",
+       "s": "done",
+       "w": "3 Nov, and again 5 Nov after Emily changed fees"
       },
       {
        "t": "Lau: decide October check (AutoCount or OpenDental only)",
-       "s": "next",
-       "w": "3-4 Nov"
+       "s": "done",
+       "w": "2 Nov: OpenDental only (AutoCount is incomplete after the migration)"
       },
       {
        "t": "Emily: Register - add Dr Jia Yin + immediate family; trim the 45 same-family names to parents, spouse, children",
@@ -817,14 +839,30 @@
       {
        "t": "Lau: confirm Damon rule (RM1,200 on first D8090 of RM3,000+)",
        "s": "next",
-       "w": "3-4 Nov"
+       "w": "2 Nov: RM1,200 standard cost agreed; the RM3,000 threshold is not recorded as confirmed"
+      },
+      {
+       "t": "October handed to Emily to review in the locum tool: 35 lines still open",
+       "s": "done",
+       "w": "6 Nov"
+      },
+      {
+       "t": "Emily clears the open October lines: 14 approvals, 14 lab costs, 4 payments to check, 3 discount notes, 1 missing minimum fee",
+       "s": "now",
+       "w": "Emily \u00b7 from 6 Nov"
+      },
+      {
+       "t": "Clinic approves October in the tool; doctors paid",
+       "s": "next",
+       "w": "10 Nov"
       }
      ],
      "open": [
-      "Status note (moved off the Next line 4 Sep 2026): CORRECTION 19 Aug: VPS feed is NOT stale \u2014 daily push lands in loop/inbox ~19:31 MYT w/ procedure-level production. Real gaps = paysplit-to-procedure allocation + lab AP. Owner has the allocation query; adding it as e7 to the nightly push closes the main gap. Revised effort likely well under the 7-9 day estimate.",
-      "<b>Blocker is data, not rules:</b> only ~9% of paysplits carry a ProcNum \u2014 need an allocation convention (e.g. oldest-unpaid-first per patient+doctor), built into the tool, never manual",
+      "Payments are matched to treatments by the tool: same day first, then oldest charge first (decided 29 Sep). This is no longer a blocker.",
       "60-day backstop for implant-case invoices",
-      "From the initiatives board: 100% deterministic arithmetic \u2014 NO LLM, offline. Volume rule: production \u2265 RM55k \u2192 whole month at 50%. Ortho/Invisalign 10%-exemption is Dr LING's deal (corrected \u2014 not Mah). GM write-up sent; awaiting answers + workbooks."
+      "From the initiatives board: 100% deterministic arithmetic \u2014 NO LLM, offline. Volume rule: production \u2265 RM55k \u2192 whole month at 50%. Ortho/Invisalign 10%-exemption is Dr LING's deal (corrected \u2014 not Mah). GM write-up sent; awaiting answers + workbooks.",
+      "<b>Still open with Lau at 6 Nov:</b> two October lines flagged by the new minimum fees, one write-off that needs linking to its treatment, and one case to settle as braces or aligner.",
+      "After any fee change in OpenDent, the minimum fees must be refreshed from the clinic PC by hand; the nightly update does not carry them."
      ],
      "owner": "lu",
      "dept": "finance",
@@ -832,12 +870,14 @@
      "from_initiatives": [
       3
      ],
-     "next": "Tue 3 Nov: Emily sends the October lab invoice list; Lau double-clicks ismile_extract_fees.bat on the clinic PC (fresh minimum fees). Lau decides how October is checked (AutoCount may be incomplete after the migration). Wed 4 Nov: Lau + Emily go through the B and C piles at /dashboard/locum/v2. Pay 10 Nov.",
-     "endMonth": "2026-08",
+     "next": "Emily works through October's 35 open lines in the locum tool. Lau then approves October so the doctors are paid on 10 Nov.",
+     "endMonth": "2026-11",
      "flag": {
       "k": "due",
-      "who": "Emily",
-      "w": "Tue 3 Nov: October lab invoice list"
+      "by": "2026-11-10",
+      "w": "Approve the October doctor payout once Emily has cleared her open lines, so the doctors are paid on 10 November.",
+      "hot": true,
+      "who": "Lau"
      }
     },
     {
@@ -922,7 +962,7 @@
      "dot": "live",
      "chip": "live",
      "name": "Digital onboarding form",
-     "one": "Live at register.ismile.com.my (+?staff=1 desk view) \u2192 Google Sheet \u2192 manual keying into OpenDent.",
+     "one": "Live at forms.ismile.com.my/register. Each registration lands in one Google Sheet and arrives in the new-patient WhatsApp group as a PDF; the desk keys it into OpenDent.",
      "steps": [
       {
        "t": "Form built + live on the domain",
@@ -945,7 +985,8 @@
       },
       {
        "t": "Fold into FOH training + desk SOP",
-       "s": ""
+       "s": "done",
+       "w": "practised at the 3 Oct training"
       },
       {
        "t": "Referral-capture field starts feeding data again",
@@ -953,9 +994,7 @@
       }
      ],
      "open": [
-      "<b>Old Registrations Sheet (ismiledental76) holds the ONLY copy of real registrations 20 Aug \u2192 5 Oct.</b> Lau: share it with ismile.general@gmail.com (Viewer), tell the iSmile Engineer \u2192 rows copied into \u201ciSmile Patient Forms\u201d \u2192 then retire it. Don\u2019t delete before that.",
-      "Sheet holds IC numbers + medical history \u2014 settle access + row-deletion policy",
-      "Delete the TEST PATIENT row"
+      "Sheet access settled 5 Oct: the clinic's general Google account owns it. Rows are kept as a record, not deleted (ruling 28 Sep). How long to keep them is still open."
      ],
      "owner": "lu",
      "dept": "crm",
@@ -963,7 +1002,7 @@
      "from_initiatives": [
       10
      ],
-     "next": "Form backend LIVE 20 Aug (e2e tested): submissions append to the private iSmile Patient Registrations Google Sheet (clinic account) + Telegram ping. Next: give front desk the Sheet + staff URL, decide row-retention after OpenDental entry, then un-gate the form WhatsApp shortcut.",
+     "next": "Live and in daily use. Remaining: decide how long registration rows are kept, and get the 'who referred you' answers into OpenDent.",
      "endMonth": "2026-07"
     },
     {
@@ -1001,7 +1040,6 @@
       "Owner ruling 28 Aug: this block belongs under Pillar 1, not finance \u2014 it becomes the locum-attribution substrate",
       "<b>Rate column shipped 30 Aug</b> (PR #220), now on /dashboard/profitability: every line shows 40/45/50, marks lines lifted by the RM55k whole-month volume rule, and flags a rate as provisional while its month is still open. Validated against April 2026.",
       "\u26a0\ufe0f Display only \u2014 it does not change how anyone is paid, and 'rate follows the production month' stays out of the engine until the agreement is signed",
-      "Next real blocker is the allocation convention: only ~9% of paysplits carry a ProcNum",
       "From the initiatives board: Headline: Yeoh RM1,508/chair-h vs Mah RM6/chair-h = 237\u00d7 spread. Burn recovers ~RM60k/mo of ~RM118k/mo overhead; the ~RM58k/mo unrecovered = idle-chair cost = the fill-chairs lever."
      ],
      "owner": "edith",
@@ -1010,7 +1048,7 @@
      "from_initiatives": [
       4
      ],
-     "next": "Agree the payment\u2192procedure allocation convention with Emily",
+     "next": "Nothing open here. The doctors' payout now runs in the locum tool (see AP \u00b7 locum statements).",
      "endMonth": "2026-11"
     },
     {
@@ -1120,15 +1158,15 @@
     {
      "id": "d13",
      "dot": "live",
-     "chip": "done \u00b7 live with Dr Ling\u2019s consult questions",
+     "chip": "live \u00b7 two doctors' forms",
      "name": "Pre-visit consult forms (airway first)",
      "one": "Dr Ling\u2019s three airway questionnaires (PSQ, Epworth\u2013Children, NOSE) as one digital form patients fill in before the consult; scores computed; desk pastes a summary into OpenDental. Same pattern for future consults.",
      "open": [],
      "owner": "lu",
      "dept": "crm",
      "lens": "efficiency",
-     "next": "Done. Same pattern is ready for future consult forms.",
-     "endMonth": "2026-10",
+     "next": "Two forms are live (Dr Ling, Dr Jia Yin). Lau points the WhatsApp shortcut at the new address for Dr Ling's form. The same pattern is ready for future consult forms.",
+     "endMonth": "2026-11",
      "steps": [
       {
        "t": "Three questionnaires received from Dr Ling (1 Oct)",
@@ -1209,6 +1247,16 @@
        "t": "First real patient form received and delivered",
        "s": "done",
        "w": "12 Oct"
+      },
+      {
+       "t": "Dr Jia Yin's own airway form is live, with its own WhatsApp group. Dr Ling's form moved to its own address; the old link still works",
+       "s": "done",
+       "w": "4 Nov"
+      },
+      {
+       "t": "Lau updates the airway WhatsApp shortcut to the new address for Dr Ling's form",
+       "s": "next",
+       "w": "Lau"
       }
      ],
      "noteTitle": "/airway shortcut \u2014 load on WhatsApp Business",
@@ -1289,10 +1337,10 @@
    "mission": "Contracts that match how the clinic actually runs: the contractor agreement, clean locum economics, a discount regime doctors self-police, and a handbook everyone has signed.",
    "lead": "Counsel: Lydia \u00b7 gate: parents sit-down",
    "gtpp": {
-    "g": "The decisions are made (timing, 10%, discounts, IPP). What's left is tone from the top \u2014 run them by your parents, then firm the agreement with Lydia.",
+    "g": "Decided and signed: all five non-specialist doctors signed by 1 Oct, and the new rules apply from October production (first payout 10 Nov). Left: the two specialists' thinner agreement and the employee handbook.",
     "t": "Nothing material \u2014 same systems. The one technical piece (per-line locum % + discount lines) lives in Pillar 1.",
     "p": "Doctors' briefing: OpenDent keying expectations, discount lines mandatory, code consolidation (Emily reviewing the compliance audit). Fold the OpenDent refresher into the agreement forum.",
-    "pe": "Employees: sign the handbook acknowledgement (blocked on Lydia, not Emily). Doctors: group forum walkthrough + Q&A night call, then per-doctor Schedule 1 conversations and signatures."
+    "pe": "Employees: sign the handbook acknowledgement (waiting on Lydia, not Emily). Doctors: walkthrough held 23 Sep and five agreements signed; Dr Yeoh and Dr Joan still to sign; 2027 look-ahead chats in the week of 7 Dec."
    },
    "streams": [
     {
@@ -1508,7 +1556,7 @@
      ],
      "open": [
       "Status note (moved off the Next line 4 Sep 2026): RESOLVED: dollar stays tied to the transaction/production month (rate-follows-production-month principle, baked into the contractor agreement Schedule).",
-      "Not yet modelled in the engine \u2014 don't change the live calc until the agreement signs",
+      "In the locum tool since October: each payment is paid at the rate of the month the work was done.",
       "Simulated: RM0 net effect over 12 months, \u00b110.8% monthly; 96% settles within a month",
       "From the initiatives board: Digital calculation can reduce Emily's work, but it does not by itself solve invoice crossover. A one-month lag is only safe if late deductions retain the originating month's rate; otherwise the RM55k whole-month volume rule can price the cost incorrectly."
      ],
@@ -1518,13 +1566,13 @@
      "from_initiatives": [
       20
      ],
-     "next": "Write the timing rules into Schedule 1 and the calculator",
+     "next": "Doctors' 2027 look-ahead chats, one-on-one with Lau, in the week of 7 Dec.",
      "endMonth": "2026-11"
     },
     {
      "id": "l3",
-     "dot": "now",
-     "chip": "in the agreement \u00b7 signatures due 30 Sep",
+     "dot": "live",
+     "chip": "done \u00b7 first payout 10 Nov",
      "name": "Remove the 10% deduction",
      "one": "Abolish it clinic-wide; offset by doctors bearing their own discounts. Cleaner \u2014 especially for Dr Jia Yin \u2014 but a real net cost.",
      "steps": [
@@ -1608,7 +1656,7 @@
       {
        "t": "Emily goes through every OpenDent code we actually use: which minimum fees changed, and which used codes still have none \u2014 Locum Calculation session to produce the list from OpenDent",
        "s": "now",
-       "w": "Dr Ong reviewed; most are Dr Ling's codes \u2192 Dr Ong checking with Dr Ling \u00b7 needs a fresh fee pull from the clinic PC to see what is filled"
+       "w": "3\u20135 Nov: Dr Ong ruled on the remaining codes and Emily keyed the new minimum fees; one used code still has no minimum fee"
       },
       {
        "t": "Rulings 29 Sep: discounts above 15% are asked of Emily first (the locum sheet will flag any not asked); family = parents, spouse, children (Dr Amy's addendum adds her sister, brother-in-law and their kids); new walk-ins, especially international patients, are told upfront about the RM100 minimum consult",
@@ -1624,6 +1672,11 @@
        "t": "Replied to Dr Azelia on her family-treatment question: what she proposed (RM200 minus her 40% = RM120) is already how the formula works. The formula adds the discount back, applies her 40%, then deducts the discount. Her mother-in-law is an ordinary patient; no new family rule",
        "s": "done",
        "w": "13 Oct"
+      },
+      {
+       "t": "Ruling: the doctor bears every discount below the minimum fee; the tool no longer suggests that the clinic bears it. A wrong or missing code is recorded as 'ignore minimum fee', with the right code in the note",
+       "s": "done",
+       "w": "4 Nov"
       }
      ],
      "open": [
@@ -1636,12 +1689,13 @@
      "from_initiatives": [
       29
      ],
-     "next": "Complete the contract deployment and confirm the discount calculation works on the used OpenDent codes.",
+     "next": "October is the first month the discount rules are applied for real. Emily clears the 14 approvals and the last missing minimum fee before the 10 Nov payout.",
      "endMonth": "2026-12",
      "flag": {
       "k": "due",
+      "by": "2026-11-10",
       "who": "Emily",
-      "w": "Finish deploying the discount rules and confirm the calculation against the used OpenDent codes."
+      "w": "Before the 10 Nov payout: Emily gets the 14 discount approvals in October's lines and sets the last missing minimum fee."
      }
     },
     {
@@ -1711,18 +1765,29 @@
       },
       {
        "t": "Becomes the floor the discount clause references",
-       "s": ""
+       "s": "done",
+       "w": "live 1 Oct; the locum tool reads the minimum fees from OpenDent"
       },
       {
        "t": "Minimum fee update: each doctor texts Dr Ong their minimum fees; Dr Ong updates them personally \u00b7 owner Dr Ong",
        "s": "done",
        "w": "agreed 23 Sep \u00b7 no due date set"
+      },
+      {
+       "t": "New-case braces minimum fees are in the OpenDent fee list (effective 15 Oct)",
+       "s": "done",
+       "w": "confirmed in the 3 Nov fee refresh"
+      },
+      {
+       "t": "Dr Ong confirmed the minimum fees for dentures and a few other codes; Emily keyed them",
+       "s": "done",
+       "w": "4\u20135 Nov"
       }
      ],
      "open": [
       "Azelia is the sole below-pricer \u2014 handled via training, not confrontation",
       "Doctor OpenDent training carries this: discount = a line, never an edited price",
-      "Statutory maxima have not been checked \u2014 P.U.(A) 150/2026 (Amendment of Fee Schedule Order) was gazetted 14 Apr 2026 and the MOH download is blocked. The GM needs to obtain it before the guide is issued."
+      "Fee ceiling check: the 2026 fee order was read on 4 Sep and covers medical fees only, with no dental line. Still to read: the dental part of the 2006 fee schedule (Emily to obtain), then compare it with our implant and braces minimums."
      ],
      "owner": "emily",
      "dept": "finance",
@@ -1797,18 +1862,18 @@
    "mission": "Fill the chairs: reactivate the lapsed base, stop the checkout leak, land Dr Jia Yin with new demand, and compound the brand (SEO, social, merch, 20th anniversary).",
    "lead": "Owner-led \u00b7 retention before acquisition",
    "gtpp": {
-    "g": "Spend gates: Jason's blast price, DataForSEO US$50, merch pilot budget. Targets: coffee scheme tiers reset off the honest 54% baseline.",
-    "t": "Recall funnel + daily rebooking numbers live via Edith; blast filter page with Suraya; OpenSEO installed, gated on the API key.",
+    "g": "Spend gates: DataForSEO US$50, merch pilot budget. Targets: coffee scheme tiers reset off the honest 54% baseline.",
+    "t": "Recall funnel and the daily rebooking number live via Edith; cold blast Waves 1 and 2 sent, results reported twice a day; OpenSEO installed, gated on the API key.",
     "p": "Desk rebooking script (ask-at-checkout \u2014 the data says it's decided at the counter, same day), blast exclusion hygiene, review-ask cadence with the standees.",
     "pe": "FOH verbal/retention training (rejection handling, sales skills) inside the FOH syllabus; DSA girls as videographers; Dr Jia Yin \u00d7 Ling working-arrangement talk."
    },
    "streams": [
     {
      "id": "g1",
-     "dot": "wait",
-     "chip": "W1 sent 29 Oct \u00b7 N/A tiers need fixing",
+     "dot": "now",
+     "chip": "W1 + W2 sent \u00b7 W3 and W4 not yet",
      "name": "Cold reactivation blast",
-     "one": "Wave 1 was sent 29 Oct after manual Tier F exclusion; patients marked N/A still need tiers before the remaining waves can be filtered cleanly.",
+     "one": "Wave 1 went out on 29 Oct (676 messages) and Wave 2 on 2 Nov (951). Waves 3 and 4 are saved and not yet sent; each needs the same checks first. Results come to Lau twice a day.",
      "steps": [
       {
        "t": "Send list + exclusions built (9,833 excluded w/ reasons)",
@@ -1921,9 +1986,9 @@
        "w": "Mon 12 Oct"
       },
       {
-       "t": "Funnel read via campaign tags",
-       "s": "",
-       "w": "from Mon 19 Oct"
+       "t": "Results read per wave: sent, delivered, booked, came in, cost",
+       "s": "done",
+       "w": "from 2 Nov: results report to Lau twice a day"
       },
       {
        "t": "Campaign setup at the clinic: PatientID import worked, but duplicate-record patients leaked into Wave 1 (672). Not saved",
@@ -1947,18 +2012,33 @@
       },
       {
        "t": "Assign tiers to N/A patients before filtering the remaining waves",
-       "s": "now",
-       "w": "Code Capsule / Suraya"
+       "s": "skip",
+       "w": "not needed: a blank tier just means long-lapsed; Wave 2 went out after manual checks (2 Nov)"
       },
       {
-       "t": "Waves 2\u20133 send (W3 needs 2 days)",
+       "t": "Wave 2 sent: 951 messages, after 11 names were removed in the final checks",
+       "s": "done",
+       "w": "2 Nov"
+      },
+      {
+       "t": "Front desk reports what the 18 Wave 1 replies said; any opt-outs go on the do-not-message list",
+       "s": "next",
+       "w": "front desk"
+      },
+      {
+       "t": "Before Waves 3 and 4: run the same checks against everyone already sent, and top up the message credit",
+       "s": "next",
+       "w": "Lau"
+      },
+      {
+       "t": "Send Wave 3 (993 messages) and Wave 4 (1,025 messages)",
        "s": "",
-       "w": "after tier cleanup"
+       "w": "saved, not sent \u00b7 no date set"
       }
      ],
      "open": [
-      "<b>Wave 1 sent 29 Oct:</b> Suraya triggered the campaign after removing Tier E/F checking; Lau manually checked the 11 Tier F names. Patients marked N/A still have no tier, so a clean all-except-F filter is not yet possible.",
-      "<b>Next:</b> Code Capsule / Suraya to ensure every patient has a tier before the remaining waves are filtered and sent.",
+      "<b>Results at 2 Nov:</b> Wave 1: 676 sent, 22 booked (3.3%), 5 came in, about RM11 per booking. Wave 2 (on the day it was sent): 951 sent, 11 booked.",
+      "<b>Lesson from Wave 2:</b> two phones received both waves, because Wave 2 was checked against the Wave 1 plan and not the list actually sent. Check against every sent list before Waves 3 and 4.",
       "<b>Price confirmed from Code Capsule's cost deck (21 Sep):</b> a marketing message is 860 points plus a 50-point platform fee = RM0.4095, or RM0.442 with SST. 4,201 messages = about RM1,858, paid by the clinic. RM0.387 is the WhatsApp charge alone, not the full price."
      ],
      "owner": "lu",
@@ -1967,8 +2047,8 @@
      "from_initiatives": [
       28
      ],
-     "next": "Code Capsule / Suraya assign tiers to N/A patients; Lau can then filter all tiers except F and send the remaining waves.",
-     "endMonth": "2026-10"
+     "next": "Read the Wave 1 and 2 bookings. Then run the checks and top up the message credit before sending Waves 3 and 4.",
+     "endMonth": "2026-11"
     },
     {
      "id": "g2",
@@ -1999,6 +2079,11 @@
        "t": "Recall blast balance topped up and recent recall batch sent",
        "s": "done",
        "w": "22 Sep"
+      },
+      {
+       "t": "Morning recall report now counts recall messages only; blast messages are reported separately",
+       "s": "done",
+       "w": "3 Nov"
       }
      ],
      "open": [
@@ -2007,7 +2092,8 @@
       "<b>MiniCRM issue fixed 22 Sep:</b> recall resend logic was tested and applied to exclude patients with a new last visit.",
       "<b>Recall batch sent 22 Sep:</b> the failed blast caused by insufficient account balance was resolved by topping up the account.",
       "Only dependency: keep the Alibaba account topped up (alerts to the iSmile inbox)",
-      "Always report both rates: Booked 27.2% per message (per phone) and Came in 19.9% per patient (226 of 1,138) - RM111,720 attributed all-time across 293 visits. Label it correlation, not lift; no holdout has run."
+      "Always report both rates: Booked 27.2% per message (per phone) and Came in 19.9% per patient (226 of 1,138) - RM111,720 attributed all-time across 293 visits. Label it correlation, not lift; no holdout has run.",
+      "The recall card on the dashboard still shows recall and blast messages mixed together. Fixing it was offered and is not done."
      ],
      "owner": "edith",
      "dept": "crm",
@@ -2015,7 +2101,7 @@
      "from_initiatives": [
       7
      ],
-     "next": "Monitor the recall batch sent 22 Sep and the recall resend logic, which now excludes patients with a new last visit.",
+     "next": "Runs daily. Open: the dashboard's recall card still mixes recall and blast figures.",
      "endMonth": "2026-06"
     },
     {
@@ -2041,7 +2127,8 @@
       },
       {
        "t": "Verbal/rejection-handling module into FOH training",
-       "s": ""
+       "s": "done",
+       "w": "covered at the 3 Oct training: how we talk, role play, 'every patient leaves with the next visit'"
       },
       {
        "t": "Re-cut targets: eligible-only or per-day",
@@ -2050,7 +2137,12 @@
       {
        "t": "Idea (LZ 12 Oct): auto-book every new patient's next visit and send it right after the receipt \u2014 (a) receipt, (b) next appointment, cancel or change anytime, (c) Google review ask. Check data and decide",
        "s": "now",
-       "w": "discuss with Emily \u00b7 Wed 14 Oct session"
+       "w": "still to decide with Emily (open at 6 Nov)"
+      },
+      {
+       "t": "Daily rebooking number now shows in the evening cash message: appointments that day, and how many booked a next visit",
+       "s": "done",
+       "w": "16 Oct"
       }
      ],
      "open": [
@@ -2062,14 +2154,14 @@
      "dept": "growth",
      "lens": "revenue",
      "from_initiatives": [],
-     "next": "Coffee targets running (70% any 3 days)"
+     "next": "Front desk tracks against the 70% rebooking target (the number is in the evening cash message). Decide the auto-book-next-visit idea with Emily."
     },
     {
      "id": "g4",
      "dot": "now",
-     "chip": "signed \u00b7 starts Tue 27 Oct",
+     "chip": "started 27 Oct",
      "name": "Dr Jia Yin (new doctor)",
-     "one": "Her contract was signed and returned on 9 Sep. Dr Ong / Jean met Dr Jia Yin on 6 Oct; the remaining conversation is the Dr Ling chemistry and arrangement talk before the wider announcement.",
+     "one": "Dr Jia Yin started on 27 Oct 2026 as a regular associate dentist. She is on the website and has her own airway consultation form.",
      "steps": [
       {
        "t": "Terms agreed: RM7k/6mo or 40%, whichever higher",
@@ -2126,8 +2218,13 @@
       },
       {
        "t": "First day \u00b7 book steered to NEW demand",
-       "s": "",
-       "w": "Tue 27 Oct (moved from 26th; Dr Jia Yin notified by Emily)"
+       "s": "done",
+       "w": "27 Oct"
+      },
+      {
+       "t": "Added to the website: dentists page, About page and homepage",
+       "s": "done",
+       "w": "4 Nov"
       }
      ],
      "open": [
@@ -2142,7 +2239,7 @@
      "from_initiatives": [
       27
      ],
-     "next": "Complete the Dr Ling chemistry/arrangement talk, then handle the remaining internal conversations before announcing.",
+     "next": "She has started. Not confirmed on this board: Lau's in-person talk with Dr Ling about how Dr Jia Yin fits in, and Dr Ong's welcome in the doctors' group.",
      "endMonth": "2026-12",
      "flag": {
       "k": "talk",
@@ -2153,9 +2250,9 @@
     {
      "id": "g5",
      "dot": "now",
-     "chip": "root cause",
+     "chip": "reviews on pace \u00b7 Maps weak",
      "name": "SEO & website",
-     "one": "Stub pages fixed 31 Aug (~2,600 visible words each). The remaining local lever is review velocity - 2/mo against a 6-8 target. First CTR read ~10 Sep.",
+     "one": "Review pace is on target: 7 in the last 30 days (rating 4.8). The weak spot is Google Maps, where the clinic is outside the top 10 for the main 'dentist' searches nearby. An agent now checks the Maps listing every week and Google posts publish on their own.",
      "steps": [
       {
        "t": "Deep diagnosis: CTR fault isolated, stubs found",
@@ -2182,8 +2279,9 @@
        "w": "31 Aug"
       },
       {
-       "t": "NAP fix on old-address listings",
-       "s": ""
+       "t": "Correct the old address on other websites that list the clinic",
+       "s": "now",
+       "w": "2 Nov: the three sites showing the old address were contacted; waiting for them to correct it"
       },
       {
        "t": "One-off (LZ): create a Google Places API key under a billing account, daily quota capped ~100 calls, and give it to Edith (turns on the monthly Maps grid rank)",
@@ -2204,26 +2302,53 @@
        "t": "SEO/GEO/Maps routine live on the box: Sunday priority-keyword scorecard + Maps visibility + 5 priority AI questions in the audit; daily review-drought alert; Mon 09:00 Google post draft for approval; fortnightly content brief from 12 Oct. Bing is connected but too new to read (history starts ~1 Oct, first useful read mid-to-late Oct); Bing Places listing still waits on LZ",
        "s": "done",
        "w": "30 Sep"
+      },
+      {
+       "t": "Book Now pop-up fixed (fits one screen; page no longer scrolls behind it)",
+       "s": "done",
+       "w": "22 Oct"
+      },
+      {
+       "t": "Site tidy-up and the new reviews page live",
+       "s": "done",
+       "w": "28\u201329 Oct"
+      },
+      {
+       "t": "SEO routine rebuilt: a weekly Google Maps check by an agent, Google posts that publish on their own, one new answer page a month, one title test a month",
+       "s": "done",
+       "w": "1 Nov"
+      },
+      {
+       "t": "First title test running (homepage, About, clear aligners); read the result in early December",
+       "s": "now",
+       "w": "live 1 Nov"
       }
      ],
      "open": [
       "OpenSEO installed but gated on your DataForSEO key (US$50 min top-up)",
       "Open on claims: Dr Ling still owes claim 21 (Invisalign First + growth appliances); Dr Ong has not been told about the age-one override.",
       "Proportion check: organic = 26 enquiries/90d \u2014 keep SEO cheap; reactivation is the bigger lever",
-      "Later investigation for Lau: verify whether the website still has the CTA pop-up that appears after a visitor has stayed on the site for roughly 20 seconds; confirm the exact trigger timing. This is open \u2014 do not assume it is missing."
+      "Later investigation for Lau: verify whether the website still has the CTA pop-up that appears after a visitor has stayed on the site for roughly 20 seconds; confirm the exact trigger timing. This is open \u2014 do not assume it is missing.",
+      "<b>Needs a person:</b> 2\u20133 real clinic photos for the Google listing (the last photo went up on 7 Apr), and Dr Ong's review of the new toothache page.",
+      "Flagged, not yet acted on: the Google listing's category says 'Paediatric Dentist' and its description says 'over three decades'."
      ],
      "owner": "edith",
      "dept": "growth",
      "lens": "revenue",
      "from_initiatives": [],
-     "next": "Prerender service pages"
+     "next": "Lau sends 2\u20133 real clinic photos for the Google listing; Dr Ong reviews the toothache page; read the title test in early December.",
+     "flag": {
+      "k": "due",
+      "who": "Lau",
+      "w": "Send Edith 2\u20133 real clinic photos for the Google listing; the last one went up in April."
+     }
     },
     {
      "id": "g6",
-     "dot": "parked",
-     "chip": "needs time",
+     "dot": "wait",
+     "chip": "LinkedIn posting \u00b7 other channels wait on Lau",
      "name": "Social media (organic)",
-     "one": "Plan written with Mandy: experience + educational pillars, shoot once post everywhere, DSA girls as videographers, Dr Ling first.",
+     "one": "LinkedIn is posting on the company page (first four posts 4\u20137 Nov). Posting to the other channels is built and switched off until Lau finishes the account set-up. The video plan with Mandy is unchanged: no shoot scheduled.",
      "steps": [
       {
        "t": "Strategy + first-cut plan written",
@@ -2240,17 +2365,32 @@
        "s": ""
       },
       {
-       "t": "Zernio wired - Instagram feed live 2 Sep; connect the remaining channels and check Threads-reply support",
-       "s": ""
+       "t": "Connect the channels: Instagram, Facebook and Threads directly with Meta; LinkedIn and X through Zernio",
+       "s": "now",
+       "w": "waits on Lau: create the Meta app, accept the tester invites, connect LinkedIn and X"
       },
       {
        "t": "Idea: hire a part-time social media person (~RM2,500\u20133,000/mo) to film content (doctors explaining to kids) and run all channels \u2014 pending cash",
        "s": "",
-       "w": "Lau"
+       "w": "Lau \u00b7 role advertised on the new careers page (5 Nov)"
+      },
+      {
+       "t": "LinkedIn review sheet set up: Lau approves or asks for changes, then posts are scheduled",
+       "s": "done",
+       "w": "3 Nov"
+      },
+      {
+       "t": "First four LinkedIn posts scheduled on the company page",
+       "s": "done",
+       "w": "4\u20137 Nov"
+      },
+      {
+       "t": "Automatic posting built and tested without sending; switched off until Lau says go",
+       "s": "done",
+       "w": "5 Nov"
       }
      ],
      "open": [
-      "Lau works on LinkedIn tomorrow (Mon 21 Sep).",
       "Stalled on your time \u2014 decide whether Mandy/DSAs can run it without you",
       "Consent forms before any face-on-camera recording (parents sign for minors)",
       "From the initiatives board: Overlaps the marketing agent vehicle (Edith runs reviews, GBP and the website); keep the split clear \u2014 this is brand voice and social content, not infrastructure.",
@@ -2264,8 +2404,13 @@
       32,
       33
      ],
-     "next": "Next: buy the clip-on mic and pick shoot days; LinkedIn runs weekly on its own cron.",
-     "endMonth": "2026-12"
+     "next": "Lau finishes the account set-up (the guide is in the Social Automation folder), then says go. First cross-posts: the two carousels already written.",
+     "endMonth": "2026-12",
+     "flag": {
+      "k": "due",
+      "who": "Lau",
+      "w": "Create the Meta app, accept the tester invites and connect LinkedIn and X. Automatic posting is built and waiting on this."
+     }
     },
     {
      "id": "g7",
@@ -2533,8 +2678,8 @@
     },
     {
      "id": "g13",
-     "dot": "now",
-     "chip": "11 ready to load",
+     "dot": "live",
+     "chip": "loaded 30 Sep",
      "name": "WhatsApp shortcuts & chat automation",
      "one": "The website now opens WhatsApp conversations with a pre-typed, procedure-specific first line (CTA pop-up, live 10 Aug 2026), so incoming chats arrive already labelled by intent: aligners, wisdom tooth, implants, whitenin",
      "steps": [
@@ -2583,7 +2728,7 @@
      "from_initiatives": [
       30
      ],
-     "next": "15 quick replies drafted from 299k real messages; 11 are unblocked - load them onto the clinic phone and train the desk. Gated: /fees + /braces on Dr Ling's pricing answers, /pay on Emily verifying the bank line, /doctors on a weekly refresh owner.",
+     "next": "Loaded on WhatsApp Business by Lau on 30 Sep and practised at the 3 Oct training. Still open: braces figures (waiting on Dr Ling) and a weekly owner for the doctors list.",
      "endMonth": "2026-11"
     }
    ]
@@ -2851,13 +2996,13 @@
      "from_initiatives": [
       19
      ],
-     "next": "Lau reviews deck v2 and shares it with Emily Wed 30 Sep; tell the girls it is training + dinner; load the v2 shortcuts on the clinic phone before Sat 3 Oct.",
+     "next": "Put the patient-letters SOP into force: Google Docs masters, Joanna's walkthrough, and agree where issued letters are filed.",
      "endMonth": "2026-11"
     },
     {
      "id": "h6",
      "dot": "now",
-     "chip": "outreach starting",
+     "chip": "careers page live 5 Nov",
      "name": "Hiring \u00b7 Front of House & Marketing",
      "one": "Build the candidate pipeline for the next Front of House and Marketing hires.",
      "steps": [
@@ -2875,6 +3020,11 @@
        "t": "Review incoming CVs and set the interview shortlist",
        "s": "next",
        "w": "no CVs yet"
+      },
+      {
+       "t": "Careers page live on the website with both roles (Front Desk Associate, Social Media Marketing Executive). Applications reach Lau on WhatsApp and the CV is saved",
+       "s": "done",
+       "w": "5 Nov"
       }
      ],
      "open": [
@@ -2883,7 +3033,7 @@
      "owner": "lu",
      "dept": "people",
      "lens": "growth",
-     "next": "Lau starts outreach for Front of House and Marketing CVs, then builds the interview shortlist.",
+     "next": "The careers page now takes applications (5 Nov). Lau keeps pushing both roles out, then builds the interview shortlist as CVs arrive.",
      "endMonth": "2026-11",
      "flag": {
       "k": "due",
@@ -2920,16 +3070,27 @@
        "t": "Add a bank-balance line to the daily view",
        "s": "skip",
        "w": "not possible for now (LZ 12 Oct)"
+      },
+      {
+       "t": "Dashboard P&L now shows EBITDA after one-off and strategic spend, like the FY2026 Sheet",
+       "s": "done",
+       "w": "4 Nov"
+      },
+      {
+       "t": "Daily P&L was blank 1\u20135 Nov: a safety check tripped when November began. Fixed and republished",
+       "s": "done",
+       "w": "5 Nov"
       }
      ],
      "open": [
-      "Break-even \u2248 RM5.5k/day \u2014 the number the team can hold"
+      "Break-even \u2248 RM5.5k/day \u2014 the number the team can hold",
+      "Offered, not done: a WhatsApp alert when the daily P&L refuses to publish."
      ],
      "owner": "edith",
      "dept": "finance",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Add a bank-balance line to the daily view"
+     "next": "Nothing open. The daily P&L was blank 1\u20135 Nov and was fixed on 5 Nov."
     },
     {
      "id": "f2",
@@ -2960,11 +3121,17 @@
        "t": "Import Jul/Aug actuals into Model v6 (Sheet last edited 28 Aug)",
        "s": "skip",
        "w": "business as usual, not a card item (LZ 12 Oct)"
+      },
+      {
+       "t": "Model refreshed in the Sheet: August to October on real figures, first half of 2027 added, plus a cash-flow tab",
+       "s": "done",
+       "w": "21 Oct"
       }
      ],
      "open": [
-      "10% deduction APPROVED for removal 2 Sep (EBITDA ~34k -> ~-23k) - now import it into the Google Sheet v6 alongside the Jul/Aug actuals",
-      "40% of trading days are EBITDA-negative; Friday 63% \u2014 parked until Dr Jia Yin rebalances the week"
+      "40% of trading days are EBITDA-negative; Friday 63% \u2014 parked until Dr Jia Yin rebalances the week",
+      "<b>Waiting on Lau:</b> which break-even figure the dashboards should show. Three candidate figures disagree, so none is shown.",
+      "Check with Lau before comparing the Sheet's EBITDA with the dashboard's: the Sheet row still adds an assumed doctor's share for Dr Ong although she is salaried."
      ],
      "owner": "lu",
      "dept": "finance",
@@ -2975,9 +3142,9 @@
     {
      "id": "f3",
      "dot": "now",
-     "chip": "cash-flow simulation pending",
+     "chip": "simulation built 21 Oct \u00b7 Dad conversation open",
      "name": "Capex & cash runway",
-     "one": "Lau needs to run a weekly cash-flow simulation for planned initiatives and prepare the cash-injection estimate for discussion with Dad.",
+     "one": "The cash-flow simulation and the cash-injection estimate were built on 21 Oct. Still open: the conversation with Dad, and keeping the simulation current each week.",
      "steps": [
       {
        "t": "AutoCount licence + Cloud HRMS paid",
@@ -3000,9 +3167,14 @@
        "w": "Emily mtg 29 Sep"
       },
       {
-       "t": "Lau to run a weekly cash-flow simulation and estimate any cash injection required for planned initiatives; prepare it for discussion with Dad",
+       "t": "Cash-flow simulation and cash-injection estimate built for the conversation with Dad (a day-by-day model plus a cash-flow tab in the FY2026 Sheet)",
+       "s": "done",
+       "w": "21 Oct"
+      },
+      {
+       "t": "Talk the cash-injection estimate through with Dad; keep the simulation current each week",
        "s": "",
-       "w": "Wed 21 Oct"
+       "w": "Lau \u00b7 not recorded as done"
       }
      ],
      "open": [
@@ -3013,7 +3185,7 @@
      "dept": "finance",
      "lens": "efficiency",
      "from_initiatives": [],
-     "next": "Lau to run the weekly cash-flow simulation and prepare the cash-injection estimate for discussion with Dad on Wednesday 21 October"
+     "next": "Lau takes the 21 Oct cash-injection estimate to Dad, and re-runs the simulation weekly."
     },
     {
      "id": "f9",
@@ -3128,7 +3300,8 @@
       "Credit still unused after the deadline: keep it as income, or refund it? Ask the accountant whether the Unclaimed Moneys Act 1965 means it must be lodged with the Registrar rather than written off.",
       "In AutoCount the credits should sit as money owed to patients (a liability), not as income.",
       "These 261 families are excluded from the cold blast (refresh 12 Oct).",
-      "Separate list: Emily's 8 Oct creditor sheet is 91 people who OWE the clinic (stopped braces or root canals, short payments). That belongs to the bad-debt item, not this one."
+      "Separate list: Emily's 8 Oct creditor sheet is 91 people who OWE the clinic (stopped braces or root canals, short payments). That belongs to the bad-debt item, not this one.",
+      "Using a prepaid credit pays the doctor and the lab with no new cash coming in: about RM35\u201345k of real cash if every credit is used. Steer credit visits to quiet days and treat each one as a rebooking chance (Lau, 27 Oct). Check with the accountant or Lydia before treating unused credit as forfeited."
      ],
      "flag": {
       "k": "decide",
@@ -3172,7 +3345,6 @@
  "sideboard": [
   "<b>Azelia</b> owed RM135 (X-ray recon)",
   "Delete <b>msgstore.db.crypt15</b> from the clinic Drive + empty trash \u2014 <b>confirmed still there 4 Sep</b> (63 MB, clinic account)",
-  "Delete the <b>TEST PATIENT</b> row in the registrations Sheet",
   "<b>Letters SOP:</b> Joan/Yeoh chops outstanding; ask what RES/PRO prefixes denote",
   "Where are issued letters filed? Nobody knows",
   "<b>Vector logo master</b> \u2014 none exists; gates merch + signage",
@@ -3186,10 +3358,10 @@
   "Review medical benefits for staff",
   "D8300 <b>Myobrace</b>: priced RM1,000 in Fee Guide v1 (confirm 1,000 vs 1,500), then apply in OpenDent \u2014 and decide whether to rename it, since Myobrace is a brand the clinic does not carry",
   "holidays.txt repopulate each January (closed-day digest guard)",
-  "<b>Reconnect financials:</b> the migrated OpenDental computer disrupted the extract/push pipeline; restore the daily cash and P&L feed.",
   "Check with Emily on the denture height for the TOC group.",
-  "Fix the cash digest tomorrow using the new PC.",
-  "<b>Braces pricing:</b> Message with the new-case minimum fees (Damon D8090 RM11,000+; non-Damon D8092 RM8,000+, effective 15 Oct 2026) sent to Dr Ong for circulation to the doctors; doctor circulation still pending. Existing cases remain on current fees."
+  "<b>Braces pricing:</b> Message with the new-case minimum fees (Damon D8090 RM11,000+; non-Damon D8092 RM8,000+, effective 15 Oct 2026) sent to Dr Ong for circulation to the doctors; doctor circulation still pending. Existing cases remain on current fees.",
+  "<b>Smile Streak</b> (a stamp card in the phone wallet; three stamps earn a reward): idea and working demo built 23 Oct, not live. Going live needs Apple and Google wallet accounts and a check that a reward is allowed under the dental council rules. Owner: Lau.",
+  "<b>Edith</b> is back to normal speed after the 24 Oct outage. Still to confirm: the plan to archive her old history to the clinic's Google Drive. Owner: Lau."
  ],
  "archive": [
   {
@@ -3298,9 +3470,29 @@
    "dept": "finance",
    "lens": "revenue",
    "owner": "lu",
-   "closed": "PARKED 28 Aug 2026 with comps and zero-fee enforcement. Researched 5 Aug (Klang Valley RM5\u201319; clinic revenue outside the locum share base); per-visit vs one-off never settled.",
+   "closed": "DROPPED 28 Sep 2026 (owner): no registration or medical-record fee at iSmile. The decision is final and is not to be revisited. Earlier history: researched 5 Aug (Klang Valley RM5\u201319), parked 28 Aug.",
    "endMonth": null,
    "stream": null
+  },
+  {
+   "initiative": null,
+   "title": "E-invoicing readiness",
+   "dept": "tech",
+   "lens": "efficiency",
+   "owner": "codecapsule",
+   "closed": "DROPPED 30 Sep 2026 (owner, with Emily): no e-invoices for now. The clinic is under the RM3M threshold, and issuing even one e-invoice means reporting to LHDN every month. If a patient asks, give the official receipt and tell Emily.",
+   "endMonth": "2026-09",
+   "stream": "d2"
+  },
+  {
+   "initiative": 18,
+   "title": "Remove the 10% deduction",
+   "dept": "finance",
+   "lens": "cost",
+   "owner": "lu",
+   "closed": "DONE 1 Oct 2026: the 10% deduction is out of every signed agreement (all five non-specialist doctors signed by 1 Oct). It applies from October production, first paid 10 Nov.",
+   "endMonth": "2026-10",
+   "stream": "l3"
   }
  ],
  "people": {
@@ -3375,17 +3567,17 @@
       "label": "Leow: receipt sample \u00b7 staff logins \u00b7 payment methods \u00b7 WhatsApp message",
       "start": "2026-09-28",
       "end": "2026-10-02",
-      "status": "now",
+      "status": "done",
       "who": "Leow (Vision Tech) \u00b7 Emily",
-      "note": "All four asked in the AutoCount group Mon 28 Sep. Receipt samples arrived Tue 29 Sep; Lau prefers A4 and final logo placement is being adjusted. Emily is working on the staff-login Excel. Logins and payment methods must be ready before the Sat 3 Oct training."
+      "note": "Receipt design, staff logins and payment methods were all in place for the 7 Oct go-live. AutoCount's own WhatsApp message cannot be edited, so the desk pastes a quick reply after the receipt link."
      },
      {
       "label": "WhatsApp quick reply: receipt + Google review ask",
       "start": "2026-09-28",
       "end": "2026-10-02",
-      "status": "next",
+      "status": "done",
       "who": "Lau",
-      "note": "Fallback if AutoCount's default receipt message cannot be edited. House language rules apply."
+      "note": "Loaded by Lau on 30 Sep: the desk pastes the AutoCount receipt link, then the Google review quick reply."
      },
      {
       "label": "Practise receipts on live data",
@@ -3478,7 +3670,7 @@
      "g1"
     ],
     "owner": "Lau \u00b7 Suraya \u00b7 Jason \u00b7 Code Capsule",
-    "summary": "Wave 1 on hold (13 Oct): duplicate patient records leak past the exclusion import. Waiting on Code Capsule; sends move once fixed.",
+    "summary": "Wave 1 sent 29 Oct (676 messages); Wave 2 sent 2 Nov (951). Waves 3 and 4 are saved and not yet scheduled.",
     "items": [
      {
       "label": "FOH availability and exclusion-list preparation",
@@ -3530,16 +3722,30 @@
       "label": "Blast sends: on hold",
       "start": "2026-10-14",
       "end": "2026-10-16",
-      "status": "blocked",
+      "status": "done",
       "who": "MiniCRM",
-      "note": "Was Wed 14 \u2013 Fri 16 Oct. On hold until Code Capsule fixes duplicate-record exclusion."
+      "note": "The 14\u201316 Oct sends were held because of the duplicate-record leak. The hold ended once the fix was in; Wave 1 went out on 29 Oct."
      },
      {
       "label": "Code Capsule: duplicate-record exclusion fix",
       "start": "2026-10-13",
-      "status": "now",
+      "status": "done",
       "who": "Suraya \u00b7 Code Capsule",
       "note": "Exclude every PatientID sent even if name+phone repeat; allow recipient-list download."
+     },
+     {
+      "label": "Wave 1 sent (676 messages)",
+      "start": "2026-10-29",
+      "status": "done",
+      "who": "Suraya \u00b7 Lau",
+      "note": "Households last seen 13 to 36 months ago. 99.6% delivered."
+     },
+     {
+      "label": "Wave 2 sent (951 messages)",
+      "start": "2026-11-02",
+      "status": "done",
+      "who": "Lau",
+      "note": "Households last seen 37 to 60 months ago. 11 names removed in the final checks."
      }
     ]
    },
@@ -3553,7 +3759,7 @@
      "l4-ipp"
     ],
     "owner": "Lau",
-    "summary": "Updated agreements sent to five non-specialists; one signed copy back and four outstanding.",
+    "summary": "All five non-specialist doctors signed by 1 Oct. The new rules apply from October production; the first payout under them is 10 Nov. Dr Yeoh and Dr Joan still to sign.",
     "items": [
      {
       "label": "Agreements sent to 5 doctors, with the summary card",
@@ -3647,6 +3853,14 @@
       "who": "Emily",
       "note": "Emily chasing; church claim deadline mid-Oct, then a salary-deduction plan.",
       "end": "2026-10-16"
+     },
+     {
+      "label": "First doctor payout under the new agreement (October)",
+      "start": "2026-11-10",
+      "status": "next",
+      "locked": true,
+      "who": "Emily \u00b7 Lau",
+      "note": "October is with Emily for review from 6 Nov. The clinic approves it in the locum tool before paying."
      }
     ]
    },
@@ -3658,7 +3872,7 @@
      "g4"
     ],
     "owner": "Lau",
-    "summary": "Contract out; first day 27 Oct.",
+    "summary": "Started 27 Oct 2026.",
     "items": [
      {
       "label": "Contract sent to Dr Jia Yin",
@@ -3675,7 +3889,7 @@
      {
       "label": "First day (5 days a week)",
       "start": "2026-10-27",
-      "status": "next",
+      "status": "done",
       "locked": true,
       "who": "Dr Jia Yin"
      }
@@ -3684,7 +3898,7 @@
   ]
  },
  "meta": {
-  "asof": "MON 02 NOV 2026",
-  "updated": "2026-11-02T19:47:33+08:00"
+  "asof": "FRI 06 NOV 2026",
+  "updated": "2026-11-06T01:47:07+08:00"
  }
 }
