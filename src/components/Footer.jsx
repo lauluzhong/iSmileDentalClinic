@@ -104,7 +104,8 @@ const Footer = () => {
                             <li><Link to="/reviews" onClick={(e) => { if (location.pathname === '/reviews') { e.preventDefault(); scrollToTop(); } }}>Reviews</Link></li>
                             <li><Link to="/blog" onClick={(e) => { if (location.pathname === '/blog') { e.preventDefault(); scrollToTop(); } }}>Learning Centre</Link></li>
                             <li><Link to="/faq" onClick={(e) => { if (location.pathname === '/faq') { e.preventDefault(); scrollToTop(); } }}>FAQs</Link></li>
-                            <li><Link to="/join-us" onClick={(e) => { if (location.pathname === '/join-us') { e.preventDefault(); scrollToTop(); } }}>Join Our Team</Link></li>
+                            <li><Link to="/careers" onClick={(e) => { if (location.pathname === '/careers') { e.preventDefault(); scrollToTop(); } }}>Careers</Link></li>
+                            <li><Link to="/careers/dentists" onClick={(e) => { if (location.pathname === '/careers/dentists') { e.preventDefault(); scrollToTop(); } }}>Practise at iSmile</Link></li>
                             <li><Link to="/services">Full Service Directory</Link></li>
                         </ul>
                     </div>
