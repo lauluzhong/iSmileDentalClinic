@@ -326,7 +326,7 @@ const Home = () => {
         <div className="home-page">
             <Helmet>
                 <title>Dental Clinic in Petaling Jaya, Damansara Jaya | iSmile</title>
-                <meta name="description" content="Family dental clinic in Damansara Jaya, serving PJ families since 2006: check-ups, braces, implants and kids' care. Rated 4.8★ from 91 Google reviews." />
+                <meta name="description" content="Family dental clinic in Damansara Jaya, serving PJ families since 2006: check-ups, braces, implants and kids' care. Rated 4.8★ on Google." />
                 <link rel="canonical" href="https://ismile.com.my/" />
             </Helmet>
 
