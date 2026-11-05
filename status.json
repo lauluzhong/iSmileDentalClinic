@@ -1,6 +1,8 @@
 {
   "updated": "2026-11-05 19:56 MYT",
-  "running": [],
+  "running": [
+    "margin_build"
+  ],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -35,7 +37,7 @@
       "last": "2026-11-05 19:51 MYT"
     },
     "margin_build": {
-      "state": "failed",
+      "state": "running",
       "last": "2026-10-31 19:40 MYT"
     },
     "wa_group_digest": {
