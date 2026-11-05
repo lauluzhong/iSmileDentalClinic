@@ -1,12 +1,13 @@
 import { Helmet } from 'react-helmet-async';
 import React, { useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Star, ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, X, Pause, Play } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import Button from '../components/Button';
 import { Reveal } from '../components/Reveal';
 import Style from '../components/Style';
 import reviewStats from '../data/review-stats.json';
+import googleReviews from '../data/google-reviews.json';
 import { CORE_PAGES } from '../data/corePagesSeo';
 import { fillStats } from '../data/serviceSeo';
 import { useBooking } from '../context/BookingContext';
@@ -632,6 +633,105 @@ const ReviewCard = ({ review, tag, onOpen }) => {
     );
 };
 
+// "All" tab: a slow, endless strip of every 5-star Google review that has
+// words (src/data/google-reviews.json, pulled from the Business Profile API,
+// text verbatim). Two rows drift in opposite directions. Motion is a CSS
+// transform loop over a doubled track (seamless at -50%); it pauses on
+// hover, focus, touch, the visible pause button, and whenever the strip is
+// off-screen. Reduced motion gets a plain swipeable row, no loop.
+const MQ_REVIEWS = googleReviews.reviews.map((r) => ({ ...r, rating: 5 }));
+const MQ_ROWS = [
+    MQ_REVIEWS.filter((_, i) => i % 2 === 0),
+    MQ_REVIEWS.filter((_, i) => i % 2 === 1),
+];
+const MQ_LONG = 150; // characters; longer reviews open in full on tap
+const MQ_PX_PER_SEC = 32;
+const MQ_CARD_STEP = 292; // card width + gap, used only to pace the loop
+
+const MarqueeCard = ({ review, onOpen, hidden }) => {
+    const long = review.text.length > MQ_LONG;
+    const body = (
+        <>
+            <Stars n={5} size={13} />
+            <p className="mq-text">{review.text}</p>
+            <span className="mq-author">
+                {review.avatar ? (
+                    <img src={review.avatar} alt="" loading="lazy" width={28} height={28} className="rv-avatar" style={{ width: 28, height: 28 }} />
+                ) : (
+                    <InitialsAvatar name={review.author} size={28} />
+                )}
+                <span className="mq-name">{review.author}</span>
+                <GoogleG />
+            </span>
+        </>
+    );
+    if (long) {
+        return (
+            <button type="button" className="mq-card is-long" onClick={() => onOpen(review)} tabIndex={hidden ? -1 : 0} aria-label={`Read the full review by ${review.author}`}>
+                {body}
+            </button>
+        );
+    }
+    return <article className="mq-card">{body}</article>;
+};
+
+const ReviewMarquee = ({ onOpen }) => {
+    const prefersReducedMotion = useReducedMotion();
+    const wrapRef = useRef(null);
+    const [inView, setInView] = useState(false);
+    const [userPaused, setUserPaused] = useState(false);
+    const [touchHold, setTouchHold] = useState(false);
+    const touchTimer = useRef(0);
+    useEffect(() => {
+        const el = wrapRef.current;
+        if (!el || typeof IntersectionObserver === 'undefined') { setInView(true); return; }
+        const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), { rootMargin: '80px 0px' });
+        io.observe(el);
+        return () => io.disconnect();
+    }, []);
+    useEffect(() => () => clearTimeout(touchTimer.current), []);
+    const onTouchStart = () => { clearTimeout(touchTimer.current); setTouchHold(true); };
+    const onTouchEnd = () => { clearTimeout(touchTimer.current); touchTimer.current = setTimeout(() => setTouchHold(false), 2500); };
+    const running = !prefersReducedMotion && inView && !userPaused && !touchHold;
+    return (
+        <div className="mq-wrap">
+            {!prefersReducedMotion && (
+                <div className="rv-summary mq-summary">
+                    <button type="button" className="mq-toggle" onClick={() => setUserPaused((p) => !p)} aria-pressed={userPaused}>
+                        {userPaused ? <Play size={15} aria-hidden="true" /> : <Pause size={15} aria-hidden="true" />}
+                        <span>{userPaused ? 'Play reviews' : 'Pause reviews'}</span>
+                    </button>
+                </div>
+            )}
+            <div
+                ref={wrapRef}
+                className={`mq${prefersReducedMotion ? ' is-static' : ''}${running ? '' : ' is-paused'}`}
+                onTouchStart={onTouchStart}
+                onTouchEnd={onTouchEnd}
+                onTouchCancel={onTouchEnd}
+                aria-label={`${MQ_REVIEWS.length} five-star Google reviews`}
+                role="region"
+            >
+                {MQ_ROWS.map((row, ri) => (
+                    <div className="mq-row" key={ri}>
+                        <div
+                            className={`mq-track${ri % 2 ? ' is-reverse' : ''}`}
+                            style={{ '--mq-dur': `${Math.round((row.length * MQ_CARD_STEP) / MQ_PX_PER_SEC)}s` }}
+                        >
+                            {row.map((r, i) => <MarqueeCard key={`a${i}`} review={r} onOpen={onOpen} />)}
+                            {!prefersReducedMotion && (
+                                <div className="mq-dup" aria-hidden="true" inert="">
+                                    {row.map((r, i) => <MarqueeCard key={`b${i}`} review={r} onOpen={onOpen} hidden />)}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
 const Reviews = () => {
     // Meta comes from src/data/corePagesSeo.js, the same source the build
     // uses to prerender this page — so the two cannot drift.
@@ -768,11 +868,10 @@ const Reviews = () => {
                 </div>
 
                 <div className="rv-panel" role="tabpanel" id={`${uid}-panel`} aria-labelledby={`${uid}-tab-${groupId}`}>
+                    {groupId === 'all' ? (
+                        <ReviewMarquee onOpen={setOpenReview} />
+                    ) : (<>
                     <div className="rv-summary">
-                        <p className="rv-summary-rating">
-                            <Stars n={5} size={14} />
-                            <span><strong>{reviewStats.rating}</strong> on Google · {reviewStats.count} reviews</span>
-                        </p>
                         <div className="rv-summary-nav">
                             <p className="rv-range" aria-live="polite">
                                 <span className="rv-range-now">{range.first}{range.last > range.first ? `–${range.last}` : ''}</span> of {total}
@@ -793,6 +892,7 @@ const Reviews = () => {
                             ))}
                         </div>
                     </div>
+                    </>)}
                 </div>
 
                 <div className="reviews-closing">
@@ -893,6 +993,47 @@ const Reviews = () => {
                 .reviews-page .rv-author-text strong { color: var(--color-text-charcoal); font-family: var(--font-heading); font-size: .94rem; }
                 .reviews-page .rv-type { display: inline-flex; align-items: center; gap: 5px; margin-top: 2px; color: var(--color-text-grey); font-size: .78rem; }
 
+                .reviews-page .rv-summary { justify-content: flex-end; }
+                /* "All": the marquee strip. Compact hairline cards, transform-only loop. */
+                .reviews-page .mq-summary { margin-bottom: 12px; }
+                .reviews-page .mq-toggle {
+                    display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px;
+                    border: 1px solid var(--hairline-strong); border-radius: 50px; background: transparent; cursor: pointer;
+                    font-family: var(--font-heading); font-weight: 600; font-size: .86rem; color: var(--color-text-slate);
+                    transition: color 180ms var(--ease-slow), border-color 180ms var(--ease-slow), transform 100ms ease-out;
+                }
+                .reviews-page .mq-toggle:hover { color: var(--color-primary-deep); border-color: var(--color-primary-teal); }
+                .reviews-page .mq-toggle:active { transform: scale(.97); }
+                .reviews-page .mq-toggle:focus-visible, .reviews-page .mq-card:focus-visible { outline: 2px solid var(--color-primary-teal); outline-offset: 2px; }
+                .reviews-page .mq { margin: 0 -20px; display: flex; flex-direction: column; gap: 14px; overflow: hidden;
+                    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+                .reviews-page .mq-row { overflow: hidden; padding: 3px 0; }
+                .reviews-page .mq-track, .reviews-page .mq-dup { display: flex; gap: 14px; width: max-content; }
+                .reviews-page .mq-dup { padding-left: 14px; }
+                .reviews-page .mq-track { animation: mq-left var(--mq-dur, 300s) linear infinite; will-change: transform; }
+                .reviews-page .mq-track.is-reverse { animation-name: mq-right; }
+                .reviews-page .mq.is-paused .mq-track,
+                .reviews-page .mq:hover .mq-track,
+                .reviews-page .mq:focus-within .mq-track { animation-play-state: paused; }
+                @keyframes mq-left { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
+                @keyframes mq-right { from { transform: translate3d(-50%,0,0); } to { transform: translate3d(0,0,0); } }
+                .reviews-page .mq.is-static { -webkit-mask-image: none; mask-image: none; }
+                .reviews-page .mq.is-static .mq-row { overflow-x: auto; scrollbar-width: none; padding: 3px 20px; }
+                .reviews-page .mq.is-static .mq-track { animation: none; }
+                .reviews-page .mq-card {
+                    flex: 0 0 278px; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px;
+                    height: 168px; padding: 16px 18px; text-align: left; font: inherit;
+                    background: var(--color-bg-white); border: 1px solid var(--hairline); border-radius: 18px; color: inherit;
+                }
+                .reviews-page .mq-card.is-long { cursor: pointer; transition: border-color 180ms var(--ease-slow); }
+                .reviews-page .mq-card.is-long:hover { border-color: var(--color-primary-teal); }
+                .reviews-page .mq-text { margin: 0; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden;
+                    color: var(--color-text-slate); font-size: .9rem; line-height: 1.5; }
+                .reviews-page .mq-author { display: flex; align-items: center; gap: 9px; margin-top: auto; min-width: 0; }
+                .reviews-page .mq-name { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+                    color: var(--color-text-charcoal); font-family: var(--font-heading); font-weight: 600; font-size: .86rem; }
+                @media (max-width: 1024px) { .reviews-page .mq { margin: 0 -16px; } .reviews-page .mq.is-static .mq-row { padding: 3px 16px; } }
+                @media (max-width: 760px) { .reviews-page .mq-card { flex-basis: 248px; height: 160px; padding: 14px 16px; } }
                 .reviews-page .reviews-closing { padding: var(--space-section-lg) 0 80px; text-align: center; }
                 .reviews-page .reviews-closing .statement { max-width: 680px; margin: 0 auto 30px; }
                 .reviews-page .reviews-closing a { display: inline-block; }

@@ -1,0 +1,386 @@
+{
+ "source": "Google Business Profile API",
+ "pulled": "2026-11-05",
+ "note": "5-star reviews with text only, verbatim, newest first",
+ "reviews": [
+  {
+   "author": "Rosniza Tahir",
+   "text": "I had a very good experience here. Doktor explained eveything before start the procedure, even the cost! Love this kind of treat ✨",
+   "date": "2026-11-04"
+  },
+  {
+   "author": "John",
+   "text": "Great experience with scaling and polishing. Dr.Azelia was very patient and made sure I had a good experience.",
+   "date": "2026-10-31"
+  },
+  {
+   "author": "Andrew Wong",
+   "text": "Always a pleasure coming here to get my dental work done with Dr Azalea.",
+   "date": "2026-10-22"
+  },
+  {
+   "author": "Adeline Chia",
+   "text": "We are happy with iSmile as they explain to us what they are going to do and professionally execute it. We are assured that they will do a good job as they have been doing a good job. We have been their patient for more than 10 years.",
+   "date": "2026-10-14"
+  },
+  {
+   "author": "Shawn Chua",
+   "text": "Good services as usual!",
+   "date": "2026-10-13"
+  },
+  {
+   "author": "darren tan",
+   "text": "Good doctors and team! Thank you Dr Amy",
+   "date": "2026-08-18"
+  },
+  {
+   "author": "Milton Huang",
+   "text": "Been a loyal long term patient with iSmile Dental since 2014 from my college days to present work. Great times when I have my dental treatments done and also friendly team with a welcoming atmosphere vibe.",
+   "date": "2026-07-25"
+  },
+  {
+   "author": "Zara Sani",
+   "text": "Good service",
+   "date": "2026-07-11"
+  },
+  {
+   "author": "SPJD Lee",
+   "text": "Have been my only dentist to go for over a decade, Dr Amy is the most gentle and supportive dentist ever. Even after I move to Jb, I still try my best to come back to Pj to see her. Ive tried to switch to another dentist nearer, but Dr Amy has set the standard high.",
+   "date": "2026-04-11"
+  },
+  {
+   "author": "MH Lim",
+   "text": "Good service, professional and friendly doctors. 😄\n\nAlways open in providing options and advice and best ways to move forward with different solutions depending on the patient.\n\nHave been coming to this place for ages since they were at Damansara Utama previously. 😊",
+   "date": "2026-04-08"
+  },
+  {
+   "author": "J",
+   "text": "Good service and Dr. Mah was thorough and professional.",
+   "date": "2026-04-06"
+  },
+  {
+   "author": "Julian Ding",
+   "text": "Dr Azelia’s been my dentist for couple of years now. Quick and efficient with procedures.",
+   "date": "2026-04-02"
+  },
+  {
+   "author": "Sook Yeen Lee",
+   "text": "My trusted dental clinic all the time for myself and my family. I greatly appreciate your care, everything you have done for us. Thank you.",
+   "date": "2026-03-27"
+  },
+  {
+   "author": "Carisma K",
+   "text": "I've been seeing Dr Mah for my dental treatment for 10 years now and have always had a positive experience. She is attentive, takes the time to answer any questions, and explains things clearly when needed. Consistently professional and reassuring—highly recommended.",
+   "date": "2026-03-20"
+  },
+  {
+   "author": "eke omardin",
+   "text": "Friendly and helpful staff.\nDr Azelia has a great and kind demeanor and was helpful in solving my teeth issues. She definitely put me at ease on the dentist chair.",
+   "date": "2026-03-12"
+  },
+  {
+   "author": "Lydia Ng",
+   "text": "The only dental clinic I trust for my family with 2 young kids. An experienced team of dentists who are kind and caring, very clean and comfortable environment too.",
+   "avatar": "/images/reviews/lydia_ng.jpg",
+   "date": "2026-02-25"
+  },
+  {
+   "author": "Swee Lyn Ong",
+   "text": "Always a good experience with dr Amy and her team!",
+   "date": "2026-02-06"
+  },
+  {
+   "author": "boon hien Tan",
+   "text": "High quality services & extra friendly & hospitable support staff. Highly recommended.👍🏻👍🏻👍🏻",
+   "date": "2026-02-03"
+  },
+  {
+   "author": "anney kang",
+   "text": "With iSmile for over 15 years and Dr. Amy has been my dentist throughout. She completely changed how I view dental care with her knowledge, professionalism, and patience. So much so that I’ve even woken up in the middle of the night to brush my teeth if I accidentally fell asleep just to avoid disappointing her 😂. Hoping she’ll be my dentist for as long as God permits! Special thanks to Elaine as well — always friendly and professional. Highly recommended!",
+   "date": "2026-01-24"
+  },
+  {
+   "author": "Tan Bee Wah",
+   "text": "They have been my go-to dentist for me and my kids for many years.\nDr. Mah have been giving me kind and detailed advices to help me with my periodontal disease.\nThank you, iSmile.😊😊",
+   "date": "2026-01-18"
+  },
+  {
+   "author": "Christina Phang",
+   "text": "Dr Jean was super efficient and professional - 3 implants done in a jiffy and very well done too",
+   "avatar": "/images/reviews/christina_phang.jpg",
+   "date": "2026-01-13"
+  },
+  {
+   "author": "Edwin Lau",
+   "text": "Excellent dental well care.",
+   "date": "2026-01-08"
+  },
+  {
+   "author": "Bernard Chang",
+   "text": "A dental practice with a big heart.\n\nEven the painting on the wall tells a story.",
+   "date": "2026-01-07"
+  },
+  {
+   "author": "Sue Lynn Tiong",
+   "text": "Dr Ong and her team at iSmile Dental Clinic have been caring for my teeth (and smile) for nearly 15 years, and they’ve done a great job throughout. From routine scaling to more complex procedures such as managing tooth erosion, bite height building, and creating natural-looking veneers, they consistently deliver.\n\nTreatment approach is holistic and focused on long-term oral health — something I really appreciate. I place far greater importance on the health of my teeth than on quick, purely aesthetic fixes, and I feel iSmile upholds that philosophy.\n\nI definitely recommend them to those who want a dental clinic that prioritises long-term care of their teeth.",
+   "date": "2026-01-05"
+  },
+  {
+   "author": "Andy Tey",
+   "text": "Dr. Ma is very professional and highly experienced in orthodontics. Truly appreciate the care and expertise!",
+   "date": "2026-01-03"
+  },
+  {
+   "author": "Eugene Lee",
+   "text": "I’ve been coming to iSmile Dental Clinic for my checkups and have always had a great experience. The front desk is friendly, and Dr. Jean Ong is incredibly thorough and attentive.\n\nBut quick tips: Be sure to book an appointment ahead of time because slots fill up quickly. There is also reserved parking spots in front of the clinic, but if those are full, you can park at Atria Mall and walk over.\n\nOverall, it’s a clean, professional clinic with excellent service. I’d definitely return and highly recommend it for any dental care!",
+   "date": "2026-01-02"
+  },
+  {
+   "author": "Max Loh",
+   "text": "I’ve been a regular at iSmile for almost 3 years now. Dr. Jean is very professional, warm and caring. I used to find scaling quite uncomfortable with previous dentists, but she always makes the experience smooth and pain-free.\n\nI also did teeth whitening here, and the photo shows the progress I made after just one week of the treatment. Being in the sales line, having a brighter smile has definitely helped my confidence when meeting with clients.\n\nThe clinic has a nice homey feel and is a family-friendly environment. The staff at the front desk are also easy-going and friendly. Definitely recommend.",
+   "date": "2026-01-01"
+  },
+  {
+   "author": "mike ngui",
+   "text": "I have been a patient of iSmile for over a decade. The dental professionals there are … truly professional. And caring. My fear of being in the dentist chair has been completely removed by the gentle care I received. I also appreciate their cooperation with my orthodontist, from the time iSmile was still in Uptown. My family’s dental health are securely in the hands of iSmile.\nI must say that the supporting staff are also very good from receptionist Elaine to the nursing staff. Well done!",
+   "avatar": "/images/reviews/mike_ngui.png",
+   "date": "2025-12-31"
+  },
+  {
+   "author": "Angie Ng",
+   "text": "Dr Mah is very professional, delicate and detailed in explaining every procedure and solution to my dental (braces) problem.",
+   "date": "2025-12-31"
+  },
+  {
+   "author": "Terrance Lee",
+   "text": "Dr Mah was extremely patient and professional. I highly recommend her.",
+   "date": "2025-12-31"
+  },
+  {
+   "author": "Karen Lam",
+   "text": "Dr Jean is thorough, professional, gentle yet strong. Have been seeing for over 20 years and will continue to do so.",
+   "avatar": "/images/reviews/karen_lam.png",
+   "date": "2025-12-30"
+  },
+  {
+   "author": "Wee Min Lee",
+   "text": "Appreciate reminder of appointments, nice and clean and bright reception area and of course excellent dental services",
+   "avatar": "/images/reviews/wee_min_lee.png",
+   "date": "2025-12-30"
+  },
+  {
+   "author": "YP Phang",
+   "text": "Excellent service from start to finish. The dentists are knowledgeable, gentle, and very thorough in explaining treatment options. The clinic is well-maintained and the staff are courteous and efficient. I felt well taken care of throughout my visit. Highly recommended.",
+   "date": "2025-12-30"
+  },
+  {
+   "author": "Ashley Chin",
+   "text": "Happy with the service and helpful that there is one reserved parking in front of the clinic. Good location near Atria DJ and the clinic is clean and calm vibes. Thank you Dr Jean and all the friendly staff too! Merry Christmas! 🙂🎄",
+   "avatar": "/images/reviews/ashley_chin.png",
+   "date": "2025-12-22"
+  },
+  {
+   "author": "Kah Mun Hew",
+   "text": "My regular dental clinic of over a decade, with trustworthy dentists, assistants and receptionists who work diligently with so much care and love for every single one of their patients. I've referred multiple family members here since I first came, because I know they will always be in good hands here at iSmile. The environment is also inviting, clean and calming. Highly recommended.",
+   "avatar": "/images/reviews/kah_mun_hew.png",
+   "date": "2025-12-20"
+  },
+  {
+   "author": "Justin Sim",
+   "text": "Been with iSmile for 15 years now. Consistent, careful dental treatment of the highest quality every time.",
+   "date": "2025-12-20"
+  },
+  {
+   "author": "zhansheng leow",
+   "text": "Professional dentists. Started seeing Dr Jean back in uptown. Then I've been seeing Dr Priscilla and it has been many years seeing her for my routine dental maintenance. Always treats whatever discomforts I have. Recommended to visit if you need a routine dental check-up.",
+   "date": "2025-12-19"
+  },
+  {
+   "author": "Benny Kong",
+   "text": "Have been to my fair share of dentists. Appreciate most iSmile's professional care and 'customer first' attitude. They would prescribe but also would listen to concerns and also see situation holistically.\n\nGood they track records and my dental history in their system (I have also seen them consult one another which is good) so that whoever attends to you will have a clear picture.\n\nAppreciated very much Dr Jean and Dr Mah - gentle and thorough.",
+   "avatar": "/images/reviews/benny_kong.png",
+   "date": "2025-12-19"
+  },
+  {
+   "author": "Elaine Loo",
+   "text": "Very patience and good service from Dr Mah",
+   "date": "2025-12-18"
+  },
+  {
+   "author": "Sze Yoong",
+   "text": "Family visit to iSmile is a must each time we are back here in Malaysia. Saw Dr. Jean, Dr. Ling and Dr. Mah. Love the ambience each time. Friendly receptionist and nurses too. Trustworthy dentist you can definitely rely on for healthy dental care :)",
+   "date": "2025-12-17"
+  },
+  {
+   "author": "Sze Pei LIM",
+   "text": "Very detailed and patient Dr. Mah, she made sure I felt comfortable",
+   "date": "2025-12-17"
+  },
+  {
+   "author": "Anson Chow",
+   "text": "I have been coming to iSmile Dental for nearly 20 years, and I can confidently say that Dr. Ong is still the best dentist I have ever known. Her dedication to her patients is unmatched; she truly gives her absolute best every single time. Most recently, Dr. Ong helped my wife with her denture, and the fit and function are perfect. We also appreciate Elaine at the reception for her consistent kindness and excellent service over the years. We are so grateful for the expertise and kindness of the entire team. Thank you, Dr. Ong and her team!",
+   "date": "2025-12-16"
+  },
+  {
+   "author": "Lee Minn Yuee",
+   "text": "Great service and excellent job. Dr Ong is great as usual.",
+   "date": "2025-12-15"
+  },
+  {
+   "author": "Pd Fong",
+   "text": "I have been going to Dr Azelia for many years now, and she has been consistently professional, helpful and friendly",
+   "date": "2025-12-15"
+  },
+  {
+   "author": "Dashaene Mahalingam",
+   "text": "Best dental clinic ever. Amazing dentist and front desk person who is always ever willing to explain and accomodate and super prompt. My family have had multiple dental treatments here with Dr Priscilla ❤️❤️",
+   "date": "2025-12-13"
+  },
+  {
+   "author": "Fong Lim",
+   "text": "Our family has been coming here for many years. We have seen most of the dentists, Dr Ong and the team  give excellent service and always caring and reassuring.",
+   "date": "2025-12-13"
+  },
+  {
+   "author": "Gayatri Raja Mohan",
+   "text": "Brilliant doctors in this establishment. Very caring and good with children",
+   "date": "2025-12-13"
+  },
+  {
+   "author": "Tze Yau",
+   "text": "Easy to make appointment. Excellent and personable service. Little wait time. Friendly Doctors and staff. Overall, highly recommended.",
+   "date": "2025-12-12"
+  },
+  {
+   "author": "Sandra Tai",
+   "text": "Very gentle hands!",
+   "date": "2025-12-12"
+  },
+  {
+   "author": "vs khong",
+   "text": "Was rather surprised by some of the negative reviews. Have been going to Ismile for years and never had any problem. And also like many of the positive reviews, Dr. Amy has been excellent. Price is on the slightly higher side but that is to be expected for PJ.",
+   "date": "2025-11-11"
+  },
+  {
+   "author": "YS Lai",
+   "text": "Dr Amy Chin did a good check up and scaling for me. Friendly and thorough. Highly recommended.",
+   "date": "2025-08-15"
+  },
+  {
+   "author": "Lydia Li",
+   "text": "First-class dental clinic!\nI had a great experience with Dr. Ling — professional, gentle, and thorough. The treatments were excellent, and I felt well cared for from start to finish. Highly recommended!",
+   "date": "2025-07-28"
+  },
+  {
+   "author": "Izwan Nordin",
+   "text": "Friendly clinic, staff was nice and accomadating",
+   "date": "2025-02-09"
+  },
+  {
+   "author": "Mohd Rahmat Mahat",
+   "text": "Very friendly clinic and the staffs are accomodating",
+   "date": "2025-01-27"
+  },
+  {
+   "author": "Ilham Omar",
+   "text": "Good service and very details from ismile 👍🏼👍🏼👍🏼",
+   "date": "2025-01-24"
+  },
+  {
+   "author": "hy lim",
+   "text": "The staff was friendly, and the dentist was thorough and knowledgeable",
+   "date": "2024-11-02"
+  },
+  {
+   "author": "ddd",
+   "text": "iSmile Dental has the perfect balance of professionalism and friendliness. The staff made me feel right at home, and the clinic’s cozy vibe, pleasant scent, and soothing music made my visit super comfortable. Highly recommended!",
+   "date": "2024-09-22"
+  },
+  {
+   "author": "Roc1y",
+   "text": "The hospitality at iSmile is second to none. From the moment I walked in, I felt well taken care of. The cozy atmosphere and relaxing music made my experience so much better!",
+   "date": "2024-09-21"
+  },
+  {
+   "author": "HUYNH THI BAO TRAN",
+   "translated": true,
+   "text": "Dr. Mah Haw Yeng was very dedicated and meticulous. She helped me make the post-braces aligners and even adjusted them for free 3-4 times afterward according to the tooth movement. The receptionist was also very professional, always reminding me of appointments and confirming them a few days in advance so I wouldn't forget. I went to three places to compare prices, and this place had the best price and quality.",
+   "date": "2024-04-20"
+  },
+  {
+   "author": "Teng Cheah",
+   "text": "went there because unexplainable toothache, no advance booking but the receptionist was kind to make arrangement for me. Dr Amy attended me. She is able to give a good and fair assessment of my situation & advise next action. she is kind and compassionate, will definitely recommend this dentist and dental clinic",
+   "date": "2024-04-19"
+  },
+  {
+   "author": "Dayangku Nur Khairiyah Awang Kedari",
+   "text": "Service terbaik!! keep it up.",
+   "date": "2024-03-23"
+  },
+  {
+   "author": "Jared",
+   "text": "At the risk of sounding like overselling - Dr Amy is by far the most competent and educational dentist I've been to. I've been to a few, so I can really see the difference. Dr. Amy takes time to assess your dental condition and thoroughly explained all possible avenues. She personally shows you how to brush your teeth, open up the computer to show you articles and information to educate you, and you can tell she really knows her stuff and genuinely cares for her patient. Give her a try and compare to the one you are currently seeing and you'll notice the disparity.",
+   "date": "2023-12-14"
+  },
+  {
+   "author": "Rohana Hassim",
+   "text": "Very good..will come again 😊",
+   "date": "2023-09-23"
+  },
+  {
+   "author": "Akif Zafran 3d",
+   "text": "Pleasant and warm hospitality. Very friendly doctors and staffs.",
+   "date": "2023-05-20"
+  },
+  {
+   "author": "Kan Alan",
+   "text": "Today Dr Amy did details checking and explained My teeth 🦷 very well thanks very much Alankan 🇫🇷",
+   "date": "2023-04-05"
+  },
+  {
+   "author": "Laurent",
+   "text": "Been going there for years. Very clean, very friendly and very professional dentists.\nA but more expensive than an average dentist but so much better.\nIf you want an honest, well trained and very professional dentist, do not hesitate to visit them",
+   "date": "2023-03-02"
+  },
+  {
+   "author": "Ling Sue",
+   "text": "First went to Dr Amy regarding my tooth decay. She did a very thorough review of my dental situation and gave a very comprehensive explanation of my alternatives. She is honest and is detailed in her assessment. Solved the issue I was facing with a very simple and quick solution.",
+   "date": "2022-09-01"
+  },
+  {
+   "author": "sri bulan",
+   "text": "best dental clinic ever ❤️❤️",
+   "date": "2022-08-09"
+  },
+  {
+   "author": "Hj Lee",
+   "text": "Relaxing reception area, courteous and helpful staff, Dr Amy does a thorough investigation and explains the state of my dental health clearly and patiently, makes careful remedial plans, patient's wellbeing her only consideration. My teeth have been troubling me off and on for sometime. Now I feel relieved knowing exactly my dental profile. All is not well but I'm in good hands. Thanks iSmile.",
+   "date": "2022-01-26"
+  },
+  {
+   "author": "Edward Ling",
+   "text": "100% remarkable all female dentists",
+   "date": "2020-03-07"
+  },
+  {
+   "author": "Teoh Zi En",
+   "text": "Very attentive. Came to make retainers, the price are very reasonable while the dentist here is well experienced",
+   "date": "2018-09-05"
+  },
+  {
+   "author": "Iwant Morenews",
+   "text": "Excellent experience. Very professionally run multi-doctor practice. Dr Amy was very patient and really helped to reduce my fears. Advice was thorough and unbiased.",
+   "date": "2017-11-07"
+  },
+  {
+   "author": "Tinashe Madondo",
+   "text": "The service is great and the staff is quite nice.",
+   "date": "2016-09-13"
+  },
+  {
+   "author": "Keith Woo",
+   "text": "The best dental clinic available. Great staff who are very attentive to your situation and needs. Terrific atmosphere that helps calm the nerves. Dedicated area for children/kids to play to keep preoccupied.",
+   "date": "2016-07-25"
+  }
+ ]
+}
