@@ -246,7 +246,8 @@ const CSS = `
 /* Four identical tiles: same height, same heading block height (two lines),
    same soft brand tint. Lift + ripple on pointer hover only (Lau, 5 Nov 2026). */
 .wh-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
-.wh-grid > div { height: 100%; }
+/* Reveal wraps each tile in two divs; both must stretch or the tiles differ in height. */
+.wh-grid > div, .wh-grid > div > div { height: 100%; }
 .wh-card {
     position: relative; overflow: hidden; isolation: isolate;
     height: 100%; display: flex; flex-direction: column; gap: 10px;
@@ -276,7 +277,7 @@ const CSS = `
 
 /* Join us today: two boxes, same size, same treatment, same outline button. */
 .paths-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: stretch; }
-.paths-grid > div { height: 100%; }
+.paths-grid > div, .paths-grid > div > div { height: 100%; }
 .path-block {
     height: 100%; display: flex; flex-direction: column;
     padding: 32px 28px;
