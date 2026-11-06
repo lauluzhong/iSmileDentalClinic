@@ -229,9 +229,10 @@
     bind();
   }
   function skeleton() {
-    $("dv-body").innerHTML = '<div class="dv-grid"><div class="dv-hero dv-card"><div class="sk" style="width:40%"></div><div class="sk" style="width:70%;height:40px;margin-top:40px"></div></div>' +
-      '<div class="dv-stats">' + [1, 2, 3, 4].map(function () { return '<div class="dv-card dv-stat"><div class="sk" style="width:50%"></div><div class="sk" style="width:80%;height:24px;margin-top:14px"></div></div>'; }).join("") +
-      '</div><div class="dv-w7"><div class="dv-card"><div class="sk" style="height:180px"></div></div></div><div class="dv-w5"><div class="dv-card"><div class="sk" style="height:180px"></div></div></div></div>';
+    var sk = '<div class="sk"><i></i><i></i><i></i><i></i></div>';
+    $("dv-body").innerHTML = '<div class="dv-grid"><div class="dv-hero dv-card">' + sk + "</div>" +
+      '<div class="dv-stats">' + [1, 2, 3, 4].map(function () { return '<div class="dv-card dv-stat">' + sk + "</div>"; }).join("") +
+      '</div><div class="dv-w7"><div class="dv-card">' + sk + sk + '</div></div><div class="dv-w5"><div class="dv-card">' + sk + sk + "</div></div></div>";
   }
   function load() {
     if (loading) return; loading = true; skeleton();

@@ -3,6 +3,7 @@
 <head>
 <link rel="icon" type="image/png" href="/dashboard/favicon-circle.png">
 <link rel="stylesheet" href="/dashboard/theme.css">
+<link rel="expect" href="#dash-hdr" blocking="render">
 <script src="/dashboard/theme.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -474,6 +475,7 @@
     <div class="clock"><div class="t" data-clock>--:--<small>--</small></div><div class="d" data-date>—</div></div>
     <nav class="topnav"><a href="/dashboard">Dashboard</a><a href="/dashboard/org">Org Chart</a><a href="/dashboard/tasks" class="active">Task Tracker</a><a href="/dashboard/profitability">Finance</a><a href="/dashboard/analytics">Analytics</a><a href="/dashboard/office">Office</a></nav>
   </header>
+<script id="dash-hdr">window.ismileTheme&&ismileTheme.header&&ismileTheme.header()</script>
   <div class="subbar">
     <div class="counts" id="counts"></div>
     <div class="views" id="views"><button data-v="board" class="active">Board</button><button data-v="timeline">Timeline</button><button data-v="kanban">Kanban</button><button data-v="gantt">Gantt</button></div>

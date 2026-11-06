@@ -3,6 +3,7 @@
 <head>
 <link rel="icon" type="image/png" href="/dashboard/favicon-circle.png">
 <link rel="stylesheet" href="/dashboard/theme.css">
+<link rel="expect" href="#dash-hdr" blocking="render">
 <script src="/dashboard/theme.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -198,6 +199,7 @@
       <a href="/dashboard">Dashboard</a><a href="/dashboard/org" class="active">Org Chart</a><a href="/dashboard/tasks">Task Tracker</a><a href="/dashboard/profitability">Finance</a><a href="/dashboard/analytics">Analytics</a><a href="/dashboard/office">Office</a>
     </nav>
   </header>
+<script id="dash-hdr">window.ismileTheme&&ismileTheme.header&&ismileTheme.header()</script>
 
   <div class="secthead">Who holds the ball <span class="m" id="ballm">loading task feed…</span></div>
   <div class="ball" id="ball"></div>

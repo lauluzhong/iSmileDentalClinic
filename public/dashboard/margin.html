@@ -3,6 +3,7 @@
 <head>
 <link rel="icon" type="image/png" href="/dashboard/favicon-circle.png">
 <link rel="stylesheet" href="/dashboard/theme.css">
+<link rel="expect" href="#dash-hdr" blocking="render">
 <script src="/dashboard/theme.js"></script>
 <script src="/dashboard/doctor-view.js" defer></script>
 <meta charset="UTF-8">
@@ -355,6 +356,11 @@
   .btn{background:var(--panel)}
   @media(max-width:760px){.wrap{padding:14px 16px 40px}}
 
+  /* room held for the ledger until its data lands, so the page does not jump */
+  #funnel:empty{min-height:82px;border:0;background:var(--panel)}
+  .sk-row td{padding:18px 20px}
+  .tcard:has(.sk-row){min-height:360px}
+
   /* P&L on phones: both figure columns fit the card */
   @media(max-width:600px){
     .pnl{grid-template-columns:minmax(0,1fr) auto auto}
@@ -467,6 +473,7 @@
       <a href="/dashboard">Dashboard</a><a href="/dashboard/org">Org Chart</a><a href="/dashboard/tasks">Task Tracker</a><a href="/dashboard/profitability" class="active">Finance</a><a href="/dashboard/analytics">Analytics</a><a href="/dashboard/office">Office</a>
     </nav>
   </header>
+<script id="dash-hdr">window.ismileTheme&&ismileTheme.header&&ismileTheme.header()</script>
 </div>
 
 <div class="topbar">
@@ -515,8 +522,8 @@
         <option value="all">All data</option>
         <option value="custom">Custom</option>
       </select></div>
-      <div class="field"><label>Doctor</label><select id="f-doctor"></select></div>
-      <div class="field"><label>Procedure category</label><select id="f-cat"></select></div>
+      <div class="field"><label>Doctor</label><select id="f-doctor"><option>All doctors</option></select></div>
+      <div class="field"><label>Procedure category</label><select id="f-cat"><option>All categories</option></select></div>
       <div class="field seg-field"><label>Burn basis · allocation</label>
         <div class="seg" id="seg-alloc" role="group" aria-label="Burn allocation basis">
           <button type="button" data-v="chair">Chair-hours used</button>
@@ -541,7 +548,7 @@
       <div class="tscroll">
         <table class="tx" id="tx-table">
           <thead><tr id="tx-head"></tr></thead>
-          <tbody id="tx-body"></tbody>
+          <tbody id="tx-body"><tr class="sk-row"><td colspan="12"><div class="sk"><i></i><i></i><i></i><i></i></div><div class="sk"><i></i><i></i><i></i><i></i></div></td></tr></tbody>
           <tfoot id="tx-foot"></tfoot>
         </table>
       </div>
@@ -740,6 +747,8 @@ function marginLoadFailed(msg){
   try {
     const r = await fetch(MARGIN_JSON_URL, {cache:'no-store'});
     if (!r.ok) throw new Error('HTTP ' + r.status);
+    /* 3.4MB to unpack, so wait for the page transition to finish first */
+    if (window.ismileTheme && ismileTheme.revealed) await ismileTheme.revealed();
     MJ = await r.json();
     if (!MJ || !MJ.meta || !Array.isArray(MJ.visits) || !MJ.visits.length) throw new Error('empty payload');
   } catch (err) {
@@ -1028,6 +1037,7 @@ function rateTitle(r){
   return t;
 }
 
+let txRun = 0;
 function renderTable(){
   const rows = filtered();
   // head
@@ -1038,8 +1048,8 @@ function renderTable(){
       ${c.grp?`<span class="grp">${c.grp}</span>`:'<span class="grp">&nbsp;</span>'}${c.h}<span class="sortcaret">${caret}</span></th>`;
   }).join('');
 
-  // body
-  document.getElementById('tx-body').innerHTML = rows.map(r=>{
+  // body: the first screenful now, the rest in small batches so the page never freezes
+  const rowHtml = r=>{
     return `<tr>
       <td class="mono">${dlabel(r.date)}</td>
       <td><span class="pt-name">${r.patient}</span></td>
@@ -1054,7 +1064,18 @@ function renderTable(){
       <td class="num mono">${r.locum?rm0(r.locum):'—'}</td>
       <td class="num mono col-final ${r.trueMargin<0?'neg':''}">${r.trueMargin<0?'−':''}${rm0(Math.abs(r.trueMargin))}</td>
     </tr>`;
-  }).join('') || `<tr><td colspan="${COLS.length}" style="text-align:center;color:var(--ink-3);padding:30px">No visits match these filters.</td></tr>`;
+  };
+  const txBody = document.getElementById('tx-body'), run = ++txRun;
+  txBody.innerHTML = rows.slice(0,60).map(rowHtml).join('') || `<tr><td colspan="${COLS.length}" style="text-align:center;color:var(--ink-3);padding:30px">No visits match these filters.</td></tr>`;
+  let txAt = 60;
+  (function more(){
+    if(run!==txRun || txAt>=rows.length) return;
+    setTimeout(()=>{
+      if(run!==txRun) return;
+      txBody.insertAdjacentHTML('beforeend', rows.slice(txAt,txAt+150).map(rowHtml).join(''));
+      txAt+=150; more();
+    }, 24);
+  })();
 
   // foot
   const t = totals(rows);
@@ -1352,6 +1373,7 @@ function switchView(v){
   ['tx','summary','doctor','day','efficiency','pnl','locum'].forEach(k=>
     document.getElementById('view-'+k).classList.toggle('active',k===v));
   if(v==='locum') renderLocum();
+  if(v==='summary') renderSummary();
   if(v==='doctor') window.DoctorView&&DoctorView.open();
   if(v==='efficiency') renderEfficiency();
   if(v==='day') renderDay();
@@ -1497,7 +1519,9 @@ function initFilters(){
   if(!MD.meta.pnl) document.getElementById('tab-day').style.display='none';
 }
 // Re-render both the ledger and the summary (date window affects both).
-function renderAll(){ renderTable(); renderSummary(); renderDay(); renderEfficiency(); }
+function renderAll(){ renderTable();   // the other tabs render when opened (switchView), so a filter change stays light
+  const v=(document.querySelector('.tab.active')||{dataset:{}}).dataset.view;
+  if(v==='summary') renderSummary(); if(v==='day') renderDay(); if(v==='efficiency') renderEfficiency(); }
 // Presets are anchored to the latest data date.
 // All boundaries are built from LOCAL date parts (ymd/dparts) — never via
 // toISOString(), which shifts MYT local midnight back a day through UTC.
@@ -1546,7 +1570,6 @@ if(location.hash==='#doctor') switchView('doctor');
 initFilters();
 initSort();
 renderTable();
-renderSummary();
 renderDay();
 } /* end main() — runs only after margin.json has loaded */
 /* deep link: /dashboard/margin#day opens that tab (the Deck links here) */
