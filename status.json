@@ -1,7 +1,6 @@
 {
   "updated": "2026-11-06 19:45 MYT",
   "running": [
-    "social_post",
     "clinic_db"
   ],
   "jobs": {
@@ -102,8 +101,8 @@
       "last": "2026-11-05 11:33 MYT"
     },
     "social_post": {
-      "state": "running",
-      "last": "2026-11-06 19:30 MYT"
+      "state": "idle",
+      "last": "2026-11-06 19:45 MYT"
     },
     "social_comments": {
       "state": "idle",
