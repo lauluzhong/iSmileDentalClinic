@@ -123,8 +123,9 @@ html[data-theme] .hero-skin>*{position:relative;z-index:1}
 @keyframes dashRise{from{opacity:.001;transform:translateY(10px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
 html[data-theme]:not(.settled) .rise{animation:dashRise .4s var(--ease) both;animation-delay:calc(var(--i,0) * 55ms)}
 /* light/dark changes with a circle that opens from the switch */
-::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
-::view-transition-new(root){z-index:2}
+html.theme-wipe::view-transition-old(root),html.theme-wipe::view-transition-new(root){animation:none;mix-blend-mode:normal}
+html.theme-wipe::view-transition-new(root){z-index:2}
+html.theme-wipe *{view-transition-name:none !important}
 @media(prefers-reduced-motion:reduce){
   html[data-theme] .rise{animation:none !important}
 }
@@ -187,3 +188,80 @@ html[data-theme] footer a{color:var(--brand);border-bottom:0;text-decoration:non
 html[data-theme] .hero-skin :is(.chip,.tag,.ch .m){background:rgba(255,255,255,.18);border-color:transparent;color:#fff}
 html[data-theme] .hero-skin .ch .k{color:#fff}
 html[data-theme] .hero-skin a{color:#fff}
+
+/* ---------- one header on every page: title · clock · navigation (6 Nov 2026) ----------
+   Same markup, same height and same position everywhere, so nothing jumps between pages. */
+html{scrollbar-gutter:stable}
+html[data-theme] .wrap{padding-top:20px !important}
+html[data-theme] header{display:grid !important;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) !important;align-items:center !important;
+  gap:18px !important;height:64px;margin:0 0 22px !important;text-align:left !important;justify-items:stretch !important}
+html[data-theme] header .brand{display:block !important;min-width:0;width:auto !important;text-align:left !important;flex:none}
+html[data-theme] header .brand h1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html[data-theme] header .brand .sub{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:3px 0 0 !important}
+html[data-theme] header .clock{text-align:center;white-space:nowrap}
+html[data-theme] header .clock .t{font-family:var(--body);font-size:40px;font-weight:600;letter-spacing:-.02em;line-height:1;color:var(--ink)}
+html[data-theme] header .clock .t small{font-size:17px;color:var(--mut);font-weight:500;margin-left:4px}
+html[data-theme] header .clock .d{font-family:var(--body);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);margin-top:4px}
+html[data-theme] header>nav,html[data-theme] header .topnav{justify-self:end;position:relative}
+html[data-theme] .subbar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin:0 0 8px}
+html[data-theme] .subbar .counts{flex:1 1 320px;margin:0}
+/* below ~1200px the pill drops to its own row; still identical on every page */
+@media(max-width:1199px){
+  html[data-theme] header{grid-template-columns:minmax(0,1fr) auto !important;height:auto;row-gap:14px !important}
+  html[data-theme] header>nav,html[data-theme] header .topnav{grid-column:1/-1;justify-self:start;width:auto;max-width:100%}
+  html[data-theme] header .clock{text-align:right}
+}
+@media(max-width:760px){
+  html[data-theme] .wrap{padding-top:14px !important}
+  html[data-theme] header{margin-bottom:16px !important}
+  html[data-theme] header .brand h1{font-size:22px}
+  html[data-theme] header .clock .t{font-size:26px} html[data-theme] header .clock .t small{font-size:13px}
+  html[data-theme] header .clock .d{font-size:11px;margin-top:2px}
+  html[data-theme] header>nav,html[data-theme] header .topnav{width:100%}
+}
+
+/* ---------- moving between pages ----------
+   The browser cross-fades the page and slides the solid pill to the tab you picked.
+   Title, clock and the pill bar are held in place so only the content changes. */
+@view-transition{navigation:auto}
+html[data-theme] header .brand{view-transition-name:dash-brand}
+html[data-theme] header .clock{view-transition-name:dash-clock}
+html[data-theme] header>nav,html[data-theme] header .topnav{view-transition-name:dash-nav}
+html[data-theme] header>nav a.active,html[data-theme] header .topnav a.active{view-transition-name:dash-pill}
+::view-transition-group(*){animation-duration:.42s;animation-timing-function:cubic-bezier(.16,1,.3,1)}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.28s}
+::view-transition-group(dash-pill){z-index:3}
+::view-transition-old(dash-pill),::view-transition-new(dash-pill){height:100%;width:100%;object-fit:fill}
+@media(prefers-reduced-motion:reduce){@view-transition{navigation:none}}
+
+/* ---------- loading ----------
+   While a card waits for its data it shows grey lines in the shape of the content,
+   and a hairline runs along the top of the page while you move to another page. */
+@keyframes dashShimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+html[data-theme] .sk{display:flex;flex-direction:column;gap:10px;padding:6px 0 2px}
+html[data-theme] .sk i{display:block;height:12px;border-radius:99px;
+  background:linear-gradient(90deg,var(--panel2) 25%,var(--line) 50%,var(--panel2) 75%);background-size:200% 100%;animation:dashShimmer 1.4s linear infinite}
+html[data-theme] .sk i:nth-child(1){width:42%;height:20px} html[data-theme] .sk i:nth-child(2){width:88%}
+html[data-theme] .sk i:nth-child(3){width:70%} html[data-theme] .sk i:nth-child(4){width:54%}
+html[data-theme] .hero-skin .sk i{background:linear-gradient(90deg,rgba(255,255,255,.14) 25%,rgba(255,255,255,.3) 50%,rgba(255,255,255,.14) 75%);background-size:200% 100%}
+@keyframes dashBar{from{transform:scaleX(0)}to{transform:scaleX(.85)}}
+#dash-progress{position:fixed;left:0;top:0;right:0;height:2px;background:var(--brand);transform-origin:left;transform:scaleX(0);z-index:999;pointer-events:none;opacity:0}
+#dash-progress.on{opacity:1;animation:dashBar 2.5s cubic-bezier(.1,.7,.2,1) forwards}
+@media(prefers-reduced-motion:reduce){html[data-theme] .sk i{animation:none}#dash-progress.on{animation:none;transform:scaleX(.6)}}
+/* identical metrics on every page, whatever the page's own body settings are */
+html[data-theme] .wrap{padding-left:20px !important;padding-right:20px !important;max-width:1440px !important;margin-left:auto;margin-right:auto}
+html[data-theme] header,html[data-theme] header.reveal{opacity:1 !important;transform:none !important;line-height:1.4}
+html[data-theme] header .brand h1{line-height:30px;margin:0}
+html[data-theme] header .brand .sub{line-height:18px;font-size:12.5px}
+html[data-theme] header .clock .t{line-height:40px;display:block}
+html[data-theme] header .clock .d{line-height:17px}
+html[data-theme] header nav a{line-height:1}
+@media(max-width:760px){html[data-theme] .wrap{padding-left:16px !important;padding-right:16px !important}
+  html[data-theme] header .clock .t{line-height:26px}}
+html[data-theme] header>nav,html[data-theme] header .topnav{margin:0 !important}
+/* Finance keeps its header in its own strip: give it the same box as .wrap */
+html[data-theme] .hdr{max-width:1440px !important;margin:0 auto !important;padding:20px 20px 0 !important;border:0 !important;background:none !important}
+html[data-theme] .topbar{padding-left:20px;padding-right:20px;border:0;background:rgba(var(--bgrgb),.9)}
+html[data-theme] .topbar-in{max-width:1400px}
+@media(max-width:760px){html[data-theme] .hdr{padding:14px 16px 0 !important}html[data-theme] .topbar{padding-left:16px;padding-right:16px}}
+html[data-theme] header nav a.theme-tog{margin-left:4px !important}

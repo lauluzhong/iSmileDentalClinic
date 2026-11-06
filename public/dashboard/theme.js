@@ -1,10 +1,13 @@
-/* iSmile dashboard — light/dark switch + the shared motion (redesign 6 Nov 2026).
+/* iSmile dashboard — shared behaviour for every page (6 Nov 2026).
    Loaded synchronously in <head> so the theme is set before first paint.
-   Remembered per browser; with no stored choice it follows the system setting.
-   Pages that draw on a canvas listen for the "themechange" event and read
-   colours via ismileTheme.css(). */
+   1. light/dark: remembered per browser; with no stored choice it follows the system setting
+   2. the header clock (same on every page)
+   3. motion: cards rise in once, a hero figure counts up once
+   4. loading: skeleton lines, the other pages fetched ahead of time, data feeds kept ready
+   Pages that draw on a canvas listen for the "themechange" event and read colours via ismileTheme.css(). */
 (function () {
   var KEY = "ismile-dash-theme", root = document.documentElement;
+  var TOP = false; try { TOP = window.top === window; } catch (e) {}
   function stored() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
   function system() { try { return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } catch (e) { return "light"; } }
   var reduce = false;
@@ -12,6 +15,58 @@
   var t = stored();
   root.setAttribute("data-theme", t === "light" || t === "dark" ? t : system());
 
+  /* ================= 4a. data feeds kept ready =================
+     Every page reads its numbers from the status feeds. The first read on a page is answered
+     from a copy saved in this browser when that copy is under a minute old, so moving between
+     pages paints at once; every later read (refreshes, polling after an edit) goes to the network.
+     After a page settles, the feeds the other pages need are fetched quietly in the background. */
+  var FEEDS = "https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/";
+  var FRESH_MS = 60000, STORE = "ismile-dash-feeds-v1", AT = "x-dash-at";
+  var realFetch = window.fetch ? window.fetch.bind(window) : null, firstRead = {};
+  function feedKey(u) { return u.split("?")[0]; }
+  function openStore() { try { return window.caches ? caches.open(STORE) : Promise.resolve(null); } catch (e) { return Promise.resolve(null); } }
+  function saved(key) {
+    return openStore().then(function (c) { return c ? c.match(key) : null; }).then(function (r) {
+      if (!r) return null;
+      var at = +r.headers.get(AT) || 0;
+      return Date.now() - at < FRESH_MS ? r : null;
+    }).catch(function () { return null; });
+  }
+  function save(key, res) {
+    return res.blob().then(function (b) {
+      var copy = new Response(b, { status: 200, headers: { "content-type": "application/json", "x-dash-at": String(Date.now()) } });
+      return openStore().then(function (c) { return c ? c.put(key, copy) : null; });
+    }).catch(function () {});
+  }
+  function network(args, key) {
+    return realFetch.apply(null, args).then(function (r) { if (r.ok) save(key, r.clone()); return r; });
+  }
+  if (realFetch) {
+    window.fetch = function (input, init) {
+      var u = "";
+      try { u = typeof input === "string" ? input : (input && input.url) || ""; } catch (e) {}
+      var get = !init || !init.method || String(init.method).toUpperCase() === "GET";
+      if (!u || u.indexOf(FEEDS) !== 0 || !get) return realFetch.apply(null, arguments);
+      var key = feedKey(u), args = arguments;
+      if (firstRead[key]) return network(args, key);
+      firstRead[key] = 1;
+      return saved(key).then(function (hit) { return hit || network(args, key); });
+    };
+  }
+  function warmFeeds() {
+    if (!realFetch || !TOP) return;
+    ["deck", "hq", "cashflow", "recall", "status", "activity", "office", "margin"].forEach(function (n, i) {
+      var key = FEEDS + n + ".json";
+      setTimeout(function () {
+        saved(key).then(function (hit) {
+          if (hit) return;
+          realFetch(key + "?t=" + Date.now(), { cache: "no-store" }).then(function (r) { if (r.ok) save(key, r); }).catch(function () {});
+        });
+      }, i * 250);
+    });
+  }
+
+  /* ================= 1. light / dark ================= */
   function label(a) {
     var light = root.getAttribute("data-theme") === "light";
     a.innerHTML = '<span class="ico" aria-hidden="true">' + (light ? "☾" : "☀") + "</span>" + (light ? "Dark" : "Light");
@@ -24,18 +79,22 @@
     document.querySelectorAll(".theme-tog").forEach(label);
     window.dispatchEvent(new CustomEvent("themechange", { detail: { theme: v } }));
   }
-  /* the new theme opens as a circle from the switch (about 370ms) */
+  /* the new theme is unveiled as a circle opening from the switch, slowly enough to watch */
+  var WIPE_MS = 900;
   function set(v, from) {
     if (reduce || !document.startViewTransition || !from) { apply(v); return; }
     var r = from.getBoundingClientRect(), x = r.left + r.width / 2, y = r.top + r.height / 2;
     var far = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    root.classList.add("theme-wipe");
     var vt = document.startViewTransition(function () { apply(v); });
     vt.ready.then(function () {
       root.animate(
         { clipPath: ["circle(0px at " + x + "px " + y + "px)", "circle(" + far + "px at " + x + "px " + y + "px)"] },
-        { duration: 370, easing: "cubic-bezier(.16,1,.3,1)", pseudoElement: "::view-transition-new(root)" }
+        { duration: WIPE_MS, easing: "cubic-bezier(.65,0,.35,1)", pseudoElement: "::view-transition-new(root)" }
       );
     }).catch(function () {});
+    var done = function () { root.classList.remove("theme-wipe"); };
+    vt.finished.then(done, done);
   }
   window.ismileTheme = {
     get: function () { return root.getAttribute("data-theme"); },
@@ -56,16 +115,37 @@
     nav.appendChild(a);
     var act = nav.querySelector("a.active");
     if (act && nav.scrollWidth > nav.clientWidth) nav.scrollLeft = Math.max(0, act.offsetLeft - 12);
+    /* a tap on another page answers at once: the hairline starts and the pill colour moves */
+    nav.addEventListener("click", function (e) {
+      var l = e.target.closest ? e.target.closest("a[href]") : null;
+      if (!l || l === a || l.classList.contains("active") || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
+      var bar = document.getElementById("dash-progress");
+      if (!bar) { bar = document.createElement("div"); bar.id = "dash-progress"; document.body.appendChild(bar); }
+      bar.classList.add("on");
+    });
+  }
+  /* coming back with the Back button must not leave the hairline running */
+  window.addEventListener("pageshow", function () { var b = document.getElementById("dash-progress"); if (b) b.classList.remove("on"); });
+
+  /* ================= 2. the clock (Malaysia time) ================= */
+  var DOW = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"], MON = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+  function tick() {
+    var cs = document.querySelectorAll("[data-clock]"); if (!cs.length) return;
+    var n; try { n = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Kuala_Lumpur" })); } catch (e) { n = new Date(); }
+    var h = n.getHours(), hh = ((h + 11) % 12) + 1;
+    var html = ("0" + hh).slice(-2) + ":" + ("0" + n.getMinutes()).slice(-2) + "<small>" + (h < 12 ? "AM" : "PM") + "</small>";
+    var date = DOW[n.getDay()] + " · " + n.getDate() + " " + MON[n.getMonth()] + " " + n.getFullYear() + " · MYT";
+    cs.forEach(function (el) { if (el.innerHTML !== html) el.innerHTML = html; });
+    document.querySelectorAll("[data-date]").forEach(function (el) { if (el.textContent !== date) el.textContent = date; });
   }
 
-  /* ---- entrance: cards rise in one after another, once ---- */
+  /* ================= 3. motion ================= */
   function stagger() {
     var n = 0;
     document.querySelectorAll("[data-rise],.rise").forEach(function (el) {
       el.classList.add("rise"); el.style.setProperty("--i", Math.min(n++, 12));
     });
   }
-  /* ---- the hero figure counts up once, the first time it has a value ---- */
   function countUp(el) {
     if (reduce || el.__counted) return; el.__counted = true;
     var node = null;
@@ -96,7 +176,39 @@
     mo.observe(document.body, { childList: true, subtree: true, characterData: true });
     setTimeout(function () { done = true; mo.disconnect(); root.classList.add("settled"); }, 6000);
   }
-  function ready() { mount(); stagger(); watchCounts(); }
+
+  /* ================= 4b. loading states ================= */
+  /* a card waiting for data shows lines in the shape of its content, not the word "loading" */
+  function skeletons() {
+    document.querySelectorAll(".empty").forEach(function (el) {
+      if ((el.textContent || "").trim() !== "loading…") return;
+      el.className = "sk"; el.setAttribute("role", "status"); el.setAttribute("aria-label", "Loading");
+      el.innerHTML = "<i></i><i></i><i></i><i></i>";
+    });
+  }
+  /* the other dashboard pages are fetched ahead of time, so a tap opens them without a wait */
+  function preloadPages() {
+    if (!TOP) return;
+    var links = [].slice.call(document.querySelectorAll("header nav a[href^='/dashboard']")).filter(function (l) { return !l.classList.contains("active"); });
+    var urls = links.map(function (l) { return l.getAttribute("href").split("#")[0]; }).filter(function (u, i, a) { return u && a.indexOf(u) === i; });
+    if (!urls.length) return;
+    try {
+      if (window.HTMLScriptElement && HTMLScriptElement.supports && HTMLScriptElement.supports("speculationrules")) {
+        var s = document.createElement("script"); s.type = "speculationrules";
+        s.textContent = JSON.stringify({ prefetch: [{ urls: urls, eagerness: "eager" }] });
+        document.head.appendChild(s);
+        return;
+      }
+    } catch (e) {}
+    urls.forEach(function (u) { var l = document.createElement("link"); l.rel = "prefetch"; l.href = u; l.as = "document"; document.head.appendChild(l); });
+  }
+
+  function idle(fn, ms) { if (window.requestIdleCallback) requestIdleCallback(fn, { timeout: ms }); else setTimeout(fn, ms); }
+  function ready() {
+    mount(); tick(); setInterval(tick, 5000); skeletons(); stagger(); watchCounts();
+    var later = function () { idle(function () { preloadPages(); warmFeeds(); }, 2500); };
+    if (document.readyState === "complete") later(); else window.addEventListener("load", later);
+  }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", ready);
   else ready();
 })();
