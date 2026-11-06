@@ -391,6 +391,7 @@ const SPEC={
   hq_freshness:     {name:"Task board freshness",       sch:"Daily 09:05 MYT",    kind:"det", agent:"box",       cad:"daily",  group:"daily",  purpose:"Nag if the task board has gone more than 7 days without a publish — a nudge about neglect, not a job monitor"},
   watchdog:         {name:"Watchdog",                  sch:"Daily 08:00 MYT",    kind:"det", agent:"main",      cad:"daily",  group:"daily",  purpose:"Silent health check; Sunday heartbeat; disk > 85% alert"},
   cash_digest:      {name:"Cash digest",               sch:"12:05 + 19:50 MYT",  kind:"det", agent:"cron-analytics",cad:"daily",group:"daily", purpose:"Midday + end-of-day cash digest (Telegram + WhatsApp) → cashflow.json"},
+  doctor_view:      {name:"Doctor view build",         sch:"Daily 19:50 MYT",    kind:"det", agent:"cron-analytics",cad:"daily",group:"daily", purpose:"Per-doctor figures for Finance, By doctor: production, patients, age, procedures."},
   margin_build:     {name:"Margin build",              sch:"Daily 19:40 MYT",    kind:"det", agent:"cron-analytics",cad:"daily",group:"daily", purpose:"OpenDent extracts → margin.json (profitability page)"},
   review_approvals: {name:"Review approvals poller",   sch:"Every 10 min",       kind:"det", agent:"cron-gbp",  cad:"m10",    group:"poll",   purpose:"Poll the approval group; post approved 1–4★ replies to Google"},
   wa_group_digest:  {name:"WhatsApp group digest",     sch:"Daily 09:00 MYT",    kind:"llm", agent:"cron-main", cad:"daily",  group:"daily",  purpose:"WhatsApp group transcripts → daily digest"},

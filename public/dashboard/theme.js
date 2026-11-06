@@ -55,7 +55,7 @@
   }
   function warmFeeds() {
     if (!realFetch || !TOP) return;
-    ["deck", "hq", "cashflow", "recall", "status", "activity", "office", "margin"].forEach(function (n, i) {
+    ["deck", "hq", "cashflow", "recall", "status", "activity", "office", "margin", "doctors"].forEach(function (n, i) {
       var key = FEEDS + n + ".json";
       setTimeout(function () {
         saved(key).then(function (hit) {
@@ -136,7 +136,8 @@
     var html = ("0" + hh).slice(-2) + ":" + ("0" + n.getMinutes()).slice(-2) + "<small>" + (h < 12 ? "AM" : "PM") + "</small>";
     var date = DOW[n.getDay()] + " · " + n.getDate() + " " + MON[n.getMonth()] + " " + n.getFullYear() + " · MYT";
     cs.forEach(function (el) { if (el.innerHTML !== html) el.innerHTML = html; });
-    document.querySelectorAll("[data-date]").forEach(function (el) { if (el.textContent !== date) el.textContent = date; });
+    /* only the header clock: chart bars elsewhere also carry data-date */
+    document.querySelectorAll(".clock [data-date]").forEach(function (el) { if (el.textContent !== date) el.textContent = date; });
   }
 
   /* ================= 3. motion ================= */

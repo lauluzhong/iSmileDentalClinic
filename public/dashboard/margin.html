@@ -4,6 +4,7 @@
 <link rel="icon" type="image/png" href="/dashboard/favicon-circle.png">
 <link rel="stylesheet" href="/dashboard/theme.css">
 <script src="/dashboard/theme.js"></script>
+<script src="/dashboard/doctor-view.js" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
@@ -353,6 +354,92 @@
   .live,.pill-live,.pill-sample{border-radius:999px}
   .btn{background:var(--panel)}
   @media(max-width:760px){.wrap{padding:14px 16px 40px}}
+
+  /* Daily trend: bars share the width, sparse labels never force it wider */
+  .grid2>*{min-width:0}
+  .daily{gap:clamp(1px,.3vw,6px)}
+  .dbar .dlab{width:0;height:14px;display:flex;justify-content:center}
+
+  /* ================= By doctor (6 Nov 2026) ================= */
+  #dv-controls{display:grid;gap:10px;margin:0 0 16px;min-width:0}
+  .dv-time{display:flex;gap:10px;align-items:center;flex-wrap:wrap;min-width:0}
+  .dv-pills{position:relative;display:inline-flex;gap:2px;padding:4px;background:var(--panel);border-radius:999px;max-width:100%;overflow-x:auto;scrollbar-width:none;justify-self:start}
+  .dv-pills::-webkit-scrollbar{display:none}
+  .dv-pills button{position:relative;z-index:1;display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 15px;border:0;background:none;border-radius:999px;font:inherit;font-size:13.5px;font-weight:500;color:var(--mut);cursor:pointer;white-space:nowrap;transition:color .18s var(--ease),transform .1s var(--ease)}
+  .dv-pills button:hover{color:var(--ink)} .dv-pills button:active{transform:scale(.97)}
+  .dv-pills button.on{color:var(--bg)}
+  .dv-pills button i{width:8px;height:8px;border-radius:50%;flex:none}
+  .dv-pills.small button{height:34px;padding:0 13px;font-size:13px}
+  .dv-ind{position:absolute;top:0;left:0;background:var(--ink);border-radius:999px;transition:transform .34s var(--ease),width .34s var(--ease),opacity .18s;pointer-events:none}
+  #dv-month{height:42px;width:auto;border:0;background:var(--panel);border-radius:999px;padding:0 14px;font-size:13px}
+  .dv-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px}
+  .dv-grid>*{animation:dvIn .34s var(--ease) both}
+  .dv-card{background:var(--panel);border-radius:var(--r-card);padding:20px 22px;min-width:0}
+  .dv-hero{grid-column:span 5;border-radius:var(--r-hero);padding:24px 26px;display:flex;flex-direction:column;min-height:236px;background:linear-gradient(135deg,#0B7FC0,#075F93);color:#fff}
+  .dv-hero.dv-card{background:var(--panel)}
+  .dv-who{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:auto;flex-wrap:wrap}
+  .dv-who b{font-size:18px;font-weight:600} .dv-who span{font-size:13px;opacity:.86}
+  .dv-lab{font-size:13px;color:var(--mut)} .dv-hero .dv-lab,.dv-hero .dv-sub{color:rgba(255,255,255,.88)}
+  .dv-big{font-size:clamp(38px,4.6vw,58px);line-height:1.06;font-weight:600;letter-spacing:-.025em;font-variant-numeric:tabular-nums;color:#fff;margin:6px 0 8px}
+  .dv-sub{font-size:13px;color:var(--mut);min-height:18px}
+  .dv-hero .dv-d.up,.dv-hero .dv-d.down{background:rgba(255,255,255,.2);color:#fff}
+  .dv-stats{grid-column:span 7;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .dv-stat{display:flex;flex-direction:column;gap:6px;justify-content:center;padding:16px 22px}
+  .dv-v{font-size:26px;font-weight:600;letter-spacing:-.015em;font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .dv-d{display:inline-block;font-size:12px;font-weight:600;letter-spacing:0;padding:2px 7px;border-radius:999px}
+  .dv-d.up{background:var(--ok-soft);color:var(--ok)} .dv-d.down{background:var(--bad-soft-bg);color:var(--bad)}
+  .dv-w7{grid-column:span 7;display:grid;gap:14px;min-width:0} .dv-w5{grid-column:span 5;display:grid;gap:14px;min-width:0}
+  .dv-w7:has(>.dv-card+.dv-card){grid-template-rows:auto 1fr}
+  .dv-trend{display:flex;flex-direction:column} .dv-trend .dv-cols{flex:1;min-height:210px;height:auto} .dv-w12{grid-column:1/-1;min-width:0}
+  .dv-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+  .dv-head h3{font-size:16px;font-weight:600;letter-spacing:-.005em;margin:0}
+  .dv-mini{display:inline-flex;gap:2px;background:var(--panel2);border-radius:999px;padding:3px}
+  .dv-mini button{border:0;background:none;font:inherit;font-size:12.5px;color:var(--mut);padding:5px 11px;border-radius:999px;cursor:pointer;transition:color .18s,background .18s}
+  .dv-mini button.on{background:var(--panel);color:var(--ink);font-weight:500}
+  .dv-cols{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:6px;height:210px}
+  .dv-cols.ages{height:200px;gap:12px}
+  .dv-col{display:flex;flex-direction:column;gap:6px;min-width:0;align-items:stretch;text-align:center}
+  .dv-col b{font-size:12.5px;font-weight:600} .dv-col span{font-size:11.5px;color:var(--mut);height:15px;white-space:nowrap}
+  .dv-track{flex:1;position:relative;background:var(--track);border-radius:8px;overflow:hidden}
+  .dv-fill{position:absolute;left:0;right:0;bottom:0;background:rgba(var(--p1rgb),.3);border-radius:8px;transform-origin:bottom;animation:dvUp .5s var(--ease) both}
+  .dv-col.on .dv-fill{background:var(--brand)}
+  .dv-split{margin-top:16px} .dv-splitbar{height:10px;border-radius:999px;background:var(--track);overflow:hidden}
+  .dv-splitbar i{display:block;height:100%;background:var(--brand);border-radius:999px;transform-origin:left;animation:dvRight .5s var(--ease) both}
+  .dv-splitlab{display:flex;justify-content:space-between;font-size:12.5px;color:var(--mut);margin-top:6px}
+  .dv-bar{display:grid;grid-template-columns:minmax(0,132px) minmax(0,1fr) 112px;gap:12px;align-items:center;padding:7px 0}
+  .dv-bar .n{font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .dv-hbar{height:22px;background:var(--track);border-radius:7px;overflow:hidden} .dv-hbar div{height:100%;background:var(--brand);border-radius:7px;transform-origin:left;animation:dvRight .5s var(--ease) both}
+  .dv-bar b{text-align:right;font-size:13px;font-weight:600;font-variant-numeric:tabular-nums} .dv-bar small,.dv-line small{display:block;font-size:11.5px;font-weight:400;color:var(--mut)}
+  .dv-line{display:flex;justify-content:space-between;gap:14px;align-items:baseline;padding:9px 0;border-top:1px solid var(--line);font-size:13.5px}
+  .dv-head+.dv-line{border-top:0}
+  .dv-line span{color:var(--mut);min-width:0} .dv-line b{font-weight:600;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .dv-line.total span,.dv-line.total b{color:var(--ink)} .dv-line.total{border-top:1px solid var(--ink);margin-bottom:10px}
+  .dv-note{font-size:12.5px;color:var(--mut);margin:10px 0 0}
+  .dv-scroll{overflow-x:auto;margin:0 -22px;padding:0 22px}
+  .dv-table{border-collapse:collapse;width:100%;font-size:13.5px;font-variant-numeric:tabular-nums}
+  .dv-table th,.dv-table td{padding:0 12px;height:46px;text-align:right;white-space:nowrap;border-top:1px solid var(--line)}
+  .dv-table thead th{border-top:0;font-weight:500;color:var(--mut);font-size:12.5px}
+  .dv-table thead th.on{color:var(--ink)}
+  .dv-table thead button,.dv-table tbody th button{border:0;background:none;font:inherit;color:inherit;cursor:pointer;padding:6px 0}
+  .dv-table th:first-child{text-align:left;padding-left:0;position:sticky;left:-22px;background:var(--panel);z-index:1}
+  .dv-table tbody th{font-weight:500} .dv-table tbody th i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px}
+  .dv-table tbody tr{cursor:pointer;transition:background .18s}
+  .dv-table tbody tr:hover td{color:var(--brand)} .dv-table tbody tr.on td,.dv-table tbody tr.on th{background:var(--brand-soft)}
+  .dv-empty{text-align:center;padding:40px 22px} .dv-btn{border:0;background:var(--ink);color:var(--bg);font:inherit;font-weight:500;height:44px;padding:0 20px;border-radius:999px;cursor:pointer;margin-top:10px}
+  @keyframes dvIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  @keyframes dvUp{from{transform:scaleY(0)}to{transform:none}}
+  @keyframes dvRight{from{transform:scaleX(0)}to{transform:none}}
+  @media(max-width:1000px){.dv-hero,.dv-stats,.dv-w7,.dv-w5{grid-column:1/-1}.dv-hero{min-height:190px}}
+  @media(max-width:760px){
+    .dv-pills button{height:44px} .dv-pills.small button{height:40px}
+    .dv-card{padding:16px} .dv-stat{padding:14px 16px} .dv-stats{gap:10px} .dv-grid{gap:10px} .dv-w7,.dv-w5{gap:10px}
+    .dv-v{font-size:21px} .dv-sub{font-size:12px}
+    .dv-cols{height:170px;gap:3px} .dv-cols.ages{gap:7px} .dv-col span{font-size:11px}
+    .dv-bar{grid-template-columns:minmax(0,104px) minmax(0,1fr) 92px;gap:8px}
+    .dv-scroll{margin:0 -16px;padding:0 16px} .dv-table th:first-child{left:-16px}
+    #dv-month{width:100%;font-size:16px;height:44px}
+  }
+  @media(prefers-reduced-motion:reduce){.dv-grid>*,.dv-fill,.dv-hbar div,.dv-splitbar i{animation:none}.dv-ind{transition:none}}
 </style>
 </head>
 <body>
@@ -373,6 +460,7 @@
     <div class="tabs">
       <button class="tab active" data-view="tx" id="tab-tx"><span class="i">⊞</span> Transactions</button>
       <button class="tab" data-view="summary" id="tab-summary"><span class="i">◫</span> Summary</button>
+      <button class="tab" data-view="doctor" id="tab-doctor"><span class="i">◉</span> By doctor</button>
       <button class="tab" data-view="day" id="tab-day"><span class="i">▤</span> By day</button>
       <button class="tab" data-view="efficiency" id="tab-efficiency"><span class="i">◷</span> Efficiency</button>
       <button class="tab" data-view="pnl" id="tab-pnl"><span class="i">≡</span> P&amp;L</button>
@@ -505,6 +593,13 @@
     </div>
 
     <div class="note" id="sum-note"></div>
+  </section>
+
+  <!-- ====================== BY DOCTOR VIEW (doctor-view.js + doctors.json) ====================== -->
+  <section class="view" id="view-doctor">
+    <div class="sec-head"><div><h1>By doctor</h1></div></div>
+    <div id="dv-controls"></div>
+    <div id="dv-body"></div>
   </section>
 
   <!-- ====================== LOCUM VIEW (data from the locum tool on the box, via /dashboard/locum/) ====================== -->
@@ -661,7 +756,8 @@ const DOCTORS = {
   'Dr Ling':     {tier:0.45, exempt10:false, color:'#D4537E'},
   'Dr Mah':      {tier:0.45, exempt10:false, color:'#BA7517'},
   'Dr Priscilla':{tier:0.40, exempt10:false, color:'#378ADD'},
-  'Dr Azelia':   {tier:0.40, exempt10:false, color:'#888780'}
+  'Dr Azelia':   {tier:0.40, exempt10:false, color:'#888780'},
+  'Dr Lau':      {tier:0.40, exempt10:false, color:'#0E8F7E'}
 };
 
 /* ---- X-ray sharing add-back (RM) by type ---- */
@@ -1055,7 +1151,8 @@ function renderSummary(){
   const days = Object.keys(byDay).sort();
   const dayAgg = days.map(d=>({d,...totals(byDay[d])}));
   const maxD = Math.max(...dayAgg.map(x=>x.production));
-  document.getElementById('daily').innerHTML = dayAgg.map(x=>{
+  const labelEvery = Math.max(1, Math.ceil(dayAgg.length/12));   // 74 dates cannot all fit under the bars
+  document.getElementById('daily').innerHTML = dayAgg.map((x,i)=>{
     const ph=(x.production/maxD*130).toFixed(0);
     const mh=(Math.max(0,x.trueMargin)/maxD*130).toFixed(0);
     return `<div class="dbar" data-date="${x.d}" title="${dlabel(x.d)}: prod ${rm(x.production)}, margin ${rm(x.trueMargin)}">
@@ -1063,7 +1160,7 @@ function renderSummary(){
         <div class="seg-prod" style="height:${ph-mh}px"></div>
         <div class="seg-margin" style="height:${mh}px"></div>
       </div>
-      <div class="dlab">${dlabel(x.d)}</div>
+      <div class="dlab">${i%labelEvery?'':dlabel(x.d)}</div>
     </div>`;
   }).join('');
 
@@ -1238,9 +1335,10 @@ function renderEfficiency(){
 
 function switchView(v){
   document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.view===v));
-  ['tx','summary','day','efficiency','pnl','locum'].forEach(k=>
+  ['tx','summary','doctor','day','efficiency','pnl','locum'].forEach(k=>
     document.getElementById('view-'+k).classList.toggle('active',k===v));
   if(v==='locum') renderLocum();
+  if(v==='doctor') window.DoctorView&&DoctorView.open();
   if(v==='efficiency') renderEfficiency();
   if(v==='day') renderDay();
   if(v==='pnl') renderPnl();
@@ -1426,6 +1524,7 @@ function initSort(){
 
 /* ---- Tabs ---- */
 document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>switchView(t.dataset.view));
+if(location.hash==='#doctor') switchView('doctor');
 
 /* ---- Init ---- */
 initFilters();
