@@ -5,8 +5,9 @@
   var D = null, loading = false, opened = false;
   var S = { doc: "all", period: "m12", metric: 0, sort: "production", dir: -1, lastHero: 0 };
   try { var s = JSON.parse(localStorage.getItem("dv") || "{}"); if (s.doc) S.doc = s.doc; if (s.period) S.period = s.period; } catch (e) {}
-  var COLORS = { "Dr Yeoh": "#534AB7", "Dr Joan": "#1D9E75", "Dr Ong": "#00A0C6", "Dr Amy": "#D85A30", "Dr Ling": "#D4537E",
-                 "Dr Mah": "#BA7517", "Dr Priscilla": "#378ADD", "Dr Azelia": "#888780", "Dr Lau": "#0E8F7E" };
+  /* same files and same crop as the locum tool's face() */
+  var PHOTO = { "Dr Lau": "dr_Lau Jia Yin", "Dr Amy": "dr_Amy Chin Mei Kuen", "Dr Azelia": "dr_Azelia Lau Yiling", "Dr Joan": "dr_Lim Zhi Yin Joan", "Dr Ling": "dr_Ling",
+                "Dr Mah": "dr_Mah Haw Yeng", "Dr Priscilla": "dr_Priscilla", "Dr Yeoh": "dr_yeoh", "Dr Ong": "dr_Jean Ong" };
   var METRICS = [["Production", 0, true], ["Collection", 1, true], ["Patients", 2, false], ["Visits", 3, false]];
   var CALM = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -18,6 +19,11 @@
   function one(n) { return (Math.round((n || 0) * 10) / 10).toFixed(1); }
   function nice(d) { var p = d.split("-"); return +p[2] + " " + ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][+p[1] - 1] + " " + p[0]; }
   function mon(m) { return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][+m.slice(5) - 1]; }
+  function face(name, cls) {
+    var ini = name.replace(/^Dr\s+/, "").charAt(0).toUpperCase();
+    var src = PHOTO[name] ? "/images/doctors/" + encodeURIComponent(PHOTO[name]) + ".webp" : "";
+    return '<span class="dv-face' + (cls ? " " + cls : "") + '"><i>' + esc(ini) + "</i>" + (src ? '<img src="' + src + '" alt="" onerror="this.remove()">' : "") + "</span>";
+  }
   function range(p) { return nice(p.frm) === nice(p.to) ? nice(p.frm) : nice(p.frm).replace(/ \d{4}$/, p.frm.slice(0, 4) === p.to.slice(0, 4) ? "" : "$&") + " – " + nice(p.to); }
   function period() { return D.periods.filter(function (p) { return p.k === S.period; })[0] || D.periods[0]; }
   function save() { try { localStorage.setItem("dv", JSON.stringify({ doc: S.doc, period: S.period })); } catch (e) {} }
@@ -49,7 +55,7 @@
       '<div class="dv-pills" id="dv-docs" role="group" aria-label="Doctor"><span class="dv-ind"></span>' +
       D.doctors.map(function (d) {
         return '<button type="button" data-doc="' + esc(d.key) + '" class="' + (d.key === S.doc ? "on" : "") + '">' +
-          (COLORS[d.name] ? '<i style="background:' + COLORS[d.name] + '"></i>' : "") + esc(d.name) + "</button>";
+          (PHOTO[d.name] ? face(d.name) : "") + esc(d.name) + "</button>";
       }).join("") + "</div>" +
       '<div class="dv-time"><div class="dv-pills small" id="dv-periods" role="group" aria-label="Timeframe"><span class="dv-ind"></span>' +
       p.map(function (x) { return '<button type="button" data-p="' + x.k + '" class="' + (x.k === S.period ? "on" : "") + '">' + esc(x.label) + "</button>"; }).join("") +
@@ -82,7 +88,7 @@
   /* ---------- parts ---------- */
   function hero(b, p, doc) {
     var c = b.cmp || {};
-    return '<div class="dv-hero hero-skin"><div class="dv-who"><b>' + esc(doc.name) + "</b><span>" + range(p) + '</span></div>' +
+    return '<div class="dv-hero hero-skin"><div class="dv-who">' + (PHOTO[doc.name] ? face(doc.name, "big") : "") + "<div><b>" + esc(doc.name) + "</b><span>" + range(p) + "</span></div></div>" +
       '<div class="dv-lab">Production</div><div class="dv-big" id="dv-big">' + rm(b.production) + "</div>" +
       '<div class="dv-sub">' + (c.production ? delta(b.production, c.production) + " " + versus(p) : "") + "</div></div>";
   }
@@ -161,7 +167,7 @@
     return '<div class="dv-card dv-all"><div class="dv-head"><h3>All doctors</h3></div><div class="dv-scroll"><table class="dv-table"><thead><tr><th>Doctor</th>' +
       COL.map(function (c) { return '<th data-s="' + c[0] + '" class="' + (S.sort === c[0] ? "on" : "") + '"><button type="button">' + c[1] + (S.sort === c[0] ? (S.dir < 0 ? " ↓" : " ↑") : "") + "</button></th>"; }).join("") +
       "</tr></thead><tbody>" + rows.map(function (r) {
-        return '<tr data-doc="' + esc(r.d.key) + '" class="' + (r.d.key === S.doc ? "on" : "") + '"><th><button type="button"><i style="background:' + (COLORS[r.d.name] || "var(--dim)") + '"></i>' + esc(r.d.name) + "</button></th>" +
+        return '<tr data-doc="' + esc(r.d.key) + '" class="' + (r.d.key === S.doc ? "on" : "") + '"><th><button type="button">' + face(r.d.name) + esc(r.d.name) + "</button></th>" +
           COL.map(function (c) { var v = r[c[0]]; return "<td>" + (c[2] === 1 ? rm(v) : c[2] === 2 ? Math.round(v * 100) + "%" : num(v)) + "</td>"; }).join("") + "</tr>";
       }).join("") + "</tbody></table></div>" +
       (ong ? '<p class="dv-note">Dr Ong is salaried. Her pay sits in overhead, so her margin reads high next to the locum doctors.</p>' : "") + "</div>";
