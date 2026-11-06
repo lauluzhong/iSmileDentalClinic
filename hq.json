@@ -4,7 +4,7 @@
    "hot": true,
    "k": "With Lydia",
    "t": "Close out employee contracts & handbook (3 items not done)",
-   "w": "Handbook clauses incl. family discount, Elaine's JD + contract, then all-staff signing. Sent to Lydia 12 Oct.",
+   "w": "Handbook clauses incl. family discount, Elaine\u2019s JD + contract, then all-staff signing. Sent to Lydia 12 Oct; followed up 6 Nov.",
    "ref": "l6"
   }
  ],
@@ -1800,7 +1800,7 @@
     {
      "id": "l6",
      "dot": "now",
-     "chip": "\u26a0\ufe0f not done \u00b7 with Lydia",
+     "chip": "\u26a0\ufe0f not done \u00b7 followed up 6 Nov",
      "name": "Employee contracts & handbook",
      "one": "New hires signed on Gen-3; long-tenured staff don't re-sign \u2014 everyone signs the 2026 handbook acknowledgement instead.",
      "steps": [
@@ -1849,7 +1849,7 @@
       "k": "due",
       "by": "2026-10-31",
       "who": "Lydia",
-      "w": "Close out: handbook with pending clauses (incl. family discount), Elaine's JD + contract, then all-staff signing. Sent to Lydia 12 Oct."
+      "w": "Close out: handbook with pending clauses (incl. family discount), Elaine\u2019s JD + contract, then all-staff signing. Sent to Lydia 12 Oct; followed up 6 Nov."
      }
     }
    ]
@@ -3894,6 +3894,6 @@
  },
  "meta": {
   "asof": "FRI 06 NOV 2026",
-  "updated": "2026-11-06T01:57:37+08:00"
+  "updated": "2026-11-06T11:14:09+08:00"
  }
 }
