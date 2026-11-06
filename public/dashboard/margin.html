@@ -355,6 +355,15 @@
   .btn{background:var(--panel)}
   @media(max-width:760px){.wrap{padding:14px 16px 40px}}
 
+  /* P&L on phones: both figure columns fit the card */
+  @media(max-width:600px){
+    .pnl{grid-template-columns:minmax(0,1fr) auto auto}
+    .pnl .val,.pnl .less .val{font-size:14px} .pnl .sub .val{font-size:12.5px} .pnl .final .val{font-size:16px}
+    .pnl>div>div.val,.pnl .hd+.hd{padding-left:10px}
+    .pnl .hd{font-size:11px;letter-spacing:0}
+    .pnl .lbl{min-width:0;overflow-wrap:anywhere}
+  }
+
   /* Daily trend: bars share the width, sparse labels never force it wider */
   .grid2>*{min-width:0}
   .daily{gap:clamp(1px,.3vw,6px)}
@@ -1347,6 +1356,8 @@ function switchView(v){
   if(v==='efficiency') renderEfficiency();
   if(v==='day') renderDay();
   if(v==='pnl') renderPnl();
+  const onTab=document.querySelector('.tab.active'), tabsEl=onTab&&onTab.parentElement;   // phones: keep the chosen tab in view
+  if(onTab) tabsEl.scrollLeft=onTab.offsetLeft-(tabsEl.clientWidth-onTab.offsetWidth)/2;
   window.scrollTo({top:0,behavior:'smooth'});
 }
 

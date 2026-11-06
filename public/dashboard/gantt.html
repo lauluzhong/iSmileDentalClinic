@@ -130,8 +130,9 @@
 
   /* embedded as the Task Tracker's Gantt view: no page header, no own background */
   html.embed body{background:transparent;background-image:none;min-height:0}
-  html.embed .wrap{padding:0;max-width:none}
-  html.embed header,html.embed footer .hint{display:none}
+  /* !important: theme.css pins the shared header and .wrap padding with !important */
+  html.embed .wrap{padding:0 !important;max-width:none}
+  html.embed header,html.embed footer .hint{display:none !important}
   footer{margin-top:18px;color:var(--dim);font-family:var(--mono);font-size:11px;line-height:1.7}
   .printhead{display:none}
 
