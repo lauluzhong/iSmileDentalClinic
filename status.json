@@ -1,7 +1,8 @@
 {
   "updated": "2026-11-06 19:45 MYT",
   "running": [
-    "social_post"
+    "social_post",
+    "clinic_db"
   ],
   "jobs": {
     "gbp_reply": {
@@ -107,6 +108,9 @@
     "social_comments": {
       "state": "idle",
       "last": "2026-11-06 19:00 MYT"
+    },
+    "clinic_db": {
+      "state": "running"
     }
   }
 }
