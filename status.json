@@ -1,7 +1,8 @@
 {
   "updated": "2026-11-06 19:50 MYT",
   "running": [
-    "cash_digest"
+    "cash_digest",
+    "doctor_view"
   ],
   "jobs": {
     "gbp_reply": {
@@ -111,6 +112,9 @@
     "clinic_db": {
       "state": "idle",
       "last": "2026-11-06 19:45 MYT"
+    },
+    "doctor_view": {
+      "state": "running"
     }
   }
 }
