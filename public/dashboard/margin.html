@@ -368,7 +368,12 @@
   .dv-pills button{position:relative;z-index:1;display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 15px;border:0;background:none;border-radius:999px;font:inherit;font-size:13.5px;font-weight:500;color:var(--mut);cursor:pointer;white-space:nowrap;transition:color .18s var(--ease),transform .1s var(--ease)}
   .dv-pills button:hover{color:var(--ink)} .dv-pills button:active{transform:scale(.97)}
   .dv-pills button.on{color:var(--bg)}
-  .dv-pills button i{width:8px;height:8px;border-radius:50%;flex:none}
+  .dv-face{position:relative;display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;overflow:hidden;flex:none;background:var(--brand-soft);color:var(--brand)}
+  .dv-face i{font-style:normal;font-size:12px;font-weight:600}
+  .dv-face img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+  .dv-face.big{width:64px;height:64px;box-shadow:0 0 0 2px rgba(255,255,255,.75);background:rgba(255,255,255,.2);color:#fff}
+  .dv-face.big i{font-size:24px}
+  .dv-pills button:has(.dv-face){padding-left:7px}
   .dv-pills.small button{height:34px;padding:0 13px;font-size:13px}
   .dv-ind{position:absolute;top:0;left:0;background:var(--ink);border-radius:999px;transition:transform .34s var(--ease),width .34s var(--ease),opacity .18s;pointer-events:none}
   #dv-month{height:42px;width:auto;border:0;background:var(--panel);border-radius:999px;padding:0 14px;font-size:13px}
@@ -377,8 +382,8 @@
   .dv-card{background:var(--panel);border-radius:var(--r-card);padding:20px 22px;min-width:0}
   .dv-hero{grid-column:span 5;border-radius:var(--r-hero);padding:24px 26px;display:flex;flex-direction:column;min-height:236px;background:linear-gradient(135deg,#0B7FC0,#075F93);color:#fff}
   .dv-hero.dv-card{background:var(--panel)}
-  .dv-who{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:auto;flex-wrap:wrap}
-  .dv-who b{font-size:18px;font-weight:600} .dv-who span{font-size:13px;opacity:.86}
+  .dv-who{display:flex;gap:14px;align-items:center;margin-bottom:auto;padding-bottom:18px}
+  .dv-who b{display:block;font-size:20px;font-weight:600;line-height:1.2} .dv-who span:not(.dv-face){display:block;font-size:13px;opacity:.86;margin-top:2px}
   .dv-lab{font-size:13px;color:var(--mut)} .dv-hero .dv-lab,.dv-hero .dv-sub{color:rgba(255,255,255,.88)}
   .dv-big{font-size:clamp(38px,4.6vw,58px);line-height:1.06;font-weight:600;letter-spacing:-.025em;font-variant-numeric:tabular-nums;color:#fff;margin:6px 0 8px}
   .dv-sub{font-size:13px;color:var(--mut);min-height:18px}
@@ -422,7 +427,7 @@
   .dv-table thead th.on{color:var(--ink)}
   .dv-table thead button,.dv-table tbody th button{border:0;background:none;font:inherit;color:inherit;cursor:pointer;padding:6px 0}
   .dv-table th:first-child{text-align:left;padding-left:0;position:sticky;left:-22px;background:var(--panel);z-index:1}
-  .dv-table tbody th{font-weight:500} .dv-table tbody th i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px}
+  .dv-table tbody th{font-weight:500} .dv-table tbody th button{display:inline-flex;align-items:center;gap:9px}
   .dv-table tbody tr{cursor:pointer;transition:background .18s}
   .dv-table tbody tr:hover td{color:var(--brand)} .dv-table tbody tr.on td,.dv-table tbody tr.on th{background:var(--brand-soft)}
   .dv-empty{text-align:center;padding:40px 22px} .dv-btn{border:0;background:var(--ink);color:var(--bg);font:inherit;font-weight:500;height:44px;padding:0 20px;border-radius:999px;cursor:pointer;margin-top:10px}
