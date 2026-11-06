@@ -252,7 +252,7 @@
    "l": "Cold blast waves \u00b7 increment sit-down",
    "s": "",
    "iso": "2026-11-20",
-   "tip": "Blast Waves 1 and 2 are sent (29 Oct, 2 Nov). Waves 3 and 4 are saved and not yet sent. The year-end increment amounts get decided in a sit-down."
+   "tip": "Blast Waves 1, 2 and 3 are sent (29 Oct, 2 Nov, 6 Nov). The year-end increment amounts get decided in a sit-down."
   },
   {
    "d": "7 Dec",
@@ -1863,7 +1863,7 @@
    "lead": "Owner-led \u00b7 retention before acquisition",
    "gtpp": {
     "g": "Spend gates: DataForSEO US$50, merch pilot budget. Targets: coffee scheme tiers reset off the honest 54% baseline.",
-    "t": "Recall funnel and the daily rebooking number live via Edith; cold blast Waves 1 and 2 sent, results reported twice a day; OpenSEO installed, gated on the API key.",
+    "t": "Recall funnel and the daily rebooking number live via Edith; cold blast Waves 1, 2 and 3 sent, results reported twice a day; OpenSEO installed, gated on the API key.",
     "p": "Desk rebooking script (ask-at-checkout \u2014 the data says it's decided at the counter, same day), blast exclusion hygiene, review-ask cadence with the standees.",
     "pe": "FOH verbal/retention training (rejection handling, sales skills) inside the FOH syllabus; DSA girls as videographers; Dr Jia Yin \u00d7 Ling working-arrangement talk."
    },
@@ -1873,7 +1873,7 @@
      "dot": "now",
      "chip": "W1 + W2 sent \u00b7 W3 and W4 not yet",
      "name": "Cold reactivation blast",
-     "one": "Wave 1 went out on 29 Oct (676 messages) and Wave 2 on 2 Nov (951). Waves 3 and 4 are saved and not yet sent; each needs the same checks first. Results come to Lau twice a day.",
+     "one": "Wave 1 went out on 29 Oct (676 messages), Wave 2 on 2 Nov (951) and Wave 3 on 6 Nov (1,989, the saved Waves 3 and 4 combined). Results come to Lau twice a day.",
      "steps": [
       {
        "t": "Send list + exclusions built (9,833 excluded w/ reasons)",
@@ -2027,13 +2027,13 @@
       },
       {
        "t": "Before Waves 3 and 4: run the same checks against everyone already sent, and top up the message credit",
-       "s": "next",
-       "w": "Lau"
+       "s": "",
+       "w": "Waves went out 6 Nov; whether the checks ran is not confirmed"
       },
       {
-       "t": "Send Wave 3 (993 messages) and Wave 4 (1,025 messages)",
-       "s": "",
-       "w": "saved, not sent \u00b7 no date set"
+       "t": "Wave 3 sent: 1,989 messages (saved Waves 3 and 4 combined)",
+       "s": "done",
+       "w": "6 Nov"
       }
      ],
      "open": [
@@ -2047,7 +2047,7 @@
      "from_initiatives": [
       28
      ],
-     "next": "Read the Wave 1 and 2 bookings. Then run the checks and top up the message credit before sending Waves 3 and 4.",
+     "next": "Read the bookings from all three waves as they come in.",
      "endMonth": "2026-11"
     },
     {
@@ -3665,7 +3665,7 @@
      "g1"
     ],
     "owner": "Lau \u00b7 Suraya \u00b7 Jason \u00b7 Code Capsule",
-    "summary": "Wave 1 sent 29 Oct (676 messages); Wave 2 sent 2 Nov (951). Waves 3 and 4 are saved and not yet scheduled.",
+    "summary": "Wave 1 sent 29 Oct (676 messages); Wave 2 sent 2 Nov (951); Wave 3 sent 6 Nov (1,989).",
     "items": [
      {
       "label": "FOH availability and exclusion-list preparation",
@@ -3741,6 +3741,13 @@
       "status": "done",
       "who": "Lau",
       "note": "Households last seen 37 to 60 months ago. 11 names removed in the final checks."
+     },
+     {
+      "label": "Wave 3 sent (1,989 messages)",
+      "start": "2026-11-06",
+      "status": "done",
+      "who": "Lau",
+      "note": "The saved Waves 3 and 4 combined."
      }
     ]
    },
@@ -3893,7 +3900,7 @@
   ]
  },
  "meta": {
-  "asof": "FRI 06 NOV 2026",
-  "updated": "2026-11-06T11:14:09+08:00"
+  "asof": "SAT 07 NOV 2026",
+  "updated": "2026-11-07T05:34:51+08:00"
  }
 }

@@ -1,19 +1,19 @@
 {
- "updated": "2026-11-06T11:14:09+08:00",
+ "updated": "2026-11-07T05:34:51+08:00",
  "source": "DERIVED from hq.store.json (one task store since 2026-09-02)",
  "owners": {
-  "Lydia": {
-   "init": "L",
-   "role": "",
-   "color": "#45C4FF"
-  },
-  "Dr Ong": {
-   "init": "DO",
+  "Code Capsule": {
+   "init": "CC",
    "role": "",
    "color": "#45C4FF"
   },
   "Edith": {
    "init": "E",
+   "role": "",
+   "color": "#45C4FF"
+  },
+  "Dr Ong": {
+   "init": "DO",
    "role": "",
    "color": "#45C4FF"
   },
@@ -27,8 +27,8 @@
    "role": "",
    "color": "#45C4FF"
   },
-  "Code Capsule": {
-   "init": "CC",
+  "Lydia": {
+   "init": "L",
    "role": "",
    "color": "#45C4FF"
   }
@@ -572,8 +572,8 @@
    "title": "Cold reactivation blast",
    "status": "active",
    "owner": "Lau",
-   "why": "Wave 1 went out on 29 Oct (676 messages) and Wave 2 on 2 Nov (951). Waves 3 and 4 are saved and not yet sent; each needs the same checks first. Results come to Lau twice a day.",
-   "next": "Read the Wave 1 and 2 bookings. Then run the checks and top up the message credit before sending Waves 3 and 4.",
+   "why": "Wave 1 went out on 29 Oct (676 messages), Wave 2 on 2 Nov (951) and Wave 3 on 6 Nov (1,989, the saved Waves 3 and 4 combined). Results come to Lau twice a day.",
+   "next": "Read the bookings from all three waves as they come in.",
    "dept": "crm",
    "lens": "revenue",
    "endMonth": "2026-11",
@@ -610,7 +610,7 @@
     "Wave 2 sent: 951 messages, after 11 names were removed in the final checks",
     "Front desk reports what the 18 Wave 1 replies said; any opt-outs go on the do-not-message list",
     "Before Waves 3 and 4: run the same checks against everyone already sent, and top up the message credit",
-    "Send Wave 3 (993 messages) and Wave 4 (1,025 messages)"
+    "Wave 3 sent: 1,989 messages (saved Waves 3 and 4 combined)"
    ],
    "pillar": "P3"
   },
