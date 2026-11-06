@@ -205,6 +205,18 @@
   }
 
   function idle(fn, ms) { if (window.requestIdleCallback) requestIdleCallback(fn, { timeout: ms }); else setTimeout(fn, ms); }
+  /* called right after </header> in each page, so the clock and moon are there in the first
+     paint. Finance's document is big enough to paint before DOMContentLoaded; without this its
+     right-aligned nav sat 44px off until the moon arrived. */
+  window.ismileTheme.header = function () { mount(); tick(); };
+  /* resolves once the page transition has played, so heavy pages can start their work after it */
+  var revealed = !("onpagereveal" in window) ? Promise.resolve() : new Promise(function (done) {
+    window.addEventListener("pagereveal", function (e) {
+      if (e.viewTransition) e.viewTransition.finished.then(done, done); else done();
+    }, { once: true });
+    setTimeout(done, 700);
+  });
+  window.ismileTheme.revealed = function () { return revealed; };
   function ready() {
     mount(); tick(); setInterval(tick, 5000); skeletons(); stagger(); watchCounts();
     var later = function () { idle(function () { preloadPages(); warmFeeds(); }, 2500); };
