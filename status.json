@@ -1,7 +1,6 @@
 {
   "updated": "2026-11-06 12:00 MYT",
   "running": [
-    "margin_build",
     "deck_stats"
   ],
   "jobs": {
@@ -38,8 +37,8 @@
       "last": "2026-11-05 19:51 MYT"
     },
     "margin_build": {
-      "state": "running",
-      "last": "2026-11-05 19:56 MYT"
+      "state": "idle",
+      "last": "2026-11-06 12:00 MYT"
     },
     "wa_group_digest": {
       "state": "idle",
