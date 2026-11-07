@@ -199,7 +199,7 @@
 <body>
 <div class="wrap">
   <header>
-    <div class="brand"><h1>iSmile <b>Analytics</b></h1><div class="sub">every marketing number in one place · labelled by source and as-of · nothing is estimated</div></div>
+    <div class="brand"><a class="dash-logo" href="/dashboard" aria-label="iSmile"></a><h1><span class="dash-sr">iSmile </span><b>Analytics</b></h1><div class="sub">every marketing number in one place · labelled by source and as-of · nothing is estimated</div></div>
     <div class="clock"><div class="t" data-clock>--:--<small>--</small></div><div class="d" data-date>—</div></div>
     <nav>
       <a href="/dashboard">Dashboard</a><a href="/dashboard/org">Org Chart</a><a href="/dashboard/tasks">Task Tracker</a><a href="/dashboard/profitability">Finance</a><a href="/dashboard/analytics" class="active">Analytics</a><a href="/dashboard/office">Office</a>
@@ -549,7 +549,7 @@ function renderValue(){
   box.appendChild(el("div","sec","<b>By doctor</b> · who the recalled patients saw"));
   const tw=el("div","tw"); const tb=el("table"); tb.innerHTML="<thead><tr><th>Doctor</th><th class=num>Patients</th><th class=num>Appointments</th><th class=num>Repeat visits</th><th class=num>RM</th><th class=num>Share</th></tr></thead>";
   const body=el("tbody"); const tot=S.production||1;
-  S.by_doctor.forEach(d=>{const tr=el("tr");tr.innerHTML=`<td>${esc(d.name||d.abbr)}</td><td class=num>${d.patients}</td><td class=num>${d.visits}</td><td class=num>${d.repeat_visits}</td><td class=num>RM${d.production.toLocaleString()}</td><td class=num><div class="bar" style="min-width:70px"><i data-w="${(100*d.production/tot).toFixed(1)}"></i></div> ${(100*d.production/tot).toFixed(0)}%</td>`;body.appendChild(tr);});
+  S.by_doctor.forEach(d=>{const tr=el("tr");tr.innerHTML=`<td><span style="display:inline-flex;align-items:center;gap:9px">${window.ismileTheme&&ismileTheme.face?ismileTheme.face(d.name||""):""}${esc(d.name||d.abbr)}</span></td><td class=num>${d.patients}</td><td class=num>${d.visits}</td><td class=num>${d.repeat_visits}</td><td class=num>RM${d.production.toLocaleString()}</td><td class=num><div class="bar" style="min-width:70px"><i data-w="${(100*d.production/tot).toFixed(1)}"></i></div> ${(100*d.production/tot).toFixed(0)}%</td>`;body.appendChild(tr);});
   if(!S.by_doctor.length)body.appendChild(el("tr",null,"<td colspan=6 class=empty>nothing in this window yet</td>"));
   tb.appendChild(body); tw.appendChild(tb); box.appendChild(tw);
   box.appendChild(el("div","note",esc(v.rule)+". A phone number can belong to a household, so every patient on a recalled number is in the reach count. The older per-message conversion (${cv}) counts bookings, this one counts patients who actually came in and produced.".replace("${cv}",r.conversion&&r.conversion.available?pct(r.conversion.conversion_pct,1):"—")));

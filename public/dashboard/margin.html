@@ -357,7 +357,7 @@
   @media(max-width:760px){.wrap{padding:14px 16px 40px}}
 
   /* room held for the ledger until its data lands, so the page does not jump */
-  #funnel:empty{min-height:82px;border:0;background:var(--panel)}
+  #funnel:empty{min-height:236px;background:var(--panel);border-radius:var(--r-hero);margin-bottom:14px}
   .sk-row td{padding:18px 20px}
   .tcard:has(.sk-row){min-height:360px}
 
@@ -383,15 +383,9 @@
   .dv-pills button{position:relative;z-index:1;display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 15px;border:0;background:none;border-radius:999px;font:inherit;font-size:13.5px;font-weight:500;color:var(--mut);cursor:pointer;white-space:nowrap;transition:color .18s var(--ease),transform .1s var(--ease)}
   .dv-pills button:hover{color:var(--ink)} .dv-pills button:active{transform:scale(.97)}
   .dv-pills button.on{color:var(--bg)}
-  .dv-face{position:relative;display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;overflow:hidden;flex:none;background:var(--brand-soft);color:var(--brand)}
-  .dv-face i{font-style:normal;font-size:12px;font-weight:600}
-  .dv-face img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
-  .dv-face.big{width:64px;height:64px;box-shadow:0 0 0 2px rgba(255,255,255,.75);background:rgba(255,255,255,.2);color:#fff}
-  .dv-face.big i{font-size:24px}
   .dv-pills button:has(.dv-face){padding-left:7px}
   .dv-pills.small button{height:34px;padding:0 13px;font-size:13px}
   .dv-ind{position:absolute;top:0;left:0;background:var(--ink);border-radius:999px;transition:transform .34s var(--ease),width .34s var(--ease),opacity .18s;pointer-events:none}
-  #dv-month{height:42px;width:auto;border:0;background:var(--panel);border-radius:999px;padding:0 14px;font-size:13px}
   .dv-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px}
   .dv-grid>*{animation:dvIn .34s var(--ease) both}
   .dv-card{background:var(--panel);border-radius:var(--r-card);padding:20px 22px;min-width:0}
@@ -457,9 +451,101 @@
     .dv-cols{height:170px;gap:3px} .dv-cols.ages{gap:7px} .dv-col span{font-size:11px}
     .dv-bar{grid-template-columns:minmax(0,104px) minmax(0,1fr) 92px;gap:8px}
     .dv-scroll{margin:0 -16px;padding:0 16px} .dv-table th:first-child{left:-16px}
-    #dv-month{width:100%;font-size:16px;height:44px}
   }
   @media(prefers-reduced-motion:reduce){.dv-grid>*,.dv-fill,.dv-hbar div,.dv-splitbar i{animation:none}.dv-ind{transition:none}}
+
+  /* ================= Transactions + By day, on the By doctor pattern (7 Nov 2026) ================= */
+  .dv-range{display:inline-flex;align-items:center;gap:12px;height:42px;padding:0 14px;background:var(--panel);border-radius:999px;max-width:100%}
+  .dv-range label{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--mut);white-space:nowrap}
+  .dv-range select,.dv-range input[type=date]{height:34px;width:auto;min-width:0;border:0;background:none;padding:0 2px;font:inherit;font-size:13px;font-weight:500;color:var(--ink);box-shadow:none !important}
+  html[data-theme="light"] .dv-range input[type=date]{color-scheme:light}
+  html[data-theme] .dv-range :is(select,input){background:none;border:0;box-shadow:none}
+  .dv-msg{font-size:12.5px;color:var(--mut)}
+  .dv-grid.still>*{animation:none}
+  .dv-stats.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .dv-stats.three .dv-v{font-size:clamp(17px,1.65vw,24px);white-space:nowrap}
+  .dv-stats.three .dv-stat{padding:16px 18px}
+  .dash-top{margin:0 0 14px}
+  .doc{gap:9px}
+  .bar-row{grid-template-columns:150px 1fr 78px}
+  .brl{gap:9px !important}
+  .kv .dv-face{width:32px;height:32px;margin-right:4px}
+  #tx-docs{margin:0 0 10px;justify-self:start}
+  #time-bar{margin:0 0 16px}
+  .tb-host{min-width:0}
+  /* filters: the few that matter in view, the rest one tap away */
+  .toolbar{gap:10px;margin:0 0 12px}
+  .toolbar .field label{font-family:var(--body);font-size:12.5px;letter-spacing:0;text-transform:none;color:var(--mut)}
+  .toolbar select,.toolbar input[type=search]{height:42px;border:0;background:var(--panel);border-radius:999px;padding:0 16px}
+  .toolbar .btn{height:42px;border:0;border-radius:999px;padding:0 16px;font-family:var(--body);font-size:13px;background:var(--panel);align-self:flex-end}
+  .toolbar .seg{height:42px;border:0;border-radius:999px;background:var(--panel);padding:4px;gap:2px}
+  .toolbar .seg button{border:0;border-radius:999px;font-family:var(--body);font-size:12.5px;padding:0 13px;box-shadow:none !important}
+  .toolbar .seg button.active{background:var(--ink);color:var(--bg)}
+  #tx-more[hidden]{display:none}
+  /* tables read like the By doctor table */
+  table.tx{font-family:var(--body);font-size:13.5px}
+  table.tx td.num,table.tx .mono,tfoot td.num{font-family:var(--body)}
+  table.tx thead th{font-family:var(--body);font-size:12.5px;letter-spacing:0;text-transform:none;font-weight:500;color:var(--mut);padding:12px}
+  table.tx thead th.sorted{color:var(--ink)}
+  table.tx thead th .grp{display:none}
+  table.tx tbody td{padding:0 12px;height:48px}
+  table.tx tbody tr:nth-child(even) td{background:none}
+  table.tx tbody tr:nth-child(even) td.col-final{background:rgba(var(--p1rgb),.06)}
+  table.tx tbody tr:hover td{background:none;color:var(--brand)}
+  table.tx td.col-final{border:0}
+  tfoot td{background:var(--panel);border-top:1px solid var(--ink);font-family:var(--body);font-size:13.5px;height:50px;padding:0 12px}
+  tfoot td.col-final{background:rgba(var(--p1rgb),.1);color:var(--ink)}
+  .pt-name{font-weight:500}
+  .recon{padding:20px 22px;margin-top:14px}
+  .recon h3{font-family:var(--body);font-size:16px;letter-spacing:-.005em;text-transform:none;color:var(--ink);margin-bottom:12px}
+  .recon-grid{grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:0;background:none;border:0;border-radius:0}
+  .recon-grid .cell{background:none;padding:10px 0;border-top:1px solid var(--line)}
+  .recon-grid .cell .l{font-family:var(--body);font-size:12.5px;letter-spacing:0;text-transform:none;color:var(--mut)}
+  .recon-grid .cell .v{font-family:var(--body);font-size:18px}
+  .recon-grid .cell.match{background:none} .recon-grid .cell.match .v{color:var(--brand)}
+  /* notes sit behind a ? so the working view stays clean */
+  .qbtn{flex:none;width:32px;height:32px;border:0;border-radius:50%;background:var(--panel);color:var(--mut);font:inherit;font-weight:600;cursor:pointer;transition:color .18s,background .18s;align-self:center}
+  .qbtn:hover{color:var(--brand)} .qbtn[aria-expanded="true"]{background:var(--ink);color:var(--bg)}
+  #view-tx:not(.help) .sec-head p,#view-tx:not(.help) .recon p,#view-tx:not(.help) .note,#view-day:not(.help) .sec-head p,#view-day:not(.help) .note{display:none}
+  #view-day .window-badge{display:none}
+  /* By day */
+  .dd-chart{position:relative;display:flex;align-items:stretch;gap:clamp(1px,.3vw,5px);height:190px}
+  .dd-zero{position:absolute;left:0;right:0;height:1px;background:var(--ink);opacity:.3}
+  .dd{position:relative;flex:1 1 0;min-width:0;cursor:pointer;border-radius:3px;transition:background .18s}
+  .dd:hover{background:var(--track)}
+  .dd i{position:absolute;left:0;right:0;border-radius:3px;animation:dvUp .5s var(--ease) both}
+  .dd i.ok{background:var(--ok);transform-origin:bottom} .dd i.bad{background:var(--bad);transform-origin:top}
+  .dd-labs{display:flex;gap:clamp(1px,.3vw,5px);margin-top:8px;height:15px;font-size:11.5px;color:var(--mut)}
+  .dd-labs span{flex:1 1 0;min-width:0;display:flex;justify-content:center;white-space:nowrap;width:0}
+  .dv-hbar.ok div{background:var(--ok)} .dv-hbar.bad div{background:var(--bad)}
+  .vd{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;margin-right:4px}
+  .vd.ok{background:var(--ok-soft);color:var(--ok)} .vd.bad{background:var(--bad-soft-bg);color:var(--bad)}
+  #day-table tbody tr[data-day]{cursor:pointer}
+  /* Locum sign in */
+  .lg{width:min(380px,100%);margin:6vh auto 0;background:var(--panel);border-radius:var(--r-hero);padding:30px 28px;animation:dvIn .34s var(--ease) both}
+  .lg h2{margin:0;font-size:24px;font-weight:600;letter-spacing:-.015em}
+  .lg>p{margin:4px 0 20px;color:var(--mut);font-size:14px}
+  .fl{position:relative;display:block;margin:0 0 12px}
+  .fl input{width:100%;min-width:0;height:56px;border:0;border-radius:16px;background:var(--panel2);color:var(--ink);padding:22px 16px 6px;font:inherit;font-size:16px;color-scheme:inherit;transition:box-shadow .18s}
+  .fl span{position:absolute;left:16px;top:18px;font-size:16px;color:var(--mut);pointer-events:none;transform-origin:left top;transition:transform .18s cubic-bezier(.22,.7,.3,1)}
+  .fl input:focus+span,.fl input:not(:placeholder-shown)+span{transform:translateY(-10px) scale(.75)}
+  .fl input::placeholder{color:transparent}
+  .lg-btn{width:100%;height:56px;margin-top:6px;border:0;border-radius:999px;background:var(--brand);color:#fff;font:inherit;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 8px 20px -8px rgba(var(--p1rgb),.7);transition:transform .1s var(--ease),background-color .18s}
+  .lg-btn:hover{background:var(--brand2)} .lg-btn:active{transform:scale(.97)} .lg-btn:disabled{opacity:.6;cursor:default}
+  .lg-err{min-height:20px;margin-top:10px;font-size:13.5px;color:var(--bad);text-align:center}
+  @media(max-width:1000px){.dv-stats.three{grid-column:1/-1}}
+  @media(max-width:760px){
+    .dv-stats.three{grid-template-columns:1fr 1fr}
+    .bar-row{grid-template-columns:122px 1fr 74px}
+    .dv-range{width:100%;height:44px;justify-content:space-between} .dv-range label{flex:1 1 0;min-width:0}
+    .dv-range select{width:100%;font-size:16px} .dv-range input[type=date]{width:100%;font-size:14px} .dv-range{gap:8px;padding:0 10px}
+    #view-tx .sec-head,#view-day .sec-head{flex-wrap:nowrap;align-items:flex-start}
+    .toolbar .seg{height:auto} .toolbar .seg button{height:38px}
+    .toolbar .field,.toolbar .btn{width:100%}
+    .dd-chart{height:150px}
+    .lg{margin-top:12px;padding:24px 20px}
+  }
+  @media(prefers-reduced-motion:reduce){.dd i,.lg{animation:none}}
 </style>
 </head>
 <body>
@@ -467,7 +553,7 @@
 
 <div class="hdr">
   <header>
-    <div class="brand"><h1>iSmile <b>Finance</b></h1><div class="sub">transactions · profitability · day P&amp;L · efficiency · locum</div></div>
+    <div class="brand"><a class="dash-logo" href="/dashboard" aria-label="iSmile"></a><h1><span class="dash-sr">iSmile </span><b>Finance</b></h1><div class="sub">transactions · profitability · day P&amp;L · efficiency · locum</div></div>
     <div class="clock"><div class="t" data-clock>--:--<small>--</small></div><div class="d" data-date>—</div></div>
     <nav>
       <a href="/dashboard">Dashboard</a><a href="/dashboard/org">Org Chart</a><a href="/dashboard/tasks">Task Tracker</a><a href="/dashboard/profitability" class="active">Finance</a><a href="/dashboard/analytics">Analytics</a><a href="/dashboard/office">Office</a>
@@ -503,27 +589,40 @@
         <h1>Transaction ledger — appointment → true margin</h1>
         <p>One row per production line. Read it left → right: every transaction flows from the booking down to the <b>true margin</b> on the far right. The totals row is what the GM reconciles against the monthly locum calc.</p>
       </div>
+      <button class="qbtn" type="button" aria-label="Show notes" aria-expanded="false">?</button>
     </div>
 
-    <!-- left→right funnel ribbon (totals of current filter) -->
-    <div class="funnel" id="funnel" aria-label="Left to right margin funnel"></div>
+    <div class="dv-pills" id="tx-docs" role="group" aria-label="Doctor"></div>
+    <div class="tb-host" id="tb-tx">
+      <div class="dv-time" id="time-bar">
+        <div class="dv-pills small" id="tb-pills" role="group" aria-label="Quick range"></div>
+        <div class="dv-range"><label>From<input type="date" id="f-from"></label><label>To<input type="date" id="f-to"></label></div>
+        <select id="f-preset" hidden aria-hidden="true" tabindex="-1">
+          <option value="today">Latest day</option>
+          <option value="mtd">This month</option>
+          <option value="last">Last month</option>
+          <option value="qtd">Quarter to date</option>
+          <option value="ytd">Year to date</option>
+          <option value="l30">Last 30 days</option>
+          <option value="l90" selected>Last 90 days</option>
+          <option value="all">All data</option>
+          <option value="custom">Custom</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- totals of the current filter: hero + stats, same order as the ledger -->
+    <div class="dash-top" id="funnel" aria-label="Left to right margin funnel"></div>
 
     <div class="toolbar">
-      <div class="field"><label>From</label><input type="date" id="f-from"></div>
-      <div class="field"><label>To</label><input type="date" id="f-to"></div>
-      <div class="field"><label>Quick range</label><select id="f-preset">
-        <option value="today">Latest day</option>
-        <option value="mtd">This month</option>
-        <option value="last">Last month</option>
-        <option value="qtd">Quarter to date</option>
-        <option value="ytd">Year to date</option>
-        <option value="l30">Last 30 days</option>
-        <option value="l90" selected>Last 90 days</option>
-        <option value="all">All data</option>
-        <option value="custom">Custom</option>
-      </select></div>
-      <div class="field"><label>Doctor</label><select id="f-doctor"><option>All doctors</option></select></div>
+      <div class="field"><label>Search procedure / visit ref</label><input type="search" id="f-search" placeholder="e.g. implant, crown…"></div>
       <div class="field"><label>Procedure category</label><select id="f-cat"><option>All categories</option></select></div>
+      <select id="f-doctor" hidden aria-hidden="true" tabindex="-1"><option>All doctors</option></select>
+      <button class="btn" id="f-more" type="button" aria-expanded="false" aria-controls="tx-more">More filters</button>
+      <button class="btn" id="f-clear">↺ Reset</button>
+      <span class="filter-note" id="filter-note"></span>
+    </div>
+    <div class="toolbar" id="tx-more" hidden>
       <div class="field seg-field"><label>Burn basis · allocation</label>
         <div class="seg" id="seg-alloc" role="group" aria-label="Burn allocation basis">
           <button type="button" data-v="chair">Chair-hours used</button>
@@ -539,9 +638,6 @@
       <div class="field"><label>Duration source</label><select id="f-show">
         <option value="">All visits</option><option value="show">Booked appointment length</option><option value="noshow">Estimated duration</option>
       </select></div>
-      <div class="field"><label>Search procedure / visit ref</label><input type="search" id="f-search" placeholder="e.g. implant, crown…"></div>
-      <button class="btn" id="f-clear">↺ Reset</button>
-      <span class="filter-note" id="filter-note"></span>
     </div>
 
     <div class="tcard">
@@ -573,6 +669,7 @@
       </div>
       <div class="window-badge" id="window-badge" title="Active date window — change it in the ledger's From/To filter"></div>
     </div>
+    <div class="tb-host" id="tb-summary"></div>
 
     <div class="kpis" id="kpis"></div>
 
@@ -625,11 +722,7 @@
 
   <!-- ====================== LOCUM VIEW (data from the locum tool on the box, via /dashboard/locum/) ====================== -->
   <section class="view" id="view-locum">
-    <div class="sec-head"><div><h1>Locum — paid out by month</h1>
-      <p>Professional fees per doctor. Months before September 2026 are this dashboard's estimate under the old agreement; from September the locum tool calculates line by line. Click a month for every treatment and the calculation journey.</p></div></div>
-    <div id="locum-callout"></div>
-    <div class="panel"><h3>Locum by month</h3><p class="ph-sub">RM, professional fees payable</p><div id="locum-body"><span class="pill-sample">loading…</span></div></div>
-    <div class="note" id="locum-note"></div>
+    <div id="locum-body"></div>
   </section>
 
   <!-- ====================== BY-DAY P&L VIEW ====================== -->
@@ -640,7 +733,10 @@
         <p>One row per trading day: production − locum − lab = gross profit, then the day's share of fixed overhead and depreciation. Same formula as the nightly Telegram digest. Days with no visits (closed days) are skipped.</p>
       </div>
       <div class="window-badge" id="window-badge-day" title="Active date window — change it in the ledger's From/To filter"></div>
+      <button class="qbtn" type="button" aria-label="Show notes" aria-expanded="false">?</button>
     </div>
+    <div class="tb-host" id="tb-day"></div>
+    <div class="dash-top" id="day-top"></div>
     <div class="tcard">
       <div class="tscroll">
         <table class="tx" id="day-table" style="min-width:940px">
@@ -693,6 +789,7 @@
       </div>
       <div class="window-badge" id="window-badge-eff"></div>
     </div>
+    <div class="tb-host" id="tb-efficiency"></div>
     <div class="kpis" id="eff-kpis"></div>
     <div class="grid2">
       <div class="panel">
@@ -993,24 +1090,26 @@ function filtered(){
 
 /* ---- Render funnel ribbon (totals of current filter) ---- */
 function renderFunnel(rows){
-  const t = totals(rows);
-  const steps = [
-    {cls:'s1', l:'Visits',       i:'▸', v:rows.length+' · '+Math.round(t.dur/60)+'h chair'},
-    {cls:'s1', l:'Production',   i:'▸', v:rm(t.production)},
-    {cls:'s2', l:'− Lab (est.)', i:'▸', v:rm(t.lab)},
-    {cls:'s3', l:'Contribution', i:'▸', v:rm(t.contribution)+' ('+pct(t.production?t.contribution/t.production:NaN)+')'},
-    {cls:'s4', l:'− Locum',      i:'▸', v:rm(t.locum)},
-    {cls:'s4', l:'− Burn',       i:'▸', v:rm(t.burn)},
-    {cls:'final', l:'True margin', i:'', v:rm(t.trueMargin)+' ('+pct(t.production?t.trueMargin/t.production:NaN)+')'}
-  ];
-  document.getElementById('funnel').innerHTML = steps.map((s,i)=>`
-    <div class="fstep ${s.cls}">
-      <div class="fl">${s.l}</div>
-      <div class="fv">${s.v}</div>
-      ${i<steps.length-1?'<span class="arrow">➜</span>':''}
-    </div>`).join('');
+  const t = totals(rows), share = v=>pct(t.production?v/t.production:NaN)+' of production';
+  const when = state.from===state.to ? dpretty(state.from) : dpretty(state.from)+' – '+dpretty(state.to);
+  const stat = (l,v,s)=>`<div class="dv-card dv-stat"><div class="dv-lab">${l}</div><div class="dv-v">${v}</div><div class="dv-sub">${s}</div></div>`;
+  document.getElementById('funnel').innerHTML = `<div class="dv-grid still">
+    <div class="dv-hero hero-skin">
+      <div class="dv-who">${state.doctor?face(state.doctor,'big'):''}<div><b>${state.doctor||state.cat||'All doctors'}</b><span>${when}</span></div></div>
+      <div class="dv-lab">True margin</div><div class="dv-big">${rm(t.trueMargin)}</div><div class="dv-sub">${share(t.trueMargin)}</div>
+    </div>
+    <div class="dv-stats three">
+      ${stat('Visits',rows.length.toLocaleString('en-MY'),Math.round(t.dur/60).toLocaleString('en-MY')+'h chair')}
+      ${stat('Production',rm(t.production),'')}
+      ${stat('− Lab (est.)',rm(t.lab),share(t.lab))}
+      ${stat('Contribution',rm(t.contribution),share(t.contribution))}
+      ${stat('− Locum',rm(t.locum),share(t.locum))}
+      ${stat('− Burn',rm(t.burn),share(t.burn))}
+    </div></div>`;
 }
 
+
+const face = (n,c)=>window.ismileTheme&&ismileTheme.face?ismileTheme.face(n,c):'';
 function totals(rows){
   const t={production:0,lab:0,contribution:0,locum:0,burn:0,dur:0,trueMargin:0,shows:0};
   let rateW=0, rateP=0;
@@ -1054,7 +1153,7 @@ function renderTable(){
       <td class="mono">${dlabel(r.date)}</td>
       <td><span class="pt-name">${r.patient}</span></td>
       <td>${r.proc}<span class="sub">${r.cat}</span></td>
-      <td><span class="doc"><span class="dot" style="background:${r.color}"></span>${r.doctor}</span></td>
+      <td><span class="doc">${face(r.doctor)}${r.doctor}</span></td>
       <td class="num mono">${r.production?rm0(r.production):'—'}</td>
       <td class="num mono">${r.lab?rm0(r.lab):'—'}</td>
       <td class="num mono">${rm0(r.contribution)}<span class="cm-pct ${cmClass(r.contribPct)}">${r.production?pct(r.contribPct):'–'}</span></td>
@@ -1097,8 +1196,9 @@ function renderTable(){
   document.getElementById('filter-note').innerHTML =
     (state.doctor||state.cat||state.show||state.search)
       ? `<span class="chip">Filtered: <b>${rows.length}</b> of ${ROWS.length} lines <button id="chip-clear">✕</button></span>`
-      : `Showing all <b>${ROWS.length}</b> lines`;
-  const cc=document.getElementById('chip-clear'); if(cc) cc.onclick=resetFilters;
+      : `Showing all <b>${rows.length.toLocaleString('en-MY')}</b> lines`;
+  const cc=document.getElementById('chip-clear'); if(cc) cc.onclick=()=>resetFilters();
+  syncBars();
 }
 
 /* ---- GM reconciliation strip ---- */
@@ -1156,7 +1256,7 @@ function renderSummary(){
     const w=(x.production/maxProd*100).toFixed(1);
     const mw=(x.trueMargin/x.production*100); // margin share inside the bar
     return `<div class="bar-row" data-doctor="${x.d}">
-      <div class="brl"><span class="dot" style="background:${x.color}"></span>${x.d}</div>
+      <div class="brl">${face(x.d)}${x.d}</div>
       <div class="bar-track"><div class="bar-fill" style="width:${w}%;background:var(--funnel-3)">
         <div class="bar-fill" style="width:${Math.max(0,mw)}%;background:var(--teal)"></div>
         <span class="blabel" style="color:var(--teal-dd);position:relative;z-index:2">${rm0(x.production)}</span>
@@ -1208,7 +1308,7 @@ function renderSummary(){
     const base=(fd.tier!=null?fd.tier:d.tier);
     const blendedDiffersFromBase = !salaried && base && Math.abs(x.rate-base)>0.0001;
     return `<tr data-doctor="${x.d}">
-      <td><span class="doc"><span class="dot" style="background:${x.color}"></span>${x.d}</span></td>
+      <td><span class="doc">${face(x.d)}${x.d}</span></td>
       <td title="${salaried?'Salaried — draws no locum; remuneration sits in fixed overhead and is absorbed through burn':'Production-weighted blended locum rate for this window'}">${salaried?'<span class="sal">salaried</span>':pct(x.rate)+(blendedDiffersFromBase?'<span class="rate-flag" title="Blended rate differs from the base tier">▲</span>':'')+(d.exempt10?' · no-10%':'')}</td>
       <td class="num mono">${rm0(x.locum)}</td>
       <td class="num mono">${pct(x.production?x.locum/x.production:0)}</td>
@@ -1262,13 +1362,14 @@ function renderDay(){
   const srm = v => (v<0?'−':'')+rm0(Math.abs(v));            // signed RM, minus-sign glyph
   const byDay = groupBy(r=>r.date, windowed());
   const days = Object.keys(byDay).sort().reverse();          // newest first
-  const T={n:0,visits:0,production:0,locum:0,lab:0,gp:0,eb:0,net:0,green:0};
+  const T={n:0,visits:0,production:0,locum:0,lab:0,gp:0,eb:0,net:0,green:0}, list=[];
   document.getElementById('day-body').innerHTML = days.map(d=>{
     const t=totals(byDay[d]);
     const gp=t.production-t.locum-t.lab, eb=gp-OH, net=eb-DEP;
     T.n++; T.visits+=t.shows; T.production+=t.production; T.locum+=t.locum; T.lab+=t.lab;
     T.gp+=gp; T.eb+=eb; T.net+=net; if(eb>=0) T.green++;
-    return `<tr>
+    list.push({d,production:t.production,eb,net});
+    return `<tr data-day="${d}">
       <td class="mono">${dpretty(d)}</td>
       <td class="num mono">${t.shows}</td>
       <td class="num mono">${rm0(t.production)}</td>
@@ -1277,9 +1378,10 @@ function renderDay(){
       <td class="num mono">${srm(gp)}</td>
       <td class="num mono ${eb<0?'neg':'pos'}">${srm(eb)}</td>
       <td class="num mono col-final ${net<0?'neg':''}">${srm(net)}</td>
-      <td>${eb>=0?'🟢':'🔴'} EBITDA · ${net>=0?'🟢':'🔴'} net</td>
+      <td><span class="vd ${eb>=0?'ok':'bad'}">EBITDA</span><span class="vd ${net>=0?'ok':'bad'}">net</span></td>
     </tr>`;
   }).join('') || `<tr><td colspan="9" style="text-align:center;color:var(--ink-3);padding:30px">No trading days with visits in this window.</td></tr>`;
+  renderDayTop(list,T);
   document.getElementById('day-foot').innerHTML = T.n ? `<tr>
     <td>TOTALS · ${T.n} days</td>
     <td class="num">${T.visits}</td>
@@ -1296,6 +1398,77 @@ function renderDay(){
     (burnBasis.alloc==='fullday'
       ? `The per-visit <b>true-margin</b> views are currently on the same <b>Full day (÷26)</b> burn basis, so their window totals tie out to this table (${burnBasis.dep==='net'?'NET':'EBITDA'} column).`
       : `<b>Note:</b> this tab <b>always</b> shows full-day P&amp;L regardless of the Burn basis control — the per-visit <b>true-margin</b> views are currently on <b>Chair-hours used</b>, which charges fixed cost only for hours actually occupied and so flatters quiet days.`);
+}
+
+/* Top of By day: the window in one look, each day above or below break-even, and the week's shape. */
+function renderDayTop(list,T){
+  const box=document.getElementById('day-top');
+  if(!T.n){ box.innerHTML=''; return; }
+  const srm = v => (v<0?'−':'')+rm(Math.abs(v));
+  const when = state.from===state.to ? dpretty(state.from) : dpretty(state.from)+' – '+dpretty(state.to);
+  const asc=[...list].reverse(), best=list.reduce((a,x)=>x.eb>a.eb?x:a), worst=list.reduce((a,x)=>x.eb<a.eb?x:a);
+  const stat=(l,v,s)=>`<div class="dv-card dv-stat"><div class="dv-lab">${l}</div><div class="dv-v">${v}</div><div class="dv-sub">${s}</div></div>`;
+  /* day bars sit on the break-even line */
+  const up=Math.max(1,...asc.map(x=>x.eb)), down=Math.max(0,...asc.map(x=>-x.eb)), span=up+down, zero=up/span*100;
+  const every=Math.max(1,Math.ceil(asc.length/12));
+  const bars=asc.map((x,i)=>{ const h=Math.max(.6,Math.abs(x.eb)/span*100);
+    return `<div class="dd" data-day="${x.d}" title="${dpretty(x.d)}: EBITDA ${srm(x.eb)}, production ${rm(x.production)}"><i class="${x.eb>=0?'ok':'bad'}" style="${x.eb>=0?'top:'+(zero-h).toFixed(2):'top:'+zero.toFixed(2)}%;height:${h.toFixed(2)}%;animation-delay:${Math.min(i*6,240)}ms"></i></div>`; }).join('');
+  const labs=asc.map((x,i)=>`<span>${i%every?'':dlabel(x.d)}</span>`).join('');
+  /* the week */
+  const names=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'], wk=names.map(n=>({n,c:0,eb:0,up:0}));
+  list.forEach(x=>{ const [y,m,d]=dparts(x.d), w=wk[(new Date(y,m-1,d).getDay()+6)%7]; w.c++; w.eb+=x.eb; if(x.eb>=0) w.up++; });
+  const used=wk.filter(w=>w.c), top=Math.max(1,...used.map(w=>Math.abs(w.eb/w.c)));
+  const rows=used.map((w,i)=>{ const a=w.eb/w.c;
+    return `<div class="dv-bar"><span class="n">${w.n}</span><div class="dv-hbar ${a>=0?'ok':'bad'}"><div style="width:${Math.max(1.5,Math.abs(a)/top*100).toFixed(1)}%;animation-delay:${i*30}ms"></div></div><b>${srm(a)}<small>${w.up} of ${w.c} days</small></b></div>`; }).join('');
+  box.innerHTML=`<div class="dv-grid">
+    <div class="dv-hero hero-skin"><div class="dv-who"><div><b>${when}</b><span>${T.n} trading days</span></div></div>
+      <div class="dv-lab">NET-day</div><div class="dv-big">${srm(T.net)}</div><div class="dv-sub">${T.green}/${T.n} EBITDA-positive</div></div>
+    <div class="dv-stats three">
+      ${stat('Production',rm(T.production),rm(T.production/T.n)+' a day')}
+      ${stat('Gross profit',srm(T.gp),pct(T.production?T.gp/T.production:NaN)+' of production')}
+      ${stat('EBITDA-day',srm(T.eb),srm(T.eb/T.n)+' a day')}
+      ${stat('Locum (est.)',rm(T.locum),pct(T.production?T.locum/T.production:NaN)+' of production')}
+      ${stat('Best day',srm(best.eb),dpretty(best.d))}
+      ${stat('Worst day',srm(worst.eb),dpretty(worst.d))}
+    </div>
+    <div class="dv-w7"><div class="dv-card"><div class="dv-head"><h3>EBITDA-day</h3></div>
+      <div class="dd-chart"><div class="dd-zero" style="top:${zero.toFixed(2)}%"></div>${bars}</div><div class="dd-labs">${labs}</div></div></div>
+    <div class="dv-w5"><div class="dv-card"><div class="dv-head"><h3>By day of the week</h3></div>${rows}</div></div>
+  </div>`;
+  document.querySelectorAll('#view-day [data-day]').forEach(el=>el.onclick=()=>openDay(el.dataset.day));
+}
+function openDay(d){
+  state.from=state.to=d;
+  document.getElementById('f-from').value=d; document.getElementById('f-to').value=d;
+  document.getElementById('f-preset').value='custom';
+  switchView('tx'); renderTable();
+}
+
+/* ---- Doctor pills + the time bar, shared by the tabs that follow the date window ---- */
+const TB=document.getElementById('time-bar');
+function slide(w){
+  const ind=w&&w.querySelector('.dv-ind'), on=w&&w.querySelector('.on');
+  if(!ind||!w.offsetParent) return;
+  if(!on){ ind.style.opacity=0; return; }
+  ind.style.opacity=1; ind.style.width=on.offsetWidth+'px'; ind.style.height=on.offsetHeight+'px';
+  ind.style.transform=`translate(${on.offsetLeft}px,${on.offsetTop}px)`;
+}
+function syncBars(){
+  const pills=document.getElementById('tb-pills'), docs=document.getElementById('tx-docs'), p=document.getElementById('f-preset').value;
+  pills.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.p===p));
+  docs.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.dk===state.doctor));
+  slide(pills); slide(docs);
+}
+function initBars(){
+  const presets=[...document.getElementById('f-preset').options].filter(o=>o.value!=='custom');
+  const pills=document.getElementById('tb-pills'), docs=document.getElementById('tx-docs');
+  pills.innerHTML='<span class="dv-ind"></span>'+presets.map(o=>`<button type="button" data-p="${o.value}">${o.textContent}</button>`).join('');
+  pills.onclick=e=>{ const b=e.target.closest('button'); if(!b) return; document.getElementById('f-preset').value=b.dataset.p; applyPreset(b.dataset.p); };
+  const byProd=Object.entries(groupBy(r=>r.doctor,ROWS)).map(([d,rs])=>[d,rs.reduce((a,r)=>a+r.production,0)]).sort((a,b)=>b[1]-a[1]).map(x=>x[0]);
+  docs.innerHTML='<span class="dv-ind"></span><button type="button" data-dk="">All doctors</button>'+byProd.map(d=>`<button type="button" data-dk="${d}">${face(d)}${d}</button>`).join('');
+  docs.onclick=e=>{ const b=e.target.closest('button'); if(!b) return; state.doctor=b.dataset.dk; document.getElementById('f-doctor').value=b.dataset.dk; renderTable(); };
+  document.getElementById('f-more').onclick=e=>{ const m=document.getElementById('tx-more'); m.hidden=!m.hidden; e.currentTarget.setAttribute('aria-expanded',String(!m.hidden)); };
+  document.querySelectorAll('.qbtn').forEach(b=>b.onclick=()=>{ const on=b.closest('.view').classList.toggle('help'); b.setAttribute('aria-expanded',String(on)); b.setAttribute('aria-label',on?'Hide notes':'Show notes'); });
 }
 
 /* ---- View switching ---- */
@@ -1315,7 +1488,7 @@ function renderEfficiency(){
   document.getElementById('eff-bars-doctor').innerHTML = docs.map(x=>{
     const neg=x.mph<0, w=Math.max(2,Math.abs(x.mph)/maxM*100);
     return `<div class="bar-row" data-doctor="${x.d}">
-      <div class="brl"><span class="dot" style="background:${x.color}"></span>${x.d}</div>
+      <div class="brl">${face(x.d)}${x.d}</div>
       <div class="bar-track"><div class="bar-fill" style="width:${w}%;background:${neg?'var(--neg)':'var(--teal)'}">
         <span class="blabel" style="color:#fff;position:relative;z-index:2">${rm(x.mph)}/h</span></div></div>
       <div class="brv">${x.h.toFixed(0)}h<small>${x.visits} visits</small></div></div>`;
@@ -1339,7 +1512,7 @@ function renderEfficiency(){
 
   document.getElementById('eff-body').innerHTML = docs.map(x=>`
     <tr data-doctor="${x.d}">
-      <td><span class="doc"><span class="dot" style="background:${x.color}"></span>${x.d}</span></td>
+      <td><span class="doc">${face(x.d)}${x.d}</span></td>
       <td class="num mono">${x.h.toFixed(0)}</td>
       <td class="num mono">${rm0(x.pph)}</td>
       <td class="num mono">${rm0(x.lph)}</td>
@@ -1350,8 +1523,8 @@ function renderEfficiency(){
   const all=totals(W), H=all.dur/60, best=docs[0], worst=docs[docs.length-1];
   const k=[
     {l:'Avg true margin / chair-hr', v:H?rm(all.trueMargin/H):'—', s:H.toFixed(0)+' chair-hrs in window · '+basisLabel(), accent:true},
-    {l:'Most efficient', v:best?best.d.replace('Dr ',''):'—', s:best?rm(best.mph)+'/chair-hr':''},
-    {l:'Least efficient', v:worst?worst.d.replace('Dr ',''):'—', s:worst?rm(worst.mph)+'/chair-hr':''},
+    {l:'Most efficient', v:best?face(best.d)+best.d.replace('Dr ',''):'—', s:best?rm(best.mph)+'/chair-hr':''},
+    {l:'Least efficient', v:worst?face(worst.d)+worst.d.replace('Dr ',''):'—', s:worst?rm(worst.mph)+'/chair-hr':''},
     {l:'Top-vs-bottom spread', v:(best&&worst&&worst.mph>0)?Math.round(best.mph/worst.mph)+'×':'—', s:'true margin per chair-hr'}
   ];
   document.getElementById('eff-kpis').innerHTML = k.map(x=>`
@@ -1372,6 +1545,8 @@ function switchView(v){
   document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.view===v));
   ['tx','summary','doctor','day','efficiency','pnl','locum'].forEach(k=>
     document.getElementById('view-'+k).classList.toggle('active',k===v));
+  const host=document.getElementById('tb-'+v); if(host&&TB.parentElement!==host) host.appendChild(TB);
+  requestAnimationFrame(syncBars);
   if(v==='locum') renderLocum();
   if(v==='summary') renderSummary();
   if(v==='doctor') window.DoctorView&&DoctorView.open();
@@ -1383,32 +1558,36 @@ function switchView(v){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-/* ---- Locum (the locum tool's API, proxied at /dashboard/locum/; the tool has its own sign-in) ---- */
-const rmL=v=>'RM'+(+v||0).toLocaleString('en-MY',{minimumFractionDigits:2,maximumFractionDigits:2});
+/* ---- Locum: this tab is the sign-in; signed in, it goes straight to the locum tool (/dashboard/locum/v2, proxied, its own session) ---- */
+const LOCUM_TOOL='locum/v2';
+function toLocum(){ if(location.hash==='#locum') history.replaceState(null,'',location.pathname); location.href=LOCUM_TOOL; }
 async function renderLocum(){
-  const body=document.getElementById('locum-body'), co=document.getElementById('locum-callout');
-  let r; try{ r=await fetch('locum/api/summary',{cache:'no-store'}); }catch(e){ body.innerHTML='<span class="pill-sample">locum tool not reachable</span>'; return; }
-  if(r.status===401){
-    body.innerHTML=`<form id="locum-login" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span style="color:var(--mut)">Sign in to the locum tool:</span>
-      <input placeholder="name" autocomplete="username" style="padding:6px 9px;border:1px solid var(--line);border-radius:6px;background:var(--panel2);color:var(--ink)">
-      <input type="password" placeholder="password" autocomplete="current-password" style="padding:6px 9px;border:1px solid var(--line);border-radius:6px;background:var(--panel2);color:var(--ink)">
-      <button class="tab" type="submit">Sign in</button><span id="locum-err" style="color:var(--bad)"></span></form>`;
-    const f=document.getElementById('locum-login'); f.onsubmit=async ev=>{ev.preventDefault(); const [u,p]=f.querySelectorAll('input');
+  const body=document.getElementById('locum-body');
+  body.innerHTML='<div class="lg"><div class="sk"><i></i><i></i><i></i><i></i></div></div>';
+  let r;
+  try{ r=await fetch('locum/api/months',{cache:'no-store'}); }
+  catch(e){ body.innerHTML='<div class="lg"><p>Locum tool not reachable.</p></div>'; return; }
+  if(r.ok){ toLocum(); return; }
+  if(r.status!==401){ body.innerHTML='<div class="lg"><p>Locum tool error '+r.status+'.</p></div>'; return; }
+  body.innerHTML=`<form class="lg" id="locum-login" novalidate><h2>Locum</h2><p>Sign in to the locum tool</p>
+    <label class="fl"><input id="lg-u" autocomplete="username" autocapitalize="none" placeholder=" " required><span>Name</span></label>
+    <label class="fl"><input id="lg-p" type="password" autocomplete="current-password" placeholder=" " required><span>Password</span></label>
+    <button class="lg-btn" type="submit">Sign in</button><div class="lg-err" id="lg-err" role="alert"></div></form>`;
+  const f=document.getElementById('locum-login'), u=document.getElementById('lg-u'), p=document.getElementById('lg-p'), err=document.getElementById('lg-err'), go=f.querySelector('.lg-btn');
+  u.addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); p.focus(); } });
+  if(matchMedia('(hover:hover)').matches) u.focus({preventScroll:true});
+  f.onsubmit=async ev=>{
+    ev.preventDefault(); err.textContent=''; go.disabled=true;
+    try{
       const x=await fetch('locum/login',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({user:u.value,password:p.value})});
-      if(x.ok) renderLocum(); else document.getElementById('locum-err').textContent='not right';};
-    return;
-  }
-  if(!r.ok){ body.innerHTML='<span class="pill-sample">locum tool error '+r.status+'</span>'; return; }
-  const S=await r.json(); const ms=S.months; const docs=[...new Set(ms.flatMap(m=>m.doctors.map(d=>d.doctor)))].sort();
-  const next=[...ms].reverse().find(m=>m.source==='engine'&&!m.signed);
-  co.innerHTML=next?`<div class="panel" style="margin-bottom:14px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;border-color:rgba(var(--warnrgb),.5)"><span style="color:var(--mut)">Next to do</span><b style="font-family:var(--disp);font-size:15px">${next.label}</b><span style="color:var(--dim)">${next.open?next.open+' rows still need something':'nothing outstanding'}</span><a class="tab active" style="margin-left:auto" href="locum/?m=${next.month}&go=1">Calculate locum for ${next.label.replace(' (dry run)','')} →</a></div>`:'';
-  body.innerHTML=`<table class="mini"><thead><tr><th>Month</th>${docs.map(d=>`<th class="num">${d}</th>`).join('')}<th class="num">Total</th><th>Status</th></tr></thead><tbody>
-    ${ms.map(m=>{const tot=m.doctors.reduce((a,d)=>a+(d.professional_fees||0),0);
-      const st=m.source==='estimate'?'<span style="color:var(--dim)">old agreement · estimate</span>':m.signed?'<span style="color:var(--ok)">approved</span>':m.open?`<span style="color:var(--warn)">${m.open} rows to go</span>`:'<span style="color:var(--warn)">ready to sign off</span>';
-      return `<tr onclick="location.href='locum/?m=${m.month}'"><td><b>${m.label}</b></td>${docs.map(d=>{const x=m.doctors.find(y=>y.doctor===d);return `<td class="num">${x?rmL(x.professional_fees):''}</td>`}).join('')}<td class="num"><b>${rmL(tot)}</b></td><td>${st}</td></tr>`}).join('')}
-    </tbody></table>`;
-  document.getElementById('locum-note').textContent='Signed in as '+S.user+'. The locum tool runs on the Contabo box; figures from September 2026 recalculate whenever an input is saved.';
+      if(x.ok){ toLocum(); return; }
+      err.textContent='That name or password is not right.';
+    }catch(e){ err.textContent='Locum tool not reachable.'; }
+    go.disabled=false; p.select();
+  };
 }
+/* back from the locum tool: never leave the tab sitting on its loading state */
+window.addEventListener('pageshow',e=>{ if(e.persisted&&document.getElementById('view-locum').classList.contains('active')) switchView('tx'); });
 
 /* ---- P&L statement (deck.json → finance.pnl; published every 30 min by deck_stats.py) ---- */
 const DECK_JSON_URL = "https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/deck.json";
@@ -1568,6 +1747,7 @@ if(location.hash==='#doctor') switchView('doctor');
 
 /* ---- Init ---- */
 initFilters();
+initBars();
 initSort();
 renderTable();
 renderDay();

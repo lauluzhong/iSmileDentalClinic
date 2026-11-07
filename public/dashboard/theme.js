@@ -104,6 +104,24 @@
     css: function (name) { return getComputedStyle(root).getPropertyValue(name).trim(); },
   };
 
+  /* a doctor's face from their name: small file in lists, the full photo when big. Initial shows if the photo fails. */
+  var FACE = { lau: "lau", jia: "lau", amy: "amy", azelia: "azelia", joan: "joan", lim: "joan", ling: "ling", mah: "mah", priscilla: "priscilla", yeoh: "yeoh", ong: "ong", jean: "ong" };
+  var FULL = { lau: "dr_Lau Jia Yin", amy: "dr_Amy Chin Mei Kuen", azelia: "dr_Azelia Lau Yiling", joan: "dr_Lim Zhi Yin Joan", ling: "dr_Ling", mah: "dr_Mah Haw Yeng", priscilla: "dr_Priscilla", yeoh: "dr_yeoh", ong: "dr_Jean Ong" };
+  function faceKey(name) {
+    var m = /^Dr\.?\s+(\S+)/i.exec(String(name || ""));
+    if (!m || /yuen/i.test(name)) return "";
+    return FACE[m[1].toLowerCase()] || "";
+  }
+  window.ismileTheme.faceUrl = function (name, big) {
+    var k = faceKey(name);
+    return !k ? "" : big ? "/images/doctors/" + encodeURIComponent(FULL[k]) + ".webp" : "/dashboard/faces/" + k + ".webp";
+  };
+  window.ismileTheme.face = function (name, cls) {
+    var url = this.faceUrl(name, cls === "big");
+    if (!url) return "";
+    return '<span class="dv-face' + (cls ? " " + cls : "") + '"><i>' + String(name).replace(/^Dr\.?\s+/i, "").charAt(0).toUpperCase() + '</i><u style="background-image:url(\'' + url + '\')"></u></span>';
+  };
+
   function mount() {
     if (document.querySelector(".theme-tog")) return;
     var nav = document.querySelector("header>nav, nav.topnav, nav.pagenav, header nav, nav");

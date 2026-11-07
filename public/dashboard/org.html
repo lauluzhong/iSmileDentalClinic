@@ -57,6 +57,7 @@
   .av{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-family:var(--disp);font-weight:700;font-size:12px;letter-spacing:.04em;color:var(--ac);background:color-mix(in srgb,var(--ac) 14%,transparent);border:1px solid color-mix(in srgb,var(--ac) 45%,transparent)}
   .av.sm{width:20px;height:20px;font-size:11px}
   .av.ai{border-style:dashed}
+  .av.ph{color:transparent;background-size:cover;background-position:50% 20%;border:0}
 
   /* ---------- org tree ---------- */
   .tree{display:flex;flex-direction:column;align-items:center}
@@ -191,7 +192,7 @@
 <div class="wrap">
   <header>
     <div class="brand">
-      <h1>iSmile <b>Org Chart</b></h1>
+      <a class="dash-logo" href="/dashboard" aria-label="iSmile"></a><h1><span class="dash-sr">iSmile </span><b>Org Chart</b></h1>
       <div class="sub" id="sub">who owns what · tap a person to see what they hold</div>
     </div>
     <div class="clock"><div class="t" data-clock>--:--<small>--</small></div><div class="d" data-date>—</div></div>
@@ -311,7 +312,8 @@ const counts=pid=>{const it=ITEMS[pid]||[];return {n:it.length,f:it.filter(x=>x.
 const $=s=>document.querySelector(s);
 function el(tag,cls,html){const e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e;}
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-function avatar(p,sm){const a=el("div","av"+(sm?" sm":"")+(p.ai?" ai":""),p.i); a.style.setProperty("--ac",p.c); return a;}
+function photo(a,p){const u=window.ismileTheme&&ismileTheme.faceUrl?ismileTheme.faceUrl(p.n):"";a.style.backgroundImage=u?`url('${u}')`:"";a.classList.toggle("ph",!!u);}
+function avatar(p,sm){const a=el("div","av"+(sm?" sm":"")+(p.ai?" ai":""),p.i); a.style.setProperty("--ac",p.c); photo(a,p); return a;}
 function fmtBy(iso){const d=new Date(iso+"T00:00:00"); return isNaN(d)?iso:d.toLocaleDateString("en-GB",{day:"2-digit",month:"short"});}
 /* Any dated flag whose date has passed reads as LATE. */
 function flagKind(f){if(!f)return null; if(f.by&&new Date(f.by+"T23:59:59+08:00")<new Date())return "late"; return f.k||"decide";}
@@ -391,7 +393,7 @@ function openPerson(pid){
   const p=PEOPLE[pid]; if(!p)return;
   if(!document.body.classList.contains("panel-open")) lastFocus=document.activeElement;
   CUR=pid;
-  const av=$("#dav"); av.className="av"+(p.ai?" ai":""); av.textContent=p.i; av.style.setProperty("--ac",p.c);
+  const av=$("#dav"); av.className="av"+(p.ai?" ai":""); av.textContent=p.i; av.style.setProperty("--ac",p.c); photo(av,p);
   $("#dhead").style.setProperty("--ac",p.c);
   $("#dkicker").textContent=p.r; $("#dtitle").textContent=p.n;
   const body=$("#dbody"); body.innerHTML="";
