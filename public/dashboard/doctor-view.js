@@ -2,12 +2,10 @@
    Every period is computed there, because unique patients cannot be added up across months. */
 (function () {
   var URL = "https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/doctors.json";
-  var D = null, loading = false, opened = false;
+  var RANGES = "https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/doctors-ranges.json";   /* any run of months, fetched on first use */
+  var D = null, R = null, loading = false, opened = false;
   var S = { doc: "all", period: "m12", metric: 0, sort: "production", dir: -1, lastHero: 0 };
   try { var s = JSON.parse(localStorage.getItem("dv") || "{}"); if (s.doc) S.doc = s.doc; if (s.period) S.period = s.period; } catch (e) {}
-  /* same files and same crop as the locum tool's face() */
-  var PHOTO = { "Dr Lau": "dr_Lau Jia Yin", "Dr Amy": "dr_Amy Chin Mei Kuen", "Dr Azelia": "dr_Azelia Lau Yiling", "Dr Joan": "dr_Lim Zhi Yin Joan", "Dr Ling": "dr_Ling",
-                "Dr Mah": "dr_Mah Haw Yeng", "Dr Priscilla": "dr_Priscilla", "Dr Yeoh": "dr_yeoh", "Dr Ong": "dr_Jean Ong" };
   var METRICS = [["Production", 0, true], ["Collection", 1, true], ["Patients", 2, false], ["Visits", 3, false]];
   var CALM = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -19,15 +17,13 @@
   function one(n) { return (Math.round((n || 0) * 10) / 10).toFixed(1); }
   function nice(d) { var p = d.split("-"); return +p[2] + " " + ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][+p[1] - 1] + " " + p[0]; }
   function mon(m) { return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][+m.slice(5) - 1]; }
-  function face(name, cls) {
-    var ini = name.replace(/^Dr\s+/, "").charAt(0).toUpperCase();
-    var src = PHOTO[name] ? "/images/doctors/" + encodeURIComponent(PHOTO[name]) + ".webp" : "";
-    return '<span class="dv-face' + (cls ? " " + cls : "") + '"><i>' + esc(ini) + "</i>" + (src ? '<img src="' + src + '" alt="" onerror="this.remove()">' : "") + "</span>";
-  }
+  function face(name, cls) { return window.ismileTheme && ismileTheme.face ? ismileTheme.face(name, cls) : ""; }
   function range(p) { return nice(p.frm) === nice(p.to) ? nice(p.frm) : nice(p.frm).replace(/ \d{4}$/, p.frm.slice(0, 4) === p.to.slice(0, 4) ? "" : "$&") + " – " + nice(p.to); }
   function period() { return D.periods.filter(function (p) { return p.k === S.period; })[0] || D.periods[0]; }
   function save() { try { localStorage.setItem("dv", JSON.stringify({ doc: S.doc, period: S.period })); } catch (e) {} }
+  function monthsIn(p) { return D.meta.months.indexOf(p.to.slice(0, 7)) - D.meta.months.indexOf(p.frm.slice(0, 7)) + 1; }
   function versus(p) {
+    if (p.kind === "custom") return "vs the " + monthsIn(p) + " months before";
     if (p.kind === "month" || p.k === "last_month") return "vs month before";
     if (p.k === "this_month") return "vs same days last month";
     if (p.k === "ytd") return "vs same time last year";
@@ -51,19 +47,22 @@
   function controls() {
     var p = D.periods.filter(function (x) { return x.kind === "range"; });
     var months = D.periods.filter(function (x) { return x.kind === "month"; }).reverse();
+    var opts = months.map(function (x) { return '<option value="' + x.k + '">' + esc(x.label) + "</option>"; }).join("");
     $("dv-controls").innerHTML =
       '<div class="dv-pills" id="dv-docs" role="group" aria-label="Doctor"><span class="dv-ind"></span>' +
       D.doctors.map(function (d) {
         return '<button type="button" data-doc="' + esc(d.key) + '" class="' + (d.key === S.doc ? "on" : "") + '">' +
-          (PHOTO[d.name] ? face(d.name) : "") + esc(d.name) + "</button>";
+          face(d.name) + esc(d.name) + "</button>";
       }).join("") + "</div>" +
       '<div class="dv-time"><div class="dv-pills small" id="dv-periods" role="group" aria-label="Timeframe"><span class="dv-ind"></span>' +
       p.map(function (x) { return '<button type="button" data-p="' + x.k + '" class="' + (x.k === S.period ? "on" : "") + '">' + esc(x.label) + "</button>"; }).join("") +
-      '</div><select id="dv-month" aria-label="Pick a month"><option value="">Pick a month</option>' +
-      months.map(function (x) { return '<option value="' + x.k + '"' + (x.k === S.period ? " selected" : "") + ">" + esc(x.label) + "</option>"; }).join("") + "</select></div>";
+      '</div><div class="dv-range"><label>From<select id="dv-from">' + opts + '</select></label><label>To<select id="dv-to">' + opts + "</select></label></div>" +
+      '<span class="dv-msg" id="dv-msg" role="status"></span></div>';
     $("dv-docs").onclick = function (e) { var b = e.target.closest("button"); if (b) choose({ doc: b.dataset.doc }); };
     $("dv-periods").onclick = function (e) { var b = e.target.closest("button"); if (b) choose({ period: b.dataset.p }); };
-    $("dv-month").onchange = function () { if (this.value) choose({ period: this.value }); };
+    $("dv-from").onchange = function () { pick(this.value, $("dv-to").value < this.value ? this.value : $("dv-to").value); };
+    $("dv-to").onchange = function () { pick($("dv-from").value > this.value ? this.value : $("dv-from").value, this.value); };
+    syncRange();
     requestAnimationFrame(function () {
       slide($("dv-docs")); slide($("dv-periods"));
       ["dv-docs", "dv-periods"].forEach(function (id) {   /* phones: the chosen pill starts in view */
@@ -72,13 +71,36 @@
       });
     });
   }
+  function syncRange() { var p = period(); $("dv-from").value = p.frm.slice(0, 7); $("dv-to").value = p.to.slice(0, 7); }
+  /* the file holding every run of months: 3.8MB, so only fetched once someone picks one */
+  function ranges() {
+    if (!R) R = fetch(RANGES, { cache: "no-store" }).then(function (r) { if (!r.ok) throw 0; return r.json(); }).catch(function (e) { R = null; throw e; });
+    return R;
+  }
+  function addRange(k, all) {
+    if (D.periods.some(function (p) { return p.k === k; })) return true;
+    if (!all[k]) return false;
+    var a = k.split("_"), e = a[1].split("-"), last = new Date(+e[0], +e[1], 0).getDate(), to = a[1] + "-" + last, frm = a[0] + "-01";
+    D.periods.push({ k: k, label: mon(a[0]) + " " + a[0].slice(0, 4) + " to " + mon(a[1]) + " " + a[1].slice(0, 4), kind: "custom",
+      frm: frm < D.meta.data_from ? D.meta.data_from : frm, to: to > D.meta.as_of ? D.meta.as_of : to });
+    D.doctors.forEach(function (d) { if (all[k][d.key]) D.blocks[d.key][k] = all[k][d.key]; });
+    return true;
+  }
+  function pick(a, b) {
+    if (a === b) return choose({ period: a });
+    var k = a + "_" + b, msg = $("dv-msg");
+    if (D.periods.some(function (p) { return p.k === k; })) return choose({ period: k });
+    msg.textContent = "Loading…";
+    ranges().then(function (all) { msg.textContent = addRange(k, all) ? "" : "No figures for those months."; if (!msg.textContent) choose({ period: k }); else syncRange(); })
+      .catch(function () { msg.textContent = "Could not load those months."; syncRange(); });
+  }
   function choose(c) {
     if (c.doc) S.doc = c.doc;
     if (c.period) S.period = c.period;
     save();
     document.querySelectorAll("#dv-docs button").forEach(function (b) { b.classList.toggle("on", b.dataset.doc === S.doc); });
     document.querySelectorAll("#dv-periods button").forEach(function (b) { b.classList.toggle("on", b.dataset.p === S.period); });
-    $("dv-month").value = period().kind === "month" ? S.period : "";
+    syncRange();
     slide($("dv-docs")); slide($("dv-periods"));
     var on = document.querySelector("#dv-docs .on");
     if (on && on.scrollIntoView) on.scrollIntoView({ block: "nearest", inline: "center", behavior: CALM ? "auto" : "smooth" });
@@ -88,7 +110,7 @@
   /* ---------- parts ---------- */
   function hero(b, p, doc) {
     var c = b.cmp || {};
-    return '<div class="dv-hero hero-skin"><div class="dv-who">' + (PHOTO[doc.name] ? face(doc.name, "big") : "") + "<div><b>" + esc(doc.name) + "</b><span>" + range(p) + "</span></div></div>" +
+    return '<div class="dv-hero hero-skin"><div class="dv-who">' + face(doc.name, "big") + "<div><b>" + esc(doc.name) + "</b><span>" + range(p) + "</span></div></div>" +
       '<div class="dv-lab">Production</div><div class="dv-big" id="dv-big">' + rm(b.production) + "</div>" +
       '<div class="dv-sub">' + (c.production ? delta(b.production, c.production) + " " + versus(p) : "") + "</div></div>";
   }
@@ -239,8 +261,10 @@
     fetch(URL, { cache: "no-store" }).then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (j) {
       D = j; loading = false;
       if (!D.doctors.some(function (d) { return d.key === S.doc; })) S.doc = "all";
-      if (!D.periods.some(function (p) { return p.k === S.period; })) S.period = "m12";
+      var saved = S.period;
+      if (!D.periods.some(function (p) { return p.k === saved; })) S.period = "m12";
       controls(); render();
+      if (saved.indexOf("_") > 0) pick(saved.split("_")[0], saved.split("_")[1]);   /* a run of months chosen last time */
     }).catch(function () {
       loading = false;
       $("dv-body").innerHTML = '<div class="dv-card dv-empty"><p>Could not load the doctor figures.</p><button type="button" class="dv-btn" id="dv-retry">Try again</button></div>';
