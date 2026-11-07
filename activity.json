@@ -4,6 +4,13 @@
     {
       "ts": "2026-11-07 11:00 MYT",
       "agent": "analytics",
+      "job": "deck_stats",
+      "event": "started",
+      "result": ""
+    },
+    {
+      "ts": "2026-11-07 11:00 MYT",
+      "agent": "analytics",
       "job": "social_comments",
       "event": "started",
       "result": ""
@@ -1391,13 +1398,6 @@
       "ts": "2026-11-06 19:50 MYT",
       "agent": "analytics",
       "job": "doctor_view",
-      "event": "started",
-      "result": ""
-    },
-    {
-      "ts": "2026-11-06 19:50 MYT",
-      "agent": "analytics",
-      "job": "cash_digest",
       "event": "started",
       "result": ""
     }
