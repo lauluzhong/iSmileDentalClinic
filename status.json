@@ -1,8 +1,7 @@
 {
-  "updated": "2026-11-08 06:00 MYT",
+  "updated": "2026-11-08 06:01 MYT",
   "running": [
     "gbp_reply",
-    "competitor_watch",
     "deck_stats"
   ],
   "jobs": {
@@ -11,7 +10,7 @@
       "last": "2026-11-07 06:03 MYT"
     },
     "competitor_watch": {
-      "state": "running",
+      "state": "failed",
       "last": "2026-10-25 06:05 MYT"
     },
     "review_curation": {
