@@ -2,7 +2,8 @@
   "updated": "2026-11-08 07:30 MYT",
   "running": [
     "recall_funnel",
-    "deck_stats"
+    "deck_stats",
+    "social_post"
   ],
   "jobs": {
     "gbp_reply": {
@@ -102,7 +103,7 @@
       "last": "2026-11-05 11:33 MYT"
     },
     "social_post": {
-      "state": "idle",
+      "state": "running",
       "last": "2026-11-08 07:15 MYT"
     },
     "social_comments": {
