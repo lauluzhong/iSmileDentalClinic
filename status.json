@@ -1,8 +1,7 @@
 {
-  "updated": "2026-11-07 19:50 MYT",
+  "updated": "2026-11-07 19:51 MYT",
   "running": [
-    "cash_digest",
-    "doctor_view"
+    "cash_digest"
   ],
   "jobs": {
     "gbp_reply": {
@@ -114,8 +113,8 @@
       "last": "2026-11-06 19:45 MYT"
     },
     "doctor_view": {
-      "state": "running",
-      "last": "2026-11-06 19:51 MYT"
+      "state": "idle",
+      "last": "2026-11-07 19:51 MYT"
     }
   }
 }
