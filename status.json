@@ -3,8 +3,7 @@
   "running": [
     "gbp_reply",
     "competitor_watch",
-    "deck_stats",
-    "social_post"
+    "deck_stats"
   ],
   "jobs": {
     "gbp_reply": {
@@ -104,8 +103,8 @@
       "last": "2026-11-05 11:33 MYT"
     },
     "social_post": {
-      "state": "running",
-      "last": "2026-11-08 05:45 MYT"
+      "state": "idle",
+      "last": "2026-11-08 06:00 MYT"
     },
     "social_comments": {
       "state": "idle",
