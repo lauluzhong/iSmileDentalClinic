@@ -4,6 +4,13 @@
     {
       "ts": "2026-11-07 19:00 MYT",
       "agent": "analytics",
+      "job": "social_post",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-11-07 19:00 MYT",
+      "agent": "analytics",
       "job": "social_comments",
       "event": "started",
       "result": ""
@@ -1393,13 +1400,6 @@
       "job": "social_post",
       "event": "finished",
       "result": "ok"
-    },
-    {
-      "ts": "2026-11-07 04:00 MYT",
-      "agent": "analytics",
-      "job": "social_post",
-      "event": "started",
-      "result": ""
     }
   ]
 }
