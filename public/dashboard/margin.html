@@ -1361,7 +1361,8 @@ function renderDay(){
   const OH=P.overhead_day, DEP=P.depreciation_day;
   const srm = v => (v<0?'−':'')+rm0(Math.abs(v));            // signed RM, minus-sign glyph
   const byDay = groupBy(r=>r.date, windowed());
-  const days = Object.keys(byDay).sort().reverse();          // newest first
+  /* a day with no production is not a trading day (11 May 2025, a Sunday, holds one RM0 ortho line) */
+  const days = Object.keys(byDay).filter(d=>byDay[d].some(r=>r.production)).sort().reverse();   // newest first
   const T={n:0,visits:0,production:0,locum:0,lab:0,gp:0,eb:0,net:0,green:0}, list=[];
   document.getElementById('day-body').innerHTML = days.map(d=>{
     const t=totals(byDay[d]);
@@ -1409,11 +1410,15 @@ function renderDayTop(list,T){
   const asc=[...list].reverse(), best=list.reduce((a,x)=>x.eb>a.eb?x:a), worst=list.reduce((a,x)=>x.eb<a.eb?x:a);
   const stat=(l,v,s)=>`<div class="dv-card dv-stat"><div class="dv-lab">${l}</div><div class="dv-v">${v}</div><div class="dv-sub">${s}</div></div>`;
   /* day bars sit on the break-even line */
-  const up=Math.max(1,...asc.map(x=>x.eb)), down=Math.max(0,...asc.map(x=>-x.eb)), span=up+down, zero=up/span*100;
-  const every=Math.max(1,Math.ceil(asc.length/12));
-  const bars=asc.map((x,i)=>{ const h=Math.max(.6,Math.abs(x.eb)/span*100);
-    return `<div class="dd" data-day="${x.d}" title="${dpretty(x.d)}: EBITDA ${srm(x.eb)}, production ${rm(x.production)}"><i class="${x.eb>=0?'ok':'bad'}" style="${x.eb>=0?'top:'+(zero-h).toFixed(2):'top:'+zero.toFixed(2)}%;height:${h.toFixed(2)}%;animation-delay:${Math.min(i*6,240)}ms"></i></div>`; }).join('');
-  const labs=asc.map((x,i)=>`<span>${i%every?'':dlabel(x.d)}</span>`).join('');
+  const monthly=asc.length>120;
+  const items=!monthly?asc.map(x=>({...x,lab:dlabel(x.d),tip:dpretty(x.d),attr:`data-day="${x.d}"`})):Object.values(asc.reduce((a,x)=>{
+    const k=x.d.slice(0,7), [y,m]=dparts(x.d), g=a[k]||(a[k]={eb:0,production:0,n:0,lab:MONTHS_S[m-1]+' '+String(y).slice(2),tip:MONTHS_S[m-1]+' '+y,attr:`data-month="${k}"`});
+    g.eb+=x.eb; g.production+=x.production; g.n++; return a; },{}));
+  const up=Math.max(1,...items.map(x=>x.eb)), down=Math.max(0,...items.map(x=>-x.eb)), span=up+down, zero=up/span*100;
+  const every=Math.max(1,Math.ceil(items.length/12));
+  const bars=items.map((x,i)=>{ const h=Math.max(.6,Math.abs(x.eb)/span*100);
+    return `<div class="dd" ${x.attr} title="${x.tip}: EBITDA ${srm(x.eb)}, production ${rm(x.production)}"><i class="${x.eb>=0?'ok':'bad'}" style="${x.eb>=0?'top:'+(zero-h).toFixed(2):'top:'+zero.toFixed(2)}%;height:${h.toFixed(2)}%;animation-delay:${Math.min(i*6,240)}ms"></i></div>`; }).join('');
+  const labs=items.map((x,i)=>`<span>${i%every?'':x.lab}</span>`).join('');
   /* the week */
   const names=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'], wk=names.map(n=>({n,c:0,eb:0,up:0}));
   list.forEach(x=>{ const [y,m,d]=dparts(x.d), w=wk[(new Date(y,m-1,d).getDay()+6)%7]; w.c++; w.eb+=x.eb; if(x.eb>=0) w.up++; });
@@ -1431,11 +1436,16 @@ function renderDayTop(list,T){
       ${stat('Best day',srm(best.eb),dpretty(best.d))}
       ${stat('Worst day',srm(worst.eb),dpretty(worst.d))}
     </div>
-    <div class="dv-w7"><div class="dv-card"><div class="dv-head"><h3>EBITDA-day</h3></div>
+    <div class="dv-w7"><div class="dv-card"><div class="dv-head"><h3>EBITDA-day${monthly?' by month':''}</h3></div>
       <div class="dd-chart"><div class="dd-zero" style="top:${zero.toFixed(2)}%"></div>${bars}</div><div class="dd-labs">${labs}</div></div></div>
     <div class="dv-w5"><div class="dv-card"><div class="dv-head"><h3>By day of the week</h3></div>${rows}</div></div>
   </div>`;
   document.querySelectorAll('#view-day [data-day]').forEach(el=>el.onclick=()=>openDay(el.dataset.day));
+  document.querySelectorAll('#view-day [data-month]').forEach(el=>el.onclick=()=>{
+    const [y,m]=dparts(el.dataset.month+'-01'), to=ymd(y,m,new Date(y,m,0).getDate()), from=ymd(y,m,1);
+    state.from=from<DATA_MIN?DATA_MIN:from; state.to=to>DATA_MAX?DATA_MAX:to;
+    document.getElementById('f-from').value=state.from; document.getElementById('f-to').value=state.to;
+    document.getElementById('f-preset').value='custom'; renderAll(); });
 }
 function openDay(d){
   state.from=state.to=d;
@@ -1558,17 +1568,11 @@ function switchView(v){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-/* ---- Locum: this tab is the sign-in; signed in, it goes straight to the locum tool (/dashboard/locum/v2, proxied, its own session) ---- */
+/* ---- Locum: this tab is always the sign-in, inside the Finance page. Only after signing in does it go to the locum tool (/dashboard/locum/v2, proxied, its own session) ---- */
 const LOCUM_TOOL='locum/v2';
-function toLocum(){ if(location.hash==='#locum') history.replaceState(null,'',location.pathname); location.href=LOCUM_TOOL; }
-async function renderLocum(){
+function toLocum(){ location.href=LOCUM_TOOL; }
+function renderLocum(){
   const body=document.getElementById('locum-body');
-  body.innerHTML='<div class="lg"><div class="sk"><i></i><i></i><i></i><i></i></div></div>';
-  let r;
-  try{ r=await fetch('locum/api/months',{cache:'no-store'}); }
-  catch(e){ body.innerHTML='<div class="lg"><p>Locum tool not reachable.</p></div>'; return; }
-  if(r.ok){ toLocum(); return; }
-  if(r.status!==401){ body.innerHTML='<div class="lg"><p>Locum tool error '+r.status+'.</p></div>'; return; }
   body.innerHTML=`<form class="lg" id="locum-login" novalidate><h2>Locum</h2><p>Sign in to the locum tool</p>
     <label class="fl"><input id="lg-u" autocomplete="username" autocapitalize="none" placeholder=" " required><span>Name</span></label>
     <label class="fl"><input id="lg-p" type="password" autocomplete="current-password" placeholder=" " required><span>Password</span></label>
@@ -1586,8 +1590,8 @@ async function renderLocum(){
     go.disabled=false; p.select();
   };
 }
-/* back from the locum tool: never leave the tab sitting on its loading state */
-window.addEventListener('pageshow',e=>{ if(e.persisted&&document.getElementById('view-locum').classList.contains('active')) switchView('tx'); });
+/* back from the locum tool: a clean form, never the password left in it */
+window.addEventListener('pageshow',e=>{ if(e.persisted&&document.getElementById('view-locum').classList.contains('active')) renderLocum(); });
 
 /* ---- P&L statement (deck.json → finance.pnl; published every 30 min by deck_stats.py) ---- */
 const DECK_JSON_URL = "https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/deck.json";
