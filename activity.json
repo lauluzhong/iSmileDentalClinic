@@ -3,6 +3,13 @@
   "entries": [
     {
       "ts": "2026-11-08 18:00 MYT",
+      "agent": "edith",
+      "job": "weekly_digest",
+      "event": "started",
+      "result": ""
+    },
+    {
+      "ts": "2026-11-08 18:00 MYT",
       "agent": "analytics",
       "job": "deck_stats",
       "event": "started",
@@ -1391,13 +1398,6 @@
       "ts": "2026-11-08 04:00 MYT",
       "agent": "analytics",
       "job": "deck_stats",
-      "event": "started",
-      "result": ""
-    },
-    {
-      "ts": "2026-11-08 04:00 MYT",
-      "agent": "analytics",
-      "job": "social_post",
       "event": "started",
       "result": ""
     }
