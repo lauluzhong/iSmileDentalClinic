@@ -2,8 +2,7 @@
   "updated": "2026-11-08 08:00 MYT",
   "running": [
     "deck_stats",
-    "site_health",
-    "social_post"
+    "site_health"
   ],
   "jobs": {
     "gbp_reply": {
@@ -103,8 +102,8 @@
       "last": "2026-11-05 11:33 MYT"
     },
     "social_post": {
-      "state": "running",
-      "last": "2026-11-08 07:45 MYT"
+      "state": "idle",
+      "last": "2026-11-08 08:00 MYT"
     },
     "social_comments": {
       "state": "idle",
