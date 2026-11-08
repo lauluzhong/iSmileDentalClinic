@@ -1,15 +1,15 @@
 {
-  "as_of": "2026-11-08",
+  "as_of": "2026-11-09",
   "source": "e10 recall messages only (blast excluded)",
   "note": "Funnel = event counts (per-message callbacks), not distinct patients. Conversion = matured-cohort recall->appointment rate (correlation, not proven causal lift); as-of the latest OpenDent export only.",
   "funnel_live": true,
-  "funnel_as_of": "2026-11-08",
+  "funnel_as_of": "2026-11-09",
   "cumulative": {
     "sent": 2573,
     "delivered": 2573,
     "read": 2513,
     "clicks": 161,
-    "failed": 2,
+    "failed": 17,
     "replies": null
   },
   "this_month": {
@@ -17,30 +17,30 @@
     "delivered": 69,
     "read": 69,
     "clicks": 1,
-    "failed": 0,
+    "failed": 15,
     "replies": null
   },
   "all_messages": {
     "cumulative": {
-      "total": 45917,
+      "total": 45968,
       "sent": 16347,
-      "delivered": 19866,
-      "read": 5133,
+      "delivered": 19905,
+      "read": 5142,
       "failed": 2280,
       "clicks": 332,
-      "replies": 1959
+      "replies": 1962
     },
     "this_month": {
       "sent": 7614,
       "clicks": 70,
-      "replies": 489
+      "replies": 492
     }
   },
   "conversion": {
     "mature_days": 21,
     "attrib_window_days": 90,
-    "data_as_of": "2026-11-07",
-    "appt_export": "inbox/2026-11-07 e5+e6+backfill",
+    "data_as_of": "2026-11-08",
+    "appt_export": "inbox/2026-11-08 e5+e6+backfill",
     "appt_range": [
       "2024-08-12",
       "2027-03-06"
@@ -48,13 +48,13 @@
     "stale": false,
     "cohort_source": "blastlog (e10_blastlog.tsv)",
     "cohort_from": "2026-04-16",
-    "cohort_to": "2026-11-07",
+    "cohort_to": "2026-11-08",
     "cohort_age_days": 1,
     "cohort_static": false,
     "join": "external_patient_id -> PatNum (direct)",
     "available": true,
     "bridge": "external_patient_id (direct PatNum)",
-    "sent_total": 1761,
+    "sent_total": 1769,
     "matured_cohort": 1665,
     "resolved_to_patient": 1664,
     "resolved_via_patnum": 1664,
@@ -64,7 +64,7 @@
   },
   "value": {
     "available": true,
-    "as_of": "2026-11-08",
+    "as_of": "2026-11-09",
     "bridge": "e8_patient_master.tsv (2026-11-08)",
     "sends": 767,
     "patients_in_cohort": 1142,
