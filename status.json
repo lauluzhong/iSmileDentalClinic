@@ -2,6 +2,7 @@
   "updated": "2026-11-08 08:00 MYT",
   "running": [
     "deck_stats",
+    "site_health",
     "social_post"
   ],
   "jobs": {
@@ -98,7 +99,7 @@
       "last": "2026-11-07 20:05 MYT"
     },
     "site_health": {
-      "state": "idle",
+      "state": "running",
       "last": "2026-11-05 11:33 MYT"
     },
     "social_post": {
