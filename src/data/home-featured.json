@@ -1,18 +1,18 @@
 {
-  "updated": "2026-11-01",
+  "updated": "2026-11-08",
   "window": "28d",
   "slugs": [
     "government-vs-private-braces",
     "lm-activator-vs-invisalign",
     "child-candidate-myofunctional-orthodontics",
-    "mouth-breathing-thumb-sucking-crowded-teeth",
-    "signs-child-early-orthodontic-assessment"
+    "tongue-thrust-in-children",
+    "mouth-breathing-thumb-sucking-crowded-teeth"
   ],
   "clicks": {
-    "government-vs-private-braces": 23,
-    "lm-activator-vs-invisalign": 7,
-    "child-candidate-myofunctional-orthodontics": 2,
-    "mouth-breathing-thumb-sucking-crowded-teeth": 0,
-    "signs-child-early-orthodontic-assessment": 0
+    "government-vs-private-braces": 36,
+    "lm-activator-vs-invisalign": 6,
+    "child-candidate-myofunctional-orthodontics": 1,
+    "tongue-thrust-in-children": 1,
+    "mouth-breathing-thumb-sucking-crowded-teeth": 0
   }
 }
