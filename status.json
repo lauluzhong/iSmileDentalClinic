@@ -1,8 +1,6 @@
 {
-  "updated": "2026-11-09 05:15 MYT",
-  "running": [
-    "social_post"
-  ],
+  "updated": "2026-11-09 05:16 MYT",
+  "running": [],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -101,7 +99,7 @@
       "last": "2026-11-08 08:16 MYT"
     },
     "social_post": {
-      "state": "running",
+      "state": "failed",
       "last": "2026-11-09 05:00 MYT"
     },
     "social_comments": {
