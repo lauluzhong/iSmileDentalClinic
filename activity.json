@@ -4,6 +4,13 @@
     {
       "ts": "2026-11-09 07:30 MYT",
       "agent": "analytics",
+      "job": "recall_funnel",
+      "event": "started",
+      "result": ""
+    },
+    {
+      "ts": "2026-11-09 07:30 MYT",
+      "agent": "analytics",
       "job": "social_post",
       "event": "started",
       "result": ""
@@ -1393,13 +1400,6 @@
       "job": "social_post",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-11-08 16:38 MYT",
-      "agent": "analytics",
-      "job": "seo_geo_audit",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
