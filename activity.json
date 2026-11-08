@@ -5,6 +5,13 @@
       "ts": "2026-11-08 08:20 MYT",
       "agent": "engineer",
       "job": "cert_check",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-11-08 08:20 MYT",
+      "agent": "engineer",
+      "job": "cert_check",
       "event": "started",
       "result": ""
     },
@@ -1393,13 +1400,6 @@
       "job": "social_post",
       "event": "finished",
       "result": "ok"
-    },
-    {
-      "ts": "2026-11-07 18:00 MYT",
-      "agent": "analytics",
-      "job": "social_post",
-      "event": "started",
-      "result": ""
     }
   ]
 }
