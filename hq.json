@@ -862,6 +862,7 @@
       "60-day backstop for implant-case invoices",
       "From the initiatives board: 100% deterministic arithmetic \u2014 NO LLM, offline. Volume rule: production \u2265 RM55k \u2192 whole month at 50%. Ortho/Invisalign 10%-exemption is Dr LING's deal (corrected \u2014 not Mah). GM write-up sent; awaiting answers + workbooks.",
       "<b>Still open with Lau at 6 Nov:</b> two October lines flagged by the new minimum fees, one write-off that needs linking to its treatment, and one case to settle as braces or aligner.",
+      "<b>Lau:</b> independently verify that Emily's October locum calculation is correct before approval.",
       "After any fee change in OpenDent, the minimum fees must be refreshed from the clinic PC by hand; the nightly update does not carry them."
      ],
      "owner": "lu",
@@ -2325,6 +2326,7 @@
       "Proportion check: organic = 26 enquiries/90d \u2014 keep SEO cheap; reactivation is the bigger lever",
       "Later investigation for Lau: verify whether the website still has the CTA pop-up that appears after a visitor has stayed on the site for roughly 20 seconds; confirm the exact trigger timing. This is open \u2014 do not assume it is missing.",
       "<b>Needs a person:</b> 2\u20133 real clinic photos for the Google listing (the last photo went up on 7 Apr), and Dr Ong's review of the new toothache page.",
+      "<b>Lau:</b> properly configure and validate the SEO agent end to end, including its settings, schedules, inputs and outputs.",
       "Flagged, not yet acted on: the Google listing's category says 'Paediatric Dentist' and its description says 'over three decades'."
      ],
      "owner": "edith",
@@ -3900,7 +3902,7 @@
   ]
  },
  "meta": {
-  "asof": "SAT 07 NOV 2026",
-  "updated": "2026-11-07T05:34:51+08:00"
+  "asof": "MON 09 NOV 2026",
+  "updated": "2026-11-09T00:32:53+08:00"
  }
 }
