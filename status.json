@@ -2,7 +2,6 @@
   "updated": "2026-11-08 19:00 MYT",
   "running": [
     "deck_stats",
-    "social_post",
     "social_comments"
   ],
   "jobs": {
@@ -103,8 +102,8 @@
       "last": "2026-11-08 08:16 MYT"
     },
     "social_post": {
-      "state": "running",
-      "last": "2026-11-08 18:45 MYT"
+      "state": "idle",
+      "last": "2026-11-08 19:00 MYT"
     },
     "social_comments": {
       "state": "running",
