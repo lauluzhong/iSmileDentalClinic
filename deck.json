@@ -1,24 +1,24 @@
 {
- "generated_myt": "2026-11-08 15:30",
- "generated_at": "2026-11-08T15:30:22+08:00",
+ "generated_myt": "2026-11-08 16:00",
+ "generated_at": "2026-11-08T16:00:12+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 20.6,
   "nproc": 4,
   "load": [
-   0.66,
-   0.37,
-   0.36
+   1.44,
+   0.99,
+   0.57
   ],
-  "cpu_pct": 16.5,
-  "cpu_pct_sample": 3.5,
+  "cpu_pct": 36.0,
+  "cpu_pct_sample": 25.8,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 4094,
-   "avail_mb": 3847,
-   "pct": 51.6,
+   "used_mb": 4181,
+   "avail_mb": 3759,
+   "pct": 52.7,
    "swap_total_mb": 2047,
-   "swap_used_mb": 1801
+   "swap_used_mb": 1800
   },
   "disk": {
    "total_gb": 154.9,
@@ -29,11 +29,11 @@
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 221433,
+    "age_s": 223224,
     "last_myt": "2026-11-06 02:00 MYT"
    },
    "hq_publish": {
-    "age_s": 122143,
+    "age_s": 123934,
     "last_myt": "2026-11-07 05:34 MYT",
     "detail": "asof=SAT 07 NOV 2026 streams=46 sideboard=19 decisions=1 archive=13"
    }
@@ -47,10 +47,9 @@
     "snippet_batch"
    ],
    "running": [
-    "geo_visibility",
     "social_post"
    ],
-   "status_updated": "2026-11-08 15:30 MYT"
+   "status_updated": "2026-11-08 16:00 MYT"
   },
   "last_clinic_push": "2026-11-08"
  },
@@ -697,18 +696,23 @@
   "note": "Instagram @ismiledentalclinicmy is connected through Zernio. Posts published outside Zernio are not counted in posts_published_via_zernio."
  },
  "geo": {
-  "generated_myt": "2026-11-01 15:30",
-  "generated_at": "2026-11-01T15:30:15+08:00",
+  "generated_myt": "2026-11-08 15:30",
+  "generated_at": "2026-11-08T15:30:16+08:00",
   "ai_referrals": {
    "available": true,
    "window": [
-    "2026-10-04",
-    "2026-10-31"
+    "2026-10-11",
+    "2026-11-07"
    ],
-   "sessions": 0,
+   "sessions": 1,
    "sessions_prev": 3,
-   "all_sessions": 574,
-   "by_source": []
+   "all_sessions": 647,
+   "by_source": [
+    {
+     "source": "chatgpt.com",
+     "sessions": 1
+    }
+   ]
   },
   "directories": {
    "checked": 7,
@@ -762,153 +766,78 @@
    ]
   },
   "panel": {
-   "available": true,
+   "available": false,
    "engine": "OpenAI gpt-5.6-luna + web search",
-   "asked": 12,
-   "failed": 8,
-   "mentioned": 6,
-   "cited_own_site": 6,
-   "mention_rate_pct": 50.0,
-   "by_theme": {
-    "family": {
-     "asked": 3,
-     "mentioned": 2
-    },
-    "children": {
-     "asked": 2,
-     "mentioned": 1
-    },
-    "braces": {
-     "asked": 2,
-     "mentioned": 1
-    },
-    "implants": {
-     "asked": 1,
-     "mentioned": 0
-    },
-    "cosmetic": {
-     "asked": 1,
-     "mentioned": 0
-    },
-    "urgent": {
-     "asked": 1,
-     "mentioned": 0
-    },
-    "priority": {
-     "asked": 2,
-     "mentioned": 2
-    }
-   },
-   "top_cited_domains": [
-    {
-     "domain": "ismile.com.my",
-     "questions": 6
-    },
-    {
-     "domain": "smilehavendental.com.my",
-     "questions": 4
-    },
-    {
-     "domain": "smilegramdental.com",
-     "questions": 4
-    },
-    {
-     "domain": "vdental.com.my",
-     "questions": 4
-    },
-    {
-     "domain": "uptowndental.com.my",
-     "questions": 3
-    },
-    {
-     "domain": "claritydentalclinic.com",
-     "questions": 2
-    },
-    {
-     "domain": "pristinedental.com.my",
-     "questions": 2
-    },
-    {
-     "domain": "bunnydentalclinic.com",
-     "questions": 2
-    },
-    {
-     "domain": "circledentalpj.com",
-     "questions": 2
-    },
-    {
-     "domain": "yapdentalsurgery.com",
-     "questions": 2
-    }
-   ],
+   "asked": 0,
+   "failed": 20,
+   "mentioned": 0,
+   "cited_own_site": 0,
+   "mention_rate_pct": null,
+   "by_theme": {},
+   "top_cited_domains": [],
    "questions": [
     {
      "id": "family-1",
      "theme": "family",
      "q": "Can you recommend a good family dentist in Damansara Jaya, Petaling Jaya?",
-     "ok": true,
-     "mentioned": true,
-     "cited_own_site": true,
-     "competitors_named": []
+     "ok": false,
+     "mentioned": null,
+     "cited_own_site": null,
+     "competitors_named": null
     },
     {
      "id": "family-2",
      "theme": "family",
      "q": "Which dental clinics near Damansara Utama or SS22 in PJ are good for a routine check-up and cleaning?",
-     "ok": true,
-     "mentioned": true,
-     "cited_own_site": true,
-     "competitors_named": [
-      "Resmile Dental (The Starling, Uptown)",
-      "Primecare Dental (Uptown)"
-     ]
+     "ok": false,
+     "mentioned": null,
+     "cited_own_site": null,
+     "competitors_named": null
     },
     {
      "id": "family-3",
      "theme": "family",
      "q": "I want one dental clinic in Petaling Jaya that can look after my whole family, from kids to grandparents. Where should I go?",
-     "ok": true,
-     "mentioned": false,
-     "cited_own_site": false,
-     "competitors_named": []
+     "ok": false,
+     "mentioned": null,
+     "cited_own_site": null,
+     "competitors_named": null
     },
     {
      "id": "children-1",
      "theme": "children",
      "q": "Where can I find a gentle children's dentist in Petaling Jaya for my 5 year old's first visit?",
-     "ok": true,
-     "mentioned": true,
-     "cited_own_site": true,
-     "competitors_named": [
-      "V Dental (SS2)"
-     ]
+     "ok": false,
+     "mentioned": null,
+     "cited_own_site": null,
+     "competitors_named": null
     },
     {
      "id": "children-2",
      "theme": "children",
      "q": "Which dentists in Damansara, PJ are good with nervous kids?",
-     "ok": true,
-     "mentioned": false,
-     "cited_own_site": false,
-     "competitors_named": []
+     "ok": false,
+     "mentioned": null,
+     "cited_own_site": null,
+     "competitors_named": null
     },
     {
      "id": "braces-1",
      "theme": "braces",
      "q": "Which dental clinics would you recommend for braces in Damansara Jaya, Petaling Jaya?",
-     "ok": true,
-     "mentioned": true,
-     "cited_own_site": true,
-     "competitors_named": []
+     "ok": false,
+     "mentioned": null,
+     "cited_own_site": null,
+     "competitors_named": null
     },
     {
      "id": "braces-2",
      "theme": "braces",
      "q": "Where can I get Invisalign or clear aligners in Petaling Jaya?",
-     "ok": true,
-     "mentioned": false,
-     "cited_own_site": false,
-     "competitors_named": []
+     "ok": false,
+     "mentioned": null,
+     "cited_own_site": null,
+     "competitors_named": null
     },
     {
      "id": "braces-3",
@@ -923,12 +852,10 @@
      "id": "implants-1",
      "theme": "implants",
      "q": "Where can I get dental implants in Petaling Jaya?",
-     "ok": true,
-     "mentioned": false,
-     "cited_own_site": false,
-     "competitors_named": [
-      "V Dental (SS2)"
-     ]
+     "ok": false,
+     "mentioned": null,
+     "cited_own_site": null,
+     "competitors_named": null
     },
     {
      "id": "implants-2",
@@ -943,13 +870,10 @@
      "id": "cosmetic-1",
      "theme": "cosmetic",
      "q": "Which dentists in Petaling Jaya are good for veneers or a smile makeover?",
-     "ok": true,
-     "mentioned": false,
-     "cited_own_site": false,
-     "competitors_named": [
-      "Smile Life Dental (PJ)",
-      "V Dental (SS2)"
-     ]
+     "ok": false,
+     "mentioned": null,
+     "cited_own_site": null,
+     "competitors_named": null
     },
     {
      "id": "cosmetic-2",
@@ -982,12 +906,10 @@
      "id": "urgent-1",
      "theme": "urgent",
      "q": "I have a bad toothache. Which dental clinic in Damansara Jaya or nearby in PJ can see me quickly?",
-     "ok": true,
-     "mentioned": false,
-     "cited_own_site": false,
-     "competitors_named": [
-      "V Dental (SS2)"
-     ]
+     "ok": false,
+     "mentioned": null,
+     "cited_own_site": null,
+     "competitors_named": null
     },
     {
      "id": "priority-1",
@@ -1002,19 +924,19 @@
      "id": "priority-2",
      "theme": "priority",
      "q": "Which children's dentist in Damansara Jaya would you recommend?",
-     "ok": true,
-     "mentioned": true,
-     "cited_own_site": true,
-     "competitors_named": []
+     "ok": false,
+     "mentioned": null,
+     "cited_own_site": null,
+     "competitors_named": null
     },
     {
      "id": "priority-3",
      "theme": "priority",
      "q": "Where can I take my elderly parents to a dentist in PJ?",
-     "ok": true,
-     "mentioned": true,
-     "cited_own_site": true,
-     "competitors_named": []
+     "ok": false,
+     "mentioned": null,
+     "cited_own_site": null,
+     "competitors_named": null
     },
     {
      "id": "priority-4",
@@ -1036,8 +958,8 @@
     }
    ],
    "tokens": {
-    "input": 272724,
-    "output": 12614
+    "input": 0,
+    "output": 0
    }
   },
   "panel_trend": [
