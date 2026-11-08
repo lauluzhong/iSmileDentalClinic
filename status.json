@@ -1,6 +1,7 @@
 {
   "updated": "2026-11-08 19:50 MYT",
   "running": [
+    "cash_digest",
     "doctor_view"
   ],
   "jobs": {
@@ -33,7 +34,7 @@
       "last": "2026-11-08 06:20 MYT"
     },
     "cash_digest": {
-      "state": "idle",
+      "state": "running",
       "last": "2026-11-08 12:05 MYT"
     },
     "margin_build": {
