@@ -2,8 +2,7 @@
   "updated": "2026-11-08 16:30 MYT",
   "running": [
     "deck_stats",
-    "seo_geo_audit",
-    "social_post"
+    "seo_geo_audit"
   ],
   "jobs": {
     "gbp_reply": {
@@ -103,8 +102,8 @@
       "last": "2026-11-08 08:16 MYT"
     },
     "social_post": {
-      "state": "running",
-      "last": "2026-11-08 16:15 MYT"
+      "state": "idle",
+      "last": "2026-11-08 16:30 MYT"
     },
     "social_comments": {
       "state": "idle",
