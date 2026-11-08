@@ -1,24 +1,24 @@
 {
- "generated_myt": "2026-11-08 19:30",
- "generated_at": "2026-11-08T19:30:15+08:00",
+ "generated_myt": "2026-11-08 20:00",
+ "generated_at": "2026-11-08T20:00:13+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 20.8,
   "nproc": 4,
   "load": [
-   0.62,
-   0.35,
-   0.38
+   3.98,
+   1.8,
+   0.92
   ],
-  "cpu_pct": 15.5,
-  "cpu_pct_sample": 6.9,
+  "cpu_pct": 99.5,
+  "cpu_pct_sample": 21.3,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 4936,
-   "avail_mb": 3004,
-   "pct": 62.2,
+   "used_mb": 5047,
+   "avail_mb": 2893,
+   "pct": 63.6,
    "swap_total_mb": 2047,
-   "swap_used_mb": 1792
+   "swap_used_mb": 1791
   },
   "disk": {
    "total_gb": 154.9,
@@ -29,11 +29,11 @@
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 235826,
+    "age_s": 237624,
     "last_myt": "2026-11-06 02:00 MYT"
    },
    "hq_publish": {
-    "age_s": 136537,
+    "age_s": 138335,
     "last_myt": "2026-11-07 05:34 MYT",
     "detail": "asof=SAT 07 NOV 2026 streams=46 sideboard=19 decisions=1 archive=13"
    }
@@ -49,14 +49,14 @@
    "running": [
     "social_post"
    ],
-   "status_updated": "2026-11-08 19:30 MYT"
+   "status_updated": "2026-11-08 20:00 MYT"
   },
   "last_clinic_push": "2026-11-08"
  },
  "agents": [],
  "finance": {
-  "as_of": "2026-11-07",
-  "generated_myt": "2026-11-07 19:40",
+  "as_of": "2026-11-08",
+  "generated_myt": "2026-11-08 19:40",
   "basis": "margin dashboard: true margin = production \u2212 locum est \u2212 lab est \u2212 chair-time burn (RM160/h loaded). Not the statutory P&L.",
   "mtd": {
    "production": 41950,
@@ -163,7 +163,7 @@
   "pnl": {
    "basis": "Hybrid: months closed by the accountant are their actual income statement (every line, incl. revenue; locum reclassified to direct cost). Later months are estimates on a PRODUCTION basis: revenue = OpenDent production; locum + lab as in the margin dashboard; materials at the FY2026 model driver; fixed cost and depreciation from the FY2026 model v6 (27 Aug 2026). Dr Ong is salaried (inside Director remuneration).",
    "year": "2026",
-   "as_of": "2026-11-07",
+   "as_of": "2026-11-08",
    "ytd": {
     "month": "2026-01",
     "basis": "actual",
