@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-11-10 06:30",
- "generated_at": "2026-11-10T06:30:13+08:00",
+ "generated_myt": "2026-11-10 07:00",
+ "generated_at": "2026-11-10T07:00:17+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 22.2,
   "nproc": 4,
   "load": [
-   0.1,
-   0.21,
-   0.32
+   0.55,
+   0.61,
+   0.36
   ],
-  "cpu_pct": 2.5,
-  "cpu_pct_sample": 3.8,
+  "cpu_pct": 13.8,
+  "cpu_pct_sample": 5.5,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 4270,
-   "avail_mb": 3671,
-   "pct": 53.8,
+   "used_mb": 4286,
+   "avail_mb": 3654,
+   "pct": 54.0,
    "swap_total_mb": 2047,
    "swap_used_mb": 754
   },
@@ -29,11 +29,11 @@
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 361824,
+    "age_s": 363628,
     "last_myt": "2026-11-06 02:00 MYT"
    },
    "hq_publish": {
-    "age_s": 107852,
+    "age_s": 109656,
     "last_myt": "2026-11-09 00:32 MYT",
     "detail": "asof=MON 09 NOV 2026 streams=46 sideboard=19 decisions=1 archive=13"
    }
@@ -49,7 +49,7 @@
    "running": [
     "social_post"
    ],
-   "status_updated": "2026-11-10 06:30 MYT"
+   "status_updated": "2026-11-10 07:00 MYT"
   },
   "last_clinic_push": "2026-11-09"
  },
@@ -676,7 +676,7 @@
  "social": {
   "available": true,
   "source": "Zernio MCP (Edith's connection)",
-  "as_of": "2026-11-09",
+  "as_of": "2026-11-10",
   "window_days": 30,
   "accounts": [
    {
