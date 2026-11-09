@@ -4,6 +4,13 @@
     {
       "ts": "2026-11-09 23:30 MYT",
       "agent": "analytics",
+      "job": "deck_stats",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-11-09 23:30 MYT",
+      "agent": "analytics",
       "job": "social_post",
       "event": "finished",
       "result": "ok"
@@ -1391,13 +1398,6 @@
       "ts": "2026-11-09 09:04 MYT",
       "agent": "edith",
       "job": "gbp_post_weekly",
-      "event": "finished",
-      "result": "ok"
-    },
-    {
-      "ts": "2026-11-09 09:00 MYT",
-      "agent": "analytics",
-      "job": "deck_stats",
       "event": "finished",
       "result": "ok"
     }
