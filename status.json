@@ -3,8 +3,7 @@
   "running": [
     "wa_group_digest",
     "deck_stats",
-    "gbp_post_weekly",
-    "social_post"
+    "gbp_post_weekly"
   ],
   "jobs": {
     "gbp_reply": {
@@ -104,8 +103,8 @@
       "last": "2026-11-08 08:16 MYT"
     },
     "social_post": {
-      "state": "running",
-      "last": "2026-11-09 08:45 MYT"
+      "state": "idle",
+      "last": "2026-11-09 09:00 MYT"
     },
     "social_comments": {
       "state": "idle",
