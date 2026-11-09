@@ -5,6 +5,13 @@
       "ts": "2026-11-09 23:45 MYT",
       "agent": "analytics",
       "job": "social_post",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-11-09 23:45 MYT",
+      "agent": "analytics",
+      "job": "social_post",
       "event": "started",
       "result": ""
     },
@@ -1393,13 +1400,6 @@
       "job": "maps_care",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-11-09 09:05 MYT",
-      "agent": "edith",
-      "job": "wa_group_digest",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
