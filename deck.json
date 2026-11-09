@@ -1,24 +1,24 @@
 {
- "generated_myt": "2026-11-09 12:00",
- "generated_at": "2026-11-09T12:00:13+08:00",
+ "generated_myt": "2026-11-09 12:30",
+ "generated_at": "2026-11-09T12:30:14+08:00",
  "vps": {
   "hostname": "vmi3374460",
-  "uptime_days": 21.4,
+  "uptime_days": 21.5,
   "nproc": 4,
   "load": [
-   0.88,
-   0.72,
-   0.39
+   0.29,
+   0.2,
+   0.23
   ],
-  "cpu_pct": 22.0,
-  "cpu_pct_sample": 3.2,
+  "cpu_pct": 7.2,
+  "cpu_pct_sample": 2.0,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 4955,
-   "avail_mb": 2985,
-   "pct": 62.4,
+   "used_mb": 4975,
+   "avail_mb": 2965,
+   "pct": 62.7,
    "swap_total_mb": 2047,
-   "swap_used_mb": 757
+   "swap_used_mb": 756
   },
   "disk": {
    "total_gb": 154.9,
@@ -29,11 +29,11 @@
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 295225,
+    "age_s": 297025,
     "last_myt": "2026-11-06 02:00 MYT"
    },
    "hq_publish": {
-    "age_s": 41253,
+    "age_s": 43053,
     "last_myt": "2026-11-09 00:32 MYT",
     "detail": "asof=MON 09 NOV 2026 streams=46 sideboard=19 decisions=1 archive=13"
    }
@@ -49,7 +49,7 @@
    "running": [
     "social_post"
    ],
-   "status_updated": "2026-11-09 12:00 MYT"
+   "status_updated": "2026-11-09 12:30 MYT"
   },
   "last_clinic_push": "2026-11-09"
  },
@@ -687,7 +687,7 @@
     "growth_30d": 0.0,
     "growth_pct_30d": 0.0,
     "posts_on_platform": 13.0,
-    "last_updated": "2026-11-08T04:18:39.743000Z",
+    "last_updated": "2026-11-09T04:16:15.020000Z",
     "active": true
    }
   ],
