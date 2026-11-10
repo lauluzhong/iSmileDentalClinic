@@ -2,8 +2,7 @@
   "updated": "2026-11-10 19:00 MYT",
   "running": [
     "deck_stats",
-    "social_post",
-    "social_comments"
+    "social_post"
   ],
   "jobs": {
     "gbp_reply": {
@@ -107,8 +106,8 @@
       "last": "2026-11-10 18:45 MYT"
     },
     "social_comments": {
-      "state": "running",
-      "last": "2026-11-10 15:00 MYT"
+      "state": "idle",
+      "last": "2026-11-10 19:00 MYT"
     },
     "clinic_db": {
       "state": "idle",
