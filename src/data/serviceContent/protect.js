@@ -27,7 +27,7 @@ Scaling removes tartar from the teeth and from just under the gum line. Polishin
 
 You may feel some scraping and a little sensitivity, mostly where the gums are sore or tartar is heavy. Gums that bleed during cleaning are usually a sign that they are inflamed, and they tend to settle once the tartar is gone and home care improves.
 
-How often you need a cleaning depends on your gums, your home care and your general health. Your dentist will suggest a gap between visits that suits you.`,
+How often a cleaning is due depends on your gums, your home care and your general health. Your dentist will suggest a gap between visits that suits you.`,
     },
     {
       heading: 'Fillings',
@@ -67,7 +67,7 @@ Go to a hospital emergency department if your face or neck is swelling quickly, 
       heading: 'Looking after your teeth between visits',
       body: `Brush twice a day with a fluoride toothpaste, and clean between your teeth once a day with floss or small brushes. Keep sugary food and drinks to mealtimes where you can, and drink water in between.
 
-Tell your dentist about any change you notice: a tooth that has become sensitive, gums that bleed, a filling that feels rough, or a sore patch that has not healed after two weeks. Small things are much easier to deal with early.`,
+Tell your dentist about any change you notice: a tooth that has become sensitive, gums that bleed, a filling that feels rough, or a sore patch that has not healed after two weeks. Small things are much easier to treat early.`,
     },
   ],
   faqs: [
