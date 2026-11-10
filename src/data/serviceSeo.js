@@ -96,7 +96,7 @@ export const SERVICE_SPECIALTIES = [
     component: 'DentalImplants',
     path: 'services/replace/dental-implants',
     title: "Dental Implants in Damansara Jaya, PJ | iSmile",
-    description: "Replace missing teeth with titanium dental implants at iSmile Damansara Jaya, Petaling Jaya. Rated ${RATING}★ from ${COUNT} Google reviews. WhatsApp us to book.",
+    description: "Dental implants in Damansara Jaya, Petaling Jaya for replacing missing teeth. Learn what the consultation involves and WhatsApp us to book.",
     canonical: "https://ismile.com.my/services/replace/dental-implants",
     h1: "Dental Implants in Petaling Jaya",
     lead: "A dental implant is a titanium screw placed surgically into your jawbone, where it functions as an artificial tooth root. After a healing period called osseointegration, a crown is attached to give you a replacement tooth that looks, feels, and functions like a natural one.",
