@@ -1,39 +1,39 @@
 {
- "generated_myt": "2026-11-11 11:00",
- "generated_at": "2026-11-11T11:00:20+08:00",
+ "generated_myt": "2026-11-11 11:30",
+ "generated_at": "2026-11-11T11:30:16+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 23.4,
   "nproc": 4,
   "load": [
-   3.69,
-   1.63,
-   0.99
+   2.43,
+   1.53,
+   1.31
   ],
-  "cpu_pct": 92.2,
-  "cpu_pct_sample": 66.4,
+  "cpu_pct": 60.8,
+  "cpu_pct_sample": 19.4,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 6872,
-   "avail_mb": 1068,
-   "pct": 86.5,
+   "used_mb": 4874,
+   "avail_mb": 3067,
+   "pct": 61.4,
    "swap_total_mb": 2047,
-   "swap_used_mb": 591
+   "swap_used_mb": 589
   },
   "disk": {
    "total_gb": 154.9,
-   "used_gb": 44.6,
-   "pct": 28.8
+   "used_gb": 45.1,
+   "pct": 29.1
   },
-  "gateway_ok": true,
+  "gateway_ok": false,
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 464432,
+    "age_s": 466230,
     "last_myt": "2026-11-06 02:00 MYT"
    },
    "hq_publish": {
-    "age_s": 210460,
+    "age_s": 212258,
     "last_myt": "2026-11-09 00:32 MYT",
     "detail": "asof=MON 09 NOV 2026 streams=46 sideboard=19 decisions=1 archive=13"
    }
@@ -47,10 +47,9 @@
     "snippet_batch"
    ],
    "running": [
-    "social_comments",
     "social_post"
    ],
-   "status_updated": "2026-11-11 11:00 MYT"
+   "status_updated": "2026-11-11 11:30 MYT"
   },
   "last_clinic_push": "2026-11-10"
  },
@@ -681,14 +680,14 @@
   "window_days": 30,
   "accounts": [
    {
-    "platform": "instagram",
-    "username": "ismiledentalclinicmy",
+    "platform": "linkedin",
+    "username": "iSmile Dental Clinic",
     "display": "iSmile Dental Clinic",
-    "followers": 98.0,
+    "followers": 18.0,
     "growth_30d": 0.0,
     "growth_pct_30d": 0.0,
-    "posts_on_platform": 13.0,
-    "last_updated": "2026-11-10T04:17:17.196000Z",
+    "posts_on_platform": null,
+    "last_updated": "2026-11-11T03:26:23.384000Z",
     "active": true
    }
   ],
