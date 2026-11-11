@@ -1,0 +1,952 @@
+{
+ "generated_myt": "2026-11-11T16:11:59+08:00",
+ "as_of": "2026-11-11",
+ "dedupe": "one person counts once per month per stage; source = first touch in that month; booked = appointment booked on or after a touch, credited to the last touch before it, one patient once; booked after, not because of",
+ "months": {
+  "2024-06": {
+   "engaged": {
+    "comments": 0,
+    "dms": 0,
+    "by_channel": {}
+   },
+   "btl": {
+    "recall": {
+     "sent": 0,
+     "replied": null,
+     "leads": 0
+    },
+    "blast": {
+     "sent": null,
+     "clicked": 0,
+     "replied": null,
+     "leads": 0
+    },
+    "calls": null
+   },
+   "leads": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "handed": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "booked": {
+    "total": 1,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 1,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    },
+    "production": null
+   },
+   "speed": {
+    "first_reply_median_min": null,
+    "lead_to_handed_median_h": null,
+    "handed_to_booked_median_h": null
+   },
+   "content": {
+    "posted_verified": null
+   }
+  },
+  "2024-08": {
+   "engaged": {
+    "comments": 0,
+    "dms": 0,
+    "by_channel": {}
+   },
+   "btl": {
+    "recall": {
+     "sent": 0,
+     "replied": null,
+     "leads": 0
+    },
+    "blast": {
+     "sent": null,
+     "clicked": 0,
+     "replied": null,
+     "leads": 0
+    },
+    "calls": null
+   },
+   "leads": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "handed": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "booked": {
+    "total": 1,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 1,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    },
+    "production": null
+   },
+   "speed": {
+    "first_reply_median_min": null,
+    "lead_to_handed_median_h": null,
+    "handed_to_booked_median_h": null
+   },
+   "content": {
+    "posted_verified": null
+   }
+  },
+  "2024-09": {
+   "engaged": {
+    "comments": 0,
+    "dms": 0,
+    "by_channel": {}
+   },
+   "btl": {
+    "recall": {
+     "sent": 0,
+     "replied": null,
+     "leads": 0
+    },
+    "blast": {
+     "sent": null,
+     "clicked": 0,
+     "replied": null,
+     "leads": 0
+    },
+    "calls": null
+   },
+   "leads": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "handed": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "booked": {
+    "total": 1,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 1,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    },
+    "production": null
+   },
+   "speed": {
+    "first_reply_median_min": null,
+    "lead_to_handed_median_h": null,
+    "handed_to_booked_median_h": null
+   },
+   "content": {
+    "posted_verified": null
+   }
+  },
+  "2025-01": {
+   "engaged": {
+    "comments": 0,
+    "dms": 0,
+    "by_channel": {}
+   },
+   "btl": {
+    "recall": {
+     "sent": 0,
+     "replied": null,
+     "leads": 0
+    },
+    "blast": {
+     "sent": null,
+     "clicked": 0,
+     "replied": null,
+     "leads": 0
+    },
+    "calls": null
+   },
+   "leads": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "handed": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "booked": {
+    "total": 2,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 2,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    },
+    "production": null
+   },
+   "speed": {
+    "first_reply_median_min": null,
+    "lead_to_handed_median_h": null,
+    "handed_to_booked_median_h": null
+   },
+   "content": {
+    "posted_verified": null
+   }
+  },
+  "2025-03": {
+   "engaged": {
+    "comments": 0,
+    "dms": 0,
+    "by_channel": {}
+   },
+   "btl": {
+    "recall": {
+     "sent": 0,
+     "replied": null,
+     "leads": 0
+    },
+    "blast": {
+     "sent": null,
+     "clicked": 0,
+     "replied": null,
+     "leads": 0
+    },
+    "calls": null
+   },
+   "leads": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "handed": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "booked": {
+    "total": 1,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 1,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    },
+    "production": null
+   },
+   "speed": {
+    "first_reply_median_min": null,
+    "lead_to_handed_median_h": null,
+    "handed_to_booked_median_h": null
+   },
+   "content": {
+    "posted_verified": null
+   }
+  },
+  "2026-04": {
+   "engaged": {
+    "comments": 0,
+    "dms": 0,
+    "by_channel": {}
+   },
+   "btl": {
+    "recall": {
+     "sent": 148,
+     "replied": null,
+     "leads": 0
+    },
+    "blast": {
+     "sent": null,
+     "clicked": 0,
+     "replied": null,
+     "leads": 0
+    },
+    "calls": null
+   },
+   "leads": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "handed": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "booked": {
+    "total": 10,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 10,
+     "blast": 0,
+     "calls": 0
+    },
+    "production": null
+   },
+   "speed": {
+    "first_reply_median_min": null,
+    "lead_to_handed_median_h": null,
+    "handed_to_booked_median_h": null
+   },
+   "content": {
+    "posted_verified": null
+   }
+  },
+  "2026-05": {
+   "engaged": {
+    "comments": 0,
+    "dms": 0,
+    "by_channel": {}
+   },
+   "btl": {
+    "recall": {
+     "sent": 67,
+     "replied": null,
+     "leads": 0
+    },
+    "blast": {
+     "sent": null,
+     "clicked": 0,
+     "replied": null,
+     "leads": 0
+    },
+    "calls": null
+   },
+   "leads": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "handed": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "booked": {
+    "total": 19,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 19,
+     "blast": 0,
+     "calls": 0
+    },
+    "production": null
+   },
+   "speed": {
+    "first_reply_median_min": null,
+    "lead_to_handed_median_h": null,
+    "handed_to_booked_median_h": null
+   },
+   "content": {
+    "posted_verified": null
+   }
+  },
+  "2026-06": {
+   "engaged": {
+    "comments": 0,
+    "dms": 0,
+    "by_channel": {}
+   },
+   "btl": {
+    "recall": {
+     "sent": 552,
+     "replied": null,
+     "leads": 0
+    },
+    "blast": {
+     "sent": null,
+     "clicked": 0,
+     "replied": null,
+     "leads": 0
+    },
+    "calls": null
+   },
+   "leads": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "handed": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "booked": {
+    "total": 76,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 76,
+     "blast": 0,
+     "calls": 0
+    },
+    "production": null
+   },
+   "speed": {
+    "first_reply_median_min": null,
+    "lead_to_handed_median_h": null,
+    "handed_to_booked_median_h": null
+   },
+   "content": {
+    "posted_verified": null
+   }
+  },
+  "2026-07": {
+   "engaged": {
+    "comments": 0,
+    "dms": 0,
+    "by_channel": {}
+   },
+   "btl": {
+    "recall": {
+     "sent": 0,
+     "replied": null,
+     "leads": 0
+    },
+    "blast": {
+     "sent": null,
+     "clicked": 0,
+     "replied": null,
+     "leads": 0
+    },
+    "calls": null
+   },
+   "leads": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "handed": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "booked": {
+    "total": 51,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 51,
+     "blast": 0,
+     "calls": 0
+    },
+    "production": null
+   },
+   "speed": {
+    "first_reply_median_min": null,
+    "lead_to_handed_median_h": null,
+    "handed_to_booked_median_h": null
+   },
+   "content": {
+    "posted_verified": null
+   }
+  },
+  "2026-08": {
+   "engaged": {
+    "comments": 0,
+    "dms": 0,
+    "by_channel": {}
+   },
+   "btl": {
+    "recall": {
+     "sent": 0,
+     "replied": null,
+     "leads": 0
+    },
+    "blast": {
+     "sent": null,
+     "clicked": 0,
+     "replied": null,
+     "leads": 0
+    },
+    "calls": null
+   },
+   "leads": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "handed": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "booked": {
+    "total": 51,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 51,
+     "blast": 0,
+     "calls": 0
+    },
+    "production": null
+   },
+   "speed": {
+    "first_reply_median_min": null,
+    "lead_to_handed_median_h": null,
+    "handed_to_booked_median_h": null
+   },
+   "content": {
+    "posted_verified": null
+   }
+  },
+  "2026-09": {
+   "engaged": {
+    "comments": 0,
+    "dms": 0,
+    "by_channel": {}
+   },
+   "btl": {
+    "recall": {
+     "sent": 0,
+     "replied": null,
+     "leads": 0
+    },
+    "blast": {
+     "sent": null,
+     "clicked": 0,
+     "replied": null,
+     "leads": 0
+    },
+    "calls": null
+   },
+   "leads": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "handed": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "booked": {
+    "total": 36,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 36,
+     "blast": 0,
+     "calls": 0
+    },
+    "production": null
+   },
+   "speed": {
+    "first_reply_median_min": null,
+    "lead_to_handed_median_h": null,
+    "handed_to_booked_median_h": null
+   },
+   "content": {
+    "posted_verified": null
+   }
+  },
+  "2026-10": {
+   "engaged": {
+    "comments": 0,
+    "dms": 0,
+    "by_channel": {}
+   },
+   "btl": {
+    "recall": {
+     "sent": 0,
+     "replied": null,
+     "leads": 0
+    },
+    "blast": {
+     "sent": null,
+     "clicked": 0,
+     "replied": null,
+     "leads": 0
+    },
+    "calls": null
+   },
+   "leads": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "handed": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "booked": {
+    "total": 34,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 34,
+     "blast": 0,
+     "calls": 0
+    },
+    "production": null
+   },
+   "speed": {
+    "first_reply_median_min": null,
+    "lead_to_handed_median_h": null,
+    "handed_to_booked_median_h": null
+   },
+   "content": {
+    "posted_verified": null
+   }
+  },
+  "2026-11": {
+   "engaged": {
+    "comments": 2,
+    "dms": 3,
+    "by_channel": {
+     "facebook": {
+      "comments": 1,
+      "dms": 2
+     },
+     "instagram": {
+      "comments": 1,
+      "dms": 1
+     }
+    }
+   },
+   "btl": {
+    "recall": {
+     "sent": 0,
+     "replied": null,
+     "leads": 0
+    },
+    "blast": {
+     "sent": null,
+     "clicked": 107,
+     "replied": null,
+     "leads": 0
+    },
+    "calls": null
+   },
+   "leads": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "handed": {
+    "total": 0,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 0,
+     "blast": 0,
+     "calls": 0
+    }
+   },
+   "booked": {
+    "total": 11,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 11,
+     "blast": 0,
+     "calls": 0
+    },
+    "production": null
+   },
+   "speed": {
+    "first_reply_median_min": 15.1,
+    "lead_to_handed_median_h": null,
+    "handed_to_booked_median_h": null
+   },
+   "content": {
+    "posted_verified": null
+   }
+  }
+ }
+}
