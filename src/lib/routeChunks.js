@@ -27,6 +27,8 @@ export const pageLoaders = {
   careersTeam: () => import('../pages/CareersTeam'),
   careersJob: () => import('../pages/CareersJob'),
   dentists: () => import('../pages/Dentists'),
+  privacy: () => import('../pages/Privacy'),
+  dataDeletion: () => import('../pages/DataDeletion'),
   notFound: () => import('../pages/NotFound'),
 };
 
@@ -66,6 +68,8 @@ export function prefetchRoute(pathname) {
     case 'contact': return run('contact', pageLoaders.contact);
     case 'faq': return run('faq', pageLoaders.faq);
     case 'recall': return run('recall', pageLoaders.recall);
+    case 'privacy': return run('privacy', pageLoaders.privacy);
+    case 'data-deletion': return run('dataDeletion', pageLoaders.dataDeletion);
     case 'join-us': return run('careersDentists', pageLoaders.careersDentists);
     case 'careers':
       run('careers', pageLoaders.careers);

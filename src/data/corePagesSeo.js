@@ -97,6 +97,32 @@ export const CORE_PAGES = [
     listsBlogIndex: true,
   },
   {
+    path: 'privacy',
+    title: "Privacy Policy | iSmile Dental Clinic",
+    description: "How iSmile Dental Clinic in Damansara Jaya, Petaling Jaya collects, uses and protects your personal data under the Personal Data Protection Act 2010.",
+    h1: "Privacy policy",
+    intro: "iSmile Dental Clinic, 75 & 75A, Jalan SS 22/23, Damansara Jaya, 47400 Petaling Jaya, Selangor, explains here what personal data we collect, why, who handles it and your rights under the Personal Data Protection Act 2010 (PDPA).",
+    facts: [
+      "We collect details from our website booking form, patient registration and airway forms, job applications, WhatsApp chats, messages and comments on Instagram, Facebook, LinkedIn and X, and website analytics (Google Analytics and Google Tag Manager)",
+      "We use it to reply to you, arrange appointments, provide care and follow up about your enquiry. Marketing messages are sent only with your consent, and you can opt out at any time",
+      "Information received through Facebook or Instagram is used only to respond to you and is never sold",
+      "It is handled by clinic staff and service providers: Google, Meta, Vercel, a social media management tool and our own server",
+      "You can ask to access, correct or delete your data, or withdraw consent: WhatsApp +60 16-322 2135 or email ismile.general@gmail.com",
+    ],
+  },
+  {
+    path: 'data-deletion',
+    title: "Data Deletion | iSmile Dental Clinic",
+    description: "How to ask iSmile Dental Clinic to delete your personal data, including data from Facebook and Instagram messages. Requests completed within 30 days.",
+    h1: "Delete your data",
+    intro: "You can ask iSmile Dental Clinic to delete the personal data we hold about you at any time, including information from Facebook and Instagram messages and comments.",
+    facts: [
+      "WhatsApp +60 16-322 2135 or email ismile.general@gmail.com with your name, the phone number or social media account you used, and what you would like deleted",
+      "We confirm receipt within 3 working days and delete your data within 30 days",
+      "If you have been a patient, dental records we are required by Malaysian law to keep are retained; everything else is deleted",
+    ],
+  },
+  {
     path: 'careers',
     title: "Careers at iSmile Dental Clinic — Jobs in Petaling Jaya",
     description: "Work at iSmile Dental Clinic in Damansara Jaya, PJ. A family dental clinic since 2006, run by family people. Two ways to join: dentists, and team roles such as front desk, Dental Surgery Assistant and marketing. Read the role, apply with your CV.",
