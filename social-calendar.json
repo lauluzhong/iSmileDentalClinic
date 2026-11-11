@@ -28,7 +28,7 @@
   }
  },
  "attribution": {
-  "as_of": "2026-11-11T16:10:03+08:00",
+  "as_of": "2026-11-11T16:10:27+08:00",
   "persons": 1233,
   "booked_unique_patients": 294,
   "by_source": {
@@ -70,7 +70,8 @@
   },
   "missing_feeds": [
    "Elaine's recall calls (no feed known)"
-  ]
+  ],
+  "note": "booked = booked on/after a touch, credited to the last touch before booking; existing patients book anyway, so this is correlation, not lift"
  },
  "insights": {
   "day": "2026-11-11",
@@ -78,7 +79,7 @@
    "facebook": {
     "comments": 95.0,
     "fans": 1525.0,
-    "followers": 3050.0,
+    "followers": 1525.0,
     "post_clicks": 927.0,
     "post_media_view": 22760.0,
     "post_total_media_view_unique": 0.0,
