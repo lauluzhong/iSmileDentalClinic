@@ -26,5 +26,78 @@
     "first_reply_median_min": null
    }
   }
+ },
+ "attribution": {
+  "as_of": "2026-11-11T16:08:52+08:00",
+  "persons": 1233,
+  "booked_unique_patients": 294,
+  "by_source": {
+   "FB-DM": {
+    "touched": 363,
+    "first_touch": 345,
+    "booked_last_touch": 6
+   },
+   "FB-CMT": {
+    "touched": 1,
+    "first_touch": 0,
+    "booked_last_touch": 0
+   },
+   "IG-CMT": {
+    "touched": 1,
+    "first_touch": 0,
+    "booked_last_touch": 0
+   },
+   "IG-DM": {
+    "touched": 9,
+    "first_touch": 9,
+    "booked_last_touch": 0
+   },
+   "FB-DM-OLD": {
+    "touched": 34,
+    "first_touch": 18,
+    "booked_last_touch": 0
+   },
+   "RECALL": {
+    "touched": 767,
+    "first_touch": 767,
+    "booked_last_touch": 288
+   },
+   "BLAST": {
+    "touched": 107,
+    "first_touch": 94,
+    "booked_last_touch": 0
+   }
+  },
+  "missing_feeds": [
+   "Elaine's recall calls (no feed known)"
+  ]
+ },
+ "insights": {
+  "day": "2026-11-11",
+  "channels": {
+   "facebook": {
+    "comments": 95.0,
+    "fans": 1525.0,
+    "followers": 1525.0,
+    "reactions": 1048.0,
+    "shares": 5.0
+   },
+   "instagram": {
+    "comments": 7.0,
+    "followers_count": 98.0,
+    "follows_count": 9.0,
+    "likes": 268.0,
+    "media_count": 13.0
+   }
+  },
+  "instagram_missing": [
+   "reach",
+   "impressions/views",
+   "saved",
+   "shares",
+   "profile_visits",
+   "follower demographics",
+   "story insights"
+  ]
  }
 }
