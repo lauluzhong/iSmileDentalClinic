@@ -1,5 +1,5 @@
 {
- "generated_myt": "2026-11-11T16:11:59+08:00",
+ "generated_myt": "2026-11-11T16:14:43+08:00",
  "as_of": "2026-11-11",
  "dedupe": "one person counts once per month per stage; source = first touch in that month; booked = appointment booked on or after a touch, credited to the last touch before it, one patient once; booked after, not because of",
  "months": {
@@ -24,10 +24,10 @@
     "calls": null
    },
    "leads": {
-    "total": 0,
+    "total": 1,
     "by_source": {
      "instagram": 0,
-     "facebook": 0,
+     "facebook": 1,
      "linkedin": 0,
      "x": 0,
      "google": 0,
@@ -38,10 +38,10 @@
     }
    },
    "handed": {
-    "total": 0,
+    "total": 1,
     "by_source": {
      "instagram": 0,
-     "facebook": 0,
+     "facebook": 1,
      "linkedin": 0,
      "x": 0,
      "google": 0,
@@ -96,10 +96,10 @@
     "calls": null
    },
    "leads": {
-    "total": 0,
+    "total": 1,
     "by_source": {
      "instagram": 0,
-     "facebook": 0,
+     "facebook": 1,
      "linkedin": 0,
      "x": 0,
      "google": 0,
@@ -110,10 +110,10 @@
     }
    },
    "handed": {
-    "total": 0,
+    "total": 1,
     "by_source": {
      "instagram": 0,
-     "facebook": 0,
+     "facebook": 1,
      "linkedin": 0,
      "x": 0,
      "google": 0,
@@ -168,10 +168,10 @@
     "calls": null
    },
    "leads": {
-    "total": 0,
+    "total": 1,
     "by_source": {
      "instagram": 0,
-     "facebook": 0,
+     "facebook": 1,
      "linkedin": 0,
      "x": 0,
      "google": 0,
@@ -182,10 +182,10 @@
     }
    },
    "handed": {
-    "total": 0,
+    "total": 1,
     "by_source": {
      "instagram": 0,
-     "facebook": 0,
+     "facebook": 1,
      "linkedin": 0,
      "x": 0,
      "google": 0,
@@ -240,10 +240,10 @@
     "calls": null
    },
    "leads": {
-    "total": 0,
+    "total": 2,
     "by_source": {
      "instagram": 0,
-     "facebook": 0,
+     "facebook": 2,
      "linkedin": 0,
      "x": 0,
      "google": 0,
@@ -254,10 +254,10 @@
     }
    },
    "handed": {
-    "total": 0,
+    "total": 2,
     "by_source": {
      "instagram": 0,
-     "facebook": 0,
+     "facebook": 2,
      "linkedin": 0,
      "x": 0,
      "google": 0,
@@ -312,10 +312,10 @@
     "calls": null
    },
    "leads": {
-    "total": 0,
+    "total": 1,
     "by_source": {
      "instagram": 0,
-     "facebook": 0,
+     "facebook": 1,
      "linkedin": 0,
      "x": 0,
      "google": 0,
@@ -326,10 +326,10 @@
     }
    },
    "handed": {
-    "total": 0,
+    "total": 1,
     "by_source": {
      "instagram": 0,
-     "facebook": 0,
+     "facebook": 1,
      "linkedin": 0,
      "x": 0,
      "google": 0,
@@ -373,7 +373,7 @@
     "recall": {
      "sent": 148,
      "replied": null,
-     "leads": 0
+     "leads": 10
     },
     "blast": {
      "sent": null,
@@ -384,7 +384,7 @@
     "calls": null
    },
    "leads": {
-    "total": 0,
+    "total": 10,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -392,13 +392,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 0,
+     "recall": 10,
      "blast": 0,
      "calls": 0
     }
    },
    "handed": {
-    "total": 0,
+    "total": 10,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -406,7 +406,7 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 0,
+     "recall": 10,
      "blast": 0,
      "calls": 0
     }
@@ -445,7 +445,7 @@
     "recall": {
      "sent": 67,
      "replied": null,
-     "leads": 0
+     "leads": 19
     },
     "blast": {
      "sent": null,
@@ -456,7 +456,7 @@
     "calls": null
    },
    "leads": {
-    "total": 0,
+    "total": 19,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -464,13 +464,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 0,
+     "recall": 19,
      "blast": 0,
      "calls": 0
     }
    },
    "handed": {
-    "total": 0,
+    "total": 19,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -478,7 +478,7 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 0,
+     "recall": 19,
      "blast": 0,
      "calls": 0
     }
@@ -517,7 +517,7 @@
     "recall": {
      "sent": 552,
      "replied": null,
-     "leads": 0
+     "leads": 76
     },
     "blast": {
      "sent": null,
@@ -528,7 +528,7 @@
     "calls": null
    },
    "leads": {
-    "total": 0,
+    "total": 76,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -536,13 +536,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 0,
+     "recall": 76,
      "blast": 0,
      "calls": 0
     }
    },
    "handed": {
-    "total": 0,
+    "total": 76,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -550,7 +550,7 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 0,
+     "recall": 76,
      "blast": 0,
      "calls": 0
     }
@@ -589,7 +589,7 @@
     "recall": {
      "sent": 0,
      "replied": null,
-     "leads": 0
+     "leads": 51
     },
     "blast": {
      "sent": null,
@@ -600,7 +600,7 @@
     "calls": null
    },
    "leads": {
-    "total": 0,
+    "total": 51,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -608,13 +608,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 0,
+     "recall": 51,
      "blast": 0,
      "calls": 0
     }
    },
    "handed": {
-    "total": 0,
+    "total": 51,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -622,7 +622,7 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 0,
+     "recall": 51,
      "blast": 0,
      "calls": 0
     }
@@ -661,7 +661,7 @@
     "recall": {
      "sent": 0,
      "replied": null,
-     "leads": 0
+     "leads": 51
     },
     "blast": {
      "sent": null,
@@ -672,7 +672,7 @@
     "calls": null
    },
    "leads": {
-    "total": 0,
+    "total": 51,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -680,13 +680,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 0,
+     "recall": 51,
      "blast": 0,
      "calls": 0
     }
    },
    "handed": {
-    "total": 0,
+    "total": 51,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -694,7 +694,7 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 0,
+     "recall": 51,
      "blast": 0,
      "calls": 0
     }
@@ -733,7 +733,7 @@
     "recall": {
      "sent": 0,
      "replied": null,
-     "leads": 0
+     "leads": 36
     },
     "blast": {
      "sent": null,
@@ -744,7 +744,7 @@
     "calls": null
    },
    "leads": {
-    "total": 0,
+    "total": 36,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -752,13 +752,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 0,
+     "recall": 36,
      "blast": 0,
      "calls": 0
     }
    },
    "handed": {
-    "total": 0,
+    "total": 36,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -766,7 +766,7 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 0,
+     "recall": 36,
      "blast": 0,
      "calls": 0
     }
@@ -805,7 +805,7 @@
     "recall": {
      "sent": 0,
      "replied": null,
-     "leads": 0
+     "leads": 34
     },
     "blast": {
      "sent": null,
@@ -816,7 +816,7 @@
     "calls": null
    },
    "leads": {
-    "total": 0,
+    "total": 34,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -824,13 +824,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 0,
+     "recall": 34,
      "blast": 0,
      "calls": 0
     }
    },
    "handed": {
-    "total": 0,
+    "total": 34,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -838,7 +838,7 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 0,
+     "recall": 34,
      "blast": 0,
      "calls": 0
     }
@@ -886,7 +886,7 @@
     "recall": {
      "sent": 0,
      "replied": null,
-     "leads": 0
+     "leads": 11
     },
     "blast": {
      "sent": null,
@@ -897,7 +897,7 @@
     "calls": null
    },
    "leads": {
-    "total": 0,
+    "total": 11,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -905,13 +905,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 0,
+     "recall": 11,
      "blast": 0,
      "calls": 0
     }
    },
    "handed": {
-    "total": 0,
+    "total": 11,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -919,7 +919,7 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 0,
+     "recall": 11,
      "blast": 0,
      "calls": 0
     }
