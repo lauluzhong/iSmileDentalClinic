@@ -28,7 +28,7 @@
   }
  },
  "attribution": {
-  "as_of": "2026-11-11T16:08:52+08:00",
+  "as_of": "2026-11-11T16:10:03+08:00",
   "persons": 1233,
   "booked_unique_patients": 294,
   "by_source": {
@@ -78,7 +78,10 @@
    "facebook": {
     "comments": 95.0,
     "fans": 1525.0,
-    "followers": 1525.0,
+    "followers": 3050.0,
+    "post_clicks": 927.0,
+    "post_media_view": 22760.0,
+    "post_total_media_view_unique": 0.0,
     "reactions": 1048.0,
     "shares": 5.0
    },
@@ -88,6 +91,9 @@
     "follows_count": 9.0,
     "likes": 268.0,
     "media_count": 13.0
+   },
+   "linkedin": {
+    "followers": 18.0
    }
   },
   "instagram_missing": [
