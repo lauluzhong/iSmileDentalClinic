@@ -5,7 +5,7 @@ export default {
       heading: 'Check-ups, cleaning and repair in Petaling Jaya',
       body: `Most dental problems start small and quiet. A cavity does not hurt at first. Gum disease can go on for years with nothing more than a little bleeding when you brush. By the time a tooth aches, the problem is usually bigger than it needed to be.
 
-That is the reason for regular check-ups and cleaning. They help you keep your own teeth, and they are the most common reason people visit us.
+That is the reason for regular check-ups and cleaning. They help you keep your own teeth.
 
 Our clinic in Damansara Jaya looks after families from across Petaling Jaya.`,
     },
@@ -15,7 +15,7 @@ Our clinic in Damansara Jaya looks after families from across Petaling Jaya.`,
 
 The dentist then looks at each tooth, the gums, the tongue, the cheeks and the way your teeth bite together. X-rays may be taken where they are needed, because decay between teeth and problems under old fillings often cannot be seen by eye.
 
-At the end, the dentist tells you what was found and what your choices are. If nothing needs doing, you leave with a clean bill of health. If something does, you will know what it is, why it matters and what can wait.
+At the end, the dentist tells you what was found and what your choices are. If something needs doing, you will know what it is, why it matters and what can wait.
 
 It does not matter how long it has been since your last visit. Many people stay away because they are worried about being judged. We would much rather see you now than later.`,
     },
@@ -59,7 +59,7 @@ Before any decision, the dentist examines the area and takes X-rays to see the p
     },
     {
       heading: 'If you are in pain today',
-      body: `Call or WhatsApp us during clinic hours and tell us what is happening. We keep room in the day for people in pain and will try to give you a same-day appointment.
+      body: `Call or WhatsApp us during clinic hours and tell us what is happening. We will try to give you a same-day appointment.
 
 Go to a hospital straight away if your face or neck is swelling quickly, you have a fever with swelling, or you find it hard to swallow or breathe.`,
     },
