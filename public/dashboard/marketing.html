@@ -306,7 +306,7 @@ document.getElementById("today").onclick=()=>{const [y,m]=TODAY.split("-").map(N
     getJSON(RAW+"marketing.json"+q).catch(()=>null)
   ]);
   const sn=document.getElementById("srcnote");
-  if(cal&&Array.isArray(cal.posts)){DATA=cal;sn.textContent=(cal.sample?"Sample posts for now. ":"")+"Updated "+(cal.generated_myt||"").replace("T"," ").slice(0,16)+".";}
+  if(cal&&Array.isArray(cal.posts)){DATA=cal;sn.textContent=(cal.sample?"Sample posts for now. ":"")+(cal.posts.length?"":"No posts on the calendar yet. They appear here once a post is planned. ")+"Updated "+(cal.generated_myt||"").replace("T"," ").slice(0,16)+".";}
   else{try{DATA=await getJSON("/dashboard/social-calendar.sample.json"+q);sn.textContent="Sample posts for now. The real calendar appears here once the clinic server starts sending it.";}catch(e){sn.textContent="Could not load the calendar.";sn.className="note warn";}}
   MKT=mkt;
   if(mkt&&Array.isArray(mkt.pending)){const n=mkt.pending.length;document.getElementById("pendnote").textContent=n?`${n} item${n>1?"s":""} waiting for you on the WhatsApp board.`:"Nothing waiting for you on the WhatsApp board.";}
