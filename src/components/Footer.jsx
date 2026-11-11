@@ -121,7 +121,7 @@ const Footer = () => {
                                 <p>75 & 75A, Jalan SS 22/23, Damansara Jaya, 47400 Petaling Jaya, Selangor, Malaysia</p>
                             </div>
                             <div className="direction-buttons">
-                                <Button className="direction-btn" data-analytics-click="footer-maps" data-analytics-label="google-maps" onClick={() => window.open('https://maps.app.goo.gl/yt8MxXDpDxXgXqre6', '_blank')}>
+                                <Button className="direction-btn" data-analytics-click="footer-maps" data-analytics-label="google-maps" onClick={() => window.open('https://www.google.com/maps/dir/?api=1&destination=iSmile%20Dental%20Clinic%2C%2075%20Jalan%20SS%2022%2F23%2C%20Damansara%20Jaya&destination_place_id=ChIJMyz-_jZJzDERBTVNqS_uGzg', '_blank')}>
                                     <img src="/images/google-maps.png" alt="Maps" className="btn-icon" loading="lazy" width="18" height="18" /> Google
                                 </Button>
                                 <Button className="direction-btn" data-analytics-click="footer-maps" data-analytics-label="waze" onClick={() => window.open('https://ul.waze.com/ul?place=ChIJMyz-_jZJzDERBTVNqS_uGzg&ll=3.12583430%2C101.61623380&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location', '_blank')}>
