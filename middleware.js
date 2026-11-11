@@ -18,6 +18,7 @@ import { next, rewrite } from '@vercel/functions';
  *   /dashboard/hq         → iSmile HQ pillar view (public/dashboard/hq.html)
  *   /dashboard/margin     → margin dashboard      (public/dashboard/margin.html)
  *   /dashboard/analytics  → website analytics      (public/dashboard/analytics.html)
+ *   /dashboard/marketing  → content calendar + funnel (public/dashboard/marketing.html)
  *   /dashboard/margin-data.js → data asset for the margin dashboard
  *   /dashboard/locum/     → Locum tool on the Contabo box (api/locum.js proxy, tool has its own sign-in)
  *
@@ -54,6 +55,7 @@ const PAGES = {
   '/dashboard/office': '/dashboard/office.html',
   '/dashboard/profitability': '/dashboard/margin.html',
   '/dashboard/analytics': '/dashboard/analytics.html',
+  '/dashboard/marketing': '/dashboard/marketing.html', // content calendar + funnel (Nov 2026)
   '/dashboard/legacy/': '/dashboard/legacy.html',    // the old Command Center, kept for reference
 };
 
@@ -67,6 +69,7 @@ const CANONICAL = {
   '/dashboard/office.html': '/dashboard/office',
   '/dashboard/margin.html': '/dashboard/profitability',
   '/dashboard/analytics.html': '/dashboard/analytics',
+  '/dashboard/marketing.html': '/dashboard/marketing',
   '/dashboard/legacy.html': '/dashboard/legacy/',
 };
 
