@@ -5,9 +5,9 @@ export default {
       heading: 'Check-ups, cleaning and repair in Petaling Jaya',
       body: `Most dental problems start small and quiet. A cavity does not hurt at first. Gum disease can go on for years with nothing more than a little bleeding when you brush. By the time a tooth aches, the problem is usually bigger than it needed to be.
 
-That is the reason for regular check-ups and cleaning. They are the simplest way to keep your own teeth for life, and they are what most of our patients come to us for.
+That is the reason for regular check-ups and cleaning. They help you keep your own teeth, and they are the most common reason people visit us.
 
-Our clinic in Damansara Jaya looks after families from across Petaling Jaya. This page explains what happens at a check-up, a cleaning, a filling, root canal treatment and wisdom tooth removal, so you know what to expect before you come in.`,
+Our clinic in Damansara Jaya looks after families from across Petaling Jaya.`,
     },
     {
       heading: 'What happens at a dental check-up',
@@ -61,7 +61,7 @@ Before any decision, the dentist examines the area and takes X-rays to see the p
       heading: 'If you are in pain today',
       body: `Call or WhatsApp us during clinic hours and tell us what is happening. We keep room in the day for people in pain and will try to give you a same-day appointment.
 
-Go to a hospital emergency department if your face or neck is swelling quickly, you have a fever with swelling, or you find it hard to swallow or breathe. Those signs need medical care straight away.`,
+Go to a hospital straight away if your face or neck is swelling quickly, you have a fever with swelling, or you find it hard to swallow or breathe.`,
     },
     {
       heading: 'Looking after your teeth between visits',
