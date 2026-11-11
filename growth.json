@@ -1,373 +1,8 @@
 {
- "generated_myt": "2026-11-11T16:19:40+08:00",
+ "generated_myt": "2026-11-11T16:25:27+08:00",
  "as_of": "2026-11-11",
- "dedupe": "one person counts once per month per stage; source = first touch in that month; booked = appointment booked on or after a touch, credited to the last touch before it, one patient once; booked after, not because of. btl sent/clicked = e10 messages (same source as recall.json). recall.json value.mtd differs on purpose: it counts only matured cohorts (90 days) with production, so a fresh booking shows here first and there later",
+ "dedupe": "one person counts once per month per stage. Lead = social/web lead, or a recall/blast recipient who CLICKED (replies not tracked yet). Front desk = carded social/web leads + BTL clickers (on the follow-up list). Booked = a lead who booked within 90 days, credited to that lead's source, one patient once; booked after, not because of. btl.*.booked_after_send = booked after a send with no click (outside the funnel). btl sent/clicked = e10 messages (same source as recall.json). recall.json value.mtd differs on purpose: it counts only matured cohorts (90 days) with production, so a fresh booking shows here first and there later",
  "months": {
-  "2024-06": {
-   "engaged": {
-    "comments": 0,
-    "dms": 0,
-    "by_channel": {}
-   },
-   "btl": {
-    "recall": {
-     "sent": 0,
-     "clicked": 0,
-     "replied": null,
-     "leads": 0
-    },
-    "blast": {
-     "sent": 0,
-     "clicked": 0,
-     "replied": null,
-     "leads": 0
-    },
-    "calls": null
-   },
-   "leads": {
-    "total": 1,
-    "by_source": {
-     "instagram": 0,
-     "facebook": 1,
-     "linkedin": 0,
-     "x": 0,
-     "google": 0,
-     "web": 0,
-     "recall": 0,
-     "blast": 0,
-     "calls": 0
-    }
-   },
-   "handed": {
-    "total": 1,
-    "by_source": {
-     "instagram": 0,
-     "facebook": 1,
-     "linkedin": 0,
-     "x": 0,
-     "google": 0,
-     "web": 0,
-     "recall": 0,
-     "blast": 0,
-     "calls": 0
-    }
-   },
-   "booked": {
-    "total": 1,
-    "by_source": {
-     "instagram": 0,
-     "facebook": 1,
-     "linkedin": 0,
-     "x": 0,
-     "google": 0,
-     "web": 0,
-     "recall": 0,
-     "blast": 0,
-     "calls": 0
-    },
-    "production": null
-   },
-   "speed": {
-    "first_reply_median_min": null,
-    "lead_to_handed_median_h": null,
-    "handed_to_booked_median_h": null
-   },
-   "content": {
-    "posted_verified": null
-   }
-  },
-  "2024-08": {
-   "engaged": {
-    "comments": 0,
-    "dms": 0,
-    "by_channel": {}
-   },
-   "btl": {
-    "recall": {
-     "sent": 0,
-     "clicked": 0,
-     "replied": null,
-     "leads": 0
-    },
-    "blast": {
-     "sent": 0,
-     "clicked": 0,
-     "replied": null,
-     "leads": 0
-    },
-    "calls": null
-   },
-   "leads": {
-    "total": 1,
-    "by_source": {
-     "instagram": 0,
-     "facebook": 1,
-     "linkedin": 0,
-     "x": 0,
-     "google": 0,
-     "web": 0,
-     "recall": 0,
-     "blast": 0,
-     "calls": 0
-    }
-   },
-   "handed": {
-    "total": 1,
-    "by_source": {
-     "instagram": 0,
-     "facebook": 1,
-     "linkedin": 0,
-     "x": 0,
-     "google": 0,
-     "web": 0,
-     "recall": 0,
-     "blast": 0,
-     "calls": 0
-    }
-   },
-   "booked": {
-    "total": 1,
-    "by_source": {
-     "instagram": 0,
-     "facebook": 1,
-     "linkedin": 0,
-     "x": 0,
-     "google": 0,
-     "web": 0,
-     "recall": 0,
-     "blast": 0,
-     "calls": 0
-    },
-    "production": null
-   },
-   "speed": {
-    "first_reply_median_min": null,
-    "lead_to_handed_median_h": null,
-    "handed_to_booked_median_h": null
-   },
-   "content": {
-    "posted_verified": null
-   }
-  },
-  "2024-09": {
-   "engaged": {
-    "comments": 0,
-    "dms": 0,
-    "by_channel": {}
-   },
-   "btl": {
-    "recall": {
-     "sent": 0,
-     "clicked": 0,
-     "replied": null,
-     "leads": 0
-    },
-    "blast": {
-     "sent": 0,
-     "clicked": 0,
-     "replied": null,
-     "leads": 0
-    },
-    "calls": null
-   },
-   "leads": {
-    "total": 1,
-    "by_source": {
-     "instagram": 0,
-     "facebook": 1,
-     "linkedin": 0,
-     "x": 0,
-     "google": 0,
-     "web": 0,
-     "recall": 0,
-     "blast": 0,
-     "calls": 0
-    }
-   },
-   "handed": {
-    "total": 1,
-    "by_source": {
-     "instagram": 0,
-     "facebook": 1,
-     "linkedin": 0,
-     "x": 0,
-     "google": 0,
-     "web": 0,
-     "recall": 0,
-     "blast": 0,
-     "calls": 0
-    }
-   },
-   "booked": {
-    "total": 1,
-    "by_source": {
-     "instagram": 0,
-     "facebook": 1,
-     "linkedin": 0,
-     "x": 0,
-     "google": 0,
-     "web": 0,
-     "recall": 0,
-     "blast": 0,
-     "calls": 0
-    },
-    "production": null
-   },
-   "speed": {
-    "first_reply_median_min": null,
-    "lead_to_handed_median_h": null,
-    "handed_to_booked_median_h": null
-   },
-   "content": {
-    "posted_verified": null
-   }
-  },
-  "2025-01": {
-   "engaged": {
-    "comments": 0,
-    "dms": 0,
-    "by_channel": {}
-   },
-   "btl": {
-    "recall": {
-     "sent": 0,
-     "clicked": 0,
-     "replied": null,
-     "leads": 0
-    },
-    "blast": {
-     "sent": 0,
-     "clicked": 0,
-     "replied": null,
-     "leads": 0
-    },
-    "calls": null
-   },
-   "leads": {
-    "total": 2,
-    "by_source": {
-     "instagram": 0,
-     "facebook": 2,
-     "linkedin": 0,
-     "x": 0,
-     "google": 0,
-     "web": 0,
-     "recall": 0,
-     "blast": 0,
-     "calls": 0
-    }
-   },
-   "handed": {
-    "total": 2,
-    "by_source": {
-     "instagram": 0,
-     "facebook": 2,
-     "linkedin": 0,
-     "x": 0,
-     "google": 0,
-     "web": 0,
-     "recall": 0,
-     "blast": 0,
-     "calls": 0
-    }
-   },
-   "booked": {
-    "total": 2,
-    "by_source": {
-     "instagram": 0,
-     "facebook": 2,
-     "linkedin": 0,
-     "x": 0,
-     "google": 0,
-     "web": 0,
-     "recall": 0,
-     "blast": 0,
-     "calls": 0
-    },
-    "production": null
-   },
-   "speed": {
-    "first_reply_median_min": null,
-    "lead_to_handed_median_h": null,
-    "handed_to_booked_median_h": null
-   },
-   "content": {
-    "posted_verified": null
-   }
-  },
-  "2025-03": {
-   "engaged": {
-    "comments": 0,
-    "dms": 0,
-    "by_channel": {}
-   },
-   "btl": {
-    "recall": {
-     "sent": 0,
-     "clicked": 0,
-     "replied": null,
-     "leads": 0
-    },
-    "blast": {
-     "sent": 0,
-     "clicked": 0,
-     "replied": null,
-     "leads": 0
-    },
-    "calls": null
-   },
-   "leads": {
-    "total": 1,
-    "by_source": {
-     "instagram": 0,
-     "facebook": 1,
-     "linkedin": 0,
-     "x": 0,
-     "google": 0,
-     "web": 0,
-     "recall": 0,
-     "blast": 0,
-     "calls": 0
-    }
-   },
-   "handed": {
-    "total": 1,
-    "by_source": {
-     "instagram": 0,
-     "facebook": 1,
-     "linkedin": 0,
-     "x": 0,
-     "google": 0,
-     "web": 0,
-     "recall": 0,
-     "blast": 0,
-     "calls": 0
-    }
-   },
-   "booked": {
-    "total": 1,
-    "by_source": {
-     "instagram": 0,
-     "facebook": 1,
-     "linkedin": 0,
-     "x": 0,
-     "google": 0,
-     "web": 0,
-     "recall": 0,
-     "blast": 0,
-     "calls": 0
-    },
-    "production": null
-   },
-   "speed": {
-    "first_reply_median_min": null,
-    "lead_to_handed_median_h": null,
-    "handed_to_booked_median_h": null
-   },
-   "content": {
-    "posted_verified": null
-   }
-  },
   "2026-04": {
    "engaged": {
     "comments": 0,
@@ -379,18 +14,20 @@
      "sent": 163,
      "clicked": 14,
      "replied": null,
-     "leads": 10
+     "leads": 12,
+     "booked_after_send": 7
     },
     "blast": {
      "sent": 0,
      "clicked": 0,
      "replied": null,
-     "leads": 0
+     "leads": 0,
+     "booked_after_send": 0
     },
     "calls": null
    },
    "leads": {
-    "total": 10,
+    "total": 12,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -398,13 +35,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 10,
+     "recall": 12,
      "blast": 0,
      "calls": 0
     }
    },
    "handed": {
-    "total": 10,
+    "total": 12,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -412,13 +49,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 10,
+     "recall": 12,
      "blast": 0,
      "calls": 0
     }
    },
    "booked": {
-    "total": 10,
+    "total": 3,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -426,7 +63,7 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 10,
+     "recall": 3,
      "blast": 0,
      "calls": 0
     },
@@ -452,18 +89,20 @@
      "sent": 83,
      "clicked": 4,
      "replied": null,
-     "leads": 21
+     "leads": 4,
+     "booked_after_send": 18
     },
     "blast": {
      "sent": 0,
      "clicked": 0,
      "replied": null,
-     "leads": 0
+     "leads": 0,
+     "booked_after_send": 0
     },
     "calls": null
    },
    "leads": {
-    "total": 21,
+    "total": 4,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -471,13 +110,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 21,
+     "recall": 4,
      "blast": 0,
      "calls": 0
     }
    },
    "handed": {
-    "total": 21,
+    "total": 4,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -485,13 +124,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 21,
+     "recall": 4,
      "blast": 0,
      "calls": 0
     }
    },
    "booked": {
-    "total": 21,
+    "total": 3,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -499,7 +138,7 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 21,
+     "recall": 3,
      "blast": 0,
      "calls": 0
     },
@@ -525,18 +164,20 @@
      "sent": 782,
      "clicked": 49,
      "replied": null,
-     "leads": 83
+     "leads": 40,
+     "booked_after_send": 67
     },
     "blast": {
      "sent": 0,
      "clicked": 0,
      "replied": null,
-     "leads": 0
+     "leads": 0,
+     "booked_after_send": 0
     },
     "calls": null
    },
    "leads": {
-    "total": 83,
+    "total": 40,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -544,13 +185,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 83,
+     "recall": 40,
      "blast": 0,
      "calls": 0
     }
    },
    "handed": {
-    "total": 83,
+    "total": 40,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -558,13 +199,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 83,
+     "recall": 40,
      "blast": 0,
      "calls": 0
     }
    },
    "booked": {
-    "total": 83,
+    "total": 16,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -572,7 +213,7 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 83,
+     "recall": 16,
      "blast": 0,
      "calls": 0
     },
@@ -598,18 +239,20 @@
      "sent": 390,
      "clicked": 25,
      "replied": null,
-     "leads": 92
+     "leads": 23,
+     "booked_after_send": 78
     },
     "blast": {
      "sent": 0,
      "clicked": 0,
      "replied": null,
-     "leads": 0
+     "leads": 0,
+     "booked_after_send": 0
     },
     "calls": null
    },
    "leads": {
-    "total": 92,
+    "total": 23,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -617,13 +260,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 92,
+     "recall": 23,
      "blast": 0,
      "calls": 0
     }
    },
    "handed": {
-    "total": 92,
+    "total": 23,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -631,13 +274,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 92,
+     "recall": 23,
      "blast": 0,
      "calls": 0
     }
    },
    "booked": {
-    "total": 92,
+    "total": 14,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -645,7 +288,7 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 92,
+     "recall": 14,
      "blast": 0,
      "calls": 0
     },
@@ -671,18 +314,20 @@
      "sent": 354,
      "clicked": 25,
      "replied": null,
-     "leads": 93
+     "leads": 36,
+     "booked_after_send": 74
     },
     "blast": {
      "sent": 0,
      "clicked": 0,
      "replied": null,
-     "leads": 0
+     "leads": 0,
+     "booked_after_send": 0
     },
     "calls": null
    },
    "leads": {
-    "total": 93,
+    "total": 36,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -690,13 +335,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 93,
+     "recall": 36,
      "blast": 0,
      "calls": 0
     }
    },
    "handed": {
-    "total": 93,
+    "total": 36,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -704,13 +349,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 93,
+     "recall": 36,
      "blast": 0,
      "calls": 0
     }
    },
    "booked": {
-    "total": 93,
+    "total": 19,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -718,7 +363,7 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 93,
+     "recall": 19,
      "blast": 0,
      "calls": 0
     },
@@ -744,18 +389,20 @@
      "sent": 375,
      "clicked": 24,
      "replied": null,
-     "leads": 71
+     "leads": 28,
+     "booked_after_send": 58
     },
     "blast": {
      "sent": 1,
      "clicked": 0,
      "replied": null,
-     "leads": 0
+     "leads": 0,
+     "booked_after_send": 0
     },
     "calls": null
    },
    "leads": {
-    "total": 71,
+    "total": 28,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -763,13 +410,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 71,
+     "recall": 28,
      "blast": 0,
      "calls": 0
     }
    },
    "handed": {
-    "total": 71,
+    "total": 28,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -777,13 +424,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 71,
+     "recall": 28,
      "blast": 0,
      "calls": 0
     }
    },
    "booked": {
-    "total": 71,
+    "total": 13,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -791,7 +438,7 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 71,
+     "recall": 13,
      "blast": 0,
      "calls": 0
     },
@@ -817,18 +464,20 @@
      "sent": 359,
      "clicked": 20,
      "replied": null,
-     "leads": 84
+     "leads": 26,
+     "booked_after_send": 69
     },
     "blast": {
      "sent": 676,
      "clicked": 20,
      "replied": null,
-     "leads": 0
+     "leads": 20,
+     "booked_after_send": 0
     },
     "calls": null
    },
    "leads": {
-    "total": 84,
+    "total": 46,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -836,13 +485,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 84,
-     "blast": 0,
+     "recall": 26,
+     "blast": 20,
      "calls": 0
     }
    },
    "handed": {
-    "total": 84,
+    "total": 46,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -850,13 +499,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 84,
-     "blast": 0,
+     "recall": 26,
+     "blast": 20,
      "calls": 0
     }
    },
    "booked": {
-    "total": 84,
+    "total": 15,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -864,7 +513,7 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 84,
+     "recall": 15,
      "blast": 0,
      "calls": 0
     },
@@ -899,18 +548,20 @@
      "sent": 110,
      "clicked": 2,
      "replied": null,
-     "leads": 21
+     "leads": 6,
+     "booked_after_send": 18
     },
     "blast": {
      "sent": 2940,
      "clicked": 56,
      "replied": null,
-     "leads": 0
+     "leads": 102,
+     "booked_after_send": 0
     },
     "calls": null
    },
    "leads": {
-    "total": 21,
+    "total": 108,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -918,13 +569,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 21,
-     "blast": 0,
+     "recall": 6,
+     "blast": 102,
      "calls": 0
     }
    },
    "handed": {
-    "total": 21,
+    "total": 108,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -932,13 +583,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 21,
-     "blast": 0,
+     "recall": 6,
+     "blast": 102,
      "calls": 0
     }
    },
    "booked": {
-    "total": 21,
+    "total": 3,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -946,7 +597,7 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 21,
+     "recall": 3,
      "blast": 0,
      "calls": 0
     },
