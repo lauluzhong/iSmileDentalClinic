@@ -1,25 +1,14 @@
 {
- "generated_myt": "2026-11-11 13:57",
- "pending": [
-  {
-   "n": 1,
-   "kind": "pr",
-   "title": "Protect page guide",
-   "status": "pending",
-   "created": "2026-11-10",
-   "decided": null,
-   "pr": 334,
-   "channel": null
-  }
- ],
+ "generated_myt": "2026-11-11 14:40",
+ "pending": [],
  "items": [
   {
    "n": 1,
    "kind": "pr",
    "title": "Protect page guide",
-   "status": "pending",
+   "status": "approved",
    "created": "2026-11-10",
-   "decided": null,
+   "decided": "2026-11-11",
    "pr": 334,
    "channel": null
   },
@@ -74,6 +63,10 @@
   {
    "date": "2026-11-11",
    "text": "Published: Blog post: implant, bridge or denture"
+  },
+  {
+   "date": "2026-11-11",
+   "text": "Approved by you: Protect page guide"
   }
  ],
  "shipped": [
@@ -111,6 +104,11 @@
    "date": "2026-11-11",
    "type": "auto-published",
    "text": "4 · Blog post: implant, bridge or denture (nothing flagged)"
+  },
+  {
+   "date": "2026-11-11",
+   "type": "approved",
+   "text": "1 · Protect page guide"
   }
  ]
 }
