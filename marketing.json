@@ -1,0 +1,116 @@
+{
+ "generated_myt": "2026-11-11 13:57",
+ "pending": [
+  {
+   "n": 1,
+   "kind": "pr",
+   "title": "Protect page guide",
+   "status": "pending",
+   "created": "2026-11-10",
+   "decided": null,
+   "pr": 334,
+   "channel": null
+  }
+ ],
+ "items": [
+  {
+   "n": 1,
+   "kind": "pr",
+   "title": "Protect page guide",
+   "status": "pending",
+   "created": "2026-11-10",
+   "decided": null,
+   "pr": 334,
+   "channel": null
+  },
+  {
+   "n": 2,
+   "kind": "profile",
+   "title": "Google profile description",
+   "status": "approved",
+   "created": "2026-11-10",
+   "decided": "2026-11-11",
+   "pr": null,
+   "channel": null
+  },
+  {
+   "n": 3,
+   "kind": "profile",
+   "title": "Add Google category \"Dentist\"",
+   "status": "approved",
+   "created": "2026-11-10",
+   "decided": "2026-11-11",
+   "pr": null,
+   "channel": null
+  },
+  {
+   "n": 4,
+   "kind": "pr",
+   "title": "Blog post: implant, bridge or denture",
+   "status": "auto-published",
+   "created": "2026-11-10",
+   "decided": "2026-11-11",
+   "pr": 308,
+   "channel": null
+  }
+ ],
+ "done": [
+  {
+   "date": "2026-11-11",
+   "text": "Google profile: new description"
+  },
+  {
+   "date": "2026-11-11",
+   "text": "Google profile: listed as Dentist too"
+  },
+  {
+   "date": "2026-11-11",
+   "text": "Google Maps links now start directions"
+  },
+  {
+   "date": "2026-11-11",
+   "text": "Google profile: two preset services added"
+  },
+  {
+   "date": "2026-11-11",
+   "text": "Published: Blog post: implant, bridge or denture"
+  }
+ ],
+ "shipped": [
+  {
+   "date": "2026-11-10",
+   "type": "shipped",
+   "text": "meta · https://ismile.com.my/blog/family-dental-care-damansara-jaya-all-ages · The query family dental clinic PJ averaged position 5.3 from 59 impressions but earned no clicks in the latest scorecard "
+  },
+  {
+   "date": "2026-11-10",
+   "type": "shipped",
+   "text": "meta · https://ismile.com.my/services/replace/dental-implants · Dental implants PJ improved from position 17.9 to 9.0 across 19 impressions. The replacement keeps the relevant terms un · PR https://gi"
+  },
+  {
+   "date": "2026-11-10",
+   "type": "profile",
+   "text": "done: add_preset Teeth whitening"
+  },
+  {
+   "date": "2026-11-10",
+   "type": "profile",
+   "text": "done: add_preset General repairs & maintenance"
+  },
+  {
+   "date": "2026-11-11",
+   "type": "approved",
+   "text": "2 · Google profile description"
+  },
+  {
+   "date": "2026-11-11",
+   "type": "approved",
+   "text": "3 · Add Google category \"Dentist\""
+  },
+  {
+   "date": "2026-11-11",
+   "type": "auto-published",
+   "text": "4 · Blog post: implant, bridge or denture (nothing flagged)"
+  }
+ ]
+}
