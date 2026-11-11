@@ -197,10 +197,13 @@ const CH={
   x:{name:"X",c:"#3A3F47"},
   threads:{name:"Threads",c:"#6B6F76"},
   google:{name:"Google post",c:"#1E8E3E"},
+  "google-post":{name:"Google post",c:"#1E8E3E"},
+  "google-profile":{name:"Google profile",c:"#34A853"},
+  listing:{name:"Listing",c:"#8A6D3B"},
   blog:{name:"Blog",c:"#B5560F"}
 };
 const ORDER=Object.keys(CH);
-const SRC={instagram:"Instagram",facebook:"Facebook",linkedin:"LinkedIn",x:"X",threads:"Threads",google:"Google profile",blog:"Blog",web:"Website",recall:"Recall",blast:"Blast",calls:"Elaine's calls"};
+const SRC={"google-post":"Google post","google-profile":"Google profile",listing:"Listing",instagram:"Instagram",facebook:"Facebook",linkedin:"LinkedIn",x:"X",threads:"Threads",google:"Google profile",blog:"Blog",web:"Website",recall:"Recall",blast:"Blast",calls:"Elaine's calls"};
 const BTL_SRC=["recall","blast","calls"];
 const ST={planned:"Planned",pending:"Waiting for Lau",scheduled:"Approved, scheduled",posted:"Posted",rejected:"Not approved"};
 const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
@@ -248,20 +251,24 @@ function model(k){
   const content={created:posts.length,
     approved:posts.filter(p=>p.status==="scheduled"||p.status==="posted").length,
     posted:posts.filter(p=>p.status==="posted").length,
-    verified:posts.filter(p=>p.status==="posted"&&p.live&&Object.values(p.live).some(Boolean)).length,
+    verified:posts.filter(p=>p.status==="posted"&&(p.verified===true||(p.verified==null&&p.live&&Object.values(p.live).some(Boolean)))).length,
     pending:posts.filter(p=>p.status==="pending").length,
     rejected:posts.filter(p=>p.status==="rejected").length};
   const M={content,live:!!GROW};
+  if(GROW){const pv=ms.map(m=>(((GROW.months||{})[m]||{}).content||{}).posted_verified).filter(v=>v!=null);if(pv.length)content.verified=pv.reduce((a,b)=>a+b,0);}
   if(GROW){
     const t={};ms.forEach(m=>{const x=(GROW.months||{})[m];if(x)addInto(t,{engaged:x.engaged,btl:{recall:x.btl&&x.btl.recall,blast:x.btl&&x.btl.blast},leads:x.leads,handed:x.handed,booked:x.booked});});
     const last=ms.slice().reverse().map(m=>(GROW.months||{})[m]).find(Boolean)||{};
     const callsKnown=ms.some(m=>((GROW.months||{})[m]||{}).btl&&GROW.months[m].btl.calls);
     M.engaged={total:(t.engaged&&((t.engaged.comments||0)+(t.engaged.dms||0)))||0,comments:t.engaged&&t.engaged.comments||0,dms:t.engaged&&t.engaged.dms||0,by:t.engaged&&t.engaged.by_channel||{}};
-    M.recall=t.btl&&t.btl.recall||null; M.blast=t.btl&&t.btl.blast||null;
+    const rj=REC&&(k==="this"?REC.this_month:k==="all"?REC.cumulative:null);
+    const gr=t.btl&&t.btl.recall||{};
+    M.recall={sent:gr.sent?gr.sent:rj?rj.sent:null,clicked:rj?rj.clicks:null,replied:gr.replied!=null?gr.replied:null,leads:gr.leads};
+    M.blast=t.btl&&t.btl.blast||null;
     M.calls=callsKnown?ms.reduce((a,m)=>addInto(a,((GROW.months[m]||{}).btl||{}).calls||{}),{}):null;
     M.leads=t.leads||{total:0,by_source:{}}; M.handed=t.handed||{total:0,by_source:{}}; M.booked=t.booked||{total:0,by_source:{}};
     M.speed=last.speed||{}; M.speedMonth=ms.slice().reverse().find(m=>(GROW.months||{})[m]);
-    M.afterRecall=null;
+    M.afterRecall=(M.booked.by_source||{}).recall||0;
   } else {
     const f=(CAL.funnel&&CAL.funnel.channels)||{};
     const by=k2=>{const o={};for(const c in f)o[c]=+f[c][k2]||0;return o;};
@@ -299,10 +306,10 @@ function renderTop(M){
   $("g-top").innerHTML=`<div class="dv-grid still">
     <div class="dv-hero hero-skin"><div class="dv-who"><div><b>${esc(label)}</b><span>${esc(periodRange(M,S.period))}</span></div></div>
       <div class="dv-lab">Booked from growth</div><div class="dv-big">${num(M.booked.total)}</div>
-      <div class="dv-sub">from ${num(M.leads.total)} lead${M.leads.total===1?"":"s"}${M.booked.production?" · "+rm(M.booked.production)+" production":""}</div></div>
+      <div class="dv-sub">${M.afterRecall?num(M.afterRecall)+" after recall · ":""}${num(M.booked.total-(M.afterRecall||0))} from other sources${M.booked.production?" · "+rm(M.booked.production)+" production":""}</div></div>
     <div class="dv-stats">
       ${stat("Leads",num(M.leads.total),num(M.leadsATL)+" above the line · "+(M.live?num(M.leadsBTL):"—")+" below")}
-      ${stat("Lead to booked",pc(M.booked.total,M.leads.total),num(M.booked.total)+" of "+num(M.leads.total))}
+      ${stat("Booked after recall",num(M.afterRecall),"booked after a recall message")}
       ${stat("Waiting for Lau",num(waiting),"on the WhatsApp board")}
       ${stat("Typical first reply",mins(M.speed.first_reply_median_min),"comments and messages")}
     </div></div>`;
@@ -324,15 +331,15 @@ function renderFunnel(M){
     ${node("engaged","engaged","Engaged",num(e.total),num(e.comments)+" comments · "+num(e.dms)+" messages")}
     <div class="gf-out"><span>into leads</span><b>${num(M.leadsATL)}</b></div></div></div>`;
   const btl=`<div class="gf-lane btl"><div class="gf-tag"><i></i>Below the line</div><div class="gf-row">
-    ${node("recall","recall","Recall",r?num(r.sent):"—",r?(r.replied!=null?num(r.replied)+" replied":num(r.clicked)+" clicked")+(M.afterRecall!=null?" · "+num(M.afterRecall)+" booked after recall":""):"not in the feed yet",r?"":"na")}
-    ${node("blast","blast","Blast waves",b?num(b.sent):"—",b?num(b.replied)+" replied":"not in the feed yet",b?"":"na")}
+    ${node("recall","recall","Recall",r&&r.sent!=null?num(r.sent):"—",r?[r.replied!=null?num(r.replied)+" replied":r.clicked!=null?num(r.clicked)+" clicked":"",M.afterRecall!=null?num(M.afterRecall)+" booked after recall":""].filter(Boolean).join(" · ")||"sent":"not in the feed yet",r?"":"na")}
+    ${node("blast","blast","Blast waves",b?num(b.sent!=null?b.sent:b.clicked):"—",b?(b.sent!=null?(b.replied!=null?num(b.replied)+" replied":num(b.clicked)+" clicked"):"link clicks · sends not recorded"):"not in the feed yet",b?"":"na")}
     ${node("calls","calls","Elaine's calls",M.calls?num(M.calls.called):"—",M.calls?num(M.calls.reached)+" reached":"not tracked yet",M.calls?"":"na")}
     <div class="gf-out"><span>into leads</span><b>${M.live?num(M.leadsBTL):"—"}</b></div></div></div>`;
   const merge=`<svg class="gf-merge" viewBox="0 0 48 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 27 C 28 27, 20 50, 48 50" stroke="var(--brand)"/><path d="M0 76 C 28 76, 20 50, 48 50" stroke="#1A9B8A"/></svg>`;
   const trunk=`<div class="gf-trunk"><div class="gf-meet">Both lines meet here ↓</div><div class="gf-tag"><i style="background:var(--ink)"></i>Together</div><div class="gf-row">
     ${node("leads","leads","Leads",num(M.leads.total),"from both lines")}
     ${node("handed","handed","Front desk",num(M.handed.total),ws("handed",pc(M.handed.total,M.leads.total)+" of leads"),weak==="handed"?"weak":"")}
-    ${node("booked","booked","Booked",num(M.booked.total),ws("booked",pc(M.booked.total,M.handed.total)+" of front desk"),"end"+(weak==="booked"?" weak":""))}
+    ${node("booked","booked","Booked",num(M.booked.total),ws("booked",M.handed.total?pc(M.booked.total,M.handed.total)+" of front desk":M.afterRecall?num(M.afterRecall)+" after recall":"—"),"end"+(weak==="booked"?" weak":""))}
   </div></div>`;
   $("g-funnel").innerHTML=atl+btl+merge+trunk;
   $("g-funnel-note").innerHTML=(M.live
@@ -367,13 +374,14 @@ function renderDrill(M){
     if(!r){box.innerHTML=empty("Recall figures did not load.");return;}
     const v=REC&&REC.value&&(S.period==="all"?REC.value.all_time:REC.value.mtd), cv=REC&&REC.conversion;
     box.innerHTML=`<div class="dv-grid still"><div class="dv-w7"><div class="dv-card"><div class="dv-head"><h3>${S.period==="all"?"All recall sends":"Recall this month"}</h3></div>
-      <div class="dv-line"><span>Messages sent</span><b>${num(r.sent)}</b></div>
+      <div class="dv-line"><span>Messages sent</span><b>${r.sent!=null?num(r.sent):"Not in the feed for this timeframe"}</b></div>
       ${r.clicked!=null?`<div class="dv-line"><span>Link clicked</span><b>${num(r.clicked)}<small>${pc(r.clicked,r.sent)}</small></b></div>`:""}
       <div class="dv-line"><span>Replied</span><b>${r.replied!=null?num(r.replied):"Not counted yet"}</b></div>
       ${r.leads!=null?`<div class="dv-line"><span>Became leads</span><b>${num(r.leads)}</b></div>`:""}
-      ${v?`<div class="dv-line total"><span>Booked after recall</span><b>${num(v.patients_converted)}<small>${v.patients_reached?num(v.patients_converted)+" of "+num(v.patients_reached)+" patients reached":""}</small></b></div>
+      ${M.live?`<div class="dv-line total"><span>Booked after recall</span><b>${num(M.afterRecall)}</b></div>`
+        :v?`<div class="dv-line total"><span>Booked after recall</span><b>${num(v.patients_converted)}<small>${v.patients_reached?num(v.patients_converted)+" of "+num(v.patients_reached)+" patients reached":""}</small></b></div>
       <div class="dv-line"><span>Production from them</span><b>${rm(v.production)}</b></div>`:""}
-      <p class="dv-note">Booked after recall means the patient booked within ${REC&&REC.value?REC.value.attrib_window_days:90} days of a recall message. It is not proof the message caused it.</p></div></div>
+      <p class="dv-note">${M.live?"Booked after recall means the patient booked after a recall message, with recall as the last touch before the booking. Each patient counts once.":"Booked after recall means the patient booked within "+(REC&&REC.value?REC.value.attrib_window_days:90)+" days of a recall message."} It is not proof the message caused it.</p></div></div>
       <div class="dv-w5"><div class="dv-card"><div class="dv-head"><h3>Since recall started</h3></div>
       ${cv&&cv.available?`<div class="dv-line"><span>Patients sent a recall</span><b>${num(cv.matured_cohort)}</b></div><div class="dv-line"><span>Booked within ${cv.attrib_window_days} days</span><b>${num(cv.booked_within_window)}<small>${cv.conversion_pct}%</small></b></div>`:'<p class="gempty">Not worked out yet.</p>'}
       <a class="glink" href="/dashboard/analytics#recall">Open recall in Analytics →</a></div></div></div>`;
@@ -381,7 +389,7 @@ function renderDrill(M){
   }
   if(S.stage==="blast"){
     const b=M.blast;
-    box.innerHTML=b?`<div class="dv-card"><div class="dv-line"><span>Messages sent</span><b>${num(b.sent)}</b></div><div class="dv-line"><span>Replied</span><b>${num(b.replied)}<small>${pc(b.replied,b.sent)}</small></b></div><div class="dv-line"><span>Became leads</span><b>${num(b.leads)}</b></div></div>`
+    box.innerHTML=b?`<div class="dv-card"><div class="dv-line"><span>Messages sent</span><b>${b.sent!=null?num(b.sent):"Not recorded"}</b></div><div class="dv-line"><span>Link clicked</span><b>${num(b.clicked)}</b></div><div class="dv-line"><span>Replied</span><b>${b.replied!=null?num(b.replied):"Not counted yet"}</b></div><div class="dv-line"><span>Became leads</span><b>${num(b.leads)}</b></div><p class="dv-note">The blast follow-up Sheet records link clicks, not sends.</p></div>`
       :empty("Blast waves are not in the feed yet. They appear here once the social ledger publishes the follow-up Sheet's counts.");
     return;
   }

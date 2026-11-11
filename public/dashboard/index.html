@@ -546,7 +546,7 @@ function renderGrowth(){
   const sum=k=>f?Object.values(f).reduce((a,c)=>a+(+c[k]||0),0):null;
   const booked=g?g.booked&&g.booked.total:sum("booked"), leads=g?g.leads&&g.leads.total:sum("leads");
   const posts=D.cal&&Array.isArray(D.cal.posts)?D.cal.posts.filter(p=>String(p.date).slice(0,7)===t):[];
-  const rv=D.recall&&D.recall.value&&D.recall.value.mtd;
+  const rv=g?{patients_converted:(g.booked&&g.booked.by_source||{}).recall}:D.recall&&D.recall.value&&D.recall.value.mtd;
   $("#growm").textContent="this month";
   const s=el("div","stats");
   s.appendChild(stat("Booked",booked==null?"—":booked,booked?"ok":""));
