@@ -25,6 +25,7 @@ const WisdomToothSurgery = () => {
             eyebrow="Oral Surgery"
             title="Wisdom Tooth Surgery"
             titleAccent="Surgery"
+            numbers={["2,000+ wisdom teeth removed, easing pain, swelling and crowding at the back of the mouth"]}
             subline="Wisdom Tooth Surgery in Petaling Jaya"
             lead="Safe removal of impacted wisdom teeth in Petaling Jaya. Expert care for painful or problematic third molars. Book your consultation today."
             scienceTitle="The Science & Tech"

@@ -25,6 +25,7 @@ const PediatricDentistry = () => {
             eyebrow="Children's Care"
             title="Pediatric Dentistry"
             titleAccent="Dentistry"
+            numbers={["4,000+ children have had their check-ups with us, many since their first tooth"]}
             subline="Pediatric Dentistry in Petaling Jaya"
             lead="Gentle, trauma-free dental care for children from their very first tooth onwards. We focus on prevention, education, and creating positive dental experiences that last a lifetime. Every pediatric check-up at iSmile also includes a basic myofunctional screening to assess breathing patterns and oral posture."
             scienceTitle="Prevention is Key"

@@ -479,7 +479,7 @@ h1 em, h2 em {
    (Blog carries its own identical band; the homepage is excluded
    on purpose — its mosaic and ambient wash already do this job.)
    ============================================================ */
-.about-page, .reviews-page, .contact-page, .faq-page, .join-us-page,
+.about-page, .reviews-page, .contact-page, .faq-page, .careers-page, .careers-job-page, .cd-page, .ct-page,
 .services-landing, .service-hub, .specialty-page, .location-page,
 .dentists-page, .blog-post-page {
   background: linear-gradient(180deg, #F0F8FD 0%, #F5FAFE 320px, rgba(245,250,254,0) 620px);

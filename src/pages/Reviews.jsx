@@ -1,12 +1,13 @@
 import { Helmet } from 'react-helmet-async';
 import React, { useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Star, ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { Star, X } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import Button from '../components/Button';
 import { Reveal } from '../components/Reveal';
 import Style from '../components/Style';
 import reviewStats from '../data/review-stats.json';
+import googleReviews from '../data/google-reviews.json';
 import { CORE_PAGES } from '../data/corePagesSeo';
 import { fillStats } from '../data/serviceSeo';
 import { useBooking } from '../context/BookingContext';
@@ -617,12 +618,12 @@ const ReviewCard = ({ review, tag, onOpen }) => {
         return () => ro.disconnect();
     }, [tag]);
     return (
-        <article className="rv-card">
+        <article className="rv-card" onClick={() => onOpen(review)} style={{ cursor: 'pointer' }}>
             <Stars n={review.rating} />
             <blockquote ref={textRef} className="rv-card-text"><ReviewText review={review} tag={tag} /></blockquote>
             <div className="rv-card-more">
                 {clipped && (
-                    <button type="button" className="rv-more" onClick={() => onOpen(review)} aria-label={`Read the full review by ${review.author}`}>
+                    <button type="button" className="rv-more" onClick={(e) => { e.stopPropagation(); onOpen(review); }} aria-label={`Read the full review by ${review.author}`}>
                         Read more
                     </button>
                 )}
@@ -632,12 +633,246 @@ const ReviewCard = ({ review, tag, onOpen }) => {
     );
 };
 
+// "All" tab: a slow, endless strip of every 5-star Google review that has
+// words (src/data/google-reviews.json, pulled from the Business Profile API,
+// text verbatim). Two rows drift in opposite directions. Motion is a CSS
+// transform loop over a doubled track (seamless at -50%); it pauses on
+// hover, focus, touch, the visible pause button, and whenever the strip is
+// off-screen. Reduced motion gets a plain swipeable row, no loop.
+const MQ_REVIEWS = googleReviews.reviews.map((r) => ({ ...r, rating: 5 }));
+const MQ_ROWS = [
+    MQ_REVIEWS.filter((_, i) => i % 2 === 0),
+    MQ_REVIEWS.filter((_, i) => i % 2 === 1),
+];
+const MQ_PX_PER_SEC = 32;
+const MQ_CARD_STEP = 292; // card width + gap, used only to pace the loop
+
+const MarqueeCard = ({ review, onOpen, hidden }) => {
+    const body = (
+        <>
+            <Stars n={5} size={13} />
+            <p className="mq-text">{review.text}</p>
+            <span className="mq-author">
+                {review.avatar ? (
+                    <img src={review.avatar} alt="" loading="lazy" width={28} height={28} className="rv-avatar" style={{ width: 28, height: 28 }} />
+                ) : (
+                    <InitialsAvatar name={review.author} size={28} />
+                )}
+                <span className="mq-name">{review.author}</span>
+                <GoogleG />
+            </span>
+        </>
+    );
+    return (
+        <button type="button" className="mq-card is-long" onClick={() => onOpen(review)} tabIndex={hidden ? -1 : 0} aria-label={`Read the full review by ${review.author}`}>
+            {body}
+        </button>
+    );
+};
+
+const ReviewMarquee = ({ onOpen }) => {
+    const prefersReducedMotion = useReducedMotion();
+    const wrapRef = useRef(null);
+    const [inView, setInView] = useState(false);
+    const [touchHold, setTouchHold] = useState(false);
+    const touchTimer = useRef(0);
+    useEffect(() => {
+        const el = wrapRef.current;
+        if (!el || typeof IntersectionObserver === 'undefined') { setInView(true); return; }
+        const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), { rootMargin: '80px 0px' });
+        io.observe(el);
+        return () => io.disconnect();
+    }, []);
+    useEffect(() => () => clearTimeout(touchTimer.current), []);
+    const onTouchStart = () => { clearTimeout(touchTimer.current); setTouchHold(true); };
+    const onTouchEnd = () => { clearTimeout(touchTimer.current); touchTimer.current = setTimeout(() => setTouchHold(false), 2500); };
+    const running = !prefersReducedMotion && inView && !touchHold;
+    return (
+        <div className="mq-wrap">
+            <div
+                ref={wrapRef}
+                className={`mq${prefersReducedMotion ? ' is-static' : ''}${running ? '' : ' is-paused'}`}
+                onTouchStart={onTouchStart}
+                onTouchEnd={onTouchEnd}
+                onTouchCancel={onTouchEnd}
+                aria-label={`${MQ_REVIEWS.length} five-star Google reviews`}
+                role="region"
+            >
+                {MQ_ROWS.map((row, ri) => (
+                    <div className="mq-row" key={ri}>
+                        <div
+                            className={`mq-track${ri % 2 ? ' is-reverse' : ''}`}
+                            style={{ '--mq-dur': `${Math.round((row.length * MQ_CARD_STEP) / MQ_PX_PER_SEC)}s` }}
+                        >
+                            {row.map((r, i) => <MarqueeCard key={`a${i}`} review={r} onOpen={onOpen} />)}
+                            {!prefersReducedMotion && (
+                                <div className="mq-dup" aria-hidden="true" inert="">
+                                    {row.map((r, i) => <MarqueeCard key={`b${i}`} review={r} onOpen={onOpen} hidden />)}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+// Topic tabs: the curated cards drift slowly in one endless row (owner,
+// 5 Nov), driven like the homepage dentist strip: one rAF clock moves an
+// offset, the hand can drag it, and a small scrubber underneath shows where
+// the loop is and can be dragged (or arrow-keyed) to move faster, slower or
+// back. Hover, keyboard focus, touch and holding the scrubber all stop it.
+// Off-screen it spends no frames. Reduced motion: a plain swipeable row.
+const CS_PX_PER_SEC = 16;
+
+const CuratedStrip = ({ reviews, tag, onOpen }) => {
+    const prefersReducedMotion = useReducedMotion();
+    const rootRef = useRef(null);
+    const trackRef = useRef(null);
+    const scrubRef = useRef(null);
+    // Enough copies that half the track is wider than any screen, so the loop never shows a gap.
+    const copies = Math.max(1, Math.ceil(8 / reviews.length));
+    useEffect(() => {
+        if (prefersReducedMotion) return;
+        const root = rootRef.current, row = trackRef.current, track = scrubRef.current;
+        if (!root || !row || !track) return;
+        const thumb = track.querySelector('.mosaic-scrub-thumb');
+        let x = 0, raf = null, last = null, lastPct = -1;
+        let hover = false, focus = false, dragging = false, visible = true, touchUntil = 0;
+        const paint = (now) => {
+            raf = requestAnimationFrame(paint);
+            if (last === null) last = now;
+            const dt = Math.min(64, now - last) / 1000;
+            last = now;
+            if (!hover && !focus && !dragging && visible && now > touchUntil) x += CS_PX_PER_SEC * dt;
+            const w = row.scrollWidth / 2;
+            if (!w) return;
+            const m = ((x % w) + w) % w;
+            row.style.transform = `translate3d(${(-m).toFixed(2)}px,0,0)`;
+            const tw = track.clientWidth - thumb.clientWidth;
+            if (tw > 0) thumb.style.transform = `translate3d(${((m / w) * tw).toFixed(2)}px,0,0)`;
+            const p = Math.round((m / w) * 100);
+            if (p !== lastPct) { lastPct = p; track.setAttribute('aria-valuenow', String(p)); }
+        };
+        const io = typeof IntersectionObserver !== 'undefined'
+            ? new IntersectionObserver(([e]) => { visible = e.isIntersecting; }) : null;
+        if (io) io.observe(root);
+
+        let startX = 0, startVal = 0, moved = 0, pid = null;
+        const onDown = (e) => {
+            if (e.button !== undefined && e.button !== 0) return;
+            dragging = true; moved = 0; startX = e.clientX; startVal = x; pid = e.pointerId;
+        };
+        const onMove = (e) => {
+            if (!dragging) return;
+            const dx = e.clientX - startX;
+            if (moved <= 6 && Math.abs(dx) > 6 && root.setPointerCapture && pid !== null) {
+                try { root.setPointerCapture(pid); } catch { /* no-op */ }
+            }
+            moved = Math.max(moved, Math.abs(dx));
+            x = startVal - dx;
+        };
+        const onUp = (e) => {
+            dragging = false;
+            if (e && e.pointerType === 'touch') touchUntil = performance.now() + 2500;
+        };
+        const onClick = (e) => { if (moved > 6) { e.preventDefault(); e.stopPropagation(); } };
+        const onFocusIn = () => { focus = true; root.scrollLeft = 0; };
+        const onFocusOut = (e) => { if (!root.contains(e.relatedTarget)) focus = false; };
+        const onEnter = (e) => { if (e.pointerType === 'mouse') hover = true; };
+        const onLeave = (e) => { hover = false; if (e.pointerType === 'mouse') dragging = false; };
+        root.addEventListener('pointerdown', onDown);
+        root.addEventListener('pointermove', onMove);
+        root.addEventListener('pointerup', onUp);
+        root.addEventListener('pointercancel', onUp);
+        root.addEventListener('click', onClick, true);
+        root.addEventListener('focusin', onFocusIn);
+        root.addEventListener('focusout', onFocusOut);
+        root.addEventListener('pointerenter', onEnter);
+        root.addEventListener('pointerleave', onLeave);
+
+        // Scrubber: press/drag to move through the loop; arrow keys step a
+        // card; while it has focus the strip stays still.
+        const scrubTo = (clientX) => {
+            const rect = track.getBoundingClientRect();
+            const tw = track.clientWidth - thumb.clientWidth;
+            const w = row.scrollWidth / 2;
+            if (tw <= 0 || !w) return;
+            x = Math.min(1, Math.max(0, (clientX - rect.left - thumb.clientWidth / 2) / tw)) * w;
+        };
+        const sDown = (e) => {
+            dragging = true; e.preventDefault(); scrubTo(e.clientX);
+            const mv = (ev) => scrubTo(ev.clientX);
+            const upf = (ev) => {
+                dragging = false; window.removeEventListener('pointermove', mv);
+                if (ev.pointerType === 'touch') touchUntil = performance.now() + 2500;
+            };
+            window.addEventListener('pointermove', mv);
+            window.addEventListener('pointerup', upf, { once: true });
+        };
+        const sKey = (e) => {
+            const card = row.querySelector('.rv-card');
+            const step = card ? card.offsetWidth + 16 : 300;
+            const w = row.scrollWidth / 2;
+            if (e.key === 'ArrowRight' || e.key === 'ArrowUp') x += step;
+            else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') x -= step;
+            else if (e.key === 'Home') x = 0;
+            else if (e.key === 'End') x = w - step;
+            else return;
+            e.preventDefault();
+        };
+        const sFocus = () => { focus = true; };
+        const sBlur = () => { focus = false; };
+        track.addEventListener('pointerdown', sDown);
+        track.addEventListener('keydown', sKey);
+        track.addEventListener('focus', sFocus);
+        track.addEventListener('blur', sBlur);
+        track.addEventListener('pointerenter', onEnter);
+        track.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') hover = false; });
+
+        raf = requestAnimationFrame(paint);
+        return () => { if (raf !== null) cancelAnimationFrame(raf); if (io) io.disconnect(); };
+    }, [prefersReducedMotion]);
+    return (
+        <div className="cs-wrap">
+            <div ref={rootRef} className={`rv-rail cs${prefersReducedMotion ? ' is-static' : ''}`} data-tag={tag}>
+                <div ref={trackRef} className="cs-track">
+                    {Array.from({ length: prefersReducedMotion ? 1 : copies * 2 }, (_, c) => (
+                        c === 0
+                            ? reviews.map((review) => <ReviewCard key={review.author} review={review} tag={tag} onOpen={onOpen} />)
+                            : (
+                                <div key={c} className="cs-ghost" aria-hidden="true" inert="">
+                                    {reviews.map((review) => <ReviewCard key={review.author} review={review} tag={tag} onOpen={onOpen} />)}
+                                </div>
+                            )
+                    ))}
+                </div>
+            </div>
+            {!prefersReducedMotion && (
+                <div
+                    ref={scrubRef}
+                    className="mosaic-scrub"
+                    role="slider"
+                    tabIndex={0}
+                    aria-label="Move through the reviews. Holding or focusing this stops the motion."
+                    aria-valuemin={0}
+                    aria-valuemax={100}
+                    aria-valuenow={0}
+                    aria-valuetext="Position in the reviews"
+                >
+                    <span className="mosaic-scrub-thumb" />
+                </div>
+            )}
+        </div>
+    );
+};
+
 const Reviews = () => {
     // Meta comes from src/data/corePagesSeo.js, the same source the build
     // uses to prerender this page — so the two cannot drift.
     const seo = CORE_PAGES.find(p => p.path === 'reviews');
     const uid = useId();
-    const prefersReducedMotion = useReducedMotion();
 
     const [groupId, setGroupId] = useState(GROUPS[0].id);
     const [openReview, setOpenReview] = useState(null);
@@ -648,49 +883,9 @@ const Reviews = () => {
         const g = GROUPS.find((x) => x.id === groupId) || GROUPS[0];
         return { ...g, reviews: orderForTag(g.reviews, g.id, seed) };
     }, [groupId, seed]);
-    const total = group.reviews.length;
-
-    // Rail position -> "first–last of total", read from the real scroll offset.
-    const railRef = useRef(null);
-    const [range, setRange] = useState({ first: 1, last: 1 });
-    const measure = useCallback(() => {
-        const rail = railRef.current;
-        if (!rail) return;
-        const cards = rail.querySelectorAll('.rv-card');
-        if (!cards.length) return;
-        const step = cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : cards[0].offsetWidth;
-        const first = Math.min(cards.length - 1, Math.max(0, Math.round(rail.scrollLeft / step)));
-        const perView = Math.max(1, Math.floor((rail.clientWidth + (step - cards[0].offsetWidth)) / step));
-        const last = Math.min(cards.length, first + perView);
-        setRange((r) => (r.first === first + 1 && r.last === last) ? r : { first: first + 1, last });
-    }, []);
-
-    useEffect(() => {
-        const rail = railRef.current;
-        if (!rail) return;
-        let raf = 0;
-        const onScroll = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(measure); };
-        rail.addEventListener('scroll', onScroll, { passive: true });
-        const ro = new ResizeObserver(measure);
-        ro.observe(rail);
-        measure();
-        return () => { rail.removeEventListener('scroll', onScroll); ro.disconnect(); cancelAnimationFrame(raf); };
-    }, [measure, groupId]);
-
     const pickGroup = (id) => {
         if (id === groupId) return;
         setGroupId(id);
-        const rail = railRef.current;
-        if (rail) rail.scrollTo({ left: 0, behavior: 'auto' });
-    };
-
-    const scrollByCards = (dirStep) => {
-        const rail = railRef.current;
-        if (!rail) return;
-        const cards = rail.querySelectorAll('.rv-card');
-        const step = cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : rail.clientWidth;
-        const perView = Math.max(1, Math.round(rail.clientWidth / step));
-        rail.scrollBy({ left: dirStep * step * perView, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
     };
 
     // Left/right arrow keys move between tabs when the tablist has focus.
@@ -702,9 +897,6 @@ const Reviews = () => {
         pickGroup(GROUPS[next].id);
         tabRefs.current[next]?.focus();
     };
-
-    const atStart = range.first <= 1;
-    const atEnd = range.last >= total;
 
     return (
         <div className="reviews-page">
@@ -768,31 +960,11 @@ const Reviews = () => {
                 </div>
 
                 <div className="rv-panel" role="tabpanel" id={`${uid}-panel`} aria-labelledby={`${uid}-tab-${groupId}`}>
-                    <div className="rv-summary">
-                        <p className="rv-summary-rating">
-                            <Stars n={5} size={14} />
-                            <span><strong>{reviewStats.rating}</strong> on Google · {reviewStats.count} reviews</span>
-                        </p>
-                        <div className="rv-summary-nav">
-                            <p className="rv-range" aria-live="polite">
-                                <span className="rv-range-now">{range.first}{range.last > range.first ? `–${range.last}` : ''}</span> of {total}
-                            </p>
-                            <button type="button" className="rv-arrow" onClick={() => scrollByCards(-1)} aria-label="Previous reviews" disabled={atStart}>
-                                <ChevronLeft size={22} strokeWidth={1.75} aria-hidden="true" />
-                            </button>
-                            <button type="button" className="rv-arrow" onClick={() => scrollByCards(1)} aria-label="Next reviews" disabled={atEnd}>
-                                <ChevronRight size={22} strokeWidth={1.75} aria-hidden="true" />
-                            </button>
-                        </div>
-                    </div>
-
-                    <div className="rv-rail-wrap">
-                        <div ref={railRef} className="rv-rail" key={groupId} data-tag={groupId}>
-                            {group.reviews.map((review) => (
-                                <ReviewCard key={review.author} review={review} tag={groupId} onOpen={setOpenReview} />
-                            ))}
-                        </div>
-                    </div>
+                    {groupId === 'all' ? (
+                        <ReviewMarquee onOpen={setOpenReview} />
+                    ) : (
+                        <CuratedStrip key={groupId} reviews={group.reviews} tag={groupId} onOpen={setOpenReview} />
+                    )}
                 </div>
 
                 <div className="reviews-closing">
@@ -893,6 +1065,62 @@ const Reviews = () => {
                 .reviews-page .rv-author-text strong { color: var(--color-text-charcoal); font-family: var(--font-heading); font-size: .94rem; }
                 .reviews-page .rv-type { display: inline-flex; align-items: center; gap: 5px; margin-top: 2px; color: var(--color-text-grey); font-size: .78rem; }
 
+                .reviews-page .rv-summary { justify-content: flex-end; }
+                /* "All": the marquee strip. Compact hairline cards, transform-only loop. */
+                .reviews-page .mq-card:focus-visible { outline: 2px solid var(--color-primary-teal); outline-offset: 2px; }
+                .reviews-page .mq { margin: 0 -20px; display: flex; flex-direction: column; gap: 14px; overflow: hidden;
+                    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+                .reviews-page .mq-row { overflow: hidden; padding: 3px 0; }
+                .reviews-page .mq-track, .reviews-page .mq-dup { display: flex; gap: 14px; width: max-content; }
+                /* trailing gap on the track so -50% lands exactly on the copy's first card */
+                .reviews-page .mq-track { padding-right: 14px; }
+                .reviews-page .mq-track { animation: mq-left var(--mq-dur, 300s) linear infinite; will-change: transform; }
+                .reviews-page .mq-track.is-reverse { animation-name: mq-right; }
+                .reviews-page .mq.is-paused .mq-track,
+                .reviews-page .mq:hover .mq-track,
+                .reviews-page .mq:focus-within .mq-track { animation-play-state: paused; }
+                @keyframes mq-left { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
+                @keyframes mq-right { from { transform: translate3d(-50%,0,0); } to { transform: translate3d(0,0,0); } }
+                .reviews-page .mq.is-static { -webkit-mask-image: none; mask-image: none; }
+                .reviews-page .mq.is-static .mq-row { overflow-x: auto; scrollbar-width: none; padding: 3px 20px; }
+                .reviews-page .mq.is-static .mq-track { animation: none; }
+                .reviews-page .mq-card {
+                    flex: 0 0 278px; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px;
+                    height: 168px; padding: 16px 18px; text-align: left; font: inherit;
+                    background: var(--color-bg-white); border: 1px solid var(--hairline); border-radius: 18px; color: inherit;
+                }
+                .reviews-page .mq-card.is-long { cursor: pointer; transition: border-color 180ms var(--ease-slow); }
+                .reviews-page .mq-card.is-long:hover { border-color: var(--color-primary-teal); }
+                .reviews-page .mq-text { margin: 0; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden;
+                    color: var(--color-text-slate); font-size: .9rem; line-height: 1.5; }
+                .reviews-page .mq-author { display: flex; align-items: center; gap: 9px; margin-top: auto; min-width: 0; }
+                .reviews-page .mq-name { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+                    color: var(--color-text-charcoal); font-family: var(--font-heading); font-weight: 600; font-size: .86rem; }
+                @media (max-width: 1024px) { .reviews-page .mq { margin: 0 -16px; } .reviews-page .mq.is-static .mq-row { padding: 3px 16px; } }
+                @media (max-width: 760px) { .reviews-page .mq-card { flex-basis: 248px; height: 160px; padding: 14px 16px; } }
+                /* Hover a card: the rest fade back, that one takes the accent. Colour/opacity only. */
+                .reviews-page .mq-card, .reviews-page .cs .rv-card { transition: opacity 180ms var(--ease-slow), border-color 180ms var(--ease-slow); }
+                .reviews-page .mq:hover .mq-card:not(:hover),
+                .reviews-page .cs:hover .rv-card:not(:hover) { opacity: .4; }
+                .reviews-page .mq-card:hover, .reviews-page .cs .rv-card:hover { border-color: var(--color-primary-teal); }
+                .reviews-page .mq-card:hover .mq-name, .reviews-page .cs .rv-card:hover .rv-author-text strong { color: var(--color-primary-deep); }
+                /* Topic strip */
+                .reviews-page .cs-wrap { margin-top: 32px; }
+                .reviews-page .rv-rail.cs { display: block; height: auto; padding: 3px 0; overflow: hidden; scroll-snap-type: none; touch-action: pan-y; cursor: grab;
+                    -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+                .reviews-page .cs-ghost { display: contents; }
+                .reviews-page .cs-track { display: flex; gap: var(--rv-gap); width: max-content; }
+                .reviews-page .cs-track { padding-right: var(--rv-gap); will-change: transform; }
+                .reviews-page .cs .rv-card { flex: 0 0 340px; }
+                .reviews-page .rv-rail.cs.is-static { overflow-x: auto; cursor: auto; padding: 3px 20px; -webkit-mask-image: none; mask-image: none; }
+                .reviews-page .cs-wrap .mosaic-scrub { position: relative; margin: 22px auto 0; width: 140px; height: 14px; cursor: pointer; touch-action: none; border-radius: 99px; }
+                .reviews-page .cs-wrap .mosaic-scrub::before { content: ''; position: absolute; left: 0; right: 0; top: 6px; height: 3px; border-radius: 99px; background: rgba(16,42,51,0.10); }
+                .reviews-page .cs-wrap .mosaic-scrub::after { content: ''; position: absolute; inset: -15px 0; } /* 44px tap target */
+                .reviews-page .cs-wrap .mosaic-scrub-thumb { position: absolute; top: 5px; left: 0; width: 34px; height: 5px; border-radius: 99px; background: rgba(0,110,140,0.45); transition: background .25s ease; }
+                .reviews-page .cs-wrap .mosaic-scrub:hover .mosaic-scrub-thumb, .reviews-page .cs-wrap .mosaic-scrub:focus-visible .mosaic-scrub-thumb { background: var(--color-primary-deep); }
+                .reviews-page .cs-wrap .mosaic-scrub:focus-visible { outline: 2px solid var(--color-primary-teal); outline-offset: 6px; }
+                @media (max-width: 1024px) { .reviews-page .rv-rail.cs { margin: 0 -16px; } .reviews-page .rv-rail.cs.is-static { padding: 3px 16px; } }
+                @media (max-width: 760px) { .reviews-page .cs-wrap { margin-top: 24px; } .reviews-page .cs .rv-card { flex-basis: 290px; padding: 22px 20px; border-radius: 18px; } }
                 .reviews-page .reviews-closing { padding: var(--space-section-lg) 0 80px; text-align: center; }
                 .reviews-page .reviews-closing .statement { max-width: 680px; margin: 0 auto 30px; }
                 .reviews-page .reviews-closing a { display: inline-block; }

@@ -76,8 +76,9 @@ const dentists = [
     },
     {
         slug: 'dr-azelia-lau',
+        seoName: 'Dr. Azelia Lau', // page title keeps the full name (SEO: no title changes within 21 days)
         name: 'Dr. Azelia Lau Yiling',
-        knownAs: 'Dr. Azelia Lau',
+        knownAs: 'Dr. Azelia',
         role: 'Dental Surgeon',
         years: '17 years',
         qualifications: 'BDS, Nizhny Novgorod State Medical Academy',
@@ -88,8 +89,9 @@ const dentists = [
     },
     {
         slug: 'dr-priscilla-chan',
+        seoName: 'Dr. Priscilla Chan', // page title keeps the full name (SEO: no title changes within 21 days)
         name: 'Dr. Priscilla Chan Mei Shen',
-        knownAs: 'Dr. Priscilla Chan',
+        knownAs: 'Dr. Priscilla',
         role: 'Dental Surgeon',
         years: '23 years',
         qualifications: 'BDS, University of Malaya',
@@ -99,9 +101,24 @@ const dentists = [
         keyCompetency: 'General Dentistry, Paediatric Dental Care',
     },
     {
+        slug: 'dr-lau-jia-yin',
+        seoName: 'Dr. Lau Jia Yin', // page title keeps the full name (SEO: no title changes within 21 days)
+        name: 'Dr. Lau Jia Yin',
+        knownAs: 'Dr. Lau',
+        role: 'Dental Surgeon',
+        years: '8 years',
+        qualifications: 'DDS, MAHSA University',
+        bio: 'Passionate about looking beyond teeth to provide personalised dental care that supports healthier breathing, better oral health, proper growth and development, and confident smiles.',
+        languages: 'English, Chinese, Malay',
+        img: '/images/doctors/dr_Lau Jia Yin.jpg',
+        initials: 'JY',
+        keyCompetency: 'General Dentistry, Airway-Focused Dentistry, Early Orthodontic Treatment for Children',
+    },
+    {
         slug: 'dr-joan-lim',
+        seoName: 'Dr. Joan Lim', // page title keeps the full name (SEO: no title changes within 21 days)
         name: 'Dr Lim Zhi Yin Joan',
-        knownAs: 'Dr. Joan Lim',
+        knownAs: 'Dr. Joan',
         role: 'Dental Surgeon',
         years: '19 years',
         qualifications: 'BDS (Malaya), Cert. Advanced Restorative & Aesthetic Dentistry (UCLA), MFDS (RCS Edinburgh)',
@@ -127,8 +144,8 @@ const dentists = [
 /** Page metadata for a dentist. Kept here so the build and the app agree. */
 export function dentistSeo(d) {
     return {
-        title: `${d.knownAs} — Dentist in Damansara Jaya, PJ | iSmile Dental Clinic`,
-        description: `${d.knownAs} is a dental surgeon at iSmile Dental Clinic in Damansara Jaya, Petaling Jaya, with ${d.years} in practice. ${d.qualifications}. Call or WhatsApp to book.`,
+        title: `${d.seoName || d.knownAs} — Dentist in Damansara Jaya, PJ | iSmile Dental Clinic`,
+        description: `${d.seoName || d.knownAs} is a dental surgeon at iSmile Dental Clinic in Damansara Jaya, Petaling Jaya, with ${d.years} in practice. ${d.qualifications}. Call or WhatsApp to book.`,
     };
 }
 

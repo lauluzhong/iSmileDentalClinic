@@ -1,5 +1,5 @@
 import React, { useEffect, lazy, Suspense } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Layout from './components/Layout';
 import PageTransition from './components/PageTransition';
@@ -9,24 +9,28 @@ import ClarityAnalytics from './components/Analytics/ClarityAnalytics';
 import Loader from './components/Loader';
 import { initAttribution, enrichEvent } from './lib/attribution';
 import { endFirstPaint } from './lib/firstPaint';
+import { pageLoaders, installRoutePrefetch } from './lib/routeChunks';
 
 // Primary pages (synchronous)
 import Home from './pages/Home';
 
-// Remaining primary pages (lazy-loaded to reduce initial bundle weight)
-const About = lazy(() => import('./pages/About'));
-const Services = lazy(() => import('./pages/Services'));
-
-// Secondary pages (lazy-loaded)
-const Reviews = lazy(() => import('./pages/Reviews'));
-const Blog = lazy(() => import('./pages/Blog'));
-const BlogPost = lazy(() => import('./pages/BlogPost'));
-const Contact = lazy(() => import('./pages/Contact'));
-const FAQ = lazy(() => import('./pages/FAQ'));
-const Recall = lazy(() => import('./pages/Recall'));
-const JoinUs = lazy(() => import('./pages/JoinUs'));
-const Dentists = lazy(() => import('./pages/Dentists'));
-const NotFound = lazy(() => import('./pages/NotFound'));
+// Every other page is lazy-loaded to keep the initial bundle light. The
+// loaders live in lib/routeChunks.js so link hover/idle prefetch warms the
+// exact same chunks.
+const About = lazy(pageLoaders.about);
+const Services = lazy(pageLoaders.services);
+const Reviews = lazy(pageLoaders.reviews);
+const Blog = lazy(pageLoaders.blog);
+const BlogPost = lazy(pageLoaders.blogPost);
+const Contact = lazy(pageLoaders.contact);
+const FAQ = lazy(pageLoaders.faq);
+const Recall = lazy(pageLoaders.recall);
+const Careers = lazy(pageLoaders.careers);
+const CareersDentists = lazy(pageLoaders.careersDentists);
+const CareersTeam = lazy(pageLoaders.careersTeam);
+const CareersJob = lazy(pageLoaders.careersJob);
+const Dentists = lazy(pageLoaders.dentists);
+const NotFound = lazy(pageLoaders.notFound);
 
 function App() {
   const location = useLocation();
@@ -41,6 +45,10 @@ function App() {
   useEffect(() => {
     initAttribution();
   }, []);
+
+  // Warm lazy page chunks on link intent and on idle, so the route loading
+  // line (Loader.jsx) rarely has to appear.
+  useEffect(() => installRoutePrefetch(), []);
 
   // Global WhatsApp click tracker — catches ALL wa.me links site-wide
   useEffect(() => {
@@ -85,7 +93,12 @@ function App() {
           <Route path="/contact" element={<PageTransition><Suspense fallback={<Loader />}><Contact /></Suspense></PageTransition>} />
           <Route path="/faq" element={<PageTransition><Suspense fallback={<Loader />}><FAQ /></Suspense></PageTransition>} />
           <Route path="/recall" element={<PageTransition><Suspense fallback={<Loader />}><Recall /></Suspense></PageTransition>} />
-          <Route path="/join-us" element={<PageTransition><Suspense fallback={<Loader />}><JoinUs /></Suspense></PageTransition>} />
+          {/* /join-us moved into the Careers hub (5 Nov 2026); vercel.json 301s it too. */}
+          <Route path="/join-us" element={<Navigate to="/careers/dentists" replace />} />
+          <Route path="/careers" element={<PageTransition><Suspense fallback={<Loader />}><Careers /></Suspense></PageTransition>} />
+          <Route path="/careers/dentists" element={<PageTransition><Suspense fallback={<Loader />}><CareersDentists /></Suspense></PageTransition>} />
+          <Route path="/careers/team" element={<PageTransition><Suspense fallback={<Loader />}><CareersTeam /></Suspense></PageTransition>} />
+          <Route path="/careers/:slug" element={<PageTransition><Suspense fallback={<Loader />}><CareersJob /></Suspense></PageTransition>} />
           <Route path="*" element={<PageTransition><Suspense fallback={<Loader />}><NotFound /></Suspense></PageTransition>} />
         </Routes>
       </AnimatePresence>

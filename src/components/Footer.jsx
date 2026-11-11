@@ -71,7 +71,7 @@ const Footer = () => {
                             </picture>
                         </Link>
                         <p className="footer-desc">
-                            We are ready to help you smile with confidence. At iSmile Dental Clinic, we are dedicated to providing comprehensive dental care for the entire family.
+                            We are dedicated to providing comprehensive dental care for the entire family.
                         </p>
                         
                         {/* Google Reviews Badge */}
@@ -104,7 +104,8 @@ const Footer = () => {
                             <li><Link to="/reviews" onClick={(e) => { if (location.pathname === '/reviews') { e.preventDefault(); scrollToTop(); } }}>Reviews</Link></li>
                             <li><Link to="/blog" onClick={(e) => { if (location.pathname === '/blog') { e.preventDefault(); scrollToTop(); } }}>Learning Centre</Link></li>
                             <li><Link to="/faq" onClick={(e) => { if (location.pathname === '/faq') { e.preventDefault(); scrollToTop(); } }}>FAQs</Link></li>
-                            <li><Link to="/join-us" onClick={(e) => { if (location.pathname === '/join-us') { e.preventDefault(); scrollToTop(); } }}>Join Our Team</Link></li>
+                            <li><Link to="/careers" onClick={(e) => { if (location.pathname === '/careers') { e.preventDefault(); scrollToTop(); } }}>Careers</Link></li>
+                            <li><Link to="/careers/dentists" onClick={(e) => { if (location.pathname === '/careers/dentists') { e.preventDefault(); scrollToTop(); } }}>Practise at iSmile</Link></li>
                             <li><Link to="/services">Full Service Directory</Link></li>
                         </ul>
                     </div>
@@ -120,7 +121,7 @@ const Footer = () => {
                                 <p>75 & 75A, Jalan SS 22/23, Damansara Jaya, 47400 Petaling Jaya, Selangor, Malaysia</p>
                             </div>
                             <div className="direction-buttons">
-                                <Button className="direction-btn" data-analytics-click="footer-maps" data-analytics-label="google-maps" onClick={() => window.open('https://maps.app.goo.gl/yt8MxXDpDxXgXqre6', '_blank')}>
+                                <Button className="direction-btn" data-analytics-click="footer-maps" data-analytics-label="google-maps" onClick={() => window.open('https://www.google.com/maps/dir/?api=1&destination=iSmile%20Dental%20Clinic%2C%2075%20Jalan%20SS%2022%2F23%2C%20Damansara%20Jaya&destination_place_id=ChIJMyz-_jZJzDERBTVNqS_uGzg', '_blank')}>
                                     <img src="/images/google-maps.png" alt="Maps" className="btn-icon" loading="lazy" width="18" height="18" /> Google
                                 </Button>
                                 <Button className="direction-btn" data-analytics-click="footer-maps" data-analytics-label="waze" onClick={() => window.open('https://ul.waze.com/ul?place=ChIJMyz-_jZJzDERBTVNqS_uGzg&ll=3.12583430%2C101.61623380&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location', '_blank')}>

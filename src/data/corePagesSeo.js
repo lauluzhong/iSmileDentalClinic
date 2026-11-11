@@ -97,7 +97,32 @@ export const CORE_PAGES = [
     listsBlogIndex: true,
   },
   {
-    path: 'join-us',
+    path: 'careers',
+    title: "Careers at iSmile Dental Clinic — Jobs in Petaling Jaya",
+    description: "Work at iSmile Dental Clinic in Damansara Jaya, PJ. A family dental clinic since 2006, run by family people. Two ways to join: dentists, and team roles such as front desk, Dental Surgery Assistant and marketing. Read the role, apply with your CV.",
+    h1: "Work at iSmile",
+    intro: "iSmile Dental Clinic is a family dental clinic in Damansara Jaya, Petaling Jaya, caring for children, teenagers, adults and seniors since 2006. Most of us are parents ourselves, and we treat every patient the way we would want our own family treated. There are two ways to join us: dentists have their own page, and team roles are listed here, each with its full description and an application form.",
+    facts: [
+      "A family clinic since 2006, caring for the same Petaling Jaya families across generations",
+      "A calm, respectful and professional experience for every patient, and for the team",
+      "Family values, by families for families, constantly innovating with digital workflows, and a place for your long term",
+      "Dental practitioners: see the Practise at iSmile page",
+    ],
+  },
+  {
+    path: 'careers/team',
+    title: "Team Roles at iSmile Dental Clinic — Petaling Jaya",
+    description: "Front desk, Dental Surgery Assistant, marketing and other clinic roles at iSmile Dental Clinic, Damansara Jaya, PJ. Read the full description and apply with your CV.",
+    h1: "Team roles",
+    intro: "Front desk, Dental Surgery Assistant, marketing and the other roles that keep a family clinic running. Every role at iSmile Dental Clinic in Damansara Jaya, Petaling Jaya has a written description. Read it, then apply with your CV. If no listed role fits, you can still send us your CV.",
+    facts: [
+      "Each open role has its own page with the full description and an application form",
+      "No listed role fits? Send your CV anyway and we keep good applications on file for the next opening",
+      "Dental practitioners: see the Practise at iSmile page",
+    ],
+  },
+  {
+    path: 'careers/dentists',
     title: "Practise at iSmile — Dental Practitioners | Petaling Jaya",
     description: "Dental practitioners: iSmile Dental Clinic in Damansara Jaya, PJ welcomes expressions of interest — an established family patient base and a safe environment to practise, where competency and compassion meet.",
     h1: "Practise at iSmile",
@@ -125,7 +150,7 @@ export const CORE_PAGES = [
 export const HOME_PAGE = {
   h1: "Dental care for every generation",
   eyebrow: "A family practice in Petaling Jaya · Est. 2006",
-  intro: "From a child's first visit to a grandparent's new smile, iSmile is the dentist whole families stay with. Honest advice, gentle hands, and care that's looked after Petaling Jaya households for nearly two decades.",
+  intro: "From a child's first visit to a grandparent's new smile, iSmile has been the Petaling Jaya dentist whole families stay with for 20 years.",
   trust: "Rated ${RATING}★ on Google from ${COUNT} reviews · 20+ years of trusted care",
   hero: {
     alt: "Three generations of a family smiling together at iSmile Dental Clinic",

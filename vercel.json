@@ -1,6 +1,16 @@
 {
   "redirects": [
     {
+      "source": "/join-us",
+      "destination": "/careers/dentists",
+      "permanent": true
+    },
+    {
+      "source": "/join-us/",
+      "destination": "/careers/dentists",
+      "permanent": true
+    },
+    {
       "source": "/2015/:path*",
       "destination": "/",
       "permanent": true
@@ -122,7 +132,7 @@
       ]
     },
     {
-      "source": "/favicon.png",
+      "source": "/favicon.(png|ico)",
       "headers": [
         {
           "key": "Cache-Control",

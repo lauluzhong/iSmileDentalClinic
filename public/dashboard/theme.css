@@ -1,46 +1,287 @@
-/* iSmile dashboard — shared light/dark theme (owner, 18 Sep 2026).
-   Each page keeps its own :root palette (the dark default). This file adds
-   the tokens pages use in place of hard-coded colours, and the light
-   overrides. html[data-theme] (0,1,1) outranks each page's :root (0,1,0),
-   so load order does not matter. theme.js sets the attribute before paint. */
+/* iSmile dashboard — shared theme (redesign 6 Nov 2026).
+   Look: soft grey canvas, white borderless cards, one brand-colour hero card
+   per page, pill navigation, hatched "what's left" bars. Colours follow the
+   locum tool v2. Each page still carries its own :root palette for the token
+   NAMES; this file sets the VALUES. html[data-theme] (0,1,1) outranks a
+   page's :root (0,1,0), so load order does not matter. theme.js sets the
+   attribute before first paint (stored choice, else the system setting). */
 
-:root{
-  /* rgb triplets for rgba(var(--x),alpha) */
-  --p1rgb:69,196,255; --p2rgb:177,149,255; --p3rgb:63,221,160;
-  --fhrrgb:240,177,82; --ffinrgb:239,126,147;
-  --okrgb:86,194,113; --warnrgb:245,184,74; --badrgb:255,107,107;
-  --bgrgb:10,16,30; --panelrgb:16,27,48; --panel2rgb:20,33,56;
-  --linergb:34,50,82; --mutrgb:147,165,196; --dimrgb:94,113,150;
-  --scrimrgb:4,8,16; --shadowrgb:0,0,0;
-  --nodergb:169,205,255;   /* the orb's resting nodes */
-  /* named in-between shades the pages used as literals */
-  --track:#1B2A47; --line-hi:#3A5382; --line-2:#2C4066; --deep:#0D1526;
-  --orange:#FF9052; --gold-soft:#F7CE8A; --bad-soft:#FFB3B3;
-  --teal:#4FB3D1; --teal2:#00A0C6;
-  color-scheme:dark;
+html[data-theme]{
+  --disp:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --code:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --r-card:20px; --r-hero:24px; --r-in:14px;
+  --radius:14px; --radius-lg:20px;
 }
 
 html[data-theme="light"]{
-  --bg:#F2F5F9; --panel:#FFFFFF; --panel2:#F5F7FB; --line:#DCE3ED;
-  --ink:#0E1A2C; --mut:#4B5B76; --dim:#7C8AA3;
-  --p1:#0A7DBF; --p2:#6B4BD6; --p3:#0B8F63; --fhr:#A86A0C; --ffin:#C23B5A;
-  --ok:#23873F; --warn:#A86A00; --bad:#CC3333;
+  --bg:#EEF0F3; --panel:#FFFFFF; --panel2:#F6F7F9; --line:#E3E6EA;
+  --ink:#14171C; --mut:#5F6672; --dim:#6F7682;
+  --brand:#0B7FC0; --brand2:#075F93; --brand-soft:#E4F2FB; --brand-tint:#D9ECF8;
+  --p1:#0B7FC0; --p2:#4B46B8; --p3:#0E8F7E; --fhr:#A86A00; --ffin:#B83A5E;
+  --ok:#1F8A4C; --warn:#A86A00; --bad:#B0332B;
+  --ok-soft:#E2F4EA; --warn-soft:#FCF0D7; --bad-soft-bg:#FBE6E4;
 
-  --p1rgb:10,125,191; --p2rgb:107,75,214; --p3rgb:11,143,99;
-  --fhrrgb:168,106,12; --ffinrgb:194,59,90;
-  --okrgb:35,135,63; --warnrgb:168,106,0; --badrgb:204,51,51;
-  --bgrgb:242,245,249; --panelrgb:255,255,255; --panel2rgb:245,247,251;
-  --linergb:160,174,198; --mutrgb:75,91,118; --dimrgb:124,138,163;
-  --scrimrgb:15,23,42; --shadowrgb:15,23,42;
-  --nodergb:40,86,150;
+  --p1rgb:11,127,192; --p2rgb:75,70,184; --p3rgb:14,143,126;
+  --fhrrgb:168,106,0; --ffinrgb:184,58,94;
+  --okrgb:31,138,76; --warnrgb:168,106,0; --badrgb:176,51,43;
+  --bgrgb:238,240,243; --panelrgb:255,255,255; --panel2rgb:246,247,249;
+  --linergb:196,202,210; --mutrgb:95,102,114; --dimrgb:111,118,130;
+  --scrimrgb:20,23,28; --shadowrgb:20,23,28;
+  --nodergb:11,95,147;
 
-  --track:#E4E9F1; --line-hi:#AEBBD0; --line-2:#C8D1DF; --deep:#EDF1F6;
-  --orange:#C2560F; --gold-soft:#8A5A00; --bad-soft:#B02A2A;
+  --hatch:rgba(20,23,28,.13);
+  --line-hi:#B9C0CA; --line-2:#CDD3DB; --deep:#FFFFFF;
+  --orange:#B5560F; --gold-soft:#8A5A00; --bad-soft:#B0332B;
   --teal:#0E86A8; --teal2:#00718D;
+  --sh:0 10px 28px rgba(20,23,28,.08); --sh-pop:0 18px 48px rgba(20,23,28,.18);
   color-scheme:light;
 }
-html[data-theme="light"] ::selection{background:rgba(var(--p1rgb),.18)}
 
-/* the switch itself, styled to sit inside any page's nav */
-.theme-tog{cursor:pointer;user-select:none}
-.theme-tog .ico{display:inline-block;margin-right:5px;font-size:11px;line-height:1}
+html[data-theme="dark"]{
+  --bg:#0F1115; --panel:#191C22; --panel2:#20242B; --line:#2A2F37;
+  --ink:#ECEEF2; --mut:#9AA1AD; --dim:#8A919D;
+  --brand:#2B9BE0; --brand2:#11669C; --brand-soft:#15293A; --brand-tint:#16324A;
+  --p1:#4FAEE8; --p2:#A7A3F5; --p3:#5CCBB8; --fhr:#F0BF5C; --ffin:#F08FAB;
+  --ok:#6FD08F; --warn:#F0BF5C; --bad:#F08A82;
+  --ok-soft:#173322; --warn-soft:#3A2C10; --bad-soft-bg:#3D1C1A;
+
+  --p1rgb:79,174,232; --p2rgb:167,163,245; --p3rgb:92,203,184;
+  --fhrrgb:240,191,92; --ffinrgb:240,143,171;
+  --okrgb:111,208,143; --warnrgb:240,191,92; --badrgb:240,138,130;
+  --bgrgb:15,17,21; --panelrgb:25,28,34; --panel2rgb:32,36,43;
+  --linergb:58,64,74; --mutrgb:154,161,173; --dimrgb:138,145,157;
+  --scrimrgb:0,0,0; --shadowrgb:0,0,0;
+  --nodergb:190,214,236;
+
+  --hatch:rgba(255,255,255,.16);
+  --line-hi:#4A515C; --line-2:#3A4049; --deep:#0F1115;
+  --orange:#F0A060; --gold-soft:#F0CF8C; --bad-soft:#F5B5AF;
+  --teal:#5CC3DE; --teal2:#3AA9C7;
+  --sh:0 10px 28px rgba(0,0,0,.45); --sh-pop:0 18px 48px rgba(0,0,0,.6);
+  color-scheme:dark;
+}
+
+/* the part of a bar that is not filled yet is hatched (what is left) */
+html[data-theme]{
+  --track:repeating-linear-gradient(-45deg,var(--hatch) 0 2px,transparent 2px 6px) var(--panel2);
+}
+
+/* ---------- canvas ---------- */
+html[data-theme] body{background:var(--bg) !important;background-image:none !important;
+  font-family:var(--body);-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+html[data-theme] *{text-shadow:none !important}
+html[data-theme] ::selection{background:rgba(var(--p1rgb),.2)}
+html[data-theme] :focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+html[data-theme] code,html[data-theme] pre,html[data-theme] kbd,html[data-theme] .code{font-family:var(--code)}
+
+/* ---------- page title ---------- */
+html[data-theme] .brand h1{font-family:var(--disp);font-weight:600;font-size:26px;letter-spacing:-.015em;text-transform:none;line-height:1.15}
+html[data-theme] .brand h1 b{color:var(--brand);font-weight:600}
+html[data-theme] .brand .sub{font-family:var(--body);color:var(--mut);font-size:12.5px;margin-top:3px}
+
+/* ---------- navigation: one white pill, the page you are on is solid ---------- */
+html[data-theme] header>nav,html[data-theme] .topnav{display:flex;flex-wrap:nowrap;align-items:center;gap:2px !important;
+  background:var(--panel);border-radius:999px;padding:4px;justify-content:flex-start;max-width:100%;overflow-x:auto;scrollbar-width:none;justify-self:end}
+html[data-theme] header>nav::-webkit-scrollbar,html[data-theme] .topnav::-webkit-scrollbar{display:none}
+html[data-theme] header>nav a,html[data-theme] .topnav a{font-family:var(--body);font-size:13.5px;font-weight:500;letter-spacing:0;text-transform:none;
+  color:var(--mut) !important;border-radius:999px !important;padding:0 16px !important;margin:0 !important;min-height:40px;
+  display:inline-flex;align-items:center;gap:6px;white-space:nowrap;flex:none;
+  transition:color .18s var(--ease),background-color .18s var(--ease),transform .1s var(--ease)}
+html[data-theme] header>nav a::before,html[data-theme] .topnav a::before,
+html[data-theme] header>nav a::after,html[data-theme] .topnav a::after{content:none !important}
+html[data-theme] header>nav a:hover,html[data-theme] .topnav a:hover{color:var(--ink) !important}
+html[data-theme] header>nav a:active,html[data-theme] .topnav a:active{transform:scale(.97) !important}
+html[data-theme] header>nav a.active,html[data-theme] .topnav a.active{background:var(--ink) !important;color:var(--panel) !important}
+/* light/dark switch: a round button at the end of the pill */
+html[data-theme] .theme-tog{cursor:pointer;user-select:none;width:40px;min-width:40px;padding:0 !important;justify-content:center;
+  font-size:0 !important;background:var(--panel2) !important;margin-left:4px !important}
+html[data-theme] .theme-tog .ico{font-size:15px;line-height:1;margin:0;display:block}
+html[data-theme] .theme-tog:hover{background:var(--brand-soft) !important;color:var(--brand) !important}
+
+/* ---------- the one hero card per page: brand colour, soft light from the top right ---------- */
+html[data-theme] .hero-skin{
+  --panel:transparent; --panel2:rgba(255,255,255,.14); --line:rgba(255,255,255,.22); --line-2:rgba(255,255,255,.3); --line-hi:rgba(255,255,255,.5);
+  --ink:#FFFFFF; --mut:rgba(255,255,255,.86); --dim:rgba(255,255,255,.74);
+  --ok:#BDF3D2; --warn:#FFE3A6; --bad:#FFD3CE; --p1:#FFFFFF; --p2:#FFFFFF; --p3:#FFFFFF; --ac:#FFFFFF;
+  --okrgb:189,243,210; --warnrgb:255,227,166; --badrgb:255,211,206; --p1rgb:255,255,255; --p3rgb:255,255,255; --linergb:255,255,255; --nodergb:255,255,255;
+  --hatch:rgba(255,255,255,.42);
+  --track:repeating-linear-gradient(-45deg,var(--hatch) 0 2px,transparent 2px 6px) rgba(255,255,255,.1);
+  position:relative;overflow:hidden;color:#fff;border:0 !important;border-radius:var(--r-hero) !important;
+  background:linear-gradient(135deg,#0B7FC0,#075F93) !important;
+}
+html[data-theme="dark"] .hero-skin{background:linear-gradient(135deg,#1C86C8,#0D5788) !important}
+html[data-theme] .hero-skin::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(circle at 78% 12%,rgba(255,255,255,.3),rgba(255,255,255,.07) 34%,transparent 62%)}
+html[data-theme] .hero-skin>*{position:relative;z-index:1}
+
+/* ---------- motion ---------- */
+/* cards rise in once when the page opens; rows inside follow one after another.
+   theme.js adds .settled after the first paint of data so a refresh never replays it. */
+@keyframes dashRise{from{opacity:.001;transform:translateY(10px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+html[data-theme]:not(.settled) .rise{animation:dashRise .4s var(--ease) both;animation-delay:calc(var(--i,0) * 55ms)}
+/* light/dark changes with a circle that opens from the switch */
+html.theme-wipe::view-transition-old(root),html.theme-wipe::view-transition-new(root){animation:none;mix-blend-mode:normal}
+html.theme-wipe::view-transition-new(root){z-index:2}
+html.theme-wipe *{view-transition-name:none !important}
+@media(prefers-reduced-motion:reduce){
+  html[data-theme] .rise{animation:none !important}
+}
+
+/* ---------- shared components (every page) ---------- */
+html[data-theme] .wrap{max-width:1440px}
+/* cards: white, no border, no corner tick, no colour strip */
+html[data-theme] :is(.card,.node,.pcard,.kpi,.panel,.tcard,.recon,.flow-card){border:0;border-radius:var(--r-card)}
+html[data-theme] :is(.card,.node,.pcard,.panel,.tcard,.recon)::before{content:none}
+html[data-theme] .kpi::before,html[data-theme] .kpi::after{content:none}
+html[data-theme] :is(.card,.node)>.top{display:none}
+/* card title: plain words, not a coloured code label */
+html[data-theme] .ch{padding:18px 20px 8px;align-items:center}
+html[data-theme] .ch .k{font-family:var(--body);font-size:16px;font-weight:600;letter-spacing:-.005em;text-transform:none;color:var(--ink)}
+html[data-theme] .ch .m{font-size:12px;color:var(--mut);background:var(--panel2);border-radius:999px;padding:3px 10px}
+html[data-theme] .ch .m.bad{color:var(--bad);background:var(--bad-soft-bg)}
+html[data-theme] .cb{padding:4px 20px 20px}
+/* section heading */
+html[data-theme] .secthead{font-family:var(--body);font-size:17px;font-weight:600;letter-spacing:-.005em;text-transform:none;color:var(--ink);margin:30px 0 12px;flex-wrap:wrap}
+html[data-theme] .secthead::after{content:none}
+html[data-theme] .secthead small,html[data-theme] .secthead .m{font-size:12.5px;font-weight:400;letter-spacing:0;color:var(--mut)}
+html[data-theme] .secthead .m.bad{color:var(--bad)}
+html[data-theme] .sec{font-size:11px;letter-spacing:.05em;color:var(--mut);margin:16px 0 8px}
+html[data-theme] .sec::after{background:var(--line)}
+/* small grey labels + big figures */
+html[data-theme] :is(.stat .l,.pl .l,.pl .h,.rrow .l,.kpi .kl){font-size:11px;letter-spacing:.05em;color:var(--mut)}
+html[data-theme] :is(.stat .v,.pl .v){font-family:var(--body);font-size:22px;font-weight:600;letter-spacing:-.015em}
+html[data-theme] .kpi{padding:18px 20px}
+html[data-theme] .kpi .kv{font-family:var(--body);font-size:28px;font-weight:600;letter-spacing:-.02em}
+html[data-theme] .kpi .kl .ki{border-radius:8px}
+/* bars: round, the unfilled part is hatched */
+html[data-theme] :is(.bar,.pbar,.fun .b){height:8px;border-radius:99px}
+html[data-theme] :is(.bar,.pbar,.fun .b) i{border-radius:99px;transition:width .7s var(--ease)}
+/* chips, tags and badges: soft pills, never hatched */
+html[data-theme] :is(.secthead .n,.kind,.tag,.agent-chip,.schip){background:var(--panel2);border-radius:999px;border-color:transparent;padding:2px 9px;letter-spacing:.02em}
+html[data-theme] :is(.badge,.live-badge){border-radius:999px;letter-spacing:.02em;padding:2px 9px}
+/* buttons, tabs, filters: pills; press feedback on everything you can tap */
+html[data-theme] :is(.tab,.btn,.chip){font-family:var(--body);letter-spacing:0;text-transform:none;border-radius:999px;transition:background-color .18s var(--ease),color .18s var(--ease),border-color .18s var(--ease),transform .1s var(--ease)}
+html[data-theme] :is(.tab,.btn,.chip,button,.arow,.srow,.pill,.kc,.tli,.dept,.bar-row,.flow-node):active{transform:scale(.98)}
+html[data-theme] .tabs{background:var(--panel);border-radius:999px;padding:4px;gap:2px;width:fit-content;max-width:100%;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+html[data-theme] .tabs::-webkit-scrollbar{display:none}
+html[data-theme] .tab{border:0;background:transparent;font-size:13px;font-weight:500;min-height:36px;padding:0 16px;color:var(--mut);white-space:nowrap;flex:none}
+html[data-theme] .tab:hover{color:var(--ink)}
+html[data-theme] .tab.active{background:var(--ink);color:var(--panel)}
+html[data-theme] .tab.active .i{color:inherit}
+html[data-theme] .btn{font-size:13px;font-weight:500;min-height:36px;padding:0 16px;border:0;background:var(--panel);color:var(--ink)}
+html[data-theme] .btn:hover{background:var(--brand-soft);color:var(--brand)}
+html[data-theme] :is(select,input[type=search],input[type=date],input[type=text]){border-radius:var(--r-in);background:var(--panel);border:1px solid var(--line);color-scheme:inherit}
+html[data-theme] :is(select,input):focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(var(--p1rgb),.16)}
+/* tables */
+html[data-theme] th{font-size:11px;letter-spacing:.05em;color:var(--mut);font-weight:600}
+html[data-theme] td.num{font-family:var(--body)}
+/* quiet footer */
+html[data-theme] footer{font-family:var(--body);font-size:12px;color:var(--mut);margin-top:32px}
+html[data-theme] footer a{color:var(--brand);border-bottom:0;text-decoration:none}
+@media(max-width:760px){
+  html[data-theme] .brand h1{font-size:22px}
+  html[data-theme] header>nav,html[data-theme] .topnav{justify-self:stretch;width:100%}
+}
+html[data-theme] .hero-skin :is(.chip,.tag,.ch .m){background:rgba(255,255,255,.18);border-color:transparent;color:#fff}
+html[data-theme] .hero-skin .ch .k{color:#fff}
+html[data-theme] .hero-skin a{color:#fff}
+
+/* ---------- one header on every page: title · clock · navigation (6 Nov 2026) ----------
+   Same markup, same height and same position everywhere, so nothing jumps between pages. */
+html{scrollbar-gutter:stable}
+html[data-theme] .wrap{padding-top:20px !important}
+html[data-theme] header{display:grid !important;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) !important;align-items:center !important;
+  gap:18px !important;height:64px;margin:0 0 22px !important;text-align:left !important;justify-items:stretch !important}
+html[data-theme] header .brand{display:block !important;min-width:0;width:auto !important;text-align:left !important;flex:none}
+html[data-theme] header .brand h1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html[data-theme] header .brand .sub{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:3px 0 0 !important}
+html[data-theme] header .clock{text-align:center;white-space:nowrap}
+html[data-theme] header .clock .t{font-family:var(--body);font-size:40px;font-weight:600;letter-spacing:-.02em;line-height:1;color:var(--ink)}
+html[data-theme] header .clock .t small{font-size:17px;color:var(--mut);font-weight:500;margin-left:4px}
+html[data-theme] header .clock .d{font-family:var(--body);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);margin-top:4px}
+html[data-theme] header>nav,html[data-theme] header .topnav{justify-self:end;position:relative}
+html[data-theme] .subbar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin:0 0 8px}
+html[data-theme] .subbar .counts{flex:1 1 320px;margin:0}
+/* below ~1200px the pill drops to its own row; still identical on every page */
+@media(max-width:1199px){
+  html[data-theme] header{grid-template-columns:minmax(0,1fr) auto !important;height:auto;row-gap:14px !important}
+  html[data-theme] header>nav,html[data-theme] header .topnav{grid-column:1/-1;justify-self:start;width:auto;max-width:100%}
+  html[data-theme] header .clock{text-align:right}
+}
+@media(max-width:760px){
+  html[data-theme] .wrap{padding-top:14px !important}
+  html[data-theme] header{margin-bottom:16px !important}
+  html[data-theme] header .brand h1{font-size:22px}
+  html[data-theme] header .clock .t{font-size:26px} html[data-theme] header .clock .t small{font-size:13px}
+  html[data-theme] header .clock .d{font-size:11px;margin-top:2px}
+  html[data-theme] header>nav,html[data-theme] header .topnav{width:100%}
+}
+
+/* ---------- moving between pages ----------
+   The browser cross-fades the page and slides the solid pill to the tab you picked.
+   Title, clock and the pill bar are held in place so only the content changes. */
+@view-transition{navigation:auto}
+html[data-theme] header .brand{view-transition-name:dash-brand}
+html[data-theme] header .clock{view-transition-name:dash-clock}
+html[data-theme] header>nav,html[data-theme] header .topnav{view-transition-name:dash-nav}
+html[data-theme] header>nav a.active,html[data-theme] header .topnav a.active{view-transition-name:dash-pill}
+::view-transition-group(*){animation-duration:.42s;animation-timing-function:cubic-bezier(.16,1,.3,1)}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.28s}
+::view-transition-group(dash-pill){z-index:3}
+::view-transition-old(dash-pill),::view-transition-new(dash-pill){height:100%;width:100%;object-fit:fill}
+@media(prefers-reduced-motion:reduce){@view-transition{navigation:none}}
+
+/* ---------- loading ----------
+   While a card waits for its data it shows grey lines in the shape of the content,
+   and a hairline runs along the top of the page while you move to another page. */
+@keyframes dashShimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+html[data-theme] .sk{display:flex;flex-direction:column;gap:10px;padding:6px 0 2px}
+html[data-theme] .sk i{display:block;height:12px;border-radius:99px;
+  background:linear-gradient(90deg,var(--panel2) 25%,var(--line) 50%,var(--panel2) 75%);background-size:200% 100%;animation:dashShimmer 1.4s linear infinite}
+html[data-theme] .sk i:nth-child(1){width:42%;height:20px} html[data-theme] .sk i:nth-child(2){width:88%}
+html[data-theme] .sk i:nth-child(3){width:70%} html[data-theme] .sk i:nth-child(4){width:54%}
+html[data-theme] .hero-skin .sk i{background:linear-gradient(90deg,rgba(255,255,255,.14) 25%,rgba(255,255,255,.3) 50%,rgba(255,255,255,.14) 75%);background-size:200% 100%}
+@keyframes dashBar{from{transform:scaleX(0)}to{transform:scaleX(.85)}}
+#dash-progress{position:fixed;left:0;top:0;right:0;height:2px;background:var(--brand);transform-origin:left;transform:scaleX(0);z-index:999;pointer-events:none;opacity:0}
+#dash-progress.on{opacity:1;animation:dashBar 2.5s cubic-bezier(.1,.7,.2,1) forwards}
+@media(prefers-reduced-motion:reduce){html[data-theme] .sk i{animation:none}#dash-progress.on{animation:none;transform:scaleX(.6)}}
+/* identical metrics on every page, whatever the page's own body settings are */
+html[data-theme] .wrap{padding-left:20px !important;padding-right:20px !important;max-width:1440px !important;margin-left:auto;margin-right:auto}
+html[data-theme] header,html[data-theme] header.reveal{opacity:1 !important;transform:none !important;line-height:1.4}
+html[data-theme] header .brand h1{line-height:30px;margin:0}
+html[data-theme] header .brand .sub{line-height:18px;font-size:12.5px}
+html[data-theme] header .clock .t{line-height:40px;display:block}
+html[data-theme] header .clock .d{line-height:17px}
+html[data-theme] header nav a{line-height:1}
+@media(max-width:760px){html[data-theme] .wrap{padding-left:16px !important;padding-right:16px !important}
+  html[data-theme] header .clock .t{line-height:26px}}
+html[data-theme] header>nav,html[data-theme] header .topnav{margin:0 !important}
+/* Finance keeps its header in its own strip: give it the same box as .wrap */
+html[data-theme] .hdr{max-width:1440px !important;margin:0 auto !important;padding:20px 20px 0 !important;border:0 !important;background:none !important}
+html[data-theme] .topbar{padding-left:20px;padding-right:20px;border:0;background:rgba(var(--bgrgb),.9)}
+html[data-theme] .topbar-in{max-width:1400px}
+@media(max-width:760px){html[data-theme] .hdr{padding:14px 16px 0 !important}html[data-theme] .topbar{padding-left:16px;padding-right:16px}}
+html[data-theme] header nav a.theme-tog{margin-left:4px !important}
+
+/* ---------- the iSmile logo in the header (7 Nov 2026): our blue on light, white on dark.
+   Built into this file so it is there in the first paint of every page. */
+.dash-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.dash-logo{display:block;width:84px;height:56px;background:#4FA3C2;
+  -webkit-mask:url("data:image/webp;base64,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") left center/contain no-repeat;mask:url("data:image/webp;base64,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") left center/contain no-repeat}
+html[data-theme="dark"] .dash-logo{background:#fff}
+html[data-theme] header .brand:has(>.dash-logo){display:grid !important;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:center;align-content:center}
+html[data-theme] header .brand:has(>.dash-logo) .dash-logo{grid-row:1 / span 2}
+html[data-theme] header .brand:has(>.dash-logo) h1{align-self:end}
+html[data-theme] header .brand:has(>.dash-logo) .sub{align-self:start}
+html[data-theme="light"] header .brand:has(>.dash-logo) h1 b{color:var(--ink)}
+@media(max-width:760px){.dash-logo{width:66px;height:44px} html[data-theme] header .brand:has(>.dash-logo){column-gap:10px}}
+
+/* ---------- doctors' faces: same photos and same crop as the locum tool ---------- */
+.dv-face{position:relative;display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;overflow:hidden;flex:none;background:var(--brand-soft);color:var(--brand);vertical-align:middle}
+.dv-face i{font-style:normal;font-size:12px;font-weight:600}
+.dv-face u{position:absolute;inset:0;background-size:cover;background-position:50% 20%;text-decoration:none}
+.dv-face.big{width:64px;height:64px;box-shadow:0 0 0 2px rgba(255,255,255,.75);background:rgba(255,255,255,.2);color:#fff}
+.dv-face.big i{font-size:24px}

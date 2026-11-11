@@ -76,6 +76,18 @@ const doctors = [
         keyCompetency: "General Dentistry, Pediatric Dental Care"
     },
     {
+        name: "Dr. Lau Jia Yin",
+        role: "Dental Surgeon, DDS (MAHSA)",
+        years: "8 years",
+        qualifications: "DDS, MAHSA University",
+        bio: "Passionate about looking beyond teeth to provide personalised dental care that supports healthier breathing, better oral health, proper growth and development, and confident smiles.",
+        languages: "English, Chinese, Malay",
+        img: "/images/doctors/dr_Lau Jia Yin.jpg",
+        initials: "JY",
+        slug: "dr-lau-jia-yin",
+        keyCompetency: "General Dentistry, Airway-Focused Dentistry, Early Orthodontic Treatment for Children"
+    },
+    {
         name: "Dr Lim Zhi Yin Joan",
         role: "Specialist, BDS (Malaya), Cert. Advanced Restorative & Aesthetic Dentistry (UCLA)",
         years: "19 years",
@@ -95,6 +107,7 @@ const doctors = [
         languages: "Malay, Mandarin, English, Cantonese, Hokkien",
         img: "/images/doctors/dr_yeoh.jpg"
     }
+
 ];
 
 const About = () => {
@@ -193,18 +206,20 @@ const About = () => {
 
                     <div className="team-grid">
                         {doctors.map((doc, index) => (
-                            <div key={index} className="team-card">
+                            <div key={index} className={`team-card${profileSlugByImg[doc.img] ? ' has-link' : ''}`}>
                                 {/* photo + name/role/years are wrapped together so the
                                     mobile breakpoint can lay them out side by side.
                                     On desktop the wrapper is display:contents, so the
                                     card is the same stacked photo-over-text as before. */}
                                 <div className="team-card-head">
                                     <div className="team-photo">
-                                        {doc.img && <img
+                                        {doc.img ? <img
                                             src={doc.img}
                                             alt={doc.name}
                                             loading="lazy"
-                                        />}
+                                        /> : doc.initials && (
+                                            <span className="team-initials" role="img" aria-label={doc.name}>{doc.initials}</span>
+                                        )}
                                     </div>
                                     <div className="team-header-top">
                                         <h3>{doc.name}</h3>
@@ -235,8 +250,8 @@ const About = () => {
                                         <small>Languages Spoken: {doc.languages}</small>
                                     </div>
 
-                                    {profileSlugByImg[doc.img] && (
-                                        <Link className="team-profile-link" to={`/dentists/${profileSlugByImg[doc.img]}`}>
+                                    {(doc.slug || profileSlugByImg[doc.img]) && (
+                                        <Link className="team-profile-link" to={`/dentists/${doc.slug || profileSlugByImg[doc.img]}`} aria-label={`View full profile of ${doc.name}`}>
                                             View full profile →
                                         </Link>
                                     )}
@@ -294,13 +309,24 @@ const About = () => {
                     background: #fff; border-radius: 24px;
                     border: 1px solid var(--hairline);
                     box-shadow: var(--shadow-sm);
-                    transition: transform 0.4s var(--ease-slow), box-shadow 0.4s ease;
+                    position: relative;
                 }
-                .about-page .team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+                /* Whole card = one link: the View full profile link stretches over
+                   the card (::after). Hover is colour only, no lift (owner ruling). */
+                .about-page .team-card.has-link { cursor: pointer; }
+                .about-page .team-card.has-link:has(.team-profile-link:focus-visible) { outline: 2px solid var(--color-primary-deep); outline-offset: 3px; }
+                .about-page .team-profile-link::after { content: ''; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+                .about-page .team-profile-link:focus-visible { outline: none; }
+                .about-page .team-header-top h3, .about-page .team-profile-link { transition: color 180ms cubic-bezier(0.16,1,0.3,1); }
+                @media (hover: hover) {
+                    .about-page .team-card.has-link:hover h3 { color: var(--color-primary-deep); }
+                    .about-page .team-card.has-link:hover .team-profile-link { color: var(--color-primary); }
+                }
                 .about-page .team-card-head { display: contents; }
                 .about-page .team-photo { height: 350px; overflow: hidden; position: relative; }
                 .about-page .team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 0.6s var(--ease-slow); display: block; }
-                .about-page .team-card:hover .team-photo img { transform: scale(1.04); }
+                .about-page .team-initials { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; background: var(--color-tint-blue); color: var(--color-primary-deep); font-family: var(--font-heading); font-weight: 600; font-size: 3rem; letter-spacing: .04em; }
+                @media (prefers-reduced-motion: reduce) { .about-page .team-photo img { transition: none; } }
                 .about-page .team-header-top { min-height: 120px; padding: 30px 30px 0; }
                 .about-page .team-header-top h3 { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; margin: 0 0 8px; color: var(--color-text-charcoal); }
                 .about-page .team-role { color: var(--color-primary-deep); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px; }
@@ -311,7 +337,7 @@ const About = () => {
                 .about-page .team-specialties { font-size: 0.85rem; padding: 14px 0; border-top: 1px solid var(--hairline); margin-bottom: 8px; color: var(--color-text-slate); line-height: 1.55; }
                 .about-page .team-languages { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--hairline); color: var(--color-text-grey); font-weight: 500; min-height: 85px; display: flex; align-items: flex-start; }
                 .about-page .team-profile-link { display: inline-block; margin-top: 2px; padding: 10px 0; font-size: 0.9rem; font-weight: 600; color: var(--color-primary-deep); }
-                .about-page .team-profile-link:hover { text-decoration: underline; }
+                
                 .about-page .about-closing { padding-bottom: 80px; text-align: center; }
                 .about-page .about-closing .eyebrow { margin-bottom: 14px; }
                 .about-page .about-closing .statement { max-width: 760px; margin: 0 auto 30px; }

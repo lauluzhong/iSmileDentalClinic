@@ -22,11 +22,24 @@ const SITE = 'https://ismile.com.my';
  * that taught us this.
  */
 
+/* A dentist without a portrait yet (img: null in dentists.js) gets her initials
+   on the brand tint, sized by the same class as the photo it stands in for. */
+function DentistPhoto({ d, className, width, height, lazy }) {
+    if (d.img) {
+        return <img src={encodeURI(d.img)} alt={d.knownAs} className={className} loading={lazy ? 'lazy' : undefined} width={width} height={height} />;
+    }
+    return (
+        <span className={`dentist-initials ${className || ''}`} role="img" aria-label={d.knownAs}>
+            {d.initials}
+        </span>
+    );
+}
+
 function DentistCard({ d }) {
     return (
-        <Link to={`/dentists/${d.slug}`} className="media-item dentist-card">
+        <Link to={`/dentists/${d.slug}`} id={d.slug} className="media-item dentist-card">
             <div className="dentist-card-media">
-                <img src={encodeURI(d.img)} alt={d.knownAs} loading="lazy" width="220" height="220" />
+                <DentistPhoto d={d} className="dentist-card-img" lazy width="220" height="220" />
             </div>
             <div className="dentist-card-body">
                 <h2 className="dentist-card-name">{d.knownAs}</h2>
@@ -42,7 +55,7 @@ function DentistIndex() {
         <div className="dentists-page dentists-page-index">
             <Helmet>
                 <title>Our Dentists in Damansara Jaya, Petaling Jaya | iSmile Dental Clinic</title>
-                <meta name="description" content="Meet the dentists at iSmile Dental Clinic in Damansara Jaya, Petaling Jaya. Eight dental surgeons with 14 to 34 years in practice across general, paediatric, orthodontic and restorative care." />
+                <meta name="description" content="Meet the dentists at iSmile Dental Clinic in Damansara Jaya, Petaling Jaya. Nine dental surgeons with 8 to 34 years in practice across general, paediatric, orthodontic and restorative care." />
                 <link rel="canonical" href={`${SITE}/dentists`} />
             </Helmet>
 
@@ -51,7 +64,7 @@ function DentistIndex() {
                     <h1>Our <em>dentists</em></h1>
                     <p className="dentists-intro">
                         Our team in Damansara Jaya covers general, paediatric, orthodontic and restorative
-                        care between them, with 14 to 34 years in practice each. If you would like to see a
+                        care between them, with 8 to 34 years in practice each. If you would like to see a
                         particular dentist, say so when you book and the front desk
                         will arrange it for you where possible.
                     </p>
@@ -82,7 +95,7 @@ function DentistProfile() {
         '@type': 'Dentist',
         name: d.name,
         alternateName: d.knownAs,
-        image: SITE + d.img,
+        ...(d.img ? { image: SITE + d.img } : {}),
         url: `${SITE}/dentists/${d.slug}`,
         knowsLanguage: d.languages.split(',').map((s) => s.trim()),
         worksFor: {
@@ -119,7 +132,7 @@ function DentistProfile() {
 
                     <div className="dentist-profile-head">
                         <div className="dentist-profile-imgwrap">
-                            <img src={encodeURI(d.img)} alt={d.knownAs} className="dentist-profile-img" width="280" height="280" />
+                            <DentistPhoto d={d} className="dentist-profile-img" width="280" height="280" />
                         </div>
                         <div className="dentist-profile-intro">
                             <p className="dentist-profile-role">{d.role}</p>
@@ -175,7 +188,7 @@ function DentistProfile() {
                     <div className="dentist-others-grid">
                         {others.map((o) => (
                             <Link key={o.slug} to={`/dentists/${o.slug}`} className="dentist-other">
-                                <img src={encodeURI(o.img)} alt={o.knownAs} loading="lazy" width="96" height="96" />
+                                <DentistPhoto d={o} className="dentist-other-img" lazy width="96" height="96" />
                                 <strong>{o.knownAs}</strong>
                                 <em>{o.role}</em>
                             </Link>
@@ -205,6 +218,8 @@ function DentistStyles() {
                 display: grid; gap: 32px 24px; margin-top: 48px;
                 grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
             }
+            /* Anchor target for /dentists#slug (homepage mosaic); clears the sticky header. */
+            .dentist-card { scroll-margin-top: 120px; }
             .dentist-card {
                 display: flex; flex-direction: column; text-decoration: none; color: inherit;
                 border: 0; border-radius: 0; overflow: visible; background: transparent;
@@ -212,11 +227,11 @@ function DentistStyles() {
             .dentist-card-media {
                 overflow: hidden; border-radius: 20px;
             }
-            .dentist-card-media img {
+            .dentist-card-media img, .dentist-card-media .dentist-initials {
                 width: 100%; height: 250px; object-fit: cover; object-position: top;
                 display: block; transition: transform .35s ease;
             }
-            .dentist-card:hover .dentist-card-media img { transform: scale(1.04); }
+            .dentist-card:hover .dentist-card-media img, .dentist-card-media .dentist-initials { transform: scale(1.04); }
             .dentist-card-body { display: flex; flex-direction: column; flex: 1; padding: 16px 0 0; }
             .dentist-card-name { font-family: var(--font-heading); font-weight: 700; font-size: 1.125rem; margin: 0 0 4px; }
             .dentist-card-role { margin: 0 0 14px; color: var(--color-text-slate); font-size: .9375rem; }
@@ -240,6 +255,13 @@ function DentistStyles() {
                 flex-shrink: 0; border-radius: 26px; overflow: hidden;
             }
             .dentist-profile-img { width: 280px; height: 280px; object-fit: cover; object-position: top; display: block; }
+            .dentist-initials {
+                display: flex !important; align-items: center; justify-content: center;
+                background: var(--color-tint-blue); color: var(--color-primary-deep);
+                font-family: var(--font-heading); font-weight: 600; letter-spacing: .04em;
+                font-size: 3rem; user-select: none;
+            }
+            .dentist-other .dentist-initials { font-size: 1.4rem; }
             .dentist-profile-intro { flex: 1; min-width: 280px; }
             .dentist-profile-role {
                 margin: 0 0 8px; color: var(--color-primary-teal);
@@ -281,11 +303,11 @@ function DentistStyles() {
                 display: flex; flex-direction: column; align-items: center; gap: 3px;
                 width: 108px; text-align: center; text-decoration: none; color: inherit;
             }
-            .dentist-other img {
+            .dentist-other img, .dentist-other .dentist-initials {
                 width: 76px; height: 76px; border-radius: 50%; object-fit: cover; object-position: top;
                 margin-bottom: 8px; transition: transform 0.4s var(--ease-slow), box-shadow 0.4s ease;
             }
-            .dentist-other:hover img { transform: translateY(-4px); box-shadow: 0 10px 22px rgba(13,42,58,0.16); }
+            .dentist-other:hover img, .dentist-other:hover .dentist-initials { transform: translateY(-4px); box-shadow: 0 10px 22px rgba(13,42,58,0.16); }
             .dentist-other strong { font-size: .875rem; line-height: 1.25; }
             .dentist-other:hover strong { color: var(--color-primary-deep); }
             .dentist-other em { font-style: normal; font-size: .72rem; color: var(--color-text-grey); line-height: 1.3; }
@@ -306,7 +328,7 @@ function DentistStyles() {
                 .dentists-hero { padding: 112px 0 40px; }
                 .dentist-hero { padding: 104px 0 36px; }
                 .dentists-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 14px; }
-                .dentist-card-media img { height: 190px; }
+                .dentist-card-media img, .dentist-card-media .dentist-initials { height: 190px; }
                 .dentist-card-name { font-size: 1rem; }
                 .dentist-card-role { font-size: .8125rem; }
                 .dentist-profile-img { height: 300px; }

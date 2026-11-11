@@ -25,6 +25,7 @@ const ClearAligners = () => {
             eyebrow="Orthodontics"
             title="Clear Aligners"
             titleAccent="Aligners"
+            numbers={["600+ people have straightened their teeth with us"]}
             subline="Clear Aligners in Petaling Jaya"
             lead="A modern orthodontic solution using a series of custom-made, transparent plastic trays to gradually shift teeth into alignment. Think of it as a sequence of almost-invisible molds, each tray slightly different from the last, with you moving to the next tray every 1 to 2 weeks. There are no brackets, no wires, and no food restrictions. We offer Invisalign, Angel Aligner, and ClearSmile systems."
             scienceTitle="The Science & Tech"

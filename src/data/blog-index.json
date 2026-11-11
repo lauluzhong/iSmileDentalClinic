@@ -37,6 +37,43 @@
     "canonical_url": null
   },
   {
+    "slug": "toothache-what-to-do-today-petaling-jaya",
+    "title": "Toothache: What to Do Today, and When to See a Dentist in Petaling Jaya",
+    "categories": [
+      "Oral Health"
+    ],
+    "tags": [
+      "Preventive Care",
+      "Oral Health"
+    ],
+    "date": "2026-11-01",
+    "img": "/images/blog/toothache-breakfast-hero.png",
+    "excerpt": "A plain checklist for a toothache: what helps today, what to avoid, the warning signs that need a hospital, and how to get seen at our Damansara Jaya clinic.",
+    "seo_title": "Toothache Today? What to Do, and Same-Day Visits in PJ",
+    "seo_description": "Toothache that will not settle? Simple steps for today, the signs that need a hospital, and how to ask for a same-day appointment in Damansara Jaya, PJ.",
+    "featured": false,
+    "faq": [
+      {
+        "q": "Can I see a dentist today for a toothache in PJ?",
+        "a": "Often, yes. If you are in pain, WhatsApp or call iSmile in Damansara Jaya during clinic hours. We try to fit you in on the same day between booked patients, so you may need to wait a little for a slot. We are not open after hours."
+      },
+      {
+        "q": "What should I do for a toothache before I see the dentist?",
+        "a": "Rinse with warm salt water, keep food off the sore side, and use a cold pack on the outside of the cheek for short spells. Ask a pharmacist which pain relief suits you. These steps only ease the pain for a while; the cause still needs a dentist."
+      },
+      {
+        "q": "When is a toothache an emergency?",
+        "a": "Go to a hospital emergency department if your face or neck is swelling fast, you have a fever, or you find it hard to swallow or breathe. These can be signs of a spreading infection and should not wait for a dental appointment."
+      },
+      {
+        "q": "Will the dentist fix the tooth on the same day?",
+        "a": "Not always. On the first visit the dentist finds the cause and eases the pain. If there is swelling, it is often safer to let it settle first and do the main treatment, such as a filling, root canal treatment or removing the tooth, on another day."
+      }
+    ],
+    "content_type": "educational",
+    "canonical_url": null
+  },
+  {
     "slug": "dentures-older-adults-petaling-jaya",
     "title": "Dentures for Older Adults in Petaling Jaya: A Guide for Patients and Families",
     "categories": [
@@ -1463,7 +1500,7 @@
     "date": "2026-04-06",
     "img": "/images/blog/family-three-generations-table.png",
     "excerpt": "A guide to family dental care in Damansara Jaya, covering what to expect from first visits to ongoing care for children and adults, with practical scheduling tips for busy families.",
-    "seo_title": "Family Dental Clinic in Damansara Jaya, PJ | Care for All Ages",
+    "seo_title": "Family Dental Clinic in PJ | Care for All Ages",
     "seo_description": "One family dental clinic in Damansara Jaya for every age — children’s first check-ups to adult care, with easy scheduling for busy PJ families.",
     "featured": false,
     "faq": [

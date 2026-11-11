@@ -1,14 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<link rel="icon" type="image/png" href="/dashboard/favicon-circle.png">
 <link rel="stylesheet" href="/dashboard/theme.css">
+<link rel="expect" href="#dash-hdr" blocking="render">
 <script src="/dashboard/theme.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>iSmile Gantt</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
   :root{
     --bg:#0A101E; --panel:#101B30; --panel2:#142138; --line:#223252;
@@ -29,19 +31,19 @@
 
   /* ---------- header (matches the other pages) ---------- */
   header{display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px;margin-bottom:16px}
-  .brand h1{font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:.06em;text-transform:uppercase}
+  .brand h1{font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:.05em;text-transform:uppercase}
   .brand h1 b{color:var(--p1)}
   .brand .sub{color:var(--dim);font-family:var(--mono);font-size:11px;margin-top:2px}
   header>nav{display:flex;flex-wrap:wrap;gap:0;align-items:center;justify-content:flex-end}
-  header>nav a{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);position:relative;text-decoration:none;white-space:nowrap;padding:2px 0;transition:color .15s}
+  header>nav a{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);position:relative;text-decoration:none;white-space:nowrap;padding:2px 0;transition:color .15s}
   header>nav a:not(:first-child){margin-left:22px}
   header>nav a:not(:first-child)::before{content:"·";position:absolute;left:-14px;color:var(--dim)}
   header>nav a:hover,header>nav a.active{color:var(--ink)}
-  header>nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1.5px;background:var(--p1);box-shadow:0 0 8px var(--p1)}
+  header>nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1.5px;background:var(--p1);box-shadow:none}
 
   /* ---------- controls ---------- */
   .controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin-bottom:12px}
-  .controls .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-right:2px}
+  .controls .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--dim);margin-right:2px}
   .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--panel);border-radius:999px;
     padding:6px 12px 6px 9px;font-size:12.5px;color:var(--mut);cursor:pointer;user-select:none;transition:border-color .15s,color .15s,background .15s}
   .chip input{position:absolute;opacity:0;pointer-events:none}
@@ -54,20 +56,20 @@
   .link{font-family:var(--mono);font-size:11px;color:var(--mut);background:none;border:0;cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px;padding:2px}
   .link:hover{color:var(--ink)}
   .spacer{flex:1}
-  .btn{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:var(--panel);
+  .btn{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);background:var(--panel);
     border:1px solid var(--line-hi);border-radius:8px;padding:7px 12px;cursor:pointer}
   .btn:hover{border-color:var(--p1)}
 
   /* ---------- gantt ---------- */
-  .g{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;position:relative}
+  .g{background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden;position:relative}
   .scroller{overflow-x:auto;overflow-y:visible}
   .grid{position:relative;display:grid;grid-template-columns:var(--labw) var(--tw);width:max-content;min-width:100%}
   .lab{position:sticky;left:0;z-index:3;background:var(--panel);border-right:1px solid var(--line)}
   .head{position:sticky;top:0;z-index:4;background:var(--panel2);border-bottom:1px solid var(--line)}
-  .lab.head{z-index:5;display:flex;align-items:flex-end;padding:0 14px 8px 26px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+  .lab.head{z-index:5;display:flex;align-items:flex-end;padding:0 14px 8px 26px;font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--dim)}
   .months,.days{position:relative;height:22px}
-  .months span{position:absolute;top:5px;font-family:var(--disp);font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);padding-left:6px;border-left:1px solid var(--line-hi);height:17px;line-height:14px}
-  .days span{position:absolute;top:3px;text-align:center;font-family:var(--mono);font-size:10px;color:var(--dim)}
+  .months span{position:absolute;top:5px;font-family:var(--disp);font-size:11.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);padding-left:6px;border-left:1px solid var(--line-hi);height:17px;line-height:14px}
+  .days span{position:absolute;top:3px;text-align:center;font-family:var(--mono);font-size:11px;color:var(--dim)}
   .days span.we{color:var(--line-hi)}
   .days span.mon{color:var(--mut)}
   .days span.today{color:var(--bg);background:var(--p1);border-radius:4px;font-weight:500}
@@ -80,21 +82,21 @@
   /* step name first and in full (wraps rather than truncating); the PIC tucked just under it, small and quiet */
   .lab.row{display:flex;flex-direction:column;justify-content:center;padding:7px 14px 7px 26px;min-width:0}
   .lab.row .t{font-size:12.5px;line-height:1.3;color:var(--ink)}
-  .lab.row .pic{font-size:10px;line-height:1.25;color:var(--dim);margin-top:1px}
+  .lab.row .pic{font-size:11px;line-height:1.25;color:var(--dim);margin-top:1px}
   .lab.row.done .t{color:var(--mut)}
   .grp{height:auto;min-height:48px}
   .lab.grp{padding:12px 14px 10px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--panel2)}
-  .lab.grp .n{display:flex;align-items:center;gap:8px;font-family:var(--disp);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--c)}
+  .lab.grp .n{display:flex;align-items:center;gap:8px;font-family:var(--disp);font-size:13px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--c)}
   .lab.grp .n i{width:8px;height:8px;border-radius:2px;background:var(--c)}
   .lab.grp .s{font-size:11px;color:var(--mut);margin-top:3px;line-height:1.35;max-width:52ch}
-  .lab.grp .o{font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:2px}
+  .lab.grp .o{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:2px}
   .tl.grp{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--panel2)}
   .tl{position:relative}
   /* backdrop: weekends, week lines, today */
   .back{position:absolute;inset:0;pointer-events:none;z-index:0}
   .back .we{position:absolute;top:0;bottom:0;background:rgba(var(--linergb),.12)}
   .back .wk{position:absolute;top:0;bottom:0;border-left:1px dashed rgba(var(--linergb),.45)}
-  .back .now{position:absolute;top:0;bottom:0;border-left:2px solid var(--p1);box-shadow:0 0 10px rgba(var(--p1rgb),.45)}
+  .back .now{position:absolute;top:0;bottom:0;border-left:2px solid var(--p1);box-shadow:none,.45)}
   /* bars */
   .it{padding:0;border:0;background:none;font:inherit;appearance:none;position:absolute;top:50%;transform:translateY(-50%);z-index:2;cursor:pointer}
   .it.bar{height:18px;border-radius:5px;background:rgba(var(--crgb),.22);border:1.5px solid var(--c)}
@@ -106,13 +108,13 @@
   .it.ms.locked{background:var(--c)}
   .it.ms.done{background:var(--c);opacity:.55;border-color:transparent}
   .it:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
-  .cap{position:absolute;top:50%;transform:translateY(-50%);z-index:2;font-family:var(--mono);font-size:10.5px;color:var(--mut);white-space:nowrap;pointer-events:none;background:var(--panel);padding:1px 4px;border-radius:3px}
+  .cap{position:absolute;top:50%;transform:translateY(-50%);z-index:2;font-family:var(--mono);font-size:11px;color:var(--mut);white-space:nowrap;pointer-events:none;background:var(--panel);padding:1px 4px;border-radius:3px}
   .cap b{color:var(--ink);font-weight:500}
   .cap .lock{color:var(--c)}
   .empty{padding:40px;text-align:center;color:var(--dim);font-family:var(--mono);font-size:12px}
 
   /* legend */
-  .legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px;font-family:var(--mono);font-size:10.5px;color:var(--dim)}
+  .legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px;font-family:var(--mono);font-size:11px;color:var(--dim)}
   .legend span{display:inline-flex;align-items:center;gap:7px}
   .legend .b{width:22px;height:10px;border-radius:3px;border:1.5px solid var(--mut)}
   .legend .b.now{background:var(--mut)} .legend .b.next{background:rgba(var(--mutrgb),.22)} .legend .b.done{background:rgba(var(--mutrgb),.35);opacity:.6;border-color:transparent}
@@ -120,18 +122,19 @@
   .legend .nw{width:0;height:12px;border-left:2px solid var(--p1)}
 
   /* tooltip */
-  .tip{position:fixed;z-index:50;max-width:320px;background:var(--panel2);border:1px solid var(--line-hi);border-radius:10px;padding:10px 12px;
+  .tip{position:fixed;z-index:50;max-width:320px;background:var(--panel2);border:1px solid var(--line-hi);border-radius:14px;padding:10px 12px;
     box-shadow:0 10px 30px rgba(var(--shadowrgb),.35);font-size:12px;color:var(--mut);opacity:0;pointer-events:none;transition:opacity .12s}
   .tip.show{opacity:1}
   .tip .h{color:var(--ink);font-weight:600;font-size:13px;margin-bottom:3px}
   .tip .d{font-family:var(--mono);font-size:11px;color:var(--c,var(--p1));margin-bottom:5px}
-  .tip .w{font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-top:5px}
+  .tip .w{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:5px}
 
   /* embedded as the Task Tracker's Gantt view: no page header, no own background */
   html.embed body{background:transparent;background-image:none;min-height:0}
-  html.embed .wrap{padding:0;max-width:none}
-  html.embed header,html.embed footer .hint{display:none}
-  footer{margin-top:18px;color:var(--dim);font-family:var(--mono);font-size:10.5px;line-height:1.7}
+  /* !important: theme.css pins the shared header and .wrap padding with !important */
+  html.embed .wrap{padding:0 !important;max-width:none}
+  html.embed header,html.embed footer .hint{display:none !important}
+  footer{margin-top:18px;color:var(--dim);font-family:var(--mono);font-size:11px;line-height:1.7}
   .printhead{display:none}
 
   @media screen and (max-width:760px){
@@ -156,9 +159,9 @@
     header,.controls,.tip,footer{display:none!important}
     .back .now{box-shadow:none}
     .printhead{display:block;margin-bottom:10px}
-    .printhead h1{font-family:var(--disp);font-size:18px;letter-spacing:.06em;text-transform:uppercase}
+    .printhead h1{font-family:var(--disp);font-size:18px;letter-spacing:.05em;text-transform:uppercase}
     .printhead h1 b{color:var(--p1)}
-    .printhead p{font-family:var(--mono);font-size:10px;color:var(--mut);margin-top:2px}
+    .printhead p{font-family:var(--mono);font-size:11px;color:var(--mut);margin-top:2px}
     .g{border-color:#ccd4e0}
     .scroller{overflow:visible}
     .lab,.head{position:static}
@@ -167,16 +170,29 @@
     .lab.grp .s{display:block}
     .grp,.row{break-inside:avoid}
   }
+
+  /* ================= redesign 6 Nov 2026: light canvas, white cards, one brand hero ================= */
+  body{font-size:14px}
+  .wrap{padding:20px 20px 56px}
+  .chip{font-size:13px;min-height:36px;border-color:transparent;background:var(--panel)}
+  .chip.on{border-color:transparent;box-shadow:inset 0 0 0 1.5px var(--c)}
+  .btn{background:var(--panel)}
+  .g{border:0;border-radius:var(--r-card)}
+  .lab.grp .n{font-family:var(--body);font-size:14px;letter-spacing:0;text-transform:none}
+  .lab.head{font-size:11px;color:var(--mut)}
+  @media(max-width:760px){.wrap{padding:14px 16px 40px}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <div class="brand"><h1>iSmile <b>Gantt</b></h1><div class="sub" id="asof">loading…</div></div>
+    <div class="brand"><a class="dash-logo" href="/dashboard" aria-label="iSmile"></a><h1><span class="dash-sr">iSmile </span><b>Gantt</b></h1><div class="sub" id="asof">loading…</div></div>
+    <div class="clock"><div class="t" data-clock>--:--<small>--</small></div><div class="d" data-date>—</div></div>
     <nav>
       <a href="/dashboard">Dashboard</a><a href="/dashboard/org">Org Chart</a><a href="/dashboard/tasks#v=gantt" class="active">Task Tracker</a><a href="/dashboard/profitability">Finance</a><a href="/dashboard/analytics">Analytics</a><a href="/dashboard/office">Office</a>
     </nav>
   </header>
+<script id="dash-hdr">window.ismileTheme&&ismileTheme.header&&ismileTheme.header()</script>
 
   <div class="printhead"><h1>iSmile <b>Gantt</b></h1><p id="printsub"></p></div>
 

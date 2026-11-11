@@ -26,7 +26,7 @@ export const whatsappUrl = (message) =>
  * are already in the funnel. Join Us is aimed at dental professionals, not
  * patients, so a patient CTA would be the wrong message to the wrong audience.
  */
-const SUPPRESSED = ['/contact', '/faq', '/recall', '/join-us'];
+const SUPPRESSED = ['/contact', '/faq', '/recall', '/join-us', '/careers'];
 
 export const isSuppressedPath = (pathname) =>
     SUPPRESSED.some((p) => pathname === p || pathname.startsWith(`${p}/`));
