@@ -1,5 +1,42 @@
 [
   {
+    "slug": "dental-implant-bridge-denture-comparison",
+    "title": "Dental Implant, Bridge or Denture: A Treatment Comparison",
+    "categories": [
+      "Restorative Dentistry"
+    ],
+    "tags": [
+      "Restorative Dentistry",
+      "Oral Health"
+    ],
+    "date": "2026-11-02",
+    "img": "/images/blog/implants-smile-garden.png",
+    "excerpt": "Compare dental implants, bridges and dentures for missing teeth, including how they work, care needs, surgery and what an assessment checks.",
+    "seo_title": "Implant vs Bridge vs Denture: Treatment Comparison",
+    "seo_description": "Compare dental implants, bridges and dentures for missing teeth, including how they work, care needs, surgery and what an assessment checks.",
+    "featured": false,
+    "faq": [
+      {
+        "q": "Should I choose a dental implant, bridge or denture?",
+        "a": "The choice depends on how many teeth are missing, the condition of the neighbouring teeth, the available jawbone, your general and oral health, and whether you prefer a fixed or removable replacement. An examination and suitable imaging allow the dentist to compare the options for your mouth."
+      },
+      {
+        "q": "Does a dental bridge affect the teeth beside the gap?",
+        "a": "A conventional bridge uses the teeth beside the gap as supports, so those teeth usually need to be reshaped for crowns. This may be a practical option when the neighbouring teeth already have large fillings or crowns, while an implant may avoid altering healthy adjacent teeth."
+      },
+      {
+        "q": "Can I have a dental implant if I have lost bone?",
+        "a": "Bone loss does not automatically rule out an implant. The dentist can assess the available bone with appropriate imaging, including 3D CBCT where indicated, and may discuss bone grafting if more support is needed. Suitability and timing depend on the individual assessment."
+      },
+      {
+        "q": "Are dentures removable?",
+        "a": "Conventional partial and complete dentures are removable. A partial denture replaces some missing teeth, while a complete denture replaces all teeth in an upper or lower arch. Implant-retained dentures are another option and use implants for added support."
+      }
+    ],
+    "content_type": "educational",
+    "canonical_url": null
+  },
+  {
     "slug": "toothache-what-to-do-today-petaling-jaya",
     "title": "Toothache: What to Do Today, and When to See a Dentist in Petaling Jaya",
     "categories": [
