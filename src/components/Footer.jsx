@@ -88,6 +88,7 @@ const Footer = () => {
 
                         <p className="footer-copyright">
                             © 2026 iSmile Dental Clinic. All rights reserved.
+                            <span className="footer-legal"><Link to="/privacy">Privacy</Link> · <Link to="/data-deletion">Data deletion</Link></span>
                         </p>
                     </div>
 
@@ -310,6 +311,9 @@ const Footer = () => {
         }
 
 
+        .footer-legal { display: block; margin-top: 6px; }
+        .footer-legal a { color: inherit; }
+        .footer-legal a:hover { color: var(--color-primary-teal); }
         .footer-copyright {
             font-size: 0.8rem;
             color: #94a3b8;

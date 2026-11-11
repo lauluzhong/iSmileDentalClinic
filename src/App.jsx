@@ -30,6 +30,8 @@ const CareersDentists = lazy(pageLoaders.careersDentists);
 const CareersTeam = lazy(pageLoaders.careersTeam);
 const CareersJob = lazy(pageLoaders.careersJob);
 const Dentists = lazy(pageLoaders.dentists);
+const Privacy = lazy(pageLoaders.privacy);
+const DataDeletion = lazy(pageLoaders.dataDeletion);
 const NotFound = lazy(pageLoaders.notFound);
 
 function App() {
@@ -99,6 +101,9 @@ function App() {
           <Route path="/careers/dentists" element={<PageTransition><Suspense fallback={<Loader />}><CareersDentists /></Suspense></PageTransition>} />
           <Route path="/careers/team" element={<PageTransition><Suspense fallback={<Loader />}><CareersTeam /></Suspense></PageTransition>} />
           <Route path="/careers/:slug" element={<PageTransition><Suspense fallback={<Loader />}><CareersJob /></Suspense></PageTransition>} />
+          <Route path="/privacy" element={<PageTransition><Suspense fallback={<Loader />}><Privacy /></Suspense></PageTransition>} />
+          <Route path="/privacy-policy" element={<Navigate to="/privacy" replace />} />
+          <Route path="/data-deletion" element={<PageTransition><Suspense fallback={<Loader />}><DataDeletion /></Suspense></PageTransition>} />
           <Route path="*" element={<PageTransition><Suspense fallback={<Loader />}><NotFound /></Suspense></PageTransition>} />
         </Routes>
       </AnimatePresence>

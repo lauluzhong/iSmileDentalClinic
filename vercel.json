@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/privacy-policy",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
       "source": "/join-us",
       "destination": "/careers/dentists",
       "permanent": true
