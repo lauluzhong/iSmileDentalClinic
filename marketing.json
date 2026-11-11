@@ -1,10 +1,20 @@
 {
- "generated_myt": "2026-11-11 23:40",
+ "generated_myt": "2026-11-12 00:40",
  "pending": [
   {
    "n": 6,
    "kind": "social",
    "title": "1 social replies to check",
+   "status": "pending",
+   "created": "2026-11-11",
+   "decided": null,
+   "pr": null,
+   "channel": null
+  },
+  {
+   "n": 8,
+   "kind": "plan",
+   "title": "Growth plan, 16 Nov to 15 Dec",
    "status": "pending",
    "created": "2026-11-11",
    "decided": null,
@@ -72,6 +82,26 @@
    "decided": null,
    "pr": null,
    "channel": null
+  },
+  {
+   "n": 7,
+   "kind": "job",
+   "title": "LinkedIn job post: Front Desk Executive",
+   "status": "approved",
+   "created": "2026-11-11",
+   "decided": "2026-11-11",
+   "pr": null,
+   "channel": null
+  },
+  {
+   "n": 8,
+   "kind": "plan",
+   "title": "Growth plan, 16 Nov to 15 Dec",
+   "status": "pending",
+   "created": "2026-11-11",
+   "decided": null,
+   "pr": null,
+   "channel": null
   }
  ],
  "done": [
@@ -98,6 +128,10 @@
   {
    "date": "2026-11-11",
    "text": "Approved by you: Protect page guide"
+  },
+  {
+   "date": "2026-11-11",
+   "text": "Approved by you: LinkedIn job post: Front Desk Executive"
   }
  ],
  "shipped": [
@@ -140,6 +174,11 @@
    "date": "2026-11-11",
    "type": "approved",
    "text": "1 · Protect page guide"
+  },
+  {
+   "date": "2026-11-11",
+   "type": "approved",
+   "text": "7 · LinkedIn job post: Front Desk Executive"
   }
  ]
 }
