@@ -1,5 +1,5 @@
 {
- "generated_myt": "2026-11-11T18:37:08+08:00",
+ "generated_myt": "2026-11-11T19:20:01+08:00",
  "as_of": "2026-11-11",
  "dedupe": "one person counts once per month per stage. Lead = social/web lead, or a recall/blast recipient who CLICKED (replies not tracked yet). Front desk = carded social/web leads + BTL clickers (on the follow-up list). Booked = a lead who booked within 90 days, credited to that lead's source AND to the month of the lead (cohort), one patient once; btl sent = messages, clicked = unique people who clicked = BTL leads; booked after, not because of. btl.*.booked_after_send = booked after a send with no click (outside the funnel). btl sent/clicked = e10 messages (same source as recall.json). recall.json value.mtd differs on purpose: it counts only matured cohorts (90 days) with production, so a fresh booking shows here first and there later",
  "months": {
@@ -469,15 +469,15 @@
     },
     "blast": {
      "sent": 676,
-     "clicked": 20,
+     "clicked": 21,
      "replied": null,
-     "leads": 20,
+     "leads": 21,
      "booked_after_send": 0
     },
     "calls": null
    },
    "leads": {
-    "total": 44,
+    "total": 45,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -486,12 +486,12 @@
      "google": 0,
      "web": 0,
      "recall": 24,
-     "blast": 20,
+     "blast": 21,
      "calls": 0
     }
    },
    "handed": {
-    "total": 44,
+    "total": 45,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -500,12 +500,12 @@
      "google": 0,
      "web": 0,
      "recall": 24,
-     "blast": 20,
+     "blast": 21,
      "calls": 0
     }
    },
    "booked": {
-    "total": 13,
+    "total": 21,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -513,8 +513,8 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 13,
-     "blast": 0,
+     "recall": 14,
+     "blast": 7,
      "calls": 0
     },
     "production": null
@@ -546,22 +546,22 @@
    "btl": {
     "recall": {
      "sent": 110,
-     "clicked": 5,
+     "clicked": 6,
      "replied": null,
-     "leads": 5,
-     "booked_after_send": 18
+     "leads": 6,
+     "booked_after_send": 17
     },
     "blast": {
      "sent": 2940,
-     "clicked": 107,
+     "clicked": 57,
      "replied": null,
-     "leads": 102,
+     "leads": 57,
      "booked_after_send": 0
     },
     "calls": null
    },
    "leads": {
-    "total": 107,
+    "total": 63,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -569,13 +569,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 5,
-     "blast": 102,
+     "recall": 6,
+     "blast": 57,
      "calls": 0
     }
    },
    "handed": {
-    "total": 107,
+    "total": 63,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -583,13 +583,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 5,
-     "blast": 102,
+     "recall": 6,
+     "blast": 57,
      "calls": 0
     }
    },
    "booked": {
-    "total": 2,
+    "total": 14,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -597,8 +597,8 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 2,
-     "blast": 0,
+     "recall": 4,
+     "blast": 10,
      "calls": 0
     },
     "production": null
