@@ -1,8 +1,7 @@
 {
   "updated": "2026-11-11 20:10 MYT",
   "running": [
-    "locum_sheet",
-    "clinic_db"
+    "locum_sheet"
   ],
   "jobs": {
     "gbp_reply": {
@@ -110,8 +109,8 @@
       "last": "2026-11-11 19:00 MYT"
     },
     "clinic_db": {
-      "state": "running",
-      "last": "2026-11-10 20:10 MYT"
+      "state": "idle",
+      "last": "2026-11-11 20:10 MYT"
     },
     "doctor_view": {
       "state": "idle",
