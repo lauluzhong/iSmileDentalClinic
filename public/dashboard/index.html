@@ -264,7 +264,7 @@
     <div class="brand"><a class="dash-logo" href="/dashboard" aria-label="iSmile"></a><h1><span class="dash-sr">iSmile </span><b>Dashboard</b></h1><div class="sub" id="asof">loading…</div></div>
     <div class="clock"><div class="t" id="clock" data-clock>--:--<small>--</small></div><div class="d" id="date" data-date>—</div></div>
     <nav>
-      <a href="/dashboard" class="active">Dashboard</a><a href="/dashboard/org">Org Chart</a><a href="/dashboard/tasks">Task Tracker</a><a href="/dashboard/profitability">Finance</a><a href="/dashboard/analytics">Analytics</a><a href="/dashboard/marketing">Marketing</a><a href="/dashboard/office">Office</a>
+      <a href="/dashboard" class="active">Dashboard</a><a href="/dashboard/org">Org Chart</a><a href="/dashboard/tasks">Task Tracker</a><a href="/dashboard/profitability">Finance</a><a href="/dashboard/analytics">Analytics</a><a href="/dashboard/marketing">Growth</a><a href="/dashboard/office">Office</a>
     </nav>
   </header>
 <script id="dash-hdr">window.ismileTheme&&ismileTheme.header&&ismileTheme.header()</script>
@@ -318,6 +318,10 @@
         <a class="ch go" href="/dashboard/tasks" title="Open the Task Tracker"><span class="k">Tasks</span><span class="arr">→</span><span class="m" id="needm">—</span></a>
         <div class="cb" id="needs"><div class="empty">loading…</div></div>
       </div>
+      <div class="card growth" data-rise><div class="top"></div>
+        <a class="ch go" href="/dashboard/marketing" title="Open Growth: from first post to booked patient"><span class="k">Growth</span><span class="arr">→</span><span class="m" id="growm">—</span></a>
+        <div class="cb" id="growth"><div class="empty">loading…</div></div>
+      </div>
       <div class="card seo" data-rise><div class="top"></div>
         <a class="ch go" href="/dashboard/analytics#search" title="Open search and AI-visibility analytics"><span class="k">SEO · GEO</span><span class="arr">→</span><span class="m" id="seom">—</span></a>
         <div class="cb" id="seo"><div class="empty">loading…</div></div>
@@ -339,7 +343,7 @@ const RAW="https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/statu
 const $=(s)=>document.querySelector(s);
 const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;};
 const MYT="Asia/Kuala_Lumpur";
-const D={deck:null,cash:null,hq:null,recall:null,ga:null};
+const D={deck:null,cash:null,hq:null,recall:null,ga:null,growth:null,cal:null};
 const fmtRM=(n)=>n==null?"—":"RM"+Math.round(n).toLocaleString("en-MY");
 const fmtK=(n)=>n==null?"—":(Math.abs(n)>=1e6?"RM"+(n/1e6).toFixed(2)+"m":Math.abs(n)>=1e3?"RM"+(n/1e3).toFixed(n>=1e5?0:1)+"k":"RM"+Math.round(n));
 const pct=(n,d=0)=>n==null?"—":n.toFixed(d)+"%";
@@ -532,6 +536,25 @@ function renderSEO(){
   gg.appendChild(stat("Visits from AI · 28d",ar.available?ar.sessions:"—"));
   box.appendChild(gg);
   box.appendChild(el("div","note","Weekly check, "+geo.generated_myt+" MYT. Named = share of a fixed list of patient questions where an AI answer mentions iSmile."));
+}
+
+/* ============================== growth: the journey page's headline ============================== */
+function renderGrowth(){
+  const box=$("#growth"); box.innerHTML="";
+  const t=new Intl.DateTimeFormat("en-CA",{timeZone:MYT,year:"numeric",month:"2-digit"}).format(new Date()).slice(0,7);
+  const g=D.growth&&D.growth.months&&D.growth.months[t], f=D.cal&&D.cal.funnel&&D.cal.funnel.channels;
+  const sum=k=>f?Object.values(f).reduce((a,c)=>a+(+c[k]||0),0):null;
+  const booked=g?g.booked&&g.booked.total:sum("booked"), leads=g?g.leads&&g.leads.total:sum("leads");
+  const posts=D.cal&&Array.isArray(D.cal.posts)?D.cal.posts.filter(p=>String(p.date).slice(0,7)===t):[];
+  const rv=D.recall&&D.recall.value&&D.recall.value.mtd;
+  $("#growm").textContent="this month";
+  const s=el("div","stats");
+  s.appendChild(stat("Booked",booked==null?"—":booked,booked?"ok":""));
+  s.appendChild(stat("Leads",leads==null?"—":leads));
+  s.appendChild(stat("Posted",posts.filter(p=>p.status==="posted").length+` <small>of ${posts.length} planned</small>`));
+  s.appendChild(stat("Booked after recall",rv&&rv.patients_converted!=null?rv.patients_converted:"—"));
+  box.appendChild(s);
+  box.appendChild(el("div","note","Above and below the line, from first post to booked patient. Booked after recall is not proof the message caused it."));
 }
 
 /* ============================== website · reviews · social ============================== */
@@ -808,16 +831,18 @@ document.addEventListener("keydown",(e)=>{if(e.key==="Escape"&&ONCALL)endCall();
 /* ============================== boot ============================== */
 async function load(){
   const q="?t="+Date.now();
-  const [deck,cash,hq,recall,ga]=await Promise.all([
+  const [deck,cash,hq,recall,ga,growth,cal]=await Promise.all([
     getJSON(RAW+"deck.json"+q).catch(()=>null),
     getJSON(RAW+"cashflow.json"+q).catch(()=>null),
     getJSON(RAW+"hq.json"+q).catch(()=>null),
     getJSON(RAW+"recall.json"+q).catch(()=>null),
     getJSON("/api/analytics").catch(()=>null),
+    getJSON(RAW+"growth.json"+q).catch(()=>null),
+    getJSON(RAW+"social-calendar.json"+q).catch(()=>null),
   ]);
-  Object.assign(D,{deck,cash,hq,recall,ga});
+  Object.assign(D,{deck,cash,hq,recall,ga,growth,cal});
   $("#asof").textContent=deck?"box feed "+deck.generated_myt+" MYT · cash "+(cash?cash.generated_myt:"—"):"box feed unavailable";
-  renderVPS(); renderFin(); renderNeeds(); renderSEO(); renderWeb(); renderRecall(); renderHUD();
+  renderVPS(); renderFin(); renderNeeds(); renderSEO(); renderWeb(); renderRecall(); renderHUD(); renderGrowth();
 }
 load(); setInterval(load,5*60*1000); probeLine();
 </script>
