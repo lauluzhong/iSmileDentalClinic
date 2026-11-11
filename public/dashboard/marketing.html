@@ -234,9 +234,9 @@ function mondayOf(d){const x=new Date(d);x.setDate(x.getDate()-(x.getDay()+6)%7)
 async function getJSON(u){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}
 
 /* ================= the numbers for a period =================
-   growth.json (the social ledger on the box: months, de-duplicated, aggregates only) when it exists;
-   until then the older feeds: social-calendar.json funnel + recall.json. */
-const PERIODS=()=>GROW?[["this","This month"],["last","Last month"],["m3","3 months"],["all","All"]]:[["this","This month"],["all","All time"]];
+   One source: growth.json from the social ledger on the box (months, de-duplicated, aggregates only).
+   Content stages come from the content calendar. */
+const PERIODS=()=>[["this","This month"],["last","Last month"],["m3","3 months"],["all","All"]];
 function monthsOf(k){
   const have=GROW?Object.keys(GROW.months||{}).sort():[CUR];
   if(k==="this")return [CUR];
@@ -254,36 +254,21 @@ function model(k){
     verified:posts.filter(p=>p.status==="posted"&&(p.verified===true||(p.verified==null&&p.live&&Object.values(p.live).some(Boolean)))).length,
     pending:posts.filter(p=>p.status==="pending").length,
     rejected:posts.filter(p=>p.status==="rejected").length};
-  const M={content,live:!!GROW};
-  if(GROW){const pv=ms.map(m=>(((GROW.months||{})[m]||{}).content||{}).posted_verified).filter(v=>v!=null);if(pv.length)content.verified=pv.reduce((a,b)=>a+b,0);}
-  if(GROW){
-    const t={};ms.forEach(m=>{const x=(GROW.months||{})[m];if(x)addInto(t,{engaged:x.engaged,btl:{recall:x.btl&&x.btl.recall,blast:x.btl&&x.btl.blast},leads:x.leads,handed:x.handed,booked:x.booked});});
-    const last=ms.slice().reverse().map(m=>(GROW.months||{})[m]).find(Boolean)||{};
-    const callsKnown=ms.some(m=>((GROW.months||{})[m]||{}).btl&&GROW.months[m].btl.calls);
-    M.engaged={total:(t.engaged&&((t.engaged.comments||0)+(t.engaged.dms||0)))||0,comments:t.engaged&&t.engaged.comments||0,dms:t.engaged&&t.engaged.dms||0,by:t.engaged&&t.engaged.by_channel||{}};
-    const rj=REC&&(k==="this"?REC.this_month:k==="all"?REC.cumulative:null);
-    const gr=t.btl&&t.btl.recall||{};
-    M.recall={sent:gr.sent?gr.sent:rj?rj.sent:null,clicked:rj?rj.clicks:null,replied:gr.replied!=null?gr.replied:null,leads:gr.leads};
-    M.blast=t.btl&&t.btl.blast||null;
-    M.calls=callsKnown?ms.reduce((a,m)=>addInto(a,((GROW.months[m]||{}).btl||{}).calls||{}),{}):null;
-    M.leads=t.leads||{total:0,by_source:{}}; M.handed=t.handed||{total:0,by_source:{}}; M.booked=t.booked||{total:0,by_source:{}};
-    M.speed=last.speed||{}; M.speedMonth=ms.slice().reverse().find(m=>(GROW.months||{})[m]);
-    M.afterRecall=(M.booked.by_source||{}).recall||0;
-  } else {
-    const f=(CAL.funnel&&CAL.funnel.channels)||{};
-    const by=k2=>{const o={};for(const c in f)o[c]=+f[c][k2]||0;return o;};
-    const sum=o=>Object.values(o).reduce((a,b)=>a+b,0);
-    const cm=by("comments"),dm=by("dms");
-    M.engaged={total:sum(by("interactions")),comments:sum(cm),dms:sum(dm),by:Object.fromEntries(Object.keys(f).map(c=>[c,{comments:cm[c],dms:dm[c]}]))};
-    const lb=by("leads"),hb=by("handed"),bb=by("booked");
-    M.leads={total:sum(lb),by_source:lb}; M.handed={total:sum(hb),by_source:hb}; M.booked={total:sum(bb),by_source:bb};
-    const r=REC&&(all?REC.cumulative:REC.this_month);
-    M.recall=r?{sent:r.sent,replied:r.replies,clicked:r.clicks,leads:null}:null;
-    const v=REC&&REC.value&&(all?REC.value.all_time:REC.value.mtd);
-    M.afterRecall=v&&v.patients_converted!=null?v.patients_converted:null;
-    M.blast=null; M.calls=null;
-    M.speed={first_reply_median_min:CAL.funnel&&CAL.funnel.first_reply_median_min};
-  }
+  const M={content,live:!!GROW}, G=(GROW&&GROW.months)||{};
+  const pv=ms.map(m=>((G[m]||{}).content||{}).posted_verified).filter(v=>v!=null);if(pv.length)content.verified=pv.reduce((a,b)=>a+b,0);
+  const t={};ms.forEach(m=>{const x=G[m];if(x)addInto(t,{engaged:x.engaged,btl:{recall:x.btl&&x.btl.recall,blast:x.btl&&x.btl.blast},leads:x.leads,handed:x.handed,booked:x.booked});});
+  const last=ms.slice().reverse().map(m=>G[m]).find(Boolean)||{};
+  const callsKnown=ms.some(m=>(G[m]||{}).btl&&G[m].btl.calls);
+  const e=t.engaged||{};
+  M.engaged={total:(e.comments||0)+(e.dms||0),comments:e.comments||0,dms:e.dms||0,by:e.by_channel||{}};
+  const has=(o,k)=>ms.some(m=>{const x=(((G[m]||{}).btl||{})[o]||{})[k];return x!=null;});
+  const pick=(o,k)=>has(o,k)?((t.btl||{})[o]||{})[k]||0:null;
+  M.recall=GROW?{sent:pick("recall","sent"),clicked:pick("recall","clicked"),replied:pick("recall","replied"),leads:pick("recall","leads")}:null;
+  M.blast=GROW?{sent:pick("blast","sent"),clicked:pick("blast","clicked"),replied:pick("blast","replied"),leads:pick("blast","leads")}:null;
+  M.calls=callsKnown?ms.reduce((a,m)=>addInto(a,((G[m]||{}).btl||{}).calls||{}),{}):null;
+  M.leads=t.leads||{total:0,by_source:{}}; M.handed=t.handed||{total:0,by_source:{}}; M.booked=t.booked||{total:0,by_source:{}};
+  M.speed=last.speed||{}; M.speedMonth=ms.slice().reverse().find(m=>G[m]);
+  M.afterRecall=(M.booked.by_source||{}).recall||0;
   const bs=M.leads.by_source||{};
   M.leadsATL=Object.keys(bs).filter(s=>!BTL_SRC.includes(s)).reduce((a,s)=>a+(+bs[s]||0),0);
   M.leadsBTL=BTL_SRC.reduce((a,s)=>a+(+bs[s]||0),0);
@@ -344,7 +329,7 @@ function renderFunnel(M){
   $("g-funnel").innerHTML=atl+btl+merge+trunk;
   $("g-funnel-note").innerHTML=(M.live
     ?`<b>Counting.</b> ${esc(GROW.dedupe||"One person counts once per month.")} Content stages come from the content calendar; everything after that from the social ledger on the clinic server. `
-    :`<b>Counting.</b> Content stages come from the content calendar. Engaged, leads, front desk and booked come from the inbox counter on the clinic server, from when it was switched on, so they are the same for every timeframe for now. Recall comes from the recall sends. Blast waves and Elaine's calls join once the ledger publishes them. `)+
+    :`<b>The growth figures did not load.</b> Only the content stages are shown. `)+
     `<b>Recall</b> counts patients who booked after a recall message. That is not proof the message caused the visit. <b>Weakest step</b> marks the step that loses the most, once it has at least five to judge.`;
 }
 
@@ -371,25 +356,17 @@ function renderDrill(M){
   }
   if(S.stage==="recall"){
     const r=M.recall;
-    if(!r){box.innerHTML=empty("Recall figures did not load.");return;}
-    const v=REC&&REC.value&&(S.period==="all"?REC.value.all_time:REC.value.mtd), cv=REC&&REC.conversion;
-    box.innerHTML=`<div class="dv-grid still"><div class="dv-w7"><div class="dv-card"><div class="dv-head"><h3>${S.period==="all"?"All recall sends":"Recall this month"}</h3></div>
-      <div class="dv-line"><span>Messages sent</span><b>${r.sent!=null?num(r.sent):"Not in the feed for this timeframe"}</b></div>
-      ${r.clicked!=null?`<div class="dv-line"><span>Link clicked</span><b>${num(r.clicked)}<small>${pc(r.clicked,r.sent)}</small></b></div>`:""}
-      <div class="dv-line"><span>Replied</span><b>${r.replied!=null?num(r.replied):"Not counted yet"}</b></div>
-      ${r.leads!=null?`<div class="dv-line"><span>Became leads</span><b>${num(r.leads)}</b></div>`:""}
-      ${M.live?`<div class="dv-line total"><span>Booked after recall</span><b>${num(M.afterRecall)}</b></div>`
-        :v?`<div class="dv-line total"><span>Booked after recall</span><b>${num(v.patients_converted)}<small>${v.patients_reached?num(v.patients_converted)+" of "+num(v.patients_reached)+" patients reached":""}</small></b></div>
-      <div class="dv-line"><span>Production from them</span><b>${rm(v.production)}</b></div>`:""}
-      <p class="dv-note">${M.live?"Booked after recall means the patient booked after a recall message, with recall as the last touch before the booking. Each patient counts once.":"Booked after recall means the patient booked within "+(REC&&REC.value?REC.value.attrib_window_days:90)+" days of a recall message."} It is not proof the message caused it.</p></div></div>
-      <div class="dv-w5"><div class="dv-card"><div class="dv-head"><h3>Since recall started</h3></div>
-      ${cv&&cv.available?`<div class="dv-line"><span>Patients sent a recall</span><b>${num(cv.matured_cohort)}</b></div><div class="dv-line"><span>Booked within ${cv.attrib_window_days} days</span><b>${num(cv.booked_within_window)}<small>${cv.conversion_pct}%</small></b></div>`:'<p class="gempty">Not worked out yet.</p>'}
-      <a class="glink" href="/dashboard/analytics#recall">Open recall in Analytics →</a></div></div></div>`;
+    if(!r){box.innerHTML=empty("The growth figures did not load.");return;}
+    const ln=(l,v,x)=>`<div class="dv-line"><span>${l}</span><b>${v==null?"Not counted yet":num(v)}${x?`<small>${x}</small>`:""}</b></div>`;
+    box.innerHTML=`<div class="dv-card">${ln("Messages sent",r.sent)}${ln("Link clicked",r.clicked,r.clicked!=null&&r.sent?pc(r.clicked,r.sent):"")}${ln("Replied",r.replied)}${ln("Became leads",r.leads)}
+      <div class="dv-line total"><span>Booked after recall</span><b>${num(M.afterRecall)}</b></div>
+      <p class="dv-note">Booked after recall means the patient booked after a recall message, with recall as the last touch before the booking. Each patient counts once. It is not proof the message caused it.</p>
+      <a class="glink" href="/dashboard/analytics#recall">Open recall in Analytics →</a></div>`;
     return;
   }
   if(S.stage==="blast"){
     const b=M.blast;
-    box.innerHTML=b?`<div class="dv-card"><div class="dv-line"><span>Messages sent</span><b>${b.sent!=null?num(b.sent):"Not recorded"}</b></div><div class="dv-line"><span>Link clicked</span><b>${num(b.clicked)}</b></div><div class="dv-line"><span>Replied</span><b>${b.replied!=null?num(b.replied):"Not counted yet"}</b></div><div class="dv-line"><span>Became leads</span><b>${num(b.leads)}</b></div><p class="dv-note">The blast follow-up Sheet records link clicks, not sends.</p></div>`
+    box.innerHTML=b?`<div class="dv-card"><div class="dv-line"><span>Messages sent</span><b>${b.sent!=null?num(b.sent):"Not recorded"}</b></div><div class="dv-line"><span>Link clicked</span><b>${b.clicked!=null?num(b.clicked):"Not recorded"}</b></div><div class="dv-line"><span>Replied</span><b>${b.replied!=null?num(b.replied):"Not counted yet"}</b></div><div class="dv-line"><span>Became leads</span><b>${num(b.leads)}</b></div><p class="dv-note">The blast follow-up Sheet records link clicks, not sends.</p></div>`
       :empty("Blast waves are not in the feed yet. They appear here once the social ledger publishes the follow-up Sheet's counts.");
     return;
   }
@@ -510,17 +487,16 @@ window.addEventListener("resize",()=>slide($("g-time")));
 (async function(){
   renderAll();
   const q="?t="+Date.now();
-  const [cal,mkt,grow,rec,ga]=await Promise.all([
+  const [cal,mkt,grow,ga]=await Promise.all([
     getJSON(RAW+"social-calendar.json"+q).catch(()=>null),
     getJSON(RAW+"marketing.json"+q).catch(()=>null),
     getJSON(RAW+"growth.json"+q).catch(()=>null),
-    getJSON(RAW+"recall.json"+q).catch(()=>null),
     getJSON("/api/analytics").then(j=>j&&!j.error?j:null).catch(()=>null)
   ]);
   if(cal&&Array.isArray(cal.posts))CAL=cal;
   else{try{CAL=await getJSON("/dashboard/social-calendar.sample.json"+q);CAL.sample=true;}catch(e){}}
-  MKT=mkt;GROW=grow&&grow.months?grow:null;REC=rec;GA=ga;
-  const when=(GROW&&GROW.generated_myt)||CAL.generated_myt;
+  MKT=mkt;GROW=grow&&grow.months?grow:null;GA=ga;
+  const when=GROW&&GROW.generated_myt;
   $("asof").textContent="from first post to booked patient"+(when?" · updated "+String(when).replace("T"," ").slice(5,16):"");
   renderAll();
 })();
