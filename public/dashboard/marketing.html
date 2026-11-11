@@ -263,12 +263,13 @@ function model(k){
   M.engaged={total:(e.comments||0)+(e.dms||0),comments:e.comments||0,dms:e.dms||0,by:e.by_channel||{}};
   const has=(o,k)=>ms.some(m=>{const x=(((G[m]||{}).btl||{})[o]||{})[k];return x!=null;});
   const pick=(o,k)=>has(o,k)?((t.btl||{})[o]||{})[k]||0:null;
-  M.recall=GROW?{sent:pick("recall","sent"),clicked:pick("recall","clicked"),replied:pick("recall","replied"),leads:pick("recall","leads")}:null;
-  M.blast=GROW?{sent:pick("blast","sent"),clicked:pick("blast","clicked"),replied:pick("blast","replied"),leads:pick("blast","leads")}:null;
+  M.recall=GROW?{sent:pick("recall","sent"),clicked:pick("recall","clicked"),replied:pick("recall","replied"),leads:pick("recall","leads"),noClick:pick("recall","booked_after_send")||0}:null;
+  M.blast=GROW?{sent:pick("blast","sent"),clicked:pick("blast","clicked"),replied:pick("blast","replied"),leads:pick("blast","leads"),noClick:pick("blast","booked_after_send")||0}:null;
   M.calls=callsKnown?ms.reduce((a,m)=>addInto(a,((G[m]||{}).btl||{}).calls||{}),{}):null;
   M.leads=t.leads||{total:0,by_source:{}}; M.handed=t.handed||{total:0,by_source:{}}; M.booked=t.booked||{total:0,by_source:{}};
   M.speed=last.speed||{}; M.speedMonth=ms.slice().reverse().find(m=>G[m]);
-  M.afterRecall=(M.booked.by_source||{}).recall||0;
+  M.recallBooked=(M.booked.by_source||{}).recall||0;                 /* booked within 90 days of a click: in the funnel */
+  M.afterRecall=M.recallBooked+(M.recall?M.recall.noClick:0);         /* plus booked after a send with no click: beside it */
   const bs=M.leads.by_source||{};
   M.leadsATL=Object.keys(bs).filter(s=>!BTL_SRC.includes(s)).reduce((a,s)=>a+(+bs[s]||0),0);
   M.leadsBTL=BTL_SRC.reduce((a,s)=>a+(+bs[s]||0),0);
@@ -291,10 +292,10 @@ function renderTop(M){
   $("g-top").innerHTML=`<div class="dv-grid still">
     <div class="dv-hero hero-skin"><div class="dv-who"><div><b>${esc(label)}</b><span>${esc(periodRange(M,S.period))}</span></div></div>
       <div class="dv-lab">Booked from growth</div><div class="dv-big">${num(M.booked.total)}</div>
-      <div class="dv-sub">${M.afterRecall?num(M.afterRecall)+" after recall · ":""}${num(M.booked.total-(M.afterRecall||0))} from other sources${M.booked.production?" · "+rm(M.booked.production)+" production":""}</div></div>
+      <div class="dv-sub">from ${num(M.leads.total)} lead${M.leads.total===1?"":"s"} · ${num(M.recallBooked)} after a recall click${M.booked.production?" · "+rm(M.booked.production)+" production":""}</div></div>
     <div class="dv-stats">
       ${stat("Leads",num(M.leads.total),num(M.leadsATL)+" above the line · "+(M.live?num(M.leadsBTL):"—")+" below")}
-      ${stat("Booked after recall",num(M.afterRecall),"booked after a recall message")}
+      ${stat("Booked after recall",num(M.afterRecall),num(M.recallBooked)+" after a click · "+num(M.afterRecall-M.recallBooked)+" with no click")}
       ${stat("Waiting for Lau",num(waiting),"on the WhatsApp board")}
       ${stat("Typical first reply",mins(M.speed.first_reply_median_min),"comments and messages")}
     </div></div>`;
@@ -309,8 +310,8 @@ function renderFunnel(M){
   /* only a step that actually loses people, and only when the steps differ */
   const lossy=steps.filter(s=>s[1]<s[2]), rates=new Set(steps.map(s=>(s[1]/s[2]).toFixed(3)));
   const weak=lossy.length&&rates.size>1?lossy.reduce((a,s)=>s[1]/s[2]<a[1]/a[2]?s:a)[0]:null;
-  const ws=(id,txt)=>id===weak?"weakest step":txt;
-  const r=M.recall, b=M.blast, bookedBlast=(M.booked.by_source||{}).blast||0;
+  const ws=(id,txt)=>id===weak?txt+" · weakest step":txt;
+  const r=M.recall, b=M.blast, bookedBlast=((M.booked.by_source||{}).blast||0)+(b?b.noClick:0);
   const atl=`<div class="gf-lane atl"><div class="gf-tag"><i></i>Above the line</div><div class="gf-row">
     ${node("created","content","Created",num(c.created),c.rejected?num(c.rejected)+" not approved":"posts planned")}
     ${node("approved","content","Approved, scheduled",num(c.approved),ws("approved",pc(c.approved,c.created)+" of created"),weak==="approved"?"weak":"")}
@@ -319,7 +320,7 @@ function renderFunnel(M){
     <div class="gf-out"><span>into leads</span><b>${num(M.leadsATL)}</b></div></div></div>`;
   const btl=`<div class="gf-lane btl"><div class="gf-tag"><i></i>Below the line</div><div class="gf-row">
     ${node("recall","recall","Recall",r&&r.sent!=null?num(r.sent):"—",r?[r.clicked!=null?num(r.clicked)+" clicked":"",num(M.afterRecall)+" booked after recall"+(r.sent?" ("+pc(M.afterRecall,r.sent)+" of sent)":"")].filter(Boolean).join(" · "):"not in the feed yet",r?"":"na")}
-    ${node("blast","blast","Blast waves",b?num(b.sent!=null?b.sent:b.clicked):"—",b?(b.sent!=null?num(b.clicked)+" clicked · ":"link clicks · ")+num(bookedBlast)+" booked"+(b.clicked?" ("+pc(bookedBlast,b.clicked)+" of clicks)":""):"not in the feed yet",b?"":"na")}
+    ${node("blast","blast","Blast waves",b?num(b.sent!=null?b.sent:b.clicked):"—",b?(b.sent!=null?num(b.clicked)+" clicked · ":"link clicks · ")+num(bookedBlast)+" booked"+(b.sent?" ("+pc(bookedBlast,b.sent)+" of sent)":b.clicked?" ("+pc(bookedBlast,b.clicked)+" of clicks)":""):"not in the feed yet",b?"":"na")}
     ${node("calls","calls","Elaine's calls",M.calls?num(M.calls.called):"—",M.calls?num(M.calls.reached)+" reached":"not tracked yet",M.calls?"":"na")}
     <div class="gf-out"><span>into leads</span><b>${M.live?num(M.leadsBTL):"—"}</b></div></div></div>`;
   const merge=`<svg class="gf-merge" viewBox="0 0 48 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 27 C 28 27, 20 50, 48 50" stroke="var(--brand)"/><path d="M0 76 C 28 76, 20 50, 48 50" stroke="#1A9B8A"/></svg>`;
@@ -361,14 +362,16 @@ function renderDrill(M){
     if(!r){box.innerHTML=empty("The growth figures did not load.");return;}
     const ln=(l,v,x)=>`<div class="dv-line"><span>${l}</span><b>${v==null?"Not counted yet":num(v)}${x?`<small>${x}</small>`:""}</b></div>`;
     box.innerHTML=`<div class="dv-card">${ln("Messages sent",r.sent)}${ln("Link clicked",r.clicked,r.clicked!=null&&r.sent?pc(r.clicked,r.sent):"")}${ln("Replied",r.replied)}${ln("Became leads",r.leads)}
+      <div class="dv-line"><span>Booked within 90 days of a click</span><b>${num(M.recallBooked)}${r.clicked?`<small>${pc(M.recallBooked,r.clicked)} of clicks</small>`:""}</b></div>
+      <div class="dv-line"><span>Booked after a message, with no click</span><b>${num(r.noClick)}</b></div>
       <div class="dv-line total"><span>Booked after recall</span><b>${num(M.afterRecall)}${r.sent?`<small>${pc(M.afterRecall,r.sent)} of messages sent</small>`:""}</b></div>
-      <p class="dv-note">Booked after recall means the patient booked after a recall message, with recall as the last touch before the booking. Each patient counts once. It is not proof the message caused it.</p>
+      <p class="dv-note">A click makes the patient a lead, and they go on the front desk's follow-up list. Bookings within 90 days of the click count in the funnel. Bookings after a message with no click are shown here, beside it. Each patient counts once. Booked after recall is not proof the message caused it.</p>
       <a class="glink" href="/dashboard/analytics#recall">Open recall in Analytics →</a></div>`;
     return;
   }
   if(S.stage==="blast"){
     const b=M.blast;
-    box.innerHTML=b?`<div class="dv-card"><div class="dv-line"><span>Messages sent</span><b>${b.sent!=null?num(b.sent):"Not recorded"}</b></div><div class="dv-line"><span>Link clicked</span><b>${b.clicked!=null?num(b.clicked):"Not recorded"}</b></div><div class="dv-line"><span>Replied</span><b>${b.replied!=null?num(b.replied):"Not counted yet"}</b></div><div class="dv-line"><span>Became leads</span><b>${num(b.leads)}</b></div><p class="dv-note">The blast follow-up Sheet records link clicks, not sends.</p></div>`
+    box.innerHTML=b?`<div class="dv-card"><div class="dv-line"><span>Messages sent</span><b>${b.sent!=null?num(b.sent):"Not recorded"}</b></div><div class="dv-line"><span>Link clicked</span><b>${b.clicked!=null?num(b.clicked):"Not recorded"}</b></div><div class="dv-line"><span>Replied</span><b>${b.replied!=null?num(b.replied):"Not counted yet"}</b></div><div class="dv-line"><span>Became leads</span><b>${num(b.leads)}</b></div><div class="dv-line"><span>Booked after a message, with no click</span><b>${num(b.noClick)}</b></div><p class="dv-note">A click makes the person a lead. Bookings with no click are shown here, outside the funnel.</p></div>`
       :empty("Blast waves are not in the feed yet. They appear here once the social ledger publishes the follow-up Sheet's counts.");
     return;
   }
