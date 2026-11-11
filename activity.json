@@ -4,6 +4,13 @@
     {
       "ts": "2026-11-11 11:30 MYT",
       "agent": "analytics",
+      "job": "deck_stats",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-11-11 11:30 MYT",
+      "agent": "analytics",
       "job": "social_post",
       "event": "finished",
       "result": "ok"
@@ -1393,13 +1400,6 @@
       "job": "clinic_db",
       "event": "finished",
       "result": "ok"
-    },
-    {
-      "ts": "2026-11-10 20:10 MYT",
-      "agent": "analytics",
-      "job": "locum_sheet",
-      "event": "started",
-      "result": ""
     }
   ]
 }
