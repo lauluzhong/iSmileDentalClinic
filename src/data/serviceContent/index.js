@@ -29,6 +29,7 @@ import children from './children.js';
 import straighten from './straighten.js';
 import replace from './replace.js';
 import enhance from './enhance.js';
+import protect from './protect.js';
 
 const asString = (v) => (typeof v === 'string' ? v.trim() : '');
 
@@ -49,7 +50,7 @@ function normalise(page) {
 }
 
 export const SERVICE_CONTENT = Object.fromEntries(
-  [children, straighten, replace, enhance]
+  [children, straighten, replace, enhance, protect]
     .map(normalise)
     .filter(Boolean)
     .map((p) => [p.path, p])
