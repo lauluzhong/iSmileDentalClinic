@@ -1,0 +1,990 @@
+{
+ "generated_myt": "2026-11-11T09:00:00+08:00",
+ "sample": true,
+ "timezone": "Asia/Kuala_Lumpur",
+ "posts": [
+  {
+   "id": "p-2026-10-26-1",
+   "date": "2026-10-26",
+   "time": "20:00",
+   "title": "Why your gums bleed when you brush",
+   "status": "rejected",
+   "channels": [
+    "instagram",
+    "facebook",
+    "threads"
+   ],
+   "copy": {
+    "instagram": {
+     "text": "Bleeding gums are often the first sign of gum disease. A cleaning and a check can stop it early.\n\nBook a visit: link in bio."
+    },
+    "facebook": {
+     "text": "Bleeding gums are often the first sign of gum disease. A cleaning and a check can stop it early.\n\nMessage us on WhatsApp to book."
+    },
+    "threads": {
+     "text": "Bleeding gums are often the first sign of gum disease. A cleaning and a check can stop it early."
+    }
+   },
+   "image": "/og-image.png",
+   "n": 101,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-10-28-2",
+   "date": "2026-10-28",
+   "time": "09:30",
+   "title": "Your child's first dental visit",
+   "status": "posted",
+   "channels": [
+    "linkedin",
+    "x"
+   ],
+   "copy": {
+    "linkedin": {
+     "text": "Bring your child in by age one. A short, happy first visit makes the next ones easy.\n\nWe are in Petaling Jaya.",
+     "title": "Your child's first dental visit"
+    },
+    "x": {
+     "text": "Bring your child in by age one. A short, happy first visit makes the next ones easy."
+    }
+   },
+   "image": "/og-image.png",
+   "n": 102,
+   "live": {
+    "linkedin": "https://example.com/sample-post",
+    "x": "https://example.com/sample-post"
+   },
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-10-30-3",
+   "date": "2026-10-30",
+   "time": "20:00",
+   "title": "Braces or clear aligners?",
+   "status": "posted",
+   "channels": [
+    "instagram",
+    "facebook",
+    "google"
+   ],
+   "copy": {
+    "instagram": {
+     "text": "Both straighten teeth. Your dentist helps you choose what suits your teeth and your routine.\n\nBook a visit: link in bio."
+    },
+    "facebook": {
+     "text": "Both straighten teeth. Your dentist helps you choose what suits your teeth and your routine.\n\nMessage us on WhatsApp to book."
+    },
+    "google": {
+     "text": "Both straighten teeth. Your dentist helps you choose what suits your teeth and your routine.\n\nCall or WhatsApp to book.",
+     "title": "Braces or clear aligners?"
+    }
+   },
+   "image": "/og-image.png",
+   "n": 103,
+   "live": {
+    "instagram": "https://example.com/sample-post",
+    "facebook": "https://example.com/sample-post",
+    "google": "https://example.com/sample-post"
+   },
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-10-31-4",
+   "date": "2026-10-31",
+   "time": "09:30",
+   "title": "Sensitive teeth in cold drinks",
+   "status": "posted",
+   "channels": [
+    "blog"
+   ],
+   "copy": {
+    "blog": {
+     "text": "Sensitivity has many causes. A quick check finds the cause and the right fix.",
+     "title": "Sensitive teeth in cold drinks"
+    }
+   },
+   "image": null,
+   "n": 104,
+   "live": {
+    "blog": "https://example.com/sample-post"
+   },
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-11-02-5",
+   "date": "2026-11-02",
+   "time": "20:00",
+   "title": "How often should you get a cleaning?",
+   "status": "posted",
+   "channels": [
+    "instagram",
+    "facebook",
+    "threads"
+   ],
+   "copy": {
+    "instagram": {
+     "text": "Most people do well with a cleaning every six months.\n\nBook a visit: link in bio."
+    },
+    "facebook": {
+     "text": "Most people do well with a cleaning every six months.\n\nMessage us on WhatsApp to book."
+    },
+    "threads": {
+     "text": "Most people do well with a cleaning every six months."
+    }
+   },
+   "image": "/og-image.png",
+   "n": 105,
+   "live": {
+    "instagram": "https://example.com/sample-post",
+    "facebook": "https://example.com/sample-post",
+    "threads": "https://example.com/sample-post"
+   },
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-11-04-6",
+   "date": "2026-11-04",
+   "time": "09:30",
+   "title": "What happens at a scale and polish",
+   "status": "posted",
+   "channels": [
+    "linkedin",
+    "x"
+   ],
+   "copy": {
+    "linkedin": {
+     "text": "A gentle clean removes hard build-up your brush cannot reach.\n\nWe are in Petaling Jaya.",
+     "title": "What happens at a scale and polish"
+    },
+    "x": {
+     "text": "A gentle clean removes hard build-up your brush cannot reach."
+    }
+   },
+   "image": "/og-image.png",
+   "n": 106,
+   "live": {
+    "linkedin": "https://example.com/sample-post",
+    "x": "https://example.com/sample-post"
+   },
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-11-06-7",
+   "date": "2026-11-06",
+   "time": "20:00",
+   "title": "Wisdom teeth: when to check",
+   "status": "posted",
+   "channels": [
+    "instagram",
+    "facebook",
+    "google"
+   ],
+   "copy": {
+    "instagram": {
+     "text": "If a back tooth aches or the gum swells, get it checked.\n\nBook a visit: link in bio."
+    },
+    "facebook": {
+     "text": "If a back tooth aches or the gum swells, get it checked.\n\nMessage us on WhatsApp to book."
+    },
+    "google": {
+     "text": "If a back tooth aches or the gum swells, get it checked.\n\nCall or WhatsApp to book.",
+     "title": "Wisdom teeth: when to check"
+    }
+   },
+   "image": "/og-image.png",
+   "n": 107,
+   "live": {
+    "instagram": "https://example.com/sample-post",
+    "facebook": "https://example.com/sample-post",
+    "google": "https://example.com/sample-post"
+   },
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-11-07-8",
+   "date": "2026-11-07",
+   "time": "09:30",
+   "title": "Late-night dental pain",
+   "status": "rejected",
+   "channels": [
+    "blog"
+   ],
+   "copy": {
+    "blog": {
+     "text": "Toothache at night? Here is what to do until you can see us.",
+     "title": "Late-night dental pain"
+    }
+   },
+   "image": null,
+   "n": 108,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-11-09-9",
+   "date": "2026-11-09",
+   "time": "20:00",
+   "title": "Why your gums bleed when you brush",
+   "status": "posted",
+   "channels": [
+    "instagram",
+    "facebook",
+    "threads"
+   ],
+   "copy": {
+    "instagram": {
+     "text": "Bleeding gums are often the first sign of gum disease. A cleaning and a check can stop it early.\n\nBook a visit: link in bio."
+    },
+    "facebook": {
+     "text": "Bleeding gums are often the first sign of gum disease. A cleaning and a check can stop it early.\n\nMessage us on WhatsApp to book."
+    },
+    "threads": {
+     "text": "Bleeding gums are often the first sign of gum disease. A cleaning and a check can stop it early."
+    }
+   },
+   "image": "/og-image.png",
+   "n": 109,
+   "live": {
+    "instagram": "https://example.com/sample-post",
+    "facebook": "https://example.com/sample-post",
+    "threads": "https://example.com/sample-post"
+   },
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-11-11-10",
+   "date": "2026-11-11",
+   "time": "09:30",
+   "title": "Your child's first dental visit",
+   "status": "planned",
+   "channels": [
+    "linkedin",
+    "x"
+   ],
+   "copy": {
+    "linkedin": {
+     "text": "Bring your child in by age one. A short, happy first visit makes the next ones easy.\n\nWe are in Petaling Jaya.",
+     "title": "Your child's first dental visit"
+    },
+    "x": {
+     "text": "Bring your child in by age one. A short, happy first visit makes the next ones easy."
+    }
+   },
+   "image": "/og-image.png",
+   "n": null,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-11-13-11",
+   "date": "2026-11-13",
+   "time": "20:00",
+   "title": "Braces or clear aligners?",
+   "status": "rejected",
+   "channels": [
+    "instagram",
+    "facebook",
+    "google"
+   ],
+   "copy": {
+    "instagram": {
+     "text": "Both straighten teeth. Your dentist helps you choose what suits your teeth and your routine.\n\nBook a visit: link in bio."
+    },
+    "facebook": {
+     "text": "Both straighten teeth. Your dentist helps you choose what suits your teeth and your routine.\n\nMessage us on WhatsApp to book."
+    },
+    "google": {
+     "text": "Both straighten teeth. Your dentist helps you choose what suits your teeth and your routine.\n\nCall or WhatsApp to book.",
+     "title": "Braces or clear aligners?"
+    }
+   },
+   "image": "/og-image.png",
+   "n": 111,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-11-14-12",
+   "date": "2026-11-14",
+   "time": "09:30",
+   "title": "Sensitive teeth in cold drinks",
+   "status": "planned",
+   "channels": [
+    "blog"
+   ],
+   "copy": {
+    "blog": {
+     "text": "Sensitivity has many causes. A quick check finds the cause and the right fix.",
+     "title": "Sensitive teeth in cold drinks"
+    }
+   },
+   "image": null,
+   "n": null,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-11-16-13",
+   "date": "2026-11-16",
+   "time": "20:00",
+   "title": "How often should you get a cleaning?",
+   "status": "scheduled",
+   "channels": [
+    "instagram",
+    "facebook",
+    "threads"
+   ],
+   "copy": {
+    "instagram": {
+     "text": "Most people do well with a cleaning every six months.\n\nBook a visit: link in bio."
+    },
+    "facebook": {
+     "text": "Most people do well with a cleaning every six months.\n\nMessage us on WhatsApp to book."
+    },
+    "threads": {
+     "text": "Most people do well with a cleaning every six months."
+    }
+   },
+   "image": "/og-image.png",
+   "n": 113,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-11-18-14",
+   "date": "2026-11-18",
+   "time": "09:30",
+   "title": "What happens at a scale and polish",
+   "status": "scheduled",
+   "channels": [
+    "linkedin",
+    "x"
+   ],
+   "copy": {
+    "linkedin": {
+     "text": "A gentle clean removes hard build-up your brush cannot reach.\n\nWe are in Petaling Jaya.",
+     "title": "What happens at a scale and polish"
+    },
+    "x": {
+     "text": "A gentle clean removes hard build-up your brush cannot reach."
+    }
+   },
+   "image": "/og-image.png",
+   "n": 114,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-11-20-15",
+   "date": "2026-11-20",
+   "time": "20:00",
+   "title": "Wisdom teeth: when to check",
+   "status": "scheduled",
+   "channels": [
+    "instagram",
+    "facebook",
+    "google"
+   ],
+   "copy": {
+    "instagram": {
+     "text": "If a back tooth aches or the gum swells, get it checked.\n\nBook a visit: link in bio."
+    },
+    "facebook": {
+     "text": "If a back tooth aches or the gum swells, get it checked.\n\nMessage us on WhatsApp to book."
+    },
+    "google": {
+     "text": "If a back tooth aches or the gum swells, get it checked.\n\nCall or WhatsApp to book.",
+     "title": "Wisdom teeth: when to check"
+    }
+   },
+   "image": "/og-image.png",
+   "n": 115,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-11-21-16",
+   "date": "2026-11-21",
+   "time": "09:30",
+   "title": "Late-night dental pain",
+   "status": "scheduled",
+   "channels": [
+    "blog"
+   ],
+   "copy": {
+    "blog": {
+     "text": "Toothache at night? Here is what to do until you can see us.",
+     "title": "Late-night dental pain"
+    }
+   },
+   "image": null,
+   "n": 116,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-11-23-17",
+   "date": "2026-11-23",
+   "time": "20:00",
+   "title": "Why your gums bleed when you brush",
+   "status": "scheduled",
+   "channels": [
+    "instagram",
+    "facebook",
+    "threads"
+   ],
+   "copy": {
+    "instagram": {
+     "text": "Bleeding gums are often the first sign of gum disease. A cleaning and a check can stop it early.\n\nBook a visit: link in bio."
+    },
+    "facebook": {
+     "text": "Bleeding gums are often the first sign of gum disease. A cleaning and a check can stop it early.\n\nMessage us on WhatsApp to book."
+    },
+    "threads": {
+     "text": "Bleeding gums are often the first sign of gum disease. A cleaning and a check can stop it early."
+    }
+   },
+   "image": "/og-image.png",
+   "n": 117,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-11-25-18",
+   "date": "2026-11-25",
+   "time": "09:30",
+   "title": "Your child's first dental visit",
+   "status": "pending",
+   "channels": [
+    "linkedin",
+    "x"
+   ],
+   "copy": {
+    "linkedin": {
+     "text": "Bring your child in by age one. A short, happy first visit makes the next ones easy.\n\nWe are in Petaling Jaya.",
+     "title": "Your child's first dental visit"
+    },
+    "x": {
+     "text": "Bring your child in by age one. A short, happy first visit makes the next ones easy."
+    }
+   },
+   "image": "/og-image.png",
+   "n": 118,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-11-27-19",
+   "date": "2026-11-27",
+   "time": "20:00",
+   "title": "Braces or clear aligners?",
+   "status": "scheduled",
+   "channels": [
+    "instagram",
+    "facebook",
+    "google"
+   ],
+   "copy": {
+    "instagram": {
+     "text": "Both straighten teeth. Your dentist helps you choose what suits your teeth and your routine.\n\nBook a visit: link in bio."
+    },
+    "facebook": {
+     "text": "Both straighten teeth. Your dentist helps you choose what suits your teeth and your routine.\n\nMessage us on WhatsApp to book."
+    },
+    "google": {
+     "text": "Both straighten teeth. Your dentist helps you choose what suits your teeth and your routine.\n\nCall or WhatsApp to book.",
+     "title": "Braces or clear aligners?"
+    }
+   },
+   "image": "/og-image.png",
+   "n": 119,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-11-28-20",
+   "date": "2026-11-28",
+   "time": "09:30",
+   "title": "Sensitive teeth in cold drinks",
+   "status": "pending",
+   "channels": [
+    "blog"
+   ],
+   "copy": {
+    "blog": {
+     "text": "Sensitivity has many causes. A quick check finds the cause and the right fix.",
+     "title": "Sensitive teeth in cold drinks"
+    }
+   },
+   "image": null,
+   "n": 120,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-11-30-21",
+   "date": "2026-11-30",
+   "time": "20:00",
+   "title": "How often should you get a cleaning?",
+   "status": "planned",
+   "channels": [
+    "instagram",
+    "facebook",
+    "threads"
+   ],
+   "copy": {
+    "instagram": {
+     "text": "Most people do well with a cleaning every six months.\n\nBook a visit: link in bio."
+    },
+    "facebook": {
+     "text": "Most people do well with a cleaning every six months.\n\nMessage us on WhatsApp to book."
+    },
+    "threads": {
+     "text": "Most people do well with a cleaning every six months."
+    }
+   },
+   "image": "/og-image.png",
+   "n": null,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-12-02-22",
+   "date": "2026-12-02",
+   "time": "09:30",
+   "title": "What happens at a scale and polish",
+   "status": "planned",
+   "channels": [
+    "linkedin",
+    "x"
+   ],
+   "copy": {
+    "linkedin": {
+     "text": "A gentle clean removes hard build-up your brush cannot reach.\n\nWe are in Petaling Jaya.",
+     "title": "What happens at a scale and polish"
+    },
+    "x": {
+     "text": "A gentle clean removes hard build-up your brush cannot reach."
+    }
+   },
+   "image": "/og-image.png",
+   "n": null,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-12-04-23",
+   "date": "2026-12-04",
+   "time": "20:00",
+   "title": "Wisdom teeth: when to check",
+   "status": "rejected",
+   "channels": [
+    "instagram",
+    "facebook",
+    "google"
+   ],
+   "copy": {
+    "instagram": {
+     "text": "If a back tooth aches or the gum swells, get it checked.\n\nBook a visit: link in bio."
+    },
+    "facebook": {
+     "text": "If a back tooth aches or the gum swells, get it checked.\n\nMessage us on WhatsApp to book."
+    },
+    "google": {
+     "text": "If a back tooth aches or the gum swells, get it checked.\n\nCall or WhatsApp to book.",
+     "title": "Wisdom teeth: when to check"
+    }
+   },
+   "image": "/og-image.png",
+   "n": 123,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-12-05-24",
+   "date": "2026-12-05",
+   "time": "09:30",
+   "title": "Late-night dental pain",
+   "status": "planned",
+   "channels": [
+    "blog"
+   ],
+   "copy": {
+    "blog": {
+     "text": "Toothache at night? Here is what to do until you can see us.",
+     "title": "Late-night dental pain"
+    }
+   },
+   "image": null,
+   "n": null,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-12-07-25",
+   "date": "2026-12-07",
+   "time": "20:00",
+   "title": "Why your gums bleed when you brush",
+   "status": "scheduled",
+   "channels": [
+    "instagram",
+    "facebook",
+    "threads"
+   ],
+   "copy": {
+    "instagram": {
+     "text": "Bleeding gums are often the first sign of gum disease. A cleaning and a check can stop it early.\n\nBook a visit: link in bio."
+    },
+    "facebook": {
+     "text": "Bleeding gums are often the first sign of gum disease. A cleaning and a check can stop it early.\n\nMessage us on WhatsApp to book."
+    },
+    "threads": {
+     "text": "Bleeding gums are often the first sign of gum disease. A cleaning and a check can stop it early."
+    }
+   },
+   "image": "/og-image.png",
+   "n": 125,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-12-09-26",
+   "date": "2026-12-09",
+   "time": "09:30",
+   "title": "Your child's first dental visit",
+   "status": "scheduled",
+   "channels": [
+    "linkedin",
+    "x"
+   ],
+   "copy": {
+    "linkedin": {
+     "text": "Bring your child in by age one. A short, happy first visit makes the next ones easy.\n\nWe are in Petaling Jaya.",
+     "title": "Your child's first dental visit"
+    },
+    "x": {
+     "text": "Bring your child in by age one. A short, happy first visit makes the next ones easy."
+    }
+   },
+   "image": "/og-image.png",
+   "n": 126,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-12-11-27",
+   "date": "2026-12-11",
+   "time": "20:00",
+   "title": "Braces or clear aligners?",
+   "status": "scheduled",
+   "channels": [
+    "instagram",
+    "facebook",
+    "google"
+   ],
+   "copy": {
+    "instagram": {
+     "text": "Both straighten teeth. Your dentist helps you choose what suits your teeth and your routine.\n\nBook a visit: link in bio."
+    },
+    "facebook": {
+     "text": "Both straighten teeth. Your dentist helps you choose what suits your teeth and your routine.\n\nMessage us on WhatsApp to book."
+    },
+    "google": {
+     "text": "Both straighten teeth. Your dentist helps you choose what suits your teeth and your routine.\n\nCall or WhatsApp to book.",
+     "title": "Braces or clear aligners?"
+    }
+   },
+   "image": "/og-image.png",
+   "n": 127,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-12-12-28",
+   "date": "2026-12-12",
+   "time": "09:30",
+   "title": "Sensitive teeth in cold drinks",
+   "status": "scheduled",
+   "channels": [
+    "blog"
+   ],
+   "copy": {
+    "blog": {
+     "text": "Sensitivity has many causes. A quick check finds the cause and the right fix.",
+     "title": "Sensitive teeth in cold drinks"
+    }
+   },
+   "image": null,
+   "n": 128,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-12-14-29",
+   "date": "2026-12-14",
+   "time": "20:00",
+   "title": "How often should you get a cleaning?",
+   "status": "scheduled",
+   "channels": [
+    "instagram",
+    "facebook",
+    "threads"
+   ],
+   "copy": {
+    "instagram": {
+     "text": "Most people do well with a cleaning every six months.\n\nBook a visit: link in bio."
+    },
+    "facebook": {
+     "text": "Most people do well with a cleaning every six months.\n\nMessage us on WhatsApp to book."
+    },
+    "threads": {
+     "text": "Most people do well with a cleaning every six months."
+    }
+   },
+   "image": "/og-image.png",
+   "n": 129,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-12-16-30",
+   "date": "2026-12-16",
+   "time": "09:30",
+   "title": "What happens at a scale and polish",
+   "status": "pending",
+   "channels": [
+    "linkedin",
+    "x"
+   ],
+   "copy": {
+    "linkedin": {
+     "text": "A gentle clean removes hard build-up your brush cannot reach.\n\nWe are in Petaling Jaya.",
+     "title": "What happens at a scale and polish"
+    },
+    "x": {
+     "text": "A gentle clean removes hard build-up your brush cannot reach."
+    }
+   },
+   "image": "/og-image.png",
+   "n": 130,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-12-18-31",
+   "date": "2026-12-18",
+   "time": "20:00",
+   "title": "Wisdom teeth: when to check",
+   "status": "scheduled",
+   "channels": [
+    "instagram",
+    "facebook",
+    "google"
+   ],
+   "copy": {
+    "instagram": {
+     "text": "If a back tooth aches or the gum swells, get it checked.\n\nBook a visit: link in bio."
+    },
+    "facebook": {
+     "text": "If a back tooth aches or the gum swells, get it checked.\n\nMessage us on WhatsApp to book."
+    },
+    "google": {
+     "text": "If a back tooth aches or the gum swells, get it checked.\n\nCall or WhatsApp to book.",
+     "title": "Wisdom teeth: when to check"
+    }
+   },
+   "image": "/og-image.png",
+   "n": 131,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-12-19-32",
+   "date": "2026-12-19",
+   "time": "09:30",
+   "title": "Late-night dental pain",
+   "status": "pending",
+   "channels": [
+    "blog"
+   ],
+   "copy": {
+    "blog": {
+     "text": "Toothache at night? Here is what to do until you can see us.",
+     "title": "Late-night dental pain"
+    }
+   },
+   "image": null,
+   "n": 132,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-12-21-33",
+   "date": "2026-12-21",
+   "time": "20:00",
+   "title": "Why your gums bleed when you brush",
+   "status": "planned",
+   "channels": [
+    "instagram",
+    "facebook",
+    "threads"
+   ],
+   "copy": {
+    "instagram": {
+     "text": "Bleeding gums are often the first sign of gum disease. A cleaning and a check can stop it early.\n\nBook a visit: link in bio."
+    },
+    "facebook": {
+     "text": "Bleeding gums are often the first sign of gum disease. A cleaning and a check can stop it early.\n\nMessage us on WhatsApp to book."
+    },
+    "threads": {
+     "text": "Bleeding gums are often the first sign of gum disease. A cleaning and a check can stop it early."
+    }
+   },
+   "image": "/og-image.png",
+   "n": null,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-12-23-34",
+   "date": "2026-12-23",
+   "time": "09:30",
+   "title": "Your child's first dental visit",
+   "status": "planned",
+   "channels": [
+    "linkedin",
+    "x"
+   ],
+   "copy": {
+    "linkedin": {
+     "text": "Bring your child in by age one. A short, happy first visit makes the next ones easy.\n\nWe are in Petaling Jaya.",
+     "title": "Your child's first dental visit"
+    },
+    "x": {
+     "text": "Bring your child in by age one. A short, happy first visit makes the next ones easy."
+    }
+   },
+   "image": "/og-image.png",
+   "n": null,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-12-25-35",
+   "date": "2026-12-25",
+   "time": "20:00",
+   "title": "Braces or clear aligners?",
+   "status": "rejected",
+   "channels": [
+    "instagram",
+    "facebook",
+    "google"
+   ],
+   "copy": {
+    "instagram": {
+     "text": "Both straighten teeth. Your dentist helps you choose what suits your teeth and your routine.\n\nBook a visit: link in bio."
+    },
+    "facebook": {
+     "text": "Both straighten teeth. Your dentist helps you choose what suits your teeth and your routine.\n\nMessage us on WhatsApp to book."
+    },
+    "google": {
+     "text": "Both straighten teeth. Your dentist helps you choose what suits your teeth and your routine.\n\nCall or WhatsApp to book.",
+     "title": "Braces or clear aligners?"
+    }
+   },
+   "image": "/og-image.png",
+   "n": 135,
+   "live": {},
+   "note": "Sample data"
+  },
+  {
+   "id": "p-2026-12-26-36",
+   "date": "2026-12-26",
+   "time": "09:30",
+   "title": "Sensitive teeth in cold drinks",
+   "status": "planned",
+   "channels": [
+    "blog"
+   ],
+   "copy": {
+    "blog": {
+     "text": "Sensitivity has many causes. A quick check finds the cause and the right fix.",
+     "title": "Sensitive teeth in cold drinks"
+    }
+   },
+   "image": null,
+   "n": null,
+   "live": {},
+   "note": "Sample data"
+  }
+ ],
+ "funnel": {
+  "as_of": null,
+  "channels": {
+   "instagram": {
+    "interactions": 0,
+    "comments": 0,
+    "dms": 0,
+    "leads": 0,
+    "handed": 0,
+    "booked": 0,
+    "first_reply_median_min": null
+   },
+   "facebook": {
+    "interactions": 0,
+    "comments": 0,
+    "dms": 0,
+    "leads": 0,
+    "handed": 0,
+    "booked": 0,
+    "first_reply_median_min": null
+   },
+   "linkedin": {
+    "interactions": 0,
+    "comments": 0,
+    "dms": 0,
+    "leads": 0,
+    "handed": 0,
+    "booked": 0,
+    "first_reply_median_min": null
+   },
+   "x": {
+    "interactions": 0,
+    "comments": 0,
+    "dms": 0,
+    "leads": 0,
+    "handed": 0,
+    "booked": 0,
+    "first_reply_median_min": null
+   },
+   "threads": {
+    "interactions": 0,
+    "comments": 0,
+    "dms": 0,
+    "leads": 0,
+    "handed": 0,
+    "booked": 0,
+    "first_reply_median_min": null
+   },
+   "google": {
+    "interactions": 0,
+    "comments": 0,
+    "dms": 0,
+    "leads": 0,
+    "handed": 0,
+    "booked": 0,
+    "first_reply_median_min": null
+   },
+   "blog": {
+    "interactions": 0,
+    "comments": 0,
+    "dms": 0,
+    "leads": 0,
+    "handed": 0,
+    "booked": 0,
+    "first_reply_median_min": null
+   }
+  }
+ }
+}

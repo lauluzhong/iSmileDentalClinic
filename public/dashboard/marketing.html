@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/png" href="/dashboard/favicon-circle.png">
+<link rel="stylesheet" href="/dashboard/theme.css">
+<link rel="expect" href="#dash-hdr" blocking="render">
+<script src="/dashboard/theme.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>iSmile Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* Token names only; the colours come from theme.css (light and dark). */
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:13.5px;line-height:1.45;min-height:100vh}
+  a{color:var(--mut)}
+  .wrap{max-width:1440px;margin:0 auto;padding:18px 16px 40px}
+  header{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-bottom:6px}
+  .brand h1{font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:.05em;text-transform:uppercase}
+  .brand h1 b{color:var(--p1)}
+  .brand .sub{color:var(--dim);font-size:11px;margin-top:2px}
+  nav{display:flex;justify-content:flex-end;gap:6px;flex-wrap:wrap;margin-left:auto}
+  nav a{font-size:11px;color:var(--mut);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 11px;background:var(--panel);transition:border-color .15s,color .15s}
+  nav a:hover{border-color:var(--line-hi);color:var(--ink)}
+  nav a.active{border-color:var(--p1);color:var(--ink)}
+
+  .secthead{font-family:var(--disp);font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--dim);margin:22px 0 10px;display:flex;align-items:center;gap:10px}
+  .secthead::after{content:"";flex:1;height:1px;background:var(--line)}
+  .note{font-size:12px;color:var(--dim);margin:6px 0}
+  .note.warn{color:var(--warn)}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden;min-width:0}
+
+  /* ---------- toolbar ---------- */
+  .mkbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line)}
+  .month{font-size:18px;font-weight:600;min-width:150px}
+  .nb{all:unset;cursor:pointer;min-width:44px;min-height:44px;display:inline-grid;place-items:center;border:1px solid var(--line);border-radius:12px;color:var(--ink);font-size:16px;transition:border-color .15s,color .15s}
+  .nb:hover{border-color:var(--line-hi)}
+  .nb.txt{font-size:12px;padding:0 14px}
+  .nb:focus-visible,.fc:focus-visible,.chipb:focus-visible{outline:2px solid var(--p1);outline-offset:2px}
+  .filters{display:flex;flex-wrap:wrap;gap:6px;margin-left:auto}
+  .fc{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:var(--mut);transition:border-color .15s,color .15s}
+  .fc .dot{width:9px;height:9px;border-radius:50%;background:var(--c)}
+  .fc.on{color:var(--ink);border-color:var(--c)}
+  .fc:not(.on) .dot{background:transparent;box-shadow:inset 0 0 0 1.5px var(--c)}
+  .legend{display:flex;flex-wrap:wrap;gap:6px 14px;padding:10px 16px;border-bottom:1px solid var(--line);font-size:11.5px;color:var(--mut)}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .sw{width:14px;height:10px;border-radius:3px}
+
+  /* ---------- status colours ---------- */
+  .s-planned{background:var(--panel2);color:var(--mut);border:1px dashed var(--line-hi)}
+  .s-pending{background:var(--warn-soft);color:var(--warn);border:1px solid rgba(var(--warnrgb),.5)}
+  .s-scheduled{background:var(--brand-soft);color:var(--brand);border:1px solid rgba(var(--p1rgb),.45)}
+  .s-posted{background:var(--ok-soft);color:var(--ok);border:1px solid rgba(var(--okrgb),.45)}
+  .s-rejected{background:var(--bad-soft-bg);color:var(--bad);border:1px solid rgba(var(--badrgb),.4);text-decoration:line-through}
+
+  /* ---------- month grid ---------- */
+  .grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr)) 64px}
+  .dow{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.05em;padding:8px;border-bottom:1px solid var(--line)}
+  .dow.wk{text-align:center}
+  .day{min-height:112px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:6px;display:flex;flex-direction:column;gap:3px;min-width:0}
+  .day.out{background:var(--panel2)}
+  .day.out .dn{color:var(--dim)}
+  .dn{font-size:12px;font-weight:600;width:24px;height:24px;display:grid;place-items:center;border-radius:50%;margin-bottom:2px}
+  .day.today .dn{background:var(--brand);color:#fff}
+  .chipb{all:unset;cursor:pointer;display:flex;align-items:center;gap:5px;border-radius:6px;padding:2px 6px;font-size:11px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:20px;transition:filter .15s}
+  .chipb:hover{filter:brightness(.96)}
+  .chipb .ci{flex:none;width:16px;height:16px;border-radius:4px;display:grid;place-items:center;font-size:9px;font-weight:700;color:#fff;background:var(--c);text-decoration:none}
+  .chipb .ct{overflow:hidden;text-overflow:ellipsis}
+  .wkc{border-bottom:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:11px;color:var(--dim)}
+  .wkc b{font-size:18px;color:var(--ink);font-weight:600}
+  .wkbar{width:6px;border-radius:3px;background:var(--brand);opacity:.7}
+  .more{font-size:11px;color:var(--mut);padding-left:4px}
+
+  /* ---------- phone: agenda list instead of the grid ---------- */
+  .agenda{display:none}
+  @media(max-width:760px){
+    .grid{display:none}
+    .agenda{display:block}
+    .filters{margin-left:0}
+    .mkbar{padding:12px}
+  }
+  .ag-day{display:grid;grid-template-columns:58px 1fr;gap:10px;padding:10px 12px;border-bottom:1px solid var(--line)}
+  .ag-day.today{background:var(--brand-soft)}
+  .ag-d{font-size:12px;color:var(--dim)} .ag-d b{display:block;font-size:20px;color:var(--ink);font-weight:600}
+  .ag-day .chipb{font-size:13px;min-height:36px;padding:4px 8px;margin-bottom:4px;white-space:normal}
+  .ag-wk{padding:8px 12px;font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.05em;background:var(--panel2);border-bottom:1px solid var(--line)}
+  .empty{padding:24px;color:var(--dim);text-align:center}
+
+  /* ---------- posting frequency ---------- */
+  .freq{padding:14px 16px}
+  .freq svg{width:100%;height:120px;display:block}
+
+  /* ---------- funnel ---------- */
+  .tbl{width:100%;border-collapse:collapse;font-size:13px}
+  .tbl th{font-weight:500;font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.04em;text-align:right;padding:10px 12px;border-bottom:1px solid var(--line)}
+  .tbl th:first-child,.tbl td:first-child{text-align:left}
+  .tbl td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums}
+  .tbl tr:last-child td{border-bottom:0}
+  .tbl tfoot td{font-weight:600;border-top:1px solid var(--line-hi)}
+  .tw{overflow-x:auto}
+
+  /* ---------- side panel ---------- */
+  .scrim{position:fixed;inset:0;background:rgba(var(--scrimrgb),.4);opacity:0;pointer-events:none;transition:opacity .2s var(--ease);z-index:50}
+  .scrim.on{opacity:1;pointer-events:auto}
+  .mkpanel{position:fixed;top:0;right:0;bottom:0;width:min(520px,100vw);background:var(--panel);border-left:1px solid var(--line);box-shadow:var(--sh-pop);z-index:51;transform:translateX(100%);transition:transform .28s var(--ease);display:flex;flex-direction:column}
+  .mkpanel.on{transform:none}
+  .ph{display:flex;align-items:flex-start;gap:10px;padding:16px;border-bottom:1px solid var(--line)}
+  .ph h2{font-size:17px;font-weight:600;flex:1}
+  .pb{overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--mut)}
+  .mkpill{display:inline-block;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:500;text-decoration:none}
+  .pimg{width:100%;border-radius:14px;border:1px solid var(--line);display:block;aspect-ratio:1.91/1;object-fit:cover;background:var(--panel2)}
+  .cc{border-top:1px solid var(--line);padding-top:12px}
+  .cc h3{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;margin-bottom:6px}
+  .cc h3 .ci{width:20px;height:20px;border-radius:5px;display:grid;place-items:center;font-size:10px;font-weight:700;color:#fff;background:var(--c)}
+  .cc h3 a{margin-left:auto;font-weight:500;font-size:12px;color:var(--brand);text-decoration:none}
+  .cc .tt{font-weight:600;margin-bottom:4px}
+  .cc p{white-space:pre-wrap;font-size:13.5px;line-height:1.55}
+  .cc .len{font-size:11px;color:var(--dim);margin-top:4px}
+  @media (prefers-reduced-motion:reduce){.mkpanel,.scrim{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand"><a class="dash-logo" href="/dashboard" aria-label="iSmile"></a><h1><span class="dash-sr">iSmile </span><b>Marketing</b></h1><div class="sub">every post planned for the month, by channel · tap a post to read it</div></div>
+    <div class="clock"><div class="t" data-clock>--:--<small>--</small></div><div class="d" data-date>—</div></div>
+    <nav>
+      <a href="/dashboard">Dashboard</a><a href="/dashboard/org">Org Chart</a><a href="/dashboard/tasks">Task Tracker</a><a href="/dashboard/profitability">Finance</a><a href="/dashboard/analytics">Analytics</a><a href="/dashboard/marketing" class="active">Marketing</a><a href="/dashboard/office">Office</a>
+    </nav>
+  </header>
+<script id="dash-hdr">window.ismileTheme&&ismileTheme.header&&ismileTheme.header()</script>
+
+  <div id="srcnote" class="note"></div>
+  <div id="pendnote" class="note"></div>
+
+  <div class="secthead">Content calendar</div>
+  <section class="card" aria-label="Content calendar">
+    <div class="mkbar">
+      <button class="nb" id="prev" aria-label="Previous month">‹</button>
+      <div class="month" id="mtitle" aria-live="polite">—</div>
+      <button class="nb" id="next" aria-label="Next month">›</button>
+      <button class="nb txt" id="today">Today</button>
+      <div class="filters" id="filters" role="group" aria-label="Show channels"></div>
+    </div>
+    <div class="legend" id="legend"></div>
+    <div class="grid" id="grid"></div>
+    <div class="agenda" id="agenda"></div>
+  </section>
+
+  <div class="secthead">Posts per week</div>
+  <section class="card freq" aria-label="Posts per week">
+    <div id="freq"></div>
+    <div class="note">One post counts once per channel. Shows the eight weeks around the month you are looking at.</div>
+  </section>
+
+  <div class="secthead">From post to booking</div>
+  <section class="card" aria-label="Funnel by channel">
+    <div class="tw"><table class="tbl" id="funnel"></table></div>
+  </section>
+  <div class="note" id="funnelnote"></div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="mkpanel" id="panel" role="dialog" aria-modal="true" aria-labelledby="ptitle" aria-hidden="true">
+  <div class="ph"><h2 id="ptitle">—</h2><button class="nb" id="pclose" aria-label="Close">✕</button></div>
+  <div class="pb" id="pbody"></div>
+</aside>
+
+<script>
+const RAW="https://raw.githubusercontent.com/lauluzhong/iSmileDentalClinic/status/";
+const CH={
+  instagram:{name:"Instagram",ab:"IG",c:"#C13584"},
+  facebook:{name:"Facebook",ab:"FB",c:"#1877F2"},
+  linkedin:{name:"LinkedIn",ab:"in",c:"#0A66C2"},
+  x:{name:"X",ab:"X",c:"#3A3F47"},
+  threads:{name:"Threads",ab:"@",c:"#6B6F76"},
+  google:{name:"Google post",ab:"G",c:"#1E8E3E"},
+  blog:{name:"Blog",ab:"B",c:"#B5560F"}
+};
+const ORDER=Object.keys(CH);
+const ST={planned:"Planned",pending:"Waiting for Lau",scheduled:"Approved, scheduled",posted:"Posted",rejected:"Not approved"};
+const DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+const MON=["January","February","March","April","May","June","July","August","September","October","November","December"];
+let DATA={posts:[]},MKT=null,on=new Set(ORDER);
+let FKEY="ismile-mkt-filter";
+try{const s=JSON.parse(localStorage.getItem(FKEY)||"null");if(Array.isArray(s)&&s.length)on=new Set(s.filter(k=>CH[k]));}catch(e){}
+
+function todayMYT(){const p=new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Kuala_Lumpur",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());return p;}
+const TODAY=todayMYT();
+let view=(()=>{const [y,m]=TODAY.split("-").map(Number);return {y,m:m-1};})();
+const iso=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const safeUrl=u=>/^(https:\/\/|\/)/.test(String(u||""))?u:null;
+function mondayOf(d){const x=new Date(d);const k=(x.getDay()+6)%7;x.setDate(x.getDate()-k);return x;}
+
+async function getJSON(u){const r=await fetch(u,{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}
+
+/* one chip per (post, channel) */
+function entries(){const out=[];for(const p of DATA.posts||[]){for(const c of (p.channels||Object.keys(p.copy||{}))){if(CH[c]&&on.has(c))out.push({p,c});}}return out;}
+function byDay(){const m={};for(const e of entries()){(m[e.p.date]=m[e.p.date]||[]).push(e);}for(const k in m)m[k].sort((a,b)=>(a.p.time||"").localeCompare(b.p.time||"")||ORDER.indexOf(a.c)-ORDER.indexOf(b.c));return m;}
+
+function chip(e,i){const ch=CH[e.c];return `<button class="chipb s-${esc(e.p.status)}" data-id="${esc(e.p.id)}" data-ch="${e.c}" title="${esc(ch.name+" · "+(e.p.time||"")+" · "+(ST[e.p.status]||e.p.status)+" · "+(e.p.title||""))}"><span class="ci" style="--c:${ch.c}">${ch.ab}</span><span class="ct">${esc(e.p.time||"")} ${esc(e.p.title||"")}</span></button>`;}
+
+function render(){
+  document.getElementById("mtitle").textContent=MON[view.m]+" "+view.y;
+  const first=new Date(view.y,view.m,1),start=mondayOf(first),last=new Date(view.y,view.m+1,0);
+  const days=byDay();
+  let h=DOW.map(d=>`<div class="dow">${d}</div>`).join("")+`<div class="dow wk" title="Posts that week">Week</div>`;
+  let ag="";const cur=new Date(start);const wkCounts=[];
+  while(cur<=last||((cur.getDay()+6)%7)!==0){
+    let wk=0;let agw="";
+    for(let i=0;i<7;i++){
+      const k=iso(cur),list=days[k]||[];wk+=list.filter(e=>e.p.status!=="rejected").length;
+      const out=cur.getMonth()!==view.m,isT=k===TODAY;
+      const shown=list.slice(0,4).map(chip).join("")+(list.length>4?`<button class="chipb more" data-day="${k}">+${list.length-4} more</button>`:"");
+      h+=`<div class="day${out?" out":""}${isT?" today":""}" aria-label="${cur.getDate()} ${MON[cur.getMonth()]}${isT?", today":""}"><div class="dn">${cur.getDate()}</div>${shown}</div>`;
+      if(!out&&(list.length||isT))agw+=`<div class="ag-day${isT?" today":""}"><div class="ag-d">${DOW[i]}<b>${cur.getDate()}</b></div><div>${list.map(chip).join("")||'<span class="note">Nothing planned today</span>'}</div></div>`;
+      cur.setDate(cur.getDate()+1);
+    }
+    wkCounts.push(wk);
+    h+=`<div class="wkc"><b>${wk}</b>posts</div>`;
+    if(agw)ag+=`<div class="ag-wk">Week of ${new Date(cur.getTime()-7*864e5).getDate()} ${MON[new Date(cur.getTime()-7*864e5).getMonth()].slice(0,3)} · ${wk} posts</div>`+agw;
+  }
+  document.getElementById("grid").innerHTML=h;
+  document.getElementById("agenda").innerHTML=ag||'<div class="empty">No posts planned this month yet.</div>';
+  renderFreq();
+}
+
+function renderFreq(){
+  const mid=new Date(view.y,view.m,15),s=mondayOf(new Date(mid.getTime()-28*864e5));
+  const weeks=[];for(let i=0;i<8;i++){const a=new Date(s.getTime()+i*7*864e5);weeks.push({a,n:0});}
+  for(const e of entries()){if(e.p.status==="rejected")continue;const d=new Date(e.p.date+"T00:00:00");const i=Math.floor((d-s)/(7*864e5));if(i>=0&&i<8)weeks[i].n++;}
+  const W=800,H=120,pl=28,pr=12,pt=14,pb=24,max=Math.max(4,...weeks.map(w=>w.n));
+  const x=i=>pl+i*(W-pl-pr)/7,y=v=>pt+(H-pt-pb)*(1-v/max);
+  const pts=weeks.map((w,i)=>`${x(i)},${y(w.n)}`).join(" ");
+  const tw=mondayOf(new Date(TODAY+"T00:00:00")).getTime();
+  let g=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Posts per week: ${weeks.map(w=>w.n).join(", ")}">`;
+  g+=`<line x1="${pl}" x2="${W-pr}" y1="${y(0)}" y2="${y(0)}" stroke="var(--line)"/><line x1="${pl}" x2="${W-pr}" y1="${y(max)}" y2="${y(max)}" stroke="var(--line)" stroke-dasharray="3 4"/><text x="4" y="${y(max)+4}" font-size="11" fill="var(--dim)">${max}</text><text x="4" y="${y(0)+4}" font-size="11" fill="var(--dim)">0</text>`;
+  g+=`<polyline points="${pts}" fill="none" stroke="var(--brand)" stroke-width="2" vector-effect="non-scaling-stroke"/>`;
+  weeks.forEach((w,i)=>{const t=w.a.getTime()===tw;g+=`<circle cx="${x(i)}" cy="${y(w.n)}" r="${t?5:3.5}" fill="${t?"var(--brand)":"var(--panel)"}" stroke="var(--brand)" stroke-width="2"/><text x="${x(i)}" y="${y(w.n)-9}" text-anchor="middle" font-size="11" fill="var(--ink)">${w.n}</text><text x="${x(i)}" y="${H-6}" text-anchor="middle" font-size="10.5" fill="var(--dim)">${w.a.getDate()} ${MON[w.a.getMonth()].slice(0,3)}</text>`;});
+  document.getElementById("freq").innerHTML=g+"</svg>";
+}
+
+function renderFilters(){
+  document.getElementById("filters").innerHTML=ORDER.map(k=>`<button class="fc${on.has(k)?" on":""}" data-f="${k}" aria-pressed="${on.has(k)}" style="--c:${CH[k].c}"><span class="dot"></span>${CH[k].name}</button>`).join("");
+  document.getElementById("legend").innerHTML=Object.entries(ST).map(([k,v])=>`<span><i class="sw s-${k}"></i>${v}</span>`).join("");
+}
+
+function renderFunnel(){
+  const f=(DATA.funnel&&DATA.funnel.channels)||{};
+  const cols=[["interactions","Comments + messages"],["leads","Leads"],["handed","Passed to front desk"],["booked","Booked"],["first_reply_median_min","Typical first reply"]];
+  const fmt=(k,v)=>k==="first_reply_median_min"?(v==null?"—":v<60?Math.round(v)+" min":(v/60).toFixed(1)+" h"):(v==null?0:v);
+  const tot={interactions:0,leads:0,handed:0,booked:0};
+  let h=`<thead><tr><th>Channel</th>${cols.map(c=>`<th>${c[1]}</th>`).join("")}</tr></thead><tbody>`;
+  for(const k of ORDER){const r=f[k]||{};for(const t in tot)tot[t]+=+r[t]||0;
+    h+=`<tr><td><span class="mkpill" style="background:${CH[k].c};color:#fff">${CH[k].ab}</span> ${CH[k].name}</td>${cols.map(c=>`<td>${fmt(c[0],r[c[0]])}</td>`).join("")}</tr>`;}
+  const med=DATA.funnel&&DATA.funnel.first_reply_median_min;
+  h+=`</tbody><tfoot><tr><td>All channels</td><td>${tot.interactions}</td><td>${tot.leads}</td><td>${tot.handed}</td><td>${tot.booked}</td><td>${fmt("first_reply_median_min",med)}</td></tr></tfoot>`;
+  document.getElementById("funnel").innerHTML=h;
+  document.getElementById("funnelnote").textContent=DATA.funnel&&DATA.funnel.as_of?("Counts as of "+DATA.funnel.as_of+"."):"These are zeros for now. They fill in once the inbox counter on the clinic server is switched on.";
+}
+
+/* ---------- side panel ---------- */
+let lastFocus=null;
+function openPost(id,focusCh){
+  const p=(DATA.posts||[]).find(x=>x.id===id);if(!p)return;
+  lastFocus=document.activeElement;
+  document.getElementById("ptitle").textContent=p.title||"Post";
+  const d=new Date(p.date+"T00:00:00");
+  const chs=(p.channels||Object.keys(p.copy||{})).filter(c=>CH[c]);
+  const img=safeUrl(p.image);
+  let b=`<div class="meta"><span class="mkpill s-${esc(p.status)}">${esc(ST[p.status]||p.status)}</span><span>${DOW[(d.getDay()+6)%7]} ${d.getDate()} ${MON[d.getMonth()]} ${d.getFullYear()} · ${esc(p.time||"time not set")}</span>${p.n!=null?`<span>Approval no. ${esc(p.n)}</span>`:""}</div>`;
+  if(p.status==="pending")b+=`<div class="note warn">Waiting for you on the WhatsApp board${p.n!=null?` (reply to no. ${esc(p.n)})`:""}.</div>`;
+  if(p.status==="rejected"&&p.reason)b+=`<div class="note">Why not: ${esc(p.reason)}</div>`;
+  if(img)b+=`<img class="pimg" src="${esc(img)}" alt="Image for this post" loading="eager">`;
+  const ordered=focusCh?[focusCh,...chs.filter(c=>c!==focusCh)]:chs;
+  for(const c of ordered){const cp=(p.copy||{})[c]||{};const live=p.live&&safeUrl(p.live[c]);
+    b+=`<div class="cc"><h3><span class="ci" style="--c:${CH[c].c}">${CH[c].ab}</span>${CH[c].name}${live?`<a href="${esc(live)}" target="_blank" rel="noopener">See the live post ↗</a>`:""}</h3>${cp.title?`<div class="tt">${esc(cp.title)}</div>`:""}<p>${esc(cp.text||"No words written yet.")}</p>${cp.text?`<div class="len">${cp.text.length} characters</div>`:""}</div>`;}
+  if(p.note)b+=`<div class="note">${esc(p.note)}</div>`;
+  document.getElementById("pbody").innerHTML=b;
+  const pn=document.getElementById("panel");pn.classList.add("on");pn.setAttribute("aria-hidden","false");document.getElementById("scrim").classList.add("on");
+  document.getElementById("pclose").focus();
+}
+function closePost(){const pn=document.getElementById("panel");pn.classList.remove("on");pn.setAttribute("aria-hidden","true");document.getElementById("scrim").classList.remove("on");if(lastFocus)lastFocus.focus();}
+
+document.addEventListener("click",e=>{
+  const c=e.target.closest(".chipb[data-id]");if(c){openPost(c.dataset.id,c.dataset.ch);return;}
+  const m=e.target.closest(".chipb[data-day]");if(m){const el=m.parentElement;el.querySelectorAll(".chipb").forEach(x=>x.remove());const list=byDay()[m.dataset.day]||[];el.insertAdjacentHTML("beforeend",list.map(chip).join(""));return;}
+  const f=e.target.closest(".fc");if(f){const k=f.dataset.f;if(on.has(k)&&on.size>1)on.delete(k);else on.add(k);try{localStorage.setItem(FKEY,JSON.stringify([...on]));}catch(_){}renderFilters();render();}
+});
+document.getElementById("scrim").onclick=closePost;
+document.getElementById("pclose").onclick=closePost;
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closePost();});
+document.getElementById("prev").onclick=()=>{view.m--;if(view.m<0){view.m=11;view.y--;}render();};
+document.getElementById("next").onclick=()=>{view.m++;if(view.m>11){view.m=0;view.y++;}render();};
+document.getElementById("today").onclick=()=>{const [y,m]=TODAY.split("-").map(Number);view={y,m:m-1};render();};
+
+(async function(){
+  renderFilters();render();renderFunnel();
+  const q="?t="+Date.now();
+  const [cal,mkt]=await Promise.all([
+    getJSON(RAW+"social-calendar.json"+q).catch(()=>null),
+    getJSON(RAW+"marketing.json"+q).catch(()=>null)
+  ]);
+  const sn=document.getElementById("srcnote");
+  if(cal&&Array.isArray(cal.posts)){DATA=cal;sn.textContent=(cal.sample?"Sample posts for now. ":"")+"Updated "+(cal.generated_myt||"").replace("T"," ").slice(0,16)+".";}
+  else{try{DATA=await getJSON("/dashboard/social-calendar.sample.json"+q);sn.textContent="Sample posts for now. The real calendar appears here once the clinic server starts sending it.";}catch(e){sn.textContent="Could not load the calendar.";sn.className="note warn";}}
+  MKT=mkt;
+  if(mkt&&Array.isArray(mkt.pending)){const n=mkt.pending.length;document.getElementById("pendnote").textContent=n?`${n} item${n>1?"s":""} waiting for you on the WhatsApp board.`:"Nothing waiting for you on the WhatsApp board.";}
+  renderFilters();render();renderFunnel();
+})();
+</script>
+</body>
+</html>
