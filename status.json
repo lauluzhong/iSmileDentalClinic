@@ -1,9 +1,11 @@
 {
-  "updated": "2026-11-13 05:45 MYT",
-  "running": [],
+  "updated": "2026-11-13 06:00 MYT",
+  "running": [
+    "gbp_reply"
+  ],
   "jobs": {
     "gbp_reply": {
-      "state": "idle",
+      "state": "running",
       "last": "2026-11-12 06:04 MYT"
     },
     "competitor_watch": {
