@@ -1,8 +1,213 @@
 {
  "timezone": "Asia/Kuala_Lumpur",
  "sample": false,
- "posts": [],
- "generated_myt": "2026-11-12T19:42:03+08:00",
+ "posts": [
+  {
+   "id": "carousel-haven-t-been-in-years",
+   "date": "2026-11-13",
+   "time": "09:00",
+   "title": "Carousel: Haven't been in years",
+   "status": "scheduled",
+   "channels": [
+    "facebook",
+    "instagram"
+   ],
+   "copy": {
+    "instagram": {
+     "text": "It's been a few years since your last dental visit. Every time you think about it, it gets a little harder to call.\n\nThat's how it feels for a lot of people. Life gets busy, then a year becomes three years, then five years. By then the worry is less about the treatment itself, and more about not knowing what to expect. It's entirely valid.\n\nHere's how a first visit back with us usually goes.\n\n1. Talk first: How long it has been, anything that hurts, any worries you may have.\n2. Gentle check: We take a look at your teeth, gums and bite to make sure everything is good.\n3. Open conversation: We share openly if something needs to be done, what can wait, what each step involves, and the potential costs involved, all before anything starts.\n\nSmall problems found early are usually simpler than the ones left to grow. And most people leave that first visit feeling relieved.\n\nThe first step is the hardest part. Everything after comes one at a time."
+    },
+    "facebook": {
+     "text": "It's been a few years since your last dental visit. Every time you think about it, it gets a little harder to call.\n\nThat's how it feels for a lot of people. Life gets busy, then a year becomes three years, then five years. By then the worry is less about the treatment itself, and more about not knowing what to expect. It's entirely valid.\n\nHere's how a first visit back with us usually goes.\n\n1. Talk first: How long it has been, anything that hurts, any worries you may have.\n2. Gentle check: We take a look at your teeth, gums and bite to make sure everything is good.\n3. Open conversation: We share openly if something needs to be done, what can wait, what each step involves, and the potential costs involved, all before anything starts.\n\nSmall problems found early are usually simpler than the ones left to grow. And most people leave that first visit feeling relieved.\n\nThe first step is the hardest part. Everything after comes one at a time."
+    }
+   },
+   "image": "",
+   "n": null,
+   "live": {},
+   "verified": false,
+   "executor": "display",
+   "note": "Approved by Lau 12 Nov. Six slides."
+  },
+  {
+   "id": "search-gpost-2026-11-16",
+   "date": "2026-11-16",
+   "time": "09:00",
+   "title": "Weekly Google post",
+   "status": "planned",
+   "channels": [
+    "google-post"
+   ],
+   "copy": {},
+   "image": "",
+   "n": null,
+   "live": {},
+   "verified": false,
+   "executor": "display",
+   "note": ""
+  },
+  {
+   "id": "search-sprint-2026-11-16",
+   "date": "2026-11-16",
+   "time": "10:00",
+   "title": "Weekly search changes to the website (titles, links, refreshes)",
+   "status": "planned",
+   "channels": [
+    "blog"
+   ],
+   "copy": {},
+   "image": "",
+   "n": null,
+   "live": {},
+   "verified": false,
+   "executor": "display",
+   "note": ""
+  },
+  {
+   "id": "linkedin-job-post-2026-11-17",
+   "date": "2026-11-17",
+   "time": "09:00",
+   "title": "LinkedIn: Front Desk Executive hiring post",
+   "status": "planned",
+   "channels": [
+    "linkedin"
+   ],
+   "copy": {},
+   "image": "",
+   "n": null,
+   "live": {},
+   "verified": false,
+   "executor": "display",
+   "note": "In the plan Lau approved 12 Nov. Text post with the job link. Not yet scheduled on LinkedIn."
+  },
+  {
+   "id": "carousel-20-years-same-families",
+   "date": "2026-11-17",
+   "time": "09:00",
+   "title": "Carousel: 20 years, same families",
+   "status": "planned",
+   "channels": [
+    "facebook",
+    "instagram"
+   ],
+   "copy": {
+    "instagram": {
+     "text": "The dentist who knew your child at five still knows them when they're fifteen. That's what a family dentist means to us.\n\nWe take pride in knowing your story, and caring for you and your family through the years. From the first tooth, the habits you were watching, to the concerns you had last year.\n\nEveryone's dental development is a bit different. That longevity is how we're able to know what you need, what you're comfortable with and what's worth investing in.\n\nWe've cared for families in Petaling Jaya for 20 years, and today we are at home in Damansara Jaya. In some families, we're now caring for three generations. That's the part of the work we are proudest of.\n\nSame families, same care, year after year."
+    },
+    "facebook": {
+     "text": "The dentist who knew your child at five still knows them when they're fifteen. That's what a family dentist means to us.\n\nWe take pride in knowing your story, and caring for you and your family through the years. From the first tooth, the habits you were watching, to the concerns you had last year.\n\nEveryone's dental development is a bit different. That longevity is how we're able to know what you need, what you're comfortable with and what's worth investing in.\n\nWe've cared for families in Petaling Jaya for 20 years, and today we are at home in Damansara Jaya. In some families, we're now caring for three generations. That's the part of the work we are proudest of.\n\nSame families, same care, year after year."
+    }
+   },
+   "image": "",
+   "n": null,
+   "live": {},
+   "verified": false,
+   "executor": "display",
+   "note": "Approved by Lau 12 Nov. Six slides. Date is the next free Tuesday or Friday."
+  },
+  {
+   "id": "carousel-children-s-confidence",
+   "date": "2026-11-20",
+   "time": "09:00",
+   "title": "Carousel: Children's confidence",
+   "status": "planned",
+   "channels": [
+    "facebook",
+    "instagram"
+   ],
+   "copy": {
+    "instagram": {
+     "text": "Does your child cover their mouth when they laugh, or keep their lips closed in every photo?\n\nFor a lot of children and teenagers, crooked or crowded teeth are not really a dental worry. They are a confidence worry. It shows up quietly: smiling less in class photos, not wanting to speak up, a hand that drifts to the mouth.\n\nMost children will not say it out loud. They just stop smiling as freely.\n\nIf you have noticed this, it is worth a conversation. Crooked teeth are very common, and there are more ways to straighten them than many parents expect. Depending on the teeth and the bite, the dentist may suggest braces, clear aligners, or a removable appliance, and sometimes simply waiting a little longer. The first step is just a check, so you both know what the options are.\n\nA smile your child is happy to show is worth a conversation."
+    },
+    "facebook": {
+     "text": "Does your child cover their mouth when they laugh, or keep their lips closed in every photo?\n\nFor a lot of children and teenagers, crooked or crowded teeth are not really a dental worry. They are a confidence worry. It shows up quietly: smiling less in class photos, not wanting to speak up, a hand that drifts to the mouth.\n\nMost children will not say it out loud. They just stop smiling as freely.\n\nIf you have noticed this, it is worth a conversation. Crooked teeth are very common, and there are more ways to straighten them than many parents expect. Depending on the teeth and the bite, the dentist may suggest braces, clear aligners, or a removable appliance, and sometimes simply waiting a little longer. The first step is just a check, so you both know what the options are.\n\nA smile your child is happy to show is worth a conversation."
+    }
+   },
+   "image": "",
+   "n": null,
+   "live": {},
+   "verified": false,
+   "executor": "display",
+   "note": "Approved by Lau 12 Nov. Six slides. Date is the next free Tuesday or Friday."
+  },
+  {
+   "id": "linkedin-first-visit-2026-11-24",
+   "date": "2026-11-24",
+   "time": "09:00",
+   "title": "LinkedIn carousel: Your first visit with us, step by step",
+   "status": "planned",
+   "channels": [
+    "linkedin"
+   ],
+   "copy": {},
+   "image": "",
+   "n": null,
+   "live": {},
+   "verified": false,
+   "executor": "display",
+   "note": "New carousel. Slides not made yet; Lau sees them before it posts."
+  },
+  {
+   "id": "carousel-ageing-parents",
+   "date": "2026-11-24",
+   "time": "09:00",
+   "title": "Carousel: Ageing parents",
+   "status": "planned",
+   "channels": [
+    "facebook",
+    "instagram"
+   ],
+   "copy": {
+    "instagram": {
+     "text": "Has your mother or father quietly switched to softer food? It is often the first sign that their teeth, or their dentures, need a look.\n\nOlder parents rarely complain about it. They just stop ordering certain dishes, chew on one side, or leave a loose denture in the drawer. For the son or daughter organising their care, the dental side often comes last, after everything else.\n\nSigns worth a gentle conversation: avoiding food they used to enjoy, gaps that make them shy to smile or speak, or a denture that feels loose, rubs or has cracked. None of these are emergencies. A loose denture does not always mean a new one, either. Gums change shape over time, and in many cases a reline or repair can improve the fit.\n\nWhat families tell us is hardest is not the treatment. It is the number of trips, the parking, the stairs, and too many decisions at once. That is why we keep it simple: a ground-floor clinic in Damansara Jaya, parking right in front, and clear options explained at each visit.\n\nThey looked after you for years. Now it is your turn."
+    },
+    "facebook": {
+     "text": "Has your mother or father quietly switched to softer food? It is often the first sign that their teeth, or their dentures, need a look.\n\nOlder parents rarely complain about it. They just stop ordering certain dishes, chew on one side, or leave a loose denture in the drawer. For the son or daughter organising their care, the dental side often comes last, after everything else.\n\nSigns worth a gentle conversation: avoiding food they used to enjoy, gaps that make them shy to smile or speak, or a denture that feels loose, rubs or has cracked. None of these are emergencies. A loose denture does not always mean a new one, either. Gums change shape over time, and in many cases a reline or repair can improve the fit.\n\nWhat families tell us is hardest is not the treatment. It is the number of trips, the parking, the stairs, and too many decisions at once. That is why we keep it simple: a ground-floor clinic in Damansara Jaya, parking right in front, and clear options explained at each visit.\n\nThey looked after you for years. Now it is your turn."
+    }
+   },
+   "image": "",
+   "n": null,
+   "live": {},
+   "verified": false,
+   "executor": "display",
+   "note": "Approved by Lau 12 Nov. Six slides. Date is the next free Tuesday or Friday."
+  },
+  {
+   "id": "linkedin-job-explainer-2026-12-01",
+   "date": "2026-12-01",
+   "time": "09:00",
+   "title": "LinkedIn: what a Front Desk Executive does",
+   "status": "planned",
+   "channels": [
+    "linkedin"
+   ],
+   "copy": {},
+   "image": "",
+   "n": null,
+   "live": {},
+   "verified": false,
+   "executor": "display",
+   "note": "In the plan Lau approved 12 Nov. Text post. Not yet scheduled on LinkedIn."
+  },
+  {
+   "id": "search-photo-2026-12",
+   "date": "2026-12-10",
+   "time": "10:00",
+   "title": "New photo: treatment room (second view)",
+   "status": "scheduled",
+   "channels": [
+    "google-profile"
+   ],
+   "copy": {
+    "google-profile": "INTERIOR"
+   },
+   "image": "",
+   "n": null,
+   "live": {},
+   "verified": false,
+   "executor": "search",
+   "note": ""
+  }
+ ],
+ "generated_myt": "2026-11-12T19:51:28+08:00",
  "funnel": {
   "as_of": "2026-11-12T19:42:03+08:00",
   "first_reply_median_min": null,
