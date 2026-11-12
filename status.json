@@ -1,8 +1,6 @@
 {
   "updated": "2026-11-12 20:10 MYT",
-  "running": [
-    "clinic_db"
-  ],
+  "running": [],
   "jobs": {
     "gbp_reply": {
       "state": "idle",
@@ -109,8 +107,8 @@
       "last": "2026-11-11 19:00 MYT"
     },
     "clinic_db": {
-      "state": "running",
-      "last": "2026-11-11 20:10 MYT"
+      "state": "idle",
+      "last": "2026-11-12 20:10 MYT"
     },
     "doctor_view": {
       "state": "idle",
