@@ -2,14 +2,14 @@
  "timezone": "Asia/Kuala_Lumpur",
  "sample": false,
  "posts": [],
- "generated_myt": "2026-11-12T11:42:02+08:00",
+ "generated_myt": "2026-11-12T12:12:02+08:00",
  "funnel": {
-  "as_of": "2026-11-12T11:42:02+08:00",
+  "as_of": "2026-11-12T12:12:02+08:00",
   "first_reply_median_min": null,
   "channels": {
    "facebook": {
-    "interactions": 8,
-    "comments": 1,
+    "interactions": 9,
+    "comments": 2,
     "dms": 7,
     "leads": 0,
     "handed": 0,
