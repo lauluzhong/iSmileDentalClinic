@@ -3,6 +3,13 @@
   "entries": [
     {
       "ts": "2026-11-13 06:00 MYT",
+      "agent": "analytics",
+      "job": "social_post",
+      "event": "started",
+      "result": ""
+    },
+    {
+      "ts": "2026-11-13 06:00 MYT",
       "agent": "gbp",
       "job": "gbp_reply",
       "event": "started",
@@ -1393,13 +1400,6 @@
       "job": "deck_stats",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-11-12 14:15 MYT",
-      "agent": "analytics",
-      "job": "social_post",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
