@@ -1,6 +1,6 @@
 {
- "generated_myt": "2026-11-13T06:37:10+08:00",
- "as_of": "2026-11-12",
+ "generated_myt": "2026-11-13T07:26:04+08:00",
+ "as_of": "2026-11-13",
  "dedupe": "one person counts once per month per stage. Lead = social/web lead, or a recall/blast recipient who CLICKED (replies not tracked yet). Front desk = carded social/web leads + BTL clickers (on the follow-up list). Booked = a lead who booked within 90 days, credited to that lead's source AND to the month of the lead (cohort), one patient once; btl sent = messages, clicked = unique people who clicked = BTL leads; booked after, not because of. btl.*.booked_after_send = booked after a send with no click (outside the funnel). btl sent/clicked = e10 messages (same source as recall.json). recall.json value.mtd differs on purpose: it counts only matured cohorts (90 days) with production, so a fresh booking shows here first and there later",
  "months": {
   "2026-04": {
@@ -529,7 +529,7 @@
     }
    },
    "booked": {
-    "total": 26,
+    "total": 40,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -537,8 +537,8 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 19,
-     "blast": 7,
+     "recall": 21,
+     "blast": 19,
      "calls": 0
     },
     "production": null
@@ -570,10 +570,10 @@
    "btl": {
     "recall": {
      "sent": 134,
-     "clicked": 6,
+     "clicked": 7,
      "replied": null,
-     "leads": 6,
-     "booked_after_send": 19,
+     "leads": 7,
+     "booked_after_send": 21,
      "booked_household": 12,
      "booked_household_30d": 12,
      "came_in": 0
@@ -591,7 +591,7 @@
     "calls": null
    },
    "leads": {
-    "total": 65,
+    "total": 66,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -599,13 +599,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 6,
+     "recall": 7,
      "blast": 59,
      "calls": 0
     }
    },
    "handed": {
-    "total": 65,
+    "total": 66,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -613,13 +613,13 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 6,
+     "recall": 7,
      "blast": 59,
      "calls": 0
     }
    },
    "booked": {
-    "total": 25,
+    "total": 51,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -628,7 +628,7 @@
      "google": 0,
      "web": 0,
      "recall": 5,
-     "blast": 20,
+     "blast": 46,
      "calls": 0
     },
     "production": null
