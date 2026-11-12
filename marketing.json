@@ -1,5 +1,5 @@
 {
- "generated_myt": "2026-11-12 11:40",
+ "generated_myt": "2026-11-12 12:40",
  "pending": [
   {
    "n": 6,
@@ -17,6 +17,16 @@
    "title": "Growth plan, 16 Nov to 15 Dec",
    "status": "pending",
    "created": "2026-11-11",
+   "decided": null,
+   "pr": null,
+   "channel": null
+  },
+  {
+   "n": 9,
+   "kind": "social",
+   "title": "1 social replies to check",
+   "status": "pending",
+   "created": "2026-11-12",
    "decided": null,
    "pr": null,
    "channel": null
@@ -99,6 +109,16 @@
    "title": "Growth plan, 16 Nov to 15 Dec",
    "status": "pending",
    "created": "2026-11-11",
+   "decided": null,
+   "pr": null,
+   "channel": null
+  },
+  {
+   "n": 9,
+   "kind": "social",
+   "title": "1 social replies to check",
+   "status": "pending",
+   "created": "2026-11-12",
    "decided": null,
    "pr": null,
    "channel": null
