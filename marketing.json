@@ -1,32 +1,12 @@
 {
- "generated_myt": "2026-11-12 12:40",
+ "generated_myt": "2026-11-12 13:40",
  "pending": [
-  {
-   "n": 6,
-   "kind": "social",
-   "title": "1 social replies to check",
-   "status": "pending",
-   "created": "2026-11-11",
-   "decided": null,
-   "pr": null,
-   "channel": null
-  },
   {
    "n": 8,
    "kind": "plan",
    "title": "Growth plan, 16 Nov to 15 Dec",
    "status": "pending",
    "created": "2026-11-11",
-   "decided": null,
-   "pr": null,
-   "channel": null
-  },
-  {
-   "n": 9,
-   "kind": "social",
-   "title": "1 social replies to check",
-   "status": "pending",
-   "created": "2026-11-12",
    "decided": null,
    "pr": null,
    "channel": null
@@ -87,9 +67,9 @@
    "n": 6,
    "kind": "social",
    "title": "1 social replies to check",
-   "status": "pending",
+   "status": "rejected",
    "created": "2026-11-11",
-   "decided": null,
+   "decided": "2026-11-12",
    "pr": null,
    "channel": null
   },
@@ -117,9 +97,9 @@
    "n": 9,
    "kind": "social",
    "title": "1 social replies to check",
-   "status": "pending",
+   "status": "rejected",
    "created": "2026-11-12",
-   "decided": null,
+   "decided": "2026-11-12",
    "pr": null,
    "channel": null
   }
