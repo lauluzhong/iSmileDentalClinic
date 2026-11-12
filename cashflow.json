@@ -1,47 +1,47 @@
 {
   "as_of": "2026-11-12",
-  "mode": "midday",
+  "mode": "eod",
   "fresh": true,
-  "generated_myt": "2026-11-12 12:05",
+  "generated_myt": "2026-11-12 19:50",
   "source_max_paydate": "2026-11-12",
   "source_max_procdate": "2026-11-12",
   "today": {
-    "collected": 200.0,
-    "produced": 350.0,
-    "patients_seen": 4,
+    "collected": 2000.0,
+    "produced": 2040.0,
+    "patients_seen": 11,
     "new_patients": 0,
     "by_paytype": {
-      "Credit Card": 200.0
+      "Credit Card": 2000.0
     }
   },
   "mtd": {
-    "collected": 59093.0,
-    "produced": 59560.0,
+    "collected": 62693.0,
+    "produced": 61250.0,
     "trading_days": 9,
-    "avg_per_trading_day": 6565.89,
-    "run_rate_26d": 170713.11,
+    "avg_per_trading_day": 6965.89,
+    "run_rate_26d": 181113.11,
     "by_paytype": {
-      "Credit Card": 47443.0,
+      "Credit Card": 51043.0,
       "Internet Banking": 10250.0,
       "Cash": 800.0,
       "PBB QR": 600.0
     }
   },
-  "booked_next_14d": 274,
+  "booked_next_14d": 288,
   "forward_book": {
     "next_7d": {
       "days": 7,
-      "appts": 123,
-      "booked_min": 8060,
+      "appts": 141,
+      "booked_min": 8600,
       "capacity_min": 11120,
-      "pct": 72.48201438848922
+      "pct": 77.33812949640287
     },
     "next_14d": {
       "days": 14,
-      "appts": 254,
-      "booked_min": 14760,
+      "appts": 284,
+      "booked_min": 15870,
       "capacity_min": 22240,
-      "pct": 66.36690647482014
+      "pct": 71.35791366906474
     }
   },
   "doctors_worked": {
@@ -51,9 +51,23 @@
       "Mah"
     ]
   },
-  "utilization": null,
+  "utilization": {
+    "chair_minutes": 480,
+    "operatories": 4,
+    "open_minutes": 480,
+    "capacity_minutes": 1920,
+    "pct": 25.0
+  },
   "pnl": {
-    "available": false,
-    "reason": "n/a (midday)"
+    "locum_est": 955,
+    "lab_est": 0,
+    "gp": 1085.0,
+    "overhead_day": 3385.08,
+    "ebitda_day": -2300.08,
+    "depreciation_day": 1146.54,
+    "net_day": -3446.62,
+    "visits_matched": 10,
+    "available": true,
+    "produced": 2040.0
   }
 }
