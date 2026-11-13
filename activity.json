@@ -5,6 +5,13 @@
       "ts": "2026-11-13 11:00 MYT",
       "agent": "analytics",
       "job": "social_post",
+      "event": "finished",
+      "result": "ok"
+    },
+    {
+      "ts": "2026-11-13 11:00 MYT",
+      "agent": "analytics",
+      "job": "social_post",
       "event": "started",
       "result": ""
     },
@@ -1391,13 +1398,6 @@
       "ts": "2026-11-12 19:52 MYT",
       "agent": "analytics",
       "job": "cash_digest",
-      "event": "finished",
-      "result": "ok"
-    },
-    {
-      "ts": "2026-11-12 19:51 MYT",
-      "agent": "analytics",
-      "job": "doctor_view",
       "event": "finished",
       "result": "ok"
     }
