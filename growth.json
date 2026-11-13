@@ -1,5 +1,5 @@
 {
- "generated_myt": "2026-11-13T18:37:12+08:00",
+ "generated_myt": "2026-11-13T19:37:11+08:00",
  "as_of": "2026-11-13",
  "dedupe": "one person counts once per month per stage. Lead = social/web lead, or a recall/blast recipient who CLICKED (replies not tracked yet). Front desk = carded social/web leads + BTL clickers (on the follow-up list). Booked = a lead who booked within 90 days, credited to that lead's source AND to the month of the lead (cohort), one patient once; btl sent = messages, clicked = unique people who clicked = BTL leads; booked after, not because of. btl.*.booked_after_send = booked after a send with no click (outside the funnel). btl sent/clicked = e10 messages (same source as recall.json). recall.json value.mtd differs on purpose: it counts only matured cohorts (90 days) with production, so a fresh booking shows here first and there later",
  "months": {
@@ -16,9 +16,9 @@
      "replied": null,
      "leads": 12,
      "booked_after_send": 7,
-     "booked_household": 87,
+     "booked_household": 86,
      "booked_household_30d": 7,
-     "came_in": 49
+     "came_in": 47
     },
     "blast": {
      "sent": 0,
@@ -94,9 +94,9 @@
      "replied": null,
      "leads": 3,
      "booked_after_send": 18,
-     "booked_household": 48,
+     "booked_household": 49,
      "booked_household_30d": 3,
-     "came_in": 29
+     "came_in": 31
     },
     "blast": {
      "sent": 0,
@@ -172,9 +172,9 @@
      "replied": null,
      "leads": 40,
      "booked_after_send": 67,
-     "booked_household": 297,
+     "booked_household": 291,
      "booked_household_30d": 28,
-     "came_in": 161
+     "came_in": 159
     },
     "blast": {
      "sent": 0,
@@ -250,9 +250,9 @@
      "replied": null,
      "leads": 19,
      "booked_after_send": 78,
-     "booked_household": 177,
+     "booked_household": 176,
      "booked_household_30d": 32,
-     "came_in": 109
+     "came_in": 111
     },
     "blast": {
      "sent": 0,
@@ -328,9 +328,9 @@
      "replied": null,
      "leads": 32,
      "booked_after_send": 74,
-     "booked_household": 113,
+     "booked_household": 115,
      "booked_household_30d": 29,
-     "came_in": 75
+     "came_in": 77
     },
     "blast": {
      "sent": 0,
@@ -406,9 +406,9 @@
      "replied": null,
      "leads": 22,
      "booked_after_send": 58,
-     "booked_household": 126,
-     "booked_household_30d": 68,
-     "came_in": 89
+     "booked_household": 122,
+     "booked_household_30d": 65,
+     "came_in": 88
     },
     "blast": {
      "sent": 1,
@@ -484,9 +484,9 @@
      "replied": null,
      "leads": 24,
      "booked_after_send": 69,
-     "booked_household": 76,
-     "booked_household_30d": 69,
-     "came_in": 46
+     "booked_household": 77,
+     "booked_household_30d": 70,
+     "came_in": 47
     },
     "blast": {
      "sent": 676,
@@ -496,7 +496,7 @@
      "booked_after_send": 0,
      "booked_household": 59,
      "booked_household_30d": 59,
-     "came_in": 17
+     "came_in": 22
     },
     "calls": null
    },
@@ -574,8 +574,8 @@
      "replied": null,
      "leads": 7,
      "booked_after_send": 21,
-     "booked_household": 12,
-     "booked_household_30d": 12,
+     "booked_household": 13,
+     "booked_household_30d": 13,
      "came_in": 0
     },
     "blast": {
@@ -584,9 +584,9 @@
      "replied": null,
      "leads": 59,
      "booked_after_send": 0,
-     "booked_household": 88,
-     "booked_household_30d": 88,
-     "came_in": 5
+     "booked_household": 85,
+     "booked_household_30d": 85,
+     "came_in": 6
     },
     "calls": null
    },
@@ -652,7 +652,7 @@
    "sent": 676,
    "booked": 59,
    "booked_30d": 59,
-   "came_in": 17
+   "came_in": 22
   },
   {
    "wave": 2,
@@ -660,9 +660,9 @@
     "2026-11-02"
    ],
    "sent": 951,
-   "booked": 50,
-   "booked_30d": 50,
-   "came_in": 5
+   "booked": 48,
+   "booked_30d": 48,
+   "came_in": 6
   },
   {
    "wave": 3,
@@ -670,8 +670,8 @@
     "2026-11-06"
    ],
    "sent": 1989,
-   "booked": 38,
-   "booked_30d": 38,
+   "booked": 37,
+   "booked_30d": 37,
    "came_in": 0
   }
  ],
