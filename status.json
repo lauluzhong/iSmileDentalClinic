@@ -1,8 +1,7 @@
 {
-  "updated": "2026-11-13 09:00 MYT",
+  "updated": "2026-11-13 09:02 MYT",
   "running": [
-    "wa_group_digest",
-    "social_post"
+    "wa_group_digest"
   ],
   "jobs": {
     "gbp_reply": {
@@ -102,8 +101,8 @@
       "last": "2026-11-08 08:16 MYT"
     },
     "social_post": {
-      "state": "running",
-      "last": "2026-11-13 08:45 MYT"
+      "state": "idle",
+      "last": "2026-11-13 09:02 MYT"
     },
     "social_comments": {
       "state": "idle",
