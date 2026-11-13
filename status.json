@@ -1,7 +1,8 @@
 {
   "updated": "2026-11-13 17:00 MYT",
   "running": [
-    "deck_stats"
+    "deck_stats",
+    "search_report"
   ],
   "jobs": {
     "gbp_reply": {
@@ -119,6 +120,9 @@
     "search_sprint": {
       "state": "idle",
       "last": "2026-11-10 18:03 MYT"
+    },
+    "search_report": {
+      "state": "running"
     }
   }
 }
