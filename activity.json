@@ -3,6 +3,13 @@
   "entries": [
     {
       "ts": "2026-11-15 06:30 MYT",
+      "agent": "analytics",
+      "job": "social_post",
+      "event": "started",
+      "result": ""
+    },
+    {
+      "ts": "2026-11-15 06:30 MYT",
       "agent": "engineer",
       "job": "review_curation",
       "event": "started",
@@ -1393,13 +1400,6 @@
       "job": "social_post",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-11-14 15:15 MYT",
-      "agent": "analytics",
-      "job": "social_post",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
