@@ -1,39 +1,39 @@
 {
- "generated_myt": "2026-11-14 19:30",
- "generated_at": "2026-11-14T19:30:21+08:00",
+ "generated_myt": "2026-11-14 20:00",
+ "generated_at": "2026-11-14T20:00:16+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 26.8,
   "nproc": 4,
   "load": [
-   0.64,
-   0.31,
-   0.3
+   3.31,
+   1.49,
+   0.92
   ],
-  "cpu_pct": 16.0,
-  "cpu_pct_sample": 4.8,
+  "cpu_pct": 82.8,
+  "cpu_pct_sample": 19.4,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 4934,
-   "avail_mb": 3006,
-   "pct": 62.1,
+   "used_mb": 4889,
+   "avail_mb": 3051,
+   "pct": 61.6,
    "swap_total_mb": 2047,
    "swap_used_mb": 861
   },
   "disk": {
    "total_gb": 154.9,
-   "used_gb": 46.5,
+   "used_gb": 46.4,
    "pct": 30.0
   },
   "gateway_ok": true,
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 754232,
+    "age_s": 756028,
     "last_myt": "2026-11-06 02:00 MYT"
    },
    "hq_publish": {
-    "age_s": 500260,
+    "age_s": 502056,
     "last_myt": "2026-11-09 00:32 MYT",
     "detail": "asof=MON 09 NOV 2026 streams=46 sideboard=19 decisions=1 archive=13"
    }
@@ -50,35 +50,35 @@
    "running": [
     "social_post"
    ],
-   "status_updated": "2026-11-14 19:30 MYT"
+   "status_updated": "2026-11-14 20:00 MYT"
   },
   "last_clinic_push": "2026-11-14"
  },
  "agents": [],
  "finance": {
-  "as_of": "2026-11-13",
-  "generated_myt": "2026-11-13 19:40",
+  "as_of": "2026-11-14",
+  "generated_myt": "2026-11-14 19:40",
   "basis": "margin dashboard: true margin = production \u2212 locum est \u2212 lab est \u2212 chair-time burn (RM160/h loaded). Not the statutory P&L.",
   "mtd": {
-   "production": 65790,
-   "visits": 194,
-   "chair_hours": 136.3,
+   "production": 69920,
+   "visits": 215,
+   "chair_hours": 150.2,
    "lab_est": 4874,
-   "locum_est": 23610,
-   "burn_loaded": 21813,
-   "true_margin": 15493,
+   "locum_est": 25465,
+   "burn_loaded": 24027,
+   "true_margin": 15554,
    "months": [
     "2026-11"
    ]
   },
   "ytd": {
-   "production": 2353743,
-   "visits": 5649,
-   "chair_hours": 4081.0,
+   "production": 2357873,
+   "visits": 5670,
+   "chair_hours": 4094.9,
    "lab_est": 214235,
-   "locum_est": 725049,
-   "burn_loaded": 652972,
-   "true_margin": 761487,
+   "locum_est": 726904,
+   "burn_loaded": 655186,
+   "true_margin": 761548,
    "months": [
     "2026-01",
     "2026-02",
@@ -157,25 +157,25 @@
    },
    {
     "month": "2026-11",
-    "production": 65790,
-    "true_margin": 15493
+    "production": 69920,
+    "true_margin": 15554
    }
   ],
   "pnl": {
    "basis": "Hybrid: months closed by the accountant are their actual income statement (every line, incl. revenue; locum reclassified to direct cost). Later months are estimates on a PRODUCTION basis: revenue = OpenDent production; locum + lab as in the margin dashboard; materials at the FY2026 model driver; fixed cost and depreciation from the FY2026 model v6 (27 Aug 2026). Dr Ong is salaried (inside Director remuneration).",
    "year": "2026",
-   "as_of": "2026-11-13",
+   "as_of": "2026-11-14",
    "ytd": {
     "month": "2026-01",
     "basis": "actual",
-    "revenue": 2290382,
+    "revenue": 2294512,
     "direct": {
-     "locum": 732777,
+     "locum": 734632,
      "lab": 216626,
-     "materials": 238596,
-     "total": 1188000
+     "materials": 239026,
+     "total": 1190285
     },
-    "gross_profit": 1102382,
+    "gross_profit": 1104227,
     "fixed": {
      "staff": 448981,
      "director": 311476,
@@ -184,13 +184,13 @@
      "other_opex": 63620,
      "total": 1036257
     },
-    "ebitda": -18086,
+    "ebitda": -16241,
     "below": {
      "depreciation": 301579,
      "hp_interest": 26066,
      "total": 327644
     },
-    "net_profit": -345730,
+    "net_profit": -343885,
     "one_off": {
      "total": 84211,
      "bonus": 39000,
@@ -235,14 +235,14 @@
    "projected": {
     "month": "2026-01",
     "basis": "actual",
-    "revenue": 2667942,
+    "revenue": 2672072,
     "direct": {
-     "locum": 853572,
-     "lab": 252336,
-     "materials": 277862,
-     "total": 1383772
+     "locum": 855515,
+     "lab": 252272,
+     "materials": 278292,
+     "total": 1386080
     },
-    "gross_profit": 1284171,
+    "gross_profit": 1285992,
     "fixed": {
      "staff": 512881,
      "director": 354894,
@@ -251,13 +251,13 @@
      "other_opex": 73153,
      "total": 1194345
     },
-    "ebitda": -27092,
+    "ebitda": -25271,
     "below": {
      "depreciation": 343588,
      "hp_interest": 29708,
      "total": 373294
     },
-    "net_profit": -400387,
+    "net_profit": -398565,
     "one_off": {
      "total": 116918,
      "bonus": 39000,
@@ -286,7 +286,7 @@
      "2026-10",
      "2026-11"
     ],
-    "method": "YTD actual + 1.5 remaining months at the last-3-complete-month production run-rate (RM246,235/mo); locum 32.0% and lab 9.5% of revenue (YTD), materials 10.4% (model driver), fixed lines per config.",
+    "method": "YTD actual + 1.5 remaining months at the last-3-complete-month production run-rate (RM246,235/mo); locum 32.0% and lab 9.4% of revenue (YTD), materials 10.4% (model driver), fixed lines per config.",
     "runrate_revenue_month": 246235,
     "remaining_months": 1.53
    },
@@ -603,14 +603,14 @@
     {
      "month": "2026-11",
      "basis": "estimate",
-     "revenue": 65790,
+     "revenue": 69920,
      "direct": {
-      "locum": 23610,
+      "locum": 25465,
       "lab": 4874,
-      "materials": 6842,
-      "total": 35326
+      "materials": 7272,
+      "total": 37611
      },
-     "gross_profit": 30464,
+     "gross_profit": 32309,
      "fixed": {
       "staff": 41674,
       "director": 28316,
@@ -626,13 +626,13 @@
       "codecapsule": 500,
       "total": 10700
      },
-     "ebitda": -83337,
+     "ebitda": -81492,
      "below": {
       "depreciation": 27397,
       "hp_interest": 2375,
       "total": 29772
      },
-     "net_profit": -113109
+     "net_profit": -111264
     }
    ],
    "config_source": "FY2026 Projection Refresh 2026-08-27.md (model v6, Financials/00_Models & Analysis): staff 41,674 (Apr-26 actual run-rate) \u00b7 director remuneration 28,316 \u00b7 owner salary 12,500 from Aug-26 \u00b7 premises & utilities 14,394 \u00b7 other operating 6,217 \u00b7 depreciation 27,397 (FY2026 328,760/12) \u00b7 HP interest 2,375 (TTM).",
