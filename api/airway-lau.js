@@ -13,6 +13,13 @@
 //     meta.doctor === 'lau'. The bridge writes PDF link / status / sent-at back
 //     into the row matched by "Submitted ISO", so keep those header names.
 //
+//
+// 14 Nov 2026: one link, two forms. meta.kind === 'adult' is Dr Lau's adult OSA
+// questionnaire (Epworth Sleepiness Scale, STOP-BANG, 14 airway & sleep symptoms)
+// for patients aged 17 and above; anything else is the children's AAPD form
+// (old copies of the page send no kind). Both land in the SAME tab: the adult
+// columns are APPENDED after the original 43, which never move.
+//
 // Env vars: AIRWAY_SHEET_ID, AIRWAY_LAU_SHEET_TAB (default "Airway Dr Lau"),
 // AIRWAY_SERVICE_ACCOUNT_JSON / GOOGLE_SERVICE_ACCOUNT_JSON, AIRWAY_BRIDGE_ENABLED,
 // EDITH_BRIDGE_URL / _TOKEN / _CA, TELEGRAM_BOT_TOKEN / _CHAT_ID.
@@ -61,7 +68,7 @@ const YN = ['No', 'Yes'];
 const YND = ['No', 'Yes', 'Do not know'];
 const RATING = ['Good', 'Fair', 'Poor'];
 const GENDER = ['Male', 'Female'];
-const FILLED_BY = ['Mother', 'Father', 'Guardian', 'Other'];
+const FILLED_BY = ['Mother', 'Father', 'Guardian', 'Patient', 'Family member', 'Other'];
 
 // [answer key, column header = the PDF's wording (lead-in + item), allowed values, detail label]
 // Wording is VERBATIM from the AAPD form; keep in step with build_airway_lau.py.
@@ -91,14 +98,113 @@ export const QUESTIONS = [
   ["s_hardwake", "Is your child hard to wake up in the morning?", YND],
 ];
 
+// ---- Adult form (Dr Lau's "Dental Airway Assessment" patient questionnaire) ----
+// Wording VERBATIM from her PDF; keep in step with build_airway_lau.py and the box.
+export const ESS = [
+  ['ess_read', 'Sitting and reading'],
+  ['ess_tv', 'Watching television'],
+  ['ess_public', 'Sitting inactive in a public place (e.g. theatre or meeting)'],
+  ['ess_passenger', 'As a passenger in a car for one hour without a break'],
+  ['ess_lying', 'Lying down to rest in the afternoon when circumstances permit'],
+  ['ess_talking', 'Sitting and talking to someone'],
+  ['ess_lunch', 'Sitting quietly after lunch without alcohol'],
+  ['ess_traffic', 'In a car, while stopped for a few minutes in traffic'],
+];
+const NECK = ['No', 'Yes', 'Not sure'];
+// [key, letter, question, allowed] — the patient answers these five.
+export const STOPBANG_ASKED = [
+  ['sb_snore', 'S', 'Do you snore loudly (louder than talking or loud enough to be heard through closed doors)?', YN],
+  ['sb_tired', 'T', 'Do you often feel tired, fatigued or sleepy during the daytime?', YN],
+  ['sb_observed', 'O', 'Has anyone observed you stop breathing, choke or gasp during sleep?', YN],
+  ['sb_pressure', 'P', 'Do you have, or are you being treated for, high blood pressure?', YN],
+  ['sb_neck', 'N', 'Is your neck circumference greater than 40 cm?', NECK],
+];
+// Worked out here from height, weight, date of birth and sex; never asked.
+const STOPBANG_AUTO = [
+  ['B', 'Is your BMI more than 35 kg/m²?'],
+  ['A', 'Are you older than 50 years?'],
+  ['G', 'Are you male?'],
+];
+export const SYMPTOMS = [
+  ['a_mouth_day', 'Mouth breathing during the day'],
+  ['a_mouth_sleep', 'Habitual mouth breathing during sleep'],
+  ['a_nasal_obstruction', 'Chronic nasal obstruction'],
+  ['a_congestion', 'Frequent nasal congestion'],
+  ['a_dry_mouth', 'Dry mouth upon waking'],
+  ['a_headache', 'Frequent morning headaches'],
+  ['a_bruxism', 'Bruxism (teeth grinding)'],
+  ['a_jaw', 'Waking up with jaw discomfort'],
+  ['a_tonsils', 'History of enlarged tonsils'],
+  ['a_allergies', 'History of nasal allergies'],
+  ['a_nose_breathing', 'Difficulty breathing through the nose'],
+  ['a_apnoea_dx', 'Previous diagnosis of sleep apnoea'],
+  ['a_cpap', 'Previous CPAP treatment'],
+  ['a_restless', 'Restless or fragmented sleep'],
+];
+
+export const isAdult = (payload) => !!(payload && payload.meta && payload.meta.kind === 'adult');
+
 // Fixed column order. The Apps Script / box match rows on "Submitted ISO" and
 // write "PDF link", "PDF status", "PDF sent at" BY HEADER NAME: do not rename.
-export const HEADER = [
+// The first 43 are the original children's-form columns and must never move.
+const CHILD_HEADER = [
   'Submitted (MYT)', 'Submitted ISO', 'Patient name', 'DOB', 'Age', 'Gender',
   'Filled in by', 'Completer name', 'Mobile',
   ...QUESTIONS.flatMap(([, text, , detail]) => (detail ? [text, `${text} (${detail})`] : [text])),
   'Yes count', 'Full JSON', 'PDF link', 'PDF status', 'PDF sent at',
 ];
+// Appended 14 Nov 2026. A blank "Form" on an older row means Child.
+const ADULT_HEADER = [
+  'Form', 'Height (cm)', 'Weight (kg)', 'BMI',
+  ...ESS.map(([, text]) => `ESS: ${text}`), 'ESS total', 'ESS band',
+  ...STOPBANG_ASKED.slice(0, 4).map(([, l, text]) => `STOP-BANG ${l}: ${text}`),
+  ...STOPBANG_AUTO.slice(0, 2).map(([l, text]) => `STOP-BANG ${l}: ${text} (auto)`),
+  `STOP-BANG N: ${STOPBANG_ASKED[4][2]}`,
+  `STOP-BANG G: ${STOPBANG_AUTO[2][1]} (auto)`,
+  'STOP-BANG score', 'STOP-BANG risk',
+  ...SYMPTOMS.map(([, text]) => text), 'Additional information',
+];
+export const HEADER = [...CHILD_HEADER, ...ADULT_HEADER];
+
+const essBand = (t) => (t <= 10 ? 'Normal range' : t <= 12 ? 'Mild' : t <= 15 ? 'Moderate' : 'Severe');
+const sbBand = (n) => (n <= 2 ? 'Low risk' : n <= 4 ? 'Intermediate risk' : 'High risk');
+
+// Dr Lau's guides: ESS 0–10 normal, 11–12 mild, 13–15 moderate, 16–24 severe;
+// STOP-BANG 0–2 low, 3–4 intermediate, 5–8 high. "Not sure" on neck is UNKNOWN,
+// never a silent No: the score is then a range (min–max) and so is the risk.
+export function computeAdultScores(a, age) {
+  const essTotal = ESS.reduce((t, [k]) => t + Number(a[k]), 0);
+  const h = Number(a.heightCm) / 100;
+  const bmiRaw = Number(a.weightKg) / (h * h);
+  const bmi = Math.round(bmiRaw * 10) / 10;
+  const sbBmi = bmiRaw > 35;                       // compared unrounded
+  const sbAge = typeof age === 'number' && age > 50; // "older than 50": 50 itself is No
+  const sbMale = a.gender === 'Male';
+  const neckKnown = a.sb_neck !== 'Not sure';
+  const sbMin = ['sb_snore', 'sb_tired', 'sb_observed', 'sb_pressure'].filter((k) => a[k] === 'Yes').length
+    + (sbBmi ? 1 : 0) + (sbAge ? 1 : 0) + (sbMale ? 1 : 0) + (a.sb_neck === 'Yes' ? 1 : 0);
+  const sbMax = sbMin + (neckKnown ? 0 : 1);
+  const sbScore = neckKnown ? `${sbMin} / 8` : `${sbMin}–${sbMax} / 8 (neck not answered)`;
+  const lo = sbBand(sbMin), hi = sbBand(sbMax);
+  const sbRisk = lo === hi ? lo : `${lo.replace(' risk', '')} or ${hi.toLowerCase()}, depends on neck`;
+  return {
+    kind: 'adult', age, bmi, essTotal, essBand: essBand(essTotal),
+    sbBmi, sbAge, sbMale, neckKnown, sbMin, sbMax, sbScore, sbRisk,
+    symptomYes: SYMPTOMS.filter(([k]) => a[k] === 'Yes').length,
+  };
+}
+
+const numIn = (v, lo, hi) => typeof v === 'number' && Number.isFinite(v) && v >= lo && v <= hi;
+
+function validateAdult(a) {
+  if (!numIn(a.heightCm, 100, 230)) return 'Missing or invalid height';
+  if (!numIn(a.weightKg, 25, 300)) return 'Missing or invalid weight';
+  for (const [k] of ESS) if (![0, 1, 2, 3].includes(a[k])) return `Missing or invalid answer: ${k}`;
+  for (const [k, , , allowed] of STOPBANG_ASKED) if (!allowed.includes(a[k])) return `Missing or invalid answer: ${k}`;
+  for (const [k] of SYMPTOMS) if (!YN.includes(a[k])) return `Missing or invalid answer: ${k}`;
+  if (a.a_notes !== undefined && (typeof a.a_notes !== 'string' || a.a_notes.length > 2000)) return 'Invalid additional information';
+  return null;
+}
 
 // Recomputed here; the client's own counts are never trusted.
 export function computeScores(a) {
@@ -131,6 +237,7 @@ export function validate(payload) {
   if (!FILLED_BY.includes(a.filledBy)) return 'Invalid "filled in by"';
   if (!completer || completer.length > 200) return 'Missing or invalid completer name';
   if (!/^\+?[0-9 ().\-]{5,30}$/.test(mobile)) return 'Missing or invalid mobile';
+  if (isAdult(payload)) return validateAdult(a);
   for (const [k, , allowed, detail] of QUESTIONS) {
     if (allowed === 'hours') {
       if (!hoursValid(a[k])) return `Missing or invalid answer: ${k}`;
@@ -163,6 +270,8 @@ export function buildRow(payload, sc, submittedIso) {
   const m = payload.meta || {};
   const submitted = new Date(submittedIso);
   const fullJson = JSON.stringify({ meta: m, answers: a, scoresServer: sc });
+  const adult = isAdult(payload);
+  const yn = (b) => (b ? 'Yes' : 'No');
   return [
     submitted.toLocaleString('en-MY', { timeZone: 'Asia/Kuala_Lumpur', dateStyle: 'medium', timeStyle: 'short' }),
     submitted.toISOString(),
@@ -174,13 +283,23 @@ export function buildRow(payload, sc, submittedIso) {
     String(a.filledByName).trim(),
     String(a.mobile).trim(),
     ...QUESTIONS.flatMap(([k, , allowed, detail]) => {
+      if (adult) return detail ? ['', ''] : [''];
       const v = allowed === 'hours' ? Number(a[k]) : a[k];
       // a detail only counts when the answer is Yes (a stale draft value is dropped)
       return detail ? [v, a[k] === 'Yes' ? trimmed(a, `${k}_d`) : ''] : [v];
     }),
-    sc.yesCount,
+    adult ? '' : sc.yesCount,
     fullJson.length > MAX_CELL ? JSON.stringify({ meta: m, _note: 'too large to store inline' }) : fullJson,
     '', '', '', // PDF link · PDF status · PDF sent at, filled by the box
+    // ---- appended columns (ADULT_HEADER order) ----
+    ...(adult ? [
+      'Adult', a.heightCm, a.weightKg, sc.bmi,
+      ...ESS.map(([k]) => a[k]), sc.essTotal, sc.essBand,
+      a.sb_snore, a.sb_tired, a.sb_observed, a.sb_pressure,
+      yn(sc.sbBmi), yn(sc.sbAge), a.sb_neck, yn(sc.sbMale),
+      sc.sbScore, sc.sbRisk,
+      ...SYMPTOMS.map(([k]) => a[k]), trimmed(a, 'a_notes'),
+    ] : ['Child', ...ADULT_HEADER.slice(1).map(() => '')]),
   ].map(cell);
 }
 
@@ -200,13 +319,24 @@ function sheetsClient() {
 let tabReady = false;
 async function ensureTab(client, base) {
   if (tabReady) return;
-  const meta = await client.request({ url: `${base}?fields=sheets.properties.title`, method: 'GET' });
-  const titles = (meta.data.sheets || []).map((s) => s.properties.title);
+  const meta = await client.request({ url: `${base}?fields=sheets.properties(title,sheetId,gridProperties.columnCount)`, method: 'GET' });
+  const sheets = (meta.data.sheets || []).map((s) => s.properties);
+  const titles = sheets.map((p) => p.title);
+  const existing = sheets.find((p) => p.title === TAB);
+  // The header only ever GROWS to the right. Make room first: a write past the
+  // tab's last column is refused by the Sheets API.
+  const cols = existing && existing.gridProperties && existing.gridProperties.columnCount;
+  if (existing && cols && cols < HEADER.length) {
+    await client.request({
+      url: `${base}:batchUpdate`, method: 'POST',
+      data: { requests: [{ appendDimension: { sheetId: existing.sheetId, dimension: 'COLUMNS', length: HEADER.length - cols } }] },
+    });
+  }
   if (!titles.includes(TAB)) {
     try {
       await client.request({
         url: `${base}:batchUpdate`, method: 'POST',
-        data: { requests: [{ addSheet: { properties: { title: TAB, gridProperties: { frozenRowCount: 1 } } } }] },
+        data: { requests: [{ addSheet: { properties: { title: TAB, gridProperties: { frozenRowCount: 1, columnCount: HEADER.length } } } }] },
       });
     } catch (err) {
       if (!/already exists/i.test(String(err.message))) throw err;
@@ -310,7 +440,7 @@ export default async function handler(req, res) {
   if (problem) return res.status(400).json({ ok: false, error: problem });
 
   const a = payload.answers;
-  const sc = computeScores(a);
+  const sc = isAdult(payload) ? computeAdultScores(a, ageFrom(a.dob)) : computeScores(a);
   const name = String(a.patientName).trim().slice(0, 120);
 
   const submittedIso = new Date(Date.parse((payload.meta || {}).submittedAt) || Date.now()).toISOString();
