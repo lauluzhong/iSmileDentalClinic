@@ -152,7 +152,7 @@
    "date": "2026-11-24",
    "time": "09:00",
    "title": "Carousel: Ageing parents",
-   "status": "planned",
+   "status": "scheduled",
    "channels": [
     "facebook",
     "instagram"
@@ -170,7 +170,7 @@
    "live": {},
    "verified": false,
    "executor": "display",
-   "note": "Approved by Lau 12 Nov. Six slides. Date is the next free Tuesday or Friday."
+   "note": "Approved by Lau 12 Nov. Six slides."
   },
   {
    "id": "linkedin-job-explainer-2026-12-01",
@@ -209,7 +209,7 @@
    "note": ""
   }
  ],
- "generated_myt": "2026-11-15T23:42:06+08:00",
+ "generated_myt": "2026-11-16T00:05:09+08:00",
  "funnel": {
   "as_of": "2026-11-15T23:42:06+08:00",
   "first_reply_median_min": null,
