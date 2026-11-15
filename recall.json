@@ -1,15 +1,15 @@
 {
-  "as_of": "2026-11-15",
+  "as_of": "2026-11-16",
   "source": "e10 recall messages only (blast excluded)",
   "note": "Funnel = event counts (per-message callbacks), not distinct patients. Conversion = matured-cohort recall->appointment rate (correlation, not proven causal lift); as-of the latest OpenDent export only.",
   "funnel_live": true,
-  "funnel_as_of": "2026-11-15",
+  "funnel_as_of": "2026-11-16",
   "cumulative": {
     "sent": 2663,
     "delivered": 2663,
     "read": 2603,
     "clicks": 166,
-    "failed": 2,
+    "failed": 8,
     "replies": null
   },
   "this_month": {
@@ -17,30 +17,30 @@
     "delivered": 159,
     "read": 159,
     "clicks": 5,
-    "failed": 0,
+    "failed": 6,
     "replies": null
   },
   "all_messages": {
     "cumulative": {
-      "total": 47135,
+      "total": 47162,
       "sent": 16587,
-      "delivered": 20472,
-      "read": 5334,
+      "delivered": 20487,
+      "read": 5343,
       "failed": 2310,
       "clicks": 344,
-      "replies": 2088
+      "replies": 2091
     },
     "this_month": {
       "sent": 7854,
       "clicks": 82,
-      "replies": 618
+      "replies": 621
     }
   },
   "conversion": {
     "mature_days": 21,
     "attrib_window_days": 90,
-    "data_as_of": "2026-11-14",
-    "appt_export": "inbox/2026-11-14 e5+e6+backfill",
+    "data_as_of": "2026-11-15",
+    "appt_export": "inbox/2026-11-15 e5+e6+backfill",
     "appt_range": [
       "2024-08-12",
       "2027-03-13"
@@ -48,23 +48,23 @@
     "stale": false,
     "cohort_source": "blastlog (e10_blastlog.tsv)",
     "cohort_from": "2026-04-16",
-    "cohort_to": "2026-11-14",
+    "cohort_to": "2026-11-15",
     "cohort_age_days": 1,
     "cohort_static": false,
     "join": "external_patient_id -> PatNum (direct)",
     "available": true,
     "bridge": "external_patient_id (direct PatNum)",
-    "sent_total": 1805,
+    "sent_total": 1811,
     "matured_cohort": 1703,
     "resolved_to_patient": 1702,
     "resolved_via_patnum": 1702,
-    "booked_within_window": 248,
-    "booked_anytime": 439,
-    "conversion_pct": 14.6
+    "booked_within_window": 243,
+    "booked_anytime": 437,
+    "conversion_pct": 14.3
   },
   "value": {
     "available": true,
-    "as_of": "2026-11-15",
+    "as_of": "2026-11-16",
     "bridge": "e8_patient_master.tsv (2026-11-15)",
     "sends": 767,
     "patients_in_cohort": 1142,
