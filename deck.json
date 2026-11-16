@@ -1,22 +1,22 @@
 {
- "generated_myt": "2026-11-16 23:30",
- "generated_at": "2026-11-16T23:30:22+08:00",
+ "generated_myt": "2026-11-17 00:00",
+ "generated_at": "2026-11-17T00:00:18+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 28.9,
   "nproc": 4,
   "load": [
-   0.46,
-   0.44,
-   0.41
+   2.15,
+   1.16,
+   0.59
   ],
-  "cpu_pct": 11.5,
-  "cpu_pct_sample": 1.8,
+  "cpu_pct": 53.8,
+  "cpu_pct_sample": 24.4,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 5449,
-   "avail_mb": 2492,
-   "pct": 68.6,
+   "used_mb": 5494,
+   "avail_mb": 2446,
+   "pct": 69.2,
    "swap_total_mb": 2047,
    "swap_used_mb": 1931
   },
@@ -29,11 +29,11 @@
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 941433,
+    "age_s": 943230,
     "last_myt": "2026-11-06 02:00 MYT"
    },
    "hq_publish": {
-    "age_s": 687461,
+    "age_s": 689257,
     "last_myt": "2026-11-09 00:32 MYT",
     "detail": "asof=MON 09 NOV 2026 streams=46 sideboard=19 decisions=1 archive=13"
    }
@@ -49,7 +49,7 @@
    "running": [
     "social_post"
    ],
-   "status_updated": "2026-11-16 23:30 MYT"
+   "status_updated": "2026-11-17 00:00 MYT"
   },
   "last_clinic_push": "2026-11-16"
  },
@@ -234,39 +234,39 @@
    "projected": {
     "month": "2026-01",
     "basis": "actual",
-    "revenue": 2671307,
+    "revenue": 2663099,
     "direct": {
-     "locum": 850691,
-     "lab": 252563,
-     "materials": 278212,
-     "total": 1381467
+     "locum": 848078,
+     "lab": 251787,
+     "materials": 277358,
+     "total": 1377224
     },
-    "gross_profit": 1289839,
+    "gross_profit": 1285875,
     "fixed": {
-     "staff": 510103,
-     "director": 353006,
-     "owner_salary": 68333,
-     "premises": 183291,
-     "other_opex": 72738,
-     "total": 1187472
+     "staff": 508714,
+     "director": 352062,
+     "owner_salary": 67917,
+     "premises": 182811,
+     "other_opex": 72531,
+     "total": 1184035
     },
-    "ebitda": -13837,
+    "ebitda": -14008,
     "below": {
-     "depreciation": 341761,
-     "hp_interest": 29549,
-     "total": 371310
+     "depreciation": 340848,
+     "hp_interest": 29470,
+     "total": 370317
     },
-    "net_profit": -385146,
+    "net_profit": -384325,
     "one_off": {
-     "total": 116204,
+     "total": 115848,
      "bonus": 39000,
-     "codecapsule": 12233,
+     "codecapsule": 12217,
      "hrms": 1139,
      "autocount": 7619,
      "hardware": 2080,
-     "legal": 17333,
-     "migration_blast": 4493,
-     "jia_yin": 9306,
+     "legal": 17167,
+     "migration_blast": 4437,
+     "jia_yin": 9190,
      "social_hire": 3000,
      "kids_area": 20000
     },
@@ -285,9 +285,9 @@
      "2026-10",
      "2026-11"
     ],
-    "method": "YTD actual + 1.5 remaining months at the last-3-complete-month production run-rate (RM246,235/mo); locum 31.8% and lab 9.5% of revenue (YTD), materials 10.4% (model driver), fixed lines per config.",
+    "method": "YTD actual + 1.4 remaining months at the last-3-complete-month production run-rate (RM246,235/mo); locum 31.8% and lab 9.5% of revenue (YTD), materials 10.4% (model driver), fixed lines per config.",
     "runrate_revenue_month": 246235,
-    "remaining_months": 1.47
+    "remaining_months": 1.43
    },
    "months": [
     {
