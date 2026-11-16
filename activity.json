@@ -4,6 +4,13 @@
     {
       "ts": "2026-11-16 11:00 MYT",
       "agent": "analytics",
+      "job": "social_post",
+      "event": "started",
+      "result": ""
+    },
+    {
+      "ts": "2026-11-16 11:00 MYT",
+      "agent": "analytics",
       "job": "deck_stats",
       "event": "started",
       "result": ""
@@ -1393,13 +1400,6 @@
       "job": "clinic_db",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-11-15 20:06 MYT",
-      "agent": "analytics",
-      "job": "blast_tracker",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
