@@ -271,9 +271,9 @@
   }
  },
  "attribution": {
-  "as_of": "2026-11-17T07:25:54+08:00",
+  "as_of": "2026-11-18T07:25:53+08:00",
   "persons": 5492,
-  "booked_unique_patients": 575,
+  "booked_unique_patients": 581,
   "by_source": {
    "FB-DM": {
     "touched": 363,
@@ -303,12 +303,12 @@
    "RECALL": {
     "touched": 1564,
     "first_touch": 1559,
-    "booked_last_touch": 409
+    "booked_last_touch": 414
    },
    "RECALL-CLICK": {
-    "touched": 154,
+    "touched": 155,
     "first_touch": 1,
-    "booked_last_touch": 96
+    "booked_last_touch": 97
    },
    "BLAST": {
     "touched": 164,
@@ -322,20 +322,20 @@
   "note": "booked = booked on/after a touch, credited to the last touch before booking; existing patients book anyway, so this is correlation, not lift"
  },
  "insights": {
-  "day": "2026-11-17",
+  "day": "2026-11-18",
   "channels": {
    "facebook": {
-    "clicks": 9.0,
+    "clicks": 12.0,
     "comments": 96.0,
     "fans": 1525.0,
     "followers": 1525.0,
-    "impressions": 146.0,
-    "likes": 4.0,
-    "post_clicks": 1048.0,
-    "post_media_view": 22976.0,
+    "impressions": 233.0,
+    "likes": 6.0,
+    "post_clicks": 1051.0,
+    "post_media_view": 22845.0,
     "post_total_media_view_unique": 0.0,
-    "reach": 82.0,
-    "reactions": 1054.0,
+    "reach": 142.0,
+    "reactions": 1050.0,
     "shares": 6.0,
     "views": 0.0
    },
@@ -343,16 +343,16 @@
     "comments": 7.0,
     "followers_count": 100.0,
     "follows_count": 10.0,
-    "likes": 277.0,
-    "media_count": 14.0
+    "likes": 287.0,
+    "media_count": 15.0
    },
    "linkedin": {
-    "clicks": 84.0,
+    "clicks": 88.0,
     "comments": 0.0,
-    "followers": 37.0,
-    "impressions": 244.0,
+    "followers": 39.0,
+    "impressions": 263.0,
     "likes": 1.0,
-    "reach": 128.0,
+    "reach": 139.0,
     "shares": 3.0,
     "views": 0.0
    }
