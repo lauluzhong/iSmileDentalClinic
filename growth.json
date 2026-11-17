@@ -1,5 +1,5 @@
 {
- "generated_myt": "2026-11-17T18:37:12+08:00",
+ "generated_myt": "2026-11-17T19:37:13+08:00",
  "as_of": "2026-11-17",
  "dedupe": "one person counts once per month per stage. Lead = social/web lead, or a recall/blast recipient who CLICKED (replies not tracked yet). Front desk = carded social/web leads + BTL clickers (on the follow-up list). Booked = a lead who booked within 90 days, credited to that lead's source AND to the month of the lead (cohort), one patient once; btl sent = messages, clicked = unique people who clicked = BTL leads; booked after, not because of. btl.*.booked_after_send = booked after a send with no click (outside the funnel). btl sent/clicked = e10 messages (same source as recall.json). recall.json value.mtd differs on purpose: it counts only matured cohorts (90 days) with production, so a fresh booking shows here first and there later",
  "months": {
@@ -16,9 +16,9 @@
      "replied": null,
      "leads": 12,
      "booked_after_send": 7,
-     "booked_household": 87,
+     "booked_household": 89,
      "booked_household_30d": 7,
-     "came_in": 48
+     "came_in": 49
     },
     "blast": {
      "sent": 0,
@@ -94,9 +94,9 @@
      "replied": null,
      "leads": 3,
      "booked_after_send": 17,
-     "booked_household": 49,
+     "booked_household": 47,
      "booked_household_30d": 3,
-     "came_in": 32
+     "came_in": 31
     },
     "blast": {
      "sent": 0,
@@ -172,9 +172,9 @@
      "replied": null,
      "leads": 40,
      "booked_after_send": 67,
-     "booked_household": 294,
+     "booked_household": 295,
      "booked_household_30d": 28,
-     "came_in": 160
+     "came_in": 161
     },
     "blast": {
      "sent": 0,
@@ -250,9 +250,9 @@
      "replied": null,
      "leads": 19,
      "booked_after_send": 78,
-     "booked_household": 180,
+     "booked_household": 182,
      "booked_household_30d": 30,
-     "came_in": 112
+     "came_in": 114
     },
     "blast": {
      "sent": 0,
@@ -328,8 +328,8 @@
      "replied": null,
      "leads": 32,
      "booked_after_send": 75,
-     "booked_household": 118,
-     "booked_household_30d": 26,
+     "booked_household": 116,
+     "booked_household_30d": 25,
      "came_in": 77
     },
     "blast": {
@@ -406,9 +406,9 @@
      "replied": null,
      "leads": 22,
      "booked_after_send": 59,
-     "booked_household": 125,
+     "booked_household": 129,
      "booked_household_30d": 65,
-     "came_in": 88
+     "came_in": 89
     },
     "blast": {
      "sent": 1,
@@ -485,8 +485,8 @@
      "leads": 24,
      "booked_after_send": 68,
      "booked_household": 80,
-     "booked_household_30d": 71,
-     "came_in": 52
+     "booked_household_30d": 72,
+     "came_in": 55
     },
     "blast": {
      "sent": 676,
@@ -494,9 +494,9 @@
      "replied": null,
      "leads": 21,
      "booked_after_send": 0,
-     "booked_household": 67,
-     "booked_household_30d": 67,
-     "came_in": 26
+     "booked_household": 68,
+     "booked_household_30d": 68,
+     "came_in": 30
     },
     "calls": null
    },
@@ -574,8 +574,8 @@
      "replied": null,
      "leads": 9,
      "booked_after_send": 36,
-     "booked_household": 21,
-     "booked_household_30d": 21,
+     "booked_household": 23,
+     "booked_household_30d": 23,
      "came_in": 4
     },
     "blast": {
@@ -584,9 +584,9 @@
      "replied": null,
      "leads": 62,
      "booked_after_send": 0,
-     "booked_household": 96,
-     "booked_household_30d": 96,
-     "came_in": 11
+     "booked_household": 86,
+     "booked_household_30d": 86,
+     "came_in": 13
     },
     "calls": null
    },
@@ -650,9 +650,9 @@
     "2026-10-29"
    ],
    "sent": 676,
-   "booked": 67,
-   "booked_30d": 67,
-   "came_in": 26
+   "booked": 68,
+   "booked_30d": 68,
+   "came_in": 30
   },
   {
    "wave": 2,
@@ -660,8 +660,8 @@
     "2026-11-02"
    ],
    "sent": 951,
-   "booked": 53,
-   "booked_30d": 53,
+   "booked": 47,
+   "booked_30d": 47,
    "came_in": 9
   },
   {
@@ -670,9 +670,9 @@
     "2026-11-06"
    ],
    "sent": 1989,
-   "booked": 43,
-   "booked_30d": 43,
-   "came_in": 2
+   "booked": 39,
+   "booked_30d": 39,
+   "came_in": 4
   }
  ],
  "headline_rule": "btl.*.booked_household = the daily WhatsApp blast report rule (household, booked on/after send with NO time limit, excl. prior future bookings and Broken); btl.*.booked_household_30d = same rule but booked within 30 days of the send; funnel booked = clicked people who booked (subset)"
