@@ -1,6 +1,6 @@
 {
- "generated_myt": "2026-11-18T06:37:11+08:00",
- "as_of": "2026-11-17",
+ "generated_myt": "2026-11-18T07:25:59+08:00",
+ "as_of": "2026-11-18",
  "dedupe": "one person counts once per month per stage. Lead = social/web lead, or a recall/blast recipient who CLICKED (replies not tracked yet). Front desk = carded social/web leads + BTL clickers (on the follow-up list). Booked = a lead who booked within 90 days, credited to that lead's source AND to the month of the lead (cohort), one patient once; btl sent = messages, clicked = unique people who clicked = BTL leads; booked after, not because of. btl.*.booked_after_send = booked after a send with no click (outside the funnel). btl sent/clicked = e10 messages (same source as recall.json). recall.json value.mtd differs on purpose: it counts only matured cohorts (90 days) with production, so a fresh booking shows here first and there later",
  "months": {
   "2026-04": {
@@ -570,10 +570,10 @@
    "btl": {
     "recall": {
      "sent": 179,
-     "clicked": 9,
+     "clicked": 10,
      "replied": null,
-     "leads": 9,
-     "booked_after_send": 36,
+     "leads": 10,
+     "booked_after_send": 41,
      "booked_household": 23,
      "booked_household_30d": 23,
      "came_in": 4
@@ -591,7 +591,7 @@
     "calls": null
    },
    "leads": {
-    "total": 71,
+    "total": 72,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -599,13 +599,27 @@
      "x": 0,
      "google": 0,
      "web": 0,
-     "recall": 9,
+     "recall": 10,
      "blast": 62,
      "calls": 0
     }
    },
    "handed": {
-    "total": 71,
+    "total": 72,
+    "by_source": {
+     "instagram": 0,
+     "facebook": 0,
+     "linkedin": 0,
+     "x": 0,
+     "google": 0,
+     "web": 0,
+     "recall": 10,
+     "blast": 62,
+     "calls": 0
+    }
+   },
+   "booked": {
+    "total": 58,
     "by_source": {
      "instagram": 0,
      "facebook": 0,
@@ -614,20 +628,6 @@
      "google": 0,
      "web": 0,
      "recall": 9,
-     "blast": 62,
-     "calls": 0
-    }
-   },
-   "booked": {
-    "total": 57,
-    "by_source": {
-     "instagram": 0,
-     "facebook": 0,
-     "linkedin": 0,
-     "x": 0,
-     "google": 0,
-     "web": 0,
-     "recall": 8,
      "blast": 49,
      "calls": 0
     },
