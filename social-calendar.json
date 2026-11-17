@@ -85,7 +85,7 @@
    "date": "2026-11-17",
    "time": "09:00",
    "title": "Carousel: 20 years, same families",
-   "status": "scheduled",
+   "status": "posted",
    "channels": [
     "facebook",
     "instagram"
@@ -100,7 +100,9 @@
    },
    "image": "",
    "n": null,
-   "live": {},
+   "live": {
+    "instagram": "https://www.instagram.com/p/Df0s9zFii-_/"
+   },
    "verified": false,
    "executor": "display",
    "note": "Approved by Lau 12 Nov. Six slides."
@@ -243,7 +245,7 @@
    "note": ""
   }
  ],
- "generated_myt": "2026-11-17T08:42:06+08:00",
+ "generated_myt": "2026-11-17T09:05:11+08:00",
  "funnel": {
   "as_of": "2026-11-17T08:42:06+08:00",
   "first_reply_median_min": null,
