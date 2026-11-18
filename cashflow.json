@@ -1,23 +1,20 @@
 {
-  "as_of": "2026-11-17",
-  "mode": "eod",
+  "as_of": "2026-11-18",
+  "mode": "midday",
   "fresh": true,
-  "generated_myt": "2026-11-17 19:50",
+  "generated_myt": "2026-11-18 12:05",
   "source_max_paydate": "2026-11-17",
-  "source_max_procdate": "2026-11-17",
+  "source_max_procdate": "2026-11-18",
   "today": {
-    "collected": 6680.0,
-    "produced": 7400.0,
-    "patients_seen": 20,
-    "new_patients": 1,
-    "by_paytype": {
-      "Credit Card": 6390.0,
-      "PBB QR": 290.0
-    }
+    "collected": 0.0,
+    "produced": 250.0,
+    "patients_seen": 0,
+    "new_patients": 0,
+    "by_paytype": {}
   },
   "mtd": {
     "collected": 89593.0,
-    "produced": 91970.0,
+    "produced": 92220.0,
     "trading_days": 13,
     "avg_per_trading_day": 6891.77,
     "run_rate_26d": 179186.0,
@@ -28,48 +25,30 @@
       "Cash": 900.0
     }
   },
-  "booked_next_14d": 286,
+  "booked_next_14d": 315,
   "forward_book": {
     "next_7d": {
       "days": 7,
-      "appts": 142,
-      "booked_min": 7560,
+      "appts": 154,
+      "booked_min": 7910,
       "capacity_min": 11120,
-      "pct": 67.98561151079137
+      "pct": 71.13309352517986
     },
     "next_14d": {
       "days": 14,
-      "appts": 281,
-      "booked_min": 15060,
+      "appts": 296,
+      "booked_min": 15600,
       "capacity_min": 22240,
-      "pct": 67.7158273381295
+      "pct": 70.14388489208633
     }
   },
   "doctors_worked": {
-    "count": 3,
-    "abbrs": [
-      "Amy",
-      "Jean",
-      "Mah"
-    ]
+    "count": 0,
+    "abbrs": []
   },
-  "utilization": {
-    "chair_minutes": 960,
-    "operatories": 4,
-    "open_minutes": 480,
-    "capacity_minutes": 1920,
-    "pct": 50.0
-  },
+  "utilization": null,
   "pnl": {
-    "locum_est": 1064,
-    "lab_est": 516,
-    "gp": 5820.0,
-    "overhead_day": 3385.08,
-    "ebitda_day": 2434.92,
-    "depreciation_day": 1146.54,
-    "net_day": 1288.38,
-    "visits_matched": 20,
-    "available": true,
-    "produced": 7400.0
+    "available": false,
+    "reason": "n/a (midday)"
   }
 }
