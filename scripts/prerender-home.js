@@ -101,6 +101,8 @@ async function prerenderIntl(shell) {
     if (!markup.includes('intl-page')) fail('Intl page did not render for ' + r.path);
     let page = shell;
     for (const re of OWNED) page = page.replace(re, '');
+    // House rule: nothing price-like on the translated pages.
+    page = page.replace(/^\s*"priceRange": "[^"]*",\n/m, '');
     const lang = (h.htmlAttributes.toString().match(/lang="([^"]+)"/) || [])[1];
     if (!lang) fail('No lang attribute for ' + r.path);
     page = page.replace(/<html lang="[^"]*">/, '<html lang="' + lang + '">');
