@@ -40,7 +40,7 @@ export { PAGE_PATHS, HTML_LANG, LANG_LABEL, INTL_ROUTES } from './intlRoutes.jsx
 const SERVICE_GROUPS = [
   {
     to: '/services/protect',
-    ms: 'Jaga dan baiki gigi', zh: '保护与修复',
+    ms: 'Jaga dan baiki gigi', zh: '保护与修复', msLine: 'Pencegahan dan pemulihan', zhLine: '预防与修复',
     items: [
       ['/services/protect', 'Pemeriksaan gigi', 'Pemeriksaan menyeluruh supaya doktor gigi dapat tahu keadaan gigi dan merancang rawatan.', '牙齿检查', '全面检查口腔，让牙医了解情况并安排治疗。'],
       ['/services/protect', 'Cuci gigi (scaling dan polishing)', 'Membersihkan plak, karang gigi dan kesan kotoran pada gigi.', '洗牙', '清除牙菌斑、牙石和牙齿表面的污渍。'],
@@ -51,7 +51,7 @@ const SERVICE_GROUPS = [
   },
   {
     to: '/services/straighten',
-    ms: 'Luruskan gigi', zh: '矫正牙齿',
+    ms: 'Luruskan gigi', zh: '矫正牙齿', msLine: 'Ortodontik', zhLine: '正畸',
     items: [
       ['/services/straighten/clear-aligners', 'Pendakap gigi lutsinar (clear aligners)', 'Tray lutsinar yang boleh ditanggal, seperti Invisalign, Angel Aligner dan ClearSmile.', '隐形牙套', '可拆卸的透明牙套，例如 Invisalign、Angel Aligner 和 ClearSmile。'],
       ['/services/straighten', 'Pendakap gigi (besi dan lutsinar)', 'Braces tetap dengan bracket besi atau bracket lutsinar.', '牙套（金属和透明托槽）', '固定式牙套，有金属托槽和透明托槽。'],
@@ -61,7 +61,7 @@ const SERVICE_GROUPS = [
   },
   {
     to: '/services/replace',
-    ms: 'Ganti gigi yang hilang', zh: '修复缺牙',
+    ms: 'Ganti gigi yang hilang', zh: '修复缺牙', msLine: 'Prostetik dan implan', zhLine: '假牙与种植牙',
     items: [
       ['/services/replace/dental-implants', 'Implan gigi', 'Pengganti akar gigi yang hilang, dengan rupa yang semula jadi.', '种植牙', '替代缺失的牙根，外观自然。'],
       ['/services/replace', 'Bridge gigi', 'Gigi palsu tetap untuk menutup ruang satu atau lebih gigi yang hilang.', '牙桥', '固定式修复，填补一颗或多颗缺牙的空隙。'],
@@ -72,7 +72,7 @@ const SERVICE_GROUPS = [
   },
   {
     to: '/services/enhance',
-    ms: 'Cantikkan senyuman', zh: '美化笑容',
+    ms: 'Cantikkan senyuman', zh: '美化笑容', msLine: 'Pergigian kosmetik', zhLine: '美容牙科',
     items: [
       ['/services/enhance/cosmetic-dentistry', 'Venir komposit', 'Membentuk semula gigi terus pada gigi, dalam satu lawatan.', '树脂贴面', '直接在牙齿上塑形，一次就诊完成。'],
       ['/services/enhance/cosmetic-dentistry', 'Venir seramik', 'Lapisan porselin nipis yang tahan lama.', '陶瓷贴面', '耐用的薄瓷贴片。'],
@@ -84,7 +84,7 @@ const SERVICE_GROUPS = [
   },
   {
     to: '/services/children',
-    ms: 'Kanak-kanak dan tumbesaran', zh: '儿童与成长',
+    ms: 'Kanak-kanak dan tumbesaran', zh: '儿童与成长', msLine: 'Pergigian kanak-kanak', zhLine: '儿童牙科',
     items: [
       ['/services/children/pediatric-dentistry', 'Rawatan gigi kanak-kanak', 'Pemeriksaan, cuci gigi dan nasihat penjagaan gigi untuk anak-anak.', '儿童牙科', '为孩子做检查、洗牙和口腔护理指导。'],
       ['/services/children/myofunctional', 'Ortodontik miofungsian', 'Membetulkan tabiat mulut untuk membantu tumbesaran rahang dan muka.', '肌功能矫正', '纠正口腔习惯，帮助引导颌骨和面部生长。'],
@@ -98,6 +98,7 @@ const SERVICE_GROUPS = [
 
 const servicesFor = (lang) => SERVICE_GROUPS.map((g) => ({
   title: g[lang],
+  line: g[lang + 'Line'],
   to: g.to,
   items: g.items.map(([to, msN, msD, zhN, zhD]) => ({ to, name: lang === 'ms' ? msN : zhN, desc: lang === 'ms' ? msD : zhD })),
 }));
@@ -110,8 +111,9 @@ const ms = {
     ['Ahad dan cuti umum', 'Tutup'],
   ],
   addressLines: ['75 & 75A, Jalan SS 22/23', 'Damansara Jaya, 47400 Petaling Jaya', 'Selangor, Malaysia'],
-  contact: { call: 'Telefon', whatsapp: 'WhatsApp', phoneLine: 'Telefon atau WhatsApp' },
+  contact: { call: 'Telefon', whatsapp: 'WhatsApp', phoneLine: 'Telefon atau WhatsApp', orCall: 'Atau telefon kami di' },
   location: {
+    eyebrows: { services: 'Rawatan untuk semua umur', visit: 'Di klinik', faq: 'Jawapan ringkas', closing: 'Mula di sini' },
     title: 'Klinik Gigi di Damansara Jaya, PJ | iSmile Dental Clinic',
     description: 'Klinik gigi keluarga di Jalan SS 22/23, Damansara Jaya, dekat Atria. Pemeriksaan, cuci gigi, pendakap gigi dan rawatan gigi kanak-kanak. WhatsApp untuk temu janji.',
     h1: ['Klinik gigi keluarga anda di ', 'Damansara Jaya'],
@@ -160,6 +162,7 @@ const ms = {
     waText: 'Hai, saya mahu buat temu janji di klinik Damansara Jaya.',
   },
   services: {
+    eyebrows: { hero: 'Perkhidmatan kami', closing: 'Sedia membantu' },
     title: 'Perkhidmatan Rawatan Gigi | iSmile Dental Clinic, Damansara Jaya',
     description: 'Senarai rawatan gigi di iSmile Dental Clinic, Damansara Jaya: cuci gigi, tampal gigi, pendakap gigi, implan, pemutihan dan rawatan gigi kanak-kanak.',
     h1: ['Rawatan gigi ', 'kami'],
@@ -171,6 +174,7 @@ const ms = {
     cta: 'WhatsApp untuk temu janji',
   },
   faq: {
+    eyebrows: { hero: 'Panduan pesakit', closing: 'Hubungi kami' },
     title: 'Soalan Lazim | iSmile Dental Clinic, Damansara Jaya',
     description: 'Jawapan kepada soalan biasa tentang parking, temu janji, bayaran, X-ray dan rawatan gigi kanak-kanak di iSmile Dental Clinic, Damansara Jaya.',
     h1: ['Soalan ', 'lazim'],
@@ -208,8 +212,9 @@ const zh = {
     ['星期日及公共假期', '休息'],
   ],
   addressLines: ['75 & 75A, Jalan SS 22/23', 'Damansara Jaya, 47400 Petaling Jaya', 'Selangor, Malaysia'],
-  contact: { call: '打电话', whatsapp: 'WhatsApp', phoneLine: '电话或 WhatsApp' },
+  contact: { call: '打电话', whatsapp: 'WhatsApp', phoneLine: '电话或 WhatsApp', orCall: '或致电' },
   location: {
+    eyebrows: { services: '适合每个年龄', visit: '诊所信息', faq: '常见解答', closing: '开始预约' },
     title: '八打灵再也 Damansara Jaya 牙科诊所 | iSmile Dental Clinic',
     description: '位于 Damansara Jaya, Jalan SS 22/23 的家庭牙科诊所，靠近 Atria。提供牙齿检查、洗牙、牙套和儿童牙科。WhatsApp 预约。',
     h1: ['您在 ', 'Damansara Jaya', ' 的家庭牙医'],
@@ -258,6 +263,7 @@ const zh = {
     waText: '你好，我想预约 Damansara Jaya 诊所。',
   },
   services: {
+    eyebrows: { hero: '我们的服务', closing: '随时为您服务' },
     title: '牙科服务 | iSmile Dental Clinic, Damansara Jaya',
     description: 'iSmile Dental Clinic（Damansara Jaya）的牙科服务：洗牙、补牙、牙套、种植牙、牙齿美白和儿童牙科。',
     h1: ['我们的', '牙科服务'],
@@ -269,6 +275,7 @@ const zh = {
     cta: 'WhatsApp 预约',
   },
   faq: {
+    eyebrows: { hero: '就诊指南', closing: '联系我们' },
     title: '常见问题 | iSmile Dental Clinic, Damansara Jaya',
     description: '关于停车、预约、付款、X 光和儿童牙科的常见问题解答。iSmile Dental Clinic，Damansara Jaya。',
     h1: ['常见', '问题'],

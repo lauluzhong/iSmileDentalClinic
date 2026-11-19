@@ -4,6 +4,7 @@ import Button from '../components/Button';
 import FaqAccordion from '../components/FaqAccordion';
 import { Reveal, FadeIn } from '../components/Reveal';
 import Style from '../components/Style';
+import { FAQ_CSS } from '../styles/pageStyles';
 import { hreflangLinks, LangSwitch } from '../i18n/intlRoutes.jsx';
 import { enrichEvent } from '../lib/attribution';
 import { CORE_PAGES } from '../data/corePagesSeo';
@@ -72,19 +73,7 @@ const FAQ = () => {
                     }}>Get In Touch With Us</Button></FadeIn>
                 </section>
             </main>
-            <Style>{`
-                .faq-page .faq-container { padding-top: 160px; }
-                .faq-page .faq-heading { max-width: 800px; margin-bottom: 64px; }
-                .faq-page .faq-heading .eyebrow, .faq-page .faq-section > .eyebrow, .faq-page .still-questions .eyebrow { margin-bottom: 16px; }
-                .faq-page .faq-lead { max-width: 800px; margin: 20px 0 0; color: var(--color-text-slate); font-size: var(--fs-lead); line-height: 1.6; }
-                .faq-page .faq-section { margin-bottom: 64px; }
-                .faq-page .faq-section .faq-accordion { max-width: none; margin: 20px 0 0; }
-                .faq-page .phone-link { color: var(--color-primary-teal); font-weight: 700; text-decoration: none; }
-                .faq-page .still-questions { max-width: 800px; margin-top: 72px; padding-top: 52px; border-top: 1px solid var(--hairline); }
-                .faq-page .still-questions .statement { margin-bottom: 16px; }
-                .faq-page .still-questions > div > p:not(.eyebrow) { max-width: 520px; margin: 0 0 24px; color: var(--color-text-slate); line-height: 1.6; }
-                @media (max-width: 768px) { .faq-page .faq-container { padding-top: 130px; padding-bottom: 64px; } .faq-page .faq-heading { margin-bottom: 42px; } .faq-page .faq-section { margin-bottom: 46px; } .faq-page .still-questions { margin-top: 50px; padding-top: 38px; } }
-            `}</Style>
+            <Style>{FAQ_CSS}</Style>
         </div>
     );
 };
