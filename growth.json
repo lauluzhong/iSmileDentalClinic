@@ -1,5 +1,5 @@
 {
- "generated_myt": "2026-11-19T19:37:29+08:00",
+ "generated_myt": "2026-11-19T20:37:31+08:00",
  "as_of": "2026-11-19",
  "dedupe": "one person counts once per month per stage. Lead = social/web lead, or a recall/blast recipient who CLICKED (replies not tracked yet). Front desk = carded social/web leads + BTL clickers (on the follow-up list). Booked = a lead who booked within 90 days, credited to that lead's source AND to the month of the lead (cohort), one patient once; btl sent = messages, clicked = unique people who clicked = BTL leads; booked after, not because of. btl.*.booked_after_send = booked after a send with no click (outside the funnel). btl sent/clicked = e10 messages (same source as recall.json). recall.json value.mtd differs on purpose: it counts only matured cohorts (90 days) with production, so a fresh booking shows here first and there later",
  "months": {
@@ -569,13 +569,13 @@
    },
    "btl": {
     "recall": {
-     "sent": 196,
+     "sent": 210,
      "clicked": 10,
      "replied": null,
      "leads": 10,
      "booked_after_send": 45,
-     "booked_household": 24,
-     "booked_household_30d": 24,
+     "booked_household": 25,
+     "booked_household_30d": 25,
      "came_in": 9
     },
     "blast": {
