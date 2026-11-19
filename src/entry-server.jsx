@@ -16,9 +16,9 @@ import App from './App.jsx';
  * into the markup on their own, so the pre-rendered HTML is styled with or
  * without the external sheet.
  */
-export function render(url = '/') {
+export function render(url = '/', helmetContext = {}) {
   return renderToString(
-    <HelmetProvider context={{}}>
+    <HelmetProvider context={helmetContext}>
       <StaticRouter location={url}>
         <BookingProvider>
           <App />
@@ -27,3 +27,6 @@ export function render(url = '/') {
     </HelmetProvider>
   );
 }
+
+export { INTL_ROUTES } from './i18n/intlRoutes.jsx';
+export { pageLoaders } from './lib/routeChunks';

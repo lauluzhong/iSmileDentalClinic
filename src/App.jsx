@@ -10,6 +10,7 @@ import Loader from './components/Loader';
 import { initAttribution, enrichEvent } from './lib/attribution';
 import { endFirstPaint } from './lib/firstPaint';
 import { pageLoaders, installRoutePrefetch } from './lib/routeChunks';
+import { INTL_ROUTES } from './i18n/intlRoutes.jsx';
 
 // Primary pages (synchronous)
 import Home from './pages/Home';
@@ -33,6 +34,7 @@ const Dentists = lazy(pageLoaders.dentists);
 const Privacy = lazy(pageLoaders.privacy);
 const DataDeletion = lazy(pageLoaders.dataDeletion);
 const NotFound = lazy(pageLoaders.notFound);
+const IntlPage = lazy(pageLoaders.intl);
 
 function App() {
   const location = useLocation();
@@ -104,6 +106,8 @@ function App() {
           <Route path="/privacy" element={<PageTransition><Suspense fallback={<Loader />}><Privacy /></Suspense></PageTransition>} />
           <Route path="/privacy-policy" element={<Navigate to="/privacy" replace />} />
           <Route path="/data-deletion" element={<PageTransition><Suspense fallback={<Loader />}><DataDeletion /></Suspense></PageTransition>} />
+          {/* Malay and Chinese pages (19 Nov 2026), pre-rendered at build time. */}
+          {INTL_ROUTES.map(r => <Route key={r.path} path={r.path} element={<PageTransition><Suspense fallback={<Loader />}><IntlPage page={r.page} lang={r.lang} /></Suspense></PageTransition>} />)}
           <Route path="*" element={<PageTransition><Suspense fallback={<Loader />}><NotFound /></Suspense></PageTransition>} />
         </Routes>
       </AnimatePresence>

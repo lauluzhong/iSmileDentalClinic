@@ -9,6 +9,7 @@ import FaqAccordion from '../components/FaqAccordion';
 import { Helmet } from 'react-helmet-async';
 import { enrichEvent } from '../lib/attribution';
 import Style from '../components/Style';
+import { hreflangLinks } from '../i18n/intlRoutes.jsx';
 
 const ServicesLanding = () => {
     const location = useLocation();
@@ -89,6 +90,7 @@ const ServicesLanding = () => {
                 <title>Dental Services in Petaling Jaya | iSmile Dental Clinic</title>
                 <meta name="description" content="Explore our dental services in Petaling Jaya — check-ups, braces & clear aligners, implants, whitening & kids' dentistry in Damansara Jaya. WhatsApp us to book." />
                 <link rel="canonical" href="https://ismile.com.my/services" />
+                {hreflangLinks('services')}
             </Helmet>
 
             {/* Hero */}

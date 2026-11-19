@@ -25,6 +25,7 @@ const distDir = path.resolve(root, 'dist');
 const indexPath = path.resolve(distDir, 'index.html');
 const appShellPath = path.resolve(distDir, 'app.html');
 const ssrEntry = path.resolve(root, 'dist-ssr/entry-server.js');
+let ssr = null;
 
 const ROOT_DIV = '<div id="root"></div>';
 const MARKER = '<!-- prerendered:home -->';
@@ -45,6 +46,7 @@ let html = fs.readFileSync(indexPath, 'utf-8');
 
 if (html.includes(MARKER)) {
   console.log('[prerender-home] dist/index.html already pre-rendered — skipping.');
+  await prerenderIntl(fs.readFileSync(appShellPath, 'utf-8'));
   process.exit(0);
 }
 if (!html.includes(ROOT_DIV)) {
@@ -57,7 +59,8 @@ fs.writeFileSync(appShellPath, html.replace(HERO_PRELOAD, ''), 'utf-8');
 console.log('[prerender-home] ✓ Wrote dist/app.html (SPA fallback shell).');
 
 // 2. Render "/" with the real components and inject it.
-const { render } = await import(pathToFileURL(ssrEntry).href);
+ssr = await import(pathToFileURL(ssrEntry).href);
+const { render } = ssr;
 const markup = render('/');
 
 if (!markup || markup.length < 1000) {
@@ -71,3 +74,42 @@ html = html.replace(ROOT_DIV, () => MARKER + '\n<div id="root">' + markup + '</d
 fs.writeFileSync(indexPath, html, 'utf-8');
 console.log('[prerender-home] ✓ Pre-rendered "/" into dist/index.html (' +
   Math.round(markup.length / 1024) + ' KB of markup).');
+
+// 3. Malay and Chinese pages (19 Nov 2026). Each gets its own static file at
+//    dist/<path>/index.html, so Vercel serves the translated markup, title,
+//    canonical, hreflang and <html lang> before its SPA rewrite applies.
+//    The page is lazy-loaded, so the first render only starts the import;
+//    the second, after it resolves, renders the real page.
+await prerenderIntl(fs.readFileSync(appShellPath, 'utf-8'));
+
+async function prerenderIntl(shell) {
+  const s = ssr || await import(pathToFileURL(ssrEntry).href);
+  // Head tags the English shell carries that each page must own instead.
+  const OWNED = [
+    /^\s*<title>[\s\S]*?<\/title>\s*$/gm,
+    /^\s*<meta name="description"[^>]*>\s*$/gm,
+    /^\s*<link rel="canonical"[^>]*>\s*$/gm,
+    /^\s*<meta property="(og|twitter):[^"]*"[^>]*>\s*$/gm,
+  ];
+  for (const r of s.INTL_ROUTES) {
+    s.render(r.path, {});
+    await s.pageLoaders.intl();
+    await new Promise((res) => setTimeout(res, 0));
+    const ctx = {};
+    const markup = s.render(r.path, ctx);
+    const h = ctx.helmet;
+    if (!markup.includes('intl-page')) fail('Intl page did not render for ' + r.path);
+    let page = shell;
+    for (const re of OWNED) page = page.replace(re, '');
+    const lang = (h.htmlAttributes.toString().match(/lang="([^"]+)"/) || [])[1];
+    if (!lang) fail('No lang attribute for ' + r.path);
+    page = page.replace(/<html lang="[^"]*">/, '<html lang="' + lang + '">');
+    const head = [h.title, h.meta, h.link, h.script].map((x) => x.toString()).join('\n  ');
+    page = page.replace('</head>', () => '  ' + head + '\n</head>');
+    page = page.replace(ROOT_DIV, () => '<!-- prerendered:' + r.path + ' -->\n<div id="root">' + markup + '</div>');
+    const out = path.join(distDir, r.path, 'index.html');
+    fs.mkdirSync(path.dirname(out), { recursive: true });
+    fs.writeFileSync(out, page, 'utf-8');
+    console.log('[prerender-home] ✓ Pre-rendered "' + r.path + '" (' + lang + ').');
+  }
+}

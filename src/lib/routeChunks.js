@@ -30,6 +30,7 @@ export const pageLoaders = {
   privacy: () => import('../pages/Privacy'),
   dataDeletion: () => import('../pages/DataDeletion'),
   notFound: () => import('../pages/NotFound'),
+  intl: () => import('../pages/intl/IntlPage'),
 };
 
 // Specialty pages nested under /services/* (lazy inside Services.jsx).
@@ -63,6 +64,7 @@ export function prefetchRoute(pathname) {
 
   const [, first, ...rest] = path.split('/');
   switch (first) {
+    case 'ms': case 'zh': return run('intl', pageLoaders.intl);
     case 'about': return run('about', pageLoaders.about);
     case 'reviews': return run('reviews', pageLoaders.reviews);
     case 'contact': return run('contact', pageLoaders.contact);
