@@ -1,39 +1,39 @@
 {
- "generated_myt": "2026-11-19 20:00",
- "generated_at": "2026-11-19T20:00:24+08:00",
+ "generated_myt": "2026-11-19 20:30",
+ "generated_at": "2026-11-19T20:30:31+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 31.8,
   "nproc": 4,
   "load": [
-   2.66,
-   3.62,
-   3.94
+   11.34,
+   6.33,
+   7.0
   ],
-  "cpu_pct": 66.5,
-  "cpu_pct_sample": 91.3,
+  "cpu_pct": 100.0,
+  "cpu_pct_sample": 56.6,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 7072,
-   "avail_mb": 868,
-   "pct": 89.1,
+   "used_mb": 7749,
+   "avail_mb": 191,
+   "pct": 97.6,
    "swap_total_mb": 2047,
-   "swap_used_mb": 2038
+   "swap_used_mb": 2047
   },
   "disk": {
    "total_gb": 154.9,
    "used_gb": 49.0,
-   "pct": 31.6
+   "pct": 31.7
   },
   "gateway_ok": true,
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 1188035,
+    "age_s": 1189845,
     "last_myt": "2026-11-06 02:00 MYT"
    },
    "hq_publish": {
-    "age_s": 934063,
+    "age_s": 935872,
     "last_myt": "2026-11-09 00:32 MYT",
     "detail": "asof=MON 09 NOV 2026 streams=46 sideboard=19 decisions=1 archive=13"
    }
@@ -49,7 +49,7 @@
    "running": [
     "social_post"
    ],
-   "status_updated": "2026-11-19 20:00 MYT"
+   "status_updated": "2026-11-19 20:30 MYT"
   },
   "last_clinic_push": "2026-11-19"
  },
@@ -683,11 +683,11 @@
     "platform": "linkedin",
     "username": "iSmile Dental Clinic",
     "display": "iSmile Dental Clinic",
-    "followers": 41.0,
-    "growth_30d": 23.0,
-    "growth_pct_30d": 127.78,
+    "followers": 42.0,
+    "growth_30d": 24.0,
+    "growth_pct_30d": 133.33,
     "posts_on_platform": null,
-    "last_updated": "2026-11-18T10:07:07.491000Z",
+    "last_updated": "2026-11-19T12:06:24.954000Z",
     "active": true
    },
    {
@@ -698,7 +698,7 @@
     "growth_30d": 0.0,
     "growth_pct_30d": 0.0,
     "posts_on_platform": null,
-    "last_updated": "2026-11-18T10:08:08.790000Z",
+    "last_updated": "2026-11-19T12:07:21.131000Z",
     "active": true
    }
   ],
