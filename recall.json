@@ -1,76 +1,76 @@
 {
-  "as_of": "2026-11-19",
+  "as_of": "2026-11-20",
   "source": "e10 recall messages only (blast excluded)",
   "note": "Funnel = event counts (per-message callbacks), not distinct patients. Conversion = matured-cohort recall->appointment rate (correlation, not proven causal lift); as-of the latest OpenDent export only.",
-  "funnel_live": false,
-  "funnel_as_of": "2026-11-18",
+  "funnel_live": true,
+  "funnel_as_of": "2026-11-20",
   "cumulative": {
-    "sent": 2700,
-    "delivered": 2700,
-    "read": 2640,
+    "sent": 2714,
+    "delivered": 2714,
+    "read": 2654,
     "clicks": 167,
     "failed": 2,
     "replies": null
   },
   "this_month": {
-    "sent": 196,
-    "delivered": 196,
-    "read": 196,
+    "sent": 210,
+    "delivered": 210,
+    "read": 210,
     "clicks": 6,
     "failed": 0,
     "replies": null
   },
   "all_messages": {
     "cumulative": {
-      "total": 47396,
-      "sent": 16644,
-      "delivered": 20580,
-      "read": 5385,
-      "failed": 2313,
+      "total": 47681,
+      "sent": 16734,
+      "delivered": 20697,
+      "read": 5427,
+      "failed": 2316,
       "clicks": 347,
-      "replies": 2127
+      "replies": 2160
     },
     "this_month": {
-      "sent": 7911,
+      "sent": 8001,
       "clicks": 85,
-      "replies": 657
+      "replies": 690
     }
   },
   "conversion": {
     "mature_days": 21,
     "attrib_window_days": 90,
-    "data_as_of": "2026-11-18",
-    "appt_export": "inbox/2026-11-18 e5+e6+backfill",
+    "data_as_of": "2026-11-19",
+    "appt_export": "inbox/2026-11-19 e5+e6+backfill",
     "appt_range": [
       "2024-11-16",
-      "2027-03-17"
+      "2027-03-18"
     ],
     "stale": false,
     "cohort_source": "blastlog (e10_blastlog.tsv)",
     "cohort_from": "2026-04-16",
-    "cohort_to": "2026-11-18",
+    "cohort_to": "2026-11-19",
     "cohort_age_days": 1,
     "cohort_static": false,
     "join": "external_patient_id -> PatNum (direct)",
     "available": true,
     "bridge": "external_patient_id (direct PatNum)",
-    "sent_total": 1835,
-    "matured_cohort": 1728,
-    "resolved_to_patient": 1727,
-    "resolved_via_patnum": 1727,
+    "sent_total": 1837,
+    "matured_cohort": 1731,
+    "resolved_to_patient": 1730,
+    "resolved_via_patnum": 1730,
     "booked_within_window": 342,
-    "booked_anytime": 555,
+    "booked_anytime": 557,
     "conversion_pct": 19.8
   },
   "value": {
     "available": true,
-    "as_of": "2026-11-19",
+    "as_of": "2026-11-20",
     "bridge": "e8_patient_master.tsv (2026-11-15)",
     "sends": 767,
     "patients_in_cohort": 1142,
     "attrib_window_days": 90,
     "mature_days": 21,
-    "production_lines": 21396,
+    "production_lines": 21418,
     "month": "2026-11",
     "rule": "production by a recalled patient within 90 days after their first recall send, credited to the line's doctor; correlation, not proven lift",
     "all_time": {
@@ -165,6 +165,5 @@
       "by_doctor": [],
       "patients_first_converted": 0
     }
-  },
-  "funnel_error": "ReadTimeout: HTTPSConnectionPool(host='redirect.ismile.com.my', port=443): Read timed out. (read timeout=20)"
+  }
 }
