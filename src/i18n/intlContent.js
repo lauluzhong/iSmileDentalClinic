@@ -45,7 +45,7 @@ const SERVICE_GROUPS = [
       ['/services/protect', 'Pemeriksaan gigi', 'Pemeriksaan menyeluruh supaya doktor gigi dapat tahu keadaan gigi dan merancang rawatan.', '牙齿检查', '全面检查口腔，让牙医了解情况并安排治疗。'],
       ['/services/protect', 'Cuci gigi (scaling dan polishing)', 'Membersihkan plak, karang gigi dan kesan kotoran pada gigi.', '洗牙', '清除牙菌斑、牙石和牙齿表面的污渍。'],
       ['/services/protect', 'Tampal gigi', 'Menampal gigi berlubang dengan bahan sewarna gigi.', '补牙', '用和牙齿颜色相近的材料修补蛀牙。'],
-      ['/services/protect/root-canal', 'Rawatan akar gigi (root canal)', 'Menyelamatkan gigi yang dijangkiti dengan membuang saraf yang rosak dan menutup akarnya.', '根管治疗', '清除受损的牙髓并封闭根管，尽量保住受感染的牙齿。'],
+      ['/services/protect/root-canal', 'Rawatan akar gigi (root canal)', 'Membuang tisu pulpa yang rosak dan menutup saluran akar untuk membantu mengekalkan gigi yang dijangkiti.', '根管治疗', '清除受损的牙髓并封闭根管，尽量保住受感染的牙齿。'],
       ['/services/protect/wisdom-tooth', 'Cabut gigi bongsu', 'Membuang gigi bongsu yang terselit, diterangkan langkah demi langkah sebelum bermula.', '智齿拔除', '拔除阻生智齿，开始前会一步一步向您解释。'],
     ],
   },
@@ -74,7 +74,7 @@ const SERVICE_GROUPS = [
     to: '/services/enhance',
     ms: 'Cantikkan senyuman', zh: '美化笑容', msLine: 'Pergigian kosmetik', zhLine: '美容牙科',
     items: [
-      ['/services/enhance/cosmetic-dentistry', 'Venir komposit', 'Membentuk semula gigi terus pada gigi, dalam satu lawatan.', '树脂贴面', '直接在牙齿上塑形，一次就诊完成。'],
+      ['/services/enhance/cosmetic-dentistry', 'Venir komposit', 'Membentuk semula gigi untuk memperbaiki bentuk dan rupa.', '树脂贴面', '直接在牙齿上塑形，改善外观。'],
       ['/services/enhance/cosmetic-dentistry', 'Venir seramik', 'Lapisan porselin nipis yang tahan lama.', '陶瓷贴面', '耐用的薄瓷贴片。'],
       ['/services/enhance/teeth-whitening', 'Pemutihan gigi di rumah', 'Tray yang dibuat khas dan gel profesional untuk digunakan di rumah.', '居家美白', '量身定做的牙托配合专业美白凝胶，在家使用。'],
       ['/services/enhance/teeth-whitening', 'Pemutihan gigi di klinik', 'Pemutihan di klinik apabila anda mahu hasil lebih cepat.', '诊所美白', '在诊所进行，适合想更快看到效果的人。'],
@@ -214,7 +214,7 @@ const zh = {
   addressLines: ['75 & 75A, Jalan SS 22/23', 'Damansara Jaya, 47400 Petaling Jaya', 'Selangor, Malaysia'],
   contact: { call: '打电话', whatsapp: 'WhatsApp', phoneLine: '电话或 WhatsApp', orCall: '或致电' },
   location: {
-    eyebrows: { services: '适合每个年龄', visit: '诊所信息', faq: '常见解答', closing: '开始预约' },
+    eyebrows: { services: '适合各个年龄层', visit: '诊所信息', faq: '常见解答', closing: '开始预约' },
     title: '八打灵再也 Damansara Jaya 牙科诊所 | iSmile Dental Clinic',
     description: '位于 Damansara Jaya, Jalan SS 22/23 的家庭牙科诊所，靠近 Atria。提供牙齿检查、洗牙、牙套和儿童牙科。WhatsApp 预约。',
     h1: ['您在 ', 'Damansara Jaya', ' 的家庭牙医'],

@@ -124,6 +124,28 @@ function staticNav(currentPath) {
   return '    <nav aria-label="Site"><ul>' + items + '</ul></nav>';
 }
 
+// English pages that have Malay and Chinese versions (19 Nov 2026). Keep in
+// step with PAGE_PATHS in src/i18n/intlRoutes.jsx.
+const SITE_ORIGIN = 'https://ismile.com.my';
+const INTL_ALTERNATES = {
+  '/services/locations/damansara-jaya': { ms: '/ms/damansara-jaya', zh: '/zh/damansara-jaya' },
+  '/services': { ms: '/ms/perkhidmatan', zh: '/zh/services' },
+  '/faq': { ms: '/ms/soalan-lazim', zh: '/zh/faq' },
+};
+
+function hreflangTags(canonicalUrl) {
+  const enPath = canonicalUrl.replace(SITE_ORIGIN, '').replace(/\/+$/, '') || '/';
+  const alt = INTL_ALTERNATES[enPath];
+  if (!alt) return [];
+  const en = SITE_ORIGIN + enPath;
+  return [
+    '  <link rel="alternate" hreflang="en" href="' + en + '" />',
+    '  <link rel="alternate" hreflang="ms" href="' + SITE_ORIGIN + alt.ms + '" />',
+    '  <link rel="alternate" hreflang="zh-Hans" href="' + SITE_ORIGIN + alt.zh + '" />',
+    '  <link rel="alternate" hreflang="x-default" href="' + en + '" />',
+  ];
+}
+
 /**
  * Assemble one pre-rendered page. Shared by blog posts, location pages and
  * service pages so the head/GTM/hydration boilerplate lives in exactly one place.
@@ -144,6 +166,7 @@ function buildPage({ title, ogTitle, description, canonicalUrl, ogType, ogImage,
     '  <title>' + title + '</title>',
     '  <meta name="description" content="' + description + '" />',
     '  <link rel="canonical" href="' + canonicalUrl + '" />',
+    ...hreflangTags(canonicalUrl),
     '',
     '  <!-- Open Graph / Facebook -->',
     '  <meta property="og:type" content="' + ogType + '" />',
