@@ -32,6 +32,13 @@ const STATIC_SITEMAP_ENTRIES = [
   { path: '/blog', changefreq: 'weekly', priority: '0.9' },
   { path: '/contact', changefreq: 'monthly', priority: '0.7' },
   { path: '/services/locations/damansara-jaya', changefreq: 'weekly', priority: '0.9' },
+  // Malay and Chinese pages (19 Nov 2026); routes live in src/i18n/intlRoutes.jsx.
+  { path: '/ms/damansara-jaya', changefreq: 'monthly', priority: '0.7' },
+  { path: '/zh/damansara-jaya', changefreq: 'monthly', priority: '0.7' },
+  { path: '/ms/perkhidmatan', changefreq: 'monthly', priority: '0.7' },
+  { path: '/zh/services', changefreq: 'monthly', priority: '0.7' },
+  { path: '/ms/soalan-lazim', changefreq: 'monthly', priority: '0.7' },
+  { path: '/zh/faq', changefreq: 'monthly', priority: '0.7' },
   { path: '/faq', changefreq: 'monthly', priority: '0.6' },
   { path: '/careers/dentists', changefreq: 'monthly', priority: '0.5' },
   { path: '/careers/team', changefreq: 'weekly', priority: '0.5' },
