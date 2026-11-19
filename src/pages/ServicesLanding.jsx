@@ -9,7 +9,7 @@ import FaqAccordion from '../components/FaqAccordion';
 import { Helmet } from 'react-helmet-async';
 import { enrichEvent } from '../lib/attribution';
 import Style from '../components/Style';
-import { hreflangLinks } from '../i18n/intlRoutes.jsx';
+import { hreflangLinks, LangSwitch } from '../i18n/intlRoutes.jsx';
 
 const ServicesLanding = () => {
     const location = useLocation();
@@ -97,6 +97,7 @@ const ServicesLanding = () => {
             <section className="sl-hero">
                 <div className="container">
                     <div className="sl-hero-inner">
+                        <LangSwitch page="services" lang="en" />
                         <Reveal width="100%"><span className="eyebrow">Our Services</span></Reveal>
                         <Reveal width="100%">
                             <h1 className="sl-title">

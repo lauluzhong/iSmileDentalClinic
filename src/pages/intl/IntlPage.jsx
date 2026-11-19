@@ -9,7 +9,7 @@ import {
   CONTENT, CLINIC, PAGE_PATHS, HTML_LANG, LANG_LABEL, SITE,
   PHONE_TEXT, TEL, WA, MAPS_URL, WAZE_URL,
 } from '../../i18n/intlContent';
-import { hreflangLinks } from '../../i18n/intlRoutes.jsx';
+import { hreflangLinks, LangSwitch } from '../../i18n/intlRoutes.jsx';
 
 /**
  * Malay and Chinese versions of the location, services and FAQ pages.
@@ -30,19 +30,6 @@ const IntlText = ({ text }) => {
     <React.Fragment key={i}>{b}{i < bits.length - 1 && <a href={TEL} className="intl-phone">{PHONE_TEXT}</a>}</React.Fragment>
   ))}</>;
 };
-
-export const LangSwitch = ({ page, lang }) => (
-  <nav className="lang-switch" aria-label={lang === 'zh' ? '语言' : lang === 'ms' ? 'Bahasa' : 'Language'}>
-    {['en', 'ms', 'zh'].map((l, i) => (
-      <React.Fragment key={l}>
-        {i > 0 && <span aria-hidden="true" className="lang-dot">·</span>}
-        {l === lang
-          ? <span aria-current="page" lang={HTML_LANG[l]} className="lang-current">{LANG_LABEL[l]}</span>
-          : <Link to={PAGE_PATHS[page][l]} hrefLang={HTML_LANG[l]} lang={HTML_LANG[l]}>{LANG_LABEL[l]}</Link>}
-      </React.Fragment>
-    ))}
-  </nav>
-);
 
 const clinicSchema = {
   '@type': 'Dentist',
@@ -234,11 +221,6 @@ export default function IntlPage({ page, lang }) {
         .intl-page .system-title { margin-bottom: 16px; text-wrap: balance; }
         .intl-page .intl-lead { max-width: 760px; margin: 0; font-size: var(--fs-lead); line-height: 1.65; color: var(--color-text-slate); }
         .intl-page .intl-desc { max-width: 760px; margin: 0; line-height: 1.7; color: var(--color-text-slate); }
-        .intl-page .lang-switch { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin: 0 0 28px; font-size: .875rem; color: var(--color-text-grey); }
-        .intl-page .lang-switch a { color: var(--color-text-slate); text-decoration: none; padding: 12px 0; transition: color 180ms; }
-        .intl-page .lang-switch a:hover { color: var(--color-primary-teal); }
-        .intl-page .lang-current { color: var(--color-text-charcoal); font-weight: 600; padding: 12px 0; }
-        .intl-page .lang-dot { color: var(--hairline-strong); }
         .intl-page .intl-split { display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); gap: clamp(40px,7vw,96px); align-items: start; }
         .intl-page .intl-gap { margin-top: 32px; }
         .intl-page .intl-rows { border-top: 1px solid var(--hairline); }
