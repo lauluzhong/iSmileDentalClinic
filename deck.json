@@ -1,39 +1,39 @@
 {
- "generated_myt": "2026-11-22 15:02",
- "generated_at": "2026-11-22T15:02:40+08:00",
+ "generated_myt": "2026-11-22 15:30",
+ "generated_at": "2026-11-22T15:30:31+08:00",
  "vps": {
   "hostname": "vmi3374460",
   "uptime_days": 34.6,
   "nproc": 4,
   "load": [
-   54.4,
-   36.6,
-   21.94
+   5.15,
+   4.04,
+   7.04
   ],
   "cpu_pct": 100.0,
-  "cpu_pct_sample": 27.7,
+  "cpu_pct_sample": 49.5,
   "mem": {
    "total_mb": 7941,
-   "used_mb": 7293,
-   "avail_mb": 648,
-   "pct": 91.8,
+   "used_mb": 7296,
+   "avail_mb": 644,
+   "pct": 91.9,
    "swap_total_mb": 2047,
-   "swap_used_mb": 2043
+   "swap_used_mb": 2027
   },
   "disk": {
    "total_gb": 154.9,
-   "used_gb": 51.2,
+   "used_gb": 51.3,
    "pct": 33.1
   },
-  "gateway_ok": false,
+  "gateway_ok": true,
   "bridge_ok": true,
   "pollers": {
    "review_approvals": {
-    "age_s": 1429374,
+    "age_s": 1431043,
     "last_myt": "2026-11-06 02:00 MYT"
    },
    "hq_publish": {
-    "age_s": 1175402,
+    "age_s": 1177071,
     "last_myt": "2026-11-09 00:32 MYT",
     "detail": "asof=MON 09 NOV 2026 streams=46 sideboard=19 decisions=1 archive=13"
    }
@@ -50,7 +50,7 @@
     "geo_visibility",
     "social_post"
    ],
-   "status_updated": "2026-11-22 15:02 MYT"
+   "status_updated": "2026-11-22 15:30 MYT"
   },
   "last_clinic_push": "2026-11-22"
  },
@@ -708,17 +708,17 @@
   "note": "Instagram @ismiledentalclinicmy is connected through Zernio. Posts published outside Zernio are not counted in posts_published_via_zernio."
  },
  "geo": {
-  "generated_myt": "2026-11-19 19:05",
-  "generated_at": "2026-11-19T19:05:36+08:00",
+  "generated_myt": "2026-11-22 13:30",
+  "generated_at": "2026-11-22T13:30:23+08:00",
   "ai_referrals": {
    "available": true,
    "window": [
-    "2026-10-22",
-    "2026-11-18"
+    "2026-10-25",
+    "2026-11-21"
    ],
    "sessions": 2,
    "sessions_prev": 2,
-   "all_sessions": 724,
+   "all_sessions": 722,
    "by_source": [
     {
      "source": "chatgpt.com",
@@ -780,38 +780,38 @@
   "panel": {
    "available": true,
    "engine": "ChatGPT subscription (gpt-5.6-luna, blank agent) + web search",
-   "asked": 14,
-   "failed": 6,
-   "mentioned": 4,
-   "cited_own_site": 4,
-   "mention_rate_pct": 28.6,
+   "asked": 13,
+   "failed": 7,
+   "mentioned": 3,
+   "cited_own_site": 3,
+   "mention_rate_pct": 23.1,
    "by_theme": {
     "family": {
      "asked": 3,
-     "mentioned": 2
+     "mentioned": 1
     },
     "children": {
      "asked": 2,
-     "mentioned": 1
+     "mentioned": 2
     },
     "braces": {
      "asked": 3,
      "mentioned": 0
     },
     "implants": {
-     "asked": 1,
-     "mentioned": 1
-    },
-    "cosmetic": {
      "asked": 2,
      "mentioned": 0
     },
-    "urgent": {
+    "cosmetic": {
+     "asked": 1,
+     "mentioned": 0
+    },
+    "airway": {
      "asked": 1,
      "mentioned": 0
     },
     "priority": {
-     "asked": 2,
+     "asked": 1,
      "mentioned": 0
     }
    },
@@ -822,38 +822,38 @@
     },
     {
      "domain": "ismile.com.my",
-     "questions": 4
+     "questions": 3
     },
     {
-     "domain": "tiewdental.com",
-     "questions": 4
+     "domain": "dentistinpj.com",
+     "questions": 3
     },
     {
-     "domain": "qandm.com.my",
-     "questions": 4
+     "domain": "vdental.com.my",
+     "questions": 2
+    },
+    {
+     "domain": "mdentalclinic.my",
+     "questions": 2
+    },
+    {
+     "domain": "damansaradentalstudio.com.my",
+     "questions": 1
     },
     {
      "domain": "luxedental.my",
      "questions": 1
     },
     {
-     "domain": "tooth-family.com",
+     "domain": "relator.asia",
+     "questions": 1
+    },
+    {
+     "domain": "dentistsmalaysia.com",
      "questions": 1
     },
     {
      "domain": "dingdental.com.my",
-     "questions": 1
-    },
-    {
-     "domain": "mypj.com.my",
-     "questions": 1
-    },
-    {
-     "domain": "vdental.com.my",
-     "questions": 1
-    },
-    {
-     "domain": "dentalpro.com.my",
      "questions": 1
     }
    ],
@@ -872,10 +872,11 @@
      "theme": "family",
      "q": "Which dental clinics near Damansara Utama or SS22 in PJ are good for a routine check-up and cleaning?",
      "ok": true,
-     "mentioned": true,
-     "cited_own_site": true,
+     "mentioned": false,
+     "cited_own_site": false,
      "competitors_named": [
-      "Ivory Dental (Atria, Damansara Jaya)",
+      "Parkhill Dental (Damansara)",
+      "Primecare Dental (Uptown)",
       "Luxe Dental (Damansara Uptown)"
      ]
     },
@@ -904,11 +905,9 @@
      "theme": "children",
      "q": "Which dentists in Damansara, PJ are good with nervous kids?",
      "ok": true,
-     "mentioned": false,
-     "cited_own_site": false,
-     "competitors_named": [
-      "Tiew Dental (SS2)"
-     ]
+     "mentioned": true,
+     "cited_own_site": true,
+     "competitors_named": []
     },
     {
      "id": "braces-1",
@@ -918,7 +917,7 @@
      "mentioned": false,
      "cited_own_site": false,
      "competitors_named": [
-      "Tiew Dental (SS2)"
+      "Lai Dental (Damansara Jaya)"
      ]
     },
     {
@@ -928,9 +927,7 @@
      "ok": true,
      "mentioned": false,
      "cited_own_site": false,
-     "competitors_named": [
-      "Tiew Dental (SS2)"
-     ]
+     "competitors_named": []
     },
     {
      "id": "braces-3",
@@ -939,26 +936,26 @@
      "ok": true,
      "mentioned": false,
      "cited_own_site": false,
-     "competitors_named": [
-      "Tiew Dental (SS2)"
-     ]
+     "competitors_named": []
     },
     {
      "id": "implants-1",
      "theme": "implants",
      "q": "Where can I get dental implants in Petaling Jaya?",
-     "ok": false,
-     "mentioned": null,
-     "cited_own_site": null,
-     "competitors_named": null
+     "ok": true,
+     "mentioned": false,
+     "cited_own_site": false,
+     "competitors_named": [
+      "V Dental (SS2)"
+     ]
     },
     {
      "id": "implants-2",
      "theme": "implants",
      "q": "I need to replace a missing tooth. Which dental clinics in Damansara, PJ should I look at?",
      "ok": true,
-     "mentioned": true,
-     "cited_own_site": true,
+     "mentioned": false,
+     "cited_own_site": false,
      "competitors_named": [
       "Tiew Dental (SS2)"
      ]
@@ -976,19 +973,19 @@
      "id": "cosmetic-2",
      "theme": "cosmetic",
      "q": "Where can I get professional teeth whitening in Damansara, Petaling Jaya?",
-     "ok": true,
-     "mentioned": false,
-     "cited_own_site": false,
-     "competitors_named": []
+     "ok": false,
+     "mentioned": null,
+     "cited_own_site": null,
+     "competitors_named": null
     },
     {
      "id": "airway-1",
      "theme": "airway",
      "q": "Which dentists in Petaling Jaya offer myofunctional therapy or help for children who mouth breathe?",
-     "ok": false,
-     "mentioned": null,
-     "cited_own_site": null,
-     "competitors_named": null
+     "ok": true,
+     "mentioned": false,
+     "cited_own_site": false,
+     "competitors_named": []
     },
     {
      "id": "airway-2",
@@ -1003,21 +1000,19 @@
      "id": "urgent-1",
      "theme": "urgent",
      "q": "I have a bad toothache. Which dental clinic in Damansara Jaya or nearby in PJ can see me quickly?",
-     "ok": true,
-     "mentioned": false,
-     "cited_own_site": false,
-     "competitors_named": [
-      "Primecare Dental (Uptown)"
-     ]
+     "ok": false,
+     "mentioned": null,
+     "cited_own_site": null,
+     "competitors_named": null
     },
     {
      "id": "priority-1",
      "theme": "priority",
      "q": "Who is a good family dentist in Petaling Jaya?",
-     "ok": true,
-     "mentioned": false,
-     "cited_own_site": false,
-     "competitors_named": []
+     "ok": false,
+     "mentioned": null,
+     "cited_own_site": null,
+     "competitors_named": null
     },
     {
      "id": "priority-2",
@@ -1032,19 +1027,19 @@
      "id": "priority-3",
      "theme": "priority",
      "q": "Where can I take my elderly parents to a dentist in PJ?",
-     "ok": true,
-     "mentioned": false,
-     "cited_own_site": false,
-     "competitors_named": []
+     "ok": false,
+     "mentioned": null,
+     "cited_own_site": null,
+     "competitors_named": null
     },
     {
      "id": "priority-4",
      "theme": "priority",
      "q": "Where can I get dentures in Petaling Jaya?",
-     "ok": false,
-     "mentioned": null,
-     "cited_own_site": null,
-     "competitors_named": null
+     "ok": true,
+     "mentioned": false,
+     "cited_own_site": false,
+     "competitors_named": []
     },
     {
      "id": "priority-5",
@@ -1121,6 +1116,12 @@
     "mention_rate_pct": 28.6,
     "mentioned": 4,
     "asked": 14
+   },
+   {
+    "date": "2026-11-22",
+    "mention_rate_pct": 23.1,
+    "mentioned": 3,
+    "asked": 13
    }
   ]
  }
