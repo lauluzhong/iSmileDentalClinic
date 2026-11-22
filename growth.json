@@ -1,5 +1,5 @@
 {
- "generated_myt": "2026-11-22T18:37:12+08:00",
+ "generated_myt": "2026-11-22T19:37:12+08:00",
  "as_of": "2026-11-22",
  "dedupe": "one person counts once per month per stage. Lead = social/web lead, or a recall/blast recipient who CLICKED (replies not tracked yet). Front desk = carded social/web leads + BTL clickers (on the follow-up list). Booked = a lead who booked within 90 days, credited to that lead's source AND to the month of the lead (cohort), one patient once; btl sent = messages, clicked = unique people who clicked = BTL leads; booked after, not because of. btl.*.booked_after_send = booked after a send with no click (outside the funnel). btl sent/clicked = e10 messages (same source as recall.json). recall.json value.mtd differs on purpose: it counts only matured cohorts (90 days) with production, so a fresh booking shows here first and there later",
  "months": {
@@ -16,9 +16,9 @@
      "replied": null,
      "leads": 12,
      "booked_after_send": 7,
-     "booked_household": 87,
+     "booked_household": 86,
      "booked_household_30d": 7,
-     "came_in": 46
+     "came_in": 45
     },
     "blast": {
      "sent": 0,
@@ -172,9 +172,9 @@
      "replied": null,
      "leads": 40,
      "booked_after_send": 67,
-     "booked_household": 296,
+     "booked_household": 291,
      "booked_household_30d": 28,
-     "came_in": 151
+     "came_in": 146
     },
     "blast": {
      "sent": 0,
@@ -250,9 +250,9 @@
      "replied": null,
      "leads": 19,
      "booked_after_send": 78,
-     "booked_household": 178,
+     "booked_household": 177,
      "booked_household_30d": 28,
-     "came_in": 111
+     "came_in": 110
     },
     "blast": {
      "sent": 0,
@@ -328,9 +328,9 @@
      "replied": null,
      "leads": 32,
      "booked_after_send": 75,
-     "booked_household": 123,
+     "booked_household": 125,
      "booked_household_30d": 24,
-     "came_in": 76
+     "came_in": 77
     },
     "blast": {
      "sent": 0,
@@ -406,9 +406,9 @@
      "replied": null,
      "leads": 22,
      "booked_after_send": 59,
-     "booked_household": 132,
-     "booked_household_30d": 61,
-     "came_in": 92
+     "booked_household": 126,
+     "booked_household_30d": 54,
+     "came_in": 86
     },
     "blast": {
      "sent": 1,
