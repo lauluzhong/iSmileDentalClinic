@@ -2,7 +2,6 @@
   "updated": "2026-11-22 15:30 MYT",
   "running": [
     "deck_stats",
-    "geo_visibility",
     "social_post"
   ],
   "jobs": {
@@ -63,8 +62,8 @@
       "last": "2026-11-15 17:19 MYT"
     },
     "geo_visibility": {
-      "state": "running",
-      "last": "2026-11-15 15:34 MYT"
+      "state": "idle",
+      "last": "2026-11-22 15:30 MYT"
     },
     "locum_sheet": {
       "state": "idle",
