@@ -211,6 +211,40 @@
    "note": "Approved by Lau 12 Nov. Six slides."
   },
   {
+   "id": "search-gpost-2026-11-30",
+   "date": "2026-11-30",
+   "time": "09:00",
+   "title": "Weekly Google post",
+   "status": "planned",
+   "channels": [
+    "google-post"
+   ],
+   "copy": {},
+   "image": "",
+   "n": null,
+   "live": {},
+   "verified": false,
+   "executor": "display",
+   "note": ""
+  },
+  {
+   "id": "search-sprint-2026-11-30",
+   "date": "2026-11-30",
+   "time": "10:00",
+   "title": "Weekly search changes to the website (titles, links, refreshes)",
+   "status": "planned",
+   "channels": [
+    "blog"
+   ],
+   "copy": {},
+   "image": "",
+   "n": null,
+   "live": {},
+   "verified": false,
+   "executor": "display",
+   "note": ""
+  },
+  {
    "id": "linkedin-job-explainer-2026-12-01",
    "date": "2026-12-01",
    "time": "09:00",
@@ -247,7 +281,7 @@
    "note": ""
   }
  ],
- "generated_myt": "2026-11-23T12:42:03+08:00",
+ "generated_myt": "2026-11-23T13:05:09+08:00",
  "funnel": {
   "as_of": "2026-11-23T12:42:03+08:00",
   "first_reply_median_min": null,
