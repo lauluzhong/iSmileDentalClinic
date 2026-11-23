@@ -3,6 +3,13 @@
   "entries": [
     {
       "ts": "2026-11-23 09:15 MYT",
+      "agent": "seo",
+      "job": "maps_care",
+      "event": "started",
+      "result": ""
+    },
+    {
+      "ts": "2026-11-23 09:15 MYT",
       "agent": "analytics",
       "job": "social_post",
       "event": "started",
@@ -1393,13 +1400,6 @@
       "job": "deck_stats",
       "event": "started",
       "result": ""
-    },
-    {
-      "ts": "2026-11-22 18:45 MYT",
-      "agent": "analytics",
-      "job": "social_post",
-      "event": "finished",
-      "result": "ok"
     }
   ]
 }
