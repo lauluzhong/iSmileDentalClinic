@@ -1,76 +1,76 @@
 {
-  "as_of": "2026-11-23",
+  "as_of": "2026-11-24",
   "source": "e10 recall messages only (blast excluded)",
   "note": "Funnel = event counts (per-message callbacks), not distinct patients. Conversion = matured-cohort recall->appointment rate (correlation, not proven causal lift); as-of the latest OpenDent export only.",
   "funnel_live": true,
-  "funnel_as_of": "2026-11-23",
+  "funnel_as_of": "2026-11-24",
   "cumulative": {
-    "sent": 2740,
-    "delivered": 2740,
-    "read": 2680,
-    "clicks": 170,
-    "failed": 21,
+    "sent": 2778,
+    "delivered": 2778,
+    "read": 2718,
+    "clicks": 172,
+    "failed": 2,
     "replies": null
   },
   "this_month": {
-    "sent": 236,
-    "delivered": 236,
-    "read": 236,
-    "clicks": 9,
-    "failed": 19,
+    "sent": 274,
+    "delivered": 274,
+    "read": 274,
+    "clicks": 11,
+    "failed": 0,
     "replies": null
   },
   "all_messages": {
     "cumulative": {
-      "total": 47942,
-      "sent": 16812,
-      "delivered": 20811,
-      "read": 5475,
-      "failed": 2316,
-      "clicks": 350,
-      "replies": 2178
+      "total": 48262,
+      "sent": 16917,
+      "delivered": 20934,
+      "read": 5535,
+      "failed": 2325,
+      "clicks": 355,
+      "replies": 2196
     },
     "this_month": {
-      "sent": 8079,
-      "clicks": 88,
-      "replies": 708
+      "sent": 8184,
+      "clicks": 93,
+      "replies": 726
     }
   },
   "conversion": {
     "mature_days": 21,
     "attrib_window_days": 90,
-    "data_as_of": "2026-11-22",
-    "appt_export": "inbox/2026-11-22 e5+e6+backfill",
+    "data_as_of": "2026-11-23",
+    "appt_export": "inbox/2026-11-23 e5+e6+backfill",
     "appt_range": [
       "2024-11-16",
-      "2027-03-20"
+      "2027-03-22"
     ],
     "stale": false,
     "cohort_source": "blastlog (e10_blastlog.tsv)",
     "cohort_from": "2026-04-16",
-    "cohort_to": "2026-11-22",
+    "cohort_to": "2026-11-23",
     "cohort_age_days": 1,
     "cohort_static": false,
     "join": "external_patient_id -> PatNum (direct)",
     "available": true,
     "bridge": "external_patient_id (direct PatNum)",
-    "sent_total": 1852,
+    "sent_total": 1865,
     "matured_cohort": 1743,
     "resolved_to_patient": 1742,
     "resolved_via_patnum": 1742,
-    "booked_within_window": 343,
-    "booked_anytime": 563,
-    "conversion_pct": 19.7
+    "booked_within_window": 346,
+    "booked_anytime": 569,
+    "conversion_pct": 19.9
   },
   "value": {
     "available": true,
-    "as_of": "2026-11-23",
+    "as_of": "2026-11-24",
     "bridge": "e8_patient_master.tsv (2026-11-22)",
     "sends": 767,
     "patients_in_cohort": 1141,
     "attrib_window_days": 90,
     "mature_days": 21,
-    "production_lines": 21468,
+    "production_lines": 21515,
     "month": "2026-11",
     "rule": "production by a recalled patient within 90 days after their first recall send, credited to the line's doctor; correlation, not proven lift",
     "all_time": {
