@@ -190,7 +190,7 @@
    "date": "2026-11-24",
    "time": "09:00",
    "title": "Carousel: Ageing parents",
-   "status": "scheduled",
+   "status": "posted",
    "channels": [
     "facebook",
     "instagram"
@@ -205,7 +205,9 @@
    },
    "image": "",
    "n": null,
-   "live": {},
+   "live": {
+    "instagram": "https://www.instagram.com/p/DgGuh6HilvQ/"
+   },
    "verified": false,
    "executor": "display",
    "note": "Approved by Lau 12 Nov. Six slides."
@@ -281,7 +283,7 @@
    "note": ""
   }
  ],
- "generated_myt": "2026-11-24T08:42:03+08:00",
+ "generated_myt": "2026-11-24T09:05:13+08:00",
  "funnel": {
   "as_of": "2026-11-24T08:42:03+08:00",
   "first_reply_median_min": null,
