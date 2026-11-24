@@ -1,5 +1,5 @@
 {
- "generated_myt": "2026-11-24T18:37:12+08:00",
+ "generated_myt": "2026-11-24T19:37:11+08:00",
  "as_of": "2026-11-24",
  "dedupe": "one person counts once per month per stage. Lead = social/web lead, or a recall/blast recipient who CLICKED (replies not tracked yet). Front desk = carded social/web leads + BTL clickers (on the follow-up list). Booked = a lead who booked within 90 days, credited to that lead's source AND to the month of the lead (cohort), one patient once; btl sent = messages, clicked = unique people who clicked = BTL leads; booked after, not because of. btl.*.booked_after_send = booked after a send with no click (outside the funnel). btl sent/clicked = e10 messages (same source as recall.json). recall.json value.mtd differs on purpose: it counts only matured cohorts (90 days) with production, so a fresh booking shows here first and there later",
  "months": {
@@ -16,7 +16,7 @@
      "replied": null,
      "leads": 12,
      "booked_after_send": 7,
-     "booked_household": 86,
+     "booked_household": 88,
      "booked_household_30d": 7,
      "came_in": 47
     },
@@ -94,7 +94,7 @@
      "replied": null,
      "leads": 3,
      "booked_after_send": 17,
-     "booked_household": 44,
+     "booked_household": 46,
      "booked_household_30d": 3,
      "came_in": 28
     },
@@ -172,9 +172,9 @@
      "replied": null,
      "leads": 40,
      "booked_after_send": 67,
-     "booked_household": 299,
-     "booked_household_30d": 28,
-     "came_in": 153
+     "booked_household": 300,
+     "booked_household_30d": 29,
+     "came_in": 155
     },
     "blast": {
      "sent": 0,
@@ -252,7 +252,7 @@
      "booked_after_send": 78,
      "booked_household": 175,
      "booked_household_30d": 29,
-     "came_in": 108
+     "came_in": 107
     },
     "blast": {
      "sent": 0,
@@ -328,9 +328,9 @@
      "replied": null,
      "leads": 32,
      "booked_after_send": 75,
-     "booked_household": 127,
-     "booked_household_30d": 24,
-     "came_in": 77
+     "booked_household": 129,
+     "booked_household_30d": 26,
+     "came_in": 78
     },
     "blast": {
      "sent": 0,
@@ -406,9 +406,9 @@
      "replied": null,
      "leads": 22,
      "booked_after_send": 59,
-     "booked_household": 130,
-     "booked_household_30d": 55,
-     "came_in": 90
+     "booked_household": 134,
+     "booked_household_30d": 57,
+     "came_in": 95
     },
     "blast": {
      "sent": 1,
@@ -484,8 +484,8 @@
      "replied": null,
      "leads": 24,
      "booked_after_send": 68,
-     "booked_household": 91,
-     "booked_household_30d": 77,
+     "booked_household": 92,
+     "booked_household_30d": 78,
      "came_in": 61
     },
     "blast": {
@@ -494,9 +494,9 @@
      "replied": null,
      "leads": 21,
      "booked_after_send": 0,
-     "booked_household": 76,
-     "booked_household_30d": 76,
-     "came_in": 41
+     "booked_household": 79,
+     "booked_household_30d": 79,
+     "came_in": 44
     },
     "calls": null
    },
@@ -574,9 +574,9 @@
      "replied": null,
      "leads": 15,
      "booked_after_send": 55,
-     "booked_household": 31,
-     "booked_household_30d": 31,
-     "came_in": 12
+     "booked_household": 34,
+     "booked_household_30d": 34,
+     "came_in": 13
     },
     "blast": {
      "sent": 2940,
@@ -584,9 +584,9 @@
      "replied": null,
      "leads": 62,
      "booked_after_send": 0,
-     "booked_household": 90,
-     "booked_household_30d": 90,
-     "came_in": 24
+     "booked_household": 92,
+     "booked_household_30d": 92,
+     "came_in": 25
     },
     "calls": null
    },
@@ -650,9 +650,9 @@
     "2026-10-29"
    ],
    "sent": 676,
-   "booked": 76,
-   "booked_30d": 76,
-   "came_in": 41
+   "booked": 79,
+   "booked_30d": 79,
+   "came_in": 44
   },
   {
    "wave": 2,
@@ -660,9 +660,9 @@
     "2026-11-02"
    ],
    "sent": 951,
-   "booked": 49,
-   "booked_30d": 49,
-   "came_in": 16
+   "booked": 51,
+   "booked_30d": 51,
+   "came_in": 17
   },
   {
    "wave": 3,
