@@ -63,6 +63,15 @@ const InitialsAvatar = ({ name, size = 50 }) => {
 
 const reviewsList = [
     {
+        text: "Run by pros and Dr Mah is so experienced and detailed, explaining each step of the treatment as my daughter embarks on a 3-yr journey of orthodontics. My teenage daughter felt safe and comfortable throughout the treatment, the doctor and nurses answers all our questions kindly. Environment is cosy & welcoming, parked at Atria and did my groceries there after!",
+        author: "Sian Huey Quah",
+        rank: {"all": 1, "family": 1},
+        highlights: {"family": ["my daughter", "My teenage daughter"]},
+        tags: ["family"],
+        rating: 5,
+        type: "Verified Google Review"
+    },
+    {
         text: (
             <>
                 <p>
