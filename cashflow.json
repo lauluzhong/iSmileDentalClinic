@@ -1,57 +1,56 @@
 {
-  "as_of": "2026-11-25",
+  "as_of": "2026-11-26",
   "mode": "midday",
   "fresh": true,
-  "generated_myt": "2026-11-25 12:05",
-  "source_max_paydate": "2026-11-25",
-  "source_max_procdate": "2026-11-25",
+  "generated_myt": "2026-11-26 12:05",
+  "source_max_paydate": "2026-11-26",
+  "source_max_procdate": "2026-11-26",
   "today": {
-    "collected": 850.0,
-    "produced": 13880.0,
-    "patients_seen": 4,
+    "collected": 1880.0,
+    "produced": 2280.0,
+    "patients_seen": 9,
     "new_patients": 0,
     "by_paytype": {
-      "Cash": 650.0,
-      "Credit Card": 200.0
+      "Credit Card": 1880.0
     }
   },
   "mtd": {
-    "collected": 148953.0,
-    "produced": 168700.0,
+    "collected": 149983.0,
+    "produced": 157100.0,
     "trading_days": 20,
-    "avg_per_trading_day": 7447.65,
-    "run_rate_26d": 193638.9,
+    "avg_per_trading_day": 7499.15,
+    "run_rate_26d": 194977.9,
     "by_paytype": {
-      "Credit Card": 126873.0,
+      "Credit Card": 128553.0,
       "Internet Banking": 9850.0,
       "PBB QR": 6300.0,
-      "Cash": 5530.0,
+      "Cash": 4880.0,
       "Check": 400.0
     }
   },
-  "booked_next_14d": 345,
+  "booked_next_14d": 354,
   "forward_book": {
     "next_7d": {
       "days": 7,
-      "appts": 179,
-      "booked_min": 9410,
+      "appts": 177,
+      "booked_min": 9380,
       "capacity_min": 11120,
-      "pct": 84.62230215827337
+      "pct": 84.35251798561151
     },
     "next_14d": {
       "days": 14,
-      "appts": 316,
-      "booked_min": 16290,
+      "appts": 296,
+      "booked_min": 15730,
       "capacity_min": 22240,
-      "pct": 73.24640287769785
+      "pct": 70.72841726618705
     }
   },
   "doctors_worked": {
     "count": 3,
     "abbrs": [
-      "Amy",
-      "Jean",
-      "Ling"
+      "Azeli",
+      "Ling",
+      "Mah"
     ]
   },
   "utilization": null,
